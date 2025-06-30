@@ -73,7 +73,7 @@ private fun Header() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ic_pbm_firefox_logo),
+            painter = painterResource(id = R.drawable.ic_logo_wordmark_private),
             contentDescription = null, // decorative only.
             modifier = Modifier.padding(32.dp),
         )

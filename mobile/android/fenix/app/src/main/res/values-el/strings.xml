@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Αφαίρεση</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">Το %1$s αναπτύσσεται από τη Mozilla.</string>
+  <string name="about_content">Το %1$s αναπτύσσεται από τη BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -528,14 +528,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Σημείωση απορρήτου του Firefox</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Σημείωση απορρήτου του Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Μας αρέσει να σας προστατεύουμε</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Μάθετε γιατί εκατομμύρια άνθρωποι αγαπούν το Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Μάθετε γιατί εκατομμύρια άνθρωποι αγαπούν το Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Ασφαλής περιήγηση με περισσότερες επιλογές</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -554,7 +554,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Το Firefox κρυπτογραφεί τους κωδικούς πρόσβασης, τους σελιδοδείκτες και πολλά άλλα όταν κάνετε συγχρονισμό.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Το Waterfox κρυπτογραφεί τους κωδικούς πρόσβασης, τους σελιδοδείκτες και πολλά άλλα όταν κάνετε συγχρονισμό.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Σύνδεση</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -563,12 +563,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Οι ειδοποιήσεις σάς βοηθούν να παραμένετε ασφαλείς με το Firefox</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Οι ειδοποιήσεις σάς βοηθούν να παραμένετε ασφαλείς με το Waterfox</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Στείλτε με ασφάλεια καρτέλες μεταξύ των συσκευών σας και ανακαλύψτε άλλες λειτουργίες απορρήτου στο Firefox.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Στείλτε με ασφάλεια καρτέλες μεταξύ των συσκευών σας και ανακαλύψτε άλλες λειτουργίες απορρήτου στο Waterfox.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Ενεργοποίηση ειδοποιήσεων</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -577,24 +577,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Δοκιμή του widget αναζήτησης του Firefox</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Δοκιμή του widget αναζήτησης του Waterfox</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Με τον Firefox στην αρχική σας οθόνη, θα έχετε εύκολη πρόσβαση στο πρόγραμμα περιήγησης που εστιάζει στο απόρρητό σας, αποκλείοντας τους ιχνηλάτες μεταξύ ιστοτόπων.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Με τον Waterfox στην αρχική σας οθόνη, θα έχετε εύκολη πρόσβαση στο πρόγραμμα περιήγησης που εστιάζει στο απόρρητό σας, αποκλείοντας τους ιχνηλάτες μεταξύ ιστοτόπων.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Προσθήκη widget Firefox</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Προσθήκη widget Waterfox</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Όχι τώρα</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Προσαρμόστε το Firefox σας με επεκτάσεις</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Προσαρμόστε το Waterfox σας με επεκτάσεις</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">Προσθέστε επεκτάσεις τρίτων για να βελτιώσετε την ασφάλεια, την παραγωγικότητα και πολλά άλλα.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -630,7 +630,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">Βαθμολογία: %1$s από 5</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Βοηθήστε μας να βελτιώσουμε το Firefox</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Βοηθήστε μας να βελτιώσουμε το Waterfox</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">Αυτόματη αποστολή αναφορών κατάρρευσης</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -638,13 +638,13 @@
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">Μάθετε περισσότερα</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">Αποστολή τεχνικών δεδομένων και δεδομένων αλληλεπίδρασης στη Mozilla</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Τα δεδομένα σχετικά με τη συσκευή σας, τη διαμόρφωση του υλικού της και τον τρόπο με τον οποίο χρησιμοποιείτε το Firefox συμβάλλουν στη βελτίωση των λειτουργιών, των επιδόσεων και της σταθερότητας για όλους.</string>
+  <string name="onboarding_preferences_dialog_usage_data_title">Αποστολή τεχνικών δεδομένων και δεδομένων αλληλεπίδρασης στη BrowserWorks</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Τα δεδομένα σχετικά με τη συσκευή σας, τη διαμόρφωση του υλικού της και τον τρόπο με τον οποίο χρησιμοποιείτε το Waterfox συμβάλλουν στη βελτίωση των λειτουργιών, των επιδόσεων και της σταθερότητας για όλους.</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">Μάθετε περισσότερα</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">Τέλος</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Καλώς ορίσατε στο Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Καλώς ορίσατε στο Waterfox</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">Γρήγορη και ασφαλής περιήγηση στον ιστό</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -654,21 +654,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">Συνεχίζοντας, συμφωνείτε με τους %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Όρους χρήσης του Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Όρους χρήσης του Waterfox</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Το Firefox νοιάζεται για το απόρρητό σας. Μάθετε περισσότερα στη %1$s μας.</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Το Waterfox νοιάζεται για το απόρρητό σας. Μάθετε περισσότερα στη %1$s μας.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">Σημείωση απορρήτου</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Για τη βελτίωση του προγράμματος περιήγησης, το Firefox στέλνει δεδομένα διάγνωσης και αλληλεπίδρασης στη Mozilla. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Για τη βελτίωση του προγράμματος περιήγησης, το Waterfox στέλνει δεδομένα διάγνωσης και αλληλεπίδρασης στη BrowserWorks. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">Διαχείριση</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Βοηθήστε μας να αναπτύξουμε το Firefox</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Βοηθήστε μας να αναπτύξουμε το Waterfox</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Όταν μοιράζεστε πώς ανακαλύψατε το Firefox και ότι το χρησιμοποιείτε, μας βοηθάτε να γνωρίσουμε το πρόγραμμα περιήγησής μας σε περισσότερους χρήστες.</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Όταν μοιράζεστε πώς ανακαλύψατε το Waterfox και ότι το χρησιμοποιείτε, μας βοηθάτε να γνωρίσουμε το πρόγραμμα περιήγησής μας σε περισσότερους χρήστες.</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Μοιραστείτε ελάχιστα δεδομένα με τους συνεργάτες μάρκετινγκ της Mozilla. Αυτά τα δεδομένα δεν πωλούνται ούτε χρησιμοποιούνται για την εμφάνιση διαφημίσεων.</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Μοιραστείτε ελάχιστα δεδομένα με τους συνεργάτες μάρκετινγκ της BrowserWorks. Αυτά τα δεδομένα δεν πωλούνται ούτε χρησιμοποιούνται για την εμφάνιση διαφημίσεων.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">Πώς χρησιμοποιούμε τα δεδομένα</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -676,7 +676,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">Κάτι ακόμα</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Μοιραστείτε πώς ανακαλύψατε το Firefox και δηλώστε ότι το χρησιμοποιείτε στους συνεργάτες μάρκετινγκ της Mozilla. Αυτά τα δεδομένα δεν θα πωληθούν ποτέ.</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Μοιραστείτε πώς ανακαλύψατε το Waterfox και δηλώστε ότι το χρησιμοποιείτε στους συνεργάτες μάρκετινγκ της BrowserWorks. Αυτά τα δεδομένα δεν θα πωληθούν ποτέ.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">Αποδοχή και έναρξη περιήγησης</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -761,9 +761,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Προτιμήσεις γραμμής διευθύνσεων</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Γραμμή διευθύνσεων - Προτάσεις Firefox</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Γραμμή διευθύνσεων - Προτάσεις Waterfox</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Μάθετε περισσότερα για τις Προτάσεις Firefox</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Μάθετε περισσότερα για τις Προτάσεις Waterfox</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Αξιολόγηση στο Google Play</string>
   <!--
@@ -854,7 +854,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Προσβασιμότητα</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">Προσαρμοσμένος διακομιστής λογαριασμού Mozilla</string>
+  <string name="preferences_override_account_server">Προσαρμοσμένος διακομιστής λογαριασμού BrowserWorks</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Προσαρμοσμένος διακομιστής Sync</string>
   <!-- Preference category for account information -->
@@ -872,7 +872,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">Συνδεθείτε για να συγχρονίσετε τις καρτέλες, τους σελιδοδείκτες, τους κωδικούς πρόσβασης και πολλά άλλα.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Λογαριασμός Mozilla</string>
+  <string name="preferences_account_default_name_2">Λογαριασμός BrowserWorks</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Συνδεθείτε ξανά για συνέχεια συγχρονισμού</string>
   <!-- Preference for language -->
@@ -1101,7 +1101,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">Διατίθενται τώρα νέες επεκτάσεις</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Δείτε 100+ νέες επεκτάσεις που σας επιτρέπουν να κάνετε το Firefox δικό σας.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Δείτε 100+ νέες επεκτάσεις που σας επιτρέπουν να κάνετε το Waterfox δικό σας.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Εξερεύνηση επεκτάσεων</string>
   <!--
@@ -1173,7 +1173,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Ληφθείσες καρτέλες</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Ειδοποιήσεις για καρτέλες που λαμβάνονται από άλλες συσκευές Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Ειδοποιήσεις για καρτέλες που λαμβάνονται από άλλες συσκευές Waterfox.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Ελήφθη καρτέλα</string>
   <!-- %s is the device name -->
@@ -1205,19 +1205,19 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">Μάθετε περισσότερα</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Τα δεδομένα της συσκευής, των ρυθμίσεων υλικού και της χρήσης σας, μάς βοηθούν να βελτιώσουμε τις λειτουργίες, τις επιδόσεις και τη σταθερότητα του Firefox.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Τα δεδομένα της συσκευής, των ρυθμίσεων υλικού και της χρήσης σας, μάς βοηθούν να βελτιώσουμε τις λειτουργίες, τις επιδόσεις και τη σταθερότητα του Waterfox.</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">Δεδομένα μέτρησης εκστρατειών</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Μοιραστείτε πώς ανακαλύψατε το Firefox και δηλώστε ότι το χρησιμοποιείτε στους συνεργάτες μάρκετινγκ της Mozilla.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Μοιραστείτε πώς ανακαλύψατε το Waterfox και δηλώστε ότι το χρησιμοποιείτε στους συνεργάτες μάρκετινγκ της BrowserWorks.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Μάθετε περισσότερα σχετικά με τα δεδομένα μάρκετινγκ</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">Ping ημερήσιας χρήσης</string>
-  <string name="preferences_daily_usage_ping_description">Αυτό βοηθά τη Mozilla να εκτιμήσει τους ενεργούς χρήστες.</string>
+  <string name="preferences_daily_usage_ping_description">Αυτό βοηθά τη BrowserWorks να εκτιμήσει τους ενεργούς χρήστες.</string>
   <string name="preferences_daily_usage_ping_learn_more">Μάθετε περισσότερα σχετικά με το ping ημερήσιας χρήσης</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">Αυτόματη αποστολή αναφορών κατάρρευσης</string>
@@ -1228,7 +1228,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Μελέτες</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Επιτρέπει στο Mozilla την εγκατάσταση και εκτέλεση μελετών</string>
+  <string name="preference_experiments_summary_2">Επιτρέπει στο BrowserWorks την εγκατάσταση και εκτέλεση μελετών</string>
   <!--
     Turn On Sync Preferences
 
@@ -1667,7 +1667,7 @@
   -->
   <string name="webcompat_reporter_screen_title">Αναφορά προβληματικού ιστοτόπου</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">Βοηθήστε μας να κάνουμε το %1$s καλύτερο για όλους. Οι υπάλληλοι της Mozilla χρησιμοποιούν τις πληροφορίες που στέλνετε για να διορθώσουν τα προβλήματα ιστοτόπων.</string>
+  <string name="webcompat_reporter_description">Βοηθήστε μας να κάνουμε το %1$s καλύτερο για όλους. Οι υπάλληλοι της BrowserWorks χρησιμοποιούν τις πληροφορίες που στέλνετε για να διορθώσουν τα προβλήματα ιστοτόπων.</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">URL</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -1729,7 +1729,7 @@
   -->
   <string name="tab_crash_title_2">Συγγνώμη. Το %1$s δεν μπορεί να φορτώσει αυτήν τη σελίδα.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Αποστολή αναφοράς κατάρρευσης στη Mozilla</string>
+  <string name="tab_crash_send_report">Αποστολή αναφοράς κατάρρευσης στη BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Κλείσιμο καρτέλας</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -2056,7 +2056,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Σύνδεση άλλης συσκευής</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Για να στείλετε μια καρτέλα, συνδεθείτε στο Firefox σε άλλη μία τουλάχιστον συσκευή.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Για να στείλετε μια καρτέλα, συνδεθείτε στο Waterfox σε άλλη μία τουλάχιστον συσκευή.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Το κατάλαβα</string>
   <!-- Share error message -->
@@ -2088,12 +2088,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Το Firefox είναι γρήγορο και ιδιωτικό</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Το Waterfox είναι γρήγορο και ιδιωτικό</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Ορισμός του Firefox ως προεπιλογής</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Ορισμός του Waterfox ως προεπιλογής</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Δοκιμάστε την ιδιωτική περιήγηση</string>
   <!--
@@ -2118,7 +2118,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Συμβάλλετε στη βελτίωση του Firefox παίρνοντας μέρος σε μια σύντομη έρευνα.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Συμβάλλετε στη βελτίωση του Waterfox παίρνοντας μέρος σε μια σύντομη έρευνα.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Έναρξη έρευνας</string>
   <!-- Preference for not taking the short survey. -->
@@ -2266,7 +2266,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Σάρωση κωδικού</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Στον υπολογιστή σας, ανοίξτε το Firefox και μεταβείτε στο <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Στον υπολογιστή σας, ανοίξτε το Waterfox και μεταβείτε στο <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Σάρωση</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2274,7 +2274,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Χρήση email</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Δεν έχετε λογαριασμό; <u>Δημιουργήστε έναν</u> για συγχρονισμό του Firefox μεταξύ συσκευών.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Δεν έχετε λογαριασμό; <u>Δημιουργήστε έναν</u> για συγχρονισμό του Waterfox μεταξύ συσκευών.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">Το %s θα σταματήσει να συγχρονίζεται με τον λογαριασμό σας, αλλά δεν θα διαγράψει τα δεδομένα περιήγησης από αυτήν τη συσκευή.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2883,7 +2883,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Ενεργοποιήστε τον συγχρονισμό των καρτελών.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Δεν έχετε καμία άλλη καρτέλα ανοικτή στο Firefox σε άλλες σας συσκευές.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Δεν έχετε καμία άλλη καρτέλα ανοικτή στο Waterfox σε άλλες σας συσκευές.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Δείτε μια λίστα καρτελών από τις άλλες συσκευές σας.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2949,7 +2949,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Αυτόματο κλείσιμο μετά από έναν μήνα;</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Το Firefox μπορεί να κλείσει τις καρτέλες που δεν έχετε προβάλει τον περασμένο μήνα.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Το Waterfox μπορεί να κλείσει τις καρτέλες που δεν έχετε προβάλει τον περασμένο μήνα.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ΕΝΕΡΓΟΠΟΙΗΣΗ ΑΥΤΟΜΑΤΟΥ ΚΛΕΙΣΙΜΑΤΟΣ</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2959,7 +2959,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Προτάσεις Firefox</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Προτάσεις Waterfox</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2978,7 +2978,7 @@
   -->
   <string name="default_browser_experiment_card_title">Αλλαγή προεπιλεγμένου προγράμματος περιήγησης</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Αυτόματο άνοιγμα συνδέσμων από ιστοτόπους, email και μηνύματα στο Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Αυτόματο άνοιγμα συνδέσμων από ιστοτόπους, email και μηνύματα στο Waterfox.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Αφαίρεση</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -3002,7 +3002,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">Με την υποστήριξη του %s.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Μέρος της οικογένειας του Firefox. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Μέρος της οικογένειας του Waterfox. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Μάθετε περισσότερα</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -3338,7 +3338,7 @@
     %s is a placeholder for the name of the tracker category.
     %d is a placeholder for the number of trackers blocked.
   -->
-  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%s: %d</string>
+  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%1$s: %2$d</string>
   <!--
     Description text for a dialog confirming whether the user wants to delete all data for current site.
     %s is a placeholder for the base domain of website.
@@ -3414,7 +3414,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Βοηθήστε μας να κάνουμε το Firefox καλύτερο. Χρειάζεται μόνο ένα λεπτό.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Βοηθήστε μας να κάνουμε το Waterfox καλύτερο. Χρειάζεται μόνο ένα λεπτό.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Συνέχεια</string>
   <!--
@@ -3444,29 +3444,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">Δεν το χρησιμοποιώ</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Δεν χρησιμοποιώ την αναζήτηση στο Firefox</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Δεν χρησιμοποιώ την αναζήτηση στο Waterfox</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">Δεν χρησιμοποιώ τον συγχρονισμό</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Συμβάλλετε στη βελτίωση της εκτύπωσης στο Firefox. Θα χρειαστεί μόνο ένα δευτερόλεπτο</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Συμβάλλετε στη βελτίωση της εκτύπωσης στο Waterfox. Θα χρειαστεί μόνο ένα δευτερόλεπτο</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Βοηθήστε μας να κάνουμε την αναζήτηση στο Firefox καλύτερη. Χρειάζεται μόνο ένα λεπτό</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Βοηθήστε μας να κάνουμε την αναζήτηση στο Waterfox καλύτερη. Χρειάζεται μόνο ένα λεπτό</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Βοηθήστε μας να κάνουμε τον συγχρονισμό στο Firefox καλύτερο. Χρειάζεται μόνο ένα λεπτό</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Βοηθήστε μας να κάνουμε τον συγχρονισμό στο Waterfox καλύτερο. Χρειάζεται μόνο ένα λεπτό</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Πόσο ικανοποιημένοι είστε με την εκτύπωση στο Firefox;</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Πόσο ικανοποιημένοι είστε με την εκτύπωση στο Waterfox;</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Πόσο ικανοποιημένοι είστε με την αρχική σελίδα του Firefox;</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Πόσο ικανοποιημένοι είστε με την αρχική σελίδα του Waterfox;</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Πόσο ικανοποιημένοι είστε με την εμπειρία αναζήτησης στο Firefox;</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Πόσο ικανοποιημένοι είστε με την εμπειρία αναζήτησης στο Waterfox;</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Πόσο ικανοποιημένοι είστε με την εμπειρία συγχρονισμού στο Firefox;</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Πόσο ικανοποιημένοι είστε με την εμπειρία συγχρονισμού στο Waterfox;</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Λογότυπο Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Λογότυπο Waterfox</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Εικονίδιο λειτουργίας έρευνας</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3564,27 +3564,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">Ενημέρωση τώρα</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Ενημερώστε το πρόγραμμα περιήγησης Firefox σας</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Ενημερώστε το πρόγραμμα περιήγησης Waterfox σας</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">Ένα πιστοποιητικό ρίζας θα λήξει στις 14 Μαρτίου, προκαλώντας διακοπή λειτουργίας ορισμένων λειτουργιών.</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">Κάντε ενημέρωση πριν από τις 14 Μαρτίου.</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">Ένα πιστοποιητικό ρίζας θα λήξει, προκαλώντας διακοπή λειτουργίας της έκδοσης Firefox σας.</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">Ένα πιστοποιητικό ρίζας θα λήξει, προκαλώντας διακοπή λειτουργίας της έκδοσης Waterfox σας.</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">Απομένουν λιγότερες από 7 ημέρες για την ενημέρωση</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">Στις 14 Μαρτίου, τα πρόσθετα και άλλες λειτουργίες του Firefox θα σταματήσουν να λειτουργούν επειδή ένα πιστοποιητικό ρίζας θα λήξει.</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">Στις 14 Μαρτίου, τα πρόσθετα και άλλες λειτουργίες του Waterfox θα σταματήσουν να λειτουργούν επειδή ένα πιστοποιητικό ρίζας θα λήξει.</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Τελευταία ευκαιρία για να διατηρήσετε το Firefox σας</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Τελευταία ευκαιρία για να διατηρήσετε το Waterfox σας</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Η έκδοση του Firefox σας θα σταματήσει να λειτουργεί σωστά στις 14 Μαρτίου, επειδή ένα πιστοποιητικό ρίζας θα λήξει.</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Η έκδοση του Waterfox σας θα σταματήσει να λειτουργεί σωστά στις 14 Μαρτίου, επειδή ένα πιστοποιητικό ρίζας θα λήξει.</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">Προτείνεται ενημέρωση</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">Τα πρόσθετα και ορισμένες λειτουργίες θα σταματήσουν να λειτουργούν στις 14 Μαρτίου.</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Διαθέτετε μια παλαιότερη έκδοση του Firefox</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Διαθέτετε μια παλαιότερη έκδοση του Waterfox</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">Κάντε ενημέρωση πριν τις 14 Μαρτίου για να συνεχίσετε να χρησιμοποιείτε τα πρόσθετα και άλλες λειτουργίες.</string>
   <!-- Push notification message about old Firefox version -->

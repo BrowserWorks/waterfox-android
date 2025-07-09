@@ -35,7 +35,7 @@
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">Ṣe ìfipamọ́ àwọn táàbù tí o yàn sí inú àkójọpọ̀</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s Jẹ́ ṣíṣẹ̀dá látọwọ́ọ Mozilla.</string>
+  <string name="about_content">%1$s Jẹ́ ṣíṣẹ̀dá látọwọ́ọ BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -424,7 +424,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Àwọn táàbù tí a gbà</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Àwọn ìfitónilétí fún àwọn táàbù tí a gbà láti àwọn Firefox mìíràn.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Àwọn ìfitónilétí fún àwọn táàbù tí a gbà láti àwọn Waterfox mìíràn.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">T́áàbù tí a gbà</string>
   <!-- %s is the device name -->
@@ -444,7 +444,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Àwọn àyẹ̀wò</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Fàyègba Mozilla láàyè láti wọlé sórí ẹ̀rọ kó sì ṣe àwọn ayẹ̀wò</string>
+  <string name="preference_experiments_summary_2">Fàyègba BrowserWorks láàyè láti wọlé sórí ẹ̀rọ kó sì ṣe àwọn ayẹ̀wò</string>
   <!--
     Turn On Sync Preferences
 
@@ -690,7 +690,7 @@
   -->
   <string name="tab_crash_title_2">Má bínú. %1$s kò le ṣàkójọpọ̀ ojú-ìwé yẹn.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Fi ìròyìn ìjàm̀bá ráńṣẹ́ sí Mozilla</string>
+  <string name="tab_crash_send_report">Fi ìròyìn ìjàm̀bá ráńṣẹ́ sí BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Pa táàbù dé</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -927,7 +927,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Ṣe ìsopọ̀ àwọn ẹ̀rọ mìíràn</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Láti fi táàbù kan ráńṣẹ́, wọlé sí Firefox lóri ó kéré jù, ẹ̀rọ míràn kan.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Láti fi táàbù kan ráńṣẹ́, wọlé sí Waterfox lóri ó kéré jù, ẹ̀rọ míràn kan.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Gbà á</string>
   <!-- Share error message -->
@@ -1075,7 +1075,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Síkáànì kóòdù náà</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Lóri kọ̀m̀pútà rẹ ṣí Firefox ko sì lọ sí <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Lóri kọ̀m̀pútà rẹ ṣí Waterfox ko sì lọ sí <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Gbaradì láti síkáànì</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1083,7 +1083,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Lo ímeelì dípò</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Kò sí àkáǹtì? <u> Ṣẹ̀dá ọ̀kan</u>láti jẹ́ kí Firefox ṣiṣẹ́pọ̀ láàárín àwọn ẹ̀rọ.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Kò sí àkáǹtì? <u> Ṣẹ̀dá ọ̀kan</u>láti jẹ́ kí Waterfox ṣiṣẹ́pọ̀ láàárín àwọn ẹ̀rọ.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s yóò dá ìṣiṣẹ́pọ̀ dúrọ́ pẹ̀lú àkáńtì rẹ, àmọ́ ò ní pa dátà bíráwúsìnnì kankan rẹ́ lóri ẹ̀rọ yìí.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1475,7 +1475,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Jọ̀wọ́ gba ìṣepọ̀ táàbù láyè.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">O ò ní àwọn táàbù tí ó wà ní ṣíṣí ní Firefox lórí àwọn ẹ̀rọ rẹ tó kù.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">O ò ní àwọn táàbù tí ó wà ní ṣíṣí ní Waterfox lórí àwọn ẹ̀rọ rẹ tó kù.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Ṣe àfihàn àtòjọ àwọn táàbù láti àwọn ẹ̀rọ̀ rẹ̀ tó kù.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1529,7 +1529,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Tì-fúnra-ẹ̀ lẹ́yìn oṣù kan?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox lè ti àwọn táàbù tí oò tíì yẹ̀wò ní oṣù tó kọjá.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox lè ti àwọn táàbù tí oò tíì yẹ̀wò ní oṣù tó kọjá.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">TAN TÌ-FÚNRA-Ẹ̀</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -1539,9 +1539,9 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Dábàá</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox Dábàá</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Ṣètò àwọn líǹkì láti àwọn wẹ́íbúsaìtì, íméèlì àti àwọn ìfiráńṣẹ láti ṣí fún ra wọn ní Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Ṣètò àwọn líǹkì láti àwọn wẹ́íbúsaìtì, íméèlì àti àwọn ìfiráńṣẹ láti ṣí fún ra wọn ní Waterfox.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Yọ kúrò</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -1561,7 +1561,7 @@
   <!-- Text of a button allowing users to access an external url for more Pocket recommendations. -->
   <string name="pocket_stories_placeholder_text" moz:removedIn="141" tools:ignore="UnusedResources">Ṣàwárí si</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Ara ìdílé Firefox. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Ara ìdílé Waterfox. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Kọ́ ẹ̀kọ́ si</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->

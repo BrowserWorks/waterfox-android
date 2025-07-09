@@ -229,7 +229,7 @@
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">పూర్తయింది</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Firefoxకి స్వాగతం</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Waterfoxకి స్వాగతం</string>
   <!-- Terms of service onboarding page continue button label. -->
   <string name="onboarding_term_of_service_agree_and_continue_button_label" moz:removedIn="140" tools:ignore="UnusedResources">అంగీకరించి కొనసాగించండి</string>
   <!-- Onboarding label for 'Save and continue' button, used by Nimbus experiments. -->
@@ -429,7 +429,7 @@
   -->
   <string name="fxa_received_tab_channel_name">అందుకన్న ట్యాబులు</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">ఇతర Firefox పరికరాల నుంచి వచ్చిన ట్యాబుల గమనింపులు.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">ఇతర Waterfox పరికరాల నుంచి వచ్చిన ట్యాబుల గమనింపులు.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">ట్యాబు వచ్చింది</string>
   <!-- %s is the device name -->
@@ -451,7 +451,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">అధ్యయనాలు</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">అధ్యయనాలను స్థాపించడానికి, నడపడానికి Mozillaకు అనుమతినిస్తుంది</string>
+  <string name="preference_experiments_summary_2">అధ్యయనాలను స్థాపించడానికి, నడపడానికి BrowserWorksకు అనుమతినిస్తుంది</string>
   <!-- Preference for reconnecting to FxA sync -->
   <string name="preferences_sync_sign_in_to_reconnect">మళ్ళీ అనుసంధానించడానికి ప్రవేశించండి</string>
   <!-- Preference for removing FxA account -->
@@ -923,7 +923,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">మరొక పరికరాన్ని అనుసంధానించు</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ట్యాబును పంపడానికి, కనీసం మరొక పరికరంలో Firefox లోనికి ప్రవేశించండి.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ట్యాబును పంపడానికి, కనీసం మరొక పరికరంలో Waterfox లోనికి ప్రవేశించండి.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">అర్థమైంది</string>
   <!-- Share error message -->
@@ -1065,7 +1065,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">కోడును స్కాను చేయండి</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[మీ కంప్యూటర్‌లో Firefox తెరిచి <b>https://firefox.com/pair</b>కు వెళ్లండి]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[మీ కంప్యూటర్‌లో Waterfox తెరిచి <b>https://firefox.com/pair</b>కు వెళ్లండి]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">స్కాన్ చేయడానికి సిద్ధంగా ఉంది</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1073,7 +1073,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">లేదా ఈమెయిలు వాడండి</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ఖాతా లేదా? Firefoxను పరికరాల మధ్య సమకాలీకరించడానికి <u>ఒక ఖాతాను సృష్టించుకోండి</u>.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ఖాతా లేదా? Waterfoxను పరికరాల మధ్య సమకాలీకరించడానికి <u>ఒక ఖాతాను సృష్టించుకోండి</u>.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s మీ ఖాతాను సింక్రనించడం ఆపివేస్తుంది, కానీ ఈ పరికరంలోని మీ విహరణ డేటాను తొలగించదు.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1418,7 +1418,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">దయచేసి ట్యాబు సింకింగును చేతనం చేయండి.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">మీ ఇతర పరికరాల్లో తెరిచివున్న Firefox ట్యాబులు ఏమీ లేవు.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">మీ ఇతర పరికరాల్లో తెరిచివున్న Waterfox ట్యాబులు ఏమీ లేవు.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">మీ ఇతర పరికరాల నుండి ట్యాబుల జాబితాను చూడండి.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1545,5 +1545,5 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">ఇప్పుడే తాజాకరించు</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">మీరు Firefox యొక్క పాత వెర్షన్ వాడుతున్నారు</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">మీరు Waterfox యొక్క పాత వెర్షన్ వాడుతున్నారు</string>
 </resources>

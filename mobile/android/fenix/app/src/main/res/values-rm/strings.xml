@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Allontanar</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s vegn sviluppà da Mozilla.</string>
+  <string name="about_content">%1$s vegn sviluppà da BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -499,14 +499,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Las directivas da Firefox per la protecziun da datas</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Las directivas da Waterfox per la protecziun da datas</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Nus ta protegin cun plaschair</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Ve a savair pertge che milliuns persunas aman Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Ve a savair pertge che milliuns persunas aman Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">La navigaziun segira cun pli gronda tscherna</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -525,7 +525,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Firefox criptescha tes pleds-clav, segnapaginas e dapli cura che ti sincroniseschas tias datas.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Waterfox criptescha tes pleds-clav, segnapaginas e dapli cura che ti sincroniseschas tias datas.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">S\'annunziar</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -534,12 +534,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Cun communicaziuns es ti pli segir en Firefox</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Cun communicaziuns es ti pli segir en Waterfox</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Trametta tabs a moda segira dad in da tes apparats a tschel e scuvra autras funcziuns per la protecziun da datas da Firefox.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Trametta tabs a moda segira dad in da tes apparats a tschel e scuvra autras funcziuns per la protecziun da datas da Waterfox.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Activar las communicaziuns</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -548,24 +548,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Emprova il widget da retschertga da Firefox</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Emprova il widget da retschertga da Waterfox</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Cun Firefox sin tes visur da partenza has ti in svelt access al navigatur che dat la prioritad a la protecziun da datas e blochescha fastizaders interpaginals.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Cun Waterfox sin tes visur da partenza has ti in svelt access al navigatur che dat la prioritad a la protecziun da datas e blochescha fastizaders interpaginals.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Agiuntar il widget da Firefox</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Agiuntar il widget da Waterfox</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Betg ussa</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Persunalisescha tes Firefox cun extensiuns</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Persunalisescha tes Waterfox cun extensiuns</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">Agiuntescha extensiuns da terzas partidas per augmentar la segirezza, la productivitad ed auter.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -601,7 +601,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">Valità cun %1$s da 5 stailas</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Ans gida a meglierar Firefox</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Ans gida a meglierar Waterfox</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">Trametter automaticamain rapports da collaps</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -609,13 +609,13 @@
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">Ulteriuras infurmaziuns</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">Trametter datas tecnicas e d’interacziun a Mozilla</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Datas davart tes apparat, la configuraziun da la hardware e co ti utiliseschas Firefox, gidan a meglierar funcziuns, la prestaziun e la stabilitad per ina e scadin.</string>
+  <string name="onboarding_preferences_dialog_usage_data_title">Trametter datas tecnicas e d’interacziun a BrowserWorks</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Datas davart tes apparat, la configuraziun da la hardware e co ti utiliseschas Waterfox, gidan a meglierar funcziuns, la prestaziun e la stabilitad per ina e scadin.</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">Ulteriuras infurmaziuns</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">Finì</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Bainvegni en Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Bainvegni en Waterfox</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">Navigaziun svelta e segira en il web</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -623,21 +623,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">Cun cuntinuar acceptas ti las %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">cundiziuns d’utilisaziun da Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">cundiziuns d’utilisaziun da Waterfox</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">La protecziun da tias datas stat a cor a Firefox. Ulteriuras infurmaziuns en nossa %1$s.</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">La protecziun da tias datas stat a cor a Waterfox. Ulteriuras infurmaziuns en nossa %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">Decleraziun davart la protecziun da datas</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Per meglierar il navigatur, trametta Firefox datas da diagnosa e d’interacziun a Mozilla. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Per meglierar il navigatur, trametta Waterfox datas da diagnosa e d’interacziun a BrowserWorks. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">Administrar</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Ans gida a far crescher Firefox</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Ans gida a far crescher Waterfox</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Sche ti ans fas a savair co ti has scuvert Firefox e che ti dovras il program, ans gidas ti a mussar il navigatur ad in public pli grond.</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Sche ti ans fas a savair co ti has scuvert Waterfox e che ti dovras il program, ans gidas ti a mussar il navigatur ad in public pli grond.</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Cundivida datas minimalas cun ils partenaris da tecnologia da marketing da Mozilla. Questas datas na vegnan mai vendidas u utilisadas per ta mussar reclamas.</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Cundivida datas minimalas cun ils partenaris da tecnologia da marketing da BrowserWorks. Questas datas na vegnan mai vendidas u utilisadas per ta mussar reclamas.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">Co nus utilisain las datas</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -645,7 +645,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">Anc in’ultima chaussa</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Fa a savair ils partenaris da marketing da Mozilla co ti has scuvert Firefox e che ti dovras il program. Questas datas na vegnan mai vendidas.</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Fa a savair ils partenaris da marketing da BrowserWorks co ti has scuvert Waterfox e che ti dovras il program. Questas datas na vegnan mai vendidas.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">Acceptar e cumenzar a navigar</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -730,9 +730,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Preferenzas per la trav d\'adressas</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Trav d\'adressas – propostas da Firefox</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Trav d\'adressas – propostas da Waterfox</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Ulteriuras infurmaziuns davart propostas da Firefox</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Ulteriuras infurmaziuns davart propostas da Waterfox</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Valitar en Google Play</string>
   <!--
@@ -821,7 +821,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Accessibladad</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">Agen server per contos Mozilla</string>
+  <string name="preferences_override_account_server">Agen server per contos BrowserWorks</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Server persunalisà per Sync</string>
   <!-- Preference category for account information -->
@@ -839,7 +839,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">T\'annunzia per sincronisar tabs, segnapaginas, pleds-clav e dapli.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Conto Mozilla</string>
+  <string name="preferences_account_default_name_2">Conto BrowserWorks</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Ta reconnectescha per cuntinuar cun la sincronisaziun</string>
   <!-- Preference for language -->
@@ -1016,7 +1016,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">Novas extensiuns disponiblas</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Scuvra dapli che 100 novas extensiuns per persunalisar Firefox.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Scuvra dapli che 100 novas extensiuns per persunalisar Waterfox.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Scuvrir las extensiuns</string>
   <!--
@@ -1088,7 +1088,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Tabs retschavids</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Communicaziuns per tabs retschavids dad auters apparats cun Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Communicaziuns per tabs retschavids dad auters apparats cun Waterfox.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Tab retschavì</string>
   <!-- %s is the device name -->
@@ -1120,19 +1120,19 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">Ulteriuras infurmaziuns</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Datas davart tes apparat, la configuraziun da la hardware e l’utilisaziun, ans gidan a meglierar funcziuns, la prestaziun e la stabilitad da Firefox.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Datas davart tes apparat, la configuraziun da la hardware e l’utilisaziun, ans gidan a meglierar funcziuns, la prestaziun e la stabilitad da Waterfox.</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">Datas statisticas da campagnas</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Fa a savair noss partenaris da tecnologia da marketing da Mozilla co ti has scuvert Firefox e che ti dovras il program.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Fa a savair noss partenaris da tecnologia da marketing da BrowserWorks co ti has scuvert Waterfox e che ti dovras il program.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Ulteriuras infurmaziuns davart datas da marketing</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">Ping d’utilisaziun quotidian</string>
-  <string name="preferences_daily_usage_ping_description">Quai gida Mozilla a stimar il dumber dad utilisaders activs.</string>
+  <string name="preferences_daily_usage_ping_description">Quai gida BrowserWorks a stimar il dumber dad utilisaders activs.</string>
   <string name="preferences_daily_usage_ping_learn_more">Ulteriuras infurmaziuns davart il ping d’utilisaziun quotidian</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">Trametter automaticamain rapports da collaps</string>
@@ -1143,7 +1143,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Studis</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Permetter a Mozilla dad installar ed exequir studis</string>
+  <string name="preference_experiments_summary_2">Permetter a BrowserWorks dad installar ed exequir studis</string>
   <!--
     Turn On Sync Preferences
 
@@ -1529,7 +1529,7 @@
   -->
   <string name="webcompat_reporter_screen_title">Annunziar problems cun la website</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">Gida a meglierar %1$s per ina e scadin. Emploiads da Mozilla dovran las infurmaziuns che ti tramettas per schliar problems cun las websites.</string>
+  <string name="webcompat_reporter_description">Gida a meglierar %1$s per ina e scadin. Emploiads da BrowserWorks dovran las infurmaziuns che ti tramettas per schliar problems cun las websites.</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">URL</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -1575,7 +1575,7 @@
   -->
   <string name="tab_crash_title_2">Perstgisa. %1$s na po betg chargiar questa pagina.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Trametter in rapport da collaps a Mozilla</string>
+  <string name="tab_crash_send_report">Trametter in rapport da collaps a BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Serrar il tab</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1894,7 +1894,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Colliar in auter apparat</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Per trametter in tab stos ti t\'annunziar tar Firefox sin almain in auter apparat.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Per trametter in tab stos ti t\'annunziar tar Waterfox sin almain in auter apparat.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Chapì</string>
   <!-- Share error message -->
@@ -1926,12 +1926,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox è svelt e privat</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox è svelt e privat</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Fa da Firefox tes navigatur da standard</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Fa da Waterfox tes navigatur da standard</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Emprova il modus privat</string>
   <!--
@@ -1956,7 +1956,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Gida per plaschair a meglierar Firefox cun participar ad ina curta enquista.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Gida per plaschair a meglierar Waterfox cun participar ad ina curta enquista.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Participar a l\'enquista</string>
   <!-- Preference for not taking the short survey. -->
@@ -2104,7 +2104,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Scannar il code</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Avra Firefox sin tes computer e visita <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Avra Waterfox sin tes computer e visita <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Pront per scannar</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2112,7 +2112,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Utilisar l\'e-mail</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Nagin conto? <u>Creescha in</u> per sincronisar Firefox tranter differents apparats.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Nagin conto? <u>Creescha in</u> per sincronisar Waterfox tranter differents apparats.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s chala da sincronisar tes conto, ma las datas da navigaziun restan sin quest apparat.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2719,7 +2719,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Activescha p.pl. la sincronisaziun da tabs.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Ti n\'has nagins tabs da Firefox averts sin auters apparats.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Ti n\'has nagins tabs da Waterfox averts sin auters apparats.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Mussar ina glista dals tabs da tes auters apparats.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2785,7 +2785,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Serrar automaticamain suenter in mais?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox po serrar tabs che ti n\'has betg consultà durant l\'ultim mais.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox po serrar tabs che ti n\'has betg consultà durant l\'ultim mais.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ACTIVAR LA SERRADA AUTOMATICA</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2795,7 +2795,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox propona</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox propona</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2814,7 +2814,7 @@
   -->
   <string name="default_browser_experiment_card_title">Mida tes navigatur standard</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Definescha che colliaziuns da websites, e-mails e messadis vegnan averts automaticamain en Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Definescha che colliaziuns da websites, e-mails e messadis vegnan averts automaticamain en Waterfox.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Allontanar</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2836,7 +2836,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">Cun agid da %s.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Part da la paletta da products Firefox. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Part da la paletta da products Waterfox. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Ulteriuras infurmaziuns</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -3170,7 +3170,7 @@
     %s is a placeholder for the name of the tracker category.
     %d is a placeholder for the number of trackers blocked.
   -->
-  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%s: %d</string>
+  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%1$s: %2$d</string>
   <!--
     Description text for a dialog confirming whether the user wants to delete all data for current site.
     %s is a placeholder for the base domain of website.
@@ -3246,7 +3246,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Ans gida a meglierar Firefox. I dura mo ina minuta.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Ans gida a meglierar Waterfox. I dura mo ina minuta.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Cuntinuar</string>
   <!--
@@ -3276,29 +3276,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">Jau n’utilisesch betg questa funcziun</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Jau n’utilisesch betg la tschertga en Firefox</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Jau n’utilisesch betg la tschertga en Waterfox</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">Jau n’utilisesch betg la sincronisaziun</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Gida a meglierar la funcziun da stampa en Firefox. Quai cuzza mo in mumentin</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Gida a meglierar la funcziun da stampa en Waterfox. Quai cuzza mo in mumentin</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Gida a meglierar la tschertga en Firefox. I dura mo ina minuta</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Gida a meglierar la tschertga en Waterfox. I dura mo ina minuta</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Gida a meglierar la sincronisaziun en Firefox. I dura mo ina minuta</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Gida a meglierar la sincronisaziun en Waterfox. I dura mo ina minuta</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Quant satisfatg es ti da la funcziun da stampa en Firefox?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Quant satisfatg es ti da la funcziun da stampa en Waterfox?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Quant satisfatg es ti da tia pagina da partenza da Firefox?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Quant satisfatg es ti da tia pagina da partenza da Waterfox?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Quant satisfatg es ti da l’experientscha cun la tschertga en Firefox?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Quant satisfatg es ti da l’experientscha cun la tschertga en Waterfox?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Quant satisfatg es ti da l’experientscha cun la sincronisaziun en Firefox?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Quant satisfatg es ti da l’experientscha cun la sincronisaziun en Waterfox?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logo da Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logo da Waterfox</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Icona da la funcziun d’enquista</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3394,27 +3394,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">Actualisar ussa</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Actualisescha tes navigatur Firefox</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Actualisescha tes navigatur Waterfox</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">In certificat root vegn a scader. Perquai na vegnan tschertas funcziunalitads betg pli a star a disposiziun suenter ils 14 da mars.</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">Actualisar avant ils 14 da mars</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">In certificat root vegn a scader. Perquai na vegn tia versiun da Firefox betg pli a funcziunar endretg.</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">In certificat root vegn a scader. Perquai na vegn tia versiun da Waterfox betg pli a funcziunar endretg.</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">Anc main che 7 dis per actualisar</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">Ils 14 da mars vegnan supplements ed autras funcziunalitads da Firefox betg pli a star a disposiziun perquai ch’in certificat root scroda.</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">Ils 14 da mars vegnan supplements ed autras funcziunalitads da Waterfox betg pli a star a disposiziun perquai ch’in certificat root scroda.</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Ultima schanza da cuntinuar ad utilisar Firefox</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Ultima schanza da cuntinuar ad utilisar Waterfox</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Tia versiun da Firefox na vegn betg pli a funcziunar endretg suenter ils 14 da mars perquai ch’in certificat root scroda.</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Tia versiun da Waterfox na vegn betg pli a funcziunar endretg suenter ils 14 da mars perquai ch’in certificat root scroda.</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">Actualisaziun recumandada</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">Supplements e tschertas funcziunalitads na vegnan betg pli a star a disposiziun suenter ils 14 da mars.</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Ti utiliseschas ina versiun veglia da Firefox</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Ti utiliseschas ina versiun veglia da Waterfox</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">Actualisescha avant ils 14 da mars per pudair cuntinuar ad utilisar supplements ed autras funcziunalitads.</string>
   <!-- Push notification message about old Firefox version -->

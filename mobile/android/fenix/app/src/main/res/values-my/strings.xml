@@ -41,7 +41,7 @@
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">စုဆောင်းမှု သို့ တက်ဗ်များ သိမ်းရန်</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s ကို Mozilla မှ ထုတ်လုပ်သည်။</string>
+  <string name="about_content">%1$s ကို BrowserWorks မှ ထုတ်လုပ်သည်။</string>
   <!--
     Private Browsing
 
@@ -344,7 +344,7 @@
   -->
   <string name="fxa_received_tab_channel_name">လက်ခံရရှိ တက်ဗ်များ</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">အခြားစက်များရှိ Firefox များမှ ရရှိသော တပ်ဗ်အသစ်များ အတွက် သတိပေးချက်များ</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">အခြားစက်များရှိ Waterfox များမှ ရရှိသော တပ်ဗ်အသစ်များ အတွက် သတိပေးချက်များ</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">တပ်ဗ်ကို လက်ခံရရှိသည်</string>
   <!-- %s is the device name -->
@@ -364,7 +364,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">လေ့လာရေး</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Mozilla ကို ထည့်သွင်းစေပြီး လေ့လာခွင့်ပြုပါ</string>
+  <string name="preference_experiments_summary_2">BrowserWorks ကို ထည့်သွင်းစေပြီး လေ့လာခွင့်ပြုပါ</string>
   <!-- Preference for reconnecting to FxA sync -->
   <string name="preferences_sync_sign_in_to_reconnect">ပြန်လည်ချိတ်ဆက်ရန်ဝင်ရောက်ပါ</string>
   <!-- Preference for removing FxA account -->
@@ -576,7 +576,7 @@
   -->
   <string name="tab_crash_title_2">တောင်းပန်ပါတယ်။ ဒီစာမျက်နှာကို %1$s မှမတင်နိုင်ပါ။</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Mozillaသို့ ပျက်စီးမှုအစီရင်ခံစာပို့ပါ</string>
+  <string name="tab_crash_send_report">BrowserWorksသို့ ပျက်စီးမှုအစီရင်ခံစာပို့ပါ</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">တပ်ဗ်ကို ပိတ်ရန်</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -793,7 +793,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">အခြားကိရိယာကို ချိတ်ဆက်ရန်</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">သင်တက်ဘ်တစ်ခုကိုပို့ရန်အနည်းဆုံးအခြားကိရိယာတစ်ခုပေါ်တွင် Firefox သို့ဆိုင်းအင်လုပ်ပါ။</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">သင်တက်ဘ်တစ်ခုကိုပို့ရန်အနည်းဆုံးအခြားကိရိယာတစ်ခုပေါ်တွင် Waterfox သို့ဆိုင်းအင်လုပ်ပါ။</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">ရပြီ</string>
   <!-- Share error message -->
@@ -919,7 +919,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">ကုဒ်ကိုစစ်ဆေးပါ</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[<b>https://firefox.com/pair</b>ကိုသွားပြီး သင့်ကွန်ပျူတာတွင် Firefox ဖွင့်ပါ။]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[<b>https://firefox.com/pair</b>ကိုသွားပြီး သင့်ကွန်ပျူတာတွင် Waterfox ဖွင့်ပါ။]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">စကင်ဖတ်ရန်အဆင်သင့်ဖြစ်သည်</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -927,7 +927,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">အီးမေးလ်အစား</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[အကောင့် မရှိဘူးလား? <u> သုံးစွဲသည့် ကိရိယာများ အကြား Firefox ကို တစ်ပြေးညီတည်း ချိန်ညှိရန် </u> တစ်ခု ဖန်တီးပါ။]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[အကောင့် မရှိဘူးလား? <u> သုံးစွဲသည့် ကိရိယာများ အကြား Waterfox ကို တစ်ပြေးညီတည်း ချိန်ညှိရန် </u> တစ်ခု ဖန်တီးပါ။]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s သည် အကောင့်နှင့် အချက်အလက်များ ထပ်တူပြုခြင်းကို ရပ်တန့်ပါမည်။ သို့သော် ယခု ကိရိယာရှိ သင်၏ မည်သည့် အချက်အလက် ကိုမျှ ဖျက်ပစ်မည် မဟုတ်ပါ။</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1232,7 +1232,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">ကျေးဇူးပြ၍ တပ်ဗ် ထပ်တူတစ်ပြေးတည်း ဖြစ်စေရန် ဖွင့်ပါ</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">သင့် အခြား စက်ပစ္စည်းများတွင် Firefox ၌ ဖွင့်ထားသော တပ်ဗ်များ မရှိပါ</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">သင့် အခြား စက်ပစ္စည်းများတွင် Waterfox ၌ ဖွင့်ထားသော တပ်ဗ်များ မရှိပါ</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">သင်၏ အခြားစက်ပစ္စည်းများမှ တပ်ဗ် များ စာရင်းကို ကြည့်ပါ။</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1252,7 +1252,7 @@
   -->
   <string name="inactive_tabs_title">လှုပ်ရှားမှုမရှိသော တပ်ဗ်များ</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Firefox တွင် ဝက်ဘ်ဆိုက်များ၊ အီးမေးလ်များ နှင့် မက်ဆေ့ခ်ျများမှ လင့်ခ်များ အလိုအလျောက် ပွင့်ရန် သတ်မှတ်ပါ။</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Waterfox တွင် ဝက်ဘ်ဆိုက်များ၊ အီးမေးလ်များ နှင့် မက်ဆေ့ခ်ျများမှ လင့်ခ်များ အလိုအလျောက် ပွင့်ရန် သတ်မှတ်ပါ။</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">ဖယ်ရှားပါ</string>
   <!-- Content description radio buttons with a link to more information -->

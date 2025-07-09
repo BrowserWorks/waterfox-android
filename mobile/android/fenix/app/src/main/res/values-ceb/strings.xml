@@ -33,7 +33,7 @@
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">i-Save ang napiling tabs padulong sa collection</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s hinimo sa Mozilla.</string>
+  <string name="about_content">%1$s hinimo sa BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -286,7 +286,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Nadawat nga mga tab</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Mga pahibalo sa mga tab nga nadawat gikan sa ubang mga Firefox device.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Mga pahibalo sa mga tab nga nadawat gikan sa ubang mga Waterfox device.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Tab nga nadawat</string>
   <!-- %s is the device name -->

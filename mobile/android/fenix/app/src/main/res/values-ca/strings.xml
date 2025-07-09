@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Elimina</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">El %1$s està creat per Mozilla.</string>
+  <string name="about_content">El %1$s està creat per BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -499,14 +499,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Avís de privadesa del Firefox</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Avís de privadesa del Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Ens encanta mantenir-vos segur</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Descobriu per què milions de persones estimen el Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Descobriu per què milions de persones estimen el Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Navegació segura amb més opcions</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -525,7 +525,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">El Firefox xifra les contrasenyes, les adreces d’interès i molt més quan utilitzeu la sincronització.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">El Waterfox xifra les contrasenyes, les adreces d’interès i molt més quan utilitzeu la sincronització.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Inicia la sessió</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -534,12 +534,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Les notificacions us ajuden a estar més segur amb el Firefox</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Les notificacions us ajuden a estar més segur amb el Waterfox</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Envieu pestanyes de manera segura entre els vostres dispositius i descobriu altres funcions de privadesa al Firefox.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Envieu pestanyes de manera segura entre els vostres dispositius i descobriu altres funcions de privadesa al Waterfox.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Activa les notificacions</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -548,24 +548,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Proveu el giny de cerca del Firefox</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Proveu el giny de cerca del Waterfox</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Amb el Firefox a la pantalla d’inici, podreu accedir fàcilment al navegador que prioritza la privadesa i que bloca els elements de seguiment entre llocs.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Amb el Waterfox a la pantalla d’inici, podreu accedir fàcilment al navegador que prioritza la privadesa i que bloca els elements de seguiment entre llocs.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Afegeix el giny del Firefox</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Afegeix el giny del Waterfox</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Ara no</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Personalitzeu el Firefox amb extensions</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Personalitzeu el Waterfox amb extensions</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">Afegiu extensions de tercers per a millorar la seguretat, la productivitat i molt més.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -601,7 +601,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">Valorat amb %1$s de 5 estrelles</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Ajudeu-nos a millorar el Firefox</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Ajudeu-nos a millorar el Waterfox</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">Envia automàticament informes de fallada</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -609,13 +609,13 @@
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">Més informació</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">Envia dades tècniques i d’interacció a Mozilla</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Les dades sobre el vostre dispositiu, la configuració del maquinari i sobre com feu servir el Firefox ajuden a millorar les funcions, el rendiment i l’estabilitat per a tothom.</string>
+  <string name="onboarding_preferences_dialog_usage_data_title">Envia dades tècniques i d’interacció a BrowserWorks</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Les dades sobre el vostre dispositiu, la configuració del maquinari i sobre com feu servir el Waterfox ajuden a millorar les funcions, el rendiment i l’estabilitat per a tothom.</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">Més informació</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">Fet</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Us donem la benvinguda al Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Us donem la benvinguda al Waterfox</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">Navegació web ràpida i segura</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -623,21 +623,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">En continuar, accepteu les %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">condicions d’ús del Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">condicions d’ús del Waterfox</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">El Firefox prioritza la vostra privadesa. Més informació en l’%1$s.</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">El Waterfox prioritza la vostra privadesa. Més informació en l’%1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">Avís de privadesa</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Per ajudar a millorar el navegador, el Firefox envia dades de diagnòstic i d’interacció a Mozilla. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Per ajudar a millorar el navegador, el Waterfox envia dades de diagnòstic i d’interacció a BrowserWorks. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">Gestiona</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Ajudeu-nos a fer créixer el Firefox</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Ajudeu-nos a fer créixer el Waterfox</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Quan compartiu com vàreu descobrir el Firefox i que el feu servir, ens ajudeu a donar a conèixer el nostre navegador a més persones.</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Quan compartiu com vàreu descobrir el Waterfox i que el feu servir, ens ajudeu a donar a conèixer el nostre navegador a més persones.</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Comparteix dades mínimes amb els socis tecnològics de màrqueting de Mozilla. Aquestes dades mai no es vendran ni s’utilitzaran per mostrar-vos anuncis.</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Comparteix dades mínimes amb els socis tecnològics de màrqueting de BrowserWorks. Aquestes dades mai no es vendran ni s’utilitzaran per mostrar-vos anuncis.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">Com utilitzem les dades</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -645,7 +645,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">Una cosa més</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Compartiu amb els socis de màrqueting de Mozilla com vàreu descobrir el Firefox i que l’utilitzeu. Aquestes dades mai no es vendran.</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Compartiu amb els socis de màrqueting de BrowserWorks com vàreu descobrir el Waterfox i que l’utilitzeu. Aquestes dades mai no es vendran.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">Accepta i comença a navegar</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -730,9 +730,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Preferències de la barra d’adreces</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Barra d’adreces - Suggeriments del Firefox</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Barra d’adreces - Suggeriments del Waterfox</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Més informació sobre els suggeriments del Firefox</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Més informació sobre els suggeriments del Waterfox</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Valora en el Google Play</string>
   <!--
@@ -821,7 +821,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Accessibilitat</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">Servidor de comptes de Mozilla personalitzat</string>
+  <string name="preferences_override_account_server">Servidor de comptes de BrowserWorks personalitzat</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Servidor del Sync personalitzat</string>
   <!-- Preference category for account information -->
@@ -839,7 +839,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">Inicieu la sessió per sincronitzar pestanyes, adreces d’interès, contrasenyes i més.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Compte de Mozilla</string>
+  <string name="preferences_account_default_name_2">Compte de BrowserWorks</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Torneu-vos a connectar per reprendre la sincronització</string>
   <!-- Preference for language -->
@@ -1016,7 +1016,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">Noves extensions disponibles</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Descobriu les més de cent noves extensions que us permeten fer el Firefox vostre.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Descobriu les més de cent noves extensions que us permeten fer el Waterfox vostre.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Mostra les extensions</string>
   <!--
@@ -1088,7 +1088,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Pestanyes rebudes</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notificacions de les pestanyes rebudes d’altres dispositius Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notificacions de les pestanyes rebudes d’altres dispositius Waterfox.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">S’ha rebut una pestanya</string>
   <!-- %s is the device name -->
@@ -1120,19 +1120,19 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">Més informació</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Les dades sobre el vostre dispositiu, sobre la configuració del maquinari i com l’utilitzeu ajuden a millorar les funcions, el rendiment i l’estabilitat del Firefox.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Les dades sobre el vostre dispositiu, sobre la configuració del maquinari i com l’utilitzeu ajuden a millorar les funcions, el rendiment i l’estabilitat del Waterfox.</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">Dades de mesurament de campanyes</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Compartiu amb els socis tecnològics de màrqueting de Mozilla com vàreu descobrir el Firefox i que l’utilitzeu.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Compartiu amb els socis tecnològics de màrqueting de BrowserWorks com vàreu descobrir el Waterfox i que l’utilitzeu.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Més informació sobre les dades de màrqueting</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">Ping d’ús diari</string>
-  <string name="preferences_daily_usage_ping_description">Això ajuda a Mozilla a estimar els usuaris actius.</string>
+  <string name="preferences_daily_usage_ping_description">Això ajuda a BrowserWorks a estimar els usuaris actius.</string>
   <string name="preferences_daily_usage_ping_learn_more">Més informació sobre el ping d’ús diari</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">Envia automàticament informes de fallada</string>
@@ -1143,7 +1143,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Estudis</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Permet a Mozilla instal·lar i executar estudis</string>
+  <string name="preference_experiments_summary_2">Permet a BrowserWorks instal·lar i executar estudis</string>
   <!--
     Turn On Sync Preferences
 
@@ -1529,7 +1529,7 @@
   -->
   <string name="webcompat_reporter_screen_title">Informeu sobre un lloc que no funciona</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">Ajudeu a fer que el %1$s sigui millor per a tothom. Els empleats de Mozilla utilitzen la informació que envieu per solucionar problemes dels llocs web.</string>
+  <string name="webcompat_reporter_description">Ajudeu a fer que el %1$s sigui millor per a tothom. Els empleats de BrowserWorks utilitzen la informació que envieu per solucionar problemes dels llocs web.</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">URL</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -1575,7 +1575,7 @@
   -->
   <string name="tab_crash_title_2">El %1$s no pot carregar aquesta pàgina.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Envia un informe de fallada a Mozilla</string>
+  <string name="tab_crash_send_report">Envia un informe de fallada a BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Tanca la pestanya</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1894,7 +1894,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Connecta un altre dispositiu</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Per enviar una pestanya, inicieu la sessió al Firefox en almenys un altre dispositiu.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Per enviar una pestanya, inicieu la sessió al Waterfox en almenys un altre dispositiu.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Entesos</string>
   <!-- Share error message -->
@@ -1926,12 +1926,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">El Firefox és ràpid i privat</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">El Waterfox és ràpid i privat</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Fes que el Firefox sigui el navegador per defecte</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Fes que el Waterfox sigui el navegador per defecte</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Proveu la navegació privada</string>
   <!--
@@ -1956,7 +1956,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Us agrairíem que ajudeu a millorar el Firefox fent una breu enquesta.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Us agrairíem que ajudeu a millorar el Waterfox fent una breu enquesta.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Fes l’enquesta</string>
   <!-- Preference for not taking the short survey. -->
@@ -2104,7 +2104,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Escanegeu el codi</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Obriu el Firefox a l’ordinador i aneu a <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Obriu el Waterfox a l’ordinador i aneu a <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Llest per escanejar</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2112,7 +2112,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Usa el correu electrònic en lloc</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[No teniu cap compte? <u>Creeu-ne un</u> per sincronitzar el Firefox entre dispositius.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[No teniu cap compte? <u>Creeu-ne un</u> per sincronitzar el Waterfox entre dispositius.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">El %s deixarà de sincronitzar-se amb el vostre compte, però les vostres dades de navegació d’aquest dispositiu no se suprimiran.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2719,7 +2719,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Activeu la sincronització de pestanyes.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">No teniu cap pestanya oberta al Firefox dels altres dispositius.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">No teniu cap pestanya oberta al Waterfox dels altres dispositius.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Vegeu una llista de les pestanyes que teniu obertes en altres dispositius.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2785,7 +2785,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Voleu tancar-les automàticament al cap d’un mes?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">El Firefox pot tancar les pestanyes que no hàgiu vist durant el darrer mes.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">El Waterfox pot tancar les pestanyes que no hàgiu vist durant el darrer mes.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ACTIVA EL TANCAMENT AUTOMÀTIC</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2795,7 +2795,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Suggeriments del Firefox</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Suggeriments del Waterfox</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2814,7 +2814,7 @@
   -->
   <string name="default_browser_experiment_card_title">Canvieu el navegador per defecte</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Feu que els enllaços dels llocs web, del correu electrònic i dels missatges s’obrin automàticament en el Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Feu que els enllaços dels llocs web, del correu electrònic i dels missatges s’obrin automàticament en el Waterfox.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Elimina</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2836,7 +2836,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">Funciona amb el %s.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Part de la família Firefox. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Part de la família Waterfox. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Més informació</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -3172,7 +3172,7 @@
     %s is a placeholder for the name of the tracker category.
     %d is a placeholder for the number of trackers blocked.
   -->
-  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%s: %d</string>
+  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%1$s: %2$d</string>
   <!--
     Description text for a dialog confirming whether the user wants to delete all data for current site.
     %s is a placeholder for the base domain of website.
@@ -3248,7 +3248,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Ajudeu-nos a millorar el Firefox. Només és un minut.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Ajudeu-nos a millorar el Waterfox. Només és un minut.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Continua</string>
   <!--
@@ -3278,29 +3278,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">No l’utilitzo</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">No faig servir la cerca en el Firefox</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">No faig servir la cerca en el Waterfox</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">No faig servir la sincronització</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Ajudeu-nos a millorar la impressió en el Firefox. Només és un minut.</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Ajudeu-nos a millorar la impressió en el Waterfox. Només és un minut.</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Ajudeu-nos a millorar la cerca en el Firefox. Només és un minut.</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Ajudeu-nos a millorar la cerca en el Waterfox. Només és un minut.</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Ajudeu-nos a millorar la sincronització en el Firefox. Només és un minut.</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Ajudeu-nos a millorar la sincronització en el Waterfox. Només és un minut.</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Esteu satisfet/a de la impressió en el Firefox?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Esteu satisfet/a de la impressió en el Waterfox?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Esteu satisfet/a de la pàgina d’inici del Firefox?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Esteu satisfet/a de la pàgina d’inici del Waterfox?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Esteu satisfet/a amb l’experiència de cerca en el Firefox?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Esteu satisfet/a amb l’experiència de cerca en el Waterfox?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Esteu satisfet/a amb l’experiència de sincronització en el Firefox?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Esteu satisfet/a amb l’experiència de sincronització en el Waterfox?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logotip del Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logotip del Waterfox</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Icona de la funció d’enquesta</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3396,27 +3396,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">Actualitza ara</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Actualitzeu el navegador Firefox</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Actualitzeu el navegador Waterfox</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">Un certificat arrel caducarà i farà que el 14 de març algunes funcions deixin de funcionar.</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">Actualitzeu abans del 14 de març</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">Un certificat arrel caducarà i farà que aquesta versió del Firefox deixi de funcionar correctament.</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">Un certificat arrel caducarà i farà que aquesta versió del Waterfox deixi de funcionar correctament.</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">Queden menys de 7 dies per actualitzar</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">El 14 de març, els complements i altres funcions del Firefox deixaran de funcionar perquè caducarà un certificat arrel.</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">El 14 de març, els complements i altres funcions del Waterfox deixaran de funcionar perquè caducarà un certificat arrel.</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Última oportunitat per conservar el Firefox</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Última oportunitat per conservar el Waterfox</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Aquesta versió del Firefox deixarà de funcionar correctament el 14 de març perquè caducarà un certificat arrel.</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Aquesta versió del Waterfox deixarà de funcionar correctament el 14 de març perquè caducarà un certificat arrel.</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">Actualització recomanada</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">Els complements i algunes funcions deixaran de funcionar el 14 de març.</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Feu servir una versió antiga del Firefox.</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Feu servir una versió antiga del Waterfox.</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">Actualitzeu abans del 14 de març per seguir utilitzant els complements i altres funcions.</string>
   <!-- Push notification message about old Firefox version -->

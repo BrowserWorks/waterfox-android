@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">刪除</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s 是由 Mozilla 所打造。</string>
+  <string name="about_content">%1$s 是由 BrowserWorks 所打造。</string>
   <!--
     Private Browsing
 
@@ -528,14 +528,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Firefox 隱私權公告</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Waterfox 隱私權公告</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">我們希望確保您上網安全</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">看看為什麼有數百萬人愛用 Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">看看為什麼有數百萬人愛用 Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">更多讓您上網更安全的選擇</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -554,7 +554,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Firefox 會在同步您的密碼、書籤等資料時自動加密。</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Waterfox 會在同步您的密碼、書籤等資料時自動加密。</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">登入</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -563,12 +563,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">透過通知功能，讓您使用 Firefox 更安全</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">透過通知功能，讓您使用 Waterfox 更安全</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">在您的不同裝置間，安全地傳送分頁，並且探索 Firefox 當中其他保護隱私權的相關功能。</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">在您的不同裝置間，安全地傳送分頁，並且探索 Waterfox 當中其他保護隱私權的相關功能。</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">開啟通知</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -577,24 +577,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">試用 Firefox 搜尋小工具</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">試用 Waterfox 搜尋小工具</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">將 Firefox 新增到主畫面，很簡單就能開啟會封鎖跨網站追蹤器的隱私優先瀏覽器。</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">將 Waterfox 新增到主畫面，很簡單就能開啟會封鎖跨網站追蹤器的隱私優先瀏覽器。</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">新增 Firefox 小工具</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">新增 Waterfox 小工具</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">現在不要</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">使用擴充套件自訂您的 Firefox</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">使用擴充套件自訂您的 Waterfox</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">安裝第三方擴充套件，加強您的安全性、生產力與更多功能。</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -630,7 +630,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">評分 %1$s 分，滿分 5 分</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">幫助我們讓 Firefox 變得更好</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">幫助我們讓 Waterfox 變得更好</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">自動傳送錯誤報告</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -638,13 +638,13 @@
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">更多資訊</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">傳送技術與互動資料給 Mozilla</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">關於您的裝置、硬體設定，以及您如何使用 Firefox 的方式，可幫助我們為所有使用者改進功能、效能與穩定度。</string>
+  <string name="onboarding_preferences_dialog_usage_data_title">傳送技術與互動資料給 BrowserWorks</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">關於您的裝置、硬體設定，以及您如何使用 Waterfox 的方式，可幫助我們為所有使用者改進功能、效能與穩定度。</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">更多資訊</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">完成</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">歡迎使用 Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">歡迎使用 Waterfox</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">又快又安全地上網</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -654,21 +654,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">若繼續，代表您同意 %1$s。</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Firefox 的使用條款</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Waterfox 的使用條款</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Firefox 關心您的隱私。到我們的 %1$s 閱讀更多資訊。</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Waterfox 關心您的隱私。到我們的 %1$s 閱讀更多資訊。</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">隱私權保護政策</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">為了幫助改善瀏覽器，Firefox 會將除錯與互動資料傳送回 Mozilla。%1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">為了幫助改善瀏覽器，Waterfox 會將除錯與互動資料傳送回 BrowserWorks。%1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">管理</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">協助我們讓 Firefox 成長</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">協助我們讓 Waterfox 成長</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">當您分享如何發現 Firefox 以及是如何使用的時候，就能幫助我們將瀏覽器介紹給更多人。</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">當您分享如何發現 Waterfox 以及是如何使用的時候，就能幫助我們將瀏覽器介紹給更多人。</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">與 Mozilla 的行銷技術夥伴分享最小幅度的資料，此資料不會被賣掉，或用於向您顯示廣告。</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">與 BrowserWorks 的行銷技術夥伴分享最小幅度的資料，此資料不會被賣掉，或用於向您顯示廣告。</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">我們會如何使用該資料</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -676,7 +676,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">還有一件事</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">與 Mozilla 的行銷夥伴分享您如何發現 Firefox 以及是如何使用的，我們絕不會販售此資料。</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">與 BrowserWorks 的行銷夥伴分享您如何發現 Waterfox 以及是如何使用的，我們絕不會販售此資料。</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">同意並開始上網</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -761,9 +761,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">網址列偏好設定</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">網址列 - Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">網址列 - Waterfox Suggest</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">了解 Firefox Suggest 的相關資訊</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">了解 Waterfox Suggest 的相關資訊</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">到 Google Play 打分數</string>
   <!--
@@ -854,7 +854,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">輔助功能</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">自訂 Mozilla 帳號伺服器</string>
+  <string name="preferences_override_account_server">自訂 BrowserWorks 帳號伺服器</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">自訂同步伺服器</string>
   <!-- Preference category for account information -->
@@ -872,7 +872,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">登入後即可同步分頁、書籤、密碼與其他資料。</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Mozilla 帳號</string>
+  <string name="preferences_account_default_name_2">BrowserWorks 帳號</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">重新連線，以恢復同步</string>
   <!-- Preference for language -->
@@ -1101,7 +1101,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">已推出新的擴充套件</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">看看超過 100 套能讓 Firefox 有您的風格的全新擴充套件。</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">看看超過 100 套能讓 Waterfox 有您的風格的全新擴充套件。</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">探索擴充套件</string>
   <!--
@@ -1173,7 +1173,7 @@
   -->
   <string name="fxa_received_tab_channel_name">收到分頁</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">收到來自其他 Firefox 裝置的分頁通知。</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">收到來自其他 Waterfox 裝置的分頁通知。</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">收到分頁</string>
   <!-- %s is the device name -->
@@ -1205,19 +1205,19 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">更多資訊</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">關於您的裝置、硬體設定，以及您的使用方式，可幫助我們為所有使用者改進 Firefox 功能、效能與穩定度。</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">關於您的裝置、硬體設定，以及您的使用方式，可幫助我們為所有使用者改進 Waterfox 功能、效能與穩定度。</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">活動測量資料</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">與 Mozilla 的行銷技術夥伴分享您如何發現 Firefox 以及是如何使用。</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">與 BrowserWorks 的行銷技術夥伴分享您如何發現 Waterfox 以及是如何使用。</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">了解行銷資料的更多資訊</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">每日使用情況回報</string>
-  <string name="preferences_daily_usage_ping_description">此資訊可幫助 Mozilla 估算活躍使用者數。</string>
+  <string name="preferences_daily_usage_ping_description">此資訊可幫助 BrowserWorks 估算活躍使用者數。</string>
   <string name="preferences_daily_usage_ping_learn_more">了解每日使用情況回報的更多資訊</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">自動傳送錯誤報告</string>
@@ -1228,7 +1228,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">使用者研究</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">允許 Mozilla 安裝執行使用者研究</string>
+  <string name="preference_experiments_summary_2">允許 BrowserWorks 安裝執行使用者研究</string>
   <!--
     Turn On Sync Preferences
 
@@ -1667,7 +1667,7 @@
   -->
   <string name="webcompat_reporter_screen_title">回報網站問題</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">請幫助讓 %1$s 能對每個人都變得更好。Mozilla 的員工會使用您傳送的資訊來修復網站問題。</string>
+  <string name="webcompat_reporter_description">請幫助讓 %1$s 能對每個人都變得更好。BrowserWorks 的員工會使用您傳送的資訊來修復網站問題。</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">網址</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -1729,7 +1729,7 @@
   -->
   <string name="tab_crash_title_2">很抱歉，%1$s 無法載入該頁面。</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">傳送錯誤報告給 Mozilla</string>
+  <string name="tab_crash_send_report">傳送錯誤報告給 BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">關閉分頁</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -2056,7 +2056,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">連結其他裝置</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">請在至少另一台裝置上的 Firefox 登入才能傳送分頁。</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">請在至少另一台裝置上的 Waterfox 登入才能傳送分頁。</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">知道了</string>
   <!-- Share error message -->
@@ -2088,12 +2088,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox 又快、又有隱私</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox 又快、又有隱私</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">將 Firefox 設成您的預設瀏覽器</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">將 Waterfox 設成您的預設瀏覽器</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">試用隱私瀏覽功能</string>
   <!--
@@ -2118,7 +2118,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">請協助填寫簡短問卷，讓 Firefox 得更好。</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">請協助填寫簡短問卷，讓 Waterfox 得更好。</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">填寫問卷</string>
   <!-- Preference for not taking the short survey. -->
@@ -2266,7 +2266,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">掃描 QR Code</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[在電腦上使用 Firefox 開啟 <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[在電腦上使用 Waterfox 開啟 <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">準備好了，開始掃描！</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2274,7 +2274,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">改用電子郵件</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[沒有帳號嗎？<u>註冊一組</u>就能在不同裝置間同步 Firefox。]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[沒有帳號嗎？<u>註冊一組</u>就能在不同裝置間同步 Waterfox。]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s 將會停止與您帳號間的同步，但不會刪除此裝置上的任何瀏覽資料。</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2883,7 +2883,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">請開啟分頁同步。</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">您其他裝置上的 Firefox 沒有任何開啟的分頁。</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">您其他裝置上的 Waterfox 沒有任何開啟的分頁。</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">檢視您其他裝置中的分頁清單。</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2949,7 +2949,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">等一個月後再自動關閉？</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox 可自動關閉您超過一個月未檢視的分頁。</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox 可自動關閉您超過一個月未檢視的分頁。</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">開啟自動關閉分頁功能</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2959,7 +2959,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox 建議</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox 建議</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2978,7 +2978,7 @@
   -->
   <string name="default_browser_experiment_card_title">切換您的預設瀏覽器</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">設定使用 Firefox 自動開啟網站、郵件、簡訊當中的鏈結。</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">設定使用 Waterfox 自動開啟網站、郵件、簡訊當中的鏈結。</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">移除</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -3002,7 +3002,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">由 %s 提供。</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Firefox 系列產品。%s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Waterfox 系列產品。%s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">了解更多</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -3338,7 +3338,7 @@
     %s is a placeholder for the name of the tracker category.
     %d is a placeholder for the number of trackers blocked.
   -->
-  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%s：%d 組</string>
+  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%1$s：%2$d 組</string>
   <!--
     Description text for a dialog confirming whether the user wants to delete all data for current site.
     %s is a placeholder for the base domain of website.
@@ -3414,7 +3414,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">請幫助我們讓 Firefox 變得更好，僅需一分鐘即可完成問卷。</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">請幫助我們讓 Waterfox 變得更好，僅需一分鐘即可完成問卷。</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">繼續</string>
   <!--
@@ -3444,29 +3444,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">我沒有使用</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">我不使用 Firefox 的搜尋功能</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">我不使用 Waterfox 的搜尋功能</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">我沒有使用 Sync</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">幫助讓 Firefox 的列印功能變得更棒，只需幾秒鐘</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">幫助讓 Waterfox 的列印功能變得更棒，只需幾秒鐘</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">請幫助我們讓 Firefox 的搜尋功能變得更好，僅需一分鐘即可完成問卷</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">請幫助我們讓 Waterfox 的搜尋功能變得更好，僅需一分鐘即可完成問卷</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">請幫助我們讓 Firefox 的同步功能變得更好，僅需一分鐘即可完成問卷</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">請幫助我們讓 Waterfox 的同步功能變得更好，僅需一分鐘即可完成問卷</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">請問您對 Firefox 的列印功能有多滿意？</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">請問您對 Waterfox 的列印功能有多滿意？</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">您對 Firefox 首頁有多滿意？</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">您對 Waterfox 首頁有多滿意？</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">您對 Firefox 的搜尋體驗滿意嗎？</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">您對 Waterfox 的搜尋體驗滿意嗎？</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">您對 Firefox 的同步功能使用體驗滿意嗎？</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">您對 Waterfox 的同步功能使用體驗滿意嗎？</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Firefox 圖示</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Waterfox 圖示</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">問卷功能圖示</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3564,27 +3564,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">立即更新</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">更新 Firefox 瀏覽器</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">更新 Waterfox 瀏覽器</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">有一張根憑證即將過期，將導致某些功能於 3 月 14 日後無法運作。</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">請於 3 月 14 日前更新</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">有一張根憑證即將過期，將導致您的 Firefox 於 3 月 14 日後無法正常運作。</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">有一張根憑證即將過期，將導致您的 Waterfox 於 3 月 14 日後無法正常運作。</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">更新時間剩下不到 7 天</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">由於根憑證即將失效，3 月 14 日起，附加元件與其他 Firefox 功能將停止運作。</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">由於根憑證即將失效，3 月 14 日起，附加元件與其他 Waterfox 功能將停止運作。</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">保留 Firefox 的最後機會</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">保留 Waterfox 的最後機會</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">因為根憑證即將失效，3 月 14 日後，您的 Firefox 版本將無法再正常運作。</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">因為根憑證即將失效，3 月 14 日後，您的 Waterfox 版本將無法再正常運作。</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">建議更新</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">附加元件與部分其他功能，將於 3 月 14 日起停止運作。</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">您使用的是舊版的 Firefox</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">您使用的是舊版的 Waterfox</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">請於 3 月 14 日前更新，以繼續使用附加元件與其他功能。</string>
   <!-- Push notification message about old Firefox version -->

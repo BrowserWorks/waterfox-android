@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">제거</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s는 Mozilla에서 제작했습니다.</string>
+  <string name="about_content">%1$s는 BrowserWorks에서 제작했습니다.</string>
   <!--
     Private Browsing
 
@@ -528,14 +528,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Firefox 개인정보 보호정책</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Waterfox 개인정보 보호정책</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">우리는 사용자를 안전하게 지키는 것을 좋아합니다</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">수백만 명이 Firefox를 좋아하는 이유를 알아보세요</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">수백만 명이 Waterfox를 좋아하는 이유를 알아보세요</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">더 많은 선택으로 안전한 브라우징</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -554,7 +554,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Firefox는 동기화 시 비밀번호, 북마크 등을 암호화합니다.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Waterfox는 동기화 시 비밀번호, 북마크 등을 암호화합니다.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">로그인</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -563,12 +563,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">알림으로 Firefox를 더욱 안전하게 사용할 수 있습니다</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">알림으로 Waterfox를 더욱 안전하게 사용할 수 있습니다</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">기기 간에 안전하게 탭을 보내고 Firefox의 다른 개인 정보 보호 기능을 찾아보세요.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">기기 간에 안전하게 탭을 보내고 Waterfox의 다른 개인 정보 보호 기능을 찾아보세요.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">알림 켜기</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -577,24 +577,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Firefox 검색 위젯을 사용해 보세요</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Waterfox 검색 위젯을 사용해 보세요</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">홈 화면에 Firefox를 사용하면, 교차 사이트 추적기를 차단하는 개인 정보 보호 우선 브라우저에 쉽게 접근할 수 있습니다.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">홈 화면에 Waterfox를 사용하면, 교차 사이트 추적기를 차단하는 개인 정보 보호 우선 브라우저에 쉽게 접근할 수 있습니다.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Firefox 위젯 추가</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Waterfox 위젯 추가</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">나중에</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">확장 기능으로 Firefox 개인화</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">확장 기능으로 Waterfox 개인화</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">제3자 확장 기능을 추가하여 보안과 생산성 등을 향상하세요.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -630,7 +630,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">%1$s / 5 점</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Firefox를 개선할 수 있도록 도와주세요</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Waterfox를 개선할 수 있도록 도와주세요</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">자동으로 충돌 보고서 보내기</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -638,13 +638,13 @@
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">더 알아보기</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">Mozilla에 기술 및 상호 작용 데이터 보내기</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">사용자의 기기와 하드웨어 설정, 그리고 Firefox를 어떻게 사용하는지에 대한 데이터는 모두를 위해 기능, 성능, 안정성을 개선하는데 도움이 됩니다.</string>
+  <string name="onboarding_preferences_dialog_usage_data_title">BrowserWorks에 기술 및 상호 작용 데이터 보내기</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">사용자의 기기와 하드웨어 설정, 그리고 Waterfox를 어떻게 사용하는지에 대한 데이터는 모두를 위해 기능, 성능, 안정성을 개선하는데 도움이 됩니다.</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">더 알아보기</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">완료</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Firefox 사용을 환영합니다</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Waterfox 사용을 환영합니다</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">빠르고 안전한 웹 브라우징</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -654,21 +654,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">계속하면 %1$s에 동의하게 됩니다.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Firefox 이용 약관</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Waterfox 이용 약관</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Firefox는 여러분의 개인 정보를 중요하게 생각합니다. %1$s에서 더 알아보세요.</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Waterfox는 여러분의 개인 정보를 중요하게 생각합니다. %1$s에서 더 알아보세요.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">개인정보처리방침</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">브라우저 개선을 돕기 위해 Firefox는 진단 및 상호 작용 데이터를 Mozilla에 보냅니다. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">브라우저 개선을 돕기 위해 Waterfox는 진단 및 상호 작용 데이터를 BrowserWorks에 보냅니다. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">관리</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Firefox를 성장시킬 수 있도록 도와주세요</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Waterfox를 성장시킬 수 있도록 도와주세요</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Firefox를 발견한 방법과 사용 방법을 공유하면, 더 많은 사람들에게 저희 브라우저를 소개하는 데 도움이 됩니다.</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Waterfox를 발견한 방법과 사용 방법을 공유하면, 더 많은 사람들에게 저희 브라우저를 소개하는 데 도움이 됩니다.</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">최소한의 데이터를 Mozilla의 마케팅 기술 파트너와 공유하세요. 이 데이터는 판매되거나 광고를 표시하는 데 사용되지 않습니다.</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">최소한의 데이터를 BrowserWorks의 마케팅 기술 파트너와 공유하세요. 이 데이터는 판매되거나 광고를 표시하는 데 사용되지 않습니다.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">저희가 데이터를 사용하는 방법</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -676,7 +676,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">마지막으로 한 가지</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Firefox를 발견한 방법과 사용 방법을 Mozilla의 마케팅 파트너들과 공유해보세요. 이 데이터는 판매되지 않습니다.</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Waterfox를 발견한 방법과 사용 방법을 BrowserWorks의 마케팅 파트너들과 공유해보세요. 이 데이터는 판매되지 않습니다.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">동의 및 탐색 시작</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -761,9 +761,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">주소 표시줄 설정</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">주소 표시줄 - Firefox 제안</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">주소 표시줄 - Waterfox 제안</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Firefox 제안에 대해 더 알아보기</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Waterfox 제안에 대해 더 알아보기</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Google Play에서 평가하기</string>
   <!--
@@ -854,7 +854,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">접근성</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">사용자 지정 Mozilla 계정 서버</string>
+  <string name="preferences_override_account_server">사용자 지정 BrowserWorks 계정 서버</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">사용자 지정 동기화 서버</string>
   <!-- Preference category for account information -->
@@ -872,7 +872,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">탭, 북마크, 비밀번호 등을 동기화하려면 로그인하세요.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Mozilla 계정</string>
+  <string name="preferences_account_default_name_2">BrowserWorks 계정</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">다시 연결하여 동기화를 계속하세요</string>
   <!-- Preference for language -->
@@ -1101,7 +1101,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">새 확장 기능 지금 사용 가능</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Firefox를 자신만의 것으로 만들 수 있는 100개 이상의 새로운 확장 기능을 확인해 보세요.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Waterfox를 자신만의 것으로 만들 수 있는 100개 이상의 새로운 확장 기능을 확인해 보세요.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">확장 기능 탐색하기</string>
   <!--
@@ -1173,7 +1173,7 @@
   -->
   <string name="fxa_received_tab_channel_name">받은 탭</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">다른 Firefox 기기에서 받은 탭에 대한 알림입니다.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">다른 Waterfox 기기에서 받은 탭에 대한 알림입니다.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">전송 받은 탭</string>
   <!-- %s is the device name -->
@@ -1205,19 +1205,19 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">더 알아보기</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">기기와 하드웨어 구성, 사용 현황에 대한 데이터는 Firefox 기능과 성능, 안정성을 개선하는 데 도움이 됩니다.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">기기와 하드웨어 구성, 사용 현황에 대한 데이터는 Waterfox 기능과 성능, 안정성을 개선하는 데 도움이 됩니다.</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">캠페인 측정 마케팅 데이터</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Firefox를 발견한 방법과 사용 방법을 Mozilla의 마케팅 기술 파트너들과 공유해보세요.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Waterfox를 발견한 방법과 사용 방법을 BrowserWorks의 마케팅 기술 파트너들과 공유해보세요.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">마케팅 데이터에 대해 더 알아보기</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">일일 사용량 핑</string>
-  <string name="preferences_daily_usage_ping_description">이 정보는 Mozilla가 활성 사용자를 예측하는 데 도움이 됩니다.</string>
+  <string name="preferences_daily_usage_ping_description">이 정보는 BrowserWorks가 활성 사용자를 예측하는 데 도움이 됩니다.</string>
   <string name="preferences_daily_usage_ping_learn_more">일일 사용량 핑에 대해 더 알아보기</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">자동으로 충돌 보고서 보내기</string>
@@ -1228,7 +1228,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">연구</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Mozilla가 연구를 설치하고 실행하도록 허용</string>
+  <string name="preference_experiments_summary_2">BrowserWorks가 연구를 설치하고 실행하도록 허용</string>
   <!--
     Turn On Sync Preferences
 
@@ -1667,7 +1667,7 @@
   -->
   <string name="webcompat_reporter_screen_title">깨진 사이트 신고</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">모두를 위해 %1$s가 더 나아지도록 도와주세요. Mozilla 직원은 보내주신 정보를 웹 사이트 문제 해결에 사용합니다.</string>
+  <string name="webcompat_reporter_description">모두를 위해 %1$s가 더 나아지도록 도와주세요. BrowserWorks 직원은 보내주신 정보를 웹 사이트 문제 해결에 사용합니다.</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">URL</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -1729,7 +1729,7 @@
   -->
   <string name="tab_crash_title_2">죄송합니다. %1$s가 페이지를 열 수 없습니다.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Mozilla에 충돌 보고서 보내기</string>
+  <string name="tab_crash_send_report">BrowserWorks에 충돌 보고서 보내기</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">탭 닫기</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -2056,7 +2056,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">다른 기기에 연결</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">탭을 보내려면 하나 이상의 다른 기기에서 Firefox에 로그인하세요.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">탭을 보내려면 하나 이상의 다른 기기에서 Waterfox에 로그인하세요.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">확인</string>
   <!-- Share error message -->
@@ -2088,12 +2088,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox는 빠르고 사생활을 보호합니다</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox는 빠르고 사생활을 보호합니다</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Firefox를 기본 브라우저로 설정하세요</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Waterfox를 기본 브라우저로 설정하세요</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">사생활 보호 모드 사용해보기</string>
   <!--
@@ -2118,7 +2118,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">간단한 설문 조사로 Firefox를 개선할 수 있도록 도와주세요.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">간단한 설문 조사로 Waterfox를 개선할 수 있도록 도와주세요.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">설문 조사 참여</string>
   <!-- Preference for not taking the short survey. -->
@@ -2266,7 +2266,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">코드 스캔</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[컴퓨터에서 Firefox를 열고 <b>https://firefox.com/pair</b>로 이동하세요]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[컴퓨터에서 Waterfox를 열고 <b>https://firefox.com/pair</b>로 이동하세요]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">스캔 준비 완료</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2274,7 +2274,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">대신 이메일 사용</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[계정이 없습니까? 기기 간에 Firefox를 동기화하려면 <u>하나를 만드세요</u>.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[계정이 없습니까? 기기 간에 Waterfox를 동기화하려면 <u>하나를 만드세요</u>.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s가 계정과의 동기화를 중단하지만 이 기기의 사용자 탐색 데이터는 삭제하지 않습니다.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2883,7 +2883,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">탭 동기화를 활성화하세요.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">다른 기기의 Firefox에서 열린 탭이 없습니다.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">다른 기기의 Waterfox에서 열린 탭이 없습니다.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">다른 기기의 탭 목록을 봅니다.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2949,7 +2949,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">한 달 후 자동 닫기를 하시겠습니까?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox는 지난 한 달 동안 보지 않은 탭을 닫을 수 있습니다.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox는 지난 한 달 동안 보지 않은 탭을 닫을 수 있습니다.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">자동 닫기 켜기</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2959,7 +2959,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox 제안</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox 제안</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2978,7 +2978,7 @@
   -->
   <string name="default_browser_experiment_card_title">기본 브라우저 전환</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Firefox에서 자동으로 열리도록 웹 사이트, 이메일 및 메시지의 링크를 설정합니다.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Waterfox에서 자동으로 열리도록 웹 사이트, 이메일 및 메시지의 링크를 설정합니다.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">삭제</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -3002,7 +3002,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">%s 제공.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Firefox 제품군의 일부입니다. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Waterfox 제품군의 일부입니다. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">더 알아보기</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -3338,7 +3338,7 @@
     %s is a placeholder for the name of the tracker category.
     %d is a placeholder for the number of trackers blocked.
   -->
-  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%s: %d개</string>
+  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%1$s: %2$d개</string>
   <!--
     Description text for a dialog confirming whether the user wants to delete all data for current site.
     %s is a placeholder for the base domain of website.
@@ -3414,7 +3414,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Firefox를 개선할 수 있도록 도와주세요. 단 1분밖에 걸리지 않습니다.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Waterfox를 개선할 수 있도록 도와주세요. 단 1분밖에 걸리지 않습니다.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">계속</string>
   <!--
@@ -3444,29 +3444,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">사용하지 않음</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Firefox에서 검색을 사용하지 않음</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Waterfox에서 검색을 사용하지 않음</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">동기화를 사용하지 않음</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Firefox의 인쇄를 개선할 수 있도록 도와주세요. 잠깐이면 됩니다.</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Waterfox의 인쇄를 개선할 수 있도록 도와주세요. 잠깐이면 됩니다.</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Firefox의 검색을 개선할 수 있도록 도와주세요. 단 1분밖에 걸리지 않습니다.</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Waterfox의 검색을 개선할 수 있도록 도와주세요. 단 1분밖에 걸리지 않습니다.</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Firefox의 동기화를 개선할 수 있도록 도와주세요. 단 1분밖에 걸리지 않습니다.</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Waterfox의 동기화를 개선할 수 있도록 도와주세요. 단 1분밖에 걸리지 않습니다.</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Firefox에서 인쇄하는 데 얼마나 만족하시나요?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Waterfox에서 인쇄하는 데 얼마나 만족하시나요?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Firefox 홈페이지에 얼마나 만족하시나요?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Waterfox 홈페이지에 얼마나 만족하시나요?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Firefox의 검색 경험에 얼마나 만족하시나요?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Waterfox의 검색 경험에 얼마나 만족하시나요?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Firefox의 동기화 경험에 얼마나 만족하시나요?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Waterfox의 동기화 경험에 얼마나 만족하시나요?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Firefox 로고</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Waterfox 로고</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">설문조사 기능 아이콘</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3564,27 +3564,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">지금 업데이트</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Firefox를 업데이트하세요</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Waterfox를 업데이트하세요</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">루트 인증서는 3월 14일에 만료되어 일부 기능이 작동하지 않습니다.</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">3월 14일 이전 업데이트</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">루트 인증서가 만료되어 Firefox가 제대로 작동하지 않게 됩니다.</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">루트 인증서가 만료되어 Waterfox가 제대로 작동하지 않게 됩니다.</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">업데이트가 7일 이내 남음</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">3월 14일부터 루트 인증서가 만료되므로 Firefox의 부가 기능 및 기타 기능은 작동하지 않습니다.</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">3월 14일부터 루트 인증서가 만료되므로 Waterfox의 부가 기능 및 기타 기능은 작동하지 않습니다.</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Firefox를 지킬 수 있는 마지막 기회</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Waterfox를 지킬 수 있는 마지막 기회</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">루트 인증서가 만료되므로 사용중인 Firefox 버전은 3월 14일에 제대로 작동하지 않습니다.</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">루트 인증서가 만료되므로 사용중인 Waterfox 버전은 3월 14일에 제대로 작동하지 않습니다.</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">업데이트 권장됨</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">3월 14일부터 부가 기능 및 일부 기능이 작동을 멈춥니다.</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">이전 버전의 Firefox를 사용 중입니다</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">이전 버전의 Waterfox를 사용 중입니다</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">부가 기능과 기타 기능을 계속 사용하시려면 3월 14일 전에 업데이트를 하세요.</string>
   <!-- Push notification message about old Firefox version -->

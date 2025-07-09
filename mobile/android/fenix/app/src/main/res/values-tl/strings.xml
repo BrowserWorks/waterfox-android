@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Alisin</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">Ang %1$s ay gawa ng Mozilla.</string>
+  <string name="about_content">Ang %1$s ay gawa ng BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -494,14 +494,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Abiso sa Pribasiya ng Firefox</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Abiso sa Pribasiya ng Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Nais naming panatilihin kang ligtas</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Alamin kung bakit milyun-milyon ang mahilig sa Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Alamin kung bakit milyun-milyon ang mahilig sa Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Ligtas na pag-browse nang may karagdagang mga pagpipilian</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -520,7 +520,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Kapag naka-sync ka, ine-encrypt ng Firefox ang iyong mga password, bookmark, at iba pa.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Kapag naka-sync ka, ine-encrypt ng Waterfox ang iyong mga password, bookmark, at iba pa.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Mag sign-in</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -529,12 +529,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Nakatutulong ang mga abiso para manatili kang ligtas sa Firefox</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Nakatutulong ang mga abiso para manatili kang ligtas sa Waterfox</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Ligtas na magpadala ng mga tab sa iyong mga device at tuklasin ang iba pang mga privacy feature sa Firefox.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Ligtas na magpadala ng mga tab sa iyong mga device at tuklasin ang iba pang mga privacy feature sa Waterfox.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Buksan ang mga abiso</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -543,24 +543,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Subukan ang Firefox search widget</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Subukan ang Waterfox search widget</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Kung nasa home screen mo ang Firefox, may madali kang paraan para ma-access ang browser na inuuna ang pribasiya sa pagharang ng mga cross-site tracker.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Kung nasa home screen mo ang Waterfox, may madali kang paraan para ma-access ang browser na inuuna ang pribasiya sa pagharang ng mga cross-site tracker.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Idagdag ang Firefox widget</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Idagdag ang Waterfox widget</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Hindi sa ngayon</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Ipasadya ang iyong Firefox gamit ang mga extension</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Ipasadya ang iyong Waterfox gamit ang mga extension</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">Magdagdag ng mga third-party extension para mapaigting ang iyong kaligtasan, ang pagiging produktibo, at iba pa.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -594,7 +594,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">May markang %1$s / 5</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Tulungan kaming pagandahin ang Firefox</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Tulungan kaming pagandahin ang Waterfox</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">Kusang magpadala ng mga crash report</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -602,13 +602,13 @@
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">Alamin</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">Magpadala ng technical at interaction data sa Mozilla</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Nakatutulong pahusayin ang mga feature, performance, at stablity para sa lahat ang data tungkol sa iyong device, hardware configuration, at kung paano ginagamit ang Firefox.</string>
+  <string name="onboarding_preferences_dialog_usage_data_title">Magpadala ng technical at interaction data sa BrowserWorks</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Nakatutulong pahusayin ang mga feature, performance, at stablity para sa lahat ang data tungkol sa iyong device, hardware configuration, at kung paano ginagamit ang Waterfox.</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">Alamin</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">Tapos na</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Maligayang pagdating sa Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Maligayang pagdating sa Waterfox</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">Mabilis at ligtas na web browsing</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -618,21 +618,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">Sa pagpapatuloy, sumasang-ayon ka sa %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Mga Tuntunin sa Paggamit ng Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Mga Tuntunin sa Paggamit ng Waterfox</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Pinapahalagahan ng Firefox ang iyong privacy. Alamin sa aming %1$s.</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Pinapahalagahan ng Waterfox ang iyong privacy. Alamin sa aming %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">Paunawa sa Privacy</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Para tulungang mapaganda ang browser, nagpapadala ang Firefox ng mga diagnostic at interaction data sa Mozilla. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Para tulungang mapaganda ang browser, nagpapadala ang Waterfox ng mga diagnostic at interaction data sa BrowserWorks. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">Pamahalaan</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Tulungan kaming palaguin ang Firefox</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Tulungan kaming palaguin ang Waterfox</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Kapag ibinabahagi mo kung paano mo natuklasan ang Firefox at ginagamit mo ito, tinutulungan mo kaming ipakilala ang ating browser sa mas maraming tao.</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Kapag ibinabahagi mo kung paano mo natuklasan ang Waterfox at ginagamit mo ito, tinutulungan mo kaming ipakilala ang ating browser sa mas maraming tao.</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Magbahagi ng kaunting data sa mga marketing technology partner ng Mozilla. Ang data na ito ay hindi kailanman ibebenta o gagamitin para pakitaan ka ng mga ad.</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Magbahagi ng kaunting data sa mga marketing technology partner ng BrowserWorks. Ang data na ito ay hindi kailanman ibebenta o gagamitin para pakitaan ka ng mga ad.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">Paano namin ginagamit ang data</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -640,7 +640,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">Isa na lang</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Ibahagi kung paano mo natuklasan ang Firefox, na ginagamit mo ito kaakibat ang mga marketing partner ng Mozilla. Ang data na ito ay di-kailanman ibebenta.</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Ibahagi kung paano mo natuklasan ang Waterfox, na ginagamit mo ito kaakibat ang mga marketing partner ng BrowserWorks. Ang data na ito ay di-kailanman ibebenta.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">Sumang-ayon at magsimulang mag-browse</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -725,9 +725,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Mga kagustuhan sa address bar</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Address bar - Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Address bar - Waterfox Suggest</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Alamin ang tungkol sa Firefox Suggest</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Alamin ang tungkol sa Waterfox Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">I-rate sa Google Play</string>
   <!--
@@ -816,7 +816,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Accessibility</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">Pasadyang Mozilla account server</string>
+  <string name="preferences_override_account_server">Pasadyang BrowserWorks account server</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Pasadya na Sync server</string>
   <!-- Preference category for account information -->
@@ -834,7 +834,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">Mag-sign in para makapag-sync ng mga tab, bookmark, password, at iba pa.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Mozilla account</string>
+  <string name="preferences_account_default_name_2">BrowserWorks account</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Muling kumonekta para maipagpatuloy ang pag-sync</string>
   <!-- Preference for language -->
@@ -1009,7 +1009,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">May mga bagong extension na pwedeng gamitin</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Tingnan ang higit sa 100 mga bagong extension para mas maging personal ang Firefox mo.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Tingnan ang higit sa 100 mga bagong extension para mas maging personal ang Waterfox mo.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Tumuklas ng mga extension</string>
   <!--
@@ -1081,7 +1081,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Mga natanggap na tab</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Mga abiso para sa mga tab na natanggap mula sa ibang mga Firefox device.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Mga abiso para sa mga tab na natanggap mula sa ibang mga Waterfox device.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">May natanggap na tab</string>
   <!-- %s is the device name -->
@@ -1113,19 +1113,19 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">Alamin</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Nakatutulong sa amin na pagandahin ang mga feature, performance, at stability ng Firefox gamit ang data tungkol sa iyong device, hardware configuration, at paraan ng paggamit.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Nakatutulong sa amin na pagandahin ang mga feature, performance, at stability ng Waterfox gamit ang data tungkol sa iyong device, hardware configuration, at paraan ng paggamit.</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">Campaign measurement data</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Ibahagi kung paano mo natuklasan ang Firefox, na ginagamit mo ito kaakibat ang mga marketing partner ng Mozilla.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Ibahagi kung paano mo natuklasan ang Waterfox, na ginagamit mo ito kaakibat ang mga marketing partner ng BrowserWorks.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Alamin ang tungkol sa marketing data</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">Daily usage ping</string>
-  <string name="preferences_daily_usage_ping_description">Natutulungan nito ang Mozilla na tantyahin ang bilang ng mga aktibong user.</string>
+  <string name="preferences_daily_usage_ping_description">Natutulungan nito ang BrowserWorks na tantyahin ang bilang ng mga aktibong user.</string>
   <string name="preferences_daily_usage_ping_learn_more">Alamin ang tungkol sa daily usage ping</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">Kusang magpadala ng mga crash report</string>
@@ -1136,7 +1136,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Mga pag-aaral</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Pinapayagan ang Mozilla para magkabit at magpatakbo ng mga pag-aaral</string>
+  <string name="preference_experiments_summary_2">Pinapayagan ang BrowserWorks para magkabit at magpatakbo ng mga pag-aaral</string>
   <!--
     Turn On Sync Preferences
 
@@ -1542,7 +1542,7 @@
   -->
   <string name="webcompat_reporter_screen_title">Mag-ulat ng sirang site</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">Tulungang pagandahin ang %1$s para sa lahat. Gagamitin ng mga empleyado ng Mozilla ang impormasyong ipapadala mo para ayusin ang mga problema sa website.</string>
+  <string name="webcompat_reporter_description">Tulungang pagandahin ang %1$s para sa lahat. Gagamitin ng mga empleyado ng BrowserWorks ang impormasyong ipapadala mo para ayusin ang mga problema sa website.</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">URL</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -1588,7 +1588,7 @@
   -->
   <string name="tab_crash_title_2">Pasensya na. Hindi kayang ma-load ng %1$s ang pahina.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Ipadala ang crash report sa Mozilla</string>
+  <string name="tab_crash_send_report">Ipadala ang crash report sa BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Isara ang tab</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1909,7 +1909,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Magkonekta ng isa pang device</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Para makapagpadala ng tab, mag-sign in sa Firefox sa isa pang device.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Para makapagpadala ng tab, mag-sign in sa Waterfox sa isa pang device.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Nakuha ko</string>
   <!-- Share error message -->
@@ -1941,12 +1941,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Mabilis at pribado ang Firefox</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Mabilis at pribado ang Waterfox</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Gawin mong default browser ang Firefox</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Gawin mong default browser ang Waterfox</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Subukan ang pribadong pag-browse</string>
   <!--
@@ -1971,7 +1971,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Pakitulungan pagandahin ang Firefox sa pamamagitan ng pagsagot sa isang maikling survey.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Pakitulungan pagandahin ang Waterfox sa pamamagitan ng pagsagot sa isang maikling survey.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Sagutin ang Survey</string>
   <!-- Preference for not taking the short survey. -->
@@ -2119,7 +2119,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">i-Scan ang code</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Buksan ang Firefox sa computer mo at pumunta sa <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Buksan ang Waterfox sa computer mo at pumunta sa <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Handa nang mag-scan</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2127,7 +2127,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Gumamit na lang ng email</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Walang account? <u>Gumawa ng isa</u> para makapag-sync ng Firefox sa mga device.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Walang account? <u>Gumawa ng isa</u> para makapag-sync ng Waterfox sa mga device.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">Titigil na ang %s sa pag-sync sa iyong account, pero hindi nito buburahin ang kahit anong browsing data sa device na ito.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2732,7 +2732,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Paki-enable ang pag-sync ng tab.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Wala kang mga nakabukas na tab sa Firefox sa iba mo pang mga device.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Wala kang mga nakabukas na tab sa Waterfox sa iba mo pang mga device.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Tingnan ang listahan ng mga tab mula sa iba mong mga device.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2798,7 +2798,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Kusang isara pagkatapos ng isang buwan?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Pwedeng isara ng Firefox ang mga tab na hindi mo natingnan sa nakaraang buwan.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Pwedeng isara ng Waterfox ang mga tab na hindi mo natingnan sa nakaraang buwan.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">BUKSAN ANG AUTO CLOSE</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2808,7 +2808,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Suggest</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox Suggest</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2827,7 +2827,7 @@
   -->
   <string name="default_browser_experiment_card_title">Palitan ang iyong default browser</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Set links from websites, emails, and messages to open automatically in Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Set links from websites, emails, and messages to open automatically in Waterfox.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Tanggalin</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2849,7 +2849,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">Pinatatakbo ng %s.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Parte ng pamilyang Firefox. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Parte ng pamilyang Waterfox. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Matuto ng higit pa</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -3185,7 +3185,7 @@
     %s is a placeholder for the name of the tracker category.
     %d is a placeholder for the number of trackers blocked.
   -->
-  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%s: %d</string>
+  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%1$s: %2$d</string>
   <!--
     Description text for a dialog confirming whether the user wants to delete all data for current site.
     %s is a placeholder for the base domain of website.
@@ -3261,7 +3261,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Tulungan kaming pagandahin ang Firefox. Saglit lang ito.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Tulungan kaming pagandahin ang Waterfox. Saglit lang ito.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Magpatuloy</string>
   <!--
@@ -3291,29 +3291,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">Hindi ko ginagamit</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Hindi ko ginagamit ang paghahanap sa Firefox</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Hindi ko ginagamit ang paghahanap sa Waterfox</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">Hindi ako gumagamit ng sync</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Tulungang pagandahin ang pag-print sa Firefox. Saglit lang ito</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Tulungang pagandahin ang pag-print sa Waterfox. Saglit lang ito</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Tulungang pagandahin ang paghahanap sa Firefox. Saglit lang ito</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Tulungang pagandahin ang paghahanap sa Waterfox. Saglit lang ito</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Tulungang pagandahin ang pag-sync sa Firefox. Saglit lang ito</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Tulungang pagandahin ang pag-sync sa Waterfox. Saglit lang ito</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Gaano ka nasiyahan sa pag-print sa Firefox?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Gaano ka nasiyahan sa pag-print sa Waterfox?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Gaano ka nasiyahan sa iyong Firefox homepage?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Gaano ka nasiyahan sa iyong Waterfox homepage?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Gaano ka nasiyahan sa karanasan sa paghahanap sa Firefox?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Gaano ka nasiyahan sa karanasan sa paghahanap sa Waterfox?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Gaano ka nasiyahan sa karanasan sa pag-sync sa Firefox?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Gaano ka nasiyahan sa karanasan sa pag-sync sa Waterfox?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logo ng Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logo ng Waterfox</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Survey feature icon</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3409,27 +3409,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">Mag-update na ngayon</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">I-update ang iyong Firefox browser</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">I-update ang iyong Waterfox browser</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">May root certificate na mag-eexpire na magdudulot para tumigil ang ilang mga feature sa Marso 14.</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">Mag-update bago Marso 14</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">May mag-e-expire na root certificate na magdudulot ng pagkasira ng iyong bersyon ng Firefox.</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">May mag-e-expire na root certificate na magdudulot ng pagkasira ng iyong bersyon ng Waterfox.</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">Hindi hihigit sa 7 araw na lang ang nalalabi para mag-update</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">Sa Marso 14, titigil nang gumana ang mga add-on at ibang Firefox feature dahil mayroong root certificate na mag-e-expire.</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">Sa Marso 14, titigil nang gumana ang mga add-on at ibang Waterfox feature dahil mayroong root certificate na mag-e-expire.</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Huling pagkakataon para mapanatili ang iyong Firefox</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Huling pagkakataon para mapanatili ang iyong Waterfox</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Ang iyong bersyon ng Firefox ay titigil nang gumana pagdating ng Marso 14 dahil may mag-eexpire na root certificate.</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Ang iyong bersyon ng Waterfox ay titigil nang gumana pagdating ng Marso 14 dahil may mag-eexpire na root certificate.</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">Nirerekomendang mag-update</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">Titigil nang gumana ang mga add-on at ilang mga feature sa Marso 14.</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Gumagamit ka ng lumang bersyon ng Firefox</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Gumagamit ka ng lumang bersyon ng Waterfox</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">Mag-update bago mag-Marso 14 para patuloy na makagamit ng mga add-on at ibang mga feature.</string>
   <!-- Push notification message about old Firefox version -->

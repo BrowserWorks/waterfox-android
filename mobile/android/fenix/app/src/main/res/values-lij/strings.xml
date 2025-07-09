@@ -21,7 +21,7 @@
   <!-- No Private Tabs Message Description -->
   <string name="no_private_tabs_description">I feuggi privæ saian mostræ chi.</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s o l\'é svilupou da Mozilla.</string>
+  <string name="about_content">%1$s o l\'é svilupou da BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -227,7 +227,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Feuggi reçevui</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notifiche pe-i feuggi reçevue da atri dispoxitivi Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notifiche pe-i feuggi reçevue da atri dispoxitivi Waterfox.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Feuggio reçevuo</string>
   <!-- %s is the device name -->
@@ -354,7 +354,7 @@
   -->
   <string name="tab_crash_title_2">Me spiaxe. %1$s o no peu caregâ sta pagina.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Manda a segnalaçion do cianto a Mozilla</string>
+  <string name="tab_crash_send_report">Manda a segnalaçion do cianto a BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Særa feuggio</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -547,7 +547,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Conetti atro dispoxitivo</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Pe mandâ un feuggio, intra into conto Firefox almeno inte \'n atro dispoxitivo.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Pe mandâ un feuggio, intra into conto Waterfox almeno inte \'n atro dispoxitivo.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Ò capio!</string>
   <!-- Share error message -->
@@ -669,7 +669,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Scançionn-a o còdice</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Arvi Firefox in sciô computer e vanni chi <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Arvi Waterfox in sciô computer e vanni chi <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Pronto pe-a scançion</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -916,7 +916,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Pe piaxei ativa a scincroniaçion di feuggi.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">No ti gh\'æ feuggi averti in Firefox inti atri dispoxitivi.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">No ti gh\'æ feuggi averti in Waterfox inti atri dispoxitivi.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Amia \'na lista de tutti i feuggi da-i atri dispoxitivi.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->

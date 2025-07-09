@@ -53,7 +53,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Xita</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s kuvi iin a sá´á Mozilla.</string>
+  <string name="about_content">%1$s kuvi iin a sá´á BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -371,14 +371,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Tu´un xitu Firefox a nejika kumio</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Tu´un xitu Waterfox a nejika kumio</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Kɨsɨ inidani a kumidani noo\'o</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Kuni navi chi kue\'etuni ñivɨ ta\'an inida Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Kuni navi chi kue\'etuni ñivɨ ta\'an inida Waterfox</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_description_nimbus_4" tools:ignore="UnusedResources">Kue\'e tuni ñivɨ kumidaja privacidad mada jee kajida iin ka̱a̱ a sá´á iin vetiñu ntu ntava xu\'un.</string>
   <!-- Text for the button to set firefox as default browser on the device -->
@@ -393,7 +393,7 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Daa notificaciones chineí koo va\'anu jíí Firefox</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Daa notificaciones chineí koo va\'anu jíí Waterfox</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Tee notificaciones</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -402,12 +402,12 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Ni\'i widget a nánuku jíí Firefox</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Ni\'i widget a nánuku jíí Waterfox</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Tee widget Firefox</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Tee widget Waterfox</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Nkuvi ntañu´u</string>
   <!--
@@ -451,9 +451,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Sama barra daa nuu</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Barra daa nuu - Ya\'a vi daa a kachi Firefox</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Barra daa nuu - Ya\'a vi daa a kachi Waterfox</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Ka´vi kue´eka jie´e Firefox Suggest</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Ka´vi kue´eka jie´e Waterfox Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Tee iin tuni nuu Google Play</string>
   <!--
@@ -524,7 +524,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Accesibilidad</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">Servidor personalizado de cuenta de Mozilla</string>
+  <string name="preferences_override_account_server">Servidor personalizado de cuenta de BrowserWorks</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Servidor personalizado de Sync</string>
   <!-- Preference category for account information -->
@@ -540,7 +540,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">Kajie´e sesión saa kuvi saa sincronizar daa pestañas, a ta´a ini noo´o, contraseñas jii kue´eka.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Cuenta de Mozilla</string>
+  <string name="preferences_account_default_name_2">Cuenta de BrowserWorks</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Nakivɨ tuku sa nakajie\'e sincronización</string>
   <!-- Preference for language -->
@@ -743,7 +743,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Pestañas recibidas</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Da notificaciones da pestañas nkata jee vajida nu inka ka̱a̱ Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Da notificaciones da pestañas nkata jee vajida nu inka ka̱a̱ Waterfox.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Pestaña recibida</string>
   <!-- %s is the device name -->
@@ -771,7 +771,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Estudios</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Kua\'a Mozilla chu\'un jee sá´á estudios</string>
+  <string name="preference_experiments_summary_2">Kua\'a BrowserWorks chu\'un jee sá´á estudios</string>
   <!--
     Turn On Sync Preferences
 
@@ -1047,7 +1047,7 @@
   -->
   <string name="tab_crash_title_2">Nei koo ini-nu. %1$s ntu nkuvi síne nuu ya\'a.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Chu´un ichi tutu kachi ntu satiñu ka̱a̱ ya´a nu Mozilla</string>
+  <string name="tab_crash_send_report">Chu´un ichi tutu kachi ntu satiñu ka̱a̱ ya´a nu BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Nakasɨ pestaña</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1312,7 +1312,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Chu´un inka ka̱a̱</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Sa kuvi chu\'un íchi iin pestaña, kajie´e sesión jíí Firefox nuu inka ka̱a̱.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Sa kuvi chu\'un íchi iin pestaña, kajie´e sesión jíí Waterfox nuu inka ka̱a̱.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Kuka´nu inini</string>
   <!-- Share error message -->
@@ -1339,12 +1339,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox kuviji ñama jee yu\'u</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox kuviji ñama jee yu\'u</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Sá´á Firefox ka̱a̱ nánuku xinañu´u</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Sá´á Waterfox ka̱a̱ nánuku xinañu´u</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Ni\'i nánuku yu\'u</string>
   <!--
@@ -1369,7 +1369,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Kuneka\'nu ininu, chinei Firefox jíí iin encuesta luli.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Kuneka\'nu ininu, chinei Waterfox jíí iin encuesta luli.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Chu\'un encuesta</string>
   <!-- Preference for not taking the short survey. -->
@@ -1521,7 +1521,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Ni\'i correo electrónico en su lugar</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[¿Ntu kuminu cuenta? <u>Sá´á iin</u> saa kuvi sa sincronizar Firefox jíí da ka̱a̱.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[¿Ntu kuminu cuenta? <u>Sá´á iin</u> saa kuvi sa sincronizar Waterfox jíí da ka̱a̱.]]></string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
   <string name="sign_out_disconnect">Kene</string>
   <!-- Option to cancel signing out shown in confirmation dialog to sign out of account -->
@@ -1988,7 +1988,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Kua\'a sa´a sincronización da pestañas.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Ntu kuminu ni\'in pestaña nune jíí Firefox nu da inka ka̱a̱ noo\'o.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Ntu kuminu ni\'in pestaña nune jíí Waterfox nu da inka ka̱a̱ noo\'o.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Kune´ya iin lista da pestañas da inka dispositivos.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2044,7 +2044,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">¿Nakasɨ dee nña\'a iin yoo?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox kuvi nakasɨ pestañas de ntu sinenuma jee nña\'a iin yoo.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox kuvi nakasɨ pestañas de ntu sinenuma jee nña\'a iin yoo.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ACTIVAR CIERRE AUTOMÁTICO</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2054,7 +2054,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Suggest</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox Suggest</string>
   <!-- Title for search suggestions when Google is the default search suggestion engine. -->
   <string name="google_search_engine_suggestion_header">Nnánuku Google</string>
   <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. %s is default search engine name. -->
@@ -2086,7 +2086,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">Ya´a nsa´a %1$s</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Ya\'a kuvi ñani Firefox. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Ya\'a kuvi ñani Waterfox. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Ka´vi kue´eka</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -2236,7 +2236,7 @@
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logo de Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logo de Waterfox</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
   <string name="microsurvey_close_handle_content_description">Nakasɨ encuesta</string>
   <!-- Content description for "X" button that is closing microsurvey. -->

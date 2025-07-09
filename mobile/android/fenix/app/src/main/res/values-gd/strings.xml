@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Thoir air falbh</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">Chaidh %1$s a dhèanamh le Mozilla.</string>
+  <string name="about_content">Chaidh %1$s a dhèanamh le BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -463,14 +463,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Aithris prìobhaideachd Firefox</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Aithris prìobhaideachd Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Tha e a’ toirt tlachd dhuinn do chumail sàbhailte</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Fiosraich carson a tha na milleanan mòra dèidheil air Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Fiosraich carson a tha na milleanan mòra dèidheil air Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Brabhsadh sàbhailte le barrachd roghainnean</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -489,7 +489,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Crioptaichidh Firefox na faclan-faire, comharran-lìn is mòran a bharrachd dhut is tu ’ga shioncronachadh.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Crioptaichidh Waterfox na faclan-faire, comharran-lìn is mòran a bharrachd dhut is tu ’ga shioncronachadh.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Clàraich a-steach</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -498,12 +498,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Cumaidh brathan Firefox rudan nas sàbhailte dhut</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Cumaidh brathan Waterfox rudan nas sàbhailte dhut</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Cuir tabaichean eadar na h-uidheaman agad air dòigh thèarainte is fidir an còrr dhen na gleusan prìobhaideachd aig Firefox.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Cuir tabaichean eadar na h-uidheaman agad air dòigh thèarainte is fidir an còrr dhen na gleusan prìobhaideachd aig Waterfox.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Cuir na brathan air</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -512,24 +512,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Feuch widget lorg Firefox</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Feuch widget lorg Waterfox</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Le Firefox air an sgrìn-dhachaigh agad, gheibh thu cothrom gun duilgheadas air a’ bhrabhsair a chuireas prìomhachas air prìobhaideachd is a bhacas tracaichean thar làraichean.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Le Waterfox air an sgrìn-dhachaigh agad, gheibh thu cothrom gun duilgheadas air a’ bhrabhsair a chuireas prìomhachas air prìobhaideachd is a bhacas tracaichean thar làraichean.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Cuir ris widget Firefox</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Cuir ris widget Waterfox</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Chan ann an-dràsta</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Gnàthaich am Firefox agad le leudachain</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Gnàthaich am Waterfox agad le leudachain</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">Cuir leudachain le treas-phàrtaidhean ris airson barrachd tèarainteachd, tarbhachd is mòran a bharrachd.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -601,9 +601,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Roghainnean bàr an t-seòlaidh</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Bàr an t-seòlaidh – Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Bàr an t-seòlaidh – Waterfox Suggest</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Barrachd fiosrachaidh mu Firefox Suggest</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Barrachd fiosrachaidh mu Waterfox Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Rangaich e air Google Play</string>
   <!--
@@ -688,7 +688,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">So-ruigsinneachd</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">Frithealaiche chunntasan Mozilla gnàthaichte</string>
+  <string name="preferences_override_account_server">Frithealaiche chunntasan BrowserWorks gnàthaichte</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Frithealaiche sioncronachaidh gnàthaichte</string>
   <!-- Preference category for account information -->
@@ -706,7 +706,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">Clàraich a-steach gus na tabaichean, comharran-lìn, faclan-faire is mòran a bharrachd a shioncronachadh.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Cunntas Mozilla</string>
+  <string name="preferences_account_default_name_2">Cunntas BrowserWorks</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Ceangail ris às ùr airson leantainn air an t-sioncronachadh</string>
   <!-- Preference for language -->
@@ -867,7 +867,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">Tha leudachain ùra ri am faighinn</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Tha barrachd air ceud leudachan ann leis an doir thu dreach pearsanta air Firefox.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Tha barrachd air ceud leudachan ann leis an doir thu dreach pearsanta air Waterfox.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Rùraich na leudachain</string>
   <!--
@@ -939,7 +939,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Tabaichean a fhuaras</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Brathan airson tabaichean a fhuaras o uidheaman Firefox eile.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Brathan airson tabaichean a fhuaras o uidheaman Waterfox eile.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Fhuaras taba</string>
   <!-- %s is the device name -->
@@ -969,7 +969,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Rannsachadh</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Leig le Mozilla rannsachadh a stàladh is a ruith an-còmhnaidh</string>
+  <string name="preference_experiments_summary_2">Leig le BrowserWorks rannsachadh a stàladh is a ruith an-còmhnaidh</string>
   <!--
     Turn On Sync Preferences
 
@@ -1249,7 +1249,7 @@
   -->
   <string name="tab_crash_title_2">Tha sinn duilich ach chan urrainn dha %1$s an duilleag a luchdadh.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Cuir aithisg tuislidh gu Mozilla</string>
+  <string name="tab_crash_send_report">Cuir aithisg tuislidh gu BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Dùin an taba</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1560,7 +1560,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Ceangail uidheam eile ris</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Airson taba a chur, clàraich a-steach gu Firefox air co-dhiù aon uidheam eile.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Airson taba a chur, clàraich a-steach gu Waterfox air co-dhiù aon uidheam eile.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Tha mi agaibh</string>
   <!-- Share error message -->
@@ -1588,12 +1588,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Tha Firefox luath ’s prìobhaideach</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Tha Waterfox luath ’s prìobhaideach</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Cleachd Firefox mar am brabhsair bunaiteach agad</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Cleachd Waterfox mar am brabhsair bunaiteach agad</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Feuch am brabhsadh prìobhaideach</string>
   <!--
@@ -1618,7 +1618,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Nach coilean thu suirbhidh ghoirid airson Firefox a dhèanamh nas fheàrr?</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Nach coilean thu suirbhidh ghoirid airson Waterfox a dhèanamh nas fheàrr?</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Gabh an t-suirbhidh</string>
   <!-- Preference for not taking the short survey. -->
@@ -1766,7 +1766,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Sganaich an còd</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Fosgail Firefox air a’ choimpiutair agad is tadhail air <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Fosgail Waterfox air a’ choimpiutair agad is tadhail air <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Deiseil airson sganadh</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1774,7 +1774,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Cleachd post-d na àite</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Nach eil cunntas agad? <u>Cruthaich fear</u> airson Firefox a shioncronachadh eadar uidheaman.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Nach eil cunntas agad? <u>Cruthaich fear</u> airson Waterfox a shioncronachadh eadar uidheaman.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">Sguiridh %s de shioncronachadh a’ chunntais agad ach cha sguab e às gin dhen dàta brabhsaidh agad air an uidheam seo.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2291,7 +2291,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Cuir an comas sioncronachadh nan tabaichean.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Chan eil taba sam bith fosgailte agad ann am Firefox air uidheaman eile.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Chan eil taba sam bith fosgailte agad ann am Waterfox air uidheaman eile.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Seall liosta nan tabaichean a tha agad air uidheaman eile.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2357,7 +2357,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">A bheil thu airson an dùnadh an dèidh mìos?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Dùnaidh Firefox tabaichean nach tug thu sùil orra thairis air a’ mhìos seo chaidh.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Dùnaidh Waterfox tabaichean nach tug thu sùil orra thairis air a’ mhìos seo chaidh.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">CUIR GLEUS AN FHÈIN-DÙNAIDH AIR</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2367,7 +2367,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Suggest</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox Suggest</string>
   <!-- Title for search suggestions when Google is the default search suggestion engine. -->
   <string name="google_search_engine_suggestion_header">Lorg le Google</string>
   <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. %s is default search engine name. -->
@@ -2379,7 +2379,7 @@
   -->
   <string name="default_browser_experiment_card_title">Suidhich brabhsair bhunaiteach eile</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Suidhich ceanglaichean o làraichean-lìn, puist-d agus teachdaireachdan airson ’s gun tèid am fosgladh gu fèin-obrachail ann am Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Suidhich ceanglaichean o làraichean-lìn, puist-d agus teachdaireachdan airson ’s gun tèid am fosgladh gu fèin-obrachail ann am Waterfox.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Thoir air falbh</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2401,7 +2401,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">Le cumhachd %s.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Na phàirt de theaghladh Firefox. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Na phàirt de theaghladh Waterfox. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Barrachd fiosrachaidh</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -2739,7 +2739,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Cuidich leinn a’ leasachadh Firefox. Cha doir e ach mionaid.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Cuidich leinn a’ leasachadh Waterfox. Cha doir e ach mionaid.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Lean air adhart</string>
   <!--
@@ -2769,29 +2769,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">Cha chleachd mi e</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Cha dèan mi lorg ann am Firefox</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Cha dèan mi lorg ann am Waterfox</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">Cha chleachd mi gleus an t-sioncronachaidh</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Cuidich leinn a’ leasachadh clò-bhualadh ann am Firefox. Cha doir e ach mionaid.</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Cuidich leinn a’ leasachadh clò-bhualadh ann am Waterfox. Cha doir e ach mionaid.</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Cuidich leinn a’ leasachadh gleus an luirg ann am Firefox. Cha doir e ach mionaid.</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Cuidich leinn a’ leasachadh gleus an luirg ann am Waterfox. Cha doir e ach mionaid.</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Cuidich leinn a’ leasachadh gleus an t-sioncronachaidh ann am Firefox. Cha doir e ach mionaid.</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Cuidich leinn a’ leasachadh gleus an t-sioncronachaidh ann am Waterfox. Cha doir e ach mionaid.</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Dè cho riaraichte ’s a tha thu leis a’ chlò-bhualadh ann am Firefox?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Dè cho riaraichte ’s a tha thu leis a’ chlò-bhualadh ann am Waterfox?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Dè cho riaraichte ’s a tha thu leis an duilleag-dhachaigh ann am Firefox?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Dè cho riaraichte ’s a tha thu leis an duilleag-dhachaigh ann am Waterfox?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Dè cho riaraichte ’s a tha thu leis a’ ghleus luirg ùr ann am Firefox?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Dè cho riaraichte ’s a tha thu leis a’ ghleus luirg ùr ann am Waterfox?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Dè cho riaraichte ’s a tha thu le gleus an t-sioncronachaidh ann am Firefox?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Dè cho riaraichte ’s a tha thu le gleus an t-sioncronachaidh ann am Waterfox?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Suaicheantas Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Suaicheantas Waterfox</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Ìomhaigheag a’ ghleus suirbhidh</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->

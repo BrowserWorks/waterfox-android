@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Eemalda</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s on Mozilla poolt toodetud.</string>
+  <string name="about_content">%1$s on BrowserWorks poolt toodetud.</string>
   <!--
     Private Browsing
 
@@ -411,7 +411,7 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Aadressiriba eelistused</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Aadressiriba - Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Aadressiriba - Waterfox Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Hinda Google Plays</string>
   <!--
@@ -627,7 +627,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Vastuvõetud kaardid</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Teavitused teistest Firefoxi seadmetest vastu võetud kaartide kohta.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Teavitused teistest Waterfoxi seadmetest vastu võetud kaartide kohta.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Kaart on vastu võetud</string>
   <!-- %s is the device name -->
@@ -649,10 +649,10 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">Lisateave</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Andmed sinu seadme, riistvara konfiguratsiooni ja kasutuse kohta aitavad meil Firefoxi funktsioone, jõudlust ja stabiilsust täiustada.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Andmed sinu seadme, riistvara konfiguratsiooni ja kasutuse kohta aitavad meil Waterfoxi funktsioone, jõudlust ja stabiilsust täiustada.</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">Igapäevane kasutusping</string>
-  <string name="preferences_daily_usage_ping_description">See aitab Mozillal aktiivsete kasutajate arvu \u0020hinnata.</string>
+  <string name="preferences_daily_usage_ping_description">See aitab BrowserWorksl aktiivsete kasutajate arvu \u0020hinnata.</string>
   <string name="preferences_daily_usage_ping_learn_more">Rohkem teavet igapäevasest kasutuspingust</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">Vearaporteid saadetakse automaatselt</string>
@@ -663,7 +663,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Uuringud</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Võimaldab Mozillal paigaldada ja käivitada uuringuid</string>
+  <string name="preference_experiments_summary_2">Võimaldab BrowserWorksl paigaldada ja käivitada uuringuid</string>
   <!-- Preference for reconnecting to FxA sync -->
   <string name="preferences_sync_sign_in_to_reconnect">Uue ühenduse loomiseks logi sisse</string>
   <!-- Preference for removing FxA account -->
@@ -965,7 +965,7 @@
   -->
   <string name="webcompat_reporter_screen_title">Katkisest saidist teavitamine</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">Aita muuta %1$s kõigi jaoks paremaks. Mozilla töötajad kasutavad sinu saadetud teavet veebisaidi probleemide lahendamiseks.</string>
+  <string name="webcompat_reporter_description">Aita muuta %1$s kõigi jaoks paremaks. BrowserWorks töötajad kasutavad sinu saadetud teavet veebisaidi probleemide lahendamiseks.</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">URL</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -1005,7 +1005,7 @@
   -->
   <string name="tab_crash_title_2">Vabandust. %1$sil pole selle lehe laadimine võimalik.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Mozillale saadetakse vearaport</string>
+  <string name="tab_crash_send_report">BrowserWorksle saadetakse vearaport</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Sulge kaart</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1276,7 +1276,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Ühenda teine seade</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Kaardi edastamiseks logi Firefoxi sisse vähemalt ühel seadmel veel.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Kaardi edastamiseks logi Waterfoxi sisse vähemalt ühel seadmel veel.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Sain aru</string>
   <!-- Share error message -->
@@ -1433,7 +1433,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Koodi skannimine</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Ava Firefox oma arvutis ja mine aadressile <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Ava Waterfox oma arvutis ja mine aadressile <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Skannimiseks valmis</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1441,7 +1441,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Kasuta selle asemel e-posti aadressi</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Pole kontot? <u>Loo üks</u>, et sünkroniseerida Firefoxi seadmete vahel.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Pole kontot? <u>Loo üks</u>, et sünkroniseerida Waterfoxi seadmete vahel.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s lõpetab sinu kontoga sünkroniseerimise, aga ei kustuta lehitsemise andmeid sellest seadmest.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1955,7 +1955,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Palun luba kaartide sünkroniseerimine.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Sul pole teistes seadmetes olevates Firefoxides kaarte avatud.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Sul pole teistes seadmetes olevates Waterfoxides kaarte avatud.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Vaata teistes seadmetes avatud kaartide nimekirja.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2011,7 +2011,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Kas sulgeda automaatselt kuu aja pärast?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox saab sulgeda kaardid, mida sa pole viimase kuu jooksul vaadanud.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox saab sulgeda kaardid, mida sa pole viimase kuu jooksul vaadanud.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">LÜLITA SISSE AUTOMAATNE SULGEMINE</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2019,7 +2019,7 @@
   <!-- Title for search suggestions when Google is the default search suggestion engine. -->
   <string name="google_search_engine_suggestion_header">Google\'i otsing</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Määra Firefox automaatselt avama linke, e-posti ja sõnumeid.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Määra Waterfox automaatselt avama linke, e-posti ja sõnumeid.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Eemalda</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2039,7 +2039,7 @@
   <!-- Text of a button allowing users to access an external url for more Pocket recommendations. -->
   <string name="pocket_stories_placeholder_text" moz:removedIn="141" tools:ignore="UnusedResources">Avasta veel</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Osa Firefoxi perekonnast. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Osa Waterfoxi perekonnast. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Rohkem teavet</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->

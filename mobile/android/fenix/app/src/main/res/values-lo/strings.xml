@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">ເອົາອອກ</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s ແມ່ນຜະລິດຂື້ນໂດຍ Mozilla.</string>
+  <string name="about_content">%1$s ແມ່ນຜະລິດຂື້ນໂດຍ BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -499,14 +499,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">ແຈ້ງການຄວາມເປັນສ່ວນຕົວຂອງ Firefox</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">ແຈ້ງການຄວາມເປັນສ່ວນຕົວຂອງ Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">ພວກເຮົາຮັກຮັກສາຄວາມປອດໄພໃຫ້ທ່ານ</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">ຄົ້ນຫາວ່າເປັນຫຍັງຈຶ່ງມີຫຼາຍລ້ານຄົນຮັກ Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">ຄົ້ນຫາວ່າເປັນຫຍັງຈຶ່ງມີຫຼາຍລ້ານຄົນຮັກ Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">ການທ່ອງເວັບທີ່ປອດໄພມີທາງເລືອກຫຼາຍ</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -525,7 +525,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Firefox ເຂົ້າລະຫັດລັບຂອງທ່ານ, ບຸກມາກສ໌, ແລະ ອື່ນໆອີກເມື່ອທ່ານຖືກຊິງຄ໌.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Waterfox ເຂົ້າລະຫັດລັບຂອງທ່ານ, ບຸກມາກສ໌, ແລະ ອື່ນໆອີກເມື່ອທ່ານຖືກຊິງຄ໌.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">ເຂົ້າສູ່ລະບົບ</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -534,12 +534,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">ການແຈ້ງເຕືອນຊ່ວຍໃຫ້ທ່ານປອດໄພກວ່າກັບ Firefox</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">ການແຈ້ງເຕືອນຊ່ວຍໃຫ້ທ່ານປອດໄພກວ່າກັບ Waterfox</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">ສົ່ງແຖບຢ່າງປອດໄພລະຫວ່າງອຸປະກອນຂອງທ່ານ ແລະ ຄົ້ນພົບຄຸນສົມບັດຄວາມເປັນສ່ວນຕົວອື່ນໆໃນ Firefox.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">ສົ່ງແຖບຢ່າງປອດໄພລະຫວ່າງອຸປະກອນຂອງທ່ານ ແລະ ຄົ້ນພົບຄຸນສົມບັດຄວາມເປັນສ່ວນຕົວອື່ນໆໃນ Waterfox.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">ເປີດການແຈ້ງເຕືອນ</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -548,24 +548,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">ລອງໃຊ້ວິດເຈັດຄົ້ນຫາຂອງ Firefox</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">ລອງໃຊ້ວິດເຈັດຄົ້ນຫາຂອງ Waterfox</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">ດ້ວຍ Firefox ໃນຫນ້າຈໍເຮືອນຂອງທ່ານ, ທ່ານຈະສາມາດເຂົ້າເຖິງຕົວທ່ອງເວັບຄວາມເປັນສ່ວນຕົວທໍາອິດທີ່ສະກັດຕົວຕິດຕາມຂ້າມເວັບໄຊທ໌.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">ດ້ວຍ Waterfox ໃນຫນ້າຈໍເຮືອນຂອງທ່ານ, ທ່ານຈະສາມາດເຂົ້າເຖິງຕົວທ່ອງເວັບຄວາມເປັນສ່ວນຕົວທໍາອິດທີ່ສະກັດຕົວຕິດຕາມຂ້າມເວັບໄຊທ໌.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">ເພີ່ມ widget Firefox</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">ເພີ່ມ widget Waterfox</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">ບໍ່ແມ່ນຕອນນີ້</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">ປັບແຕ່ງ Firefox ຂອງທ່ານດ້ວຍສ່ວນຂະຫຍາຍ</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">ປັບແຕ່ງ Waterfox ຂອງທ່ານດ້ວຍສ່ວນຂະຫຍາຍ</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">ເພີ່ມສ່ວນຂະຫຍາຍຂອງພາກສ່ວນທີສາມເພື່ອເພີ່ມຄວາມປອດໄພ, ການຜະລິດ, ແລະ ອື່ນໆອີກ.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -601,7 +601,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">ໃຫ້ຄະແນນ %1$s ຈາກທັງໝົດ 5</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">ຊ່ວຍພວກເຮົາເຮັດໃຫ້ Firefox ດີຂຶ້ນ</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">ຊ່ວຍພວກເຮົາເຮັດໃຫ້ Waterfox ດີຂຶ້ນ</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">ສົ່ງລາຍງານການຂັດຂ້ອງໂດຍອັດຕະໂນມັດ</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -609,13 +609,13 @@
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">ຮຽນຮູ້ເພີ່ມຕື່ມ</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">ສົ່ງຂໍ້ມູນດ້ານເຕັກນິກ ແລະ ການໂຕ້ຕອບກັບ Mozilla</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">ຂໍ້​ມູນ​ກ່ຽວ​ກັບ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ, ການ​ຕັ້ງ​ຄ່າ​ຮາດ​ແວ, ແລະ​ ວິ​ທີ​ທີ່​ທ່ານ​ນໍາ​ໃຊ້ Firefox ຊ່ວຍ​ປັບ​ປຸງ​ຄຸນ​ສົມ​ບັດ, ປະ​ສິດ​ທິ​ພາບ, ແລະ ​ຄວາມ​ສະຖຽນສໍາ​ລັບ​ທຸກ​ຄົນ.</string>
+  <string name="onboarding_preferences_dialog_usage_data_title">ສົ່ງຂໍ້ມູນດ້ານເຕັກນິກ ແລະ ການໂຕ້ຕອບກັບ BrowserWorks</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">ຂໍ້​ມູນ​ກ່ຽວ​ກັບ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ, ການ​ຕັ້ງ​ຄ່າ​ຮາດ​ແວ, ແລະ​ ວິ​ທີ​ທີ່​ທ່ານ​ນໍາ​ໃຊ້ Waterfox ຊ່ວຍ​ປັບ​ປຸງ​ຄຸນ​ສົມ​ບັດ, ປະ​ສິດ​ທິ​ພາບ, ແລະ ​ຄວາມ​ສະຖຽນສໍາ​ລັບ​ທຸກ​ຄົນ.</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">ຮຽນຮູ້ເພີ່ມເຕີມ</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">ສຳເລັດ</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">ຍິນດີຕ້ອນຮັບສູ່ Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">ຍິນດີຕ້ອນຮັບສູ່ Waterfox</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">ການທ່ອງເວັບທີ່ວ່ອງໄວ ແລະ ປອດໄພ</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -625,21 +625,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">ໂດຍການດຳເນີນການຕໍ່, ທ່ານເຫັນດີນຳ %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">ເງື່ອນໄຂການນໍາໃຊ້ Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">ເງື່ອນໄຂການນໍາໃຊ້ Waterfox</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Firefox ເປັນຫ່ວງກ່ຽວກັບຄວາມເປັນສ່ວນຕົວຂອງທ່ານ. ສຶກສາເພີ່ມເຕີມໃນ %1$s ຂອງພວກເຮົາ.</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Waterfox ເປັນຫ່ວງກ່ຽວກັບຄວາມເປັນສ່ວນຕົວຂອງທ່ານ. ສຶກສາເພີ່ມເຕີມໃນ %1$s ຂອງພວກເຮົາ.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">ເພື່ອຊ່ວຍປັບປຸງຕົວທ່ອງເວັບ, Firefox ສົ່ງຂໍ້ມູນການວິເຄາະ ແລະ ການໂຕ້ຕອບກັບ Mozilla. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">ເພື່ອຊ່ວຍປັບປຸງຕົວທ່ອງເວັບ, Waterfox ສົ່ງຂໍ້ມູນການວິເຄາະ ແລະ ການໂຕ້ຕອບກັບ BrowserWorks. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">ຈັດການ</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">ຊ່ວຍພວກເຮົາພັດທະນາ Firefox</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">ຊ່ວຍພວກເຮົາພັດທະນາ Waterfox</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">ເມື່ອທ່ານແບ່ງປັນວິທີທີ່ທ່ານຄົ້ນພົບ Firefox ແລະ ທີ່ທ່ານໃຊ້ມັນ, ທ່ານຊ່ວຍພວກເຮົາແນະນໍາຕົວທ່ອງເວັບຂອງພວກເຮົາໃຫ້ກັບຄົນຫຼາຍຂຶ້ນ.</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">ເມື່ອທ່ານແບ່ງປັນວິທີທີ່ທ່ານຄົ້ນພົບ Waterfox ແລະ ທີ່ທ່ານໃຊ້ມັນ, ທ່ານຊ່ວຍພວກເຮົາແນະນໍາຕົວທ່ອງເວັບຂອງພວກເຮົາໃຫ້ກັບຄົນຫຼາຍຂຶ້ນ.</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">ແບ່ງປັນຂໍ້ມູນໜ້ອຍທີ່ສຸດກັບຄູ່ຮ່ວມງານດ້ານເທັກໂນໂລຍີການຕະຫຼາດຂອງ Mozilla. ຂໍ້ມູນນີ້ບໍ່ເຄີຍຖືກຂາຍ ຫຼື ໃຊ້ເພື່ອສະແດງໂຄສະນາໃຫ້ທ່ານເຫັນ.</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">ແບ່ງປັນຂໍ້ມູນໜ້ອຍທີ່ສຸດກັບຄູ່ຮ່ວມງານດ້ານເທັກໂນໂລຍີການຕະຫຼາດຂອງ BrowserWorks. ຂໍ້ມູນນີ້ບໍ່ເຄີຍຖືກຂາຍ ຫຼື ໃຊ້ເພື່ອສະແດງໂຄສະນາໃຫ້ທ່ານເຫັນ.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">ພວກເຮົາໃຊ້ຂໍ້ມູນແນວໃດ</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -647,7 +647,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">ຂັ້ນຕອນສຸດທ້າຍ</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">ແບ່ງປັນວິທີທີ່ທ່ານຄົ້ນພົບ Firefox, ແລະ ທີ່ທ່ານໃຊ້ມັນ, ກັບຄູ່ຮ່ວມການຕະຫຼາດຂອງ Mozilla. ຂໍ້ມູນນີ້ບໍ່ເຄີຍຖືກຂາຍ.</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">ແບ່ງປັນວິທີທີ່ທ່ານຄົ້ນພົບ Waterfox, ແລະ ທີ່ທ່ານໃຊ້ມັນ, ກັບຄູ່ຮ່ວມການຕະຫຼາດຂອງ BrowserWorks. ຂໍ້ມູນນີ້ບໍ່ເຄີຍຖືກຂາຍ.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">ຕົກລົງເຫັນດີ ແລະ ເລີ່ມຊອກຫາ</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -732,9 +732,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">ການຕັ້ງຄ່າແຖບທີ່ຢູ່</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">ແຖບທີ່ຢູ່ - Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">ແຖບທີ່ຢູ່ - Waterfox Suggest</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບການ Firefox Suggest</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບການ Waterfox Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">ໃຫ້ຄະແນນໃນ Google Play</string>
   <!--
@@ -823,7 +823,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">ສິ່ງອຳນວຍຄວາມສະດວກ</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">ເຊີບເວີບັນຊີ Mozilla ແບບກຳນົດເອງ</string>
+  <string name="preferences_override_account_server">ເຊີບເວີບັນຊີ BrowserWorks ແບບກຳນົດເອງ</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">ກຳຫນົດເຊີເວີ Sync</string>
   <!-- Preference category for account information -->
@@ -841,7 +841,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">Sync ແທັບ, ບຸກມາກ, ລະຫັດຜ່ານ ແລະ ອື່ນໆຂອງທ່ານ.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">ບັນຊີ Mozilla</string>
+  <string name="preferences_account_default_name_2">ບັນຊີ BrowserWorks</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">ເຊື່ອມຕໍຄືນເພື່ອເລີ່ມ sync ຄືນໃຫມ່</string>
   <!-- Preference for language -->
@@ -1018,7 +1018,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">ສ່ວນຂະຫຍາຍໃໝ່ມີໃຫ້ແລ້ວ</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">ກວດເບິ່ງ 100+ ສ່ວນຂະຫຍາຍໃຫມ່ທີ່ຊ່ວຍໃຫ້ທ່ານສ້າງ Firefox ຂອງທ່ານເອງ.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">ກວດເບິ່ງ 100+ ສ່ວນຂະຫຍາຍໃຫມ່ທີ່ຊ່ວຍໃຫ້ທ່ານສ້າງ Waterfox ຂອງທ່ານເອງ.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">ສຳຫຼວດສ່ວນຂະຫຍາຍ</string>
   <!--
@@ -1090,7 +1090,7 @@
   -->
   <string name="fxa_received_tab_channel_name">ແຖບທີ່ໄດ້ຮັບ</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">ການແຈ້ງເຕືອນສຳລັບແທັບທີ່ໄດ້ຮັບຈາກ Firefox ໃນເຄື່ອງອື່ນ.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">ການແຈ້ງເຕືອນສຳລັບແທັບທີ່ໄດ້ຮັບຈາກ Waterfox ໃນເຄື່ອງອື່ນ.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">ແທັບທີ່ໄດ້ຮັບ</string>
   <!-- %s is the device name -->
@@ -1122,19 +1122,19 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">ຮຽນຮູ້ເພີ່ມເຕີມ</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">ຂໍ້​ມູນ​ກ່ຽວ​ກັບ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ, ການ​ຕັ້ງ​ຄ່າ​ຮາດ​ແວ, ແລະ​ ການ​ນໍາ​ໃຊ້​ຊ່ວຍ​ໃຫ້​ພວກ​ເຮົາ​ປັບ​ປຸງ​ຄຸນ​ສົມ​ບັດ Firefox, ປະ​ສິດ​ທິ​ພາບ, ແລະ ​ຄວາມ​ຫມັ້ນ​ຄົງ.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">ຂໍ້​ມູນ​ກ່ຽວ​ກັບ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ, ການ​ຕັ້ງ​ຄ່າ​ຮາດ​ແວ, ແລະ​ ການ​ນໍາ​ໃຊ້​ຊ່ວຍ​ໃຫ້​ພວກ​ເຮົາ​ປັບ​ປຸງ​ຄຸນ​ສົມ​ບັດ Waterfox, ປະ​ສິດ​ທິ​ພາບ, ແລະ ​ຄວາມ​ຫມັ້ນ​ຄົງ.</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">ຂໍ້ມູນການວັດແທກແຄມເປນ</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">ແບ່ງປັນວິທີທີ່ທ່ານຄົ້ນພົບ Firefox ແລະ ທີ່ທ່ານໃຊ້ມັນກັບຄູ່ຄ້າດ້ານເຕັກໂນໂລຢີການຕະຫຼາດຂອງ Mozilla.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">ແບ່ງປັນວິທີທີ່ທ່ານຄົ້ນພົບ Waterfox ແລະ ທີ່ທ່ານໃຊ້ມັນກັບຄູ່ຄ້າດ້ານເຕັກໂນໂລຢີການຕະຫຼາດຂອງ BrowserWorks.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບຂໍ້ມູນການຕະຫຼາດ</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">ping ການນໍາໃຊ້ປະຈໍາວັນ</string>
-  <string name="preferences_daily_usage_ping_description">ນີ້ຊ່ວຍໃຫ້ Mozilla ຄາດຄະເນຜູ້ໃຊ້ງານທີ່ມີການເຄື່ອນໄຫວ.</string>
+  <string name="preferences_daily_usage_ping_description">ນີ້ຊ່ວຍໃຫ້ BrowserWorks ຄາດຄະເນຜູ້ໃຊ້ງານທີ່ມີການເຄື່ອນໄຫວ.</string>
   <string name="preferences_daily_usage_ping_learn_more">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບການໃຊ້ ping ປະຈໍາວັນ</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">ສົ່ງລາຍງານການຂັດຂ້ອງໂດຍອັດຕະໂນມັດ</string>
@@ -1145,7 +1145,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">ການສຶກສາ</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">ອະນຸຍາດໃຫ້ Mozilla ຕິດຕັ້ງ ແລະ ເປີດໃຊ້ການສຶກສາ</string>
+  <string name="preference_experiments_summary_2">ອະນຸຍາດໃຫ້ BrowserWorks ຕິດຕັ້ງ ແລະ ເປີດໃຊ້ການສຶກສາ</string>
   <!--
     Turn On Sync Preferences
 
@@ -1551,7 +1551,7 @@
   -->
   <string name="webcompat_reporter_screen_title">ລາຍງານເວັບໄຊທີ່ມີບັນຫາ</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">ຊ່ວຍເຮັດໃຫ້ %1$s ດີຂຶ້ນສຳລັບທຸກຄົນ. ພະນັກງານ Mozilla ໃຊ້ຂໍ້ມູນທີ່ທ່ານສົ່ງເພື່ອແກ້ໄຂບັນຫາເວັບໄຊທ໌.</string>
+  <string name="webcompat_reporter_description">ຊ່ວຍເຮັດໃຫ້ %1$s ດີຂຶ້ນສຳລັບທຸກຄົນ. ພະນັກງານ BrowserWorks ໃຊ້ຂໍ້ມູນທີ່ທ່ານສົ່ງເພື່ອແກ້ໄຂບັນຫາເວັບໄຊທ໌.</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">URL</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -1597,7 +1597,7 @@
   -->
   <string name="tab_crash_title_2">ຂໍ​ອະໄພ. %1$s ບໍ່ສາມາດໂຫລດໜ້າເວັບນັ້ນໄດ້.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">ສົ່ງລາຍງານການຂັດຂ້ອງໄປຫາ Mozilla</string>
+  <string name="tab_crash_send_report">ສົ່ງລາຍງານການຂັດຂ້ອງໄປຫາ BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">ປິດແທັບ</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1918,7 +1918,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">ເຊື່ອມຕໍ່ກັບອຸປະກອນອື່ນ</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ລົງຊື່ເຂົ້າໃຊ້ Firefox ຢ່າງນ້ອຍໃນ 1 ເຄື່ອງເພື່ອສົ່ງແທັບ</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ລົງຊື່ເຂົ້າໃຊ້ Waterfox ຢ່າງນ້ອຍໃນ 1 ເຄື່ອງເພື່ອສົ່ງແທັບ</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">ເຂົ້າໃຈແລ້ວ!</string>
   <!-- Share error message -->
@@ -1948,12 +1948,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox ແມ່ນໄວ ແລະ ເປັນສ່ວນຕົວ</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ແມ່ນໄວ ແລະ ເປັນສ່ວນຕົວ</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">ຕັ້ງ Firefox ໃຫ້ເປັນຕົວທ່ອງເວັບເລີ່ມຕົ້ນຂອງທ່ານ</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">ຕັ້ງ Waterfox ໃຫ້ເປັນຕົວທ່ອງເວັບເລີ່ມຕົ້ນຂອງທ່ານ</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">ລອງຊອກຫາແບບສ່ວນຕົວ</string>
   <!--
@@ -1978,7 +1978,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">ກະລຸນາຊ່ວຍເຮັດໃຫ້ Firefox ດີຂຶ້ນໂດຍການເຮັດແບບສຳຫຼວດສັ້ນໆ.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">ກະລຸນາຊ່ວຍເຮັດໃຫ້ Waterfox ດີຂຶ້ນໂດຍການເຮັດແບບສຳຫຼວດສັ້ນໆ.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">ເຮັດແບບສຳຫຼວດ</string>
   <!-- Preference for not taking the short survey. -->
@@ -2126,7 +2126,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">ສະແກນລະຫັດ</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[ໃນຄອມພິວເຕີຂອງທ່ານເປີດ Firefox ແລະ ເຂົ້າໄປທີ່ <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[ໃນຄອມພິວເຕີຂອງທ່ານເປີດ Waterfox ແລະ ເຂົ້າໄປທີ່ <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">ກຽມພ້ອມທີ່ຈະສະແກນ</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2134,7 +2134,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">ໃຊ້ອີເມວແທນ</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ບໍ່ມີບັນຊີ? <u>ສ້າງອັນໜຶ່ງ</u> ເພື່ອຊິງຄ໌ Firefox ລະຫວ່າງອຸປະກອນ.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ບໍ່ມີບັນຊີ? <u>ສ້າງອັນໜຶ່ງ</u> ເພື່ອຊິງຄ໌ Waterfox ລະຫວ່າງອຸປະກອນ.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s ຈະຢຸດການ Sync ກັບບັນຊີຂອງທ່ານ ແຕວ່າຈະບໍ່ລຶບຂໍ້ມູນປະຫວັດການຄົ້ນຫາຂອງທ່ານໃນອຸປະກອນນີ້.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2639,7 +2639,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">ກະລຸນາເປີດນຳໃຊ້ການ sync ແທັບ</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">ທ່ານບໍ່ໄດ້ເປີດຈັກແທັບຢູ່ Firefox ໃນອຸປະກອນອື່ນໆຂອງທ່ານ.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">ທ່ານບໍ່ໄດ້ເປີດຈັກແທັບຢູ່ Waterfox ໃນອຸປະກອນອື່ນໆຂອງທ່ານ.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">ເບິງລາຍຊື່ແທັບຈາກອຸປະກອນອື່ນໆຂອງທ່ານ</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2703,7 +2703,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">ປິດອັດຕະໂນມັດຫຼັງຈາກຫນຶ່ງເດືອນບໍ?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox ສາມາດປິດແຖບທີ່ທ່ານບໍ່ໄດ້ເບິ່ງໃນເດືອນທີ່ຜ່ານມາ.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox ສາມາດປິດແຖບທີ່ທ່ານບໍ່ໄດ້ເບິ່ງໃນເດືອນທີ່ຜ່ານມາ.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ເປີດປິດອັດຕະໂນມັດ</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2713,13 +2713,13 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox ແນະນໍາ</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox ແນະນໍາ</string>
   <!-- Title for search suggestions when Google is the default search suggestion engine. -->
   <string name="google_search_engine_suggestion_header">ຄົ້ນ​ຫາ Google</string>
   <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. %s is default search engine name. -->
   <string name="other_default_search_engine_suggestion_header">%s ຄົ້ນຫາ</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">ຕັ້ງລິ້ງຈາກເວັບໄຊທ໌, ອີເມວ ແລະຂໍ້ຄວາມໃຫ້ເປີດໂດຍອັດຕະໂນມັດໃນ Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">ຕັ້ງລິ້ງຈາກເວັບໄຊທ໌, ອີເມວ ແລະຂໍ້ຄວາມໃຫ້ເປີດໂດຍອັດຕະໂນມັດໃນ Waterfox.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">ລົບ</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2741,7 +2741,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">ຂັບເຄື່ອນໂດຍ %s.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">ສ່ວນຫນຶ່ງຂອງຄອບຄົວ Firefox. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">ສ່ວນຫນຶ່ງຂອງຄອບຄົວ Waterfox. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">ຮຽນຮູ້ເພີ່ມເຕີມ</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->

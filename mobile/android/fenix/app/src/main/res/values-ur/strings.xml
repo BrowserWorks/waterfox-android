@@ -33,7 +33,7 @@
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">منتخب کردہ ٹیب کو مجموعہ میں محفوظ کریں</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s ءMozilla کے ذریعہ تیار کیا گیا ہے۔</string>
+  <string name="about_content">%1$s ءBrowserWorks کے ذریعہ تیار کیا گیا ہے۔</string>
   <string name="private_browsing_common_myths">نجی براؤزنگ کے بارے میں عمومی فرضی داستان</string>
   <!-- Text for the positive action button -->
   <string name="open_in_app_cfr_positive_button_text">سیٹنگز پر جائیں</string>
@@ -334,7 +334,7 @@
   -->
   <string name="fxa_received_tab_channel_name">موصول شدہ ٹیب</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">دوسرے Firefox آلات سے موصول ہونے والے ٹیب کے بارے میں اطلاعات۔</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">دوسرے Waterfox آلات سے موصول ہونے والے ٹیب کے بارے میں اطلاعات۔</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">ٹیب حاصل ہوا</string>
   <!-- %s is the device name -->
@@ -354,7 +354,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">مطالعہ</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Mozilla کو مطالعے انسٹال اور چلانے کی اجازت دیتا ہے</string>
+  <string name="preference_experiments_summary_2">BrowserWorks کو مطالعے انسٹال اور چلانے کی اجازت دیتا ہے</string>
   <!-- Preference for reconnecting to FxA sync -->
   <string name="preferences_sync_sign_in_to_reconnect">دوبارہ جڑنے کے لیئے سائن ان کریں</string>
   <!-- Preference for removing FxA account -->
@@ -584,7 +584,7 @@
   -->
   <string name="tab_crash_title_2">معاف کریں۔ %1$s اس صفحہ کو لوڈ نہیں کر سکتا ہے۔</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">تباہی کی رپورٹ Mozilla کو ارسال کریں</string>
+  <string name="tab_crash_send_report">تباہی کی رپورٹ BrowserWorks کو ارسال کریں</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">ٹیب بند کریں</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -797,7 +797,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">ایک اور آلہ جوڑیں</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">کسی ٹیب کو بھیجنے کے لئے، کم سے کم ایک اور آلہ پر Firefox میں سائن ان کریں۔</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">کسی ٹیب کو بھیجنے کے لئے، کم سے کم ایک اور آلہ پر Waterfox میں سائن ان کریں۔</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">ٹھیک ہے!</string>
   <!-- Share error message -->
@@ -925,7 +925,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">کوڈ کو اسکین کریں</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[اپنے کمپیوٹر پر Firefox کھولیں اور <b>https://firefox.com/pair</b> پر جائیں]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[اپنے کمپیوٹر پر Waterfox کھولیں اور <b>https://firefox.com/pair</b> پر جائیں]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">سکین کرنے کے لئے تیار</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1231,7 +1231,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">براہ کرم ٹیب sync کو فعال کریں۔</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">آپ کے دوسرے آلات پر Firefox میں کوئی ٹیب نہیں کھلے ہوئِے ہیں۔</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">آپ کے دوسرے آلات پر Waterfox میں کوئی ٹیب نہیں کھلے ہوئِے ہیں۔</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">دیگر آلات سے ٹیبیں کی فہرست دیکھیں۔</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->

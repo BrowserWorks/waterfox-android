@@ -43,7 +43,7 @@
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">Salvează în colecție filele selectate</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s este realizat de Mozilla.</string>
+  <string name="about_content">%1$s este realizat de BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -228,27 +228,27 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Notificările te ajută să fii mai în siguranță cu Firefox</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Notificările te ajută să fii mai în siguranță cu Waterfox</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Trimite-ți securizat file între dispozitive și descoperă alte funcții de confidențialitate în Firefox.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Trimite-ți securizat file între dispozitive și descoperă alte funcții de confidențialitate în Waterfox.</string>
   <!--
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Încearcă widgetul de căutare Firefox</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Încearcă widgetul de căutare Waterfox</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Cu Firefox pe ecranul de start vei avea acces facil la primul browser orientat pe confidențailitate care blochează elementele de urmărire inter-site-uri.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Cu Waterfox pe ecranul de start vei avea acces facil la primul browser orientat pe confidențailitate care blochează elementele de urmărire inter-site-uri.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Adaugă widgetul Firefox</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Adaugă widgetul Waterfox</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Nu acum</string>
   <!-- Text preview for smaller sized widgets -->
@@ -404,7 +404,7 @@
   -->
   <string name="fxa_received_tab_channel_name">File primite</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notificări pentru file primite de la alte dispozitive Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notificări pentru file primite de la alte dispozitive Waterfox.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Filă primită</string>
   <!-- %s is the device name -->
@@ -592,7 +592,7 @@
   -->
   <string name="tab_crash_title_2">Ne cerem scuze. %1$s nu poate încărca pagina.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Trimite un raport de defecțiune către Mozilla</string>
+  <string name="tab_crash_send_report">Trimite un raport de defecțiune către BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Închide fila</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -803,7 +803,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Conectează alt dispozitiv</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Pentru a trimite o filă, intră în contul Firefox de pe cel puțin un alt dispozitiv.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Pentru a trimite o filă, intră în contul Waterfox de pe cel puțin un alt dispozitiv.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Am înțeles</string>
   <!-- Share error message -->
@@ -927,7 +927,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Scananează codul</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Deschide Firefox pe calculator și intră pe <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Deschide Waterfox pe calculator și intră pe <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Gata de scanare</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1192,7 +1192,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Te rugăm să activezi sincronizarea filelor.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Nu ai nicio filă deschisă în Firefox pe celelalte dispozitive.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Nu ai nicio filă deschisă în Waterfox pe celelalte dispozitive.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Afișează o listă de file de pe celelalte dispozitive.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->

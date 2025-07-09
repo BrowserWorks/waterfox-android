@@ -535,7 +535,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">ᱟᱢᱟᱜ ᱟᱹᱭᱩᱨ ᱢᱤᱫ ᱡᱷᱚᱜ Firefox ᱫᱚ ᱟᱢᱟᱜ ᱫᱟᱱᱟᱝ ᱥᱟᱵᱟᱫᱽ, ᱵᱩᱩᱠᱢᱟᱨᱠ ᱟᱨ ᱰᱷᱮᱨ ᱡᱤᱱᱤᱥ ᱥᱟᱣᱛᱤ ᱫᱚᱦᱚᱭᱟᱭ ᱾</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">ᱟᱢᱟᱜ ᱟᱹᱭᱩᱨ ᱢᱤᱫ ᱡᱷᱚᱜ Waterfox ᱫᱚ ᱟᱢᱟᱜ ᱫᱟᱱᱟᱝ ᱥᱟᱵᱟᱫᱽ, ᱵᱩᱩᱠᱢᱟᱨᱠ ᱟᱨ ᱰᱷᱮᱨ ᱡᱤᱱᱤᱥ ᱥᱟᱣᱛᱤ ᱫᱚᱦᱚᱭᱟᱭ ᱾</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">ᱵᱚᱞᱚᱱ ᱥᱩᱦᱤ</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -544,12 +544,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Firefox ᱮᱛᱞᱟᱤᱭᱟᱹ ᱥᱟᱞᱟᱜ ᱟᱢ ᱴᱷᱤᱠ ᱨᱮ ᱫᱚᱦᱚᱢᱮ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱮᱢᱚᱜᱼᱟᱭ</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Waterfox ᱮᱛᱞᱟᱤᱭᱟᱹ ᱥᱟᱞᱟᱜ ᱟᱢ ᱴᱷᱤᱠ ᱨᱮ ᱫᱚᱦᱚᱢᱮ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱮᱢᱚᱜᱼᱟᱭ</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">ᱟᱢᱟᱜ ᱥᱟᱫᱷᱚᱱ ᱠᱚ ᱛᱟᱞᱟ ᱛᱮ ᱨᱩᱠᱷᱤᱭᱟ ᱛᱮ ᱴᱮᱵᱽ ᱠᱚ ᱵᱚᱫᱚᱞ ᱢᱮ ᱟᱨ Firefox ᱨᱮ ᱮᱴᱟᱜ ᱯᱨᱟᱭᱵᱷᱮᱴ ᱯᱷᱤᱪᱚᱨ ᱠᱚ ᱯᱟᱱᱛᱮ ᱧᱟᱢ ᱢᱮ ᱾</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">ᱟᱢᱟᱜ ᱥᱟᱫᱷᱚᱱ ᱠᱚ ᱛᱟᱞᱟ ᱛᱮ ᱨᱩᱠᱷᱤᱭᱟ ᱛᱮ ᱴᱮᱵᱽ ᱠᱚ ᱵᱚᱫᱚᱞ ᱢᱮ ᱟᱨ Waterfox ᱨᱮ ᱮᱴᱟᱜ ᱯᱨᱟᱭᱵᱷᱮᱴ ᱯᱷᱤᱪᱚᱨ ᱠᱚ ᱯᱟᱱᱛᱮ ᱧᱟᱢ ᱢᱮ ᱾</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">ᱠᱷᱚᱵᱚᱨ ᱠᱚ ᱦᱮᱡ ᱪᱷᱚᱭ ᱢᱮ</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -558,12 +558,12 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Firefox ᱥᱮᱸᱫᱽᱨᱟ ᱣᱤᱡᱮᱴ ᱫᱩᱦᱲᱟᱹ ᱠᱩᱨᱩᱢᱩᱴᱩᱭ ᱢᱮ</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱥᱮᱸᱫᱽᱨᱟ ᱣᱤᱡᱮᱴ ᱫᱩᱦᱲᱟᱹ ᱠᱩᱨᱩᱢᱩᱴᱩᱭ ᱢᱮ</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">ᱟᱢᱟᱜ ᱚᱲᱟᱜ ᱥᱠᱨᱤᱱ ᱨᱮ Firefox ᱥᱟᱶᱛᱮ, ᱟᱢᱟᱜ privacy-first browser ᱞᱟᱹᱜᱤᱫ ᱟᱞᱜᱟ ᱥᱮᱴᱮᱨ ᱦᱩᱭᱩᱜᱼᱟ ᱡᱟᱦᱟᱸ ᱫᱚ ᱠᱨᱚᱥ-ᱥᱟᱭᱤᱴ ᱴᱨᱟᱠᱟᱨᱥ (cross-site trackers) ᱵᱞᱚᱠ ᱠᱚᱣᱟ ᱾</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">ᱟᱢᱟᱜ ᱚᱲᱟᱜ ᱥᱠᱨᱤᱱ ᱨᱮ Waterfox ᱥᱟᱶᱛᱮ, ᱟᱢᱟᱜ privacy-first browser ᱞᱟᱹᱜᱤᱫ ᱟᱞᱜᱟ ᱥᱮᱴᱮᱨ ᱦᱩᱭᱩᱜᱼᱟ ᱡᱟᱦᱟᱸ ᱫᱚ ᱠᱨᱚᱥ-ᱥᱟᱭᱤᱴ ᱴᱨᱟᱠᱟᱨᱥ (cross-site trackers) ᱵᱞᱚᱠ ᱠᱚᱣᱟ ᱾</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
@@ -575,7 +575,7 @@
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">ᱮᱠᱥᱴᱮᱱᱥᱚᱱ ᱥᱟᱶ ᱟᱢᱟᱜ Firefox ᱠᱟᱥᱴᱚᱢᱟᱭᱤᱡᱽ ᱢᱮ</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">ᱮᱠᱥᱴᱮᱱᱥᱚᱱ ᱥᱟᱶ ᱟᱢᱟᱜ Waterfox ᱠᱟᱥᱴᱚᱢᱟᱭᱤᱡᱽ ᱢᱮ</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">ᱟᱢᱟᱜ ᱨᱩᱠᱷᱤᱭᱟᱹ, ᱩᱛᱟᱹᱨ ᱟᱨ ᱵᱟᱹᱲᱛᱤ ᱵᱟᱹᱲᱛᱤ ᱞᱟᱹᱜᱤᱫ ᱛᱮᱥᱟᱨ ᱯᱟᱨᱴᱤ ᱮᱠᱥᱴᱮᱱᱥᱚᱱ ᱥᱮᱞᱮᱫ ᱢᱮ᱾</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -619,13 +619,13 @@
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">ᱰᱷᱮᱨ ᱥᱮᱬᱟᱭ ᱢᱮ</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">Mozilla ᱨᱮ ᱴᱮᱠᱱᱤᱠᱟᱞ ᱟᱨ ᱤᱱᱴᱟᱨᱮᱠᱥᱚᱱ ᱰᱟᱴᱟ ᱵᱷᱮᱡᱟᱭ ᱢᱮ</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">ᱟᱢᱟᱜ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱵᱟᱵᱚᱛ ᱰᱟᱴᱟ, ᱦᱟᱰᱣᱮᱨ ᱠᱚᱱᱯᱷᱤᱜᱟᱨᱮᱥᱚᱱ, ᱟᱨ ᱟᱢ ᱪᱮᱫ ᱞᱮᱠᱟ Firefox ᱮᱢ ᱵᱮᱵᱷᱟᱨᱮᱫᱟ ᱚᱱᱟ ᱫᱚ ᱡᱚᱛᱚ ᱦᱚᱲ ᱞᱟᱹᱜᱤᱫ ᱯᱷᱤᱪᱟᱨ, ᱠᱟᱹᱢᱤᱦᱚᱨᱟ ᱟᱨ ᱥᱴᱮᱵᱤᱞᱤᱴᱤ ᱥᱩᱫᱷᱟᱹᱨ ᱨᱮ ᱜᱚᱲᱚ ᱮᱢᱟᱭᱟ ᱾</string>
+  <string name="onboarding_preferences_dialog_usage_data_title">BrowserWorks ᱨᱮ ᱴᱮᱠᱱᱤᱠᱟᱞ ᱟᱨ ᱤᱱᱴᱟᱨᱮᱠᱥᱚᱱ ᱰᱟᱴᱟ ᱵᱷᱮᱡᱟᱭ ᱢᱮ</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">ᱟᱢᱟᱜ ᱰᱤᱵᱷᱟᱭᱤᱥ ᱵᱟᱵᱚᱛ ᱰᱟᱴᱟ, ᱦᱟᱰᱣᱮᱨ ᱠᱚᱱᱯᱷᱤᱜᱟᱨᱮᱥᱚᱱ, ᱟᱨ ᱟᱢ ᱪᱮᱫ ᱞᱮᱠᱟ Waterfox ᱮᱢ ᱵᱮᱵᱷᱟᱨᱮᱫᱟ ᱚᱱᱟ ᱫᱚ ᱡᱚᱛᱚ ᱦᱚᱲ ᱞᱟᱹᱜᱤᱫ ᱯᱷᱤᱪᱟᱨ, ᱠᱟᱹᱢᱤᱦᱚᱨᱟ ᱟᱨ ᱥᱴᱮᱵᱤᱞᱤᱴᱤ ᱥᱩᱫᱷᱟᱹᱨ ᱨᱮ ᱜᱚᱲᱚ ᱮᱢᱟᱭᱟ ᱾</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">ᱰᱷᱮᱨ ᱥᱮᱬᱟᱭ ᱢᱮ</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">ᱦᱩᱭᱮᱱᱟ</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Firefox ᱨᱮ ᱥᱟᱹᱜᱩᱱ ᱫᱟᱨᱟᱢ</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Waterfox ᱨᱮ ᱥᱟᱹᱜᱩᱱ ᱫᱟᱨᱟᱢ</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">ᱩᱥᱟᱹᱨᱟ ᱟᱨ ᱨᱩᱠᱷᱤᱭᱟᱹ ᱣᱮᱵᱽ ᱵᱽᱨᱟᱣᱩᱡᱤᱝ</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -635,21 +635,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">ᱞᱟᱦᱟᱜ ᱠᱟᱛᱮ, ᱟᱢ %1$s ᱨᱮᱢ ᱦᱮᱸᱥᱮᱨᱤᱭᱟᱹ ᱮᱫᱟ ᱾</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Firefox ᱵᱮᱵᱷᱟᱨ ᱨᱮᱭᱟᱜ ᱥᱚᱨᱛᱚ</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Waterfox ᱵᱮᱵᱷᱟᱨ ᱨᱮᱭᱟᱜ ᱥᱚᱨᱛᱚ</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Firefox ᱟᱢᱟᱜ ᱯᱨᱟᱭᱣᱮᱥᱤ ᱵᱟᱵᱚᱛ ᱡᱚᱛᱚᱱ ᱤᱫᱤᱭᱟᱭ ᱾ ᱟᱞᱮᱭᱟᱜ %1$s ᱨᱮ ᱵᱟᱹᱲᱛᱤ ᱵᱟᱲᱟᱭ ᱢᱮ ᱾</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Waterfox ᱟᱢᱟᱜ ᱯᱨᱟᱭᱣᱮᱥᱤ ᱵᱟᱵᱚᱛ ᱡᱚᱛᱚᱱ ᱤᱫᱤᱭᱟᱭ ᱾ ᱟᱞᱮᱭᱟᱜ %1$s ᱨᱮ ᱵᱟᱹᱲᱛᱤ ᱵᱟᱲᱟᱭ ᱢᱮ ᱾</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">ᱫᱟᱱᱟᱝ ᱠᱷᱚᱵᱚᱨ</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">ᱵᱽᱨᱟᱣᱩᱡᱟᱨ ᱥᱩᱫᱷᱨᱟᱹᱣ ᱜᱚᱲᱚ ᱞᱟᱹᱜᱤᱫ, Firefox ᱫᱚ Mozilla ᱴᱷᱮᱱ ᱰᱟᱭᱜᱽᱱᱚᱥᱴᱤᱠ ᱟᱨ ᱜᱟᱯᱟᱞᱢᱟᱨᱟᱣ ᱰᱟᱴᱟ ᱠᱩᱞᱟ ᱾ %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">ᱵᱽᱨᱟᱣᱩᱡᱟᱨ ᱥᱩᱫᱷᱨᱟᱹᱣ ᱜᱚᱲᱚ ᱞᱟᱹᱜᱤᱫ, Waterfox ᱫᱚ BrowserWorks ᱴᱷᱮᱱ ᱰᱟᱭᱜᱽᱱᱚᱥᱴᱤᱠ ᱟᱨ ᱜᱟᱯᱟᱞᱢᱟᱨᱟᱣ ᱰᱟᱴᱟ ᱠᱩᱞᱟ ᱾ %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">ᱢᱮᱱᱮᱡᱽ ᱢᱮ</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Firefox ᱵᱟᱵᱚᱛ ᱵᱟᱹᱲᱛᱤ ᱵᱟᱰᱟᱭ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱮᱢᱟ ᱞᱮᱢ</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱵᱟᱵᱚᱛ ᱵᱟᱹᱲᱛᱤ ᱵᱟᱰᱟᱭ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱮᱢᱟ ᱞᱮᱢ</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">ᱛᱤᱱ ᱨᱮ ᱟᱢ Firefox ᱪᱮᱫ ᱞᱮᱠᱟᱢ ᱧᱟᱢ ᱠᱮᱫᱟ ᱟᱨ ᱚᱱᱟᱢ ᱵᱮᱵᱷᱟᱨ ᱠᱮᱫᱟ, ᱟᱢ ᱟᱞᱮ ᱵᱽᱨᱟᱣᱡᱚᱨ ᱵᱟᱹᱲᱛᱤ ᱦᱚᱲ ᱥᱟᱶ ᱩᱯᱨᱩᱢ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱮᱢᱟᱞᱮᱭᱟ ᱾</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">ᱛᱤᱱ ᱨᱮ ᱟᱢ Waterfox ᱪᱮᱫ ᱞᱮᱠᱟᱢ ᱧᱟᱢ ᱠᱮᱫᱟ ᱟᱨ ᱚᱱᱟᱢ ᱵᱮᱵᱷᱟᱨ ᱠᱮᱫᱟ, ᱟᱢ ᱟᱞᱮ ᱵᱽᱨᱟᱣᱡᱚᱨ ᱵᱟᱹᱲᱛᱤ ᱦᱚᱲ ᱥᱟᱶ ᱩᱯᱨᱩᱢ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱮᱢᱟᱞᱮᱭᱟ ᱾</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Mozilla ᱨᱮᱱ ᱢᱟᱨᱠᱮᱴᱤᱝ ᱴᱮᱠᱱᱚᱞᱚᱡᱤ ᱵᱷᱟᱜᱫᱟᱨ ᱠᱚ ᱥᱟᱶᱛᱮ ᱠᱚᱢ ᱠᱷᱚᱱ ᱠᱚᱢ ᱰᱟᱴᱟ ᱦᱟᱹᱴᱤᱧ ᱢᱮ ᱾ ᱱᱚᱶᱟ ᱰᱟᱴᱟ ᱫᱚ ᱛᱤᱥ ᱦᱚᱸ ᱵᱟᱝ ᱟᱹᱠᱷᱨᱤᱧ ᱟᱠᱟᱱᱟ ᱥᱮ ᱰᱷᱟᱶᱨᱟ ᱫᱮᱠᱷᱟᱣ ᱞᱟᱹᱜᱤᱫ ᱵᱟᱭ ᱟᱹᱠᱷᱨᱤᱧᱚᱜᱼᱟ ᱾</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">BrowserWorks ᱨᱮᱱ ᱢᱟᱨᱠᱮᱴᱤᱝ ᱴᱮᱠᱱᱚᱞᱚᱡᱤ ᱵᱷᱟᱜᱫᱟᱨ ᱠᱚ ᱥᱟᱶᱛᱮ ᱠᱚᱢ ᱠᱷᱚᱱ ᱠᱚᱢ ᱰᱟᱴᱟ ᱦᱟᱹᱴᱤᱧ ᱢᱮ ᱾ ᱱᱚᱶᱟ ᱰᱟᱴᱟ ᱫᱚ ᱛᱤᱥ ᱦᱚᱸ ᱵᱟᱝ ᱟᱹᱠᱷᱨᱤᱧ ᱟᱠᱟᱱᱟ ᱥᱮ ᱰᱷᱟᱶᱨᱟ ᱫᱮᱠᱷᱟᱣ ᱞᱟᱹᱜᱤᱫ ᱵᱟᱭ ᱟᱹᱠᱷᱨᱤᱧᱚᱜᱼᱟ ᱾</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">ᱟᱵᱚ ᱰᱟᱴᱟ ᱪᱮᱫ ᱞᱮᱠᱟ ᱵᱚᱱ ᱵᱮᱵᱷᱟᱨᱮᱫᱟ</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -657,7 +657,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">ᱢᱤᱫ ᱢᱩᱪᱟᱹᱫ ᱠᱟᱛᱷᱟ</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">ᱟᱢ ᱪᱮᱫ ᱞᱮᱠᱟ Firefox ᱮᱢ ᱧᱟᱢ ᱠᱮᱫᱟ, ᱟᱨ ᱚᱱᱟ ᱮᱢ ᱵᱮᱵᱷᱟᱨ ᱮᱫᱟ, Mozilla ᱨᱮᱱ ᱢᱟᱨᱠᱮᱴᱤᱝ ᱵᱷᱟᱜᱫᱟᱨ ᱠᱚ ᱥᱟᱶ ᱦᱟᱹᱴᱤᱧ ᱢᱮ ᱾ ᱱᱚᱶᱟ ᱰᱟᱴᱟ ᱫᱚ ᱛᱤᱥ ᱦᱚᱸ ᱵᱟᱝ ᱟᱠᱷᱨᱤᱧ ᱟᱠᱟᱱᱟ ᱾</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">ᱟᱢ ᱪᱮᱫ ᱞᱮᱠᱟ Waterfox ᱮᱢ ᱧᱟᱢ ᱠᱮᱫᱟ, ᱟᱨ ᱚᱱᱟ ᱮᱢ ᱵᱮᱵᱷᱟᱨ ᱮᱫᱟ, BrowserWorks ᱨᱮᱱ ᱢᱟᱨᱠᱮᱴᱤᱝ ᱵᱷᱟᱜᱫᱟᱨ ᱠᱚ ᱥᱟᱶ ᱦᱟᱹᱴᱤᱧ ᱢᱮ ᱾ ᱱᱚᱶᱟ ᱰᱟᱴᱟ ᱫᱚ ᱛᱤᱥ ᱦᱚᱸ ᱵᱟᱝ ᱟᱠᱷᱨᱤᱧ ᱟᱠᱟᱱᱟ ᱾</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">ᱨᱮᱵᱮᱱ ᱢᱮ ᱟᱨ ᱵᱽᱨᱟᱣᱩᱡᱽ ᱮᱦᱚᱵ ᱢᱮ</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -742,9 +742,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">ᱴᱷᱤᱠᱬᱟᱹ ᱵᱟᱨ ᱠᱩᱥᱤᱭᱟᱜ</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">ᱴᱷᱤᱠᱬᱟᱹ ᱵᱟᱨ - Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">ᱴᱷᱤᱠᱬᱟᱹ ᱵᱟᱨ - Waterfox Suggest</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Firefox Suggest ᱵᱟᱵᱚᱛ ᱰᱷᱮᱨ ᱥᱮᱬᱟᱭ ᱢᱮ</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Waterfox Suggest ᱵᱟᱵᱚᱛ ᱰᱷᱮᱨ ᱥᱮᱬᱟᱭ ᱢᱮ</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">ᱜᱩᱜᱚᱞ ᱯᱞᱮ ᱨᱮ ᱫᱚᱨ ᱢᱮ</string>
   <!--
@@ -835,7 +835,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">ᱟᱹᱛᱩᱨ ᱫᱟᱲᱮᱭᱟᱜ</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">ᱢᱚᱱᱮᱛᱮᱭᱟᱜ Mozilla ᱠᱷᱟᱛᱟ ᱥᱟᱹᱨᱣᱟᱹᱨ</string>
+  <string name="preferences_override_account_server">ᱢᱚᱱᱮᱛᱮᱭᱟᱜ BrowserWorks ᱠᱷᱟᱛᱟ ᱥᱟᱹᱨᱣᱟᱹᱨ</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">ᱠᱩᱥᱤᱭᱟᱜ ᱥᱭᱝᱠ ᱥᱟᱹᱨᱣᱟᱹᱨ</string>
   <!-- Preference category for account information -->
@@ -853,7 +853,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">ᱟᱢᱟᱜ ᱴᱮᱵᱽ ᱠᱚ, ᱵᱩᱠᱢᱟᱨᱠ ᱠᱚ, ᱫᱟᱱᱟᱝ ᱥᱟᱵᱟᱫᱽ ᱠᱚ ᱟᱨ ᱵᱟᱹᱲᱛᱤ ᱠᱚ ᱛᱚᱞ ᱡᱚᱠᱷᱟᱭ ᱞᱟᱹᱜᱤᱫ ᱥᱩᱦᱤ ᱮᱢ ᱢᱮ ᱾</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Mozilla ᱠᱷᱟᱛᱟ</string>
+  <string name="preferences_account_default_name_2">BrowserWorks ᱠᱷᱟᱛᱟ</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">ᱥᱭᱝᱠ ᱠᱚ ᱪᱟᱹᱞᱩ ᱫᱚᱦᱚ ᱞᱟᱹᱜᱤᱫ ᱫᱩᱦᱲᱟᱹ ᱡᱩᱰᱟᱹᱣ</string>
   <!-- Preference for language -->
@@ -1082,7 +1082,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">ᱱᱟᱶᱟ ᱮᱠᱥᱴᱮᱱᱥᱚᱱ ᱱᱤᱛᱚᱜ ᱢᱮᱱᱟᱜᱼᱟ</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">100+ ᱱᱟᱣᱟ ᱮᱠᱥᱴᱮᱱᱥᱟᱱ ᱠᱚ ᱧᱮᱞ ᱢᱮ ᱡᱟᱦᱟᱸ ᱫᱚ ᱟᱢᱟᱜ Firefox ᱵᱮᱱᱟᱣ ᱮᱫᱟ ᱾</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">100+ ᱱᱟᱣᱟ ᱮᱠᱥᱴᱮᱱᱥᱟᱱ ᱠᱚ ᱧᱮᱞ ᱢᱮ ᱡᱟᱦᱟᱸ ᱫᱚ ᱟᱢᱟᱜ Waterfox ᱵᱮᱱᱟᱣ ᱮᱫᱟ ᱾</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">ᱮᱠᱥᱴᱮᱱᱥᱚᱱᱠᱚ ᱯᱟᱧᱡᱟᱭ ᱢᱮ</string>
   <!--
@@ -1154,7 +1154,7 @@
   -->
   <string name="fxa_received_tab_channel_name">ᱧᱟᱢᱟᱠᱟᱱ ᱴᱮᱵᱽ ᱠᱚ</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">ᱚᱞᱜᱟ Firefox ᱥᱟᱫᱷᱚᱱ ᱠᱷᱚᱱ ᱴᱮᱵᱽ ᱠᱚ ᱨᱮᱭᱟᱜ ᱠᱷᱚᱵᱚᱨ ᱧᱟᱢᱮᱱᱟ ᱾</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">ᱚᱞᱜᱟ Waterfox ᱥᱟᱫᱷᱚᱱ ᱠᱷᱚᱱ ᱴᱮᱵᱽ ᱠᱚ ᱨᱮᱭᱟᱜ ᱠᱷᱚᱵᱚᱨ ᱧᱟᱢᱮᱱᱟ ᱾</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">ᱴᱮᱵᱽ ᱧᱟᱢᱮᱱᱟ</string>
   <!-- %s is the device name -->
@@ -1186,19 +1186,19 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">ᱰᱷᱮᱨ ᱥᱮᱬᱟᱭ ᱢᱮ</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">ᱟᱢᱟᱜ ᱥᱟᱫᱷᱚᱱ, ᱦᱟᱨᱰᱣᱮᱭᱟᱨ ᱥᱟᱡᱟᱣ ᱟᱨ ᱵᱮᱵᱷᱟᱨ ᱵᱟᱵᱚᱛ ᱰᱟᱴᱟ ᱟᱞᱮ Firefox ᱨᱮᱭᱟᱜ ᱜᱩᱱᱠᱚ, ᱠᱟᱹᱢᱤᱦᱚᱨᱟ ᱟᱨ ᱥᱴᱮᱵᱤᱞᱤᱴᱤ ᱥᱩᱫᱷᱟᱹᱨ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱞᱮ ᱮᱢᱟᱭᱟ ᱾</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">ᱟᱢᱟᱜ ᱥᱟᱫᱷᱚᱱ, ᱦᱟᱨᱰᱣᱮᱭᱟᱨ ᱥᱟᱡᱟᱣ ᱟᱨ ᱵᱮᱵᱷᱟᱨ ᱵᱟᱵᱚᱛ ᱰᱟᱴᱟ ᱟᱞᱮ Waterfox ᱨᱮᱭᱟᱜ ᱜᱩᱱᱠᱚ, ᱠᱟᱹᱢᱤᱦᱚᱨᱟ ᱟᱨ ᱥᱴᱮᱵᱤᱞᱤᱴᱤ ᱥᱩᱫᱷᱟᱹᱨ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱞᱮ ᱮᱢᱟᱭᱟ ᱾</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">ᱠᱮᱢᱯᱮᱭᱱ ᱡᱚᱠᱷᱟ ᱰᱟᱴᱟ</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">ᱟᱢ ᱪᱮᱫ ᱞᱮᱠᱟ Firefox \u0020ᱮᱢ ᱧᱟᱢ ᱠᱮᱫᱟ ᱟᱨ ᱚᱱᱟ Mozilla ᱨᱮᱱ ᱢᱟᱨᱠᱮᱴᱤᱝ ᱴᱮᱠᱱᱚᱞᱚᱡᱤ ᱵᱷᱟᱜᱫᱟᱨ ᱠᱚ ᱥᱟᱶ ᱮᱢ ᱵᱮᱵᱷᱟᱨ ᱮᱫᱟ ᱚᱱᱟ ᱞᱟᱹᱭ ᱢᱮ ᱾</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">ᱟᱢ ᱪᱮᱫ ᱞᱮᱠᱟ Waterfox \u0020ᱮᱢ ᱧᱟᱢ ᱠᱮᱫᱟ ᱟᱨ ᱚᱱᱟ BrowserWorks ᱨᱮᱱ ᱢᱟᱨᱠᱮᱴᱤᱝ ᱴᱮᱠᱱᱚᱞᱚᱡᱤ ᱵᱷᱟᱜᱫᱟᱨ ᱠᱚ ᱥᱟᱶ ᱮᱢ ᱵᱮᱵᱷᱟᱨ ᱮᱫᱟ ᱚᱱᱟ ᱞᱟᱹᱭ ᱢᱮ ᱾</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">ᱢᱟᱨᱠᱮᱴᱤᱝ ᱰᱟᱴᱟ ᱵᱟᱵᱚᱛ ᱵᱟᱹᱲᱛᱤ ᱵᱟᱲᱟᱭ ᱢᱮ</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">ᱫᱤᱱᱟᱹᱢ ᱵᱮᱵᱷᱟᱨ ping</string>
-  <string name="preferences_daily_usage_ping_description">ᱱᱚᱣᱟ ᱫᱚ Mozilla ᱮᱠᱴᱤᱵᱷ ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ ᱠᱚ ᱟᱱᱩᱢᱟᱱ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱮᱢᱟ ᱠᱚᱣᱟᱭ ᱾</string>
+  <string name="preferences_daily_usage_ping_description">ᱱᱚᱣᱟ ᱫᱚ BrowserWorks ᱮᱠᱴᱤᱵᱷ ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ ᱠᱚ ᱟᱱᱩᱢᱟᱱ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱮᱢᱟ ᱠᱚᱣᱟᱭ ᱾</string>
   <string name="preferences_daily_usage_ping_learn_more">ᱫᱤᱱᱟᱹᱢ ᱵᱮᱵᱷᱟᱨ ping ᱵᱟᱵᱚᱛ ᱵᱟᱹᱲᱛᱤ ᱵᱟᱲᱟᱭ ᱢᱮ</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">ᱟᱡ ᱛᱮ ᱰᱤᱜᱟᱹᱣ ᱠᱷᱚᱵᱚᱨ ᱵᱷᱮᱡᱟᱭᱟ</string>
@@ -1209,7 +1209,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">ᱯᱟᱲᱦᱟᱣ ᱠᱚ</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Mozilla ᱥᱚᱫᱽᱷ ᱞᱚ ᱟᱹᱛᱩᱨ ᱟᱨ ᱫᱟᱹᱲ ᱪᱷᱚ ᱞᱟᱹᱤᱫᱽ ᱢᱮᱛᱟᱭ ᱢᱮ</string>
+  <string name="preference_experiments_summary_2">BrowserWorks ᱥᱚᱫᱽᱷ ᱞᱚ ᱟᱹᱛᱩᱨ ᱟᱨ ᱫᱟᱹᱲ ᱪᱷᱚ ᱞᱟᱹᱤᱫᱽ ᱢᱮᱛᱟᱭ ᱢᱮ</string>
   <!--
     Turn On Sync Preferences
 
@@ -1700,7 +1700,7 @@
   -->
   <string name="tab_crash_title_2">ᱤᱠᱟ. %1$s ᱚᱱᱟ ᱥᱟᱦᱴᱟ ᱵᱟᱭ ᱞᱟᱫᱮ ᱫᱟᱲᱮᱼᱜ ᱠᱟᱱᱟ ᱾</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">ᱨᱟᱹᱯᱩᱫ ᱨᱤᱯᱚᱴ Mozilla ᱴᱷᱮᱱ ᱠᱩᱞ ᱢᱮ</string>
+  <string name="tab_crash_send_report">ᱨᱟᱹᱯᱩᱫ ᱨᱤᱯᱚᱴ BrowserWorks ᱴᱷᱮᱱ ᱠᱩᱞ ᱢᱮ</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">ᱴᱮᱵᱽ ᱵᱚᱸᱫᱚᱭ ᱢᱮ</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -2027,7 +2027,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">ᱚᱞᱜᱟ ᱥᱟᱫᱷᱚᱱ ᱡᱩᱰᱟᱹᱣ ᱢᱮ</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ᱴᱮᱵᱽ ᱵᱷᱮᱡᱟ ᱞᱟᱹᱜᱤᱫ, ᱢᱤᱫ ᱠᱷᱚᱱ ᱡᱟᱹᱥᱛᱤ ᱥᱟᱫᱷᱚᱱ ᱛᱮ Firefox ᱨᱮ ᱵᱚᱞᱚᱱ ᱢᱮ ᱾</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ᱴᱮᱵᱽ ᱵᱷᱮᱡᱟ ᱞᱟᱹᱜᱤᱫ, ᱢᱤᱫ ᱠᱷᱚᱱ ᱡᱟᱹᱥᱛᱤ ᱥᱟᱫᱷᱚᱱ ᱛᱮ Waterfox ᱨᱮ ᱵᱚᱞᱚᱱ ᱢᱮ ᱾</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">ᱵᱩᱡᱷᱟᱹᱣ ᱠᱮᱫᱟ</string>
   <!-- Share error message -->
@@ -2059,12 +2059,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox ᱫᱚ ᱛᱮᱡᱽ ᱟᱨ ᱱᱤᱡᱮᱨᱟᱜ ᱜᱮ</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱫᱚ ᱛᱮᱡᱽ ᱟᱨ ᱱᱤᱡᱮᱨᱟᱜ ᱜᱮ</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Firefox ᱟᱢᱟᱜ ᱢᱩᱞ ᱵᱽᱨᱟᱣᱡᱚᱨ ᱞᱮᱠᱷᱟ ᱫᱚᱦᱚᱭ ᱢᱮ</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱟᱢᱟᱜ ᱢᱩᱞ ᱵᱽᱨᱟᱣᱡᱚᱨ ᱞᱮᱠᱷᱟ ᱫᱚᱦᱚᱭ ᱢᱮ</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">ᱱᱤᱡᱚᱨᱟᱜ ᱵᱽᱨᱟᱣᱡᱤᱝ ᱠᱩᱨᱩᱢᱩᱴᱩ ᱞᱮᱢ</string>
   <!--
@@ -2089,7 +2089,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">ᱠᱷᱟᱴᱚ ᱥᱚᱨᱵᱷᱮ ᱞᱮᱠᱷᱟᱛᱮ Firefox ᱥᱩᱫᱷᱟᱨ ᱨᱮ ᱜᱚᱲᱚ ᱮᱢᱚᱜ ᱢᱮ ᱾</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">ᱠᱷᱟᱴᱚ ᱥᱚᱨᱵᱷᱮ ᱞᱮᱠᱷᱟᱛᱮ Waterfox ᱥᱩᱫᱷᱟᱨ ᱨᱮ ᱜᱚᱲᱚ ᱮᱢᱚᱜ ᱢᱮ ᱾</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">ᱥᱚᱨᱵᱷᱮ ᱤᱫᱤ ᱢᱮ</string>
   <!-- Preference for not taking the short survey. -->
@@ -2237,7 +2237,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">ᱠᱳᱰ ᱥᱠᱟᱱ ᱢᱮ</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[ᱟᱢᱟᱜ ᱠᱚᱢᱯᱤᱭᱩᱴᱟᱨ ᱨᱮ Firefox ᱡᱷᱤᱡᱽ ᱢᱮ ᱟᱨ <b>https://firefox.com/pair</b> ᱨᱮ ᱪᱟᱞᱟᱜ ᱢᱮ]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[ᱟᱢᱟᱜ ᱠᱚᱢᱯᱤᱭᱩᱴᱟᱨ ᱨᱮ Waterfox ᱡᱷᱤᱡᱽ ᱢᱮ ᱟᱨ <b>https://firefox.com/pair</b> ᱨᱮ ᱪᱟᱞᱟᱜ ᱢᱮ]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">ᱥᱠᱟᱱ ᱞᱚᱜᱤᱫᱛᱮ ᱛᱮᱭᱟᱨ ᱢᱮᱱᱟᱢᱼᱟ</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2245,7 +2245,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">ᱵᱟᱹᱫᱟᱹᱞ ᱛᱮ ᱮᱢᱮᱞ ᱵᱮᱵᱷᱟᱨ ᱢᱮ</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ᱠᱷᱟᱛᱟ ᱵᱟᱹᱱᱩᱜᱼᱟ? <u>ᱢᱤᱫᱴᱟᱝ ᱛᱮᱭᱟᱨ ᱢᱮ</u> ᱰᱥᱫᱷᱚᱱ ᱠᱚ ᱵᱷᱤᱛᱨᱤ ᱨᱮ Firefox ᱥᱭᱝᱠ ᱞᱟᱹᱜᱤᱫ ᱾]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ᱠᱷᱟᱛᱟ ᱵᱟᱹᱱᱩᱜᱼᱟ? <u>ᱢᱤᱫᱴᱟᱝ ᱛᱮᱭᱟᱨ ᱢᱮ</u> ᱰᱥᱫᱷᱚᱱ ᱠᱚ ᱵᱷᱤᱛᱨᱤ ᱨᱮ Waterfox ᱥᱭᱝᱠ ᱞᱟᱹᱜᱤᱫ ᱾]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s ᱫᱚ ᱟᱢᱟᱜ ᱠᱷᱟᱛᱟ ᱥᱟᱞᱟᱜ ᱥᱭᱝᱠ ᱵᱚᱸᱫᱽᱚᱭ ᱟ , ᱦᱮᱞᱮ ᱟᱢᱟᱜ ᱚᱠᱟ ᱵᱽᱨᱟᱣᱩᱡᱤᱸᱝ ᱰᱟᱴᱟ ᱦᱚᱸ ᱟᱢᱟᱜ ᱥᱟᱫᱷᱚᱱ ᱨᱮ ᱵᱟᱭ ᱢᱮᱴᱟᱣᱜᱼᱟ ᱾</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2854,7 +2854,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">ᱫᱚᱭᱟᱠᱟᱛᱮ ᱴᱮᱵᱽ ᱥᱭᱝᱠᱤᱝ ᱮᱢ ᱪᱷᱚᱭ ᱢᱮ ᱾</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">ᱟᱢ ᱴᱷᱮᱱ ᱚᱠᱟ ᱦᱚᱸ ᱴᱮᱵᱽ ᱠᱚ ᱚᱞᱜᱟ Firefox ᱢᱮᱱᱟᱜ ᱥᱟᱫᱷᱚᱱ ᱨᱮ ᱵᱟᱝ ᱠᱷᱩᱞᱟᱹ ᱟᱠᱟᱱᱟ ᱾</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">ᱟᱢ ᱴᱷᱮᱱ ᱚᱠᱟ ᱦᱚᱸ ᱴᱮᱵᱽ ᱠᱚ ᱚᱞᱜᱟ Waterfox ᱢᱮᱱᱟᱜ ᱥᱟᱫᱷᱚᱱ ᱨᱮ ᱵᱟᱝ ᱠᱷᱩᱞᱟᱹ ᱟᱠᱟᱱᱟ ᱾</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">ᱟᱢᱟᱜ ᱮᱴᱟᱜ ᱥᱟᱫᱷᱚᱱ ᱠᱷᱚᱱ ᱴᱮᱵᱽ ᱞᱤᱥᱴᱤ ᱫᱮᱠᱷᱟᱣ ᱢᱮ ᱾</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2920,7 +2920,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">ᱢᱤᱫ ᱪᱟᱸᱫᱚ ᱛᱟᱭᱚᱢ ᱟᱡ ᱛᱮ ᱵᱚᱸᱫᱽ ᱟᱢ ᱥᱮ?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">ᱛᱤᱱᱟᱹᱜ ᱜᱟᱱ ᱪᱟᱸᱫᱚ ᱨᱮ ᱵᱟᱝ ᱠᱷᱩᱞᱟᱹ ᱠᱟᱱ ᱴᱮᱵᱽ ᱠᱚ Firefox ᱵᱚᱸᱫ ᱫᱟᱲᱮᱭᱟᱜᱼᱟᱭ᱾</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">ᱛᱤᱱᱟᱹᱜ ᱜᱟᱱ ᱪᱟᱸᱫᱚ ᱨᱮ ᱵᱟᱝ ᱠᱷᱩᱞᱟᱹ ᱠᱟᱱ ᱴᱮᱵᱽ ᱠᱚ Waterfox ᱵᱚᱸᱫ ᱫᱟᱲᱮᱭᱟᱜᱼᱟᱭ᱾</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ᱟᱡ ᱛᱮ ᱵᱚᱸᱫ ᱮᱢ ᱪᱷᱚᱭ ᱢᱮ</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2930,7 +2930,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox ᱵᱟᱛᱟᱣ</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox ᱵᱟᱛᱟᱣ</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2949,7 +2949,7 @@
   -->
   <string name="default_browser_experiment_card_title">ᱟᱢᱟᱜ ᱢᱩᱞ ᱵᱽᱨᱟᱣᱡᱚᱨ ᱛᱮ ᱩᱪᱟᱹᱲᱚᱜ ᱢᱮ</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Firefox ᱟᱡ ᱛᱮ ᱠᱷᱩᱞᱟᱹ ᱪᱷᱚ ᱞᱟᱹᱜᱤᱫ ᱣᱮᱵᱥᱟᱭᱤᱴ, ᱤᱢᱮᱞ, ᱟᱨ ᱢᱮᱥᱮᱡᱽ ᱨᱮᱭᱟᱜ ᱞᱤᱝᱠ ᱥᱮᱴ ᱢᱮ ᱾</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Waterfox ᱟᱡ ᱛᱮ ᱠᱷᱩᱞᱟᱹ ᱪᱷᱚ ᱞᱟᱹᱜᱤᱫ ᱣᱮᱵᱥᱟᱭᱤᱴ, ᱤᱢᱮᱞ, ᱟᱨ ᱢᱮᱥᱮᱡᱽ ᱨᱮᱭᱟᱜ ᱞᱤᱝᱠ ᱥᱮᱴ ᱢᱮ ᱾</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">ᱚᱪᱟᱜ</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2973,7 +2973,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">%1$s ᱫᱟᱨᱟᱭ ᱛᱮ ᱫᱟᱲᱮ ᱮᱢ ᱾</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Firefox ᱜᱷᱟᱨᱚᱧᱡᱽ ᱨᱤᱱᱤᱡ ᱦᱟᱹᱴᱤᱧ ᱾ %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱜᱷᱟᱨᱚᱧᱡᱽ ᱨᱤᱱᱤᱡ ᱦᱟᱹᱴᱤᱧ ᱾ %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">ᱰᱷᱮᱨ ᱥᱮᱬᱟᱭ ᱢᱮ</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -3309,7 +3309,7 @@
     %s is a placeholder for the name of the tracker category.
     %d is a placeholder for the number of trackers blocked.
   -->
-  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%s: %d</string>
+  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%1$s: %2$d</string>
   <!--
     Description text for a dialog confirming whether the user wants to delete all data for current site.
     %s is a placeholder for the base domain of website.
@@ -3385,7 +3385,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Firefox ᱵᱮᱥ ᱛᱮᱭᱟᱨ ᱨᱮ ᱜᱚᱲᱚ ᱮᱢᱟ ᱞᱮᱢ ᱾ ᱱᱚᱶᱟ ᱫᱚ ᱞᱚᱜᱚᱱ ᱜᱮ ᱦᱩᱭᱩᱜᱼᱟ ᱾</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱵᱮᱥ ᱛᱮᱭᱟᱨ ᱨᱮ ᱜᱚᱲᱚ ᱮᱢᱟ ᱞᱮᱢ ᱾ ᱱᱚᱶᱟ ᱫᱚ ᱞᱚᱜᱚᱱ ᱜᱮ ᱦᱩᱭᱩᱜᱼᱟ ᱾</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">ᱞᱮᱛᱟᱲ</string>
   <!--
@@ -3415,29 +3415,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">ᱤᱧ ᱚᱱᱟ ᱵᱟᱹᱧ ᱵᱮᱣᱦᱟᱨ ᱮᱫᱟ</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Firefox ᱨᱮ ᱤᱧ ᱥᱮᱸᱫᱽᱨᱟ ᱵᱟᱹᱧ ᱵᱮᱵᱷᱟᱨ ᱟ</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱨᱮ ᱤᱧ ᱥᱮᱸᱫᱽᱨᱟ ᱵᱟᱹᱧ ᱵᱮᱵᱷᱟᱨ ᱟ</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">ᱤᱧ ᱥᱤᱝᱠ ᱵᱟᱹᱧ ᱵᱮᱵᱷᱟᱨ ᱟ</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Firefox ᱨᱮ ᱪᱷᱟᱯᱟ ᱜᱟᱱᱪᱷᱚ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱮᱢᱚᱜ ᱢᱮ ᱾ ᱱᱚᱶᱟ ᱫᱚ ᱢᱤᱫ ᱴᱤᱡ ᱜᱟᱱ ᱚᱠᱛᱚ ᱤᱫᱤᱭᱟᱭ</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱨᱮ ᱪᱷᱟᱯᱟ ᱜᱟᱱᱪᱷᱚ ᱞᱟᱹᱜᱤᱫ ᱜᱚᱲᱚ ᱮᱢᱚᱜ ᱢᱮ ᱾ ᱱᱚᱶᱟ ᱫᱚ ᱢᱤᱫ ᱴᱤᱡ ᱜᱟᱱ ᱚᱠᱛᱚ ᱤᱫᱤᱭᱟᱭ</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Firefox ᱨᱮ ᱥᱮᱸᱫᱽᱨᱟ ᱵᱮᱥ ᱵᱮᱱᱟᱣ ᱨᱮ ᱜᱚᱲᱚ ᱮᱢᱟ ᱞᱮᱢ ᱾ ᱱᱚᱶᱟ ᱫᱚ ᱞᱚᱜᱚᱱ ᱜᱮ ᱦᱩᱭᱩᱜᱼᱟ ᱾</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱨᱮ ᱥᱮᱸᱫᱽᱨᱟ ᱵᱮᱥ ᱵᱮᱱᱟᱣ ᱨᱮ ᱜᱚᱲᱚ ᱮᱢᱟ ᱞᱮᱢ ᱾ ᱱᱚᱶᱟ ᱫᱚ ᱞᱚᱜᱚᱱ ᱜᱮ ᱦᱩᱭᱩᱜᱼᱟ ᱾</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Firefox ᱨᱮ ᱥᱤᱝᱠ ᱵᱮᱥ ᱵᱮᱱᱟᱣ ᱨᱮ ᱜᱚᱲᱚ ᱮᱢᱟ ᱞᱮᱢ ᱾ ᱱᱚᱶᱟ ᱫᱚ ᱞᱚᱜᱚᱱ ᱜᱮ ᱦᱩᱭᱩᱜᱼᱟ ᱾</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱨᱮ ᱥᱤᱝᱠ ᱵᱮᱥ ᱵᱮᱱᱟᱣ ᱨᱮ ᱜᱚᱲᱚ ᱮᱢᱟ ᱞᱮᱢ ᱾ ᱱᱚᱶᱟ ᱫᱚ ᱞᱚᱜᱚᱱ ᱜᱮ ᱦᱩᱭᱩᱜᱼᱟ ᱾</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Firefox ᱨᱮ ᱪᱷᱟᱯᱟ ᱠᱟᱹᱢᱤᱦᱟᱨᱟ ᱥᱟᱞᱟᱜ ᱛᱤᱱᱟᱹᱜ ᱨᱟᱹᱥᱠᱟᱹ ᱢᱮᱱᱟᱢᱟᱸ ?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱨᱮ ᱪᱷᱟᱯᱟ ᱠᱟᱹᱢᱤᱦᱟᱨᱟ ᱥᱟᱞᱟᱜ ᱛᱤᱱᱟᱹᱜ ᱨᱟᱹᱥᱠᱟᱹ ᱢᱮᱱᱟᱢᱟᱸ ?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">ᱟᱢᱟᱜ Firefox ᱨᱮᱭᱟᱜ ᱚᱲᱟᱜᱥᱟᱦᱴᱟ ᱨᱮ ᱟᱢ ᱛᱤᱱᱟᱹᱜ ᱫᱷᱟᱹᱵᱤᱡ ᱥᱚᱦᱢᱚᱛ ᱜᱮᱭᱟᱢ ?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">ᱟᱢᱟᱜ Waterfox ᱨᱮᱭᱟᱜ ᱚᱲᱟᱜᱥᱟᱦᱴᱟ ᱨᱮ ᱟᱢ ᱛᱤᱱᱟᱹᱜ ᱫᱷᱟᱹᱵᱤᱡ ᱥᱚᱦᱢᱚᱛ ᱜᱮᱭᱟᱢ ?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Firefox ᱨᱮ ᱥᱮᱸᱫᱽᱨᱟ ᱠᱟᱹᱢᱤᱦᱚᱨᱟ ᱥᱟᱞᱟᱜ ᱛᱤᱱᱟᱹᱜ ᱨᱟᱹᱥᱠᱟᱹ ᱢᱮᱱᱟᱢᱟᱸ ?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱨᱮ ᱥᱮᱸᱫᱽᱨᱟ ᱠᱟᱹᱢᱤᱦᱚᱨᱟ ᱥᱟᱞᱟᱜ ᱛᱤᱱᱟᱹᱜ ᱨᱟᱹᱥᱠᱟᱹ ᱢᱮᱱᱟᱢᱟᱸ ?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Firefox ᱨᱮ ᱥᱤᱝᱠ ᱠᱟᱹᱢᱤᱦᱚᱨᱟ ᱥᱟᱞᱟᱜ ᱛᱤᱱᱟᱹᱜ ᱨᱟᱹᱥᱠᱟᱹ ᱢᱮᱱᱟᱢᱟᱸ ?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ᱨᱮ ᱥᱤᱝᱠ ᱠᱟᱹᱢᱤᱦᱚᱨᱟ ᱥᱟᱞᱟᱜ ᱛᱤᱱᱟᱹᱜ ᱨᱟᱹᱥᱠᱟᱹ ᱢᱮᱱᱟᱢᱟᱸ ?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Firefox ᱞᱚᱜᱚ</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Waterfox ᱞᱚᱜᱚ</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">ᱥᱚᱨᱵᱷᱮ ᱯᱷᱤᱪᱚᱨ ᱪᱤᱱᱦᱟᱹ</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3535,27 +3535,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">ᱱᱤᱛᱚᱜ ᱦᱟᱹᱞᱤᱭᱟᱹᱠ ᱢᱮ</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">ᱟᱢᱟᱜ Firefox ᱵᱽᱨᱟᱣᱡᱚᱨ ᱦᱟᱹᱞᱤᱭᱟᱹᱠ ᱛᱟᱢ</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">ᱟᱢᱟᱜ Waterfox ᱵᱽᱨᱟᱣᱡᱚᱨ ᱦᱟᱹᱞᱤᱭᱟᱹᱠ ᱛᱟᱢ</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">ᱢᱤᱫ ᱨᱩᱴ ᱥᱮᱨᱴᱤᱯᱷᱤᱠᱮᱴ ᱢᱩᱪᱟᱹᱫᱚᱜᱼᱟ, ᱚᱱᱟ ᱠᱷᱟᱹᱛᱤᱨ ᱛᱮ ᱛᱤᱱᱟᱹᱜ ᱜᱟᱱ ᱯᱷᱤᱪᱟᱨ ᱠᱚ ᱑᱔ ᱢᱟᱨᱪ ᱦᱤᱞᱚᱜ ᱠᱟᱹᱢᱤ ᱵᱚᱱᱫᱚᱭᱟᱭ ᱾</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">14 ᱢᱟᱨᱪ ᱢᱟᱲᱟᱝ ᱨᱮ ᱦᱟᱹᱞᱤᱭᱟᱹᱠ ᱢᱮ</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">ᱢᱤᱫ ᱨᱩᱴ ᱥᱮᱨᱴᱤᱯᱷᱤᱠᱮᱴ ᱢᱩᱪᱟᱹᱫᱚᱜᱼᱟ, ᱚᱱᱟ ᱠᱷᱟᱹᱛᱤᱨ ᱟᱢᱟᱜ Firefox ᱨᱮᱭᱟᱜ ᱵᱷᱟᱨᱥᱚᱱ ᱵᱮᱥ ᱞᱮᱠᱟ ᱠᱟᱹᱢᱤ ᱵᱚᱱᱫᱚᱭᱟ ᱾</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">ᱢᱤᱫ ᱨᱩᱴ ᱥᱮᱨᱴᱤᱯᱷᱤᱠᱮᱴ ᱢᱩᱪᱟᱹᱫᱚᱜᱼᱟ, ᱚᱱᱟ ᱠᱷᱟᱹᱛᱤᱨ ᱟᱢᱟᱜ Waterfox ᱨᱮᱭᱟᱜ ᱵᱷᱟᱨᱥᱚᱱ ᱵᱮᱥ ᱞᱮᱠᱟ ᱠᱟᱹᱢᱤ ᱵᱚᱱᱫᱚᱭᱟ ᱾</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">ᱟᱯᱰᱮᱴ ᱞᱟᱹᱜᱤᱫ 7 ᱠᱷᱚᱱ ᱠᱚᱢ ᱢᱟᱦᱟᱸ ᱵᱟᱠᱤ ᱢᱮᱱᱟᱜᱼᱟ</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">14 ᱢᱟᱨᱪ ᱦᱤᱞᱚᱜ, ᱮᱰ-ᱚᱱ ᱟᱨ ᱮᱴᱟᱜ Firefox ᱨᱮᱭᱟᱜ ᱜᱩᱱ ᱠᱚ ᱠᱟᱹᱢᱤ ᱵᱚᱱᱫᱚᱭᱟ ᱪᱮᱫᱟᱜ ᱥᱮ ᱢᱤᱫ ᱨᱩᱴ ᱥᱮᱨᱴᱤᱯᱷᱤᱠᱮᱴ ᱨᱮᱭᱟᱜ ᱚᱠᱛᱚ ᱢᱩᱪᱟᱹᱫᱚᱜ ᱠᱟᱱᱟ ᱾</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">14 ᱢᱟᱨᱪ ᱦᱤᱞᱚᱜ, ᱮᱰ-ᱚᱱ ᱟᱨ ᱮᱴᱟᱜ Waterfox ᱨᱮᱭᱟᱜ ᱜᱩᱱ ᱠᱚ ᱠᱟᱹᱢᱤ ᱵᱚᱱᱫᱚᱭᱟ ᱪᱮᱫᱟᱜ ᱥᱮ ᱢᱤᱫ ᱨᱩᱴ ᱥᱮᱨᱴᱤᱯᱷᱤᱠᱮᱴ ᱨᱮᱭᱟᱜ ᱚᱠᱛᱚ ᱢᱩᱪᱟᱹᱫᱚᱜ ᱠᱟᱱᱟ ᱾</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">ᱟᱢᱟᱜ Firefox ᱫᱚᱦᱚ ᱞᱟᱹᱜᱤᱫ ᱢᱩᱪᱟᱹᱫ ᱫᱟᱣ</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">ᱟᱢᱟᱜ Waterfox ᱫᱚᱦᱚ ᱞᱟᱹᱜᱤᱫ ᱢᱩᱪᱟᱹᱫ ᱫᱟᱣ</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">ᱟᱢᱟᱜ Firefox ᱨᱮᱭᱟᱜ ᱵᱷᱟᱨᱥᱚᱱ 14 ᱢᱟᱨᱪ ᱦᱤᱞᱚᱜ ᱵᱮᱥ ᱞᱮᱠᱟ ᱠᱟᱹᱢᱤ ᱵᱚᱱᱫᱚᱭᱟ ᱪᱮᱫᱟᱜ ᱥᱮ ᱢᱤᱫ ᱨᱩᱴ ᱥᱮᱨᱴᱤᱯᱷᱤᱠᱮᱴ ᱨᱮᱭᱟᱜ ᱚᱠᱛᱚ ᱢᱩᱪᱟᱹᱫᱚᱜ ᱠᱟᱱᱟ ᱾</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">ᱟᱢᱟᱜ Waterfox ᱨᱮᱭᱟᱜ ᱵᱷᱟᱨᱥᱚᱱ 14 ᱢᱟᱨᱪ ᱦᱤᱞᱚᱜ ᱵᱮᱥ ᱞᱮᱠᱟ ᱠᱟᱹᱢᱤ ᱵᱚᱱᱫᱚᱭᱟ ᱪᱮᱫᱟᱜ ᱥᱮ ᱢᱤᱫ ᱨᱩᱴ ᱥᱮᱨᱴᱤᱯᱷᱤᱠᱮᱴ ᱨᱮᱭᱟᱜ ᱚᱠᱛᱚ ᱢᱩᱪᱟᱹᱫᱚᱜ ᱠᱟᱱᱟ ᱾</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">ᱟᱯᱰᱮᱴ ᱞᱟᱹᱜᱤᱫ ᱥᱚᱞᱦᱟ ᱦᱩᱭ ᱟᱠᱟᱱᱟ</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">ᱮᱰ-ᱚᱱᱥ ᱟᱨ ᱠᱤᱪᱷᱩ ᱯᱷᱤᱪᱟᱨ ᱠᱚ 14 ᱢᱟᱨᱪ ᱦᱤᱞᱚᱜ ᱠᱟᱹᱢᱤ ᱵᱚᱸᱫᱚᱜᱼᱟ ᱾</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">ᱟᱢ ᱫᱚ Firefox ᱨᱮᱭᱟᱜ ᱢᱟᱨᱮ ᱵᱷᱟᱨᱥᱚᱱ ᱨᱮ ᱢᱮᱱᱟᱢᱟ</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">ᱟᱢ ᱫᱚ Waterfox ᱨᱮᱭᱟᱜ ᱢᱟᱨᱮ ᱵᱷᱟᱨᱥᱚᱱ ᱨᱮ ᱢᱮᱱᱟᱢᱟ</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">ᱮᱰ-ᱚᱱᱥ ᱟᱨ ᱮᱴᱟᱜ ᱯᱷᱤᱪᱟᱨ ᱠᱚ ᱵᱮᱵᱷᱟᱨ ᱞᱟᱹᱜᱤᱫ 14 ᱢᱟᱨᱪ ᱢᱟᱲᱟᱝ ᱨᱮ ᱟᱯᱰᱮᱴ ᱢᱮ ᱾</string>
   <!-- Push notification message about old Firefox version -->

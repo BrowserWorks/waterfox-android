@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Eltávolítás</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">A %1$s a Mozilla terméke.</string>
+  <string name="about_content">A %1$s a BrowserWorks terméke.</string>
   <!--
     Private Browsing
 
@@ -514,14 +514,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Firefox adatvédelmi nyilatkozat</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Waterfox adatvédelmi nyilatkozat</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Szeretjük biztonságban tartani Önt</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Tudja meg, hogy miért szeretik milliók a Firefoxot</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Tudja meg, hogy miért szeretik milliók a Waterfoxot</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Biztonságos böngészés, több választási lehetőséggel</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -540,7 +540,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Ha szinkronizálva van, akkor a Firefox titkosítja a jelszavait, könyvjelzőit és egyebeket.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Ha szinkronizálva van, akkor a Waterfox titkosítja a jelszavait, könyvjelzőit és egyebeket.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Bejelentkezés</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -549,12 +549,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Az értesítések segítségével nagyobb biztonságban lehet a Firefoxszal</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Az értesítések segítségével nagyobb biztonságban lehet a Waterfoxszal</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Küldjön biztonságosan lapokat eszközei között, és fedezzen fel más adatvédelmi funkciókat a Firefoxban.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Küldjön biztonságosan lapokat eszközei között, és fedezzen fel más adatvédelmi funkciókat a Waterfoxban.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Értesítések bekapcsolása</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -563,24 +563,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Próbálja ki a Firefox keresőmodult</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Próbálja ki a Waterfox keresőmodult</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Ha a Firefox a kezdőképernyőn van, akkor könnyen hozzáférhet az adatvédelmet előtérbe helyező böngészőhöz, amely blokkolja a webhelyek közötti követőket.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Ha a Waterfox a kezdőképernyőn van, akkor könnyen hozzáférhet az adatvédelmet előtérbe helyező böngészőhöz, amely blokkolja a webhelyek közötti követőket.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Firefox modul hozzáadása</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Waterfox modul hozzáadása</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Most nem</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Szabja személyre a Firefoxot kiegészítőkkel</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Szabja személyre a Waterfoxot kiegészítőkkel</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">Adjon hozzá olyan harmadik felektől származó kiegészítőket, melyek növelik a biztonságát, a hatékonyságát, vagy másként hasznosak.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -616,7 +616,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">%1$s csillagra értékelve az 5-ből</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Segítsen jobbá tenni a Firefoxot</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Segítsen jobbá tenni a Waterfoxot</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">Összeomlás-jelentések automatikus elküldése</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -625,12 +625,12 @@
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">További tudnivalók</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
   <string name="onboarding_preferences_dialog_usage_data_title">Műszaki és interakciós adatok küldése a Mozillának</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Az eszközre, a hardverbeállításokra és a Firefox használatára vonatkozó adatok segítenek abban, hogy a funkciók, a teljesítmény és a stabilitás mindenki számára jobb legyen.</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Az eszközre, a hardverbeállításokra és a Waterfox használatára vonatkozó adatok segítenek abban, hogy a funkciók, a teljesítmény és a stabilitás mindenki számára jobb legyen.</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">További tudnivalók</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">Kész</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Üdvözli a Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Üdvözli a Waterfox</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">Gyors és biztonságos webböngészés</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -640,21 +640,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">A folytatással elfogadja a %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Firefox felhasználási feltételeit</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Waterfox felhasználási feltételeit</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">A Firefox vigyáz az Ön adatvédelmére. További információk az %1$sunkban.</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">A Waterfox vigyáz az Ön adatvédelmére. További információk az %1$sunkban.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">Adatvédelmi nyilatkozat</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">A böngésző fejlesztése érdekében, a Firefox diagnosztikai és interakciós adatokat küld a Mozillának. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">A böngésző fejlesztése érdekében, a Waterfox diagnosztikai és interakciós adatokat küld a Mozillának. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">Kezelés</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Segítsen a Firefox növekedésében</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Segítsen a Waterfox növekedésében</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Ha megosztja hogyan fedezte fel a Firefoxot, és hogy használja, akkor segít abban, hogy még több emberrel megismertessük a böngészőnket.</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Ha megosztja hogyan fedezte fel a Waterfoxot, és hogy használja, akkor segít abban, hogy még több emberrel megismertessük a böngészőnket.</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Osszon meg minimális mennyiségű adatot a Mozilla marketingtechnológiai partnereivel. Ezek az adatok sosem kerülnek eladásra, és sosem használják fel hirdetések megjelenítésére.</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Osszon meg minimális mennyiségű adatot a BrowserWorks marketingtechnológiai partnereivel. Ezek az adatok sosem kerülnek eladásra, és sosem használják fel hirdetések megjelenítésére.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">Hogyan használjuk az adatokat</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -662,7 +662,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">Még egy dolog</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Ossza meg a Mozilla marketinges partnereivel, hogy miként fedezte fel, és hogyan használja a Firefoxot. Ezeket az adatokat sosem adjuk el.</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Ossza meg a BrowserWorks marketinges partnereivel, hogy miként fedezte fel, és hogyan használja a Waterfoxot. Ezeket az adatokat sosem adjuk el.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">Elfogadás, és a böngészés megkezdése</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -747,9 +747,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Címsáv beállításai</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Címsáv – Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Címsáv – Waterfox Suggest</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Ismerje meg a Firefox Suggestet</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Ismerje meg a Waterfox Suggestet</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Értékelés a Google Playen</string>
   <!--
@@ -840,7 +840,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Akadálymentesítés</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">Egyéni Mozilla-fiókkiszolgáló</string>
+  <string name="preferences_override_account_server">Egyéni BrowserWorks-fiókkiszolgáló</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Egyéni Sync kiszolgáló</string>
   <!-- Preference category for account information -->
@@ -858,7 +858,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">Jelentkezzen be a lapok, könyvjelzők, jelszavak és sok más szinkronizálásához.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Mozilla-fiók</string>
+  <string name="preferences_account_default_name_2">BrowserWorks-fiók</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Újracsatlakozás a szinkronizálás folytatásához</string>
   <!-- Preference for language -->
@@ -1087,7 +1087,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">Új kiegészítők érhetők el</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Nézzen meg több mint 100 új kiegészítőt, amellyel a sajátjává teheti a Firefoxot.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Nézzen meg több mint 100 új kiegészítőt, amellyel a sajátjává teheti a Waterfoxot.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Kiegészítők felfedezése</string>
   <!--
@@ -1191,14 +1191,14 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">További tudnivalók</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Az eszközre, hardverkonfigurációra és a használatra vonatkozó adatok segítenek minket a Firefox funkcióinak, teljesítményének és stabilitásának javításában.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Az eszközre, hardverkonfigurációra és a használatra vonatkozó adatok segítenek minket a Waterfox funkcióinak, teljesítményének és stabilitásának javításában.</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">Kampány mérési adatai</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Ossza meg a Mozilla marketingtechnológiai partnereivel, hogy miként fedezte fel, és hogyan használja a Firefoxot.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Ossza meg a BrowserWorks marketingtechnológiai partnereivel, hogy miként fedezte fel, és hogyan használja a Waterfoxot.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Tudjon meg többet a marketingadatokról</string>
   <!-- Preference switch for daily usage ping data collection -->
@@ -1214,7 +1214,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Tanulmányok</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Engedélyezés, hogy a Mozilla tanulmányokat telepítsen és futtasson</string>
+  <string name="preference_experiments_summary_2">Engedélyezés, hogy a BrowserWorks tanulmányokat telepítsen és futtasson</string>
   <!--
     Turn On Sync Preferences
 
@@ -1643,7 +1643,7 @@
   -->
   <string name="webcompat_reporter_screen_title">Hibás webhely bejelentése</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">Segítsen abban, hogy a %1$s mindenki számára jobb legyen. A Mozilla alkalmazottai a küldött információkat a webhely problémáinak javítására használják.</string>
+  <string name="webcompat_reporter_description">Segítsen abban, hogy a %1$s mindenki számára jobb legyen. A BrowserWorks alkalmazottai a küldött információkat a webhely problémáinak javítására használják.</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">Webcím</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -2032,7 +2032,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Másik eszköz csatlakoztatása</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Lap küldéséhez legalább egy másik eszközön is jelentkezzen be a Firefoxba.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Lap küldéséhez legalább egy másik eszközön is jelentkezzen be a Waterfoxba.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Megértettem</string>
   <!-- Share error message -->
@@ -2064,12 +2064,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">A Firefox gyors és privát</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">A Waterfox gyors és privát</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">A Firefox alapértelmezett böngészővé tétele</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">A Waterfox alapértelmezett böngészővé tétele</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Próbálja ki a privát böngészést</string>
   <!--
@@ -2094,7 +2094,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Segítsen a Firefox jobbá tételében egy rövid felmérés kitöltésével.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Segítsen a Waterfox jobbá tételében egy rövid felmérés kitöltésével.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Kérdőív kitöltése</string>
   <!-- Preference for not taking the short survey. -->
@@ -2242,7 +2242,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Olvassa le a kódot</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[A számítógépen nyissa meg a Firefoxot, és ugorjon a <b>https://firefox.com/pair</b> oldalra]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[A számítógépen nyissa meg a Waterfoxot, és ugorjon a <b>https://firefox.com/pair</b> oldalra]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Leolvasásra kész</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2250,7 +2250,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">E-mail használata ehelyett</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Nincs fiókja? <u>Hozzon létre egyet</u>, hogy szinkronizálja a Firefoxot az eszközök között.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Nincs fiókja? <u>Hozzon létre egyet</u>, hogy szinkronizálja a Waterfoxot az eszközök között.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">A %s leállítja a szinkronizációt a fiókjával, de nem töröl semmilyen böngészési adatot erről az eszközről.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2859,7 +2859,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Engedélyezze a lapok szinkronizálását.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Nincs egyetlen lap sem nyitva a Firefoxban a többi eszközén.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Nincs egyetlen lap sem nyitva a Waterfoxban a többi eszközén.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Tekintse meg a más eszközökről származó lapok listáját.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2925,7 +2925,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Automatikus bezárás egy hónap után?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">A Firefox bezárhatja azokat a lapokat, amelyeket az elmúlt hónapban nem nézett meg.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">A Waterfox bezárhatja azokat a lapokat, amelyeket az elmúlt hónapban nem nézett meg.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">AUTOMATIKUS BEZÁRÁS BEKAPCSOLÁSA</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2935,7 +2935,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Suggest</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox Suggest</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2954,7 +2954,7 @@
   -->
   <string name="default_browser_experiment_card_title">Az alapértelmezett böngésző módosítása</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Állítsa be a webhelyek, e-mailek és üzenetek hivatkozásait, hogy azok automatikusan a Firefoxban nyíljanak meg.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Állítsa be a webhelyek, e-mailek és üzenetek hivatkozásait, hogy azok automatikusan a Waterfoxban nyíljanak meg.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Eltávolítás</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2978,7 +2978,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">A motorháztető alatt: %s.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">A Firefox család tagja. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">A Waterfox család tagja. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">További tudnivalók</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -3314,7 +3314,7 @@
     %s is a placeholder for the name of the tracker category.
     %d is a placeholder for the number of trackers blocked.
   -->
-  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%s: %d</string>
+  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%1$s: %2$d</string>
   <!--
     Description text for a dialog confirming whether the user wants to delete all data for current site.
     %s is a placeholder for the base domain of website.
@@ -3390,7 +3390,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Segítsen a Firefox jobbá tételében. Csak egy percébe kerül.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Segítsen a Waterfox jobbá tételében. Csak egy percébe kerül.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Folytatás</string>
   <!--
@@ -3420,29 +3420,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">Nem használom</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Nem használok keresőt a Firefoxban</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Nem használok keresőt a Waterfoxban</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">Nem használom a szinkronizálást</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Segítsen jobbá tenni a nyomtatást a Firefoxban. Egy pillanat az egész.</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Segítsen jobbá tenni a nyomtatást a Waterfoxban. Egy pillanat az egész.</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Segítsen a Firefox keresésének jobbá tételében. Csak egy percébe kerül.</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Segítsen a Waterfox keresésének jobbá tételében. Csak egy percébe kerül.</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Segítsen a Firefox szinkronizálásának jobbá tételében. Csak egy percébe kerül.</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Segítsen a Waterfox szinkronizálásának jobbá tételében. Csak egy percébe kerül.</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Mennyire elégedett a Firefoxban történő nyomtatással?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Mennyire elégedett a Waterfoxban történő nyomtatással?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Mennyire elégedett a Firefox kezdőlapjával?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Mennyire elégedett a Waterfox kezdőlapjával?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Mennyire elégedett a keresési élményével a Firefoxban?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Mennyire elégedett a keresési élményével a Waterfoxban?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Mennyire elégedett a szinkronizálási élményével a Firefoxban?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Mennyire elégedett a szinkronizálási élményével a Waterfoxban?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Firefox logó</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Waterfox logó</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Felmérés funkció ikonja</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3540,27 +3540,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">Frissítés most</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Frissítse a Firefox böngészőjét</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Frissítse a Waterfox böngészőjét</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">Egy gyökértanúsítvány le fog járni, emiatt egyes funkciók március 14-én megszűnnek működni.</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">Frissítsen március 14-e előtt</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">Egy gyökértanúsítvány le fog járni, ezért az Ön Firefox verziója nem fog megfelelően működni.</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">Egy gyökértanúsítvány le fog járni, ezért az Ön Waterfox verziója nem fog megfelelően működni.</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">Kevesebb mint 7 napja van a frissítésre</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">Március 14-én a kiegészítők és más Firefox-funkciók leállnak, mert egy gyökértanúsítvány le fog járni.</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">Március 14-én a kiegészítők és más Waterfox-funkciók leállnak, mert egy gyökértanúsítvány le fog járni.</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Utolsó lehetőség, hogy megtartsa a Firefoxát</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Utolsó lehetőség, hogy megtartsa a Waterfoxát</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">A Firefox ezen verziója március 14-től nem fog megfelelően működni, mert egy gyökértanúsítvány le fog járni.</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">A Waterfox ezen verziója március 14-től nem fog megfelelően működni, mert egy gyökértanúsítvány le fog járni.</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">Frissítés javasolt</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">A kiegészítők és egyes egyéb funkciók március 14-től nem fognak megfelelően működni.</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">A Firefox egy régebbi verzióját használja.</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">A Waterfox egy régebbi verzióját használja.</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">Frissítsen március 14. előtt, hogy továbbra is használhassa a kiegészítőket és az egyéb funkciókat.</string>
   <!-- Push notification message about old Firefox version -->

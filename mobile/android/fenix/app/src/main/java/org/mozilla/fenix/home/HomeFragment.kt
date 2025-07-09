@@ -1135,7 +1135,7 @@ class HomeFragment : Fragment() {
         requireComponents.core.tabCollectionStorage.unregister(collectionStorageObserver)
 
         lifecycleScope.launch(IO) {
-            requireComponents.reviewPromptController.promptReview(requireActivity())
+            return@launch
         }
     }
 

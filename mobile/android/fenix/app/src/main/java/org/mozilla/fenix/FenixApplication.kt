@@ -400,7 +400,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         @OptIn(DelicateCoroutinesApi::class) // GlobalScope usage
         fun queueReviewPrompt() {
             GlobalScope.launch(IO) {
-                components.reviewPromptController.trackApplicationLaunch()
+                return@launch
             }
         }
 

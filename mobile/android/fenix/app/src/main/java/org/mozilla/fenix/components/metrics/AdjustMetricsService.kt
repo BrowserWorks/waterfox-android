@@ -8,14 +8,10 @@ import android.app.Application
 import androidx.annotation.VisibleForTesting
 import com.adjust.sdk.Adjust
 import com.adjust.sdk.AdjustConfig
-import com.adjust.sdk.AdjustEvent
-import com.adjust.sdk.Constants.ADJUST_PREINSTALL_SYSTEM_PROPERTY_PATH
 import com.adjust.sdk.LogLevel
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import mozilla.components.lib.crash.CrashReporter
 import mozilla.components.support.base.log.logger.Logger
 import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.Config
@@ -24,12 +20,7 @@ import org.mozilla.fenix.GleanMetrics.Pings
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.utils.Settings
 
-class AdjustMetricsService(
-    private val application: Application,
-    private val storage: MetricsStorage,
-    private val crashReporter: CrashReporter,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
-) : MetricsService {
+class AdjustMetricsService(private val application: Application) : MetricsService {
     override val type = MetricServiceType.Marketing
     private val logger = Logger("AdjustMetricsService")
 
@@ -45,20 +36,12 @@ class AdjustMetricsService(
             return
         }
 
-        if (alreadyKnown(settings)) {
-            logger.info("Attribution already retrieved")
-            return
-        }
-
-        System.setProperty(ADJUST_PREINSTALL_SYSTEM_PROPERTY_PATH, "/preload/etc/adjust.preinstall")
-
         val config = AdjustConfig(
             application,
             BuildConfig.ADJUST_TOKEN,
             AdjustConfig.ENVIRONMENT_PRODUCTION,
             true,
         )
-        config.enablePreinstallTracking()
 
         val timerId = AdjustAttribution.adjustAttributionTime.start()
         config.setOnAttributionChangedListener {
@@ -94,26 +77,9 @@ class AdjustMetricsService(
         Adjust.gdprForgetMe(application.applicationContext)
     }
 
-    @Suppress("TooGenericExceptionCaught")
-    override fun track(event: Event) {
-        CoroutineScope(dispatcher).launch {
-            try {
-                if (event is Event.GrowthData) {
-                    if (storage.shouldTrack(event)) {
-                        Adjust.trackEvent(AdjustEvent(event.tokenName))
-                        storage.updateSentState(event)
-                    } else {
-                        storage.updatePersistentState(event)
-                    }
-                }
-            } catch (e: Exception) {
-                crashReporter.submitCaughtException(e)
-            }
-        }
-    }
-
-    override fun shouldTrack(event: Event): Boolean =
-        event is Event.GrowthData
+    // We're not currently sending events directly to Adjust
+    override fun track(event: Event) { /* noop */ }
+    override fun shouldTrack(event: Event): Boolean = false
 
     companion object {
         @VisibleForTesting

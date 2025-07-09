@@ -84,22 +84,7 @@ class ReviewPromptController(
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     fun shouldShowPrompt(): Boolean {
-        if (!reviewPromptIsReady) {
-            return false
-        } else {
-            // We only want to try to show it once to avoid unnecessary disk reads
-            reviewPromptIsReady = false
-        }
-
-        if (!reviewSettings.isDefaultBrowser) { return false }
-
-        val hasOpenedFiveTimes = reviewSettings.numberOfAppLaunches >= NUMBER_OF_LAUNCHES_REQUIRED
-        val now = timeNowInMillis()
-        val apprxFourMonthsAgo = now - (APPRX_MONTH_IN_MILLIS * NUMBER_OF_MONTHS_TO_PASS)
-        val lastPrompt = reviewSettings.lastReviewPromptTimeInMillis
-        val hasNotBeenPromptedLastFourMonths = lastPrompt == 0L || lastPrompt <= apprxFourMonthsAgo
-
-        return hasOpenedFiveTimes && hasNotBeenPromptedLastFourMonths
+        return false
     }
 
     companion object {

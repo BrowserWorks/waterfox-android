@@ -467,7 +467,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">جہڑے ویلے تساں ہم وقت تھیندے ہو تاں Firefox تہاݙے پاس ورڈ، نشانیاں تے ٻیا ٻہوں کجھ خفیہ کر ݙیندا ہے۔</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">جہڑے ویلے تساں ہم وقت تھیندے ہو تاں Waterfox تہاݙے پاس ورڈ، نشانیاں تے ٻیا ٻہوں کجھ خفیہ کر ݙیندا ہے۔</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">سائن ان</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -500,7 +500,7 @@
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Firefox ویجٹ شامل کرو</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Waterfox ویجٹ شامل کرو</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">ہݨ کائناں</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -663,7 +663,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">ٹیباں، نشانیاں، پاس ورڈ تے ٻیا ٻہوں کجھ ہم وقت کرݨ کیتے سائن ان تھیوو۔</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Mozilla کھاتہ</string>
+  <string name="preferences_account_default_name_2">BrowserWorks کھاتہ</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">ہم وقت کرݨ کوں ولدا شروع کرݨ کیتے ولدا کنکٹ کرو</string>
   <!-- Preference for language -->
@@ -1577,12 +1577,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox تکھی تے نجی ہے</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox تکھی تے نجی ہے</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Firefox کوں آپݨاں پہلوں مقرر براؤز بݨاؤ</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Waterfox کوں آپݨاں پہلوں مقرر براؤز بݨاؤ</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">نجی براؤزنگ ازماؤ</string>
   <!--
@@ -2756,7 +2756,7 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">میں ایں کوں کائنی ورتیندا</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">میں Firefox تے کائنی ڳولیندا</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">میں Waterfox تے کائنی ڳولیندا</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">میں ہم وقت کرݨ کائنی ورتیندا</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
@@ -2766,19 +2766,19 @@
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
   <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">فائرفوکس وچ چنگیرا ہم وقت بݨاوݨ کیتے ساݙی مدد کرو۔ ایں کیتے صرف ہک منٹ لڳسی۔</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">تساں Firefox وچ چھاپݨ نال چوکھے مطمئن ہو؟</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">تساں Waterfox وچ چھاپݨ نال چوکھے مطمئن ہو؟</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">تساں آپݨے Firefox مکھ پنے نال چوکھے مطمئن ہو؟</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">تساں آپݨے Waterfox مکھ پنے نال چوکھے مطمئن ہو؟</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">تساں Firefox وچ ڳولݨ دے تجربے نال چوکھے مطمئن ہو؟</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">تساں Waterfox وچ ڳولݨ دے تجربے نال چوکھے مطمئن ہو؟</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">تساں Firefox وچ ہم وقت کرݨ دے تجربے نال چوکھے مطمئن ہو؟</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">تساں Waterfox وچ ہم وقت کرݨ دے تجربے نال چوکھے مطمئن ہو؟</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Firefox لوگو</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Waterfox لوگو</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">سروے فیچر آئیکان</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->

@@ -47,7 +47,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">o weka</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">kulupu Mozilla li pali e ilo %1$s.</string>
+  <string name="about_content">kulupu BrowserWorks li pali e ilo %1$s.</string>
   <!--
     Private Browsing
 

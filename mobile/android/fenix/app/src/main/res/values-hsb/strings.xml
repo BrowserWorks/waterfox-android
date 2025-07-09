@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Wotstronić</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s so přez Mozilla zhotowja.</string>
+  <string name="about_content">%1$s so přez BrowserWorks zhotowja.</string>
   <!--
     Private Browsing
 
@@ -528,14 +528,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Zdźělenka priwatnosće Firefox</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Zdźělenka priwatnosće Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Škitamy was rady</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Wuslědźće, čehodla miliony ludźi Firefox lubuja</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Wuslědźće, čehodla miliony ludźi Waterfox lubuja</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Wěste přehladowanje z wjace wuběrami</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -554,7 +554,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Firefox waše hesła, zapołožki a wjace zaklučuje, hdyž sće synchronizowany.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Waterfox waše hesła, zapołožki a wjace zaklučuje, hdyž sće synchronizowany.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Přizjewić</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -563,12 +563,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Zdźělenki wam pomhaja, z Firefox wěsćiši wostać</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Zdźělenki wam pomhaja, z Waterfox wěsćiši wostać</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Rozsyłajće rajtarki mjez swojimi gratami a wotkryjće druhe funkcije priwatnosće w Firefox.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Rozsyłajće rajtarki mjez swojimi gratami a wotkryjće druhe funkcije priwatnosće w Waterfox.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Zdźělenki zmóžnić</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -577,24 +577,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Wupruwujće pytanski asistent Firefox</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Wupruwujće pytanski asistent Waterfox</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Z Firefox na swojej startowej wobrazowce maće lochki přistup k wobhladowakej, za kotryž priwatnosć je na prěnim městnje, kotryž sydła přesahowace přesćěhowaki blokuje.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Z Waterfox na swojej startowej wobrazowce maće lochki přistup k wobhladowakej, za kotryž priwatnosć je na prěnim městnje, kotryž sydła přesahowace přesćěhowaki blokuje.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Asistent Firefox přidać</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Asistent Waterfox přidać</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Nic nětko</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Přiměrće swój Firefox z rozšěrjenjemi</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Přiměrće swój Waterfox z rozšěrjenjemi</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">Přidajće rozšěrjenja třećich poskićowarjow, zo byšće swoju wěstotu, produktiwitu a wjace polěpšił.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -630,7 +630,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">Pohódnoćenja: %1$s z 5</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Pomhajće nam, Firefox polěpšić</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Pomhajće nam, Waterfox polěpšić</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">Spadowe rozprawy awtomatisce pósłać</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -638,13 +638,13 @@
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">Dalše informacije</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">Techniske daty a daty interakcije na Mozilla pósłać</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Daty wo wašim graće, wašej hardwarowej konfiguraciji a wo tym, kak Firefox wužiwaće, wšudźe pomhaja, funkcije, wukon a stabilnosć za kóždeho polěpšić.</string>
+  <string name="onboarding_preferences_dialog_usage_data_title">Techniske daty a daty interakcije na BrowserWorks pósłać</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Daty wo wašim graće, wašej hardwarowej konfiguraciji a wo tym, kak Waterfox wužiwaće, wšudźe pomhaja, funkcije, wukon a stabilnosć za kóždeho polěpšić.</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">Dalše informacije</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">Dokónčeny</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Witajće k Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Witajće k Waterfox</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">Spěšne a wěste přehladowanje</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -654,21 +654,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">Hdyž pokročujeće, zwoliće do %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Wužiwanske wuměnjenja Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Wužiwanske wuměnjenja Waterfox</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Firefox so wo wašu priwatnosć stara. Dalše informacije w: %1$s.</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Waterfox so wo wašu priwatnosć stara. Dalše informacije w: %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">Zdźělenka priwatnosće</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Zo by pomhał, wobhladowak polěpšić, Firefox diagnostiske a daty interakcije na Mozilla sćele. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Zo by pomhał, wobhladowak polěpšić, Waterfox diagnostiske a daty interakcije na BrowserWorks sćele. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">Rjadować</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Pomhajće nam, Firefox rosć dać</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Pomhajće nam, Waterfox rosć dać</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Hdyž zdźěleće, kak sće Firefox wotkrył a zo jón wužiwaće, pomhaće nam, naš wobhladowak wjace ludźom předstajić.</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Hdyž zdźěleće, kak sće Waterfox wotkrył a zo jón wužiwaće, pomhaće nam, naš wobhladowak wjace ludźom předstajić.</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Zdźělće jenož mało datow z partnerami Mozilla marketingoweje technologije. Tute daty so ženje njepředawaja abo njewužiwaja, zo by so wam wabjenje pokazało.</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Zdźělće jenož mało datow z partnerami BrowserWorks marketingoweje technologije. Tute daty so ženje njepředawaja abo njewužiwaja, zo by so wam wabjenje pokazało.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">Kak daty wužiwamy</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -676,7 +676,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">Jedna poslednja wěc</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Zdźělće našim marketingowym partneram Mozilla, kak sće Firefox wotkrył a zo jón wužiwaće. Tute daty so ženje njepředawaja.</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Zdźělće našim marketingowym partneram BrowserWorks, kak sće Waterfox wotkrył a zo jón wužiwaće. Tute daty so ženje njepředawaja.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">Zwolić a přehladowanje započeć</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -761,9 +761,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Nastajenja adresoweho pola</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Adresowe polo – Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Adresowe polo – Waterfox Suggest</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Zhońće wjace wo Firefox Suggest</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Zhońće wjace wo Waterfox Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Na Google Play pohódnoćić</string>
   <!--
@@ -854,7 +854,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Bjezbarjernosć</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">Swójski kontowy serwer Mozilla</string>
+  <string name="preferences_override_account_server">Swójski kontowy serwer BrowserWorks</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Swójski synchronizowanski serwer</string>
   <!-- Preference category for account information -->
@@ -872,7 +872,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">Zregistrujće so, zo byšće rajtarki, zapołožki, hesła a dalše synchronizował.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Konto Mozilla</string>
+  <string name="preferences_account_default_name_2">Konto BrowserWorks</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Zaso zwjazać, zo by ze synchronizaciju pokročowało</string>
   <!-- Preference for language -->
@@ -1101,7 +1101,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">Nowe rozšěrjenja nětko k dispoziciji</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Wupruwujće přez 100 nowych rozšěrjenjow, z kotrymiž móžeće Firefox swojim přećach přiměrić.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Wupruwujće přez 100 nowych rozšěrjenjow, z kotrymiž móžeće Waterfox swojim přećach přiměrić.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Wuslědźće rozšěrjenja</string>
   <!--
@@ -1173,7 +1173,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Přijate rajtarki</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Zdźělenki za rajtarki su so z druhich gratow Firefox přijali.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Zdźělenki za rajtarki su so z druhich gratow Waterfox přijali.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Rajtark přijaty</string>
   <!-- %s is the device name -->
@@ -1205,19 +1205,19 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">Dalše informacije</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Daty wo wašim graće, wašej hardwarowej konfiguraciji a wo wužiću nam pomhaja, funkcije, wukon a stabilnosć Firefox polěpšić.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Daty wo wašim graće, wašej hardwarowej konfiguraciji a wo wužiću nam pomhaja, funkcije, wukon a stabilnosć Waterfox polěpšić.</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">Měrjenske daty za kampanju</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Zdźělće našim partneram Mozilla marketingoweje technologije, kak sće Firefox wotkrył a zo jón wužiwaće.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Zdźělće našim partneram BrowserWorks marketingoweje technologije, kak sće Waterfox wotkrył a zo jón wužiwaće.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Dalše informacije wo marketingowych datach</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">Ping za wšědne wužiwanje</string>
-  <string name="preferences_daily_usage_ping_description">To Mozilla pomha, sej aktiwnych wužiwarjow wažić.</string>
+  <string name="preferences_daily_usage_ping_description">To BrowserWorks pomha, sej aktiwnych wužiwarjow wažić.</string>
   <string name="preferences_daily_usage_ping_learn_more">Zhońće wjace wo pingu za wšědne wužiwanje</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">Spadowe rozprawy awtomatisce pósłać</string>
@@ -1228,7 +1228,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Studije</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Mozilla dowolić, studije instalować a přewjesć</string>
+  <string name="preference_experiments_summary_2">BrowserWorks dowolić, studije instalować a přewjesć</string>
   <!--
     Turn On Sync Preferences
 
@@ -1667,7 +1667,7 @@
   -->
   <string name="webcompat_reporter_screen_title">Wobškodźene sydło zdźělić</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">Pomhajće %1$s za kóždeho polěpšować. Přistajeni Mozilla informacije wužiwaja, kotrež sćeleće, zo bychu problemy z websydłom rozrisali.</string>
+  <string name="webcompat_reporter_description">Pomhajće %1$s za kóždeho polěpšować. Přistajeni BrowserWorks informacije wužiwaja, kotrež sćeleće, zo bychu problemy z websydłom rozrisali.</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">URL</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -1729,7 +1729,7 @@
   -->
   <string name="tab_crash_title_2">Bohužel %1$s njemóže tutu stronu začitać.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Mozilla spadowu rozprawu pósłać</string>
+  <string name="tab_crash_send_report">BrowserWorks spadowu rozprawu pósłać</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Rajtark začinić</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -2056,7 +2056,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Dalši grat zwjazać</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Zo byšće rajtark pósłał, přizjewće so pola Firefox na znajmjeńša jednym dalšim graće.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Zo byšće rajtark pósłał, přizjewće so pola Waterfox na znajmjeńša jednym dalšim graće.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Sym zrozumił</string>
   <!-- Share error message -->
@@ -2088,12 +2088,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox je spěšny a priwatny</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox je spěšny a priwatny</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Firefox k wašemu standardnemu wobhladowakej činić</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Waterfox k wašemu standardnemu wobhladowakej činić</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Wupruwujće priwatny modus</string>
   <!--
@@ -2118,7 +2118,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Prošu wobdźělće so na krótkim naprašowanju, zo byšće pomhał, Firefox polěpšować.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Prošu wobdźělće so na krótkim naprašowanju, zo byšće pomhał, Waterfox polěpšować.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Woprašowanje wupjelnić</string>
   <!-- Preference for not taking the short survey. -->
@@ -2266,7 +2266,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Kod skenować</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Wočińće Firefox na swojim ličaku a dźiće k <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Wočińće Waterfox na swojim ličaku a dźiće k <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Hotowy za skenowanje</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2274,7 +2274,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">E-mejl město toho wužiwać</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Žane konto? <u>Załožće tajke</u>, zo byšće Firefox mjez gratami synchronizował.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Žane konto? <u>Załožće tajke</u>, zo byšće Waterfox mjez gratami synchronizował.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s přestanje z wašim kontom synchronizować, ale njezhaša přehladowanske daty na tutym graće.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2883,7 +2883,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Prošu zmóžńće synchronizowanje rajtarkow.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Nimaće žane wočinjene rajtarki w Firefox na swojich druhich gratach.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Nimaće žane wočinjene rajtarki w Waterfox na swojich druhich gratach.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Wobhladajće sej lisćinu rajtarkow ze swojich gratow.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2949,7 +2949,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Po jednym měsacu awtomatisce začinić?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox móže rajtarki začinić, kotrež njejsće sej zańdźeny měsac wobhladał.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox móže rajtarki začinić, kotrež njejsće sej zańdźeny měsac wobhladał.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">AWTOMATISKE ZAČINJENJE ZMÓŽNIĆ</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2959,7 +2959,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Namjety Firefox</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Namjety Waterfox</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2978,7 +2978,7 @@
   -->
   <string name="default_browser_experiment_card_title">Waš standardny wobhladowak změnić</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Nastajće wotkazy z websydłow, mejlkow a powěsćow, zo bychu so awtomatisce we Firefox wočinili.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Nastajće wotkazy z websydłow, mejlkow a powěsćow, zo bychu so awtomatisce we Waterfox wočinili.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Wotstronić</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -3002,7 +3002,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">Spěchowany wot %s.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Dźěl swójby Firefox. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Dźěl swójby Waterfox. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Dalše informacije</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -3338,7 +3338,7 @@
     %s is a placeholder for the name of the tracker category.
     %d is a placeholder for the number of trackers blocked.
   -->
-  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%s: %d</string>
+  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%1$s: %2$d</string>
   <!--
     Description text for a dialog confirming whether the user wants to delete all data for current site.
     %s is a placeholder for the base domain of website.
@@ -3414,7 +3414,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Pomhajće nam, Firefox polěpšować. Traje jenož jednu mjeńšinu.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Pomhajće nam, Waterfox polěpšować. Traje jenož jednu mjeńšinu.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Dale</string>
   <!--
@@ -3444,29 +3444,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">To njewužiwam</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Pytanje w Firefox njewužiwam</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Pytanje w Waterfox njewužiwam</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">Synchronizaciju njewužiwam</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Pomhajće ćišćenje w Firefox polěpšić. Traje jenož sekundu</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Pomhajće ćišćenje w Waterfox polěpšić. Traje jenož sekundu</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Pomhajće, pytanje w Firefox polěpšować. Traje jenož jednu mjeńšinu</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Pomhajće, pytanje w Waterfox polěpšować. Traje jenož jednu mjeńšinu</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Pomhajće, synchronizaciju w Firefox polěpšować. Traje jenož jednu mjeńšinu</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Pomhajće, synchronizaciju w Waterfox polěpšować. Traje jenož jednu mjeńšinu</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Kak spokojny sće z ćišćenjom w Firefox?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Kak spokojny sće z ćišćenjom w Waterfox?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Kak spokojny sće ze swojej startowej stronu Firefox?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Kak spokojny sće ze swojej startowej stronu Waterfox?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Kak spokojny sće z pytanjom w Firefox?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Kak spokojny sće z pytanjom w Waterfox?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Kak spokojny sće ze synchronizaciju w Firefox?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Kak spokojny sće ze synchronizaciju w Waterfox?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logo Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logo Waterfox</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Symbol funkcije naprašowanja</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3564,27 +3564,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">Nětko aktualizować</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Aktualizujće swój wobhladowak Firefox</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Aktualizujće swój wobhladowak Waterfox</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">Zdónkowy certifikat spadnje, štož k tomu wjedźe, zo někotre funkcije 14. měrca hižo njefunguja.</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">Aktualizujće do 14. měrca</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">Zdónkowy certifikat spadnje, štož k tomu wjedźe, zo waša wersija Firefox hižo porjadnje njefunguje.</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">Zdónkowy certifikat spadnje, štož k tomu wjedźe, zo waša wersija Waterfox hižo porjadnje njefunguje.</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">Mjenje hač 7 dnjow hač do aktualizacije</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">14. měrca přidatki a druhe funkcije Firefox hižo njebudu fungować, dokelž zdónkowy certifikat spadnje.</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">14. měrca přidatki a druhe funkcije Waterfox hižo njebudu fungować, dokelž zdónkowy certifikat spadnje.</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Poslednja móžnosć waš Firefox wobchować</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Poslednja móžnosć waš Waterfox wobchować</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Waša wersija Firefox 14. měrca hižo porjadnje njefunguje, dokelž zdónkowy certifikat spadnje.</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Waša wersija Waterfox 14. měrca hižo porjadnje njefunguje, dokelž zdónkowy certifikat spadnje.</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">Aktualizacija doporučena</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">Přidatki a někotre funkcije 14. měrca hižo njefunguja.</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Wužiwaće staršu wersiju Firefox</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Wužiwaće staršu wersiju Waterfox</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">Aktualizujće do 14. měrca, zo byšće přidatki a druhe funkcije dale wužiwał.</string>
   <!-- Push notification message about old Firefox version -->

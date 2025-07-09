@@ -200,7 +200,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Schede ricevùe</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notifeghe par schede ricevùe da altri dispoxitivi Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notifeghe par schede ricevùe da altri dispoxitivi Waterfox.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Scheda ricevùa</string>
   <!-- %s is the device name -->
@@ -303,7 +303,7 @@
   -->
   <string name="tab_crash_title_2">No xe posibiƚe cargare ƚa pàgina in %1$s.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Manda ƚa segnaƚasion de aresto anomaƚo a Mozilla</string>
+  <string name="tab_crash_send_report">Manda ƚa segnaƚasion de aresto anomaƚo a BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Sara su scheda</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -478,7 +478,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Coneti on altro dispoxitivo</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Par mandare na scheda, và rento a’l account Firefox o almanco on altro dispoxitivo.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Par mandare na scheda, và rento a’l account Waterfox o almanco on altro dispoxitivo.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Tuto ciaro</string>
   <!-- Share error message -->
@@ -596,7 +596,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Scansiona el còdexe</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Vèrxi Firefox so el computer e và so <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Vèrxi Waterfox so el computer e và so <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Pronto par ƚa scansion</string>
   <!-- Text shown for settings option for sign with pairing -->

@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">أزِل</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">‏%1$s من Mozilla.</string>
+  <string name="about_content">‏%1$s من BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -448,14 +448,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">بيان Firefox للخصوصية</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">بيان Waterfox للخصوصية</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">نحن نحب إبقاءك آمنًا</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">اكتشف لماذا يحب الملايين Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">اكتشف لماذا يحب الملايين Waterfox</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">تصفح آمن مع خيارات أكثر</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -474,7 +474,7 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">تساعدك الإشعارات على أن تكون أأمن مع Firefox</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">تساعدك الإشعارات على أن تكون أأمن مع Waterfox</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">فعّل التنبيهات</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -503,7 +503,7 @@
   <!-- Label for the number of reviews for an add-on. %1$s is the formatted number of reviews e.g. "1,234", "12,345", "123,456". -->
   <string name="onboarding_add_on_reviews_label" moz:removedIn="140" tools:ignore="UnusedResources">مراجعات: %1$s</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">ساعدنا في جعل Firefox أفضل</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">ساعدنا في جعل Waterfox أفضل</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">إرسال تقارير الأعطال تلقائيا</string>
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -512,21 +512,21 @@
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">تم</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">مرحبا بكم في Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">مرحبا بكم في Waterfox</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">تصفح الويب بسرعة وأمان</string>
   <!-- Terms of service onboarding page continue button label. -->
   <string name="onboarding_term_of_service_agree_and_continue_button_label" moz:removedIn="140" tools:ignore="UnusedResources">موافقة ومتابعة</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">شروط استخدام Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">شروط استخدام Waterfox</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">تنويه الخصوصية</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">للمساعدة في تحسين المتصفح، يرسل Firefox بيانات التشخيص والتفاعل إلى Mozilla. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">للمساعدة في تحسين المتصفح، يرسل Waterfox بيانات التشخيص والتفاعل إلى BrowserWorks. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">إدارة</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">ساعدنا في تنمية Firefox</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">ساعدنا في تنمية Waterfox</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">كيف نستخدم البيانات</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -582,9 +582,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">تفضيلات شريط العناوين</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">شريط العناوين - اقتراح Firefox</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">شريط العناوين - اقتراح Waterfox</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">تعرف على المزيد حول اقتراحات Firefox</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">تعرف على المزيد حول اقتراحات Waterfox</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">قيّمه في متجر غوغل</string>
   <!--
@@ -657,7 +657,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">الإتاحة</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">خادم حسابات Mozilla مخصص</string>
+  <string name="preferences_override_account_server">خادم حسابات BrowserWorks مخصص</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">خادوم مزامنة مخصص</string>
   <!-- Preference category for account information -->
@@ -675,7 +675,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">لِج لمزامنة ألسنتك و علاماتك و كلمات السر والمزيد.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">حساب Mozilla</string>
+  <string name="preferences_account_default_name_2">حساب BrowserWorks</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">أعِد الاتصال لمواصلة المزامنة</string>
   <!-- Preference for language -->
@@ -834,7 +834,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">تتوفر امتدادات جديدة الآن</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">تعرف على أكثر من 100 امتداد جديد يتيح لك تخصيص Firefox كما تشاء.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">تعرف على أكثر من 100 امتداد جديد يتيح لك تخصيص Waterfox كما تشاء.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">استكشف الامتدادات</string>
   <!--
@@ -896,7 +896,7 @@
   -->
   <string name="fxa_received_tab_channel_name">الألسنة المستلمة</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">تنبيهات الألسنة المستلمة من أجهزة Firefox الأخرى.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">تنبيهات الألسنة المستلمة من أجهزة Waterfox الأخرى.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">وصل لسان</string>
   <!-- %s is the device name -->
@@ -918,7 +918,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">الدراسات</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">تسمح لمؤسسة Mozilla بتثبيت الدراسات وتشغيلها</string>
+  <string name="preference_experiments_summary_2">تسمح لمؤسسة BrowserWorks بتثبيت الدراسات وتشغيلها</string>
   <!--
     Turn On Sync Preferences
 
@@ -1189,7 +1189,7 @@
   -->
   <string name="tab_crash_title_2">نأسف. يتعذر على %1$s تحميل هذه الصفحة.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">أرسِل تقرير الانهيار إلى Mozilla</string>
+  <string name="tab_crash_send_report">أرسِل تقرير الانهيار إلى BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">أغلِق اللسان</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1470,7 +1470,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">صِلْ جهازًا آخر</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">لِج إلى Firefox على جهاز واحد آخر على الأقل لإرسال لسان إليه.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">لِج إلى Waterfox على جهاز واحد آخر على الأقل لإرسال لسان إليه.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">فهمت</string>
   <!-- Share error message -->
@@ -1498,12 +1498,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">‏Firefox سريع وخاص</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">‏Waterfox سريع وخاص</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">اجعل Firefox متصفّحك المبدئي</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">اجعل Waterfox متصفّحك المبدئي</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">جرّب التصفح الخاص</string>
   <!--
@@ -1658,7 +1658,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">امسح الرز ضوئيًا</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[افتح Firefox على حاسوبك وانتقل إلى <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[افتح Waterfox على حاسوبك وانتقل إلى <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">جاهز للمسح</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1666,7 +1666,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">استعمل البريد بدل المسح</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ليس لديك حساب؟ <u>أنشِئ واحدًا</u> لمزامنة Firefox بين الأجهزة.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ليس لديك حساب؟ <u>أنشِئ واحدًا</u> لمزامنة Waterfox بين الأجهزة.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">سيتوقف %s عن مزامنة حسابك، لكن لن يحذف أيًا من بيانات تصفحك على هذا الجهاز.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2116,7 +2116,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">من فضلك فعّل مزامنة الألسنة.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">لا ألسنة مفتوحة في Firefox على أجهزتك الأخرى.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">لا ألسنة مفتوحة في Waterfox على أجهزتك الأخرى.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">اعرض قائمة بالألسنة من أجهزتك الأخرى.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2180,7 +2180,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">أتريد إغلاقها تلقائيًا بعد شهر؟</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">سيُغلق Firefox الألسنة التي لم تعرضها منذ شهر تلقائيًا.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">سيُغلق Waterfox الألسنة التي لم تعرضها منذ شهر تلقائيًا.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">شغّل الإغلاق التلقائي</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2190,7 +2190,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">يقترح Firefox</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">يقترح Waterfox</string>
   <!-- Title for search suggestions when Google is the default search suggestion engine. -->
   <string name="google_search_engine_suggestion_header">بحث Google</string>
   <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. %s is default search engine name. -->
@@ -2202,7 +2202,7 @@
   -->
   <string name="default_browser_experiment_card_title">بدّل متصفّحك المبدئي</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">اضبط روابط المواقع والبريد الإلكتروني والرسائل لتفتح تلقائيًا في Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">اضبط روابط المواقع والبريد الإلكتروني والرسائل لتفتح تلقائيًا في Waterfox.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">أزِل</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2224,7 +2224,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">يدعمه %s.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">جزء من عائلة Firefox. ‏%s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">جزء من عائلة Waterfox. ‏%s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">اطّلع على المزيد</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -2385,7 +2385,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">ساعدنا في تحسين Firefox. لن يستغرق الأمر سوى دقيقة.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">ساعدنا في تحسين Waterfox. لن يستغرق الأمر سوى دقيقة.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">واصِل</string>
   <!--
@@ -2415,17 +2415,17 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">أنا لا أستخدمه</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">لا أستخدم خاصية البحث على Firefox</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">لا أستخدم خاصية البحث على Waterfox</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">أنا لا أستخدم المزامنة</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">ساعد في تحسين الطباعة في Firefox. لن يستغرق الأمر سوى ثواني</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">ساعد في تحسين الطباعة في Waterfox. لن يستغرق الأمر سوى ثواني</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">شعار Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">شعار Waterfox</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">أيقونة ميزة الاستطلاع</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->

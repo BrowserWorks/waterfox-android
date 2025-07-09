@@ -43,7 +43,7 @@
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">Spamiyntej ôbrane karty we kolekcyji</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s produkuje Mozilla.</string>
+  <string name="about_content">%1$s produkuje BrowserWorks.</string>
   <!--
     Private Browsing
 
@@ -538,7 +538,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Przijynte karty</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Powiadōmiynia ô kartach przijyntych z inkszych maszin z aplikacyjōm Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Powiadōmiynia ô kartach przijyntych z inkszych maszin z aplikacyjōm Waterfox.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Karta je przijynto</string>
   <!-- %s is the device name -->
@@ -1083,7 +1083,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Połōncz inkszo maszina</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Coby posłać karta, zaloguj sie do Firefoxa aby na jednyj inkszyj maszinie.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Coby posłać karta, zaloguj sie do Waterfoxa aby na jednyj inkszyj maszinie.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Rozumia</string>
   <!-- Share error message -->
@@ -1108,12 +1108,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox je gibki i prywatny</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox je gibki i prywatny</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Nastow Firefox za bazowo przeglōndarka</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Nastow Waterfox za bazowo przeglōndarka</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Sprōbuj prywatnego przeglōndanio</string>
   <!--
@@ -1245,7 +1245,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Skanuj kod</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Ôdewrzij Firefoxa na kōmputrze i idź na strōna <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Ôdewrzij Waterfoxa na kōmputrze i idź na strōna <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Fertich, coby skanować</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1253,7 +1253,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Użyj lepij emaila</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Niy mosz kōnta? <u>Zrychtuj je</u>, coby synchrōnizować Firefoxa miyndzy maszinami.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Niy mosz kōnta? <u>Zrychtuj je</u>, coby synchrōnizować Waterfoxa miyndzy maszinami.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s skōńczy sie synchrōnizować ze twojim kōntym, ale niy skasuje żodnych danych przeglōndanio na tyj maszinie.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->

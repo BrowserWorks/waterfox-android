@@ -41,7 +41,7 @@
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">Įtraukti pažymėtas korteles į rinkinį</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">„%1$s“ kūrėjai yra „Mozilla“.</string>
+  <string name="about_content">„%1$s“ kūrėjai yra „BrowserWorks“.</string>
   <!--
     Private Browsing
 
@@ -392,7 +392,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Gautos kortelės</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Pranešimai apie korteles, gautas iš kitų „Firefox“ įrenginių.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Pranešimai apie korteles, gautas iš kitų „Waterfox“ įrenginių.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Gauta kortelė</string>
   <!-- %s is the device name -->
@@ -412,7 +412,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Tyrimai</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Leidžia „Mozillai“ diegti ir vykdyti tyrimus</string>
+  <string name="preference_experiments_summary_2">Leidžia „BrowserWorksi“ diegti ir vykdyti tyrimus</string>
   <!-- Preference for reconnecting to FxA sync -->
   <string name="preferences_sync_sign_in_to_reconnect">Prisijungti iš naujo</string>
   <!-- Preference for removing FxA account -->
@@ -652,7 +652,7 @@
   -->
   <string name="tab_crash_title_2">Atsiprašome. „%1$s“ nepavyko įkelti šio tinklalapio.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Pranešti apie strigtį „Mozillai“</string>
+  <string name="tab_crash_send_report">Pranešti apie strigtį „BrowserWorksi“</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Užverti kortelę</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -869,7 +869,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Susieti kitą įrenginį</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Norėdami persiųsti kortelę, turite prisijungti prie „Firefox“ bent viename kitame įrenginyje.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Norėdami persiųsti kortelę, turite prisijungti prie „Waterfox“ bent viename kitame įrenginyje.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Supratau</string>
   <!-- Share error message -->
@@ -999,7 +999,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Nuskaityti kodą</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Atverkite „Firefox“ savo kompiuteryje, ir eikite į <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Atverkite „Waterfox“ savo kompiuteryje, ir eikite į <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Pasiruošti nuskaitymui</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1007,7 +1007,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Naudoti el. paštą</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Neturite paskyros? <u>Susikurkite</u>, norėdami sinchronizuoti „Firefox“ tarp įrenginių.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Neturite paskyros? <u>Susikurkite</u>, norėdami sinchronizuoti „Waterfox“ tarp įrenginių.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">„%s“ nebesinchronizuos duomenų su jūsų paskyra, tačiau šiame įrenginyje esančių naršymo duomenų nepašalins.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1337,7 +1337,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Įjunkite kortelių sinchronizavimą.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Kituose savo įrenginiuose su „Firefox“ neturite atvertų kortelių.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Kituose savo įrenginiuose su „Waterfox“ neturite atvertų kortelių.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Peržiūrėkite kituose įrenginiuose esančias korteles.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1373,13 +1373,13 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Užverti automatiškai po mėnesio?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">„Firefox“ gali užverti korteles, kuriomis paskutinį mėnesį nesinaudojote.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">„Waterfox“ gali užverti korteles, kuriomis paskutinį mėnesį nesinaudojote.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ĮJUNGTI AUTOMATINĮ UŽVĖRIMĄ</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
   <string name="inactive_tabs_auto_close_message_snackbar">Automatinis užvėrimas įjungtas</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Leiskite saitams iš svetainių, el. laiškų, ir žinučių būti automatiškai atvertiems per „Firefox“.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Leiskite saitams iš svetainių, el. laiškų, ir žinučių būti automatiškai atvertiems per „Waterfox“.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Pašalinti</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -1399,7 +1399,7 @@
   <!-- Text of a button allowing users to access an external url for more Pocket recommendations. -->
   <string name="pocket_stories_placeholder_text" moz:removedIn="141" tools:ignore="UnusedResources">Atrasti daugiau</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">„Firefox“ šeimos dalis. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">„Waterfox“ šeimos dalis. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Sužinoti daugiau</string>
   <!-- Translations feature -->

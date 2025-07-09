@@ -194,7 +194,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Alınan vərəqlər</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Digər Firefox cihazlarından alınan vərəqlər üçün bildirişlər.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Digər Waterfox cihazlarından alınan vərəqlər üçün bildirişlər.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Vərəq alındı</string>
   <!-- %s is the device name -->

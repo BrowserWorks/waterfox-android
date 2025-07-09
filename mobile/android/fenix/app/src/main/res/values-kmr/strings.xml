@@ -55,7 +55,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Rake</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s berhemeke Mozillayê ye.</string>
+  <string name="about_content">%1$s berhemeke BrowserWorksyê ye.</string>
   <!--
     Private Browsing
 
@@ -497,14 +497,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Danezana nepeniyê ya Firefox`ê</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Danezana nepeniyê ya Waterfox`ê</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Em ji parastina we hez dikin</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Bizane ka çima bi mîlyonan kes ji Firefoxê hez dikin</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Bizane ka çima bi mîlyonan kes ji Waterfoxê hez dikin</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Bi vebijarkên zêdetir di ewlehiyê de bigere</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -523,7 +523,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Firefox di dema senkronîzekirinê de şîfre, favorî û daneyên te yên din şîfre dike.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Waterfox di dema senkronîzekirinê de şîfre, favorî û daneyên te yên din şîfre dike.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Têkeve</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -532,12 +532,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Agahdarî dihêlin ku tu bi Firefoxê re ewletir bî</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Agahdarî dihêlin ku tu bi Waterfoxê re ewletir bî</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Hilpekînan bi awayekî ewle di navbera amûrên xwe de veguhêze û taybetiyên din yên nepen yên Firefoxê kifş bike.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Hilpekînan bi awayekî ewle di navbera amûrên xwe de veguhêze û taybetiyên din yên nepen yên Waterfoxê kifş bike.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Danezanan çalak bike</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -546,24 +546,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Widgeta lêgerînê ya Firefoxê bi kar bîne</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Widgeta lêgerînê ya Waterfoxê bi kar bîne</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Heke tu Firefoxê li serûpela xwe zêde bikî, tu yê dikaribî hêsantir têkevî geroka pêşî-ewlehî ku şopandina te asteng dike.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Heke tu Waterfoxê li serûpela xwe zêde bikî, tu yê dikaribî hêsantir têkevî geroka pêşî-ewlehî ku şopandina te asteng dike.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Widgeta Firefoxê lê zêde bike</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Widgeta Waterfoxê lê zêde bike</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Ne niha</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Firefox`a xwe bi pêvekan taybet bike</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Waterfox`a xwe bi pêvekan taybet bike</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">Ji bo bilindkirina ewlekarî, hilberîn û zêdetir pêvekên partiya-sêyemîn bi kar bîne.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -595,7 +595,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">%1$s ji 5\'an hat nirxandin</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Alîkariya me bike ku em Firefoxê çêtir bikin</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Alîkariya me bike ku em Waterfoxê çêtir bikin</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">Raporên têkçûnê bixweber bişîne</string>
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -604,7 +604,7 @@
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">Qediya</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Bi xêr hatî Firefox`ê</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Bi xêr hatî Waterfox`ê</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">Geroka webê ya bilez û ewle</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -614,13 +614,13 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">Bi berdewamkirinê, tu %1$s qebûl dikî.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Mercên Bikaranînê Firefoxê</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Mercên Bikaranînê Waterfoxê</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">Danezana Nihêniyê</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">Birêvebirin</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Alîkariya pêşxistina Firefoxê bike</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Alîkariya pêşxistina Waterfoxê bike</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">Em daneyan çawa bi kar tînin</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -703,9 +703,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Tercîhên darikê navnîşanan</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Darikê navnîşanan - Pêşniyara Firefoxê</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Darikê navnîşanan - Pêşniyara Waterfoxê</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Zêdetir li ser Pêşniyara Firefoxê fêr bibe</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Zêdetir li ser Pêşniyara Waterfoxê fêr bibe</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Li ser Google Playê puan bide</string>
   <!--
@@ -963,7 +963,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">Niha pêvekên nû berdest in</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">100+ pêvekên nû yên ji bo taybetkirina Firefox`ê bibîne.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">100+ pêvekên nû yên ji bo taybetkirina Waterfox`ê bibîne.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Li pêvekan bigere</string>
   <!--
@@ -1035,7 +1035,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Hilpekînên hatine stendin</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Danezanên hilpekînan ên ji cîhazên Firefoxê tên stendin.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Danezanên hilpekînan ên ji cîhazên Waterfoxê tên stendin.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Hilpekîn hate stendin</string>
   <!-- %s is the device name -->
@@ -1055,7 +1055,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Lêkolîn</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Destûrê bide Mozillayê ku lêkolînan saz bike û bimeşîne</string>
+  <string name="preference_experiments_summary_2">Destûrê bide BrowserWorksyê ku lêkolînan saz bike û bimeşîne</string>
   <!--
     Turn On Sync Preferences
 
@@ -1411,7 +1411,7 @@
   -->
   <string name="tab_crash_title_2">Bibore. %1$s, nikare vê rûpelê bar bike.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Rapora têkçûnê ji Mozillayê re bişîne</string>
+  <string name="tab_crash_send_report">Rapora têkçûnê ji BrowserWorksyê re bişîne</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Hilpekînê bigire</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1704,7 +1704,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Cîhazeke din girê bide</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Ji bo şandina hilpekînekê, herî kêm ji cîhazeke din têkeve Firefoxê.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Ji bo şandina hilpekînekê, herî kêm ji cîhazeke din têkeve Waterfoxê.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Min fêm kir</string>
   <!-- Share error message -->
@@ -1734,7 +1734,7 @@
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Firefoxê bike geroka xwe ya standard</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Waterfoxê bike geroka xwe ya standard</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Gerîna veşartî biceribîne</string>
   <!--
@@ -1893,7 +1893,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Kodê bide xwendin</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Firefoxê ji ser kombersa xwe veke û here ser rûpela <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Waterfoxê ji ser kombersa xwe veke û here ser rûpela <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Aniha kodê bide xwendin</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1901,7 +1901,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Bi emaîlê têkeve</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Hesabê te tune ye? Ji bo ku Firefoxê di navbera cîhazan de senkronîze bikî <u>Hesêb veke</u>.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Hesabê te tune ye? Ji bo ku Waterfoxê di navbera cîhazan de senkronîze bikî <u>Hesêb veke</u>.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s ew ê bi hesabê te re senkronîzekirinê rawestîne, lê ti daneyên te yên gerînê yên di vê cîhazê de nayên jêbirin.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2338,7 +2338,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Ji kerema xwe, senkronîzekirina hilpekînê veke.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Di Firefoxên li ser cîhazên te yên din de ti hilpekîneke vekirî tune ye.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Di Waterfoxên li ser cîhazên te yên din de ti hilpekîneke vekirî tune ye.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Lîsteyeke hilpekînan a ji cîhazên xwe yên din bibîne.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2392,7 +2392,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Bila piştî mehekê bixweber bên girtin?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox dikare hilpekînên ku te mehekê venekirine bigire.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox dikare hilpekînên ku te mehekê venekirine bigire.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">GIRTINA BIXWEBER VEKE</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2402,13 +2402,13 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Pêşniyara Firefoxê</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Pêşniyara Waterfoxê</string>
   <!-- Title for search suggestions when Google is the default search suggestion engine. -->
   <string name="google_search_engine_suggestion_header">Lêgerîna Googleê</string>
   <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. %s is default search engine name. -->
   <string name="other_default_search_engine_suggestion_header">Lêgerîna %sê</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Bila lînkên ji malperan, e-posteyan û peyaman xweber di Firefoxê de bên vekirin.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Bila lînkên ji malperan, e-posteyan û peyaman xweber di Waterfoxê de bên vekirin.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Rake</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2430,7 +2430,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">Bihêzkirin ji aliyê %sê.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Beşeke ji malbata Firefoxê. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Beşeke ji malbata Waterfoxê. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Agahiyên zêdetir</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->

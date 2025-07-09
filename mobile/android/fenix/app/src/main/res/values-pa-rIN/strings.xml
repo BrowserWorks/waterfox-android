@@ -528,14 +528,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Firefox ਪਰਦੇਦਾਰੀ ਸੂਚਨਾ</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Waterfox ਪਰਦੇਦਾਰੀ ਸੂਚਨਾ</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">ਅਸੀਂ ਤੁਹਾਨੂੰ ਸੁਰੱਖਿਅਤ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹਾਂ</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">ਪਤਾ ਕਰੋ ਕਿ ਲੱਖਾਂ Firefox ਨੂੰ ਪਸੰਦ ਕਿਉਂ ਕਰਦੇ ਹਨ</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">ਪਤਾ ਕਰੋ ਕਿ ਲੱਖਾਂ Waterfox ਨੂੰ ਪਸੰਦ ਕਿਉਂ ਕਰਦੇ ਹਨ</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">ਹੋਰ ਚੋਣਾਂ ਨਾਲ ਸੁਰੱਖਿਅਤ ਬਰਾਊਜ਼ ਕਰਨਾ</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -554,7 +554,7 @@
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Firefox ਤੁਹਾਡੇ ਪਾਸਵਰਡਾਂ, ਬੁੱਕਮਾਰਕਾਂ ਅਤੇ ਹੋਰਾਂ ਨੂੰ ਤੁਹਾਡੇ ਵਲੋਂ ਸਿੰਕ ਕਰਨ ਦੌਰਾਨ ਇੰਕ੍ਰਿਪਟ ਕਰਦਾ ਹੈ।</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Waterfox ਤੁਹਾਡੇ ਪਾਸਵਰਡਾਂ, ਬੁੱਕਮਾਰਕਾਂ ਅਤੇ ਹੋਰਾਂ ਨੂੰ ਤੁਹਾਡੇ ਵਲੋਂ ਸਿੰਕ ਕਰਨ ਦੌਰਾਨ ਇੰਕ੍ਰਿਪਟ ਕਰਦਾ ਹੈ।</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">ਸਾਈਨ ਇਨ</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -563,12 +563,12 @@
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">ਨੋਟੀਫ਼ਿਕੇਸ਼ਨ Firefox ਨਾਲ ਤੁਹਾਨੂੰ ਸੁਰੱਖਿਅਤ ਰਹਿਣ ਲਈ ਮਦਦ ਕਰਦੇ ਹਨ</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">ਨੋਟੀਫ਼ਿਕੇਸ਼ਨ Waterfox ਨਾਲ ਤੁਹਾਨੂੰ ਸੁਰੱਖਿਅਤ ਰਹਿਣ ਲਈ ਮਦਦ ਕਰਦੇ ਹਨ</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">ਟੈਬਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਰੂਪ ਵਿੱਚ ਆਪਣੇ ਡਿਵਾਈਸਾਂ ਉੱਤੇ ਭੇਜੋ ਅਤੇ Firefox ਵਿੱਚ ਹੋਰ ਪਰਦੇਦਾਰੀ ਫ਼ੀਚਰ ਬਾਰੇ ਜਾਣੋ।</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">ਟੈਬਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਰੂਪ ਵਿੱਚ ਆਪਣੇ ਡਿਵਾਈਸਾਂ ਉੱਤੇ ਭੇਜੋ ਅਤੇ Waterfox ਵਿੱਚ ਹੋਰ ਪਰਦੇਦਾਰੀ ਫ਼ੀਚਰ ਬਾਰੇ ਜਾਣੋ।</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">ਸੂਚਨਾਵਾਂ ਚਾਲੂ ਕਰੋ</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -577,24 +577,24 @@
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Firefox ਖੋਜ ਵਿਜੈਟ ਅਜ਼ਮਾਓ</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ਖੋਜ ਵਿਜੈਟ ਅਜ਼ਮਾਓ</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">ਤੁਹਾਡੀ ਮੁੱਖ ਸਕਰੀਨ ਉੱਤੇ Firefox ਨਾਲ ਤੁਸੀਂ ਪਰਾਈਵੇਸੀ ਅਧਾਰਿਤ ਬਰਾਊਜ਼ਰ ਨੂੰ ਸੌਖੀ ਤਰ੍ਹਾਂ ਵਰਤ ਸਕਦੇ ਹੋ, ਜੋ ਕਿ ਅੰਤਰ-ਸਾਈਟ ਟਰੈਕਰਾਂ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਉਂਦਾ ਹੈ।</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">ਤੁਹਾਡੀ ਮੁੱਖ ਸਕਰੀਨ ਉੱਤੇ Waterfox ਨਾਲ ਤੁਸੀਂ ਪਰਾਈਵੇਸੀ ਅਧਾਰਿਤ ਬਰਾਊਜ਼ਰ ਨੂੰ ਸੌਖੀ ਤਰ੍ਹਾਂ ਵਰਤ ਸਕਦੇ ਹੋ, ਜੋ ਕਿ ਅੰਤਰ-ਸਾਈਟ ਟਰੈਕਰਾਂ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਉਂਦਾ ਹੈ।</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Firefox ਵਿਜੈਟ ਜੋੜੋ</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Waterfox ਵਿਜੈਟ ਜੋੜੋ</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">ਹੁਣੇ ਨਹੀਂ</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
     Note: The word "Firefox" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">ਆਪਣੇ Firefox ਨੂੰ ਇਕਸਟੈਨਸ਼ਨਾਂ ਨਾਲ ਪਸੰਦੀਦਾ ਬਣਾਓ</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">ਆਪਣੇ Waterfox ਨੂੰ ਇਕਸਟੈਨਸ਼ਨਾਂ ਨਾਲ ਪਸੰਦੀਦਾ ਬਣਾਓ</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">ਆਪਣੀ ਸੁਰੱਖਿਆ, ਕਾਰਗੁਜ਼ਾਰੀ ਅਤੇ ਹੋਰ ਕਈ ਕੁਝ ਸੁਧਾਰਨ ਲਈ ਤੀਜੀ ਧਿਰ ਇਕਸਟੈਨਸ਼ਨਾਂ ਨੂੰ ਇੰਸਟਾਲ ਕਰੋ।</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -630,7 +630,7 @@
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">5 ਵਿੱਚੋਂ %1$s ਰੇਟ ਕੀਤਾ</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Firefox ਨੂੰ ਬੇਹਤਰ ਬਣਾਉਣ ਲਈ ਸਾਡੀ ਮਦਦ ਕਰੋ</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Waterfox ਨੂੰ ਬੇਹਤਰ ਬਣਾਉਣ ਲਈ ਸਾਡੀ ਮਦਦ ਕਰੋ</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">ਕਰੈਸ਼ ਰਿਪੋਰਟਾਂ ਨੂੰ ਆਪਣੇ-ਆਪ ਭੇਜੋ</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -638,13 +638,13 @@
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">ਹੋਰ ਜਾਣੋ</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">Mozilla ਤਕਨੀਕੀ ਅਤੇ ਤਾਲਮੇਲ ਡਾਟਾ ਭੇਜੋ</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">ਤੁਹਾਡੇ ਡਿਵਾਈਸ, ਹਾਰਡਵੇਅਰ ਸੰਰਚਨਾ ਅਤੇ Firefox ਨੂੰ ਤੁਸੀਂ ਕਿਵੇਂ ਵਰਤਦੇ ਹੋ, ਦੇ ਬਾਰੇ ਡਾਟਾ ਫ਼ੀਚਰਾਂ, ਕਾਰਗੁਜ਼ਾਰੀ ਅਤੇ ਸਥਿਰਤਾਂ ਵਿੱਚ ਸੁਧਾਰ ਕਰਨ ਲਈ ਮਦਦ ਕਰਦਾ ਹੈ।</string>
+  <string name="onboarding_preferences_dialog_usage_data_title">BrowserWorks ਤਕਨੀਕੀ ਅਤੇ ਤਾਲਮੇਲ ਡਾਟਾ ਭੇਜੋ</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">ਤੁਹਾਡੇ ਡਿਵਾਈਸ, ਹਾਰਡਵੇਅਰ ਸੰਰਚਨਾ ਅਤੇ Waterfox ਨੂੰ ਤੁਸੀਂ ਕਿਵੇਂ ਵਰਤਦੇ ਹੋ, ਦੇ ਬਾਰੇ ਡਾਟਾ ਫ਼ੀਚਰਾਂ, ਕਾਰਗੁਜ਼ਾਰੀ ਅਤੇ ਸਥਿਰਤਾਂ ਵਿੱਚ ਸੁਧਾਰ ਕਰਨ ਲਈ ਮਦਦ ਕਰਦਾ ਹੈ।</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">ਹੋਰ ਜਾਣੋ</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">ਮੁਕੰਮਲ</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Firefox ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Waterfox ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">ਤੇਜ਼ ਅਤੇ ਸੁਰੱਖਿਅਤ ਵੈੱਬ ਬਰਾਊਜ਼ਿੰਗ</string>
   <!-- Terms of service onboarding page continue button label. -->
@@ -654,21 +654,21 @@
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">ਜਾਰੀ ਰੱਖ ਕੇ ਤੁਸੀਂ %1$s ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ।</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Firefox ਵਰਤਣ ਦੀਆਂ ਸ਼ਰਤਾਂ</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Waterfox ਵਰਤਣ ਦੀਆਂ ਸ਼ਰਤਾਂ</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Firefox ਤੁਹਾਡੀ ਪਰਦੇਦਾਰੀ ਦੀ ਪਰਵਾਹ ਕਰਦਾ ਹੈ। ਸਾਡੀ %1$s ਬਾਰੇ ਹੋਰ ਜਾਣੋ।</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Waterfox ਤੁਹਾਡੀ ਪਰਦੇਦਾਰੀ ਦੀ ਪਰਵਾਹ ਕਰਦਾ ਹੈ। ਸਾਡੀ %1$s ਬਾਰੇ ਹੋਰ ਜਾਣੋ।</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">ਪਰਦੇਦਾਰੀ ਸੂਚਨਾ</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਸੁਧਾਰ ਕਰਨ ਲਈ ਮਦਦ ਵਾਸਤੇ Firefox Mozilla ਨੂੰ ਪੜਤਾਲ ਅਤੇ ਤਾਲਮੇਲ ਡਾਟਾ ਭੇਜਦਾ ਹੈ। %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">ਬਰਾਊਜ਼ਰ ਵਿੱਚ ਸੁਧਾਰ ਕਰਨ ਲਈ ਮਦਦ ਵਾਸਤੇ Waterfox BrowserWorks ਨੂੰ ਪੜਤਾਲ ਅਤੇ ਤਾਲਮੇਲ ਡਾਟਾ ਭੇਜਦਾ ਹੈ। %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">ਬੰਦੋਬਸਤ</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Firefox ਨੂੰ ਅੱਗੇ ਵਧਣ ਲਈ ਸਾਡੀ ਮਦਦ ਕਰੋ</string>
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ਨੂੰ ਅੱਗੇ ਵਧਣ ਲਈ ਸਾਡੀ ਮਦਦ ਕਰੋ</string>
   <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">ਜਦੋਂ ਤੁਸੀਂ Firefox ਨੂੰ ਲੱਭਣ ਅਤੇ ਇਸ ਨੂੰ ਵਰਤਣ ਬਾਰੇ ਜਾਣਕਾਰੀ ਨੂੰ ਸਾਂਝਾ ਕਰਦੇ ਹੋ ਤਾਂ ਤੁਸੀਂ ਸਾਡੇ ਬਰਾਊਜ਼ਰ ਨੂੰ ਹੋਰ ਲੋਕਾਂ ਤੱਕ ਪਹੁੰਚਾਉਣ ਲਈ ਸਾਡੀ ਮਦਦ ਕਰਦੇ ਹੋ।</string>
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">ਜਦੋਂ ਤੁਸੀਂ Waterfox ਨੂੰ ਲੱਭਣ ਅਤੇ ਇਸ ਨੂੰ ਵਰਤਣ ਬਾਰੇ ਜਾਣਕਾਰੀ ਨੂੰ ਸਾਂਝਾ ਕਰਦੇ ਹੋ ਤਾਂ ਤੁਸੀਂ ਸਾਡੇ ਬਰਾਊਜ਼ਰ ਨੂੰ ਹੋਰ ਲੋਕਾਂ ਤੱਕ ਪਹੁੰਚਾਉਣ ਲਈ ਸਾਡੀ ਮਦਦ ਕਰਦੇ ਹੋ।</string>
   <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Mozilla ਦੇ ਮਾਰਕੀਟਿੰਗ ਤਕਨਾਲੋਜੀ ਹਿੱਸੇਦਾਰਾਂ ਨਾਲ ਘੱਟ ਤੋਂ ਘੱਟ ਡਾਟਾ ਸਾਂਝਾ ਕਰੋ। ਇਹ ਡਾਟਾ ਕਦੇ ਵੀ ਵੇਚਿਆ ਨਹੀਂ ਜਾਂਦਾ ਹੈ ਜਾਂ ਤੁਹਾਨੂੰ ਇਸ਼ਤਿਹਾਰ ਦਿਖਾਉਣ ਲਈ ਨਹੀਂ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।</string>
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">BrowserWorks ਦੇ ਮਾਰਕੀਟਿੰਗ ਤਕਨਾਲੋਜੀ ਹਿੱਸੇਦਾਰਾਂ ਨਾਲ ਘੱਟ ਤੋਂ ਘੱਟ ਡਾਟਾ ਸਾਂਝਾ ਕਰੋ। ਇਹ ਡਾਟਾ ਕਦੇ ਵੀ ਵੇਚਿਆ ਨਹੀਂ ਜਾਂਦਾ ਹੈ ਜਾਂ ਤੁਹਾਨੂੰ ਇਸ਼ਤਿਹਾਰ ਦਿਖਾਉਣ ਲਈ ਨਹੀਂ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">ਅਸੀਂ ਤੁਹਾਡੇ ਡਾਟੇ ਨੂੰ ਕਿਵੇਂ ਵਰਤਦੇ ਹਾਂ</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -676,7 +676,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">ਇੱਕ ਆਖਰੀ ਗੱਲ</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">ਤੁਸੀਂ Firefox ਨੂੰ ਕਿਵੇਂ ਲੱਭਿਆ ਅਤੇ ਇਸ ਨੂੰ ਕਿਵੇਂ ਵਰਤਦੇ ਹੋ, ਉਸ ਜਾਣਕਾਰੀ ਨੂੰ Mozilla ਦੇ ਮਾਰਕੀਟਿੰਗ ਹਿੱਸੇਦਾਰਾਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ। ਇਹ ਡਾਟੇ ਨੂੰ ਕਦੇ ਨਹੀਂ ਵੇਚਿਆ ਜਾਂਦਾ ਹੈ।</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">ਤੁਸੀਂ Waterfox ਨੂੰ ਕਿਵੇਂ ਲੱਭਿਆ ਅਤੇ ਇਸ ਨੂੰ ਕਿਵੇਂ ਵਰਤਦੇ ਹੋ, ਉਸ ਜਾਣਕਾਰੀ ਨੂੰ BrowserWorks ਦੇ ਮਾਰਕੀਟਿੰਗ ਹਿੱਸੇਦਾਰਾਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ। ਇਹ ਡਾਟੇ ਨੂੰ ਕਦੇ ਨਹੀਂ ਵੇਚਿਆ ਜਾਂਦਾ ਹੈ।</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">ਸਹਿਮਤ ਅਤੇ ਬਰਾਊਜ਼ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰੋ</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -761,9 +761,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">ਸਿਰਨਾਵਾਂ ਪੱਟੀ ਲਈ ਪਸੰਦਾਂ</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">ਸਿਰਨਾਵਾਂ ਪੱਟੀ - Firefox ਸੁਝਾਅ</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">ਸਿਰਨਾਵਾਂ ਪੱਟੀ - Waterfox ਸੁਝਾਅ</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Firefox ਸੁਝਾਅ ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Waterfox ਸੁਝਾਅ ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">ਗੂਗਲ ਪਲੇਅ ‘ਤੇ ਦਰਜਾ ਦਿਓ</string>
   <!--
@@ -854,7 +854,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">ਅਸੈਸਬਿਲਟੀ</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">ਪਸੰਦੀਦਾ Mozilla ਖਾਤਾ ਸਰਵਰ</string>
+  <string name="preferences_override_account_server">ਪਸੰਦੀਦਾ BrowserWorks ਖਾਤਾ ਸਰਵਰ</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">ਪਸੰਦੀਦਾ ਸਿੰਕ ਸਰਵਰ</string>
   <!-- Preference category for account information -->
@@ -872,7 +872,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">ਟੈਬਾਂ, ਬੁੱਕਮਾਰਕਾਂ, ਪਾਸਵਰਡਾ ਤੇ ਹੋਰਾਂ ਨੂੰ ਸਿੰਕ ਕਰਨ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ।</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Mozilla ਖਾਤਾ</string>
+  <string name="preferences_account_default_name_2">BrowserWorks ਖਾਤਾ</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">ਸਿੰਕ ਕਰਨ ਨੂੰ ਬਹਾਲ ਕਰਨ ਲਈ ਮੁੜ-ਕਨੈਕਟ ਕਰੋ</string>
   <!-- Preference for language -->
@@ -1101,7 +1101,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">ਨਵੀਆਂ ਇਕਸਟੈਨਸ਼ਨਾਂ ਹੁਣ ਮੌਜੂਦ ਹਨ</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">100+ ਤੋਂ ਵੱਧ ਇਕਸਟੈਨਸ਼ਨ ਨੂੰ ਵੇਖੋ, ਜੋ Firefox ਨੂੰ ਤੁਹਾਡਾ ਆਪਣਾ ਬਣਾਉਣ ਲਈ ਸਹਾਇਕ ਹੋਣਗੀਆਂ।</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">100+ ਤੋਂ ਵੱਧ ਇਕਸਟੈਨਸ਼ਨ ਨੂੰ ਵੇਖੋ, ਜੋ Waterfox ਨੂੰ ਤੁਹਾਡਾ ਆਪਣਾ ਬਣਾਉਣ ਲਈ ਸਹਾਇਕ ਹੋਣਗੀਆਂ।</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">ਇਕਸਟੈਨਸ਼ਨਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ</string>
   <!--
@@ -1173,7 +1173,7 @@
   -->
   <string name="fxa_received_tab_channel_name">ਮਿਲੀਆਂ ਟੈਬਾਂ</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">ਹੋਰ Firefox ਡਿਵਾਈਸਾਂ ਤੋਂ ਮਿਲੀਆਂ ਟੈਬਾਂ ਲਈ ਸੂਚਨਾਵਾਂ ਹਨ।</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">ਹੋਰ Waterfox ਡਿਵਾਈਸਾਂ ਤੋਂ ਮਿਲੀਆਂ ਟੈਬਾਂ ਲਈ ਸੂਚਨਾਵਾਂ ਹਨ।</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">ਟੈਬ ਮਿਲੀ</string>
   <!-- %s is the device name -->
@@ -1205,19 +1205,19 @@
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more">ਹੋਰ ਜਾਣੋ</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">ਤੁਹਾਡੇ ਡਿਵਾਈਸ, ਹਾਰਡਵੇਅਰ ਸੰਰਚਨਾ ਅਤੇ ਵਰਤੋਂ ਬਾਰੇ ਡਾਟਾ ਸਾਨੂੰ Firefox ਦੇ ਫ਼ੀਚਰਾਂ, ਕਾਰਗੁਜ਼ਾਰੀ ਅਤੇ ਸਥਿਰਤਾ ਵਿੱਚ ਸੁਧਾਰ ਕਰਨ ਲਈ ਮਦਦ ਕਰਦਾ ਹੈ।</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">ਤੁਹਾਡੇ ਡਿਵਾਈਸ, ਹਾਰਡਵੇਅਰ ਸੰਰਚਨਾ ਅਤੇ ਵਰਤੋਂ ਬਾਰੇ ਡਾਟਾ ਸਾਨੂੰ Waterfox ਦੇ ਫ਼ੀਚਰਾਂ, ਕਾਰਗੁਜ਼ਾਰੀ ਅਤੇ ਸਥਿਰਤਾ ਵਿੱਚ ਸੁਧਾਰ ਕਰਨ ਲਈ ਮਦਦ ਕਰਦਾ ਹੈ।</string>
   <!-- Preference switch for campaign measurement data (marketing data) collection -->
   <string name="preferences_marketing_data_2">ਮੁਹਿੰਮ ਮਾਪ ਬਾਰੇ ਡਾਟਾ</string>
   <!--
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">ਤੁਸੀਂ Firefox ਨੂੰ ਕਿਵੇਂ ਲੱਭਿਆ ਅਤੇ ਇਸ ਨੂੰ ਕਿਵੇਂ ਵਰਤਦੇ ਹੋ, ਉਸ ਜਾਣਕਾਰੀ ਨੂੰ Mozilla ਦੇ ਮਾਰਕੀਟਿੰਗ ਤਕਨਾਲੋਜੀ ਹਿੱਸੇਦਾਰਾਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ।</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">ਤੁਸੀਂ Waterfox ਨੂੰ ਕਿਵੇਂ ਲੱਭਿਆ ਅਤੇ ਇਸ ਨੂੰ ਕਿਵੇਂ ਵਰਤਦੇ ਹੋ, ਉਸ ਜਾਣਕਾਰੀ ਨੂੰ BrowserWorks ਦੇ ਮਾਰਕੀਟਿੰਗ ਤਕਨਾਲੋਜੀ ਹਿੱਸੇਦਾਰਾਂ ਨਾਲ ਸਾਂਝਾ ਕਰੋ।</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">ਮਾਰਕੀਟਿੰਗ ਡਾਟੇ ਬਾਰੇ ਹੋਰ ਸਿੱਖੋ</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">ਰੋਜ਼ਾਨਾ ਵਰਤੋਂ ਪਿੰਗ</string>
-  <string name="preferences_daily_usage_ping_description">ਇਹ Mozilla ਨੂੰ ਸਰਗਰਮ ਵਰਤੋਂਕਾਰਾਂ ਦਾ ਅੰਦਾਜ਼ਾ ਲਾਉਣ ਲਈ ਮਦਦ ਕਰਦਾ ਹੈ।</string>
+  <string name="preferences_daily_usage_ping_description">ਇਹ BrowserWorks ਨੂੰ ਸਰਗਰਮ ਵਰਤੋਂਕਾਰਾਂ ਦਾ ਅੰਦਾਜ਼ਾ ਲਾਉਣ ਲਈ ਮਦਦ ਕਰਦਾ ਹੈ।</string>
   <string name="preferences_daily_usage_ping_learn_more">ਰੋਜ਼ਾਨਾ ਵਰਤੋਂ ਪਿੰਗ ਬਾਰੇ ਹੋਰ ਜਾਣੋ</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title">ਕਰੈਸ਼ ਰਿਪੋਰਟਾਂ ਨੂੰ ਆਪਣੇ-ਆਪ ਭੇਜੋ</string>
@@ -1228,7 +1228,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">ਅਧਿਐਨ</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Mozilla ਨੂੰ ਅਧਿਐਨ ਇੰਸਟਾਲ ਕਰਨ ਤੇ ਚਲਾਉਣ ਦੇ ਇਜਾਜ਼ਤ ਦਿਓ</string>
+  <string name="preference_experiments_summary_2">BrowserWorks ਨੂੰ ਅਧਿਐਨ ਇੰਸਟਾਲ ਕਰਨ ਤੇ ਚਲਾਉਣ ਦੇ ਇਜਾਜ਼ਤ ਦਿਓ</string>
   <!--
     Turn On Sync Preferences
 
@@ -1667,7 +1667,7 @@
   -->
   <string name="webcompat_reporter_screen_title">ਖ਼ਰਾਬ ਸਾਈਟ ਬਾਰੇ ਰਿਪੋਰਟ ਕਰੋ</string>
   <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">%1$s ਨੂੰ ਹਰੇਕ ਲਈ ਬੇਹਤਰ ਬਣਾਉਣ ਵਾਸਤੇ ਮਦਦ ਕਰੋ। Mozilla ਦੇ ਮੁਲਾਜ਼ਮ ਤੁਹਾਡੇ ਵਲੋਂ ਭੇਜੀ ਜਾਣਕਾਰੀ ਨੂੰ ਵੈੱਬਸਾਈਟ ਸਮੱਸਿਆਵਾਂ ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਵਰਤਦੇ ਹਨ।</string>
+  <string name="webcompat_reporter_description">%1$s ਨੂੰ ਹਰੇਕ ਲਈ ਬੇਹਤਰ ਬਣਾਉਣ ਵਾਸਤੇ ਮਦਦ ਕਰੋ। BrowserWorks ਦੇ ਮੁਲਾਜ਼ਮ ਤੁਹਾਡੇ ਵਲੋਂ ਭੇਜੀ ਜਾਣਕਾਰੀ ਨੂੰ ਵੈੱਬਸਾਈਟ ਸਮੱਸਿਆਵਾਂ ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਵਰਤਦੇ ਹਨ।</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">URL</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -2056,7 +2056,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">ਹੋਰ ਡਿਵਾਈਸ ਨਾਲ ਕਨੈਕਟ ਕਰੋ</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ਟੈਬ ਭੇਜਣ ਲਈ, ਘੱਟੋ-ਘੱਟ ਹੋਰ ਡਿਵਾਈਸ ਉੱਤੇ Firefox ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ।</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ਟੈਬ ਭੇਜਣ ਲਈ, ਘੱਟੋ-ਘੱਟ ਹੋਰ ਡਿਵਾਈਸ ਉੱਤੇ Waterfox ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ।</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">ਸਮਝ ਗਏ</string>
   <!-- Share error message -->
@@ -2088,12 +2088,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox ਤੇਜ਼ ਅਤੇ ਪ੍ਰਾਈਵੇਟ ਹੈ</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ਤੇਜ਼ ਅਤੇ ਪ੍ਰਾਈਵੇਟ ਹੈ</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Firefox ਨੂੰ ਆਪਣਾ ਡਿਫਾਲਟ ਬਰਾਊਜ਼ਰ ਬਣਾਓ</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Waterfox ਨੂੰ ਆਪਣਾ ਡਿਫਾਲਟ ਬਰਾਊਜ਼ਰ ਬਣਾਓ</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">ਪ੍ਰਾਈਵੇਟ ਬਰਾਊਜ਼ ਕਰਨ ਨੂੰ ਅਜ਼ਮਾਓ</string>
   <!--
@@ -2118,7 +2118,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">ਛੋਟੇ ਜਿਹੇ ਸਰਵੇਖਣ ਦਾ ਹਿੱਸਾ ਬਣ ਕੇ Firefox ਨੂੰ ਬੇਹਤਰ ਬਣਾਉਣ ਲਈ ਮਦਦ ਕਰੋ।</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">ਛੋਟੇ ਜਿਹੇ ਸਰਵੇਖਣ ਦਾ ਹਿੱਸਾ ਬਣ ਕੇ Waterfox ਨੂੰ ਬੇਹਤਰ ਬਣਾਉਣ ਲਈ ਮਦਦ ਕਰੋ।</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">ਸਰਵੇਖਣ ਭਰੋ</string>
   <!-- Preference for not taking the short survey. -->
@@ -2266,7 +2266,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">ਕੋਡ ਸਕੈਨ ਕਰੋ</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[ਆਪਣੇ ਕੰਪਿਊਟਰ ‘ਤੇ Firefox ਖੋਲ੍ਹੋ ਅਤੇ <b>https://firefox.com/pair</b> ‘ਤੇ ਜਾਓ]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[ਆਪਣੇ ਕੰਪਿਊਟਰ ‘ਤੇ Waterfox ਖੋਲ੍ਹੋ ਅਤੇ <b>https://firefox.com/pair</b> ‘ਤੇ ਜਾਓ]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">ਸਕੈਨ ਕਰਨ ਲਈ ਤਿਆਰ</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2274,7 +2274,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">ਇਸ ਦੀ ਬਜਾਏ ਈਮੇਲ ਵਰਤੋਂ</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ਖਾਤਾ ਨਹੀਂ ਹੈ?<u>ਡਿਵਾਈਸਾਂ ਵਿਚਾਲੇ</u> Firefox ਸਿੰਕ ਕਰਨ ਲਈ ਬਣਾਓ।]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ਖਾਤਾ ਨਹੀਂ ਹੈ?<u>ਡਿਵਾਈਸਾਂ ਵਿਚਾਲੇ</u> Waterfox ਸਿੰਕ ਕਰਨ ਲਈ ਬਣਾਓ।]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s ਤੁਹਾਡੇ ਖਾਤੇ ਨਾਲ ਸਿੰਕ ਕਰਨਾ ਰੋਕ ਦੇਵੇਗਾ, ਪਰ ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ ਤੁਹਾਡੇ ਬਰਾਊਜ਼ ਕੀਤੇ ਡਾਟੇ ਨੂੰ ਹਟਾਏਗਾ ਨਹੀਂ।</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2883,7 +2883,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">ਟੈਬ ਨੂੰ ਸਿੰਕ ਕਰਨਾ ਸਮਰੱਥ ਕਰੋ।</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">ਤੁਹਾਡੇ ਹੋਰ ਡਿਵਾਈਸ ਉੱਤੇ Firefox ਵਿੱਚ ਕੋਈ ਵੀ ਖੋਲ੍ਹੀ ਹੋਈ ਟੈਬ ਨਹੀਂ ਹੈ।</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">ਤੁਹਾਡੇ ਹੋਰ ਡਿਵਾਈਸ ਉੱਤੇ Waterfox ਵਿੱਚ ਕੋਈ ਵੀ ਖੋਲ੍ਹੀ ਹੋਈ ਟੈਬ ਨਹੀਂ ਹੈ।</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">ਤੁਹਾਡੇ ਹੋਰ ਡਿਵਾਈਸਾਂ ਤੋਂ ਟੈਬਾਂ ਦੀ ਸੂਚੀ ਵੇਖੋ।</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2949,7 +2949,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">ਇੱਕ ਮਹੀਨੇ ਬਾਅਦ ਆਪੇ ਬੰਦ ਕਰਨਾ ਹੈ?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox ਉਹਨਾਂ ਟੈਬਾਂ ਨੂੰ ਬੰਦ ਕਰ ਸਕਦਾ ਹੈ, ਜਿਨਾਂ ਨੂੰ ਤੁਸੀਂ ਪਿਛਲੇ ਮਹੀਨੇ ਭਰ ਤੋਂ ਨਹੀਂ ਵੇਖਿਆ ਹੈ।</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox ਉਹਨਾਂ ਟੈਬਾਂ ਨੂੰ ਬੰਦ ਕਰ ਸਕਦਾ ਹੈ, ਜਿਨਾਂ ਨੂੰ ਤੁਸੀਂ ਪਿਛਲੇ ਮਹੀਨੇ ਭਰ ਤੋਂ ਨਹੀਂ ਵੇਖਿਆ ਹੈ।</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ਆਪੇ-ਬੰਦ ਕਰਨ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2959,7 +2959,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox ਸੁਝਾਅ</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox ਸੁਝਾਅ</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2978,7 +2978,7 @@
   -->
   <string name="default_browser_experiment_card_title">ਆਪਣੇ ਮੂਲ ਬਰਾਊਜ਼ਰ ਨੂੰ ਬਦਲੋ</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">ਵੈੱਬਸਾਈਟਾਂ, ਈਮੇਲਾਂ ਅਤੇ ਸੁਨੇਹਿਆਂ ਨੂੰ Firefox ਵਿੱਚ ਆਪਣੇ ਖੋਲ੍ਹਣ ਲਈ ਲਿੰਕ ਸੈੱਟ ਕਰੋ।</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">ਵੈੱਬਸਾਈਟਾਂ, ਈਮੇਲਾਂ ਅਤੇ ਸੁਨੇਹਿਆਂ ਨੂੰ Waterfox ਵਿੱਚ ਆਪਣੇ ਖੋਲ੍ਹਣ ਲਈ ਲਿੰਕ ਸੈੱਟ ਕਰੋ।</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">ਹਟਾਓ</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -3002,7 +3002,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">%s ਦੀ ਸਹਾਇਤਾ ਨਾਲ</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Firefox ਪਰਿਵਾਰ ਦਾ ਹਿੱਸਾ। %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Waterfox ਪਰਿਵਾਰ ਦਾ ਹਿੱਸਾ। %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">ਹੋਰ ਜਾਣੋ</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -3338,7 +3338,7 @@
     %s is a placeholder for the name of the tracker category.
     %d is a placeholder for the number of trackers blocked.
   -->
-  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%s: %d</string>
+  <string name="trackers_blocked_panel_categorical_num_trackers_blocked">%1$s: %2$d</string>
   <!--
     Description text for a dialog confirming whether the user wants to delete all data for current site.
     %s is a placeholder for the base domain of website.
@@ -3414,7 +3414,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Firefox ਨੂੰ ਬੇਹਤਰ ਬਣਾਉਣ ਲਈ ਸਾਡੀ ਮਦਦ ਕਰੋ। ਇਸ ਨੂੰ ਮਿੰਟ ਕੁ ਹੀ ਲੱਗੇਗਾ।</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ਨੂੰ ਬੇਹਤਰ ਬਣਾਉਣ ਲਈ ਸਾਡੀ ਮਦਦ ਕਰੋ। ਇਸ ਨੂੰ ਮਿੰਟ ਕੁ ਹੀ ਲੱਗੇਗਾ।</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">ਜਾਰੀ ਰੱਖੋ</string>
   <!--
@@ -3444,29 +3444,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">ਮੈ ਇਸ ਨੂੰ ਨਹੀਂ ਵਰਤਦਾ/ਵਰਤਦੀ ਹਾਂ</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">ਮੈਂ Firefox ਉੱਤੇ ਖੋਜ ਨੂੰ ਨਹੀਂ ਵਰਤਦਾ/ਵਰਤਦੀ ਹੈ</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">ਮੈਂ Waterfox ਉੱਤੇ ਖੋਜ ਨੂੰ ਨਹੀਂ ਵਰਤਦਾ/ਵਰਤਦੀ ਹੈ</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">ਮੈ ਸਿੰਕ ਨੂੰ ਨਹੀਂ ਵਰਤਦਾ/ਵਰਤਦੀ ਹਾਂ</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">ਮਦਦ Firefox ਵਿੱਚ ਪਰਿੰਟ ਕਰਨ ਨੂੰ ਬੇਤਹਰ ਬਣਾਉਂਦੀ ਹੈ। ਇਸ ਨੂੰ ਸਿਰਫ਼ ਸਕਿੰਟ ਹੀ ਲੱਗੇਗਾ</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">ਮਦਦ Waterfox ਵਿੱਚ ਪਰਿੰਟ ਕਰਨ ਨੂੰ ਬੇਤਹਰ ਬਣਾਉਂਦੀ ਹੈ। ਇਸ ਨੂੰ ਸਿਰਫ਼ ਸਕਿੰਟ ਹੀ ਲੱਗੇਗਾ</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Firefox ਵਿੱਚ ਖੋਜ ਨੂੰ ਬੇਹਤਰ ਬਣਾਉਣ ਲਈ ਮਦਦ ਕਰੋ। ਇਸ ਨੂੰ ਮਿੰਟ ਕੁ ਹੀ ਲੱਗੇਗਾ।</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ਵਿੱਚ ਖੋਜ ਨੂੰ ਬੇਹਤਰ ਬਣਾਉਣ ਲਈ ਮਦਦ ਕਰੋ। ਇਸ ਨੂੰ ਮਿੰਟ ਕੁ ਹੀ ਲੱਗੇਗਾ।</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Firefox ਵਿੱਚ ਲਿੰਕ ਨੂੰ ਬੇਹਤਰ ਬਣਾਉਣ ਲਈ ਮਦਦ ਕਰੋ। ਇਸ ਨੂੰ ਮਿੰਟ ਕੁ ਹੀ ਲੱਗੇਗਾ।</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ਵਿੱਚ ਲਿੰਕ ਨੂੰ ਬੇਹਤਰ ਬਣਾਉਣ ਲਈ ਮਦਦ ਕਰੋ। ਇਸ ਨੂੰ ਮਿੰਟ ਕੁ ਹੀ ਲੱਗੇਗਾ।</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Firefox ਵਿੱਚ ਪਰਿੰਟ ਕਰਨ ਨਾਲ ਤੁਸੀਂ ਕਿੰਨੇ ਸੰਤੁਸ਼ਟ ਹੋ?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ਵਿੱਚ ਪਰਿੰਟ ਕਰਨ ਨਾਲ ਤੁਸੀਂ ਕਿੰਨੇ ਸੰਤੁਸ਼ਟ ਹੋ?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Firefox ਮੁੱਖ-ਸਫ਼ੇ ਨਾਲ ਤੁਸੀਂ ਕਿੰਨੇ ਕੁ ਸੰਤੁਸ਼ਟ ਹੋ?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ਮੁੱਖ-ਸਫ਼ੇ ਨਾਲ ਤੁਸੀਂ ਕਿੰਨੇ ਕੁ ਸੰਤੁਸ਼ਟ ਹੋ?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Firefox ਵਿੱਚ ਖੋਜ ਤਜਰਬੇ ਨਾਲ ਤੁਸੀਂ ਕਿੰਨੇ ਸੰਤੁਸ਼ਟ ਹੋ?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ਵਿੱਚ ਖੋਜ ਤਜਰਬੇ ਨਾਲ ਤੁਸੀਂ ਕਿੰਨੇ ਸੰਤੁਸ਼ਟ ਹੋ?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Firefox ਵਿੱਚ ਸਿੰਕ ਤਜਰਬੇ ਨਾਲ ਤੁਸੀਂ ਕਿੰਨੇ ਸੰਤੁਸ਼ਟ ਹੋ?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Waterfox ਵਿੱਚ ਸਿੰਕ ਤਜਰਬੇ ਨਾਲ ਤੁਸੀਂ ਕਿੰਨੇ ਸੰਤੁਸ਼ਟ ਹੋ?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Firefox ਲੋਗੋ</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Waterfox ਲੋਗੋ</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">ਸਰਵੇਖਣ ਫ਼ੀਚਰ ਆਈਕਾਨ</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3564,27 +3564,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">ਹੁਣੇ ਅੱਪਡੇਟ ਕਰੋ</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">ਆਪਣੇ Firefox ਬਰਾਊਜ਼ਰ ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">ਆਪਣੇ Waterfox ਬਰਾਊਜ਼ਰ ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">ਰੂਟ ਸਰਟੀਫਿਕੇਟ ਦੀ ਮਿਆਦ ਪੁੱਗ ਜਾਵੇਗੀ, ਜਿਸ ਨਾਲ 14 ਮਾਰਚ ਤੋਂ ਬਾਅਦ ਕੁਝ ਫ਼ੀਚਰ ਕੰਮ ਨਹੀਂ ਕਰਨਗੇ।</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">14 ਮਾਚਰ ਤੋਂ ਪਹਿਲਾਂ ਅੱਪਡੇਟ</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">ਰੂਟ ਸਰਟੀਫਿਕੇਟ ਦੀ ਮਿਆਦ ਪੁੱਗ ਜਾਵੇਗੀ, ਜਿਸ ਨਾਲ Firefox ਦਾ ਤੁਹਾਡਾ ਵਰਜ਼ਨ ਠੀਕ ਤਰ੍ਹਾਂ ਕੰਮ ਨਹੀਂ ਕਰੇਗਾ।</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">ਰੂਟ ਸਰਟੀਫਿਕੇਟ ਦੀ ਮਿਆਦ ਪੁੱਗ ਜਾਵੇਗੀ, ਜਿਸ ਨਾਲ Waterfox ਦਾ ਤੁਹਾਡਾ ਵਰਜ਼ਨ ਠੀਕ ਤਰ੍ਹਾਂ ਕੰਮ ਨਹੀਂ ਕਰੇਗਾ।</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">ਅੱਪਡੇਟ ਕਰਨ ਵਾਸਤੇ 7 ਤੋਂ ਘੱਟ ਦਿਨ ਬਚੇ ਹਨ</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">14 ਮਾਰਚ ਨੂੰ ਰੂਟ ਸਰਟੀਫਿਕੇਟ ਦੀ ਮਿਆਦ ਪੁੱਗਣ ਕਰਕੇ ਐਡ-ਆਨ ਅਤੇ ਹੋਰ Firefox ਫ਼ੀਚਰ ਕੰਮ ਕਰਨਾ ਬੰਦ ਕਰ ਦੇਣਗੇ।</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">14 ਮਾਰਚ ਨੂੰ ਰੂਟ ਸਰਟੀਫਿਕੇਟ ਦੀ ਮਿਆਦ ਪੁੱਗਣ ਕਰਕੇ ਐਡ-ਆਨ ਅਤੇ ਹੋਰ Waterfox ਫ਼ੀਚਰ ਕੰਮ ਕਰਨਾ ਬੰਦ ਕਰ ਦੇਣਗੇ।</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">ਆਪਣੇ Firefox ਨੂੰ ਰੱਖਣ ਦਾ ਆਖਰੀ ਮੌਕਾ</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">ਆਪਣੇ Waterfox ਨੂੰ ਰੱਖਣ ਦਾ ਆਖਰੀ ਮੌਕਾ</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">ਰੂਟ ਸਰਟੀਫਿਕੇਟ ਦੀ ਮਿਆਦ ਪੁੱਗਣ ਕਰਕੇ 14 ਮਾਰਚ ਨੂੰ Firefox ਦਾ ਤੁਹਾਡਾ ਵਰਜ਼ਨ ਕੰਮ ਕਰਨਾ ਬੰਦ ਕਰ ਦੇਵੇਗਾ।</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">ਰੂਟ ਸਰਟੀਫਿਕੇਟ ਦੀ ਮਿਆਦ ਪੁੱਗਣ ਕਰਕੇ 14 ਮਾਰਚ ਨੂੰ Waterfox ਦਾ ਤੁਹਾਡਾ ਵਰਜ਼ਨ ਕੰਮ ਕਰਨਾ ਬੰਦ ਕਰ ਦੇਵੇਗਾ।</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">ਅੱਪਡੇਟ ਕਰਨ ਦੀ ਸਿਫ਼ਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">14 ਮਾਰਚ ਨੂੰ ਐਡ-ਆਨ ਅਤੇ ਹੋਰ ਫ਼ੀਚਰ ਕੰਮ ਕਰਨਾ ਬੰਦ ਕਰ ਦੇਣਗੇ।</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">ਤੁਸੀਂ Firefox ਦਾ ਪੁਰਾਣਾ ਵਰਜ਼ਨ ਵਰਤ ਰਹੇ ਹੋ</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">ਤੁਸੀਂ Waterfox ਦਾ ਪੁਰਾਣਾ ਵਰਜ਼ਨ ਵਰਤ ਰਹੇ ਹੋ</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">ਐਡ-ਆਨ ਅਤੇ ਹੋਰ ਫ਼ੀਚਰਾਂ ਨੂੰ ਵਰਤਣਾ ਜਾਰੀ ਰੱਖਣ ਲਈ 14 ਮਾਰਚ ਤੋਂ ਪਹਿਲਾਂ ਅੱਪਡੇਟ ਕਰ ਲਵੋ</string>
   <!-- Push notification message about old Firefox version -->

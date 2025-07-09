@@ -4,8 +4,8 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <resources xmlns:moz="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
     <!-- Name of the application -->
-    <string name="app_name" translatable="false">Firefox Fenix</string>
-    <string name="firefox" translatable="false">Firefox</string>
+    <string name="app_name" translatable="false">Waterfox</string>
+    <string name="firefox" translatable="false">Waterfox</string>
 
     <!-- Preference for developers -->
     <string name="preference_leakcanary" translatable="false">LeakCanary</string>
@@ -64,9 +64,9 @@
     <!-- Preference to use the experimental React (The web framework) Mozilla Account page, used only in testing -->
     <string name="preferences_use_react_fxa">Use New React Mozilla Account page</string>
     <!-- Quit app button title for the Sync Debug preferences -->
-    <string name="preferences_sync_debug_quit_button_title">Stop Firefox</string>
+    <string name="preferences_sync_debug_quit_button_title">Stop Waterfox</string>
     <!-- Quit app button summary for the Sync Debug preferences -->
-    <string name="preferences_sync_debug_quit_button_summary">Custom server changes will take effect on the next Firefox run.</string>
+    <string name="preferences_sync_debug_quit_button_summary">Custom server changes will take effect on the next Waterfox run.</string>
     <!-- Button title for simulating an FxA network error inside the Sync Debug menu -->
     <string name="preferences_sync_debug_network_error_button_title">Simulate account network error</string>
     <!-- Button title for simulating an FxA temporary auth error inside the Sync Debug menu -->
@@ -90,7 +90,7 @@
     <!-- Label for enabling the menu redesign -->
     <string name="preferences_debug_settings_menu_redesign" translatable="false">Enable Menu Redesign</string>
     <!-- Label for enabling Firefox Suggest -->
-    <string name="preferences_debug_settings_fxsuggest" translatable="false">Enable Firefox Suggest</string>
+    <string name="preferences_debug_settings_fxsuggest" translatable="false">Enable Suggest</string>
     <!-- Label for enabling the redesigned toolbar -->
     <string name="preferences_debug_settings_composable_toolbar" translatable="false">Enable Composable Toolbar</string>
     <!-- Label for enabling Felt Privacy -->
@@ -134,15 +134,15 @@
     <string name="profiler_stop">Stop Profiler</string>
 
     <string name="profiler_settings_title">Profiler Settings</string>
-    <string name="profiler_filter_firefox">Firefox</string>
+    <string name="profiler_filter_firefox">Waterfox</string>
     <string name="profiler_running">Profiler is currently running</string>
-    <string name="profiler_filter_firefox_explain">Recommended preset for profiling Firefox</string>
+    <string name="profiler_filter_firefox_explain">Recommended preset for profiling Waterfox</string>
     <string name="profiler_filter_graphics">Graphics</string>
-    <string name="profiler_filter_graphics_explain">Preset for investigating graphics bugs in Firefox</string>
+    <string name="profiler_filter_graphics_explain">Preset for investigating graphics bugs in Waterfox</string>
     <string name="profiler_filter_media">Media</string>
-    <string name="profiler_filter_media_explain">Preset for investigating audio and video bugs in Firefox</string>
+    <string name="profiler_filter_media_explain">Preset for investigating audio and video bugs in Waterfox</string>
     <string name="profiler_filter_networking">Networking</string>
-    <string name="profiler_filter_networking_explain">Preset for investigating networking bugs in Firefox</string>
+    <string name="profiler_filter_networking_explain">Preset for investigating networking bugs in Waterfox</string>
 
     <string name="profiler_start_dialog_started">Profiler started</string>
 

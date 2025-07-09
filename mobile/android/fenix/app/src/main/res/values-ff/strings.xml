@@ -35,7 +35,7 @@
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">Danndu tabbe labaaɗe to leemannde</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">Ko Mozilla jibini %1$s</string>
+  <string name="about_content">Ko BrowserWorks jibini %1$s</string>
   <string name="private_browsing_common_myths">Tinndi goowaaɗi baɗte banngogol suturo</string>
   <!-- Text for the positive action button to go to Settings for auto close tabs. -->
   <string name="tab_tray_close_tabs_banner_positive_button_text">Juɓtorɗe jiytol</string>
@@ -332,7 +332,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Heɓii tabbe</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Tintine ngam tabbe keɓaaɗe e kaɓirɗe Firefox goɗɗe.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Tintine ngam tabbe keɓaaɗe e kaɓirɗe Waterfox goɗɗe.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Tabbere heɓaama</string>
   <!-- %s is the device name -->
@@ -571,7 +571,7 @@
   -->
   <string name="tab_crash_title_2">Njaafoɗaa. %1$s waawaa loowde ngoo hello.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Neldu jaŋte kooki to Mozilla</string>
+  <string name="tab_crash_send_report">Neldu jaŋte kooki to BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Uddu tabbere</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -758,7 +758,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Seŋ kaɓirgol goɗngol</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Ngam neldude tabbere, seŋo e Firefox ko famɗi fof e kaɓirgal gootal goɗngal.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Ngam neldude tabbere, seŋo e Waterfox ko famɗi fof e kaɓirgal gootal goɗngal.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Mi faamii</string>
   <!-- Share error message -->
@@ -866,7 +866,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Niiwto kod oo</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[E ordinateer maa, uddit Firefox e yah to <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[E ordinateer maa, uddit Waterfox e yah to <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Hebiima niiwtaade</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -874,7 +874,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Huutoro ɗoo iimeel</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[A alaa konte? <u>Sos konte</u> ngam sanngoɗinde Firefox hakkunde kaɓirɗi.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[A alaa konte? <u>Sos konte</u> ngam sanngoɗinde Waterfox hakkunde kaɓirɗi.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">Maa %s dartin jahdingol e konte maa, kono momtataa hay wootere e keɓe banngogol maa e ngal kaɓirgal gal.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1090,7 +1090,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Uddu e jaajol caggal lewru?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox ena waawi uddude tabbe ɗe a yillaaki e lewru ɓennundu nduu.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox ena waawi uddude tabbe ɗe a yillaaki e lewru ɓennundu nduu.</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
   <string name="pocket_stories_sponsor_indication">Barjinaaɗi</string>
   <!-- Translations feature -->

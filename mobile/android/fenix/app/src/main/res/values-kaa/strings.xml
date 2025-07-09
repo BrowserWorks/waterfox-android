@@ -43,7 +43,7 @@
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">Saylanǵan betlerdi toplamda saqlaw</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s Mozilla tárepinen islep shıǵılǵan.</string>
+  <string name="about_content">%1$s BrowserWorks tárepinen islep shıǵılǵan.</string>
   <!--
     Private Browsing
 
@@ -508,7 +508,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Qabıllanǵan betler</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Firefoxtıń basqa qurılmalarınan alınǵan betler haqqındaǵı xabarlamaları.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Waterfoxtıń basqa qurılmalarınan alınǵan betler haqqındaǵı xabarlamaları.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Bet qabıllandı</string>
   <!-- %s is the device name -->
@@ -528,7 +528,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Izertlewler</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Mozillaǵa izleniwlerdi ornatıw hám júrgiziwge ruqsat beredi</string>
+  <string name="preference_experiments_summary_2">BrowserWorksǵa izleniwlerdi ornatıw hám júrgiziwge ruqsat beredi</string>
   <!--
     Turn On Sync Preferences
 
@@ -804,7 +804,7 @@
   -->
   <string name="tab_crash_title_2">Keshiresiz. %1$s bul betti júkley almaydı.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Nasazlıq esabatın Mozillaǵa jiberiw</string>
+  <string name="tab_crash_send_report">Nasazlıq esabatın BrowserWorksǵa jiberiw</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Betti jabıw</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1057,7 +1057,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Basqa qurılmaǵa jalǵaw</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Betti jiberiw ushın keminde jáne bir qurılmadan Firefoxqa kiriń.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Betti jiberiw ushın keminde jáne bir qurılmadan Waterfoxqa kiriń.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Túsindim</string>
   <!-- Share error message -->
@@ -1082,7 +1082,7 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox — tez hám jeke</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox — tez hám jeke</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Jeke kóriwdi sınap kóriń</string>
   <!--
@@ -1219,7 +1219,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">QR kodtı oqıw</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Kompyuterińizde Firefoxtı ashıń hám <b>https://firefox.com/pair</b> ǵa kiriń]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Kompyuterińizde Waterfoxtı ashıń hám <b>https://firefox.com/pair</b> ǵa kiriń]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Kodtı oqıw</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1227,7 +1227,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Ornına elektron pochtadan paydalanıw</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Akkauntıńız joq pa? <u>onda jańasın jaratıń</u> Firefoxtı qurılmalar arasında sáykeslestiriń.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Akkauntıńız joq pa? <u>onda jańasın jaratıń</u> Waterfoxtı qurılmalar arasında sáykeslestiriń.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s akkountıńız benen sáykeslestiriwdi toqtatadı, biraq siziń qurılmańızdaǵı birde-bir brauzer maǵlıwmatın óshirmeydi.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1627,7 +1627,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Ótinish, bet sáykeslestiriwin qosıń.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Basqa qurılmalarıńızdaǵı Firefoxta birde-bir bet ashıq emes.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Basqa qurılmalarıńızdaǵı Waterfoxta birde-bir bet ashıq emes.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Basqa qurılmalarıńızdaǵı betler dizimin kóriń.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1681,7 +1681,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Bir aydan soń avtomat tárizde jabılsın ba?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox ótken ayda kórilmegen betlerdi jabıwı múmkin.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox ótken ayda kórilmegen betlerdi jabıwı múmkin.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">AVTOMAT TÁRIZDE JABÍWDÍ QOSÍW</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -1691,13 +1691,13 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox usınıs etedi</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox usınıs etedi</string>
   <!-- Title for search suggestions when Google is the default search suggestion engine. -->
   <string name="google_search_engine_suggestion_header">Googlede izlew</string>
   <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. %s is default search engine name. -->
   <string name="other_default_search_engine_suggestion_header">%s da izlew</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Saytlardaǵı, elektron xatlardaǵı hám xabarlardaǵı siltemelerdi Firefoxda avtomat tárizde ashılatuǵın etip sazlań.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Saytlardaǵı, elektron xatlardaǵı hám xabarlardaǵı siltemelerdi Waterfoxda avtomat tárizde ashılatuǵın etip sazlań.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Alıp taslaw</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -1719,7 +1719,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">%s tárepinen qollap-quwatlanadı.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Firefox toparınıń bólegi. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Waterfox toparınıń bólegi. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Tolıǵıraq úyreniw</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->

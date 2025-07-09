@@ -31,7 +31,7 @@
   <!-- Content description for close button while in multiselect mode in tab tray -->
   <string name="tab_tray_close_multiselect_content_description">মাল্টিলেক্ট মোড থেকে প্রস্থান করুন</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s হচ্ছে Mozilla দ্বারা তৈরি।</string>
+  <string name="about_content">%1$s হচ্ছে BrowserWorks দ্বারা তৈরি।</string>
   <string name="private_browsing_common_myths">ব্যাক্তিগত ব্রাউজিং সম্পর্কে কিছু ভুল ধারণা</string>
   <!-- Text for the positive action button -->
   <string name="open_in_app_cfr_positive_button_text">সেটিং এ যাও</string>
@@ -256,7 +256,7 @@
   -->
   <string name="fxa_received_tab_channel_name">প্রাপ্ত ট্যাবগুলো</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">অন্যান্য Firefox ডিভাইস থেকে প্রাপ্ত ট্যাবগুলির জন্য নোটিফিকেশন।</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">অন্যান্য Waterfox ডিভাইস থেকে প্রাপ্ত ট্যাবগুলির জন্য নোটিফিকেশন।</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">ট্যাব এসেছে</string>
   <!-- %s is the device name -->
@@ -421,7 +421,7 @@
   -->
   <string name="tab_crash_title_2">দুঃখিত। %1$s পৃষ্ঠাটি লোড করতে পারেছে না।</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Mozilla তে ক্র্যাশ রিপোর্ট পাঠান</string>
+  <string name="tab_crash_send_report">BrowserWorks তে ক্র্যাশ রিপোর্ট পাঠান</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">ট্যাব বন্ধ করুন</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -612,7 +612,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">অন্য ডিভাইস সংযুক্ত করুন</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">একটি ট্যাব পাঠাতে, কমপক্ষে অন্য একটি ডিভাইসে Firefox সাইন ইন করুন।</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">একটি ট্যাব পাঠাতে, কমপক্ষে অন্য একটি ডিভাইসে Waterfox সাইন ইন করুন।</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">বুঝেছি</string>
   <!-- Share error message -->
@@ -724,7 +724,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">কোডটি স্ক্যান করুন</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[আপনার কম্পিউটারে Firefox খুলুন এবং <b>https://firefox.com/pair</b> এ যান]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[আপনার কম্পিউটারে Waterfox খুলুন এবং <b>https://firefox.com/pair</b> এ যান]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">স্ক্যান করতে প্রস্তুত</string>
   <!-- Text shown for settings option for sign with pairing -->

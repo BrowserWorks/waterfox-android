@@ -647,15 +647,15 @@ dependencies {
     implementation libs.protobuf.javalite
     implementation libs.google.material
 
-    implementation(libs.adjust)
-    implementation(libs.installreferrer)
+    // implementation(libs.adjust)
+    // implementation(libs.installreferrer)
 
-    // Required for the Google Advertising ID
-    implementation libs.play.services.ads.id
+    // // Required for the Google Advertising ID
+    // implementation libs.play.services.ads.id
 
-    // Required for in-app reviews
-    implementation libs.play.review
-    implementation libs.play.review.ktx
+    // // Required for in-app reviews
+    // implementation libs.play.review
+    // implementation libs.play.review.ktx
 
     implementation ComponentsDependencies.mozilla_appservices_init_rust_components
 

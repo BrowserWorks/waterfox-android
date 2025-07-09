@@ -144,9 +144,7 @@ class Analytics(
             listOf(
                 GleanMetricsService(context),
                 AdjustMetricsService(
-                    application = context as Application,
-                    storage = metricsStorage,
-                    crashReporter = crashReporter,
+                    application = context as Application
                 ),
                 InstallReferrerMetricsService(context),
                 GleanUsageReportingMetricsService(gleanProfileIdStore = GleanProfileIdPreferenceStore(context)),

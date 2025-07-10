@@ -28,13 +28,13 @@ object SupportUtils {
     const val GOOGLE_URL = "https://www.google.com/"
     const val GOOGLE_US_URL = "https://www.google.com/webhp?client=firefox-b-1-m&channel=ts"
     const val GOOGLE_XX_URL = "https://www.google.com/webhp?client=firefox-b-m&channel=ts"
-    const val WHATS_NEW_URL = "https://www.mozilla.org/firefox/android/notes"
+    const val WHATS_NEW_URL = "https://www.waterfox.net/docs/releases/android/${BuildConfig.VERSION_NAME}"
     const val FXACCOUNT_SUMO_URL = "https://support.mozilla.org/kb/access-mozilla-services-firefox-account"
 
     // This is locale-less on purpose so that the content negotiation happens on the AMO side because the current
     // user language might not be supported by AMO and/or the language might not be exactly what AMO is expecting
     // (e.g. `en` instead of `en-US`).
-    const val AMO_HOMEPAGE_FOR_ANDROID = "${BuildConfig.AMO_BASE_URL}/android/"
+    const val AMO_HOMEPAGE_FOR_ANDROID = "https://addons.mozilla.org/en-US/firefox/"
 
     enum class SumoTopic(internal val topicStr: String) {
         HELP("faq-android"),
@@ -69,9 +69,9 @@ object SupportUtils {
     }
 
     enum class MozillaPage(internal val path: String) {
-        PRIVATE_NOTICE("privacy/firefox/"),
+        PRIVATE_NOTICE("docs/policies/privacy/"),
         MANIFESTO("about/manifesto/"),
-        TERMS_OF_SERVICE("about/legal/terms/firefox/"),
+        TERMS_OF_SERVICE("docs/policies/terms/"),
     }
 
     /**
@@ -87,7 +87,7 @@ object SupportUtils {
         val appVersion = context.appVersionName.replace(" ", "")
         val osTarget = "Android"
         val langTag = getLanguageTag(locale)
-        return "https://support.mozilla.org/1/mobile/$appVersion/$osTarget/$langTag/$escapedTopic"
+        return "https://www.waterfox.net/support/$osTarget/$escapedTopic"
     }
 
     /**
@@ -97,13 +97,13 @@ object SupportUtils {
     fun getGenericSumoURLForTopic(topic: SumoTopic, locale: Locale = Locale.getDefault()): String {
         val escapedTopic = getEncodedTopicUTF8(topic.topicStr)
         val langTag = getLanguageTag(locale)
-        return "https://support.mozilla.org/$langTag/kb/$escapedTopic"
+        return "https://www.waterfox.net/support/$escapedTopic"
     }
 
     fun getMozillaPageUrl(page: MozillaPage, locale: Locale = Locale.getDefault()): String {
         val path = page.path
         val langTag = getLanguageTag(locale)
-        return "https://www.mozilla.org/$langTag/$path"
+        return "https://www.waterfox.net/$path"
     }
 
     fun createCustomTabIntent(context: Context, url: String): Intent = CustomTabsIntent.Builder()

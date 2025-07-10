@@ -609,34 +609,32 @@ class Core(
     val topSitesStorage by lazyMonitored {
         val defaultTopSites = mutableListOf<Pair<String, String>>()
 
-        strictMode.resetAfter(StrictMode.allowThreadDiskReads()) {
-            if (!context.settings().defaultTopSitesAdded) {
-                defaultTopSites.add(
-                    Pair(
-                        context.getString(R.string.default_top_site_google),
-                        SupportUtils.GOOGLE_URL,
-                    ),
-                )
+       strictMode.resetAfter(StrictMode.allowThreadDiskReads()) {
+           if (!context.settings().defaultTopSitesAdded) {
+               defaultTopSites.add(
+                   Pair(
+                       "Reddit",
+                       "https://www.reddit.com/r/waterfox/",
+                   ),
+               )
 
-                if (LocaleManager.getSelectedLocale(context).language == "en") {
-                    defaultTopSites.add(
-                        Pair(
-                            context.getString(R.string.pocket_pinned_top_articles),
-                            SupportUtils.POCKET_TRENDING_URL,
-                        ),
-                    )
-                }
+               defaultTopSites.add(
+                   Pair(
+                       "Bluesky",
+                       "https://bsky.app/profile/waterfox.net",
+                   ),
+               )
 
-                defaultTopSites.add(
-                    Pair(
-                        context.getString(R.string.default_top_site_wikipedia),
-                        SupportUtils.WIKIPEDIA_URL,
-                    ),
-                )
+               defaultTopSites.add(
+                   Pair(
+                       "Mastodon",
+                       "https://mastodon.social/@Waterfox",
+                   ),
+               )
 
-                context.settings().defaultTopSitesAdded = true
-            }
-        }
+               context.settings().defaultTopSitesAdded = true
+           }
+       }
 
         DefaultTopSitesStorage(
             pinnedSitesStorage = pinnedSiteStorage,

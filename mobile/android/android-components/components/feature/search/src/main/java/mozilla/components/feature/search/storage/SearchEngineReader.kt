@@ -32,7 +32,8 @@ internal const val URL_TYPE_SUGGEST_JSON = "application/x-suggestions+json"
 internal const val URL_TYPE_TRENDING_JSON = "application/x-trending+json"
 internal const val URL_TYPE_SEARCH_HTML = "text/html"
 internal const val URL_REL_MOBILE = "mobile"
-internal const val IMAGE_URI_PREFIX = "data:image/png;base64,"
+internal const val IMAGE_URI_PREFIX_PNG = "data:image/png;base64,"
+internal const val IMAGE_URI_PREFIX_ICO = "data:image/x-icon;base64,"
 internal const val GOOGLE_ID = "google"
 private const val TARGET_SIZE = 32
 private const val MAX_SIZE = 32
@@ -40,16 +41,14 @@ private const val MAX_SIZE = 32
 // List of general search engine ids, taken from
 // https://searchfox.org/mozilla-central/rev/ef0aa879e94534ffd067a3748d034540a9fc10b0/toolkit/components/search/SearchUtils.sys.mjs#200
 internal val GENERAL_SEARCH_ENGINE_IDS = setOf(
+    "startpage",
+    "mojeek",
     GOOGLE_ID,
     "ddg",
     "bing",
-    "baidu",
     "ecosia",
     "qwant",
-    "yahoo-jp",
-    "seznam-cz",
-    "coccoc",
-    "baidu",
+    "yahoo",
 )
 
 /**
@@ -246,13 +245,20 @@ internal class SearchEngineReader(
         }
 
         val uri = parser.text
-        if (!uri.startsWith(IMAGE_URI_PREFIX)) {
-            return
+        when {
+            uri.startsWith(IMAGE_URI_PREFIX_PNG) -> {
+                val raw = Base64.decode(uri.substring(IMAGE_URI_PREFIX_PNG.length), Base64.DEFAULT)
+                builder.icon = BitmapFactory.decodeByteArray(raw, 0, raw.size)
+            }
+            uri.startsWith(IMAGE_URI_PREFIX_ICO) -> {
+                val raw = Base64.decode(uri.substring(IMAGE_URI_PREFIX_ICO.length), Base64.DEFAULT)
+                builder.icon = ICOIconDecoder().decode(
+                    raw,
+                    DesiredSize(TARGET_SIZE, TARGET_SIZE, MAX_SIZE, 2.0f),
+                ) ?: return
+            }
+            else -> return
         }
-
-        val raw = Base64.decode(uri.substring(IMAGE_URI_PREFIX.length), Base64.DEFAULT)
-
-        builder.icon = BitmapFactory.decodeByteArray(raw, 0, raw.size)
 
         parser.nextTag()
     }

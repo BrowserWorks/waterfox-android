@@ -50,7 +50,10 @@ internal class RegionManager(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) {
     private var homeRegion: String?
+        // Treat the "XX" placeholder (RegionState.Default.home) as unset so a real region can
+        // replace it immediately instead of being pinned for the update interval.
         get() = preferences.value.getString(PREFERENCE_KEY_HOME_REGION, null)
+            ?.takeUnless { it == RegionState.Default.home }
         set(value) = preferences.value.edit { putString(PREFERENCE_KEY_HOME_REGION, value) }
 
     private var currentRegion: String?

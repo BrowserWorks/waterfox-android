@@ -121,6 +121,7 @@ import org.mozilla.fenix.ReleaseChannel
 import org.mozilla.fenix.browser.desktopmode.DefaultDesktopModeRepository
 import org.mozilla.fenix.browser.desktopmode.DesktopModeMiddleware
 import org.mozilla.fenix.components.search.ApplicationSearchMiddleware
+import org.mozilla.fenix.components.search.DeviceRegionLocationService
 import org.mozilla.fenix.components.search.SearchMigration
 import org.mozilla.fenix.downloads.DownloadService
 import org.mozilla.fenix.ext.components
@@ -337,7 +338,7 @@ class Core(
 
     private val locationService: LocationService by lazyMonitored {
         if (Config.channel.isDebug || BuildConfig.MLS_TOKEN.isEmpty()) {
-            LocationService.default()
+            DeviceRegionLocationService(context)
         } else {
             MozillaLocationService(context, client, BuildConfig.MLS_TOKEN)
         }

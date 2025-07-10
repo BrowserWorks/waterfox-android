@@ -32,7 +32,9 @@ internal const val URL_TYPE_SUGGEST_JSON = "application/x-suggestions+json"
 internal const val URL_TYPE_TRENDING_JSON = "application/x-trending+json"
 internal const val URL_TYPE_SEARCH_HTML = "text/html"
 internal const val URL_REL_MOBILE = "mobile"
-internal const val IMAGE_URI_PREFIX = "data:image/png;base64,"
+internal const val IMAGE_URI_PREFIX_PNG = "data:image/png;base64,"
+internal const val IMAGE_URI_PREFIX_ICO = "data:image/x-icon;base64,"
+internal const val IMAGE_URI_PREFIX_SVG = "data:image/svg+xml;base64,"
 internal const val GOOGLE_ID = "google"
 private const val TARGET_SIZE = 32
 private const val MAX_SIZE = 32
@@ -40,16 +42,13 @@ private const val MAX_SIZE = 32
 // List of general search engine ids, taken from
 // https://searchfox.org/mozilla-central/rev/ef0aa879e94534ffd067a3748d034540a9fc10b0/toolkit/components/search/SearchUtils.sys.mjs#200
 internal val GENERAL_SEARCH_ENGINE_IDS = setOf(
+    "wps",
+    "mojeek",
     GOOGLE_ID,
     "ddg",
     "bing",
-    "baidu",
     "ecosia",
     "qwant",
-    "yahoo-jp",
-    "seznam-cz",
-    "coccoc",
-    "baidu",
 )
 
 /**
@@ -241,20 +240,35 @@ internal class SearchEngineReader(
     private fun readImage(parser: XmlPullParser, builder: SearchEngineBuilder) {
         parser.require(XmlPullParser.START_TAG, null, "Image")
 
-        if (parser.next() != XmlPullParser.TEXT) {
-            return
+        if (parser.next() == XmlPullParser.TEXT) {
+            val uri = parser.text
+            val icon: Bitmap? = when {
+                uri.startsWith(IMAGE_URI_PREFIX_PNG) -> {
+                    val raw = Base64.decode(uri.substring(IMAGE_URI_PREFIX_PNG.length), Base64.DEFAULT)
+                    BitmapFactory.decodeByteArray(raw, 0, raw.size)
+                }
+                uri.startsWith(IMAGE_URI_PREFIX_ICO) -> {
+                    val raw = Base64.decode(uri.substring(IMAGE_URI_PREFIX_ICO.length), Base64.DEFAULT)
+                    ICOIconDecoder().decode(
+                        raw,
+                        DesiredSize(TARGET_SIZE, TARGET_SIZE, MAX_SIZE, 2.0f),
+                    )
+                }
+                uri.startsWith(IMAGE_URI_PREFIX_SVG) -> {
+                    val raw = Base64.decode(uri.substring(IMAGE_URI_PREFIX_SVG.length), Base64.DEFAULT)
+                    SvgIconDecoder().decode(
+                        raw,
+                        DesiredSize(TARGET_SIZE, TARGET_SIZE, MAX_SIZE, 2.0f),
+                    )
+                }
+                else -> null
+            }
+
+            if (icon != null) {
+                builder.icon = icon
+                parser.nextTag()
+            }
         }
-
-        val uri = parser.text
-        if (!uri.startsWith(IMAGE_URI_PREFIX)) {
-            return
-        }
-
-        val raw = Base64.decode(uri.substring(IMAGE_URI_PREFIX.length), Base64.DEFAULT)
-
-        builder.icon = BitmapFactory.decodeByteArray(raw, 0, raw.size)
-
-        parser.nextTag()
     }
 
     @Throws(IOException::class, XmlPullParserException::class)

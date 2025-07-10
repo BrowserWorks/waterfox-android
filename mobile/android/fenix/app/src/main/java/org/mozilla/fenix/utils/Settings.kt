@@ -334,7 +334,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
 
     var privateBrowsingLockedEnabled by lazyFeatureFlagPreference(
         appContext.getPreferenceKey(R.string.pref_key_private_browsing_locked_enabled),
-        featureFlag = FxNimbus.features.privateBrowsingLock.value().enabled,
+        featureFlag = true,
         default = { false },
     )
 
@@ -377,7 +377,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
 
     var isTelemetryEnabled by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_telemetry),
-        default = true,
+        default = false,
     )
 
     var isMarketingTelemetryEnabled by booleanPreference(
@@ -404,12 +404,11 @@ class Settings(private val appContext: Context) : PreferencesHolder {
     var isDailyUsagePingEnabled by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_daily_usage_ping),
         default = isTelemetryEnabled,
-        persistDefaultIfNotExists = true,
     )
 
     var isExperimentationEnabled by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_experimentation_v2),
-        default = isTelemetryEnabled,
+        default = false,
     )
 
     var isOverrideTPPopupsForPerformanceTest = false
@@ -717,7 +716,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
 
     var shouldUseHttpsOnly by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_https_only),
-        default = false,
+        default = true,
     )
 
     var shouldUseHttpsOnlyInAllTabs by booleanPreference(
@@ -737,13 +736,13 @@ class Settings(private val appContext: Context) : PreferencesHolder {
 
     var shouldEnableGlobalPrivacyControl by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_privacy_enable_global_privacy_control),
-        false,
+        true,
     )
 
     var shouldUseCookieBannerPrivateMode by lazyFeatureFlagPreference(
         appContext.getPreferenceKey(R.string.pref_key_cookie_banner_private_mode),
         featureFlag = true,
-        default = { shouldUseCookieBannerPrivateModeDefaultValue },
+        default = { true },
     )
 
     val shouldUseCookieBannerPrivateModeDefaultValue: Boolean
@@ -1160,7 +1159,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
     @VisibleForTesting
     internal var trendingSearchSuggestionsEnabled by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_show_trending_search_suggestions),
-        default = true,
+        default = false,
     )
 
     /**
@@ -1730,8 +1729,8 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var showPocketRecommendationsFeature by lazyFeatureFlagPreference(
         appContext.getPreferenceKey(R.string.pref_key_pocket_homescreen_recommendations),
-        featureFlag = ContentRecommendationsFeatureHelper.isPocketRecommendationsFeatureEnabled(appContext),
-        default = { homescreenSections[HomeScreenSection.POCKET] == true },
+        featureFlag = false,
+        default = { false },
     )
 
     /**
@@ -1739,8 +1738,8 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     val showPocketSponsoredStories by lazyFeatureFlagPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_pocket_sponsored_stories),
-        default = { homescreenSections[HomeScreenSection.POCKET_SPONSORED_STORIES] == true },
-        featureFlag = ContentRecommendationsFeatureHelper.isPocketSponsoredStoriesFeatureEnabled(appContext),
+        default = { false },
+        featureFlag = false,
     )
 
     /**
@@ -1749,7 +1748,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
     val pocketSponsoredStoriesProfileId by stringPreference(
         appContext.getPreferenceKey(R.string.pref_key_pocket_sponsored_stories_profile),
         default = UUID.randomUUID().toString(),
-        persistDefaultIfNotExists = true,
+        persistDefaultIfNotExists = false,
     )
 
     /**
@@ -1766,8 +1765,8 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var showContentRecommendations by lazyFeatureFlagPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_pocket_content_recommendations),
-        default = { FxNimbus.features.merinoRecommendations.value().enabled },
-        featureFlag = ContentRecommendationsFeatureHelper.isContentRecommendationsFeatureEnabled(appContext),
+        default = { false },
+        featureFlag = false,
     )
 
     /**
@@ -1807,8 +1806,8 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var marsAPIEnabled by lazyFeatureFlagPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_mars_api_enabled),
-        default = { FxNimbus.features.mars.value().enabled },
-        featureFlag = true,
+        default = { false },
+        featureFlag = false,
     )
 
     /**
@@ -1816,7 +1815,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var showContileFeature by booleanPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_enable_contile),
-        default = true,
+        default = false,
     )
 
     /**
@@ -1863,7 +1862,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var shouldShowMarketingOnboarding by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_should_show_marketing_onboarding),
-        default = true,
+        default = false,
     )
 
     val feltPrivateBrowsingEnabled by lazyFeatureFlagPreference(
@@ -2031,8 +2030,8 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var isTrendingSearchesVisible by lazyFeatureFlagPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_enable_trending_searches),
-        default = { FxNimbus.features.trendingSearches.value().enabled },
-        featureFlag = true,
+        default = { false },
+        featureFlag = false,
     )
 
     /**
@@ -2040,8 +2039,8 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var isRecentSearchesVisible by lazyFeatureFlagPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_enable_recent_searches),
-        default = { FxNimbus.features.recentSearches.value().enabled },
-        featureFlag = true,
+        default = { false },
+        featureFlag = false,
     )
 
     /**
@@ -2109,7 +2108,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      * Indicates if boosting AMP/wiki suggestions is enabled.
      */
     val boostAmpWikiSuggestions: Boolean
-        get() = FxNimbus.features.fxSuggest.value().boostAmpWiki
+        get() = false
 
     /**
      * Indicates first time engaging with signup
@@ -2125,8 +2124,8 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var showSponsoredSuggestions by lazyFeatureFlagPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_show_sponsored_suggestions),
-        default = { enableFxSuggest },
-        featureFlag = FeatureFlags.FX_SUGGEST,
+        default = { false },
+        featureFlag = false,
     )
 
     /**
@@ -2136,8 +2135,8 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     var showNonSponsoredSuggestions by lazyFeatureFlagPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_show_nonsponsored_suggestions),
-        default = { enableFxSuggest },
-        featureFlag = FeatureFlags.FX_SUGGEST,
+        default = { false },
+        featureFlag = false,
     )
 
     /**

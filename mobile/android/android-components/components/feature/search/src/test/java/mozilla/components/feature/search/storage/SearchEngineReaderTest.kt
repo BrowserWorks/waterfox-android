@@ -120,6 +120,29 @@ class SearchEngineReaderTest {
         assertEquals(searchEngine.trendingUrl, readSearchEngine.trendingUrl)
     }
 
+    @Test
+    fun `GIVEN svg image data URI WHEN SearchEngineReader loads a search engine THEN the icon is decoded`() {
+        val svg = """
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <rect width="32" height="32" fill="#000000" />
+            </svg>
+        """.trimIndent()
+        val encodedSvg = Base64.encodeToString(svg.toByteArray(), Base64.NO_WRAP)
+        val searchPlugin = """
+            <OpenSearchDescription>
+                <ShortName>example</ShortName>
+                <Image>$IMAGE_URI_PREFIX_SVG$encodedSvg</Image>
+                <Url type="text/html" template="https://www.example.com/search?q={searchTerms}" />
+                <InputEncoding>UTF-8</InputEncoding>
+            </OpenSearchDescription>
+        """.trimIndent()
+        val reader = SearchEngineReader(context = testContext, type = SearchEngine.Type.BUNDLED)
+
+        val searchEngine = reader.loadStream("example", searchPlugin.byteInputStream())
+
+        assertNotNull(searchEngine.icon)
+    }
+
     private fun saveAndLoadSearchEngine(searchEngine: SearchEngine): SearchEngine {
         val storage = CustomSearchEngineStorage(testContext)
         val writer = SearchEngineWriter()

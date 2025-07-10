@@ -1,0 +1,13 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/">
+<ShortName>Yahoo</ShortName>
+<InputEncoding>UTF-8</InputEncoding>
+<Image width="32" height="32">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAABBVBMVEVgAdJhAtLBnO6VVuH+/v9nDdS8k+z////q3fnn2fj+/f/9+/7bxvXFou9sFNX59v2WWOFkB9OreedhA9Lu5PrTufNiBNPJqPC3jOu3i+v9/P6mcualcOb28Pz17/yUVOGRT+Dgzvbm1/iANdt9L9pzINfaxPXXv/TLrPB1IthrE9VoDtS1iOqxgumwgemjbOX59f2ZXeL7+f7v5fqFPNzs4frgzfaJQ96DOdx8LtpxHNfGpO/8+v6XWeJ2JdjLq/C+luzo2vj28f16Ktm9lexiBdOwgOnz7PyOS99mC9TWvvS6keykbuXl1fjp2/l7LNpjBtO/mO2TUuDZwvRpD9RtFtZqEdXy5pdlAAAA70lEQVQ4y2NgGMbAkhMI9PAosGYHAgvc8lZGQHkzPAbogAwwxC3v6Q6UNxZEEuEBCjCBGG5ABg+DD8gAIWQtzEABfi0GBlcRIENA2A9IGvAhKxDjAArJQBSKBASBDGBDtVUaKKTEyOAFNjoYSHLZoSrQlgUKmjuzAG3iC+MAAiZ0h0sAFdizAYlABoYQQSw+U+VmZ7dxYmdn8Q8VZeH2ZsRUIc4OBqIMvCDKFlOBMkSBB4MviNLFYokaSMJRmMEF5AcTLArkQQr0GRhYHUwVBbBFgAJQXo4VTwyqAxVI4pFXAQaSlCYeBSDfaQzbLAQAT5oSpJsQTc0AAAAASUVORK5CYII=</Image>
+<Url type="text/html" method="GET" template="https://search.yahoo.com/search">
+  <Param name="p" value="{searchTerms}"/>
+</Url>
+<SearchForm>https://search.yahoo.com/</SearchForm>
+</SearchPlugin>

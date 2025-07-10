@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/">
+    <ShortName>Startpage</ShortName>
+    <Image width="96" height="96">data:image/png;base64,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</Image>
+    <Url type="application/x-suggestions+json" rel="suggestions" template="https://www.startpage.com/osuggestions?q={searchTerms}"/>
+    <!-- this is effectively x-moz-phonesearch, but search service expects a text/html entry -->
+    <Url type="text/html" method="POST" template="https://www.startpage.com/sp/search">
+        <Param name="query" value="{searchTerms}" />
+        <Param name="segment" value="startpage.waterfox.1" />
+        <Param name="cat" value="web" />
+        <Param name="pl" value="opensearch" />
+        <Param name="language" value="english" />
+    </Url>
+    <Url type="application/x-moz-tabletsearch" method="POST" template="https://www.startpage.com/sp/search">
+        <Param name="query" value="{searchTerms}" />
+        <Param name="segment" value="startpage.waterfox.1" />
+        <Param name="cat" value="web" />
+        <Param name="pl" value="opensearch" />
+        <Param name="language" value="english" />
+    </Url>
+    <SearchForm>https://www.startpage.com/sp/search</SearchForm>
+</SearchPlugin>

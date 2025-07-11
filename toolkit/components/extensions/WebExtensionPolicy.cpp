@@ -540,6 +540,13 @@ bool WebExtensionPolicy::IsRestrictedURI(const URLInfo& aURI) {
   }
 
   if (AddonManagerWebAPI::IsValidSite(aURI.URI())) {
+#ifdef MOZ_WIDGET_ANDROID
+    // When fingerprinting resistance is enabled on Android, allow extensions to run on AMO
+    // but still allow the AddonManager API to work for XPI installation
+    if (StaticPrefs::privacy_resistFingerprinting_block_mozAddonManager()) {
+      return false;  // Don't restrict extensions when fingerprinting pref is set
+    }
+#endif
     return true;
   }
 

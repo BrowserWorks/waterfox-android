@@ -493,6 +493,10 @@ tasks.withType(KotlinCompile).configureEach {
     kotlinOptions.freeCompilerArgs += "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
 }
 
+tasks.register("updateAMOExtensionVersion", Copy) { task ->
+    updateExtensionVersion(task, 'src/main/assets/extensions/amo')
+}
+
 dependencies {
     coreLibraryDesugaring libs.desugar.jdk.libs
     implementation libs.kotlin.json
@@ -868,3 +872,5 @@ def getSupportedLocales() {
     def foundLocalesString = foundLocales.toString().replaceAll(',}', '}')
     return foundLocalesString
 }
+
+preBuild.dependsOn updateAMOExtensionVersion

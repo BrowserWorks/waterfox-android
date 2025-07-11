@@ -255,6 +255,8 @@ pref("extensions.webextOptionalPermissionPrompts", true);
 // GeckoView can trigger requests without opening geckoview.xhtml.
 pref("extensions.webextensions.early_background_wakeup_on_request", true);
 
+pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,api.accounts.firefox.com,content.cdn.mozilla.net,install.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com");
+
 // Scroll and zoom into editable form fields (bug 834613)
 pref("formhelper.autozoom", true);
 
@@ -389,6 +391,8 @@ pref("network.ohttp.relayURL", "https://mozilla-ohttp.fastly-edge.com/");
 
 // Try to convert PDFs sent as octet-stream (bug 1754499)
 pref("pdfjs.handleOctetStream", true);
+
+pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 
 // Disable tracking protection in PBM for GeckoView (bug 1436887)
 pref("privacy.trackingprotection.pbmode.enabled", false);

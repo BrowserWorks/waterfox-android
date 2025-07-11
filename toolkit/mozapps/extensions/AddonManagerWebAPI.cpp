@@ -33,15 +33,18 @@ using namespace mozilla::dom;
 #endif
 
 static bool IsValidHost(const nsACString& host) {
+#ifdef MOZ_WIDGET_ANDROID
+    // Allow AMO specifically even when fingerprinting resistance is enabled (Android only)
+    if (host.EqualsLiteral(MOZ_AMO_HOSTNAME)) {
+    return true;
+    }
+#endif
+
   // This hidden pref allows users to disable mozAddonManager entirely if they
   // want for fingerprinting resistance. Someone like Tor browser will use this
   // pref.
   if (StaticPrefs::privacy_resistFingerprinting_block_mozAddonManager()) {
     return false;
-  }
-
-  if (host.EqualsLiteral(MOZ_AMO_HOSTNAME)) {
-    return true;
   }
 
   // When testing allow access to the developer sites.

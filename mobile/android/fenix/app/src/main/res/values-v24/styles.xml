@@ -4,6 +4,6 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <resources>
     <style name="SplashScreen" parent="SplashScreenThemeBase">
-        <item name="windowSplashScreenAnimatedIcon">@drawable/animated_splash_screen</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
     </style>
 </resources>

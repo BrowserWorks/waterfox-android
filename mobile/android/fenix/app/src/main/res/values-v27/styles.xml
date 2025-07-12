@@ -28,8 +28,8 @@
     </style>
 
     <style name="SplashScreen" parent="SplashScreenThemeBase">
-        <item name="windowSplashScreenAnimatedIcon">@drawable/animated_splash_screen</item>
-        <!-- Splash screen is animated to maximum 12 seconds -->
+        <!-- Use the static launcher icon instead of the animated one -->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
         <item name="windowSplashScreenAnimationDuration">12000</item>
         <item name="android:windowLayoutInDisplayCutoutMode">default</item>
     </style>

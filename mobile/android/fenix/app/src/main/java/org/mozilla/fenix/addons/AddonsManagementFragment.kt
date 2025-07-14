@@ -99,7 +99,8 @@ class AddonsManagementFragment : Fragment(R.layout.fragment_add_ons_management) 
 
         lifecycleScope.launch(IO) {
             try {
-                addons = requireContext().components.addonManager.getAddons()
+                // Even if we block network requests, filter just in case
+                addons = requireContext().components.addonManager.getAddons().filter { it.isInstalled() }
                 lifecycleScope.launch(Dispatchers.Main) {
                     runIfFragmentIsAttached {
                         if (!shouldRefresh) {

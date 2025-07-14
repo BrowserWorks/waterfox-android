@@ -614,7 +614,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         val show = (
             FeatureFlags.customExtensionCollectionFeature && (
-                settings.amoCollectionOverrideConfigured() || settings.showSecretDebugMenuThisSession
+                settings.amoCollectionOverrideConfigured() || true
                 )
             )
         preferenceAmoCollectionOverride?.apply {
@@ -701,7 +701,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     private fun setupDnsOverHttpsPreference(settings: Settings) {
         with(requirePreference<Preference>(R.string.pref_key_doh_settings)) {
-            isVisible = settings.showDohEntryPoint
+            isVisible = true
             summary = when (context.settings().getDohSettingsMode()) {
                 Engine.DohSettingsMode.DEFAULT -> getString(R.string.preference_doh_default_protection)
                 Engine.DohSettingsMode.OFF -> getString(R.string.preference_doh_off)
@@ -744,7 +744,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     @VisibleForTesting
     internal fun setupInstallAddonFromFilePreference(settings: Settings) {
         with(requirePreference<Preference>(R.string.pref_key_install_local_addon)) {
-            isVisible = settings.showSecretDebugMenuThisSession
+            isVisible = true
         }
     }
 

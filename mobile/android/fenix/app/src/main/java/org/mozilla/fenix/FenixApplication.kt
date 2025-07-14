@@ -187,9 +187,9 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         val settings = settings()
         // We delay the Glean initialization until, we have user consent (After onboarding).
         // If onboarding is disabled (when in local builds), continue to initialize Glean.
-        if (components.fenixOnboarding.userHasBeenOnboarded() || !FeatureFlags.onboardingFeatureEnabled) {
-            initializeGlean(this, logger, settings.isTelemetryEnabled, components.core.client)
-        }
+        // if (components.fenixOnboarding.userHasBeenOnboarded() || !FeatureFlags.onboardingFeatureEnabled) {
+        //    initializeGlean(this, logger, settings.isTelemetryEnabled, components.core.client)
+        // }
 
         // We avoid blocking the main thread on startup by setting startup metrics on the background thread.
         val store = components.core.store

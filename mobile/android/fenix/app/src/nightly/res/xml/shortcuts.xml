@@ -10,8 +10,8 @@
         android:icon="@drawable/ic_static_password_shortcut"
         android:shortcutShortLabel="@string/home_screen_shortcut_passwords">
         <intent
-            android:action="org.mozilla.fenix.OPEN_PASSWORD_MANAGER"
-            android:targetPackage="org.mozilla.fenix"
+            android:action="net.waterfox.android.OPEN_PASSWORD_MANAGER"
+            android:targetPackage="net.waterfox.android.fenix"
             android:targetClass="org.mozilla.fenix.IntentReceiverActivity" />
     </shortcut>
     <shortcut
@@ -20,8 +20,8 @@
         android:icon="@drawable/ic_static_shortcut_tab"
         android:shortcutShortLabel="@string/home_screen_shortcut_open_new_tab_2">
         <intent
-            android:action="org.mozilla.fenix.OPEN_TAB"
-            android:targetPackage="org.mozilla.fenix"
+            android:action="net.waterfox.android.OPEN_TAB"
+            android:targetPackage="net.waterfox.android.fenix"
             android:targetClass="org.mozilla.fenix.IntentReceiverActivity" />
     </shortcut>
     <shortcut
@@ -30,8 +30,8 @@
         android:icon="@drawable/ic_static_shortcut_private_tab"
         android:shortcutShortLabel="@string/home_screen_shortcut_open_new_private_tab_2">
         <intent
-            android:action="org.mozilla.fenix.OPEN_PRIVATE_TAB"
-            android:targetPackage="org.mozilla.fenix"
+            android:action="net.waterfox.android.OPEN_PRIVATE_TAB"
+            android:targetPackage="net.waterfox.android.fenix"
             android:targetClass="org.mozilla.fenix.IntentReceiverActivity" />
     </shortcut>
 </shortcuts>

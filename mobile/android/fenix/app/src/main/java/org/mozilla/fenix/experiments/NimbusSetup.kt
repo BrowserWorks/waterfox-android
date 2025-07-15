@@ -119,17 +119,6 @@ fun NimbusInterface.maybeFetchExperiments(
     feature: NimbusSystem = FxNimbusMessaging.features.nimbusSystem.value(),
     currentTimeMillis: Long = System.currentTimeMillis(),
 ) {
-    if (context.settings().nimbusUsePreview) {
-        context.settings().nimbusLastFetchTime = 0L
-        fetchExperiments()
-    } else {
-        val minimumPeriodMinutes = feature.refreshIntervalForeground
-        val lastFetchTimeMillis = context.settings().nimbusLastFetchTime
-        val minimumPeriodMillis = minimumPeriodMinutes * Settings.ONE_MINUTE_MS
-
-        if (currentTimeMillis - lastFetchTimeMillis >= minimumPeriodMillis) {
-            context.settings().nimbusLastFetchTime = currentTimeMillis
-            fetchExperiments()
-        }
-    }
+    logger.info("Nimbus disabled - skipping experiment fetch for privacy")
+    return
 }

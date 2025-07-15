@@ -458,7 +458,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         queueReviewPrompt()
         queueRestoreLocale()
         queueStorageMaintenance()
-        queueNimbusFetchInForeground()
+        // Disabled for privacy: queueNimbusFetchInForeground()
         queueDownloadWallpapers()
         if (settings().enableFxSuggest) {
             queueSuggestIngest()
@@ -513,6 +513,9 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
     protected open fun initializeNimbus() {
         beginSetupMegazord()
 
+        // Initialize NullVariables early to prevent NimbusFeatureException crashes
+        org.mozilla.experiments.nimbus.NullVariables.instance.setContext(this)
+        
         // This lazily constructs the Nimbus object…
         val nimbus = components.nimbus.sdk
         // … which we then can populate the feature configuration.

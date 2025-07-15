@@ -45,7 +45,7 @@ class ReEngagementNotificationWorker(
 
         // Recording the exposure event here to capture all users who met all criteria to receive
         // the re-engagement notification
-        FxNimbus.features.reEngagementNotification.recordExposure()
+        // FxNimbus.features.reEngagementNotification.recordExposure()
 
         if (!settings.reEngagementNotificationEnabled) {
             return Result.success()

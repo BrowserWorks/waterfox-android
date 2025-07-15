@@ -49,7 +49,6 @@ import org.mozilla.fenix.GleanMetrics.SyncAuth
 import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.maxActiveTime
-import org.mozilla.fenix.ext.recordEventInNimbus
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.perf.StrictModeManager
 import org.mozilla.fenix.perf.lazyMonitored
@@ -267,7 +266,7 @@ internal class TelemetryAccountObserver(
             // User signed-in into an existing FxA account.
             AuthType.Signin -> {
                 SyncAuth.signIn.record(NoExtras())
-                context.recordEventInNimbus("sync_auth.sign_in")
+                // context.recordEventInNimbus("sync_auth.sign_in")
             }
 
             // User created a new FxA account.

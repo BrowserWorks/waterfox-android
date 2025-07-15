@@ -563,7 +563,7 @@ class HomeFragment : Fragment() {
 
         disableAppBarDragging()
 
-        FxNimbus.features.homescreen.recordExposure()
+        // FxNimbus.features.homescreen.recordExposure()
 
         // DO NOT MOVE ANYTHING BELOW THIS addMarker CALL!
         requireComponents.core.engine.profiler?.addMarker(

@@ -33,7 +33,7 @@ class FenixOnboarding(context: Context) : PreferencesHolder {
     // - We would like to evaluate the configuration only once (and thus it's kept in memory
     // and not re-evaluated)
     val config by lazy {
-        FxNimbus.features.onboarding.recordExposure()
+        // FxNimbus.features.onboarding.recordExposure()
         FxNimbus.features.onboarding.value()
     }
 

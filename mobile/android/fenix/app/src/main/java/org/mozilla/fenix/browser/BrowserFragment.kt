@@ -53,6 +53,7 @@ import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.runIfFragmentIsAttached
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.home.HomeFragment
+import org.mozilla.fenix.components.FxNimbusDefaults
 import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.quicksettings.protections.cookiebanners.getCookieBannerUIMode
 import org.mozilla.fenix.shortcut.PwaOnboardingObserver
@@ -168,7 +169,7 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
 
     private fun initTranslationsAction(context: Context, view: View) {
         if (
-            !FxNimbus.features.translations.value().mainFlowToolbarEnabled
+            !FxNimbusDefaults.translationsMainFlowToolbarEnabled
         ) {
             return
         }
@@ -598,7 +599,7 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
 
     override fun navToQuickSettingsSheet(tab: SessionState, sitePermissions: SitePermissions?) {
         val useCase = requireComponents.useCases.trackingProtectionUseCases
-        FxNimbus.features.cookieBanners.recordExposure()
+        // FxNimbus.features.cookieBanners.recordExposure()
         useCase.containsException(tab.id) { hasTrackingProtectionException ->
             lifecycleScope.launch {
                 val cookieBannersStorage = requireComponents.core.cookieBannersStorage

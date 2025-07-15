@@ -42,7 +42,6 @@ import org.mozilla.fenix.GleanMetrics.HomeBookmarks
 import org.mozilla.fenix.GleanMetrics.RecentlyVisitedHomepage
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.appstate.setup.checklist.SetupChecklistState
-import org.mozilla.fenix.compose.MessageCard
 import org.mozilla.fenix.compose.home.HomeSectionHeader
 import org.mozilla.fenix.home.bookmarks.Bookmark
 import org.mozilla.fenix.home.bookmarks.interactor.BookmarksInteractor
@@ -66,12 +65,10 @@ import org.mozilla.fenix.home.recentvisits.view.RecentVisitMenuItem
 import org.mozilla.fenix.home.recentvisits.view.RecentlyVisited
 import org.mozilla.fenix.home.sessioncontrol.CollectionInteractor
 import org.mozilla.fenix.home.sessioncontrol.CustomizeHomeIteractor
-import org.mozilla.fenix.home.sessioncontrol.MessageCardInteractor
 import org.mozilla.fenix.home.sessioncontrol.viewholders.FeltPrivacyModeInfoCard
 import org.mozilla.fenix.home.sessioncontrol.viewholders.PrivateBrowsingDescription
 import org.mozilla.fenix.home.setup.ui.SetupChecklist
 import org.mozilla.fenix.home.store.HomepageState
-import org.mozilla.fenix.home.store.NimbusMessageState
 import org.mozilla.fenix.home.topsites.TopSiteColors
 import org.mozilla.fenix.home.topsites.TopSites
 import org.mozilla.fenix.home.ui.HomepageTestTag.HOMEPAGE
@@ -131,13 +128,6 @@ internal fun Homepage(
                 }
 
                 is HomepageState.Normal -> {
-                    nimbusMessage?.let {
-                        NimbusMessageCardSection(
-                            nimbusMessage = nimbusMessage,
-                            interactor = interactor,
-                        )
-                    }
-
                     if (showTopSites) {
                         TopSites(
                             topSites = topSites,
@@ -251,21 +241,6 @@ private fun MaybeAddSetupChecklist(
         SetupChecklist(
             setupChecklistState = setupChecklistState,
             interactor = interactor,
-        )
-    }
-}
-
-@Composable
-private fun NimbusMessageCardSection(
-    nimbusMessage: NimbusMessageState,
-    interactor: MessageCardInteractor,
-) {
-    with(nimbusMessage) {
-        MessageCard(
-            messageCardState = cardState,
-            modifier = Modifier.padding(horizontal = 16.dp),
-            onClick = { interactor.onMessageClicked(message) },
-            onCloseButtonClick = { interactor.onMessageClosedClicked(message) },
         )
     }
 }

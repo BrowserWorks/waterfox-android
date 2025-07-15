@@ -117,7 +117,6 @@ import org.mozilla.fenix.ext.getNavDirections
 import org.mozilla.fenix.ext.hasTopDestination
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.ext.openSetDefaultBrowserOption
-import org.mozilla.fenix.ext.recordEventInNimbus
 import org.mozilla.fenix.ext.setNavigationIcon
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.extension.WebExtensionPromptFeature
@@ -136,7 +135,7 @@ import org.mozilla.fenix.home.intent.StartSearchIntentProcessor
 import org.mozilla.fenix.library.bookmarks.DesktopFolders
 import org.mozilla.fenix.messaging.FenixMessageSurfaceId
 import org.mozilla.fenix.messaging.MessageNotificationWorker
-import org.mozilla.fenix.nimbus.FxNimbus
+import org.mozilla.fenix.components.FxNimbusDefaults
 import org.mozilla.fenix.onboarding.ReEngagementNotificationWorker
 import org.mozilla.fenix.perf.MarkersActivityLifecycleCallbacks
 import org.mozilla.fenix.perf.MarkersFragmentLifecycleCallbacks
@@ -359,19 +358,13 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
         }
 
         SplashScreenManager(
-            splashScreenOperation = if (FxNimbus.features.splashScreen.value().offTrainOnboarding) {
+            splashScreenOperation = // Disabled for privacy: no experiment fetching
                 ApplyExperimentsOperation(
                     storage = DefaultExperimentsOperationStorage(components.settings),
                     nimbus = components.nimbus.sdk,
-                )
-            } else {
-                FetchExperimentsOperation(
-                    storage = DefaultExperimentsOperationStorage(components.settings),
-                    nimbus = components.nimbus.sdk,
-                )
-            },
+                ),
             scope = lifecycleScope,
-            splashScreenTimeout = FxNimbus.features.splashScreen.value().maximumDurationMs.toLong(),
+            splashScreenTimeout = FxNimbusDefaults.splashScreenMaximumDurationMs.toLong(),
             isDeviceSupported = { Build.VERSION.SDK_INT > Build.VERSION_CODES.M },
             storage = DefaultSplashScreenStorage(components.settings),
             showSplashScreen = { installSplashScreen().setKeepOnScreenCondition(it) },
@@ -436,7 +429,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
         if (!shouldShowOnboarding) {
             lifecycleScope.launch(IO) {
-                showFullscreenMessageIfNeeded(applicationContext)
+                // showFullscreenMessageIfNeeded(applicationContext)
             }
 
             // Unless the activity is recreated, navigate to home first (without rendering it)
@@ -476,7 +469,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
                         ),
                     )
                     // This will record an event in Nimbus' internal event store. Used for behavioral targeting
-                    recordEventInNimbus("app_opened")
+                    // recordEventInNimbus("app_opened")
 
                     if (safeIntent.action.equals(ACTION_OPEN_PRIVATE_TAB) && source == APP_ICON) {
                         AppIcon.newPrivateTabTapped.record(NoExtras())
@@ -671,7 +664,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
             if (NotificationManagerCompat.from(applicationContext).areNotificationsEnabled()) {
                 ReEngagementNotificationWorker.setReEngagementNotificationIfNeeded(applicationContext)
-                MessageNotificationWorker.setMessageNotificationWorker(applicationContext)
+                // Disabled for privacy: MessageNotificationWorker.setMessageNotificationWorker(applicationContext)
             }
 
             if (components.core.sentFromFirefoxManager.shouldShowSnackbar) {
@@ -722,7 +715,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
             ),
         )
 
-        if (FxNimbus.features.alternativeAppLauncherIcon.value().enabled) {
+        if (FxNimbusDefaults.alternativeAppLauncherIconEnabled) {
             // User has been enrolled in alternative app icon experiment.
             // Note: Updating the icon will subsequently trigger a call to onDestroy().
             with(applicationContext) {
@@ -730,7 +723,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
                     context = this,
                     appAlias = ComponentName(this, "$packageName.App"),
                     alternativeAppAlias = ComponentName(this, "$packageName.AlternativeApp"),
-                    resetToDefault = FxNimbus.features.alternativeAppLauncherIcon.value().resetToDefault,
+                    resetToDefault = FxNimbusDefaults.alternativeAppLauncherIconResetToDefault,
                 )
             }
         }
@@ -1408,10 +1401,12 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
             keyDismissButtonText = null,
         )
 
+        /*
         researchSurfaceDialogFragment.onAccept = {
             processIntent(messaging.getIntentForMessage(nextMessage))
             components.appStore.dispatch(AppAction.MessagingAction.MessageClicked(nextMessage))
         }
+        */
 
         researchSurfaceDialogFragment.onDismiss = {
             components.appStore.dispatch(AppAction.MessagingAction.MessageDismissed(nextMessage))
@@ -1424,10 +1419,10 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
             )
         }
 
-        // Update message as displayed.
-        val currentBootUniqueIdentifier = BootUtils.getBootIdentifier(context)
-
-        messaging.onMessageDisplayed(nextMessage, currentBootUniqueIdentifier)
+//        // Update message as displayed.
+//        val currentBootUniqueIdentifier = BootUtils.getBootIdentifier(context)
+//
+//        messaging.onMessageDisplayed(nextMessage, currentBootUniqueIdentifier)
     }
 
     private fun showCrashReporter() {

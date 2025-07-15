@@ -43,6 +43,7 @@ import org.mozilla.fenix.automotive.isAndroidAutomotiveAvailable
 import org.mozilla.fenix.components.accounts.FenixAccountManager
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.settings
+import org.mozilla.fenix.components.FxNimbusDefaults
 import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.theme.ThemeManager
 
@@ -205,7 +206,7 @@ open class DefaultToolbarMenu(
         val isEngineSupported = store.state.translationEngine.isEngineSupported
         return selectedSession?.let {
             isEngineSupported == true &&
-                FxNimbus.features.translations.value().mainFlowBrowserMenuEnabled
+                FxNimbusDefaults.translationsMainFlowBrowserMenuEnabled
         } ?: false
     }
 
@@ -454,7 +455,7 @@ open class DefaultToolbarMenu(
                 addAppToHomeScreenItem.apply { visible = ::canAddAppToHomescreen },
                 if (shouldShowTopSites) addRemoveTopSitesItem else null,
                 saveToCollectionItem,
-                if (FxNimbus.features.print.value().browserPrintEnabled &&
+                if (FxNimbusDefaults.printBrowserPrintEnabled &&
                     !context.isAndroidAutomotiveAvailable()
                 ) {
                     printPageItem

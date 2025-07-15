@@ -179,49 +179,36 @@ class Core(
             dohDefaultProviderUrl = context.settings().dohDefaultProviderUrl,
             dohExceptionsList = context.settings().dohExceptionsList.toList(),
             globalPrivacyControlEnabled = context.settings().shouldEnableGlobalPrivacyControl,
-            fdlibmMathEnabled = FxNimbus.features.fingerprintingProtection.value().fdlibmMath,
+            fdlibmMathEnabled = FxNimbusDefaults.fdlibmMathEnabled,
             cookieBannerHandlingMode = context.settings().getCookieBannerHandling(),
             cookieBannerHandlingModePrivateBrowsing = context.settings().getCookieBannerHandlingPrivateMode(),
             cookieBannerHandlingDetectOnlyMode = context.settings().shouldEnableCookieBannerDetectOnly,
             cookieBannerHandlingGlobalRules = context.settings().shouldEnableCookieBannerGlobalRules,
             cookieBannerHandlingGlobalRulesSubFrames = context.settings().shouldEnableCookieBannerGlobalRulesSubFrame,
             emailTrackerBlockingPrivateBrowsing = true,
-            userCharacteristicPingCurrentVersion = FxNimbus.features.userCharacteristics.value().currentVersion,
+            userCharacteristicPingCurrentVersion = FxNimbusDefaults.userCharacteristicsCurrentVersion,
             getDesktopMode = {
                 store.state.desktopMode
             },
             webContentIsolationStrategy = WebContentIsolationStrategy.ISOLATE_HIGH_VALUE,
-            fetchPriorityEnabled = FxNimbus.features.networking.value().fetchPriorityEnabled,
-            parallelMarkingEnabled = FxNimbus.features.javascript.value().parallelMarkingEnabled,
-            certificateTransparencyMode = FxNimbus.features.pki.value().certificateTransparencyMode,
-            postQuantumKeyExchangeEnabled = FxNimbus.features.pqcrypto.value().postQuantumKeyExchangeEnabled,
-            dohAutoselectEnabled = FxNimbus.features.doh.value().autoselectEnabled,
-            bannedPorts = FxNimbus.features.networkingBannedPorts.value().bannedPortList,
+            fetchPriorityEnabled = FxNimbusDefaults.fetchPriorityEnabled,
+            parallelMarkingEnabled = FxNimbusDefaults.parallelMarkingEnabled,
+            certificateTransparencyMode = FxNimbusDefaults.certificateTransparencyMode,
+            postQuantumKeyExchangeEnabled = FxNimbusDefaults.postQuantumKeyExchangeEnabled,
+            dohAutoselectEnabled = FxNimbusDefaults.dohAutoselectEnabled,
+            bannedPorts = FxNimbusDefaults.bannedPortList,
         )
 
-        // Apply fingerprinting protection overrides if the feature is enabled in Nimbus
-        if (FxNimbus.features.fingerprintingProtection.value().enabled) {
-            defaultSettings.fingerprintingProtectionOverrides =
-                FxNimbus.features.fingerprintingProtection.value().overrides
+        // Apply fingerprinting protection with defaults (enabled for privacy)
+        if (FxNimbusDefaults.fingerprintingProtectionEnabled) {
+            defaultSettings.fingerprintingProtection = FxNimbusDefaults.fingerprintingProtectionNormal
+            defaultSettings.fingerprintingProtectionPrivateBrowsing = FxNimbusDefaults.fingerprintingProtectionPrivate
         }
 
-        if (FxNimbus.features.fingerprintingProtection.value().enabled) {
-            defaultSettings.fingerprintingProtection =
-                FxNimbus.features.fingerprintingProtection.value().enabledNormal
-        }
-
-        if (FxNimbus.features.fingerprintingProtection.value().enabled) {
-            defaultSettings.fingerprintingProtectionPrivateBrowsing =
-                FxNimbus.features.fingerprintingProtection.value().enabledPrivate
-        }
-
-        // Apply third-party cookie blocking settings if the Nimbus feature is
-        // enabled.
-        if (FxNimbus.features.thirdPartyCookieBlocking.value().enabled) {
-            defaultSettings.cookieBehaviorOptInPartitioning =
-                FxNimbus.features.thirdPartyCookieBlocking.value().enabledNormal
-            defaultSettings.cookieBehaviorOptInPartitioningPBM =
-                FxNimbus.features.thirdPartyCookieBlocking.value().enabledPrivate
+        // Apply third-party cookie blocking settings with defaults (enabled for privacy)
+        if (FxNimbusDefaults.thirdPartyCookieBlockingEnabled) {
+            defaultSettings.cookieBehaviorOptInPartitioning = FxNimbusDefaults.thirdPartyCookieBlockingNormal
+            defaultSettings.cookieBehaviorOptInPartitioningPBM = FxNimbusDefaults.thirdPartyCookieBlockingPrivate
         }
 
         GeckoEngine(
@@ -302,15 +289,11 @@ class Core(
      * The [BrowserStore] holds the global [BrowserState].
      */
     val store by lazyMonitored {
-        val searchExtraParamsNimbus = FxNimbus.features.searchExtraParams.value()
-        val searchExtraParams = searchExtraParamsNimbus.takeIf { it.enabled }?.run {
-            SearchExtraParams(
-                searchEngine,
-                featureEnabler.keys.firstOrNull(),
-                featureEnabler.values.firstOrNull(),
-                channelId.keys.first(),
-                channelId.values.first(),
-            )
+        val searchExtraParams = if (FxNimbusDefaults.searchExtraParamsEnabled) {
+            // Search extra params disabled for privacy
+            null
+        } else {
+            null
         }
 
         val middlewareList =
@@ -468,15 +451,14 @@ class Core(
      * A component for managing `sent from firefox` feature.
      */
     val sentFromFirefoxManager by lazyMonitored {
-        with(FxNimbus.features.sentFromFirefox.value()) {
-            DefaultSentFromFirefoxManager(
-                snackbarEnabled = showSnackbar,
-                templateMessage = templateMessage,
-                appName = context.getString(R.string.firefox),
-                downloadLink = downloadLink,
-                storage = DefaultSentFromStorage(context.settings()),
-            )
-        }
+        // Use FxNimbusDefaults instead of Nimbus to enable feature with sensible defaults
+        DefaultSentFromFirefoxManager(
+            snackbarEnabled = FxNimbusDefaults.sentFromFirefoxShowSnackbar,
+            templateMessage = FxNimbusDefaults.sentFromFirefoxTemplateMessage,
+            appName = context.getString(R.string.app_name),
+            downloadLink = FxNimbusDefaults.sentFromFirefoxDownloadLink,
+            storage = DefaultSentFromStorage(context.settings()),
+        )
     }
 
     // Lazy wrappers around storage components are used to pass references to these components without
@@ -514,7 +496,7 @@ class Core(
     val passwordsStorage: SyncableLoginsStorage get() = lazyPasswordsStorage.value
     val autofillStorage: AutofillCreditCardsAddressesStorage get() = lazyAutofillStorage.value
     val domainsAutocompleteProvider: BaseDomainAutocompleteProvider? get() =
-        if (FxNimbus.features.suggestShippedDomains.value().enabled) {
+        if (FxNimbusDefaults.suggestShippedDomainsEnabled) {
             lazyDomainsAutocompleteProvider.value
         } else {
             null

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+if [ -n "$GITHUB_ACTIONS" ]; then
+    export MOZ_ANDROID_FAT_AAR_ARCHITECTURES="armeabi-v7a,arm64-v8a,x86_64"
+else
+    export GRADLE_MAVEN_REPOSITORIES="https://maven.google.com/,https://repo.maven.apache.org/maven2/,https://plugins.gradle.org/m2/,https://maven.mozilla.org/maven2/"
+fi
+
+ac_add_options --disable-debug
+ac_add_options --disable-tests
+ac_add_options --enable-application=mobile/android
+ac_add_options --enable-bootstrap=-clang
+ac_add_options --enable-jxl
+ac_add_options --enable-lto
+ac_add_options --enable-optimize="-O3 -w"
+ac_add_options --enable-release
+ac_add_options --enable-rust-simd
+ac_add_options --enable-update-channel=release
+ac_add_options --with-ccache=sccache
+
+mk_add_options AUTOCLOBBER=1
+mk_add_options MOZ_OBJDIR=./objdir
+
+export MOZ_REQUIRE_SIGNING=
+export MOZ_TELEMETRY_REPORTING=

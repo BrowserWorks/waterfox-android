@@ -123,7 +123,7 @@ android {
         debug {
             shrinkResources = false
             minifyEnabled = false
-            applicationIdSuffix ".waterfox.debug"
+            applicationIdSuffix ".debug"
             resValue "bool", "IS_DEBUG", "true"
             pseudoLocalesEnabled = true
         }
@@ -308,22 +308,34 @@ android.applicationVariants.configureEach { variant ->
     def isDebug = variant.buildType.resValues['bool/IS_DEBUG']?.value ?: false
     def useReleaseVersioning = variant.buildType.buildConfigFields['USE_RELEASE_VERSIONING']?.value ?: false
 
-    project.logger.debug("----------------------------------------------")
-    project.logger.debug("Variant name:      " + variant.name)
-    project.logger.debug("Application ID:    " + [variant.applicationId, variant.buildType.applicationIdSuffix].findAll().join())
-    project.logger.debug("Build type:        " + variant.buildType.name)
-    project.logger.debug("Flavor:            " + variant.flavorName)
-    project.logger.debug("Telemetry enabled: " + !isDebug)
+    project.logger.lifecycle("----------------------------------------------")
+    project.logger.lifecycle("Variant name:      " + variant.name)
+    project.logger.lifecycle("Application ID:    " + [variant.applicationId, variant.buildType.applicationIdSuffix].findAll().join())
+    project.logger.lifecycle("Build type:        " + variant.buildType.name)
+    project.logger.lifecycle("Flavor:            " + variant.flavorName)
+    project.logger.lifecycle("Telemetry enabled: " + !isDebug)
 
     if (useReleaseVersioning) {
         // The Google Play Store does not allow multiple APKs for the same app that all have the
         // same version code. Therefore we need to have different version codes for our ARM and x86
         // builds.
 
-        def versionName = variant.buildType.name == 'nightly' ?
+        // Load local.properties directly
+        def localPropertiesFile = project.rootProject.file('local.properties')
+        def localProperties = new Properties()
+        def customVersionName = null
+        
+        if (localPropertiesFile.exists()) {
+            localProperties.load(localPropertiesFile.newDataInputStream())
+            customVersionName = localProperties.getProperty('branchBuild.waterfox.version')
+        }
+
+        def versionName = customVersionName ?: 
+            (variant.buildType.name == 'nightly' ?
                 "${Config.nightlyVersionName(project)}" :
-                "${Config.releaseVersionName(project)}"
-        project.logger.debug("versionName override: $versionName")
+                "${Config.releaseVersionName(project)}")
+
+        project.logger.lifecycle("versionName override: $versionName")
 
         variant.outputs.each { output ->
             def abi = output.getFilter(FilterConfiguration.FilterType.ABI.name())
@@ -332,9 +344,9 @@ android.applicationVariants.configureEach { variant ->
             }
             // We use the same version code generator, that we inherited from Fennec, across all channels - even on
             // channels that never shipped a Fennec build.
-            def versionCodeOverride = Config.generateFennecVersionCode(abi, isAppBundle )
+            def versionCodeOverride = Config.generateFennecVersionCode(abi)
 
-            project.logger.debug("versionCode for $abi = $versionCodeOverride")
+            project.logger.lifecycle("versionCode for $abi = $versionCodeOverride")
 
             if (versionName != null) {
                 output.versionNameOverride = versionName
@@ -343,7 +355,7 @@ android.applicationVariants.configureEach { variant ->
         }
     } else if (gradle.hasProperty("localProperties.branchBuild.waterfox.version")) {
         def versionName = gradle.getProperty("localProperties.branchBuild.waterfox.version")
-        project.logger.debug("versionName override: $versionName")
+        project.logger.lifecycle("versionName override: $versionName")
         variant.outputs.each { output ->
             output.versionNameOverride = versionName
         }

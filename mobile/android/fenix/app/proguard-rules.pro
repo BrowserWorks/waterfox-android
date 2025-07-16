@@ -32,6 +32,19 @@
 -keep class org.mozilla.gecko.util.DebugConfig { *; }
 
 ####################################################################################################
+# GeckoView - Keep essential classes and members
+####################################################################################################
+
+# Conservative GeckoView rules - keep everything
+-keep class org.mozilla.** { *; }
+-dontwarn org.mozilla.**
+
+# Keep native methods
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+####################################################################################################
 # kotlinx.coroutines: use the fast service loader to init MainDispatcherLoader by including a rule
 # to rewrite this property to return true:
 # https://github.com/Kotlin/kotlinx.coroutines/blob/8c98180f177bbe4b26f1ed9685a9280fea648b9c/kotlinx-coroutines-core/jvm/src/internal/MainDispatchers.kt#L19

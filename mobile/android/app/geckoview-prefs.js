@@ -270,6 +270,9 @@ pref("geckoview.console.enabled", false);
 
 pref("image.cache.size", 1048576); // bytes
 
+// Enable JPEG-XL
+pref("image.jxl.enabled", true);
+
 // Inherit locale from the OS, used for multi-locale builds
 pref("intl.locale.requested", "");
 

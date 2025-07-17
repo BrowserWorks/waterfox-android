@@ -14,7 +14,7 @@ object FeatureFlags {
      * This feature does not only depend on this flag. It requires the AMO collection override to
      * be enabled which is behind the Secret Settings.
      * */
-    val customExtensionCollectionFeature = Config.channel.isNightlyOrDebug || Config.channel.isBeta
+    val customExtensionCollectionFeature = true
 
     /**
      * Pull-to-refresh allows you to pull the web content down far enough to have the page to
@@ -25,7 +25,7 @@ object FeatureFlags {
     /**
      * Enables the Sync Addresses feature.
      */
-    const val SYNC_ADDRESSES_FEATURE = false
+    const val SYNC_ADDRESSES_FEATURE = true
 
     /**
      * Enables new search settings UI with two extra fragments, for managing the default engine
@@ -46,7 +46,7 @@ object FeatureFlags {
     /**
      * Enables the Unified Trust Panel.
      */
-    const val UNIFIED_TRUST_PANEL = false
+    const val UNIFIED_TRUST_PANEL = true
 
     /**
      * Enables the tab swipe to dismiss rewrite.
@@ -59,5 +59,5 @@ object FeatureFlags {
      *
      * ⚠️ DO NOT MODIFY THIS FLAG IN PRODUCTION.
      */
-    val onboardingFeatureEnabled = !Config.channel.isDebug
+    val onboardingFeatureEnabled = false
 }

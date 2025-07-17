@@ -324,13 +324,23 @@ android.applicationVariants.configureEach { variant ->
         def localPropertiesFile = project.rootProject.file('local.properties')
         def localProperties = new Properties()
         def customVersionName = null
-        
+
         if (localPropertiesFile.exists()) {
             localProperties.load(localPropertiesFile.newDataInputStream())
             customVersionName = localProperties.getProperty('branchBuild.waterfox.version')
         }
 
-        def versionName = customVersionName ?: 
+        // Load gradle.properties versionName
+        def gradlePropertiesFile = project.rootProject.file('gradle.properties')
+        def gradleProperties = new Properties()
+        def gradleVersionName = null
+
+        if (gradlePropertiesFile.exists()) {
+            gradleProperties.load(gradlePropertiesFile.newDataInputStream())
+            gradleVersionName = gradleProperties.getProperty('versionName')
+        }
+
+        def versionName = customVersionName ?: gradleVersionName ?:
             (variant.buildType.name == 'nightly' ?
                 "${Config.nightlyVersionName(project)}" :
                 "${Config.releaseVersionName(project)}")
@@ -342,6 +352,11 @@ android.applicationVariants.configureEach { variant ->
             if (isAppBundle) {
                 abi = "AAB"
             }
+
+            // Custom filename: waterfox-$versionName-x86_64-release.apk
+            def customFileName = "waterfox-${versionName}-${abi}-${variant.buildType.name}.${output.outputFile.name.split('\\.').last()}"
+            output.outputFileName = customFileName
+
             // We use the same version code generator, that we inherited from Fennec, across all channels - even on
             // channels that never shipped a Fennec build.
             def versionCodeOverride = Config.generateFennecVersionCode(abi)
@@ -357,6 +372,10 @@ android.applicationVariants.configureEach { variant ->
         def versionName = gradle.getProperty("localProperties.branchBuild.waterfox.version")
         project.logger.lifecycle("versionName override: $versionName")
         variant.outputs.each { output ->
+            def abi = output.getFilter(FilterConfiguration.FilterType.ABI.name()) ?: "universal"
+            def customFileName = "waterfox-${versionName}-${abi}-${variant.buildType.name}.${output.outputFile.name.split('\\.').last()}"
+            output.outputFileName = customFileName
+
             output.versionNameOverride = versionName
         }
     }

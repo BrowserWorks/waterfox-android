@@ -2404,13 +2404,21 @@ class Settings(private val appContext: Context) : PreferencesHolder {
     )
 
     /**
+     * Stores whether DNS over HTTPS should use Oblivious HTTP.
+     */
+    var dohUseOhttp by booleanPreference(
+        key = appContext.getPreferenceKey(R.string.pref_key_doh_use_ohttp),
+        default = false,
+    )
+
+    /**
      * Retrieves the current DohSettingsMode based on trrMode
      */
     fun getDohSettingsMode(): Engine.DohSettingsMode {
         return when (trrMode) {
             DOH_SETTINGS_DEFAULT -> Engine.DohSettingsMode.DEFAULT
             DOH_SETTINGS_INCREASED -> Engine.DohSettingsMode.INCREASED
-            DOH_SETTINGS_MAX -> Engine.DohSettingsMode.MAX
+            DOH_SETTINGS_MAX -> if (dohUseOhttp) Engine.DohSettingsMode.ULTRA else Engine.DohSettingsMode.MAX
             DOH_SETTINGS_OFF -> Engine.DohSettingsMode.OFF
             else -> Engine.DohSettingsMode.DEFAULT
         }
@@ -2421,10 +2429,26 @@ class Settings(private val appContext: Context) : PreferencesHolder {
      */
     fun setDohSettingsMode(mode: Engine.DohSettingsMode) {
         trrMode = when (mode) {
-            Engine.DohSettingsMode.DEFAULT -> DOH_SETTINGS_DEFAULT
-            Engine.DohSettingsMode.INCREASED -> DOH_SETTINGS_INCREASED
-            Engine.DohSettingsMode.MAX -> DOH_SETTINGS_MAX
-            Engine.DohSettingsMode.OFF -> DOH_SETTINGS_OFF
+            Engine.DohSettingsMode.DEFAULT -> {
+                dohUseOhttp = false
+                DOH_SETTINGS_DEFAULT
+            }
+            Engine.DohSettingsMode.INCREASED -> {
+                dohUseOhttp = false
+                DOH_SETTINGS_INCREASED
+            }
+            Engine.DohSettingsMode.MAX -> {
+                dohUseOhttp = false
+                DOH_SETTINGS_MAX
+            }
+            Engine.DohSettingsMode.ULTRA -> {
+                dohUseOhttp = true
+                DOH_SETTINGS_MAX
+            }
+            Engine.DohSettingsMode.OFF -> {
+                dohUseOhttp = false
+                DOH_SETTINGS_OFF
+            }
         }
     }
 

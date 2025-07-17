@@ -460,6 +460,7 @@
 
     <!-- DNS over HTTPS Secret settings -->
     <string name="pref_key_doh_settings_enabled" translatable="false">pref_key_doh_settings_enabled</string>
+    <string name="pref_key_doh_use_ohttp" translatable="false">pref_key_doh_use_ohttp</string>
 
     <!-- Glean usage profile id -->
     <string name="pref_key_glean_usage_profile_id" translatable="false">pref_key_glean_usage_profile_id</string>

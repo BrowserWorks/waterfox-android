@@ -64,6 +64,7 @@ import org.mozilla.fenix.theme.FirefoxTheme
  * @param onDefaultInfoClicked Invoked when the user accesses info about Default DoH level.
  * @param onIncreasedInfoClicked Invoked when the user accesses info about Increased DoH level.
  * @param onMaxInfoClicked Invoked when the user accesses info about Max DoH level.
+ * @param onUltraInfoClicked Invoked when the user accesses info about Ultra DoH level.
  */
 @Composable
 internal fun DohSettingsScreen(
@@ -77,6 +78,7 @@ internal fun DohSettingsScreen(
     onDefaultInfoClicked: () -> Unit = {},
     onIncreasedInfoClicked: () -> Unit = {},
     onMaxInfoClicked: () -> Unit = {},
+    onUltraInfoClicked: () -> Unit = {},
 ) {
     Column(
         modifier = Modifier
@@ -97,6 +99,7 @@ internal fun DohSettingsScreen(
             onDefaultInfoClicked = onDefaultInfoClicked,
             onIncreasedInfoClicked = onIncreasedInfoClicked,
             onMaxInfoClicked = onMaxInfoClicked,
+            onUltraInfoClicked = onUltraInfoClicked,
         )
 
         Divider(
@@ -227,6 +230,7 @@ private fun DohSelection(
     onDefaultInfoClicked: () -> Unit,
     onIncreasedInfoClicked: () -> Unit,
     onMaxInfoClicked: () -> Unit,
+    onUltraInfoClicked: () -> Unit,
 ) {
     state.allProtectionLevels.forEach { protectionLevel ->
         when (protectionLevel) {
@@ -312,6 +316,25 @@ private fun DohSelection(
                     onDohOptionSelected(
                         protectionLevel,
                         state.selectedProvider ?: state.providers.first(),
+                    )
+                },
+            )
+
+            is ProtectionLevel.Ultra -> DohProtectionLevel(
+                modifier = Modifier.fillMaxWidth(),
+                selected = protectionLevel == state.selectedProtectionLevel,
+                label = stringResource(R.string.preference_doh_ultra_protection),
+                summary = stringResource(
+                    R.string.preference_doh_ultra_protection_summary,
+                    stringResource(id = R.string.app_name),
+                ),
+                showInfoIcon = true,
+                provider = null,
+                onInfoClick = onUltraInfoClicked,
+                onClick = {
+                    onDohOptionSelected(
+                        protectionLevel,
+                        null,
                     )
                 },
             )
@@ -566,6 +589,7 @@ private fun DohScreenDefaultProviderPreview() {
                     ProtectionLevel.Default,
                     ProtectionLevel.Increased,
                     ProtectionLevel.Max,
+                    ProtectionLevel.Ultra,
                     ProtectionLevel.Off,
                 ),
                 selectedProtectionLevel = ProtectionLevel.Increased,
@@ -591,6 +615,7 @@ private fun DohScreenCustomProviderPreview() {
                     ProtectionLevel.Default,
                     ProtectionLevel.Increased,
                     ProtectionLevel.Max,
+                    ProtectionLevel.Ultra,
                     ProtectionLevel.Off,
                 ),
                 selectedProtectionLevel = ProtectionLevel.Increased,

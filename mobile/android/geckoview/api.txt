@@ -978,6 +978,7 @@ package org.mozilla.geckoview {
     method public boolean getTranslationsOfferPopup();
     method @NonNull public List<String> getTrustedRecursiveResolverExcludedDomains();
     method @NonNull public String getTrustedRecursiveResolverUri();
+    method @NonNull public boolean getTrustedRecursiveResolverUseOhttp();
     method public int getTrustedRecusiveResolverMode();
     method public boolean getUseMaxScreenDepth();
     method @NonNull public int getUserCharacteristicPingCurrentVersion();
@@ -1026,6 +1027,7 @@ package org.mozilla.geckoview {
     method @NonNull public GeckoRuntimeSettings setTrustedRecursiveResolverExcludedDomains(@NonNull List<String>);
     method @NonNull public GeckoRuntimeSettings setTrustedRecursiveResolverMode(int);
     method @NonNull public GeckoRuntimeSettings setTrustedRecursiveResolverUri(@NonNull String);
+    method @NonNull public GeckoRuntimeSettings setTrustedRecursiveResolverUseOhttp(boolean);
     method @NonNull public GeckoRuntimeSettings setUserCharacteristicPingCurrentVersion(int);
     method @NonNull public GeckoRuntimeSettings setWebContentIsolationStrategy(@NonNull Integer);
     method @NonNull public GeckoRuntimeSettings setWebFontsEnabled(boolean);

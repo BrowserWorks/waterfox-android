@@ -2155,6 +2155,8 @@
     <!-- Used as text for the link in `preference_doh_title`, points to documentation about "DNS over HTTPS" -->
     <string name="preference_doh_learn_more">Learn more</string>
 
+    <!-- Content description for the toolbar "Navigate up" button -->
+    <string name="preference_doh_up_description">Navigate up</string>
     <!-- Content description for the "Exceptions" button -->
     <string name="preference_doh_exceptions_description">Exceptions</string>
     <!-- Content description for the "Info" button -->
@@ -2189,13 +2191,28 @@
     <!-- Title displayed for "Max Protection" option under "DNS over HTTPS" -->
     <string name="preference_doh_max_protection">Max Protection</string>
     <!-- Summary displayed for "Max Protection" option under "DNS over HTTPS". %1$s is the name of the application (e.g. Fenix). -->
-    <string name="preference_doh_max_protection_summary">%1$s will always use secure DNS. You’ll see a security risk warning before we use your system DNS.</string>
+    <string name="preference_doh_max_protection_summary">%1$s will always use secure DNS. You\'ll see a security risk warning before we use your system DNS.</string>
     <!-- Bullet point 1 for "Max Protection" information page under "DNS over HTTPS" -->
     <string name="preference_doh_max_protection_info_1">Only use the provider you select</string>
     <!-- Bullet point 2 for "Max Protection" information page under "DNS over HTTPS" -->
-    <string name="preference_doh_max_protection_info_2">Always warn if secure DNS isn’t available</string>
+    <string name="preference_doh_max_protection_info_2">Always warn if secure DNS isn\'t available</string>
     <!-- Bullet point 3 for "Max Protection" information page under "DNS over HTTPS" -->
     <string name="preference_doh_max_protection_info_3">If secure DNS is not available sites will not load or function properly</string>
+
+    <!-- Title displayed for "Ultra Protection" option under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection">Ultra Protection</string>
+    <!-- Summary displayed for "Ultra Protection" option under "DNS over HTTPS". %1$s is the name of the application (e.g. Fenix). -->
+    <string name="preference_doh_ultra_protection_summary">%1$s partners with Fastly to provide anonymous DNS queries for ultimate privacy protection.</string>
+    <!-- Bullet point 1 for "Ultra Protection" information page under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection_info_1">Partners with Fastly\'s relay service and Cloudflare\'s oblivious resolver for enhanced privacy</string>
+    <!-- Bullet point 2 for "Ultra Protection" information page under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection_info_2">Always warn if secure DNS isn\'t available</string>
+    <!-- Bullet point 3 for "Ultra Protection" information page under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection_info_3">Uses Oblivious HTTP to make DNS queries completely anonymous - your network provider, relay, and resolver cannot link queries to you</string>
+    <!-- Bullet point 4 for "Ultra Protection" information page under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection_info_4">Bypasses VPN DNS resolvers - uses secure DNS instead of your VPN\'s resolver</string>
+    <!-- Bullet point 5 for "Ultra Protection" information page under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection_info_5">If secure DNS is not available sites will not load or function properly</string>
 
     <!-- Title displayed for "Off" option under "DNS over HTTPS" -->
     <string name="preference_doh_off">Off</string>

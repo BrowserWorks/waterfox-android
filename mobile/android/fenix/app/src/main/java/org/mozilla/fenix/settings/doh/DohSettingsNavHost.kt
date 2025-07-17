@@ -95,6 +95,11 @@ internal fun DohSettingsNavHost(
                         DohSettingsRootAction.MaxInfoClicked,
                     )
                 },
+                onUltraInfoClicked = {
+                    store.dispatch(
+                        DohSettingsRootAction.UltraInfoClicked,
+                    )
+                },
             )
         }
 
@@ -156,6 +161,23 @@ internal fun DohSettingsNavHost(
                 },
             )
         }
+        composable(route = DohSettingsDestinations.INFO_ULTRA) {
+            InfoScreen(
+                infoScreenTopic = InfoScreenTopic.ULTRA,
+                onNavigateUp = {
+                    store.dispatch(
+                        BackClicked,
+                    )
+                },
+                onLearnMoreClicked = { url ->
+                    store.dispatch(
+                        LearnMoreClicked(
+                            url,
+                        ),
+                    )
+                },
+            )
+        }
 
         composable(route = DohSettingsDestinations.ADD_EXCEPTION) {
             val state by store.observeAsState(store.state) { it }
@@ -197,6 +219,7 @@ internal object DohSettingsDestinations {
     const val INFO_DEFAULT = "doh:settings:info"
     const val INFO_INCREASED = "doh:settings:info-increased"
     const val INFO_MAX = "doh:settings:info-max"
+    const val INFO_ULTRA = "doh:settings:info-ultra"
     const val EXCEPTIONS_LIST = "doh:settings:list-exceptions"
     const val ADD_EXCEPTION = "doh:settings:add-exception"
 }

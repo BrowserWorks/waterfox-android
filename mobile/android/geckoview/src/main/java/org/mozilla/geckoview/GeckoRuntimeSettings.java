@@ -700,6 +700,8 @@ public final class GeckoRuntimeSettings extends RuntimeSettings {
       new PrefWithoutDefault<>("network.trr.default_provider_uri");
   /* package */ final PrefWithoutDefault<String> mTrustedRecursiveResolverExcludedDomains =
       new PrefWithoutDefault<>("network.trr.excluded-domains");
+  /* package */ final PrefWithoutDefault<Boolean> mTrustedRecursiveResolverUseOhttp =
+      new PrefWithoutDefault<>("network.trr.use_ohttp");
   /* package */ final PrefWithoutDefault<Integer> mLargeKeepalivefactor =
       new PrefWithoutDefault<>("network.http.largeKeepaliveFactor");
   /* package */ final Pref<Integer> mProcessCount = new Pref<>("dom.ipc.processCount", 2);
@@ -2069,6 +2071,27 @@ public final class GeckoRuntimeSettings extends RuntimeSettings {
   public @NonNull GeckoRuntimeSettings setTrustedRecursiveResolverExcludedDomains(
       final @NonNull List<String> domains) {
     mTrustedRecursiveResolverExcludedDomains.commit(String.join(",", domains));
+    return this;
+  }
+
+  /**
+   * Get whether DNS-over-HTTPS should use Oblivious HTTP
+   *
+   * @return True if DoH should use Oblivious HTTP, false otherwise.
+   */
+  public @NonNull boolean getTrustedRecursiveResolverUseOhttp() {
+    return mTrustedRecursiveResolverUseOhttp.get();
+  }
+
+  /**
+   * Set whether DNS-over-HTTPS should use Oblivious HTTP
+   *
+   * @param useOhttp True to enable Oblivious HTTP for DoH, false to disable.
+   * @return This GeckoRuntimeSettings instance.
+   */
+  public @NonNull GeckoRuntimeSettings setTrustedRecursiveResolverUseOhttp(
+      final boolean useOhttp) {
+    mTrustedRecursiveResolverUseOhttp.commit(useOhttp);
     return this;
   }
 

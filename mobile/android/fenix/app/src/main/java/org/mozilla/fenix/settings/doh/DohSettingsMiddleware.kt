@@ -76,6 +76,10 @@ internal class DohSettingsMiddleware(
                 getNavController().navigate(DohSettingsDestinations.INFO_MAX)
             }
 
+            is DohSettingsRootAction.UltraInfoClicked -> {
+                getNavController().navigate(DohSettingsDestinations.INFO_ULTRA)
+            }
+
             is ExceptionsAction.AddExceptionsClicked -> {
                 getNavController().navigate(DohSettingsDestinations.ADD_EXCEPTION)
             }

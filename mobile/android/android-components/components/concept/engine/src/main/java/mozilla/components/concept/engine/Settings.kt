@@ -264,6 +264,11 @@ abstract class Settings {
     open var dohExceptionsList: List<String> by UnsupportedSetting()
 
     /**
+     * Whether DNS over HTTPS should use Oblivious HTTP
+     */
+    open var dohUseOhttp: Boolean by UnsupportedSetting()
+
+    /**
      * Setting to control whether Global Privacy Control isenabled.
      */
     open var globalPrivacyControlEnabled: Boolean by UnsupportedSetting()
@@ -392,6 +397,7 @@ data class DefaultSettings(
     override var dohProviderUrl: String = "",
     override var dohDefaultProviderUrl: String? = "",
     override var dohExceptionsList: List<String> = emptyList(),
+    override var dohUseOhttp: Boolean = false,
     override var globalPrivacyControlEnabled: Boolean = false,
     override var fingerprintingProtection: Boolean? = null,
     override var fingerprintingProtectionPrivateBrowsing: Boolean? = null,

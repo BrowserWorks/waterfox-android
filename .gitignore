@@ -58,6 +58,7 @@ ID
 /.clang_complete
 /machrc
 /.machrc
+/.sentry_token
 
 # pyenv artifact
 /.python-version

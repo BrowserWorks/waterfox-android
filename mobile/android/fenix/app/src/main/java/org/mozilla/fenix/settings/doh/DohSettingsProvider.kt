@@ -28,6 +28,7 @@ internal class DefaultDohSettingsProvider(
             ProtectionLevel.Default,
             ProtectionLevel.Increased,
             ProtectionLevel.Max,
+            ProtectionLevel.Ultra,
             ProtectionLevel.Off,
         )
     }
@@ -61,22 +62,23 @@ internal class DefaultDohSettingsProvider(
     )
 
     override fun getSelectedProtectionLevel(): ProtectionLevel {
-        return when (settings.getDohSettingsMode()) {
+        return when (engine.settings.dohSettingsMode) {
             Engine.DohSettingsMode.DEFAULT -> ProtectionLevel.Default
             Engine.DohSettingsMode.INCREASED -> ProtectionLevel.Increased
             Engine.DohSettingsMode.MAX -> ProtectionLevel.Max
+            Engine.DohSettingsMode.ULTRA -> ProtectionLevel.Ultra
             Engine.DohSettingsMode.OFF -> ProtectionLevel.Off
         }
     }
 
     override fun getSelectedProvider(): Provider? {
-        return when (settings.getDohSettingsMode()) {
-            Engine.DohSettingsMode.OFF, Engine.DohSettingsMode.DEFAULT -> {
+        return when (engine.settings.dohSettingsMode) {
+            Engine.DohSettingsMode.OFF, Engine.DohSettingsMode.DEFAULT, Engine.DohSettingsMode.ULTRA -> {
                 null
             }
 
             else -> {
-                when (settings.dohProviderUrl) {
+                when (engine.settings.dohProviderUrl) {
                     cloudflareUri -> cloudflare
                     nextDnsUri -> nextDns
                     "" -> getDefaultProviders().first()

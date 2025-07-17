@@ -104,6 +104,11 @@ interface Engine : WebExtensionRuntime, TranslationsRuntime, DataCleanable {
         MAX,
 
         /**
+         * DoH setting is set to "Ultra", corresponds to TRR_MODE_ONLY (3) with OHTTP enabled.
+         */
+        ULTRA,
+
+        /**
          * DoH is disabled, corresponds to TRR_MODE_DISABLED (5) from GeckoView.
          */
         OFF,

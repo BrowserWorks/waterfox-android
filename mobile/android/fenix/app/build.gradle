@@ -186,7 +186,6 @@ android {
                     // fatal consequences. For example see:
                     //  - https://issuetracker.google.com/issues/36924841
                     //  - https://issuetracker.google.com/issues/36905922
-                    "sharedUserId": "net.waterfox.android.sharedID",
                     "deepLinkScheme": deepLinkSchemeValue,
             ])
         }

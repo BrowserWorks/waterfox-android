@@ -1,0 +1,84 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number (e.g., 1.0.0)'
+        required: true
+        type: string
+
+env:
+  SENTRY_TOKEN: "${{ secrets.SENTRY_TOKEN }}"
+  SIGNING_KEY_ALIAS: "${{ secrets.SIGNING_KEY_ALIAS }}"
+  SIGNING_KEY_PASSWORD: "${{ secrets.SIGNING_KEY_PASSWORD }}"
+  SIGNING_KEY_STORE_BASE64: "${{ secrets.SIGNING_KEY_STORE_BASE64 }}"
+  SIGNING_STORE_PASSWORD: "${{ secrets.SIGNING_STORE_PASSWORD }}"
+
+jobs:
+  release-automation:
+    name: Build and Release Waterfox
+    runs-on: warp-ubuntu-latest-x64-16x
+    steps:
+      - name: ↓ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ☕️ Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: 🗃️ Setup sccache
+        uses: mozilla-actions/sccache-action@v0.0.9
+
+      - name: 🔧 Setup clang
+        run: |
+          mkdir -p $HOME/.mozbuild
+          curl -L https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/gecko.cache.level-3.toolchains.v3.linux64-clang-20.latest/artifacts/public/build/clang.tar.zst -o clang.tar.zst
+          tar -xvf clang.tar.zst -C $HOME/.mozbuild
+
+      - name: 📝 Generate local.properties
+        run: |
+          touch local.properties
+          echo sdk.dir=$HOME/.mozbuild/android-sdk-linux >> local.properties
+          echo branchBuild.waterfox.version=${{ inputs.version }} >> local.properties
+
+      - name: 🔨 Build Gecko
+        run: |
+          unset ANDROID_HOME
+          unset ANDROID_NDK
+          unset ANDROID_NDK_HOME
+          unset ANDROID_NDK_LATEST_HOME
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_SDK_ROOT
+          rustup target add x86_64-linux-android
+          ./mach build
+
+      - name: 🔓 Decode Keystore
+        run: |
+          echo "${{ secrets.SIGNING_KEY_STORE_BASE64 }}" | base64 --decode > mobile/android/fenix/app/keystore.jks
+
+      - name: 🔨 Build Release APKs
+        run: |
+          unset ANDROID_HOME
+          unset ANDROID_NDK
+          unset ANDROID_NDK_HOME
+          unset ANDROID_NDK_LATEST_HOME
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_SDK_ROOT
+          ./gradlew assemblefenixRelease
+
+      - name: 🆕 Create Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION_NAME=$(jq -r '.elements[0].versionName' obj-android/gradle/build/mobile/android/fenix/app/outputs/apk/fenix/release/output-metadata.json)
+          VERSION_CODE=$(jq -r '.elements[0].versionCode' obj-android/gradle/build/mobile/android/fenix/app/outputs/apk/fenix/release/output-metadata.json)
+          RELEASE_NAME="$VERSION_NAME ($VERSION_CODE)"
+          gh release create "$VERSION_NAME" \
+            --title "$RELEASE_NAME" \
+            obj-android/gradle/build/mobile/android/fenix/app/outputs/apk/fenix/release/*.apk
+
+      - name: 🧹 Clean up
+        run: rm -f keystore.jks

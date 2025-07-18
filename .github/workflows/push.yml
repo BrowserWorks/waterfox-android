@@ -1,0 +1,224 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Build date (e.g., $(date +'%Y%m%d%H%M%S'))"
+        required: true
+        type: string
+      version:
+        description: "Version number (e.g., 1.0.0)"
+        required: true
+        type: string
+
+env:
+  GRADLE_MAVEN_REPOSITORIES: "https://maven.google.com/,https://repo.maven.apache.org/maven2/,https://plugins.gradle.org/m2/,https://maven.mozilla.org/maven2/"
+  MOZ_BUILD_DATE: "${{ inputs.date }}"
+  SENTRY_TOKEN: "${{ secrets.SENTRY_TOKEN }}"
+  SIGNING_KEY_ALIAS: "${{ secrets.SIGNING_KEY_ALIAS }}"
+  SIGNING_KEY_PASSWORD: "${{ secrets.SIGNING_KEY_PASSWORD }}"
+  SIGNING_KEY_STORE_BASE64: "${{ secrets.SIGNING_KEY_STORE_BASE64 }}"
+  SIGNING_STORE_PASSWORD: "${{ secrets.SIGNING_STORE_PASSWORD }}"
+
+jobs:
+  build-geckoview:
+    concurrency:
+      group: "${{ github.ref }}-${{ matrix.arch }}-geckoview"
+      cancel-in-progress: true
+    env:
+      MOZCONFIG: ".mozconfig-${{ matrix.arch }}"
+    name: Build GeckoView
+    runs-on: warp-ubuntu-latest-x64-16x
+    strategy:
+      matrix:
+        arch:
+          - arm-linux-androideabi
+          - aarch64-linux-android
+          - x86_64-linux-android
+    steps:
+      - name: ↓ Checkout repository
+        uses: actions/checkout@v5
+
+      - name: ☕️ Setup Java
+        uses: actions/setup-java@v5
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: 🗃️ Setup sccache
+        uses: mozilla-actions/sccache-action@v0.0.9
+
+      - name: 🔧 Setup deps
+        run: |
+          if [ "${{ matrix.arch }}" = "arm-linux-androideabi" ]; then
+            rustup target add thumbv7neon-linux-androideabi
+          else
+            rustup target add ${{ matrix.arch }}
+          fi
+          mkdir -p $HOME/.mozbuild
+          curl -L https://cdn1.waterfox.net/waterfox/libraries/clang.tar.zst -o clang.tar.zst
+          tar -xvf clang.tar.zst -C $HOME/.mozbuild
+
+      - name: 📝 Generate local.properties
+        run: |
+          touch local.properties
+          echo sdk.dir=$HOME/.mozbuild/android-sdk-linux >> local.properties
+
+      - name: 🔨 Build Gecko
+        run: |
+          unset ANDROID_HOME
+          unset ANDROID_NDK
+          unset ANDROID_NDK_HOME
+          unset ANDROID_NDK_LATEST_HOME
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_SDK_ROOT
+          echo $MOZ_BUILD_DATE
+          ./mach build
+          ./mach package
+          ./mach gradle :geckoview:assemble
+
+      - name: 🆙 Upload GeckoView Artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: geckoview-${{ matrix.arch }}-${{ github.run_id }}
+          path: |
+            ./obj-${{ matrix.arch }}/gradle/build/mobile/android/geckoview/outputs/aar/geckoview-release.aar
+          retention-days: 1
+
+  build-app:
+    name: Build App
+    needs:
+      - build-geckoview
+    runs-on: warp-ubuntu-latest-x64-16x
+    steps:
+      - name: ↓ Checkout repository
+        uses: actions/checkout@v5
+
+      - name: ☕️ Setup Java
+        uses: actions/setup-java@v5
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: ⬇️ Download GeckoView ARMEABI_V7A Artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: geckoview-arm-linux-androideabi-${{ github.run_id }}
+          path: obj-arm-linux-androideabi/
+
+      - name: ⬇️ Download GeckoView ARM64_V8A Artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: geckoview-aarch64-linux-android-${{ github.run_id }}
+          path: obj-aarch64-linux-android/
+
+      - name: ⬇️ Download GeckoView X86_64 Artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: geckoview-x86_64-linux-android-${{ github.run_id }}
+          path: obj-x86_64-linux-android/
+
+      - name: 🔎 Display structure of artifact files
+        run: |
+          ls -R obj-arm-linux-androideabi
+          ls -R obj-aarch64-linux-android
+          ls -R obj-x86_64-linux-android
+
+      - name: 🔧 Setup deps
+        run: |
+          rustup target add x86_64-linux-android
+          mkdir -p $HOME/.mozbuild
+          curl -L https://cdn1.waterfox.net/waterfox/libraries/clang.tar.zst -o clang.tar.zst
+          tar -xvf clang.tar.zst -C $HOME/.mozbuild
+
+      - name: 📝 Generate local.properties
+        run: |
+          touch local.properties
+          echo sdk.dir=$HOME/.mozbuild/android-sdk-linux >> local.properties
+          echo branchBuild.waterfox.version=${{ inputs.version }} >> local.properties
+
+      - name: 🔨 Build Gecko
+        run: |
+          unset ANDROID_HOME
+          unset ANDROID_NDK
+          unset ANDROID_NDK_HOME
+          unset ANDROID_NDK_LATEST_HOME
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_SDK_ROOT
+          export MOZ_ANDROID_FAT_AAR_ARMEABI_V7A="$(pwd)/obj-arm-linux-androideabi/geckoview-release.aar"
+          export MOZ_ANDROID_FAT_AAR_ARM64_V8A="$(pwd)/obj-aarch64-linux-android/geckoview-release.aar"
+          export MOZ_ANDROID_FAT_AAR_X86_64="$(pwd)/obj-x86_64-linux-android/geckoview-release.aar"
+          ./mach build
+
+      - name: 🔓 Decode Keystore
+        run: |
+          echo "${{ secrets.SIGNING_KEY_STORE_BASE64 }}" | base64 --decode > mobile/android/fenix/app/keystore.jks
+
+      - name: 🔨 Build Release APKs
+        run: |
+          unset ANDROID_HOME
+          unset ANDROID_NDK
+          unset ANDROID_NDK_HOME
+          unset ANDROID_NDK_LATEST_HOME
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_SDK_ROOT
+          ./gradlew assemblefenixRelease
+
+      - name: 📦 Build Release AAB
+        run: |
+          unset ANDROID_HOME
+          unset ANDROID_NDK
+          unset ANDROID_NDK_HOME
+          unset ANDROID_NDK_LATEST_HOME
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_SDK_ROOT
+          ./gradlew bundlefenixRelease
+
+      - name: 🆙 Upload Build Artifacts
+        uses: actions/upload-artifact@v5
+        with:
+          name: build-artifacts-${{ github.run_id }}
+          path: |
+            objdir/gradle/build/mobile/android/fenix/app/outputs/bundle/fenixRelease/*.aab
+            objdir/gradle/build/mobile/android/fenix/app/outputs/apk/fenix/release/*.apk
+            objdir/gradle/build/mobile/android/fenix/app/outputs/apk/fenix/release/output-metadata.json
+          retention-days: 7
+
+      - name: 🧹 Clean up
+        run: rm -f mobile/android/fenix/app/keystore.jks
+
+  release:
+    name: Create GitHub Release
+    needs:
+      - build-app
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    environment: release
+    concurrency:
+      group: release
+      cancel-in-progress: false
+    steps:
+      - name: ⬇️ Download Build Artifacts
+        uses: actions/download-artifact@v6
+        with:
+          name: build-artifacts-${{ github.run_id }}
+          path: artifacts
+
+      - name: 🔎 Display structure of downloaded files
+        run: ls -R artifacts
+
+      - name: 🆕 Create Release
+        continue-on-error: true
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION_NAME=$(jq -r '.elements[0].versionName' artifacts/apk/fenix/release/output-metadata.json)
+          VERSION_CODE=$(jq -r '.elements[0].versionCode' artifacts/apk/fenix/release/output-metadata.json)
+          RELEASE_NAME="$VERSION_NAME ($VERSION_CODE)"
+          gh release create "$VERSION_NAME-$VERSION_CODE" \
+            --draft \
+            --title "$RELEASE_NAME" \
+            artifacts/apk/fenix/release/*.apk

@@ -141,7 +141,7 @@ android {
     }
 
     publishing {
-        singleVariant('debug')
+        singleVariant('release')
     }
 
     namespace = 'org.mozilla.geckoview'

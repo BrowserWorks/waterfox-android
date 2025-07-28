@@ -201,10 +201,14 @@ class HomeMenuView(
                 )
             }
             HomeMenu.Item.Quit -> {
-                deleteAndQuit(
-                    activity = homeActivity,
-                    coroutineScope = homeActivity.lifecycleScope,
-                )
+                if (homeActivity.settings().shouldDeleteBrowsingDataOnQuit) {
+                    deleteAndQuit(
+                        activity = homeActivity,
+                        coroutineScope = homeActivity.lifecycleScope,
+                    )
+                } else {
+                    homeActivity.finishAndRemoveTask()
+                }
             }
             HomeMenu.Item.ReconnectSync -> {
                 navController.nav(

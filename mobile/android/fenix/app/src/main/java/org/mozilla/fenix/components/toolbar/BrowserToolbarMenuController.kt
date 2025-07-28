@@ -54,6 +54,7 @@ import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.ext.navigateSafe
 import org.mozilla.fenix.ext.openSetDefaultBrowserOption
+import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.settings.deletebrowsingdata.deleteAndQuit
 import org.mozilla.fenix.utils.Settings
 import org.mozilla.fenix.webcompat.WEB_COMPAT_REPORTER_URL
@@ -159,7 +160,11 @@ class DefaultBrowserToolbarMenuController(
                 }
             }
             is ToolbarMenu.Item.Quit -> {
-                deleteAndQuit(activity, activity.lifecycleScope)
+                if (activity.settings().shouldDeleteBrowsingDataOnQuit) {
+                    deleteAndQuit(activity, activity.lifecycleScope)
+                } else {
+                    activity.finishAndRemoveTask()
+                }
             }
             is ToolbarMenu.Item.CustomizeReaderView -> {
                 readerModeController.showControls()

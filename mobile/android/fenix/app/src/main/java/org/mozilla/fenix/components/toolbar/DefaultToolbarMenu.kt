@@ -74,7 +74,7 @@ open class DefaultToolbarMenu(
     private var isCurrentUrlBookmarked = false
     private var isBookmarkedJob: Job? = null
 
-    private val shouldDeleteDataOnQuit = context.settings().shouldDeleteBrowsingDataOnQuit
+
     private val shouldUseBottomToolbar = context.settings().shouldUseBottomToolbar
     private val shouldShowTopSites = context.settings().showTopSitesFeature
     private val accountManager = FenixAccountManager(context)
@@ -405,7 +405,7 @@ open class DefaultToolbarMenu(
         handleBookmarkItemTapped()
     }
 
-    private val deleteDataOnQuit = BrowserMenuImageText(
+    private val quitItem = BrowserMenuImageText(
         label = context.getString(R.string.delete_browsing_data_on_quit_action),
         imageResource = R.drawable.mozac_ic_cross_circle_24,
         iconTintColorResource = primaryTextColor(),
@@ -464,7 +464,7 @@ open class DefaultToolbarMenu(
                 },
                 BrowserMenuDivider(),
                 settingsItem,
-                if (shouldDeleteDataOnQuit) deleteDataOnQuit else null,
+                quitItem,
                 if (shouldUseBottomToolbar) BrowserMenuDivider() else null,
                 if (shouldUseBottomToolbar) menuToolbar else null,
             )

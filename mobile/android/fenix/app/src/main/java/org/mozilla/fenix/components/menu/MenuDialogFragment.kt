@@ -228,14 +228,19 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                 alertDialogBuilder = AlertDialog.Builder(context),
                                 topSitesMaxLimit = components.settings.topSitesMaxLimit,
                                 onDeleteAndQuit = {
-                                    deleteAndQuit(
-                                        activity = activity as HomeActivity,
-                                        // This menu's coroutineScope would cancel all in progress operations
-                                        // when the dialog is closed.
-                                        // Need to use a scope that will ensure the background operation
-                                        // will continue even if the dialog is closed.
-                                        coroutineScope = (activity as LifecycleOwner).lifecycleScope,
-                                    )
+                                    val homeActivity = activity as HomeActivity
+                                    if (homeActivity.settings().shouldDeleteBrowsingDataOnQuit) {
+                                        deleteAndQuit(
+                                            activity = homeActivity,
+                                            // This menu's coroutineScope would cancel all in progress operations
+                                            // when the dialog is closed.
+                                            // Need to use a scope that will ensure the background operation
+                                            // will continue even if the dialog is closed.
+                                            coroutineScope = (activity as LifecycleOwner).lifecycleScope,
+                                        )
+                                    } else {
+                                        homeActivity.finishAndRemoveTask()
+                                    }
                                 },
                                 onDismiss = {
                                     withContext(Dispatchers.Main) {
@@ -450,7 +455,7 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                     accessPoint = args.accesspoint,
                                     account = account,
                                     accountState = accountState,
-                                    showQuitMenu = settings.shouldDeleteBrowsingDataOnQuit,
+                                    showQuitMenu = true,
                                     isPrivate = browsingModeManager.mode.isPrivate,
                                     isDesktopMode = isDesktopMode,
                                     isPdf = isPdf,

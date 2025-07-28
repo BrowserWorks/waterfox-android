@@ -147,10 +147,16 @@ class CustomizationFragment : PreferenceFragmentCompat() {
         }
 
         val toolbarPosition = requireContext().settings().toolbarPosition
+
         topPreference.setCheckedWithoutClickListener(toolbarPosition == ToolbarPosition.TOP)
         bottomPreference.setCheckedWithoutClickListener(toolbarPosition == ToolbarPosition.BOTTOM)
 
         addToRadioGroup(topPreference, bottomPreference)
+
+        requirePreference<SwitchPreference>(R.string.pref_key_enable_menu_redesign).apply {
+            isChecked = requireContext().settings().enableMenuRedesign
+            onPreferenceChangeListener = SharedPreferenceUpdater()
+        }
     }
 
     private fun setupGesturesCategory(isSwipeToolbarToSwitchTabsVisible: Boolean) {

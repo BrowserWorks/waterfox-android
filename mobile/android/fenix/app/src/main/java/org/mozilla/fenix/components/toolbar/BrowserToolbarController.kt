@@ -304,13 +304,17 @@ class DefaultBrowserToolbarController(
         customTabSessionId: String?,
         isSandboxCustomTab: Boolean,
     ) {
-        navController.navigate(
-            BrowserFragmentDirections.actionGlobalMenuDialogFragment(
-                accesspoint = accessPoint,
-                customTabSessionId = customTabSessionId,
-                isSandboxCustomTab = isSandboxCustomTab,
-            ),
-        )
+        if (activity.settings().enableMenuRedesign) {
+            navController.navigate(
+                BrowserFragmentDirections.actionGlobalMenuDialogFragment(
+                    accesspoint = accessPoint,
+                    customTabSessionId = customTabSessionId,
+                    isSandboxCustomTab = isSandboxCustomTab,
+                ),
+            )
+        }
+        // If menu redesign is disabled, the old menu should be handled by the toolbar's menuBuilder
+        // which was set in ToolbarIntegration, so this method shouldn't be called
     }
 
     companion object {

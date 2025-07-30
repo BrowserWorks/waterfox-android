@@ -285,6 +285,7 @@
     <string name="pref_key_wallpapers_onboarding" translatable="false">pref_key_wallpapers_onboarding</string>
     <string name="pref_key_should_migrate_wallpaper" translatable="false">pref_key_should_migrate_wallpaper</string>
     <string name="pref_key_should_migrate_wallpaper_card_colors" translatable="false">pref_key_should_migrate_wallpaper_card_colors</string>
+    <string name="pref_key_custom_wallpaper_single_image" translatable="false">pref_key_custom_wallpaper_single_image</string>
 
     <string name="pref_key_encryption_key_generated" translatable="false">pref_key_encryption_key_generated</string>
 

@@ -1221,4 +1221,16 @@
   <string name="translation_option_bottom_sheet_always_translate">Oferă întotdeauna traducerea</string>
   <!-- Toggle switch description that will appear under the "Never translate" and "Always translate" toggle switch settings to provide more information on how these  settings interacts with other settings. -->
   <string name="translation_option_bottom_sheet_switch_description">Suprascrie oferirea traducerii</string>
+  <!-- Label for the button that opens system picker to select custom wallpaper image for portrait orientation -->
+  <string name="wallpaper_select_portrait">Selectează portret</string>
+  <!-- Label for the button that opens system picker to select custom wallpaper image for landscape orientation -->
+  <string name="wallpaper_select_landscape">Selectează peisaj</string>
+  <!-- Label for the button that saves the custom wallpaper -->
+  <string name="wallpaper_save_custom">Salvează</string>
+  <!-- Label for the switch that toggles using single image for both orientations -->
+  <string name="wallpaper_use_single_image">Folosește o singură imagine</string>
+  <!-- Content description for a wallpaper image -->
+  <string name="wallpaper_image_content_description">Imagine de fundal</string>
+  <!-- Label for custom wallpaper option -->
+  <string name="wallpaper_custom">Personalizat</string>
 </resources>

@@ -523,6 +523,19 @@
   <string name="sync_cfr_message">Dina flikar synkroniseras! Fortsätt där du slutade på din andra enhet.</string>
   <!-- Content description (not visible, for screen readers etc.): Close button for the home onboarding dialog -->
   <string name="onboarding_home_content_description_close_button">Stäng</string>
+  <!-- Label for the button that opens system picker to select custom wallpaper image for portrait orientation -->
+  <string name="wallpaper_select_portrait">Välj stående</string>
+  <!-- Label for the button that opens system picker to select custom wallpaper image for landscape orientation -->
+  <string name="wallpaper_select_landscape">Välj liggande</string>
+  <!-- Label for the button that saves the custom wallpaper -->
+  <string name="wallpaper_save_custom">Spara</string>
+  <!-- Label for the switch that toggles using single image for both orientations -->
+  <string name="wallpaper_use_single_image">Använd en bild</string>
+  <!-- Content description for a wallpaper image -->
+  <string name="wallpaper_image_content_description">Bakgrundsbild</string>
+  <!-- Label for custom wallpaper option -->
+  <string name="wallpaper_custom">Anpassad</string>
+
   <!--
     Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments.
 

@@ -511,6 +511,19 @@
   <string name="sync_cfr_message">Dine faneblade synkroniseres! Fortsæt, hvor du slap, på din anden enhed.</string>
   <!-- Content description (not visible, for screen readers etc.): Close button for the home onboarding dialog -->
   <string name="onboarding_home_content_description_close_button">Luk</string>
+  <!-- Label for the button that opens system picker to select custom wallpaper image for portrait orientation -->
+  <string name="wallpaper_select_portrait">Vælg portræt</string>
+  <!-- Label for the button that opens system picker to select custom wallpaper image for landscape orientation -->
+  <string name="wallpaper_select_landscape">Vælg landskab</string>
+  <!-- Label for the button that saves the custom wallpaper -->
+  <string name="wallpaper_save_custom">Gem</string>
+  <!-- Label for the switch that toggles using single image for both orientations -->
+  <string name="wallpaper_use_single_image">Brug ét billede</string>
+  <!-- Content description for a wallpaper image -->
+  <string name="wallpaper_image_content_description">Baggrundsbillede</string>
+  <!-- Label for custom wallpaper option -->
+  <string name="wallpaper_custom">Brugerdefineret</string>
+
   <!--
     Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments.
 

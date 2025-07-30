@@ -12,8 +12,11 @@ import org.mozilla.fenix.wallpapers.Wallpaper
 /**
  * The extension function to group wallpapers into the appropriate collections for display.
  **/
-fun List<Wallpaper>.groupByDisplayableCollection(): Map<Wallpaper.Collection, List<Wallpaper>> =
-    groupBy {
+fun List<Wallpaper>.groupByDisplayableCollection(): Map<Wallpaper.Collection, List<Wallpaper>> {
+    // Separate custom wallpapers from regular ones
+    val (customWallpapers, regularWallpapers) = this.partition { it.name == Wallpaper.CUSTOM }
+    
+    val result = regularWallpapers.groupBy {
         it.collection
     }.filter {
         it.key.name != "default"
@@ -22,19 +25,23 @@ fun List<Wallpaper>.groupByDisplayableCollection(): Map<Wallpaper.Collection, Li
             wallpaper.thumbnailFileState == Wallpaper.ImageFileState.Downloaded
         }
         if (it.key.name == Wallpaper.CLASSIC_FIREFOX_COLLECTION) {
-            it.key to listOf(Wallpaper.Default) + wallpapers
+            // Add custom wallpapers to the Classic Firefox collection
+            it.key to listOf(Wallpaper.Default) + wallpapers + customWallpapers
         } else {
             it.key to wallpapers
         }
     }.toMap().let { result ->
-        // Ensure the default is shown in the classic firefox collection even if those wallpapers are
-        // missing
+        // Ensure the default is shown in the classic firefox collection even if those wallpapers are missing
         if (result.keys.any { it.name == Wallpaper.CLASSIC_FIREFOX_COLLECTION }) {
             result
         } else {
-            result.plus(Wallpaper.ClassicFirefoxCollection to listOf(Wallpaper.Default))
+            // Add custom wallpapers to Classic Firefox collection even if no other classic wallpapers exist
+            result.plus(Wallpaper.ClassicFirefoxCollection to listOf(Wallpaper.Default) + customWallpapers)
         }
     }
+    
+    return result
+}
 
 /**
  * Returns a list of wallpapers to display in the wallpaper onboarding.

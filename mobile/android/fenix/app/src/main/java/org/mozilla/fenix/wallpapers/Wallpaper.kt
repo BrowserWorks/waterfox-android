@@ -60,6 +60,7 @@ data class Wallpaper(
         const val BEACH_VIBE = "beach-vibe"
         const val FIREFOX_COLLECTION = "firefox"
         const val DEFAULT = "default"
+        const val CUSTOM = "custom"
 
         /*
          * Note: this collection could get out of sync with the version of it generated when fetching
@@ -89,6 +90,24 @@ data class Wallpaper(
         val Default = Wallpaper(
             name = DEFAULT,
             collection = DefaultCollection,
+            textColor = null,
+            cardColorLight = null,
+            cardColorDark = null,
+            thumbnailFileState = ImageFileState.Downloaded,
+            assetsFileState = ImageFileState.Downloaded,
+        )
+        val CustomCollection = Collection(
+            name = CUSTOM,
+            heading = null,
+            description = null,
+            learnMoreUrl = null,
+            availableLocales = null,
+            startDate = null,
+            endDate = null,
+        )
+        val Custom = Wallpaper(
+            name = CUSTOM,
+            collection = CustomCollection,
             textColor = null,
             cardColorLight = null,
             cardColorDark = null,

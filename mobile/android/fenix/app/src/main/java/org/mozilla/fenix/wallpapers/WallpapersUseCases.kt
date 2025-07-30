@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.annotation.VisibleForTesting
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -78,6 +79,15 @@ class WallpapersUseCases(
         DefaultSelectWallpaperUseCase(context.settings(), appStore, fileManager, downloader)
     }
 
+    val setCustomWallpaper: SetCustomWallpaperUseCase by lazy {
+        DefaultSetCustomWallpaperUseCase(
+            context = context,
+            fileManager = fileManager,
+            appStore = appStore,
+            settings = context.settings()
+        )
+    }
+
     /**
      * Contract for use cases that retrieve the user's currently selected wallpaper.
      */
@@ -93,7 +103,11 @@ class WallpapersUseCases(
         private val appStore: AppStore,
     ) : FetchCurrentWallpaperUseCase {
         override suspend fun invoke() {
-            Wallpaper.getCurrentWallpaperFromSettings(settings)?.let {
+            val currentWallpaper = when (settings.currentWallpaperName) {
+                Wallpaper.CUSTOM -> Wallpaper.Custom
+                else -> Wallpaper.getCurrentWallpaperFromSettings(settings)
+            }
+            currentWallpaper?.let {
                 appStore.dispatch(AppAction.WallpaperAction.UpdateCurrentWallpaper(it))
             }
         }
@@ -139,9 +153,19 @@ class WallpapersUseCases(
             val possibleWallpapers = metadataFetcher.downloadWallpaperList().filter {
                 !it.isExpired() && it.isAvailableInLocale()
             }
-            val currentWallpaper = possibleWallpapers.find { it.name == currentWallpaperName }
-                ?: fileManager.lookupExpiredWallpaper(settings)
-                ?: Wallpaper.Default
+            val currentWallpaper = when (currentWallpaperName) {
+                Wallpaper.CUSTOM -> {
+                    // Check if custom wallpaper files exist
+                    if (fileManager.customWallpaperExists()) {
+                        Wallpaper.Custom
+                    } else {
+                        Wallpaper.Default
+                    }
+                }
+                else -> possibleWallpapers.find { it.name == currentWallpaperName }
+                    ?: fileManager.lookupExpiredWallpaper(settings)
+                    ?: Wallpaper.Default
+            }
 
             // Dispatching this early will make it accessible to the home screen ASAP. This may have
             // been dispatched by FetchCurrentWallpaperUseCase, but this could include additional metadata.
@@ -157,8 +181,13 @@ class WallpapersUseCases(
                 wallpaper.copy(thumbnailFileState = result)
             }
 
-            val defaultIncluded = listOf(Wallpaper.Default) + wallpapersWithUpdatedThumbnailState
-            appStore.dispatch(AppAction.WallpaperAction.UpdateAvailableWallpapers(defaultIncluded))
+            val customWallpaperIncluded = if (fileManager.customWallpaperExists()) {
+                listOf(Wallpaper.Custom)
+            } else {
+                emptyList()
+            }
+            val allWallpapers = listOf(Wallpaper.Default) + wallpapersWithUpdatedThumbnailState + customWallpaperIncluded
+            appStore.dispatch(AppAction.WallpaperAction.UpdateAvailableWallpapers(allWallpapers))
         }
 
         private fun Wallpaper.isExpired(): Boolean = when (this) {
@@ -234,13 +263,32 @@ class WallpapersUseCases(
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     internal class DefaultLoadThumbnailUseCase(private val filesDir: File) : LoadThumbnailUseCase {
         override suspend fun invoke(wallpaper: Wallpaper): Bitmap? = withContext(Dispatchers.IO) {
-            Result.runCatching {
-                val path = Wallpaper.getLocalPath(wallpaper.name, Wallpaper.ImageType.Thumbnail)
-                withContext(Dispatchers.IO) {
-                    val file = File(filesDir, path)
-                    BitmapFactory.decodeStream(file.inputStream())
-                }
-            }.getOrNull()
+            if (wallpaper.name == Wallpaper.CUSTOM) {
+                // Load custom wallpaper thumbnail
+                return@withContext Result.runCatching {
+                    val portraitFile = File(filesDir, Wallpaper.getLocalPath(Wallpaper.CUSTOM, Wallpaper.ImageType.Portrait))
+                    val landscapeFile = File(filesDir, Wallpaper.getLocalPath(Wallpaper.CUSTOM, Wallpaper.ImageType.Landscape))
+
+                    val fileToLoad = when {
+                        portraitFile.exists() -> portraitFile
+                        landscapeFile.exists() -> landscapeFile
+                        else -> null
+                    }
+
+                    fileToLoad?.let { file ->
+                        BitmapFactory.decodeStream(file.inputStream())
+                    }
+                }.getOrNull()
+            } else {
+                // Original implementation for other wallpapers
+                Result.runCatching {
+                    val path = Wallpaper.getLocalPath(wallpaper.name, Wallpaper.ImageType.Thumbnail)
+                    withContext(Dispatchers.IO) {
+                        val file = File(filesDir, path)
+                        BitmapFactory.decodeStream(file.inputStream())
+                    }
+                }.getOrNull()
+            }
         }
     }
 
@@ -295,6 +343,92 @@ class WallpapersUseCases(
 
         private fun dispatchDownloadState(wallpaper: Wallpaper, downloadState: Wallpaper.ImageFileState) {
             appStore.dispatch(AppAction.WallpaperAction.UpdateWallpaperDownloadState(wallpaper, downloadState))
+        }
+    }
+
+    /**
+     * Contract for usecase of setting a custom wallpaper.
+     */
+    interface SetCustomWallpaperUseCase {
+        /**
+         * Set a custom wallpaper from URIs.
+         *
+         * @param portraitUri The portrait orientation image URI.
+         * @param landscapeUri The landscape orientation image URI.
+         * @param useSingleImage Whether to use only the portrait image for both orientations.
+         */
+        suspend operator fun invoke(portraitUri: Uri?, landscapeUri: Uri?, useSingleImage: Boolean): Boolean
+    }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    internal class DefaultSetCustomWallpaperUseCase(
+        private val context: Context,
+        private val fileManager: WallpaperFileManager,
+        private val appStore: AppStore,
+        private val settings: Settings,
+    ) : SetCustomWallpaperUseCase {
+        
+        override suspend fun invoke(portraitUri: Uri?, landscapeUri: Uri?, useSingleImage: Boolean): Boolean {
+            var success = true
+            
+            // First, clean up any existing custom wallpapers if we're setting new ones
+            if (portraitUri != null || landscapeUri != null) {
+                // Delete existing files to prevent orphaned images
+                if (portraitUri != null) {
+                    fileManager.deleteCustomWallpaperImage(Wallpaper.ImageType.Portrait)
+                }
+                if (landscapeUri != null || useSingleImage) {
+                    fileManager.deleteCustomWallpaperImage(Wallpaper.ImageType.Landscape)
+                }
+            }
+            
+            // Save portrait image if provided
+            if (portraitUri != null) {
+                success = fileManager.copyCustomWallpaperImage(
+                    context,
+                    Wallpaper.ImageType.Portrait,
+                    portraitUri
+                ) && success
+            }
+            
+            // Save landscape image if provided and not using single image
+            if (landscapeUri != null && !useSingleImage) {
+                success = fileManager.copyCustomWallpaperImage(
+                    context,
+                    Wallpaper.ImageType.Landscape,
+                    landscapeUri
+                ) && success
+            } else if (useSingleImage && portraitUri != null) {
+                // Copy portrait to landscape for single image mode
+                success = fileManager.copyCustomWallpaperImage(
+                    context,
+                    Wallpaper.ImageType.Landscape,
+                    portraitUri
+                ) && success
+            }
+            
+            // If we successfully saved at least one image, set it as current wallpaper
+            if (success && (portraitUri != null || landscapeUri != null)) {
+                settings.currentWallpaperName = Wallpaper.CUSTOM
+                settings.currentWallpaperTextColor = 0L
+                settings.currentWallpaperCardColorLight = 0L
+                settings.currentWallpaperCardColorDark = 0L
+                // Store whether single image mode was used
+                settings.customWallpaperUseSingleImage = useSingleImage
+                appStore.dispatch(AppAction.WallpaperAction.UpdateCurrentWallpaper(Wallpaper.Custom))
+                
+                // Update available wallpapers to include custom
+                val currentWallpapers = appStore.state.wallpaperState.availableWallpapers
+                if (currentWallpapers.none { it.name == Wallpaper.CUSTOM }) {
+                    appStore.dispatch(
+                        AppAction.WallpaperAction.UpdateAvailableWallpapers(
+                            currentWallpapers + Wallpaper.Custom
+                        )
+                    )
+                }
+            }
+            
+            return success
         }
     }
 }

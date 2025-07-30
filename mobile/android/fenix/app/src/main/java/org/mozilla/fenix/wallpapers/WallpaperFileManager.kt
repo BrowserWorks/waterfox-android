@@ -4,6 +4,8 @@
 
 package org.mozilla.fenix.wallpapers
 
+import android.content.Context
+import android.net.Uri
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -73,5 +75,59 @@ class WallpaperFileManager(
      */
     suspend fun wallpaperImagesExist(wallpaper: Wallpaper): Boolean = withContext(coroutineDispatcher) {
         allAssetsExist(wallpaper.name)
+    }
+
+    /**
+     * Copy custom wallpaper image from URI to app storage
+     */
+    suspend fun copyCustomWallpaperImage(
+        context: Context,
+        imageType: Wallpaper.ImageType,
+        uri: Uri,
+    ): Boolean = withContext(coroutineDispatcher) {
+        return@withContext try {
+            val localFile = File(
+                storageRootDirectory,
+                Wallpaper.getLocalPath(Wallpaper.CUSTOM, imageType)
+            )
+            localFile.parentFile?.mkdirs()
+
+            context.contentResolver.openInputStream(uri)?.use { input ->
+                localFile.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    /**
+     * Delete custom wallpaper file for given image type
+     */
+    suspend fun deleteCustomWallpaperImage(imageType: Wallpaper.ImageType): Boolean = withContext(coroutineDispatcher) {
+        return@withContext try {
+            val localFile = File(
+                storageRootDirectory,
+                Wallpaper.getLocalPath(Wallpaper.CUSTOM, imageType)
+            )
+            if (localFile.exists()) {
+                localFile.delete()
+            } else {
+                true
+            }
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    /**
+     * Check if custom wallpaper exists
+     */
+    suspend fun customWallpaperExists(): Boolean = withContext(coroutineDispatcher) {
+        val portraitFile = File(storageRootDirectory, Wallpaper.getLocalPath(Wallpaper.CUSTOM, Wallpaper.ImageType.Portrait))
+        val landscapeFile = File(storageRootDirectory, Wallpaper.getLocalPath(Wallpaper.CUSTOM, Wallpaper.ImageType.Landscape))
+        return@withContext portraitFile.exists() || landscapeFile.exists()
     }
 }

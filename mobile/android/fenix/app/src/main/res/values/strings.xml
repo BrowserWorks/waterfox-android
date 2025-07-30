@@ -437,6 +437,31 @@
     <!-- Content description (not visible, for screen readers etc.): Close button for the home onboarding dialog -->
     <string name="onboarding_home_content_description_close_button">Close</string>
 
+    <!-- Label for the button that opens system picker to select custom wallpaper image for portrait orientation -->
+    <string name="wallpaper_select_portrait">Select portrait</string>
+    <!-- Label for the button that opens system picker to select custom wallpaper image for landscape orientation -->
+    <string name="wallpaper_select_landscape">Select landscape</string>
+    <!-- Label for the button that saves the custom wallpaper -->
+    <string name="wallpaper_save_custom">Save</string>
+    <!-- Label for the switch that toggles using single image for both orientations -->
+    <string name="wallpaper_use_single_image">Use single image</string>
+    <!-- Content description for a wallpaper image -->
+    <string name="wallpaper_image_content_description">Wallpaper image</string>
+    <!-- Label for custom wallpaper option -->
+    <string name="wallpaper_custom">Custom</string>
+    <!-- Error message shown when no image is selected for custom wallpaper -->
+    <string name="wallpaper_error_no_image_selected">Please select at least one image</string>
+    <!-- Error message shown when portrait image is required for single image mode -->
+    <string name="wallpaper_error_portrait_required">Please select a portrait image when using single image mode</string>
+    <!-- Error message shown when selected image format is not supported -->
+    <string name="wallpaper_error_invalid_format">Selected image format is not supported. Please use JPEG, PNG, or WebP</string>
+    <!-- Error message shown when selected image file is too large -->
+    <string name="wallpaper_error_file_too_large">Selected image is too large. Please choose an image smaller than 10MB</string>
+    <!-- Generic error message with details. %s will be replaced with error details -->
+    <string name="wallpaper_error_generic">An error occurred: %s</string>
+    <!-- Error message shown when wallpaper save operation fails -->
+    <string name="wallpaper_error_save_failed">Failed to save wallpaper. Please try again</string>
+
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Description for learning more about our privacy notice. -->
     <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Waterfox Privacy Notice</string>

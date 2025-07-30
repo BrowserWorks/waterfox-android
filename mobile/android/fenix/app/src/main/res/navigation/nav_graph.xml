@@ -785,7 +785,19 @@
     <fragment
         android:id="@+id/wallpaperSettingsFragment"
         android:name="org.mozilla.fenix.settings.wallpaper.WallpaperSettingsFragment"
-        android:label="@string/customize_wallpapers"/>
+        android:label="@string/customize_wallpapers">
+        <action
+            android:id="@+id/action_wallpaperSettingsFragment_to_customWallpaperFragment"
+            app:destination="@id/customWallpaperFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/customWallpaperFragment"
+        android:name="org.mozilla.fenix.settings.wallpaper.CustomWallpaperFragment"
+        android:label="@string/customize_wallpapers" />
     <fragment
         android:id="@+id/dataChoicesFragment"
         android:name="org.mozilla.fenix.settings.DataChoicesFragment"

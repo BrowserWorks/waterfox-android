@@ -6,6 +6,8 @@ package org.mozilla.fenix.settings.wallpaper
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.widget.ImageView
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -38,6 +40,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.SemanticsPropertyReceiver
@@ -46,13 +50,17 @@ import androidx.compose.ui.semantics.onClick
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.graphics.createBitmap
 import mozilla.components.compose.base.annotation.FlexibleWindowLightDarkPreview
 import mozilla.components.compose.base.modifier.debouncedClickable
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.ClickableSubstringLink
+import org.mozilla.fenix.settings.wallpaper.CustomWallpaperUtils
+import org.mozilla.fenix.settings.wallpaper.CustomWallpaperImage
 import org.mozilla.fenix.theme.FirefoxTheme
 import org.mozilla.fenix.wallpapers.Wallpaper
+import java.io.File
 
 /**
  * The screen for controlling settings around Wallpapers. When a new wallpaper is selected,
@@ -75,12 +83,12 @@ fun WallpaperSettings(
     selectedWallpaper: Wallpaper,
     onSelectWallpaper: (Wallpaper) -> Unit,
     onLearnMoreClick: (String, String) -> Unit,
+    onSetCustomWallpaper: () -> Unit, // Add this parameter
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .background(color = FirefoxTheme.colors.layer1)
             .padding(horizontal = FirefoxTheme.layout.space.dynamic400),
     ) {
         Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic400))
@@ -100,6 +108,7 @@ fun WallpaperSettings(
                     loadWallpaperResource = loadWallpaperResource,
                     selectedWallpaper = selectedWallpaper,
                     onSelectWallpaper = onSelectWallpaper,
+                    onSetCustomWallpaper = onSetCustomWallpaper, // Add this line
                 )
 
                 Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic400))
@@ -185,31 +194,49 @@ private fun WallpaperGroupHeading(
  * @param loadWallpaperResource Callback to handle loading a wallpaper bitmap. Only optional in the default case.
  * @param onSelectWallpaper Action to take when a new wallpaper is selected.
  */
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-fun WallpaperThumbnails(
-    wallpapers: List<Wallpaper>,
-    defaultWallpaper: Wallpaper,
-    selectedWallpaper: Wallpaper,
-    loadWallpaperResource: suspend (Wallpaper) -> Bitmap?,
-    onSelectWallpaper: (Wallpaper) -> Unit,
-) {
-    FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
-        verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
-    ) {
-        wallpapers.forEach { wallpaper ->
-            WallpaperThumbnailItem(
-                wallpaper = wallpaper,
-                defaultWallpaper = defaultWallpaper,
-                loadWallpaperResource = loadWallpaperResource,
-                isSelected = selectedWallpaper.name == wallpaper.name,
-                isLoading = wallpaper.assetsFileState == Wallpaper.ImageFileState.Downloading,
-                onSelect = onSelectWallpaper,
-            )
-        }
-    }
-}
+ @OptIn(ExperimentalLayoutApi::class)
+ @Composable
+ fun WallpaperThumbnails(
+     wallpapers: List<Wallpaper>,
+     defaultWallpaper: Wallpaper,
+     selectedWallpaper: Wallpaper,
+     loadWallpaperResource: suspend (Wallpaper) -> Bitmap?,
+     onSelectWallpaper: (Wallpaper) -> Unit,
+     onSetCustomWallpaper: () -> Unit,
+ ) {
+     FlowRow(
+         horizontalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
+         verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
+     ) {
+         wallpapers.forEach { wallpaper ->
+             if (wallpaper.name == Wallpaper.CUSTOM) {
+                 CustomWallpaperThumbnailItem(
+                     wallpaper = wallpaper,
+                     isSelected = selectedWallpaper.name == wallpaper.name,
+                     onSelect = { onSetCustomWallpaper() },
+                 )
+             } else {
+                 WallpaperThumbnailItem(
+                     wallpaper = wallpaper,
+                     defaultWallpaper = defaultWallpaper,
+                     loadWallpaperResource = loadWallpaperResource,
+                     isSelected = selectedWallpaper.name == wallpaper.name,
+                     isLoading = wallpaper.assetsFileState == Wallpaper.ImageFileState.Downloading,
+                     onSelect = onSelectWallpaper,
+                 )
+             }
+         }
+         
+         // Always show custom wallpaper picker, even if no custom wallpaper exists yet
+         if (wallpapers.none { it.name == Wallpaper.CUSTOM }) {
+             CustomWallpaperThumbnailItem(
+                 wallpaper = Wallpaper.Custom,
+                 isSelected = selectedWallpaper.name == Wallpaper.CUSTOM,
+                 onSelect = { onSetCustomWallpaper() },
+             )
+         }
+     }
+ }
 
 /**
  * A single wallpaper thumbnail.
@@ -276,8 +303,7 @@ private fun WallpaperThumbnailItem(
             if (bitmap == null) {
                 Spacer(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .background(color = FirefoxTheme.colors.layer1),
+                        .fillMaxSize(),
                 )
             } else {
                 bitmap?.let {
@@ -352,7 +378,76 @@ private fun WallpaperThumbnailsPreview() {
             onSelectWallpaper = { wallpaper ->
                 selectedWallpaper = wallpaper
             },
-            onLearnMoreClick = { _, _ -> },
+             onLearnMoreClick = { _, _ -> },
+            onSetCustomWallpaper = { }, // Add this line
         )
     }
 }
+
+/**
+ * A custom wallpaper thumbnail.
+ *
+ * @param wallpaper The wallpaper to display.
+ * @param isSelected Whether the wallpaper is currently selected.
+ * @param aspectRatio The ratio of height to width of the thumbnail.
+ * @param onSelect Action to take when this wallpaper is selected.
+ */
+@Composable
+@Suppress("LongParameterList")
+private fun CustomWallpaperThumbnailItem(
+    wallpaper: Wallpaper,
+    isSelected: Boolean,
+    aspectRatio: Float = CustomWallpaperUtils.WALLPAPER_THUMBNAIL_ASPECT_RATIO,
+    onSelect: (Wallpaper) -> Unit
+) {
+    val border = if (isSelected) {
+        BorderStroke(width = FirefoxTheme.layout.border.thick, color = FirefoxTheme.colors.borderAccent)
+    } else {
+        null
+    }
+
+    val description = stringResource(
+        R.string.wallpapers_item_name_content_description,
+        stringResource(R.string.wallpaper_custom),
+    )
+
+    Surface(
+        modifier = Modifier
+            .width(width = FirefoxTheme.layout.size.static1200)
+            .aspectRatio(aspectRatio)
+            .debouncedClickable { onSelect(wallpaper) },
+        shape = RoundedCornerShape(size = FirefoxTheme.layout.corner.large),
+        border = border,
+        elevation = FirefoxTheme.layout.elevation.medium,
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = FirefoxTheme.colors.layer2),
+            contentAlignment = Alignment.Center,
+        ) {
+            // Show a custom wallpaper preview if available, otherwise show add icon
+            val customWallpaperFile = CustomWallpaperUtils.getCustomWallpaperPreviewFile(LocalContext.current)
+            if (customWallpaperFile != null && customWallpaperFile.exists()) {
+                CustomWallpaperImage(
+                    file = customWallpaperFile,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .semantics { contentDescription = description },
+                    contentDescription = description,
+                    defaultImageRes = R.drawable.ic_file_type_image
+                )
+            } else {
+                // Show add/edit icon when no custom wallpaper is set
+                Image(
+                    painter = painterResource(R.drawable.ic_file_type_image),
+                    contentDescription = description,
+                    contentScale = ContentScale.None,
+                    modifier = Modifier.fillMaxSize(),
+                )
+            }
+        }
+    }
+}
+
+

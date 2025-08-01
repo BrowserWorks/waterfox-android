@@ -173,8 +173,19 @@
     <!-- Theme Settings -->
     <string name="pref_key_light_theme" translatable="false">pref_key_light_theme</string>
     <string name="pref_key_dark_theme" translatable="false">pref_key_dark_theme</string>
+    <string name="pref_key_black_theme" translatable="false">pref_key_black_theme</string>
     <string name="pref_key_auto_battery_theme" translatable="false">pref_key_auto_battery_theme</string>
     <string name="pref_key_follow_device_theme" translatable="false">pref_key_follow_device_theme</string>
+    <string name="pref_key_blue_theme" translatable="false">pref_key_blue_theme</string>
+    <string name="pref_key_violet_theme" translatable="false">pref_key_violet_theme</string>
+    <string name="pref_key_pink_theme" translatable="false">pref_key_pink_theme</string>
+    <string name="pref_key_green_theme" translatable="false">pref_key_green_theme</string>
+    <string name="pref_key_red_theme" translatable="false">pref_key_red_theme</string>
+    <string name="pref_key_orange_theme" translatable="false">pref_key_orange_theme</string>
+    <string name="pref_key_yellow_theme" translatable="false">pref_key_yellow_theme</string>
+    <string name="pref_key_cyan_theme" translatable="false">pref_key_cyan_theme</string>
+    <string name="pref_key_purple_theme" translatable="false">pref_key_purple_theme</string>
+    <string name="pref_key_theme" translatable="false">pref_key_theme</string>
 
     <!-- Customization Settings -->
     <string name="pref_key_customization_preference_screen" translatable="false">pref_key_customization_preference_screen</string>

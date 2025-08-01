@@ -780,6 +780,10 @@
     <string name="preferences_toolbar_2">Address bar location</string>
     <!-- Preference for changing default theme to dark or light mode -->
     <string name="preferences_theme">Theme</string>
+    <!-- Title for system theme category in theme settings -->
+    <string name="preferences_theme_system">System themes</string>
+    <!-- Title for color theme category in theme settings -->
+    <string name="preferences_theme_color">Color themes</string>
     <!-- Preference for customizing the home screen -->
     <string name="preferences_home_2">Homepage</string>
     <!-- Preference for gestures based actions -->
@@ -1143,6 +1147,26 @@
     <string name="preference_light_theme">Light</string>
     <!-- Preference for using dark theme -->
     <string name="preference_dark_theme">Dark</string>
+    <!-- Preference for using black theme -->
+    <string name="preference_black_theme">Black</string>
+    <!-- Preference for using violet theme -->
+    <string name="preference_violet_theme">Violet</string>
+    <!-- Preference for using blue theme -->
+    <string name="preference_blue_theme">Blue</string>
+    <!-- Preference for using pink theme -->
+    <string name="preference_pink_theme">Pink</string>
+    <!-- Preference for using green theme -->
+    <string name="preference_green_theme">Green</string>
+    <!-- Preference for using red theme -->
+    <string name="preference_red_theme">Red</string>
+    <!-- Preference for using orange theme -->
+    <string name="preference_orange_theme">Orange</string>
+    <!-- Preference for using yellow theme -->
+    <string name="preference_yellow_theme">Yellow</string>
+    <!-- Preference for using cyan theme -->
+    <string name="preference_cyan_theme">Cyan</string>
+    <!-- Preference for using purple theme -->
+    <string name="preference_purple_theme">Purple</string>
     <!-- Preference for using using dark or light theme automatically set by battery -->
     <string name="preference_auto_battery_theme">Set by Battery Saver</string>
     <!-- Preference for using following device theme -->

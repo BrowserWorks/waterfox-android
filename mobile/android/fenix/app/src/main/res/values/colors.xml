@@ -307,6 +307,667 @@
     <color name="sync_disconnected_background_private_theme">#5B5846</color>
     <color name="prompt_login_edit_text_cursor_color_private_theme">@color/photonViolet50</color>
 
+    <!-- Blue theme color palette - complete system mirroring private theme -->
+    
+    <!-- Layers -->
+    <!-- Blue theme layer colors -->
+    <!-- Default Screen background, Frontlayer background, App Bar Top, App Bar Bottom, Frontlayer header -->
+    <color name="fx_mobile_blue_layer_color_1">#0062fa</color>
+    <!-- Card background, Menu background, Dialog, Banner -->
+    <color name="fx_mobile_blue_layer_color_2">#0053cb</color>
+    <!-- Search -->
+    <color name="fx_mobile_blue_layer_color_3">#0041a4</color>
+    <color name="fx_mobile_blue_layer_color_search">#0041a4</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_blue_layer_color_4_start">#0062fa</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_blue_layer_color_4_center">#157aff</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_blue_layer_color_4_end">#3f94ff</color>
+    <!-- App Bar Top (edit), Text Cursor, Selected Tab Check -->
+    <color name="fx_mobile_blue_layer_color_accent" tools:ignore="UnusedResources">#157aff</color>
+    <!-- Selected tab -->
+    <color name="fx_mobile_blue_layer_color_accent_nonopaque">#52157aff</color>
+    <!-- Selected tab -->
+    <color name="fx_mobile_blue_layer_color_accent_opaque" tools:ignore="UnusedResources">#0062fa</color>
+    <color name="fx_mobile_blue_layer_color_scrim">@color/photonDarkGrey90A95</color>
+    <!-- Tooltip -->
+    <color name="fx_mobile_blue_layer_color_gradient_start" tools:ignore="UnusedResources">#0062fa</color>
+    <!-- Tooltip -->
+    <color name="fx_mobile_blue_layer_color_gradient_end" tools:ignore="UnusedResources">#3f94ff</color>
+
+    <!-- Violet theme layer colors -->
+    <!-- Default Screen background, Frontlayer background, App Bar Top, App Bar Bottom, Frontlayer header -->
+    <color name="fx_mobile_violet_layer_color_1">#7844f0</color>
+    <!-- Card background, Menu background, Dialog, Banner -->
+    <color name="fx_mobile_violet_layer_color_2">#623ac3</color>
+    <!-- Search -->
+    <color name="fx_mobile_violet_layer_color_3">#4e2e9d</color>
+    <color name="fx_mobile_violet_layer_color_search">#4e2e9d</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_violet_layer_color_4_start">#7844f0</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_violet_layer_color_4_center">#8b5cff</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_violet_layer_color_4_end">#9e7aff</color>
+    <!-- App Bar Top (edit), Text Cursor, Selected Tab Check -->
+    <color name="fx_mobile_violet_layer_color_accent" tools:ignore="UnusedResources">#8b5cff</color>
+    <!-- Selected tab -->
+    <color name="fx_mobile_violet_layer_color_accent_nonopaque">#528b5cff</color>
+    <!-- Selected tab -->
+    <color name="fx_mobile_violet_layer_color_accent_opaque" tools:ignore="UnusedResources">#7844f0</color>
+    <color name="fx_mobile_violet_layer_color_scrim">@color/photonDarkGrey90A95</color>
+    <!-- Tooltip -->
+    <color name="fx_mobile_violet_layer_color_gradient_start" tools:ignore="UnusedResources">#7844f0</color>
+    <!-- Tooltip -->
+    <color name="fx_mobile_violet_layer_color_gradient_end" tools:ignore="UnusedResources">#9e7aff</color>
+
+    <!-- Pink theme layer colors -->
+    <!-- Default Screen background, Frontlayer background, App Bar Top, App Bar Bottom, Frontlayer header -->
+    <color name="fx_mobile_pink_layer_color_1">#c91a6d</color>
+    <!-- Card background, Menu background, Dialog, Banner -->
+    <color name="fx_mobile_pink_layer_color_2">#ad0059</color>
+    <!-- Search -->
+    <color name="fx_mobile_pink_layer_color_3">#8b0047</color>
+    <color name="fx_mobile_pink_layer_color_search">#8b0047</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_pink_layer_color_4_start">#c91a6d</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_pink_layer_color_4_center">#e23a81</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_pink_layer_color_4_end">#f45e96</color>
+    <!-- App Bar Top (edit), Text Cursor, Selected Tab Check -->
+    <color name="fx_mobile_pink_layer_color_accent" tools:ignore="UnusedResources">#e23a81</color>
+    <!-- Selected tab -->
+    <color name="fx_mobile_pink_layer_color_accent_nonopaque">#52e23a81</color>
+    <!-- Selected tab -->
+    <color name="fx_mobile_pink_layer_color_accent_opaque" tools:ignore="UnusedResources">#c91a6d</color>
+    <color name="fx_mobile_pink_layer_color_scrim">@color/photonDarkGrey90A95</color>
+    <!-- Tooltip -->
+    <color name="fx_mobile_pink_layer_color_gradient_start" tools:ignore="UnusedResources">#c91a6d</color>
+    <!-- Tooltip -->
+    <color name="fx_mobile_pink_layer_color_gradient_end" tools:ignore="UnusedResources">#f45e96</color>
+
+    <!-- Green theme layer colors -->
+    <!-- Default Screen background, Frontlayer background, App Bar Top, App Bar Bottom, Frontlayer header -->
+    <color name="fx_mobile_green_layer_color_1">#008e00</color>
+    <!-- Card background, Menu background, Dialog, Banner -->
+    <color name="fx_mobile_green_layer_color_2">#007700</color>
+    <!-- Search -->
+    <color name="fx_mobile_green_layer_color_3">#005f00</color>
+    <color name="fx_mobile_green_layer_color_search">#005f00</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_green_layer_color_4_start">#008e00</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_green_layer_color_4_center">#00a41c</color>
+    <!-- Homescreen background, Toolbar -->
+    <color name="fx_mobile_green_layer_color_4_end">#37b847</color>
+    <!-- App Bar Top (edit), Text Cursor, Selected Tab Check -->
+    <color name="fx_mobile_green_layer_color_accent" tools:ignore="UnusedResources">#00a41c</color>
+    <!-- Selected tab -->
+    <color name="fx_mobile_green_layer_color_accent_nonopaque">#5200a41c</color>
+    <!-- Selected tab -->
+    <color name="fx_mobile_green_layer_color_accent_opaque" tools:ignore="UnusedResources">#008e00</color>
+    <color name="fx_mobile_green_layer_color_scrim">@color/photonDarkGrey90A95</color>
+    <!-- Tooltip -->
+    <color name="fx_mobile_green_layer_color_gradient_start" tools:ignore="UnusedResources">#008e00</color>
+    <!-- Tooltip -->
+    <color name="fx_mobile_green_layer_color_gradient_end" tools:ignore="UnusedResources">#37b847</color>
+
+    <!-- Red theme layer colors -->
+    <color name="fx_mobile_red_layer_color_1">#cf1748</color>
+    <color name="fx_mobile_red_layer_color_2">#e8395c</color>
+    <color name="fx_mobile_red_layer_color_3">#90002b</color>
+    <color name="fx_mobile_red_layer_color_search">#90002b</color>
+    <color name="fx_mobile_red_layer_color_4_start">#cf1748</color>
+    <color name="fx_mobile_red_layer_color_4_center">#e8395c</color>
+    <color name="fx_mobile_red_layer_color_4_end">#fa5e75</color>
+    <color name="fx_mobile_red_layer_color_accent" tools:ignore="UnusedResources">#e8395c</color>
+    <color name="fx_mobile_red_layer_color_accent_nonopaque">#52e8395c</color>
+    <color name="fx_mobile_red_layer_color_accent_opaque" tools:ignore="UnusedResources">#cf1748</color>
+    <color name="fx_mobile_red_layer_color_scrim">@color/photonDarkGrey90A95</color>
+    <color name="fx_mobile_red_layer_color_gradient_start" tools:ignore="UnusedResources">#cf1748</color>
+    <color name="fx_mobile_red_layer_color_gradient_end" tools:ignore="UnusedResources">#fa5e75</color>
+
+    <!-- Orange theme layer colors -->
+    <color name="fx_mobile_orange_layer_color_1">#c73c00</color>
+    <color name="fx_mobile_orange_layer_color_2">#df5400</color>
+    <color name="fx_mobile_orange_layer_color_3">#8a1e00</color>
+    <color name="fx_mobile_orange_layer_color_search">#8a1e00</color>
+    <color name="fx_mobile_orange_layer_color_4_start">#c73c00</color>
+    <color name="fx_mobile_orange_layer_color_4_center">#df5400</color>
+    <color name="fx_mobile_orange_layer_color_4_end">#f07300</color>
+    <color name="fx_mobile_orange_layer_color_accent" tools:ignore="UnusedResources">#df5400</color>
+    <color name="fx_mobile_orange_layer_color_accent_nonopaque">#52df5400</color>
+    <color name="fx_mobile_orange_layer_color_accent_opaque" tools:ignore="UnusedResources">#c73c00</color>
+    <color name="fx_mobile_orange_layer_color_scrim">@color/photonDarkGrey90A95</color>
+    <color name="fx_mobile_orange_layer_color_gradient_start" tools:ignore="UnusedResources">#c73c00</color>
+    <color name="fx_mobile_orange_layer_color_gradient_end" tools:ignore="UnusedResources">#f07300</color>
+
+    <!-- Yellow theme layer colors -->
+    <color name="fx_mobile_yellow_layer_color_1">#b56700</color>
+    <color name="fx_mobile_yellow_layer_color_2">#cc7d00</color>
+    <color name="fx_mobile_yellow_layer_color_3">#773800</color>
+    <color name="fx_mobile_yellow_layer_color_search">#773800</color>
+    <color name="fx_mobile_yellow_layer_color_4_start">#b56700</color>
+    <color name="fx_mobile_yellow_layer_color_4_center">#cc7d00</color>
+    <color name="fx_mobile_yellow_layer_color_4_end">#de9600</color>
+    <color name="fx_mobile_yellow_layer_color_accent" tools:ignore="UnusedResources">#cc7d00</color>
+    <color name="fx_mobile_yellow_layer_color_accent_nonopaque">#52cc7d00</color>
+    <color name="fx_mobile_yellow_layer_color_accent_opaque" tools:ignore="UnusedResources">#b56700</color>
+    <color name="fx_mobile_yellow_layer_color_scrim">@color/photonDarkGrey90A95</color>
+    <color name="fx_mobile_yellow_layer_color_gradient_start" tools:ignore="UnusedResources">#b56700</color>
+    <color name="fx_mobile_yellow_layer_color_gradient_end" tools:ignore="UnusedResources">#de9600</color>
+
+    <!-- Cyan theme layer colors -->
+    <color name="fx_mobile_cyan_layer_color_1">#008eab</color>
+    <color name="fx_mobile_cyan_layer_color_2">#00a5c1</color>
+    <color name="fx_mobile_cyan_layer_color_3">#005f75</color>
+    <color name="fx_mobile_cyan_layer_color_search">#005f75</color>
+    <color name="fx_mobile_cyan_layer_color_4_start">#008eab</color>
+    <color name="fx_mobile_cyan_layer_color_4_center">#00a5c1</color>
+    <color name="fx_mobile_cyan_layer_color_4_end">#00b9d3</color>
+    <color name="fx_mobile_cyan_layer_color_accent" tools:ignore="UnusedResources">#00a5c1</color>
+    <color name="fx_mobile_cyan_layer_color_accent_nonopaque">#5200a5c1</color>
+    <color name="fx_mobile_cyan_layer_color_accent_opaque" tools:ignore="UnusedResources">#008eab</color>
+    <color name="fx_mobile_cyan_layer_color_scrim">@color/photonDarkGrey90A95</color>
+    <color name="fx_mobile_cyan_layer_color_gradient_start" tools:ignore="UnusedResources">#008eab</color>
+    <color name="fx_mobile_cyan_layer_color_gradient_end" tools:ignore="UnusedResources">#00b9d3</color>
+
+    <!-- Purple theme layer colors - matches Private Browsing exactly -->
+    <color name="fx_mobile_purple_layer_color_1">#321C64</color>
+    <color name="fx_mobile_purple_layer_color_2">#45278D</color>
+    <color name="fx_mobile_purple_layer_color_3">#1d1133</color>
+    <color name="fx_mobile_purple_layer_color_search">#1d1133</color>
+    <color name="fx_mobile_purple_layer_color_4_start">#321C64</color>
+    <color name="fx_mobile_purple_layer_color_4_center">#45278D</color>
+    <color name="fx_mobile_purple_layer_color_4_end">#952BB9</color>
+    <color name="fx_mobile_purple_layer_color_accent" tools:ignore="UnusedResources">#952BB9</color>
+    <color name="fx_mobile_purple_layer_color_accent_nonopaque">#52952BB9</color>
+    <color name="fx_mobile_purple_layer_color_accent_opaque" tools:ignore="UnusedResources">#952BB9</color>
+    <color name="fx_mobile_purple_layer_color_scrim">@color/photonDarkGrey90A95</color>
+    <color name="fx_mobile_purple_layer_color_gradient_start" tools:ignore="UnusedResources">#45278D</color>
+    <color name="fx_mobile_purple_layer_color_gradient_end" tools:ignore="UnusedResources">#952BB9</color>
+
+    <!-- Blue Action -->
+    <!-- Primary button, Snackbar, Floating action button, Chip selected -->
+    <color name="fx_mobile_blue_action_color_primary">#157aff</color>
+    <!-- Primary button in a disabled state -->
+    <color name="fx_mobile_blue_action_color_primary_disabled">@color/photonInk20A20</color>
+    <!-- Secondary button -->
+    <color name="fx_mobile_blue_action_color_secondary" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Filter -->
+    <color name="fx_mobile_blue_action_color_tertiary" tools:ignore="UnusedResources">@color/photonDarkGrey10</color>
+    <!-- Chip -->
+    <color name="fx_mobile_blue_action_quarternary" tools:ignore="UnusedResources">@color/photonDarkGrey80</color>
+    <!-- Checkbox default, Radio button default -->
+    <color name="fx_mobile_blue_action_color_form_default" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Checkbox selected, Radio button selected -->
+    <color name="fx_mobile_blue_action_color_form_selected" tools:ignore="UnusedResources">@color/photonBlue40</color>
+    <!-- Switch background OFF, Switch background ON -->
+    <color name="fx_mobile_blue_action_color_form_surface" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Checkbox disabled, Radio disabled -->
+    <color name="fx_mobile_blue_action_color_form_disabled" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Switch thumb ON -->
+    <color name="fx_mobile_blue_action_color_form_on" tools:ignore="UnusedResources">@color/photonBlue40</color>
+    <!-- Switch thumb OFF -->
+    <color name="fx_mobile_blue_action_color_form_off" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Scroll indicator active -->
+    <color name="fx_mobile_blue_action_color_indicator_active" tools:ignore="UnusedResources">@color/photonLightGrey90</color>
+    <!-- Scroll indicator inactive -->
+    <color name="fx_mobile_blue_action_color_indicator_inactive" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+
+    <!-- Violet Action -->
+    <!-- Primary button, Snackbar, Floating action button, Chip selected -->
+    <color name="fx_mobile_violet_action_color_primary">#8b5cff</color>
+    <!-- Primary button in a disabled state -->
+    <color name="fx_mobile_violet_action_color_primary_disabled">@color/photonInk20A20</color>
+    <!-- Secondary button -->
+    <color name="fx_mobile_violet_action_color_secondary" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Filter -->
+    <color name="fx_mobile_violet_action_color_tertiary" tools:ignore="UnusedResources">@color/photonDarkGrey10</color>
+    <!-- Chip -->
+    <color name="fx_mobile_violet_action_quarternary" tools:ignore="UnusedResources">@color/photonDarkGrey80</color>
+    <!-- Checkbox default, Radio button default -->
+    <color name="fx_mobile_violet_action_color_form_default" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Checkbox selected, Radio button selected -->
+    <color name="fx_mobile_violet_action_color_form_selected" tools:ignore="UnusedResources">@color/photonViolet40</color>
+    <!-- Switch background OFF, Switch background ON -->
+    <color name="fx_mobile_violet_action_color_form_surface" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Checkbox disabled, Radio disabled -->
+    <color name="fx_mobile_violet_action_color_form_disabled" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Switch thumb ON -->
+    <color name="fx_mobile_violet_action_color_form_on" tools:ignore="UnusedResources">@color/photonViolet40</color>
+    <!-- Switch thumb OFF -->
+    <color name="fx_mobile_violet_action_color_form_off" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Scroll indicator active -->
+    <color name="fx_mobile_violet_action_color_indicator_active" tools:ignore="UnusedResources">@color/photonLightGrey90</color>
+    <!-- Scroll indicator inactive -->
+    <color name="fx_mobile_violet_action_color_indicator_inactive" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+
+    <!-- Pink Action -->
+    <!-- Primary button, Snackbar, Floating action button, Chip selected -->
+    <color name="fx_mobile_pink_action_color_primary">#e23a81</color>
+    <!-- Primary button in a disabled state -->
+    <color name="fx_mobile_pink_action_color_primary_disabled">@color/photonInk20A20</color>
+    <!-- Secondary button -->
+    <color name="fx_mobile_pink_action_color_secondary" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Filter -->
+    <color name="fx_mobile_pink_action_color_tertiary" tools:ignore="UnusedResources">@color/photonDarkGrey10</color>
+    <!-- Chip -->
+    <color name="fx_mobile_pink_action_quarternary" tools:ignore="UnusedResources">@color/photonDarkGrey80</color>
+    <!-- Checkbox default, Radio button default -->
+    <color name="fx_mobile_pink_action_color_form_default" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Checkbox selected, Radio button selected -->
+    <color name="fx_mobile_pink_action_color_form_selected" tools:ignore="UnusedResources">@color/photonPink40</color>
+    <!-- Switch background OFF, Switch background ON -->
+    <color name="fx_mobile_pink_action_color_form_surface" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Checkbox disabled, Radio disabled -->
+    <color name="fx_mobile_pink_action_color_form_disabled" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Switch thumb ON -->
+    <color name="fx_mobile_pink_action_color_form_on" tools:ignore="UnusedResources">@color/photonPink40</color>
+    <!-- Switch thumb OFF -->
+    <color name="fx_mobile_pink_action_color_form_off" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Scroll indicator active -->
+    <color name="fx_mobile_pink_action_color_indicator_active" tools:ignore="UnusedResources">@color/photonLightGrey90</color>
+    <!-- Scroll indicator inactive -->
+    <color name="fx_mobile_pink_action_color_indicator_inactive" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+
+    <!-- Green Action -->
+    <!-- Primary button, Snackbar, Floating action button, Chip selected -->
+    <color name="fx_mobile_green_action_color_primary">#00a41c</color>
+    <!-- Primary button in a disabled state -->
+    <color name="fx_mobile_green_action_color_primary_disabled">@color/photonInk20A20</color>
+    <!-- Secondary button -->
+    <color name="fx_mobile_green_action_color_secondary" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Filter -->
+    <color name="fx_mobile_green_action_color_tertiary" tools:ignore="UnusedResources">@color/photonDarkGrey10</color>
+    <!-- Chip -->
+    <color name="fx_mobile_green_action_quarternary" tools:ignore="UnusedResources">@color/photonDarkGrey80</color>
+    <!-- Checkbox default, Radio button default -->
+    <color name="fx_mobile_green_action_color_form_default" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Checkbox selected, Radio button selected -->
+    <color name="fx_mobile_green_action_color_form_selected" tools:ignore="UnusedResources">@color/photonGreen40</color>
+    <!-- Switch background OFF, Switch background ON -->
+    <color name="fx_mobile_green_action_color_form_surface" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Checkbox disabled, Radio disabled -->
+    <color name="fx_mobile_green_action_color_form_disabled" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+    <!-- Switch thumb ON -->
+    <color name="fx_mobile_green_action_color_form_on" tools:ignore="UnusedResources">@color/photonGreen40</color>
+    <!-- Switch thumb OFF -->
+    <color name="fx_mobile_green_action_color_form_off" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Scroll indicator active -->
+    <color name="fx_mobile_green_action_color_indicator_active" tools:ignore="UnusedResources">@color/photonLightGrey90</color>
+    <!-- Scroll indicator inactive -->
+    <color name="fx_mobile_green_action_color_indicator_inactive" tools:ignore="UnusedResources">@color/photonDarkGrey05</color>
+
+    <!-- Red Action -->
+    <color name="fx_mobile_red_action_color_primary">#e8395c</color>
+    <color name="fx_mobile_red_action_color_primary_disabled">@color/photonInk20A20</color>
+
+    <!-- Orange Action -->
+    <color name="fx_mobile_orange_action_color_primary">#df5400</color>
+    <color name="fx_mobile_orange_action_color_primary_disabled">@color/photonInk20A20</color>
+
+    <!-- Yellow Action -->
+    <color name="fx_mobile_yellow_action_color_primary">#cc7d00</color>
+    <color name="fx_mobile_yellow_action_color_primary_disabled">@color/photonInk20A20</color>
+
+    <!-- Cyan Action -->
+    <color name="fx_mobile_cyan_action_color_primary">#00a5c1</color>
+    <color name="fx_mobile_cyan_action_color_primary_disabled">@color/photonInk20A20</color>
+
+    <!-- Purple Action -->
+    <color name="fx_mobile_purple_action_color_primary">#b453db</color>
+    <color name="fx_mobile_purple_action_color_primary_disabled">@color/photonInk20A20</color>
+
+    <!-- Blue Text -->
+    <!-- Primary text -->
+    <color name="fx_mobile_blue_text_color_primary">@color/photonLightGrey05</color>
+    <!-- Secondary text -->
+    <color name="fx_mobile_blue_text_color_secondary">@color/photonLightGrey40</color>
+    <!-- Disabled text -->
+    <color name="fx_mobile_blue_text_color_disabled">@color/photonLightGrey05A40</color>
+    <!-- Warning text -->
+    <color name="fx_mobile_blue_text_color_critical">@color/photonRed20</color>
+    <!-- Warning text on Secondary button -->
+    <color name="fx_mobile_blue_text_color_critical_button" tools:ignore="UnusedResources">@color/photonRed20</color>
+    <!-- Small heading, Text link -->
+    <color name="fx_mobile_blue_text_color_accent">#84c6ff</color>
+    <!-- Small heading, Text link -->
+    <color name="fx_mobile_blue_text_color_accent_disabled" tools:ignore="UnusedResources">#9900DDFF</color>
+    <!-- Text Inverted/On Color -->
+    <color name="fx_mobile_blue_text_color_oncolor_primary">@color/photonLightGrey05</color>
+    <!-- Text Inverted/On Color -->
+    <color name="fx_mobile_blue_text_color_oncolor_secondary" tools:ignore="UnusedResources">@color/photonLightGrey40</color>
+    <!-- Action Primary text -->
+    <color name="fx_mobile_blue_text_color_action_primary">@color/photonLightGrey05</color>
+    <!-- Action Primary disabled text -->
+    <color name="fx_mobile_blue_text_color_action_primary_disabled">@color/photonLightGrey05A40</color>
+    <!-- Action Secondary text -->
+    <color name="fx_mobile_blue_text_color_action_secondary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Action Tertiary text -->
+    <color name="fx_mobile_blue_text_color_action_tertiary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Action Tertiary Active text -->
+    <color name="fx_mobile_blue_text_color_action_tertiary_active" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+
+    <!-- Violet Text -->
+    <!-- Primary text -->
+    <color name="fx_mobile_violet_text_color_primary">@color/photonLightGrey05</color>
+    <!-- Secondary text -->
+    <color name="fx_mobile_violet_text_color_secondary">@color/photonLightGrey40</color>
+    <!-- Disabled text -->
+    <color name="fx_mobile_violet_text_color_disabled">@color/photonLightGrey05A40</color>
+    <!-- Warning text -->
+    <color name="fx_mobile_violet_text_color_critical">@color/photonRed20</color>
+    <!-- Warning text on Secondary button -->
+    <color name="fx_mobile_violet_text_color_critical_button" tools:ignore="UnusedResources">@color/photonRed20</color>
+    <!-- Small heading, Text link -->
+    <color name="fx_mobile_violet_text_color_accent">#c7b2ff</color>
+    <!-- Small heading, Text link -->
+    <color name="fx_mobile_violet_text_color_accent_disabled" tools:ignore="UnusedResources">#99952BB9</color>
+    <!-- Text Inverted/On Color -->
+    <color name="fx_mobile_violet_text_color_oncolor_primary">@color/photonLightGrey05</color>
+    <!-- Text Inverted/On Color -->
+    <color name="fx_mobile_violet_text_color_oncolor_secondary" tools:ignore="UnusedResources">@color/photonLightGrey40</color>
+    <!-- Action Primary text -->
+    <color name="fx_mobile_violet_text_color_action_primary">@color/photonLightGrey05</color>
+    <!-- Action Primary disabled text -->
+    <color name="fx_mobile_violet_text_color_action_primary_disabled">@color/photonLightGrey05A40</color>
+    <!-- Action Secondary text -->
+    <color name="fx_mobile_violet_text_color_action_secondary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Action Tertiary text -->
+    <color name="fx_mobile_violet_text_color_action_tertiary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Action Tertiary Active text -->
+    <color name="fx_mobile_violet_text_color_action_tertiary_active" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+
+    <!-- Pink Text -->
+    <!-- Primary text -->
+    <color name="fx_mobile_pink_text_color_primary">@color/photonLightGrey05</color>
+    <!-- Secondary text -->
+    <color name="fx_mobile_pink_text_color_secondary">@color/photonLightGrey40</color>
+    <!-- Disabled text -->
+    <color name="fx_mobile_pink_text_color_disabled">@color/photonLightGrey05A40</color>
+    <!-- Warning text -->
+    <color name="fx_mobile_pink_text_color_critical">@color/photonRed20</color>
+    <!-- Warning text on Secondary button -->
+    <color name="fx_mobile_pink_text_color_critical_button" tools:ignore="UnusedResources">@color/photonRed20</color>
+    <!-- Small heading, Text link -->
+    <color name="fx_mobile_pink_text_color_accent">#ff9fc3</color>
+    <!-- Small heading, Text link -->
+    <color name="fx_mobile_pink_text_color_accent_disabled" tools:ignore="UnusedResources">#99E21587</color>
+    <!-- Text Inverted/On Color -->
+    <color name="fx_mobile_pink_text_color_oncolor_primary">@color/photonLightGrey05</color>
+    <!-- Text Inverted/On Color -->
+    <color name="fx_mobile_pink_text_color_oncolor_secondary" tools:ignore="UnusedResources">@color/photonLightGrey40</color>
+    <!-- Action Primary text -->
+    <color name="fx_mobile_pink_text_color_action_primary">@color/photonLightGrey05</color>
+    <!-- Action Primary disabled text -->
+    <color name="fx_mobile_pink_text_color_action_primary_disabled">@color/photonLightGrey05A40</color>
+    <!-- Action Secondary text -->
+    <color name="fx_mobile_pink_text_color_action_secondary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Action Tertiary text -->
+    <color name="fx_mobile_pink_text_color_action_tertiary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Action Tertiary Active text -->
+    <color name="fx_mobile_pink_text_color_action_tertiary_active" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+
+    <!-- Green Text -->
+    <!-- Primary text -->
+    <color name="fx_mobile_green_text_color_primary">@color/photonLightGrey05</color>
+    <!-- Secondary text -->
+    <color name="fx_mobile_green_text_color_secondary">@color/photonLightGrey40</color>
+    <!-- Disabled text -->
+    <color name="fx_mobile_green_text_color_disabled">@color/photonLightGrey05A40</color>
+    <!-- Warning text -->
+    <color name="fx_mobile_green_text_color_critical">@color/photonRed20</color>
+    <!-- Warning text on Secondary button -->
+    <color name="fx_mobile_green_text_color_critical_button" tools:ignore="UnusedResources">@color/photonRed20</color>
+    <!-- Small heading, Text link -->
+    <color name="fx_mobile_green_text_color_accent">#8adf8d</color>
+    <!-- Small heading, Text link -->
+    <color name="fx_mobile_green_text_color_accent_disabled" tools:ignore="UnusedResources">#992AC3A2</color>
+    <!-- Text Inverted/On Color -->
+    <color name="fx_mobile_green_text_color_oncolor_primary">@color/photonLightGrey05</color>
+    <!-- Text Inverted/On Color -->
+    <color name="fx_mobile_green_text_color_oncolor_secondary" tools:ignore="UnusedResources">@color/photonLightGrey40</color>
+    <!-- Action Primary text -->
+    <color name="fx_mobile_green_text_color_action_primary">@color/photonLightGrey05</color>
+    <!-- Action Primary disabled text -->
+    <color name="fx_mobile_green_text_color_action_primary_disabled">@color/photonLightGrey05A40</color>
+    <!-- Action Secondary text -->
+    <color name="fx_mobile_green_text_color_action_secondary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Action Tertiary text -->
+    <color name="fx_mobile_green_text_color_action_tertiary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Action Tertiary Active text -->
+    <color name="fx_mobile_green_text_color_action_tertiary_active" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+
+    <!-- Red Text -->
+    <color name="fx_mobile_red_text_color_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_red_text_color_secondary">@color/photonLightGrey40</color>
+    <color name="fx_mobile_red_text_color_disabled">@color/photonLightGrey05A40</color>
+    <color name="fx_mobile_red_text_color_critical">@color/photonRed20</color>
+    <color name="fx_mobile_red_text_color_accent">#ffa0aa</color>
+    <color name="fx_mobile_red_text_color_oncolor_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_red_text_color_action_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_red_text_color_action_primary_disabled">@color/photonLightGrey05A40</color>
+
+    <!-- Orange Text -->
+    <color name="fx_mobile_orange_text_color_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_orange_text_color_secondary">@color/photonLightGrey40</color>
+    <color name="fx_mobile_orange_text_color_disabled">@color/photonLightGrey05A40</color>
+    <color name="fx_mobile_orange_text_color_critical">@color/photonRed20</color>
+    <color name="fx_mobile_orange_text_color_accent">#ffad69</color>
+    <color name="fx_mobile_orange_text_color_oncolor_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_orange_text_color_action_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_orange_text_color_action_primary_disabled">@color/photonLightGrey05A40</color>
+
+    <!-- Yellow Text -->
+    <color name="fx_mobile_yellow_text_color_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_yellow_text_color_secondary">@color/photonLightGrey40</color>
+    <color name="fx_mobile_yellow_text_color_disabled">@color/photonLightGrey05A40</color>
+    <color name="fx_mobile_yellow_text_color_critical">@color/photonRed20</color>
+    <color name="fx_mobile_yellow_text_color_accent">#f5cc58</color>
+    <color name="fx_mobile_yellow_text_color_oncolor_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_yellow_text_color_action_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_yellow_text_color_action_primary_disabled">@color/photonLightGrey05A40</color>
+
+    <!-- Cyan Text -->
+    <color name="fx_mobile_cyan_text_color_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_cyan_text_color_secondary">@color/photonLightGrey40</color>
+    <color name="fx_mobile_cyan_text_color_disabled">@color/photonLightGrey05A40</color>
+    <color name="fx_mobile_cyan_text_color_critical">@color/photonRed20</color>
+    <color name="fx_mobile_cyan_text_color_accent">#61dce9</color>
+    <color name="fx_mobile_cyan_text_color_oncolor_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_cyan_text_color_action_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_cyan_text_color_action_primary_disabled">@color/photonLightGrey05A40</color>
+
+    <!-- Purple Text -->
+    <color name="fx_mobile_purple_text_color_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_purple_text_color_secondary">@color/photonLightGrey40</color>
+    <color name="fx_mobile_purple_text_color_disabled">@color/photonLightGrey05A40</color>
+    <color name="fx_mobile_purple_text_color_critical">@color/photonRed20</color>
+    <color name="fx_mobile_purple_text_color_accent">#eaabff</color>
+    <color name="fx_mobile_purple_text_color_oncolor_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_purple_text_color_action_primary">@color/photonLightGrey05</color>
+    <color name="fx_mobile_purple_text_color_action_primary_disabled">@color/photonLightGrey05A40</color>
+
+    <!-- Icon -->
+    <!-- Primary icon -->
+    <color name="fx_mobile_blue_icon_color_primary">@color/photonLightGrey05</color>
+    <!-- Inactive tab -->
+    <color name="fx_mobile_blue_icon_color_primary_inactive" tools:ignore="UnusedResources">@color/photonLightGrey05A60</color>
+    <!-- Secondary icon -->
+    <color name="fx_mobile_blue_icon_color_secondary">@color/photonLightGrey40</color>
+    <!-- Active tab -->
+    <color name="fx_mobile_blue_icon_color_active">@color/photonBlue40</color>
+    <!-- Disabled icon -->
+    <color name="fx_mobile_blue_icon_color_disabled" tools:ignore="UnusedResources">@color/photonLightGrey05A40</color>
+    <!-- Icon inverted (on color) -->
+    <color name="fx_mobile_blue_icon_color_oncolor">@color/photonLightGrey05</color>
+    <!-- Information -->
+    <color name="fx_mobile_blue_icon_color_information" tools:ignore="UnusedResources">@color/photonBlue30</color>
+    <!-- Icon button -->
+    <color name="fx_mobile_blue_icon_color_button" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <color name="fx_mobile_blue_icon_color_critical" tools:ignore="UnusedResources">@color/photonRed20</color>
+    <!-- Warning icon on Secondary button -->
+    <color name="fx_mobile_blue_icon_color_critical_button" tools:ignore="UnusedResources">@color/photonRed20</color>
+    <color name="fx_mobile_blue_icon_color_accent_violet" tools:ignore="UnusedResources">@color/photonViolet20</color>
+    <color name="fx_mobile_blue_icon_color_accent_blue" tools:ignore="UnusedResources">@color/photonBlue20</color>
+    <color name="fx_mobile_blue_icon_color_accent_pink" tools:ignore="UnusedResources">@color/photonPink20</color>
+    <color name="fx_mobile_blue_icon_color_accent_green" tools:ignore="UnusedResources">@color/photonGreen20</color>
+    <color name="fx_mobile_blue_icon_color_accent_yellow" tools:ignore="UnusedResources">@color/photonYellow20</color>
+    <!-- Action Primary Icon -->
+    <color name="fx_mobile_blue_icon_color_action_primary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Action Secondary Icon -->
+    <color name="fx_mobile_blue_icon_color_action_secondary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Action Tertiary Icon -->
+    <color name="fx_mobile_blue_icon_color_action_tertiary" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Reader, ETP Shield -->
+    <color name="fx_mobile_blue_icon_color_gradient_start" tools:ignore="UnusedResources">@color/photonBlue20</color>
+    <!-- Reader, ETP Shield -->
+    <color name="fx_mobile_blue_icon_color_gradient_end" tools:ignore="UnusedResources">@color/photonBlue20</color>
+
+    <!-- Border -->
+    <!-- Default, Divider, Dotted -->
+    <color name="fx_mobile_blue_border_color_primary">@color/fx_mobile_blue_border_color_accent</color>
+    <color name="fx_mobile_blue_border_color_secondary">@color/fx_mobile_blue_border_color_toolbar_divider</color>
+    <!-- Onboarding -->
+    <color name="fx_mobile_blue_border_color_inverted" tools:ignore="UnusedResources">@color/photonLightGrey30</color>
+    <!-- Form parts -->
+    <color name="fx_mobile_blue_border_color_form_default" tools:ignore="UnusedResources">@color/photonLightGrey05</color>
+    <!-- Active tab (Nav), Selected tab, Active form -->
+    <color name="fx_mobile_blue_border_color_accent" tools:ignore="UnusedResources">@color/photonBlue40</color>
+    <!-- Form parts -->
+    <color name="fx_mobile_blue_border_color_disabled" tools:ignore="UnusedResources">@color/photonLightGrey05A40</color>
+    <!-- Form parts -->
+    <color name="fx_mobile_blue_border_color_critical" tools:ignore="UnusedResources">@color/photonRed20</color>
+    <!-- Toolbar divider -->
+    <color name="fx_mobile_blue_border_color_toolbar_divider">@color/photonBlue80</color>
+
+    <!-- Blue theme color palette -->
+    <color name="accent_blue_theme">#157aff</color>
+    <color name="accent_high_contrast_blue_theme">#3f94ff</color>
+    <color name="neutral_blue_theme">@color/photonGrey20</color>
+    <color name="neutral_faded_blue_theme">#1FFBFBFE</color>
+    <color name="sync_disconnected_icon_fill_blue_theme">@color/photonYellow70</color>
+    <color name="sync_disconnected_background_blue_theme">#5B5846</color>
+    <color name="prompt_login_edit_text_cursor_color_blue_theme">#157aff</color>
+
+    <!-- Per-theme border colors (map to app defaults to ensure resources exist) -->
+
+
+    <color name="fx_mobile_violet_border_color_primary">@color/fx_mobile_violet_border_color_accent</color>
+    <color name="fx_mobile_violet_border_color_secondary">@color/fx_mobile_violet_border_color_toolbar_divider</color>
+    <color name="fx_mobile_violet_border_color_accent">@color/accent_violet_theme</color>
+    <color name="fx_mobile_violet_border_color_toolbar_divider">@color/accent_high_contrast_violet_theme</color>
+
+    <color name="fx_mobile_pink_border_color_primary">@color/fx_mobile_pink_border_color_accent</color>
+    <color name="fx_mobile_pink_border_color_secondary">@color/fx_mobile_pink_border_color_toolbar_divider</color>
+    <color name="fx_mobile_pink_border_color_accent">@color/accent_pink_theme</color>
+    <color name="fx_mobile_pink_border_color_toolbar_divider">@color/accent_high_contrast_pink_theme</color>
+
+    <color name="fx_mobile_green_border_color_primary">@color/fx_mobile_green_border_color_accent</color>
+    <color name="fx_mobile_green_border_color_secondary">@color/fx_mobile_green_border_color_toolbar_divider</color>
+    <color name="fx_mobile_green_border_color_accent">@color/accent_green_theme</color>
+    <color name="fx_mobile_green_border_color_toolbar_divider">@color/accent_high_contrast_green_theme</color>
+
+    <color name="fx_mobile_red_border_color_primary">@color/fx_mobile_red_border_color_accent</color>
+    <color name="fx_mobile_red_border_color_secondary">@color/fx_mobile_red_border_color_toolbar_divider</color>
+    <color name="fx_mobile_red_border_color_accent">@color/accent_red_theme</color>
+    <color name="fx_mobile_red_border_color_toolbar_divider">@color/accent_high_contrast_red_theme</color>
+
+    <color name="fx_mobile_orange_border_color_primary">@color/fx_mobile_orange_border_color_accent</color>
+    <color name="fx_mobile_orange_border_color_secondary">@color/fx_mobile_orange_border_color_toolbar_divider</color>
+    <color name="fx_mobile_orange_border_color_accent">@color/accent_orange_theme</color>
+    <color name="fx_mobile_orange_border_color_toolbar_divider">@color/accent_high_contrast_orange_theme</color>
+
+    <color name="fx_mobile_yellow_border_color_primary">@color/fx_mobile_yellow_border_color_accent</color>
+    <color name="fx_mobile_yellow_border_color_secondary">@color/fx_mobile_yellow_border_color_toolbar_divider</color>
+    <color name="fx_mobile_yellow_border_color_accent">@color/accent_yellow_theme</color>
+    <color name="fx_mobile_yellow_border_color_toolbar_divider">@color/accent_high_contrast_yellow_theme</color>
+
+    <color name="fx_mobile_cyan_border_color_primary">@color/fx_mobile_cyan_border_color_accent</color>
+    <color name="fx_mobile_cyan_border_color_secondary">@color/fx_mobile_cyan_border_color_toolbar_divider</color>
+    <color name="fx_mobile_cyan_border_color_accent">@color/accent_cyan_theme</color>
+    <color name="fx_mobile_cyan_border_color_toolbar_divider">@color/accent_high_contrast_cyan_theme</color>
+
+    <color name="fx_mobile_purple_border_color_primary">@color/fx_mobile_purple_border_color_accent</color>
+    <color name="fx_mobile_purple_border_color_secondary">@color/fx_mobile_purple_border_color_toolbar_divider</color>
+    <color name="fx_mobile_purple_border_color_accent">@color/accent_purple_theme</color>
+    <color name="fx_mobile_purple_border_color_toolbar_divider">@color/accent_high_contrast_purple_theme</color>
+
+    <!-- Violet theme color palette -->
+    <color name="accent_violet_theme">#8b5cff</color>
+    <color name="accent_high_contrast_violet_theme">#9e7aff</color>
+    <color name="neutral_violet_theme">@color/photonGrey20</color>
+    <color name="neutral_faded_violet_theme">#1FFBFBFE</color>
+    <color name="sync_disconnected_icon_fill_violet_theme">@color/photonYellow70</color>
+    <color name="sync_disconnected_background_violet_theme">#5B5846</color>
+    <color name="prompt_login_edit_text_cursor_color_violet_theme">#8b5cff</color>
+
+    <!-- Pink theme color palette -->
+    <color name="accent_pink_theme">#e23a81</color>
+    <color name="accent_high_contrast_pink_theme">#f45e96</color>
+    <color name="neutral_pink_theme">@color/photonGrey20</color>
+    <color name="neutral_faded_pink_theme">#1FFBFBFE</color>
+    <color name="sync_disconnected_icon_fill_pink_theme">@color/photonYellow70</color>
+    <color name="sync_disconnected_background_pink_theme">#5B5846</color>
+    <color name="prompt_login_edit_text_cursor_color_pink_theme">#e23a81</color>
+
+    <!-- Green theme color palette -->
+    <color name="accent_green_theme">#00a41c</color>
+    <color name="accent_high_contrast_green_theme">#37b847</color>
+    <color name="neutral_green_theme">@color/photonGrey20</color>
+    <color name="neutral_faded_green_theme">#1FFBFBFE</color>
+    <color name="sync_disconnected_icon_fill_green_theme">@color/photonYellow70</color>
+    <color name="sync_disconnected_background_green_theme">#5B5846</color>
+    <color name="prompt_login_edit_text_cursor_color_green_theme">#00a41c</color>
+
+    <!-- Red theme color palette -->
+    <color name="accent_red_theme">#fa5e75</color>
+    <color name="accent_high_contrast_red_theme">#ff7e8e</color>
+    <color name="neutral_red_theme">@color/photonGrey20</color>
+    <color name="neutral_faded_red_theme">#1FFBFBFE</color>
+    <color name="sync_disconnected_icon_fill_red_theme">@color/photonYellow70</color>
+    <color name="sync_disconnected_background_red_theme">#5B5846</color>
+    <color name="prompt_login_edit_text_cursor_color_red_theme">#fa5e75</color>
+
+    <!-- Orange theme color palette -->
+    <color name="accent_orange_theme">#f07300</color>
+    <color name="accent_high_contrast_orange_theme">#ff8f31</color>
+    <color name="neutral_orange_theme">@color/photonGrey20</color>
+    <color name="neutral_faded_orange_theme">#1FFBFBFE</color>
+    <color name="sync_disconnected_icon_fill_orange_theme">@color/photonYellow70</color>
+    <color name="sync_disconnected_background_orange_theme">#5B5846</color>
+    <color name="prompt_login_edit_text_cursor_color_orange_theme">#f07300</color>
+
+    <!-- Yellow theme color palette -->
+    <color name="accent_yellow_theme">#de9600</color>
+    <color name="accent_high_contrast_yellow_theme">#f1af00</color>
+    <color name="neutral_yellow_theme">@color/photonGrey20</color>
+    <color name="neutral_faded_yellow_theme">#1FFBFBFE</color>
+    <color name="sync_disconnected_icon_fill_yellow_theme">@color/photonYellow70</color>
+    <color name="sync_disconnected_background_yellow_theme">#5B5846</color>
+    <color name="prompt_login_edit_text_cursor_color_yellow_theme">#de9600</color>
+
+    <!-- Cyan theme color palette -->
+    <color name="accent_cyan_theme">#00a5c1</color>
+    <color name="accent_high_contrast_cyan_theme">#00b9d3</color>
+    <color name="neutral_cyan_theme">@color/photonGrey20</color>
+    <color name="neutral_faded_cyan_theme">#1FFBFBFE</color>
+    <color name="sync_disconnected_icon_fill_cyan_theme">@color/photonYellow70</color>
+    <color name="sync_disconnected_background_cyan_theme">#5B5846</color>
+    <color name="prompt_login_edit_text_cursor_color_cyan_theme">#00a5c1</color>
+
+    <!-- Purple theme color palette -->
+    <color name="accent_purple_theme">#b453db</color>
+    <color name="accent_high_contrast_purple_theme">#c671eb</color>
+    <color name="neutral_purple_theme">@color/photonGrey20</color>
+    <color name="neutral_faded_purple_theme">#1FFBFBFE</color>
+    <color name="sync_disconnected_icon_fill_purple_theme">@color/photonYellow70</color>
+    <color name="sync_disconnected_background_purple_theme">#5B5846</color>
+    <color name="prompt_login_edit_text_cursor_color_purple_theme">#b453db</color>
+
     <!-- Normal theme colors for light mode -->
     <color name="accent_normal_theme">@color/photonInk20</color>
     <color name="accent_high_contrast_normal_theme">@color/photonInk20</color>

@@ -6,7 +6,12 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 <item>
     <shape>
-        <solid android:color="?attr/layer1" />
+        <gradient
+            android:angle="45"
+            android:startColor="#2E7D32"
+            android:centerColor="#1B5E20"
+            android:endColor="#0D4010"
+            android:type="linear" />
     </shape>
 </item>
 <item android:bottom="-2dp" android:left="-2dp" android:right="-2dp">

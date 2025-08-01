@@ -639,6 +639,13 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
+            android:id="@+id/action_settingsFragment_to_themeSettingsFragment"
+            app:destination="@id/themeSettingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
             android:id="@+id/action_settingsFragment_to_privateBrowsingFragment"
             app:destination="@id/privateBrowsingFragment"
             app:enterAnim="@anim/slide_in_right"
@@ -908,7 +915,19 @@
     <fragment
         android:id="@+id/customizationFragment"
         android:name="org.mozilla.fenix.settings.CustomizationFragment"
-        android:label="@string/preferences_customize" />
+        android:label="@string/preferences_customize">
+        <action
+            android:id="@+id/action_customizationFragment_to_themeSettingsFragment"
+            app:destination="@id/themeSettingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/themeSettingsFragment"
+        android:name="org.mozilla.fenix.settings.ThemeSettingsFragment"
+        android:label="@string/preferences_theme" />
     <fragment
         android:id="@+id/privateBrowsingFragment"
         android:name="org.mozilla.fenix.settings.PrivateBrowsingFragment"

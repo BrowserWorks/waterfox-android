@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.preference.PreferenceCategory
+        android:layout="@layout/preference_cat_style"
+        android:title="@string/preferences_theme_system"
+        app:iconSpaceReserved="false">
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="@bool/API28"
+            android:key="@string/pref_key_follow_device_theme"
+            android:title="@string/preference_follow_device_theme"
+            app:isPreferenceVisible="@bool/API28" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_auto_battery_theme"
+            android:title="@string/preference_auto_battery_theme"
+            app:isPreferenceVisible="@bool/underAPI28" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="@bool/underAPI28"
+            android:key="@string/pref_key_light_theme"
+            android:title="@string/preference_light_theme" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_dark_theme"
+            android:title="@string/preference_dark_theme" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_black_theme"
+            android:title="@string/preference_black_theme" />
+
+    </androidx.preference.PreferenceCategory>
+
+    <androidx.preference.PreferenceCategory
+        android:layout="@layout/preference_cat_style"
+        android:title="@string/preferences_theme_color"
+        app:iconSpaceReserved="false">
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_violet_theme"
+            android:title="@string/preference_violet_theme" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_blue_theme"
+            android:title="@string/preference_blue_theme" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_pink_theme"
+            android:title="@string/preference_pink_theme" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_green_theme"
+            android:title="@string/preference_green_theme" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_red_theme"
+            android:title="@string/preference_red_theme" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_orange_theme"
+            android:title="@string/preference_orange_theme" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_yellow_theme"
+            android:title="@string/preference_yellow_theme" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_cyan_theme"
+            android:title="@string/preference_cyan_theme" />
+
+        <org.mozilla.fenix.settings.RadioButtonPreference
+            android:defaultValue="false"
+            android:key="@string/pref_key_purple_theme"
+            android:title="@string/preference_purple_theme" />
+
+    </androidx.preference.PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

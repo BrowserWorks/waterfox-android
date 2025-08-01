@@ -14,6 +14,16 @@
         <item name="android:navigationBarColor">?attr/layer1</item>
     </style>
 
+    <style name="FeltPrivateTheme" parent="PrivateThemeBase">
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Style the navigation bar -->
+        <item name="android:navigationBarColor">?attr/layer1</item>
+        
+        <!-- Felt-specific background -->
+        <item name="homeBackground">@drawable/felt_private_home_background_gradient</item>
+    </style>
+
     <style name="BottomSheetPrivate" parent="BottomSheetBasePrivate">
         <item name="android:windowLightStatusBar">false</item>
 

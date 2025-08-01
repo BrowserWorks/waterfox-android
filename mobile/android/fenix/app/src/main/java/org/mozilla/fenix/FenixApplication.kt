@@ -600,7 +600,20 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
                     AppCompatDelegate.MODE_NIGHT_NO,
                 )
             }
-            settings.shouldUseDarkTheme -> {
+            settings.shouldUseDarkTheme || settings.shouldUseBlackTheme -> {
+                AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_YES,
+                )
+            }
+            settings.shouldUseVioletTheme ||
+            settings.shouldUseBlueTheme ||
+            settings.shouldUsePinkTheme ||
+            settings.shouldUseGreenTheme ||
+            settings.shouldUseRedTheme ||
+            settings.shouldUseOrangeTheme ||
+            settings.shouldUseYellowTheme ||
+            settings.shouldUseCyanTheme ||
+            settings.shouldUsePurpleTheme -> {
                 AppCompatDelegate.setDefaultNightMode(
                     AppCompatDelegate.MODE_NIGHT_YES,
                 )

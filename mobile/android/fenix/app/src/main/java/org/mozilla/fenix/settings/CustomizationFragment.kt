@@ -14,17 +14,21 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceScreen
 import androidx.preference.SwitchPreference
 import org.mozilla.fenix.FeatureFlags
+import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.GleanMetrics.AppTheme
 import org.mozilla.fenix.GleanMetrics.CustomizationSettings
 import org.mozilla.fenix.GleanMetrics.PullToRefreshInBrowser
 import org.mozilla.fenix.GleanMetrics.ToolbarSettings
 import org.mozilla.fenix.R
+import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.browser.tabstrip.isTabStripEnabled
 import org.mozilla.fenix.components.toolbar.ToolbarPosition
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.ext.showToolbar
+import org.mozilla.fenix.utils.Settings
 import org.mozilla.fenix.utils.view.addToRadioGroup
+import androidx.navigation.fragment.findNavController
 
 /**
  * Lets the user customize the UI.
@@ -32,10 +36,7 @@ import org.mozilla.fenix.utils.view.addToRadioGroup
 
 @Suppress("TooManyFunctions")
 class CustomizationFragment : PreferenceFragmentCompat() {
-    private lateinit var radioLightTheme: RadioButtonPreference
-    private lateinit var radioDarkTheme: RadioButtonPreference
-    private lateinit var radioAutoBatteryTheme: RadioButtonPreference
-    private lateinit var radioFollowDeviceTheme: RadioButtonPreference
+
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.customization_preferences, rootKey)
@@ -49,11 +50,8 @@ class CustomizationFragment : PreferenceFragmentCompat() {
     }
 
     private fun setupPreferences() {
-        bindFollowDeviceTheme()
-        bindDarkTheme()
-        bindLightTheme()
-        bindAutoBatteryTheme()
-        setupRadioGroups()
+
+
         val tabletAndTabStripEnabled = requireContext().isTabStripEnabled()
         if (tabletAndTabStripEnabled) {
             val preferenceScreen: PreferenceScreen =
@@ -70,62 +68,7 @@ class CustomizationFragment : PreferenceFragmentCompat() {
         setupGesturesCategory(isSwipeToolbarToSwitchTabsVisible = !tabletAndTabStripEnabled)
     }
 
-    private fun setupRadioGroups() {
-        addToRadioGroup(
-            radioLightTheme,
-            radioDarkTheme,
-            if (SDK_INT >= Build.VERSION_CODES.P) {
-                radioFollowDeviceTheme
-            } else {
-                radioAutoBatteryTheme
-            },
-        )
-    }
 
-    private fun bindLightTheme() {
-        radioLightTheme = requirePreference(R.string.pref_key_light_theme)
-        radioLightTheme.onClickListener {
-            setNewTheme(AppCompatDelegate.MODE_NIGHT_NO)
-        }
-    }
-
-    private fun bindAutoBatteryTheme() {
-        radioAutoBatteryTheme = requirePreference(R.string.pref_key_auto_battery_theme)
-        radioAutoBatteryTheme.onClickListener {
-            setNewTheme(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
-        }
-    }
-
-    private fun bindDarkTheme() {
-        radioDarkTheme = requirePreference(R.string.pref_key_dark_theme)
-        radioDarkTheme.onClickListener {
-            AppTheme.darkThemeSelected.record(
-                AppTheme.DarkThemeSelectedExtra(
-                    "SETTINGS",
-                ),
-            )
-            setNewTheme(AppCompatDelegate.MODE_NIGHT_YES)
-        }
-    }
-
-    private fun bindFollowDeviceTheme() {
-        radioFollowDeviceTheme = requirePreference(R.string.pref_key_follow_device_theme)
-        if (SDK_INT >= Build.VERSION_CODES.P) {
-            radioFollowDeviceTheme.onClickListener {
-                setNewTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-            }
-        }
-    }
-
-    private fun setNewTheme(mode: Int) {
-        if (AppCompatDelegate.getDefaultNightMode() == mode) return
-        AppCompatDelegate.setDefaultNightMode(mode)
-        activity?.recreate()
-        with(requireComponents.core) {
-            engine.settings.preferredColorScheme = getPreferredColorScheme()
-        }
-        requireComponents.useCases.sessionUseCases.reload.invoke()
-    }
 
     private fun setupToolbarCategory() {
         val topPreference = requirePreference<RadioButtonPreference>(R.string.pref_key_toolbar_top)

@@ -42,6 +42,10 @@ class SettingsSubMenuCustomizeRobot {
         darkModeToggle()
             .check(matches(ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
         Log.i(TAG, "verifyThemes: Verified that the \"Dark\" mode option is visible")
+        Log.i(TAG, "verifyThemes: Trying to verify that the \"Blue\" mode option is visible")
+        blueModeToggle()
+            .check(matches(ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
+        Log.i(TAG, "verifyThemes: Verified that the \"Blue\" mode option is visible")
         Log.i(TAG, "verifyThemes: Trying to verify that the \"Follow device theme\" option is visible")
         deviceModeToggle()
             .check(matches(ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
@@ -58,6 +62,12 @@ class SettingsSubMenuCustomizeRobot {
         Log.i(TAG, "selectLightMode: Trying to click the \"Light\" mode option")
         lightModeToggle().click()
         Log.i(TAG, "selectLightMode: Clicked the \"Light\" mode option")
+    }
+
+    fun selectBlueMode() {
+        Log.i(TAG, "selectBlueMode: Trying to click the \"Blue\" mode option")
+        blueModeToggle().click()
+        Log.i(TAG, "selectBlueMode: Clicked the \"Blue\" mode option")
     }
 
     fun clickTopToolbarToggle() {
@@ -149,6 +159,8 @@ class SettingsSubMenuCustomizeRobot {
 private fun darkModeToggle() = onView(withText("Dark"))
 
 private fun lightModeToggle() = onView(withText("Light"))
+
+private fun blueModeToggle() = onView(withText("Blue"))
 
 private fun topToolbarToggle() = onView(withText("Top"))
 

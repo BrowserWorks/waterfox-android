@@ -30,7 +30,7 @@ import org.mozilla.fenix.customtabs.ExternalAppBrowserActivity
 import org.mozilla.fenix.ext.settings
 
 abstract class ThemeManager(
-    private val privacyStyleRes: Int,
+    protected val privacyStyleRes: Int,
 ) {
 
     abstract var currentTheme: BrowsingMode
@@ -39,7 +39,7 @@ abstract class ThemeManager(
      * Returns the style resource corresponding to the [currentTheme].
      */
     @get:StyleRes
-    val currentThemeResource get() = when (currentTheme) {
+    open val currentThemeResource get() = when (currentTheme) {
         BrowsingMode.Normal -> R.style.NormalTheme
         BrowsingMode.Private -> privacyStyleRes
     }
@@ -58,19 +58,31 @@ abstract class ThemeManager(
         context: Context,
         overrideThemeStatusBarColor: Boolean,
     ) {
+        val settings = context.settings()
+        val isForcedDark =
+            settings.shouldUseBlueTheme ||
+            settings.shouldUseVioletTheme ||
+            settings.shouldUsePinkTheme ||
+            settings.shouldUseGreenTheme ||
+            settings.shouldUseRedTheme ||
+            settings.shouldUseOrangeTheme ||
+            settings.shouldUseYellowTheme ||
+            settings.shouldUseCyanTheme ||
+            settings.shouldUsePurpleTheme ||
+            settings.shouldUseBlackTheme
+
         when (currentTheme) {
             BrowsingMode.Normal -> {
-                when (context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-                    Configuration.UI_MODE_NIGHT_UNDEFINED, // We assume light here per Android doc's recommendation
-                    Configuration.UI_MODE_NIGHT_NO,
-                    -> {
-                        updateLightSystemBars(window, context, overrideThemeStatusBarColor)
-                    }
-                    Configuration.UI_MODE_NIGHT_YES -> {
-                        clearLightSystemBars(window)
-                        setStatusBarColor(window, context, overrideThemeStatusBarColor)
-                        updateNavigationBar(window, context)
-                    }
+                // Any custom color theme or black theme uses dark backgrounds -> light system bar icons.
+                if (isForcedDark ||
+                    (context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+                    Configuration.UI_MODE_NIGHT_YES
+                ) {
+                    clearLightSystemBars(window)
+                    setStatusBarColor(window, context, overrideThemeStatusBarColor)
+                    updateNavigationBar(window, context)
+                } else {
+                    updateLightSystemBars(window, context, overrideThemeStatusBarColor)
                 }
             }
             BrowsingMode.Private -> {
@@ -92,12 +104,54 @@ abstract class ThemeManager(
          * @param attribute The attribute to resolve.
          * @param context Any context.
          * @return The resource ID of the resolved attribute.
+         * @throws IllegalStateException if the attribute cannot be resolved.
          */
         @AnyRes
         fun resolveAttribute(attribute: Int, context: Context): Int {
             val typedValue = TypedValue()
             val theme = context.theme
-            theme.resolveAttribute(attribute, typedValue, true)
+            val resolved = theme.resolveAttribute(attribute, typedValue, true)
+
+            if (!resolved || typedValue.resourceId == 0) {
+                // Provide fallback colors for common theme attributes to prevent crashes
+                return when (attribute) {
+                    org.mozilla.fenix.R.attr.textPrimary -> 
+                        org.mozilla.fenix.R.color.fx_mobile_text_color_primary
+                    org.mozilla.fenix.R.attr.textSecondary -> 
+                        org.mozilla.fenix.R.color.fx_mobile_text_color_secondary
+                    org.mozilla.fenix.R.attr.textDisabled -> 
+                        org.mozilla.fenix.R.color.fx_mobile_text_color_disabled
+                    org.mozilla.fenix.R.attr.textAccent -> 
+                        org.mozilla.fenix.R.color.fx_mobile_text_color_accent
+                    org.mozilla.fenix.R.attr.textOnColorPrimary -> 
+                        org.mozilla.fenix.R.color.fx_mobile_text_color_oncolor_primary
+                    org.mozilla.fenix.R.attr.borderPrimary -> 
+                        org.mozilla.fenix.R.color.fx_mobile_border_color_primary
+                    org.mozilla.fenix.R.attr.borderSecondary -> 
+                        org.mozilla.fenix.R.color.fx_mobile_border_color_secondary
+                    org.mozilla.fenix.R.attr.layer1 -> 
+                        org.mozilla.fenix.R.color.fx_mobile_layer_color_1
+                    org.mozilla.fenix.R.attr.layer2 -> 
+                        org.mozilla.fenix.R.color.fx_mobile_layer_color_2
+                    org.mozilla.fenix.R.attr.layer3 -> 
+                        org.mozilla.fenix.R.color.fx_mobile_layer_color_3
+                    org.mozilla.fenix.R.attr.accent -> 
+                        org.mozilla.fenix.R.color.fx_mobile_text_color_accent
+                    org.mozilla.fenix.R.attr.actionPrimary -> 
+                        org.mozilla.fenix.R.color.fx_mobile_action_color_primary
+                    org.mozilla.fenix.R.attr.bottomBarBackgroundTop -> 
+                        org.mozilla.fenix.R.color.fx_mobile_layer_color_1
+                    else -> {
+                        // For unknown attributes, log the issue but don't crash
+                        android.util.Log.w(
+                            "ThemeManager",
+                            "Failed to resolve attribute 0x${Integer.toHexString(attribute)} " +
+                            "in theme and no fallback available. Using transparent color."
+                        )
+                        android.R.color.transparent
+                    }
+                }
+            }
 
             return typedValue.resourceId
         }
@@ -157,6 +211,25 @@ class DefaultThemeManager(
     currentTheme: BrowsingMode,
     private val activity: Activity,
 ) : ThemeManager(privacyStyleRes = activity.getStyleRes()) {
+    
+    /**
+     * Returns the style resource considering both browsing mode and user theme preferences.
+     */
+    @get:StyleRes
+    override val currentThemeResource get() = when {
+        currentTheme == BrowsingMode.Private -> privacyStyleRes
+        currentTheme == BrowsingMode.Normal && activity.settings().shouldUseBlackTheme -> R.style.NormalBlackTheme
+        currentTheme == BrowsingMode.Normal && activity.settings().shouldUseVioletTheme -> R.style.VioletTheme
+        currentTheme == BrowsingMode.Normal && activity.settings().shouldUseBlueTheme -> R.style.BlueTheme
+        currentTheme == BrowsingMode.Normal && activity.settings().shouldUsePinkTheme -> R.style.PinkTheme
+        currentTheme == BrowsingMode.Normal && activity.settings().shouldUseGreenTheme -> R.style.GreenTheme
+        currentTheme == BrowsingMode.Normal && activity.settings().shouldUseRedTheme -> R.style.RedTheme
+        currentTheme == BrowsingMode.Normal && activity.settings().shouldUseOrangeTheme -> R.style.OrangeTheme
+        currentTheme == BrowsingMode.Normal && activity.settings().shouldUseYellowTheme -> R.style.YellowTheme
+        currentTheme == BrowsingMode.Normal && activity.settings().shouldUseCyanTheme -> R.style.CyanTheme
+        currentTheme == BrowsingMode.Normal && activity.settings().shouldUsePurpleTheme -> R.style.PurpleTheme
+        else -> R.style.NormalTheme
+    }
     override var currentTheme: BrowsingMode = currentTheme
         set(value) {
             if (currentTheme != value) {

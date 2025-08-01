@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Compatibility: minimal declarations to prevent resource-merge failures.
+  This file intentionally contains only:
+    - minimal tooltip color fallbacks mapped to existing app colors
+  Do NOT duplicate per-theme color resources here; those live in colors.xml.
+ -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Attr fallbacks (reference format) -->
+    <attr name="listDivider" format="reference" />
+    <attr name="textColorLink" format="reference" />
+    <attr name="mozac_primary_text_color" format="reference" />
+    <attr name="mozac_caption_text_color" format="reference" />
+
+    <!-- Minimal tooltip color fallbacks (map to existing app colors) -->
+    <color name="compat_tooltip_frame_background">@color/fx_mobile_layer_color_2</color>
+    <color name="compat_tooltip_foreground_color">@color/fx_mobile_text_color_primary</color>
+
+</resources>

@@ -338,6 +338,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 SettingsFragmentDirections.actionSettingsFragmentToCustomizationFragment()
             }
 
+            resources.getString(R.string.pref_key_theme) -> {
+                SettingsFragmentDirections.actionSettingsFragmentToThemeSettingsFragment()
+            }
+
             resources.getString(R.string.pref_key_passwords) -> {
                 SettingsMetrics.passwords.record()
                 SettingsFragmentDirections.actionSettingsFragmentToSavedLoginsAuthFragment()

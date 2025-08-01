@@ -717,8 +717,58 @@ class Settings(private val appContext: Context) : PreferencesHolder {
         default = false,
     )
 
+    var shouldUseBlackTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_black_theme),
+        default = false,
+    )
+
     var shouldFollowDeviceTheme by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_follow_device_theme),
+        default = false,
+    )
+
+    var shouldUseBlueTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_blue_theme),
+        default = false,
+    )
+
+    var shouldUseVioletTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_violet_theme),
+        default = false,
+    )
+
+    var shouldUsePinkTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_pink_theme),
+        default = false,
+    )
+
+    var shouldUseGreenTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_green_theme),
+        default = false,
+    )
+
+    var shouldUseRedTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_red_theme),
+        default = false,
+    )
+
+    var shouldUseOrangeTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_orange_theme),
+        default = false,
+    )
+
+    var shouldUseYellowTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_yellow_theme),
+        default = false,
+    )
+
+    var shouldUseCyanTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_cyan_theme),
+        default = false,
+    )
+
+    var shouldUsePurpleTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_purple_theme),
         default = false,
     )
 
@@ -842,7 +892,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
         get() = 0 // Neither Type A or B
             // FxNimbus.features.reEngagementNotification.value().type
 
-    val shouldUseAutoBatteryTheme by booleanPreference(
+    var shouldUseAutoBatteryTheme by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_auto_battery_theme),
         default = false,
     )

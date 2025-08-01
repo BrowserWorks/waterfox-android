@@ -163,3 +163,17 @@ private fun PrivateHomepageHeaderPreview() {
         }
     }
 }
+
+@Composable
+@Preview
+private fun BlueHomepageHeaderPreview() {
+    FirefoxTheme(theme = Theme.Blue) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = FirefoxTheme.colors.layer1),
+        ) {
+            HomepageHeader(browsingMode = BrowsingMode.Normal, browsingModeChanged = {})
+        }
+    }
+}

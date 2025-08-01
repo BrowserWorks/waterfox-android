@@ -855,3 +855,398 @@ val privateColorPalette = darkColorPalette.copy(
     tabActive = PhotonColors.Purple60,
     tabInactive = PhotonColors.Ink90,
 )
+
+val blueColorPalette = darkColorPalette.copy(
+    // Layers - dark blue backgrounds for good contrast
+    layer1 = PhotonColors.Blue90, // Dark blue background
+    layer2 = PhotonColors.Blue80, // Slightly lighter for cards/dialogs
+    layer3 = PhotonColors.Blue90, // Search backgrounds
+    layer4Start = PhotonColors.Blue70,
+    layer4Center = PhotonColors.Blue80,
+    layer4End = PhotonColors.Blue90,
+    layerAccent = PhotonColors.Blue50,
+    layerAccentNonOpaque = PhotonColors.Blue50.copy(alpha = 0.32f),
+    layerAccentOpaque = Color(0xFF0250BB), // Mid-tone blue
+    layerScrim = PhotonColors.Blue90.copy(alpha = 0.95f),
+    layerGradientStart = PhotonColors.Blue70,
+    layerGradientEnd = PhotonColors.Blue60,
+    layerInformation = PhotonColors.Blue50,
+    layerSearch = PhotonColors.Blue90,
+    
+    // Actions - bright blues for visibility on dark backgrounds
+    actionPrimary = PhotonColors.Blue30, // Bright but not garish
+    actionPrimaryDisabled = PhotonColors.Blue60.copy(alpha = 0.50f),
+    actionSecondary = PhotonColors.Blue40,
+    actionTertiary = PhotonColors.Blue50,
+    actionQuarternary = PhotonColors.Blue80,
+    actionInformation = PhotonColors.Blue30,
+    
+    // Form elements - mid-tone blues
+    formSelected = PhotonColors.Blue40,
+    formOn = PhotonColors.Blue40,
+    
+    // Text colors - WHITE and light greys for contrast on dark blue
+    textPrimary = PhotonColors.White, // Pure white for maximum contrast
+    textSecondary = PhotonColors.LightGrey20, // Light grey but not white
+    textDisabled = PhotonColors.LightGrey40.copy(alpha = 0.60f),
+    textAccent = PhotonColors.Blue20, // Light blue for accents
+    textAccentDisabled = PhotonColors.Blue40.copy(alpha = 0.60f),
+    textOnColorPrimary = PhotonColors.White,
+    textActionPrimary = PhotonColors.White,
+    
+    // Icons - light colors for contrast on dark blue
+    iconPrimary = PhotonColors.White,
+    iconSecondary = PhotonColors.LightGrey20,
+    iconActive = PhotonColors.Blue30,
+    iconAccentBlue = PhotonColors.Blue20,
+    iconGradientStart = PhotonColors.Blue30,
+    iconGradientEnd = PhotonColors.Blue20,
+    
+    // Borders - mid-tone blues
+    borderAccent = PhotonColors.Blue40,
+    borderToolbarDivider = PhotonColors.Blue70,
+    
+    // Tabs - good contrast
+    tabActive = PhotonColors.Blue40,
+    tabInactive = PhotonColors.Blue90,
+)
+
+
+
+val violetColorPalette = darkColorPalette.copy(
+    // Layers - dark violet backgrounds for good contrast
+    layer1 = PhotonColors.Violet90, // Dark violet background
+    layer2 = PhotonColors.Violet80, // Slightly lighter for cards/dialogs
+    layer3 = PhotonColors.Violet90, // Search backgrounds
+    layer4Start = PhotonColors.Violet70,
+    layer4Center = PhotonColors.Violet80,
+    layer4End = PhotonColors.Violet90,
+    layerAccent = PhotonColors.Violet50,
+    layerAccentNonOpaque = PhotonColors.Violet50.copy(alpha = 0.32f),
+    layerAccentOpaque = Color(0xFF952BB9), // Mid-tone violet
+    layerScrim = PhotonColors.Violet90.copy(alpha = 0.95f),
+    layerGradientStart = PhotonColors.Violet70,
+    layerGradientEnd = PhotonColors.Violet60,
+    layerInformation = PhotonColors.Violet50,
+    layerSearch = PhotonColors.Violet90,
+
+    // Actions - bright violets for visibility on dark backgrounds
+    actionPrimary = PhotonColors.Violet30,
+    actionPrimaryDisabled = PhotonColors.Violet60.copy(alpha = 0.50f),
+    actionSecondary = PhotonColors.Violet40,
+    actionTertiary = PhotonColors.Violet50,
+    actionQuarternary = PhotonColors.Violet80,
+    actionInformation = PhotonColors.Violet30,
+
+    // Form elements - mid-tone violets
+    formSelected = PhotonColors.Violet40,
+    formOn = PhotonColors.Violet40,
+
+    // Text colors - WHITE and light greys for contrast on dark violet
+    textAccent = PhotonColors.Violet20, // Light violet for accents
+    textAccentDisabled = PhotonColors.Violet40.copy(alpha = 0.60f),
+
+    // Icons - light colors for contrast on dark violet
+    iconActive = PhotonColors.Violet30,
+    iconAccentViolet = PhotonColors.Violet20,
+    iconAccentBlue = darkColorPalette.iconAccentBlue,
+    iconAccentPink = darkColorPalette.iconAccentPink,
+    iconAccentGreen = darkColorPalette.iconAccentGreen,
+    iconAccentYellow = darkColorPalette.iconAccentYellow,
+    iconGradientStart = PhotonColors.Violet30,
+    iconGradientEnd = PhotonColors.Violet20,
+
+    // Borders - mid-tone violets
+    borderAccent = PhotonColors.Violet40,
+    borderToolbarDivider = PhotonColors.Violet70,
+
+    // Tabs - good contrast
+    tabActive = PhotonColors.Violet40,
+    tabInactive = PhotonColors.Violet90,
+)
+
+val pinkColorPalette = darkColorPalette.copy(
+    // Layers - dark pink backgrounds for good contrast
+    layer1 = PhotonColors.Pink90, // Dark pink background
+    layer2 = PhotonColors.Pink80, // Slightly lighter for cards/dialogs
+    layer3 = PhotonColors.Pink90, // Search backgrounds
+    layer4Start = PhotonColors.Pink70,
+    layer4Center = PhotonColors.Pink80,
+    layer4End = PhotonColors.Pink90,
+    layerAccent = PhotonColors.Pink50,
+    layerAccentNonOpaque = PhotonColors.Pink50.copy(alpha = 0.32f),
+    layerAccentOpaque = Color(0xFFE21587), // Mid-tone pink
+    layerScrim = PhotonColors.Pink90.copy(alpha = 0.95f),
+    layerGradientStart = PhotonColors.Pink70,
+    layerGradientEnd = PhotonColors.Pink60,
+    layerInformation = PhotonColors.Pink50,
+    layerSearch = PhotonColors.Pink90,
+
+    // Actions - bright pinks for visibility on dark backgrounds
+    actionPrimary = PhotonColors.Pink30,
+    actionPrimaryDisabled = PhotonColors.Pink60.copy(alpha = 0.50f),
+    actionSecondary = PhotonColors.Pink40,
+    actionTertiary = PhotonColors.Pink50,
+    actionQuarternary = PhotonColors.Pink80,
+    actionInformation = PhotonColors.Pink30,
+
+    // Form elements - mid-tone pinks
+    formSelected = PhotonColors.Pink40,
+    formOn = PhotonColors.Pink40,
+
+    // Text colors - WHITE and light greys for contrast on dark pink
+    textAccent = PhotonColors.Pink20, // Light pink for accents
+    textAccentDisabled = PhotonColors.Pink40.copy(alpha = 0.60f),
+
+    // Icons - light colors for contrast on dark pink
+    iconActive = PhotonColors.Pink30,
+    iconAccentPink = PhotonColors.Pink20,
+    iconAccentViolet = darkColorPalette.iconAccentViolet,
+    iconAccentBlue = darkColorPalette.iconAccentBlue,
+    iconAccentGreen = darkColorPalette.iconAccentGreen,
+    iconAccentYellow = darkColorPalette.iconAccentYellow,
+    iconGradientStart = PhotonColors.Pink30,
+    iconGradientEnd = PhotonColors.Pink20,
+
+    // Borders - mid-tone pinks
+    borderAccent = PhotonColors.Pink40,
+    borderToolbarDivider = PhotonColors.Pink70,
+
+    // Tabs - good contrast
+    tabActive = PhotonColors.Pink40,
+    tabInactive = PhotonColors.Pink90,
+)
+
+val redColorPalette = darkColorPalette.copy(
+    // Layers - dark red backgrounds for good contrast
+    layer1 = Color(0xFF90002b), // Dark red background
+    layer2 = Color(0xFF90002b), // Slightly lighter for cards/dialogs
+    layer3 = PhotonColors.Ink90, // Search backgrounds
+    layer4Start = Color(0xFFb20037),
+    layer4Center = Color(0xFFcf1748),
+    layer4End = PhotonColors.Ink05,
+    layerAccent = Color(0xFFfa5e75),
+    layerAccentNonOpaque = Color(0x52fa5e75),
+    layerAccentOpaque = Color(0xFF8B2A2A),
+    layerScrim = PhotonColors.DarkGrey90A95,
+    layerGradientStart = Color(0xFFb20037),
+    layerGradientEnd = Color(0xFFff7e8e),
+
+    // Actions - bright reds for visibility on dark backgrounds
+    actionPrimary = Color(0xFFe8395c),
+    actionPrimaryDisabled = PhotonColors.Ink20A20,
+    actionSecondary = PhotonColors.DarkGrey05,
+    actionTertiary = Color(0xFFfa5e75),
+
+    // Text colors - WHITE and light greys for contrast on dark red
+    textAccent = Color(0xFFffa0aa), // Light red for accents
+    textAccentDisabled = Color(0x99fa5e75),
+
+    // Icons - light colors for contrast on dark red
+    iconActive = Color(0xFFff7e8e),
+    iconGradientStart = Color(0xFFb20037),
+    iconGradientEnd = Color(0xFFff7e8e),
+
+    // Borders - mid-tone reds
+    borderAccent = Color(0xFFfa5e75),
+    borderToolbarDivider = Color(0xFFb20037),
+
+    // Tabs - good contrast
+    tabActive = Color(0xFFfa5e75),
+    tabInactive = Color(0xFF90002b),
+)
+
+val orangeColorPalette = darkColorPalette.copy(
+    // Layers - dark orange backgrounds for good contrast
+    layer1 = Color(0xFF8a1e00), // Dark orange background
+    layer2 = Color(0xFF8a1e00), // Slightly lighter for cards/dialogs
+    layer3 = PhotonColors.Ink90, // Search backgrounds
+    layer4Start = Color(0xFFab2700),
+    layer4Center = Color(0xFFc73c00),
+    layer4End = PhotonColors.Ink05,
+    layerAccent = Color(0xFFf07300),
+    layerAccentNonOpaque = Color(0x52f07300),
+    layerAccentOpaque = Color(0xFFB5671A),
+    layerScrim = PhotonColors.DarkGrey90A95,
+    layerGradientStart = Color(0xFFab2700),
+    layerGradientEnd = Color(0xFFff8f31),
+
+    // Actions - bright oranges for visibility on dark backgrounds
+    actionPrimary = Color(0xFFdf5400),
+    actionPrimaryDisabled = PhotonColors.Ink20A20,
+    actionSecondary = PhotonColors.DarkGrey05,
+    actionTertiary = Color(0xFFf07300),
+
+    // Text colors - WHITE and light greys for contrast on dark orange
+    textAccent = Color(0xFFffad69), // Light orange for accents
+    textAccentDisabled = Color(0x99f07300),
+
+    // Icons - light colors for contrast on dark orange
+    iconActive = Color(0xFFff8f31),
+    iconGradientStart = Color(0xFFab2700),
+    iconGradientEnd = Color(0xFFff8f31),
+
+    // Borders - mid-tone oranges
+    borderAccent = Color(0xFFf07300),
+    borderToolbarDivider = Color(0xFFab2700),
+
+    // Tabs - good contrast
+    tabActive = Color(0xFFf07300),
+    tabInactive = Color(0xFF8a1e00),
+)
+
+val yellowColorPalette = darkColorPalette.copy(
+    // Layers - dark yellow backgrounds for good contrast
+    layer1 = Color(0xFF773800), // Dark yellow background
+    layer2 = Color(0xFF773800), // Slightly lighter for cards/dialogs
+    layer3 = PhotonColors.Ink90, // Search backgrounds
+    layer4Start = Color(0xFF9c5200),
+    layer4Center = Color(0xFFb56700),
+    layer4End = PhotonColors.Ink05,
+    layerAccent = Color(0xFFde9600),
+    layerAccentNonOpaque = Color(0x52de9600),
+    layerAccentOpaque = Color(0xFFB8951A),
+    layerScrim = PhotonColors.DarkGrey90A95,
+    layerGradientStart = Color(0xFF9c5200),
+    layerGradientEnd = Color(0xFFf1af00),
+
+    // Actions - bright yellows for visibility on dark backgrounds
+    actionPrimary = Color(0xFFcc7d00),
+    actionPrimaryDisabled = PhotonColors.Ink20A20,
+    actionSecondary = PhotonColors.DarkGrey05,
+    actionTertiary = Color(0xFFde9600),
+
+    // Text colors - WHITE and light greys for contrast on dark yellow
+    textAccent = Color(0xFFf5cc58), // Light yellow for accents
+    textAccentDisabled = Color(0x99de9600),
+
+    // Icons - light colors for contrast on dark yellow
+    iconActive = Color(0xFFf1af00),
+    iconGradientStart = Color(0xFF9c5200),
+    iconGradientEnd = Color(0xFFf1af00),
+
+    // Borders - mid-tone yellows
+    borderAccent = Color(0xFFde9600),
+    borderToolbarDivider = Color(0xFF9c5200),
+
+    // Tabs - good contrast
+    tabActive = Color(0xFFde9600),
+    tabInactive = Color(0xFF773800),
+)
+
+val cyanColorPalette = darkColorPalette.copy(
+    // Layers - lighter, more usable colors
+    layer1 = Color(0xFF008eab), // Cyan 60 - main background
+    layer2 = Color(0xFF007792), // Cyan 70 - card backgrounds
+    layer3 = Color(0xFF005f75), // Cyan 80 - search backgrounds
+    layer4Start = Color(0xFF008eab), // Cyan 60 - main gradient start
+    layer4Center = Color(0xFF00a5c1), // Cyan 50 - middle gradient
+    layer4End = Color(0xFF00b9d3), // Cyan 40 - lighter gradient end
+    layerAccent = Color(0xFF00a5c1), // Cyan 50 - vibrant accent
+    layerAccentNonOpaque = Color(0x5200a5c1),
+    layerAccentOpaque = Color(0xFF008eab), // Cyan 60 - solid accent
+    layerScrim = PhotonColors.DarkGrey90A95,
+    layerGradientStart = Color(0xFF008eab),
+    layerGradientEnd = Color(0xFF00b9d3),
+
+    // Actions - bright cyans for visibility on dark backgrounds
+    actionPrimary = Color(0xFF00a5c1),
+    actionPrimaryDisabled = PhotonColors.Ink20A20,
+    actionSecondary = PhotonColors.DarkGrey05,
+    actionTertiary = Color(0xFF00b9d3),
+
+    // Text colors - WHITE and light greys for contrast on dark cyan
+    textAccent = Color(0xFF61dce9), // Light cyan for accents
+    textAccentDisabled = Color(0x9900a5c1),
+
+    // Icons - light colors for contrast on dark cyan
+    iconActive = Color(0xFF00b9d3),
+    iconGradientStart = Color(0xFF008eab),
+    iconGradientEnd = Color(0xFF00b9d3),
+
+    // Borders - mid-tone cyans
+    borderAccent = Color(0xFF00a5c1),
+    borderToolbarDivider = Color(0xFF007792),
+
+    // Tabs - good contrast
+    tabActive = Color(0xFF00a5c1),
+    tabInactive = Color(0xFF005f75),
+)
+
+val greenColorPalette = darkColorPalette.copy(
+    // Layers - lighter, more usable colors
+    layer1 = Color(0xFF008e00), // Green 60 - main background
+    layer2 = Color(0xFF007700), // Green 70 - card backgrounds
+    layer3 = Color(0xFF005f00), // Green 80 - search backgrounds
+    layer4Start = Color(0xFF008e00), // Green 60 - main gradient start
+    layer4Center = Color(0xFF00a41c), // Green 50 - middle gradient
+    layer4End = Color(0xFF37b847), // Green 40 - lighter gradient end
+    layerAccent = Color(0xFF00a41c), // Green 50 - vibrant accent
+    layerAccentNonOpaque = Color(0x5200a41c),
+    layerAccentOpaque = Color(0xFF008e00), // Green 60 - solid accent
+    layerScrim = PhotonColors.DarkGrey90A95,
+    layerGradientStart = Color(0xFF008e00),
+    layerGradientEnd = Color(0xFF37b847),
+
+    // Actions - bright greens for visibility on dark backgrounds
+    actionPrimary = Color(0xFF00a41c),
+    actionPrimaryDisabled = PhotonColors.Ink20A20,
+    actionSecondary = PhotonColors.DarkGrey05,
+    actionTertiary = Color(0xFF37b847),
+
+    // Text colors - WHITE and light greys for contrast on dark green
+    textAccent = Color(0xFF61cc69), // Light green for accents
+    textAccentDisabled = Color(0x9900a41c),
+
+    // Icons - light colors for contrast on dark green
+    iconActive = Color(0xFF37b847),
+    iconGradientStart = Color(0xFF008e00),
+    iconGradientEnd = Color(0xFF37b847),
+
+    // Borders - mid-tone greens
+    borderAccent = Color(0xFF00a41c),
+    borderToolbarDivider = Color(0xFF007700),
+
+    // Tabs - good contrast
+    tabActive = Color(0xFF00a41c),
+    tabInactive = Color(0xFF005f00),
+)
+
+val purpleColorPalette = darkColorPalette.copy(
+    // Layers - dark purple backgrounds for good contrast
+    layer1 = Color(0xFF6b1e87), // Dark purple background
+    layer2 = Color(0xFF6b1e87), // Slightly lighter for cards/dialogs
+    layer3 = PhotonColors.Ink90, // Search backgrounds
+    layer4Start = Color(0xFF8627a8),
+    layer4Center = Color(0xFF9e3bc3),
+    layer4End = PhotonColors.Ink05,
+    layerAccent = Color(0xFFb453db),
+    layerAccentNonOpaque = Color(0x52b453db),
+    layerAccentOpaque = Color(0xFF7A4A92),
+    layerScrim = PhotonColors.DarkGrey90A95,
+    layerGradientStart = Color(0xFF8627a8),
+    layerGradientEnd = Color(0xFFc671eb),
+
+    // Actions - bright purples for visibility on dark backgrounds
+    actionPrimary = Color(0xFFb453db),
+    actionPrimaryDisabled = PhotonColors.Ink20A20,
+    actionSecondary = PhotonColors.DarkGrey05,
+    actionTertiary = Color(0xFF952BB9),
+
+    // Text colors - WHITE and light greys for contrast on dark purple
+    textAccent = Color(0xFFeaabff), // Light purple for accents
+    textAccentDisabled = Color(0x99b453db),
+
+    // Icons - light colors for contrast on dark purple
+    iconActive = Color(0xFFc671eb),
+    iconGradientStart = Color(0xFF8627a8),
+    iconGradientEnd = Color(0xFFc671eb),
+
+    // Borders - mid-tone purples
+    borderAccent = Color(0xFFb453db),
+    borderToolbarDivider = Color(0xFF8627a8),
+
+    // Tabs - good contrast
+    tabActive = Color(0xFFb453db),
+    tabInactive = Color(0xFF6b1e87),
+)

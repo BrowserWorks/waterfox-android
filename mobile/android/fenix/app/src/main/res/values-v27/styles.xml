@@ -27,6 +27,21 @@
         <item name="android:windowLayoutInDisplayCutoutMode">default</item>
     </style>
 
+    <style name="FeltPrivateTheme" parent="PrivateThemeBase">
+        <!-- Style the status bar -->
+        <!-- We have to pull in the changes from v23/styles.xml to make
+            sure we also get them in 27+ -->
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Style the navigation bar -->
+        <item name="android:navigationBarDividerColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">default</item>
+        
+        <!-- Felt-specific background -->
+        <item name="homeBackground">@drawable/felt_private_home_background_gradient</item>
+    </style>
+
     <style name="SplashScreen" parent="SplashScreenThemeBase">
         <!-- Use the static launcher icon instead of the animated one -->
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
@@ -57,6 +72,6 @@
     <style name="TabTrayDialogStyle" parent="TabTrayDialogStyleBase">
         <item name="android:navigationBarDividerColor">@android:color/transparent</item>
         <item name="android:windowLightNavigationBar">@bool/theme_is_light</item>
-        <item name="android:navigationBarColor">@color/fx_mobile_layer_color_1</item>
+        <item name="android:navigationBarColor">?attr/layer1</item>
     </style>
 </resources>

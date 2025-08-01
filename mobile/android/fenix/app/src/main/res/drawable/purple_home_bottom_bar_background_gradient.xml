@@ -2,10 +2,21 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 <item>
     <shape>
-        <solid android:color="?attr/layer1" />
+        <gradient
+            android:angle="45"
+            android:startColor="#8627a8"
+            android:centerColor="#9e3bc3"
+            android:endColor="#6b1e87"
+            android:type="linear" />
+    </shape>
+</item>
+<item android:bottom="-2dp" android:left="-2dp" android:right="-2dp">
+    <shape>
+        <stroke android:width="1dp" android:color="#1AFFFFFF" />
     </shape>
 </item>
 </layer-list>

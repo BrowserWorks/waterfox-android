@@ -30,6 +30,7 @@ import androidx.annotation.IdRes
 import androidx.annotation.RequiresApi
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.compose.runtime.mutableStateOf
 import androidx.core.app.NotificationManagerCompat
@@ -306,6 +307,22 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
     @Suppress("ComplexMethod")
     final override fun onCreate(savedInstanceState: Bundle?) {
+        // Set the theme before anything else.
+        val settings = settings()
+        if (settings.shouldUseVioletTheme ||
+            settings.shouldUseBlueTheme ||
+            settings.shouldUsePinkTheme ||
+            settings.shouldUseGreenTheme ||
+            settings.shouldUseRedTheme ||
+            settings.shouldUseOrangeTheme ||
+            settings.shouldUseYellowTheme ||
+            settings.shouldUseCyanTheme ||
+            settings.shouldUsePurpleTheme ||
+            settings.shouldUseBlackTheme
+        ) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+
         // DO NOT MOVE ANYTHING ABOVE THIS getProfilerTime CALL.
         val startTimeProfiler = components.core.engine.profiler?.getProfilerTime()
 

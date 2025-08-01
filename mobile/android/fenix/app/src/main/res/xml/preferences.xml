@@ -58,6 +58,11 @@
             android:title="@string/preferences_customize" />
 
         <androidx.preference.Preference
+            android:key="@string/pref_key_theme"
+            app:iconSpaceReserved="false"
+            android:title="@string/preferences_theme" />
+
+        <androidx.preference.Preference
             android:key="@string/pref_key_passwords"
             app:iconSpaceReserved="false"
             android:title="@string/preferences_passwords_logins_and_passwords_2" />

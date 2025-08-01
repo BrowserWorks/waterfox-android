@@ -178,6 +178,14 @@ object TestHelper {
         Log.i(TAG, "verifyDarkThemeApplied: Verified that that the \"Dark\" theme was applied")
     }
 
+    fun verifyBlueThemeApplied(context: android.content.Context) {
+        Log.i(TAG, "verifyBlueThemeApplied: Trying to verify that the \"Blue\" theme was applied")
+        val settings = context.getSharedPreferences("org.mozilla.fenix_preferences", android.content.Context.MODE_PRIVATE)
+        val blueThemeEnabled = settings.getBoolean("pref_key_blue_theme", false)
+        assertTrue("$TAG: Blue theme not selected", blueThemeEnabled)
+        Log.i(TAG, "verifyBlueThemeApplied: Verified that the \"Blue\" theme was applied")
+    }
+
     fun waitForAppWindowToBeUpdated() {
         Log.i(TAG, "waitForAppWindowToBeUpdated: Waiting for $waitingTimeVeryShort ms for $packageName window to be updated")
         mDevice.waitForWindowUpdate(packageName, waitingTimeVeryShort)

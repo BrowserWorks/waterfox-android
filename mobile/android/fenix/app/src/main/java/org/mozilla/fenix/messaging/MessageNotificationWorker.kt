@@ -7,6 +7,7 @@ package org.mozilla.fenix.messaging
 import android.app.Notification
 import android.app.PendingIntent
 import android.content.Context
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -22,6 +23,7 @@ import mozilla.components.service.nimbus.messaging.FxNimbusMessaging
 import mozilla.components.service.nimbus.messaging.Message
 import mozilla.components.support.base.ids.SharedIdsHelper
 import mozilla.components.support.utils.BootUtils
+import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.onboarding.ensureMarketingChannelExists
 import org.mozilla.fenix.utils.IntentUtils
@@ -217,7 +219,15 @@ class NotificationClickedReceiverActivity : ComponentActivity() {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
 
                 // Start the message intent.
-                startActivity(intent)
+                try {
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    // The activity doesn't exist, fallback to opening the app.
+                    val homeIntent = Intent(this@NotificationClickedReceiverActivity, HomeActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    }
+                    startActivity(homeIntent)
+                }
             }
         }
 

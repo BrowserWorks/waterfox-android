@@ -1,0 +1,3 @@
+[submodule "glean"]
+	path = glean
+	url = git@github.com:mozilla/glean.git

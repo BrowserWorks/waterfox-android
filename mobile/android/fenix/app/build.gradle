@@ -294,6 +294,7 @@ android {
         }
     }
 
+
     lint {
         lintConfig = file("lint.xml")
         baseline = file("lint-baseline.xml")
@@ -306,6 +307,9 @@ android {
     packaging {
         jniLibs {
             excludes += ["**/armeabi/*.so", "**/mips/*.so", "**/mips64/*.so", "**/x86/*.so"]
+            // glean-native bundles a libxul.so as its own megazord; prefer the in-tree
+            // geckoview libxul.so so the two don't conflict during merge.
+            pickFirsts += ["**/libxul.so"]
             if (!isAppBundle) {
                 useLegacyPackaging = true
             }

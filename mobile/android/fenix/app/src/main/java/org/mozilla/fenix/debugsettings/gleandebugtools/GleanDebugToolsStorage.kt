@@ -4,7 +4,7 @@
 
 package org.mozilla.fenix.debugsettings.gleandebugtools
 
-import mozilla.telemetry.glean.Glean
+// import mozilla.telemetry.glean.Glean
 
 /**
  * A storage used to access the Glean APIs.
@@ -30,12 +30,9 @@ interface GleanDebugToolsStorage {
  */
 class DefaultGleanDebugToolsStorage : GleanDebugToolsStorage {
     override fun setLogPings(enabled: Boolean) {
-        Glean.setLogPings(enabled)
     }
 
     override fun sendPing(pingType: String, debugViewTag: String) {
-        Glean.setDebugViewTag(debugViewTag)
-        Glean.submitPingByName(pingType)
     }
 
     /**
@@ -47,7 +44,7 @@ class DefaultGleanDebugToolsStorage : GleanDebugToolsStorage {
          * Get all the types of pings that can be submitted.
          */
         fun getPingTypes(): Set<String> {
-            return Glean.getRegisteredPingNames()
+            return emptySet()
         }
     }
 }

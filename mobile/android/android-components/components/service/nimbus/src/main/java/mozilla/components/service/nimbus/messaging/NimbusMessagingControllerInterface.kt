@@ -36,15 +36,14 @@ interface NimbusMessagingControllerInterface {
     suspend fun getNextMessage(surfaceId: MessageSurfaceId): Message?
 
     /**
-     * Records telemetry and metadata for a newly processed displayed message.
+     * Records metadata for a newly processed displayed message.
      */
     suspend fun onMessageDisplayed(displayedMessage: Message, bootIdentifier: String? = null): Message
 
     /**
      * Called when a message has been dismissed by the user.
      *
-     * Records a messageDismissed event, and records that the message
-     * has been dismissed.
+     * Records that the message has been dismissed.
      */
     suspend fun onMessageDismissed(message: Message)
 
@@ -52,27 +51,11 @@ interface NimbusMessagingControllerInterface {
      * Called when a microsurvey has been completed by the user.
      *
      * This function should be called when a microsurvey associated with a message
-     * has been completed by the user, providing the message object and the user's
-     * response in the form of LikertAnswers.
+     * has been completed by the user.
      *
      * @param message The message associated with the microsurvey.
-     * @param answer The user's response to the microsurvey, represented as LikertAnswers.
      */
-    suspend fun onMicrosurveyCompleted(message: Message, answer: String)
-
-    /**
-     * Called when a microsurvey has been shown to the user.
-     *
-     * @param id The id of the message associated with the microsurvey.
-     */
-    suspend fun onMicrosurveyShown(id: String)
-
-    /**
-     * Called when a privacy notice of a microsurvey has been tapped by the user.
-     *
-     * @param id The id of the message associated microsurvey.
-     */
-    suspend fun onMicrosurveyPrivacyNoticeTapped(id: String)
+    suspend fun onMicrosurveyCompleted(message: Message)
 
     /**
      * Called when a microsurvey has been dismissed by the user.
@@ -82,27 +65,11 @@ interface NimbusMessagingControllerInterface {
     suspend fun onMicrosurveyDismissed(message: Message)
 
     /**
-     * Called when a sent confirmation is shown for a microsurvey.
-     *
-     * @param id The id of the microsurvey.
-     */
-    suspend fun onMicrosurveySentConfirmationShown(id: String)
-
-    /**
      * Called once the user has clicked on a message.
      *
-     * This records that the message has been clicked on, but does not record a
-     * glean event. That should be done when calling [getIntentForMessage].
+     * This records that the message has been clicked on.
      */
     suspend fun onMessageClicked(message: Message)
-
-    /**
-     * Called once the user has clicked to start a microsurvey.
-     * @param id the id of the microsurvey.
-     *
-     * This records that the microsurvey has been clicked to be started.
-     */
-    suspend fun onMicrosurveyStarted(id: String)
 
     /**
      * Create and return the relevant [Intent] for the given [Message].

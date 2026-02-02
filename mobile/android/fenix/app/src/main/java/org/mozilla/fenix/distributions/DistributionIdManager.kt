@@ -9,11 +9,9 @@ import android.os.Build
 import androidx.annotation.VisibleForTesting
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.utils.ext.PackageManagerWrapper
-import mozilla.telemetry.glean.Glean
-import mozilla.telemetry.glean.internal.DistributionMetrics
+
 import org.mozilla.fenix.Config
-import org.mozilla.fenix.GleanMetrics.Metrics
-import org.mozilla.fenix.GleanMetrics.Partnerships
+
 import org.mozilla.fenix.components.metrics.MetricController
 import org.mozilla.fenix.components.metrics.MetricServiceType
 import org.mozilla.fenix.components.metrics.UTMParams
@@ -114,12 +112,10 @@ class DistributionIdManager(
         when {
             utmParams.campaign.contains(VIVO_INDIA_UTM_CAMPAIGN) -> {
                 setDistribution(Distribution.VIVO_001)
-                Metrics.distributionId.set(Distribution.VIVO_001.id)
             }
 
             utmParams.campaign.contains(Distribution.XIAOMI_001.id) -> {
                 setDistribution(Distribution.XIAOMI_001)
-                Metrics.distributionId.set(Distribution.XIAOMI_001.id)
             }
         }
     }
@@ -237,7 +233,6 @@ class DistributionIdManager(
         this.distribution = distribution
         browserStoreProvider.updateDistributionId(distribution.id)
         distributionSettings.saveDistributionId(distribution.id)
-        Glean.updateDistribution(DistributionMetrics(name = distribution.id))
     }
 }
 
@@ -268,7 +263,6 @@ private fun wasAppPreinstalledOnVivoDevice(): Boolean {
         File(VIVO_PREINSTALLED_FIREFOX_FILE_PATH).exists()
     } catch (e: SecurityException) {
         logger.error("File access denied", e)
-        Partnerships.vivoFileCheckError.record()
         false
     }
 }

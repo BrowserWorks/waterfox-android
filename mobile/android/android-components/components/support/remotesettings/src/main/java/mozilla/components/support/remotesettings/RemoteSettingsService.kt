@@ -6,7 +6,6 @@ package mozilla.components.support.remotesettings
 
 import android.content.Context
 import android.os.Build
-import mozilla.appservices.remotesettings.GleanTelemetry
 import mozilla.appservices.remotesettings.RemoteSettingsConfig
 import mozilla.appservices.remotesettings.RemoteSettingsContext
 import mozilla.appservices.remotesettings.RemoteSettingsServer
@@ -33,9 +32,7 @@ class RemoteSettingsService(
         AppServicesRemoteSettingsService(
             databasePath,
             RemoteSettingsConfig(server = server, appContext = appContext),
-        ).also { service ->
-            service.setTelemetry(GleanTelemetry())
-        }
+        )
     }
 }
 

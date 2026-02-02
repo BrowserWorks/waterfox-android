@@ -43,12 +43,9 @@ class DefaultGleanDebugToolsStorage(
     private val settings: Settings,
 ) : GleanDebugToolsStorage {
     override fun setLogPings(enabled: Boolean) {
-        Glean.setLogPings(enabled)
     }
 
     override fun sendPing(pingType: String, debugViewTag: String) {
-        Glean.setDebugViewTag(debugViewTag)
-        Glean.submitPingByName(pingType)
     }
 
     override fun clearPersistedDebugViewTag() {
@@ -70,7 +67,7 @@ class DefaultGleanDebugToolsStorage(
          * Get all the types of pings that can be submitted.
          */
         fun getPingTypes(): Set<String> {
-            return Glean.getRegisteredPingNames()
+            return emptySet()
         }
 
         /**

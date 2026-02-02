@@ -38,7 +38,16 @@ def rootLocalProperties = new File(gradle.mozconfig.topsrcdir, "local.properties
     }
 }
 
-gradle.settingsEvaluated {
+gradle.settingsEvaluated { settings ->
+    if (gradle.hasProperty("localProperties.autoPublish.application-services.dir")
+            || gradle.hasProperty("localProperties.autoPublish.glean.dir")) {
+        settings.dependencyResolutionManagement {
+            repositories {
+                mavenLocal()
+            }
+        }
+        logger.lifecycle("settings.gradle> Added MavenLocal to settings repositories for auto-published dependencies")
+    }
     if (gradle.hasProperty("localProperties.autoPublish.application-services.dir")) {
         def appServicesLocalPath = gradle."localProperties.autoPublish.application-services.dir"
         logger.lifecycle("settings.gradle> Enabling automatic publication of application-services from: $appServicesLocalPath")

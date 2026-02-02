@@ -20,9 +20,9 @@ import androidx.compose.runtime.Composable
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.compose.content
-import androidx.lifecycle.lifecycleScope
+
 import androidx.navigation.fragment.findNavController
-import kotlinx.coroutines.launch
+
 import mozilla.components.browser.state.action.WebExtensionAction
 import mozilla.components.browser.state.state.extension.WebExtensionPromptRequest
 import mozilla.components.concept.engine.webextension.InstallationMethod
@@ -34,12 +34,12 @@ import mozilla.components.support.base.feature.ViewBoundFeatureWrapper
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.utils.Browsers
 import mozilla.components.support.utils.BuildManufacturerChecker
-import org.mozilla.fenix.GleanMetrics.Pings
+
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.accounts.FenixFxAEntryPoint
 import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.components.appstate.SupportedMenuNotifications
-import org.mozilla.fenix.components.initializeGlean
+
 import org.mozilla.fenix.components.metrics.InstallReferrerHandlingService
 import org.mozilla.fenix.components.metrics.RtamoAttributionHandler
 import org.mozilla.fenix.components.metrics.installSourcePackage
@@ -331,20 +331,6 @@ class OnboardingFragment : Fragment() {
 
     private fun startGlean() {
         val settings = requireComponents.settings
-        viewLifecycleOwner.lifecycleScope.launch {
-            initializeGlean(
-                requireContext().applicationContext,
-                logger,
-                settings.isTelemetryEnabled,
-                requireComponents.core.client,
-            )
-        }
-
-        if (!settings.isTelemetryEnabled) {
-            Pings.onboardingOptOut.setEnabled(true)
-            Pings.onboardingOptOut.submit()
-        }
-
         rtamoAttributionHandler.handleReferrer(InstallReferrerHandlingService.response)
 
         // The marketing telemetry may be enabled after finishing onboarding.

@@ -27,7 +27,6 @@ import androidx.fragment.compose.content
 import androidx.navigation.fragment.findNavController
 import mozilla.components.compose.base.button.IconButton
 import mozilla.components.lib.state.helpers.StoreProvider.Companion.fragmentStore
-import mozilla.telemetry.glean.Glean
 import org.mozilla.fenix.R
 import org.mozilla.fenix.debugsettings.gleandebugtools.ui.GleanDebugToolsScreen
 import org.mozilla.fenix.e2e.SystemInsetsPaddedFragment
@@ -42,8 +41,8 @@ class GleanDebugToolsFragment : Fragment(), SystemInsetsPaddedFragment {
 
     private val store by fragmentStore(
         GleanDebugToolsState(
-            logPingsToConsoleEnabled = Glean.getLogPings(),
-            debugViewTag = Glean.getDebugViewTag() ?: "",
+            logPingsToConsoleEnabled = false,
+            debugViewTag = "",
         ),
     ) {
         GleanDebugToolsStore(

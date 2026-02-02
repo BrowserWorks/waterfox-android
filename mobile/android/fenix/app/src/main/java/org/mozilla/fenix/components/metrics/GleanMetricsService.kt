@@ -7,7 +7,6 @@ package org.mozilla.fenix.components.metrics
 import android.content.Context
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.utils.RunWhenReadyQueue
-import mozilla.telemetry.glean.Glean
 import org.mozilla.fenix.GleanMetrics.Pings
 import org.mozilla.fenix.ext.components
 
@@ -70,36 +69,17 @@ class GleanMetricsService(
     private val activationPing = ActivationPing(context)
 
     override fun start() {
-        logger.debug("Enabling Glean.")
-        // Initialization of Glean already happened in FenixApplication.
-        Glean.setCollectionEnabled(true)
-
-        if (initialized) return
+        logger.debug("Data collection is disabled, not initializing Glean.")
         initialized = true
-
-        // The code below doesn't need to execute immediately, so we'll add them to the visual
-        // completeness task queue to be run later.
-        runWhenReadyQueue.runIfReadyOrQueue {
-            // We have to initialize Glean *on* the main thread, because it registers lifecycle
-            // observers. However, the activation ping must be sent *off* of the main thread,
-            // because it calls Google ad APIs that must be called *off* of the main thread.
-            // These two things actually happen in parallel, but that should be ok because Glean
-            // can handle events being recorded before it's initialized.
-            Glean.registerPings(Pings)
-
-            activationPing.checkAndSend()
-        }
     }
 
     override fun stop() {
-        Glean.setCollectionEnabled(false)
     }
 
     override fun track(event: Event) {
-        event.wrapper?.track(event)
     }
 
     override fun shouldTrack(event: Event): Boolean {
-        return event.wrapper != null
+        return false
     }
 }

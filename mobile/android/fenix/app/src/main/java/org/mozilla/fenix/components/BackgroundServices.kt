@@ -46,15 +46,11 @@ import mozilla.components.service.fxa.sync.GlobalSyncableStoreProvider
 import mozilla.components.service.sync.autofill.AutofillCreditCardsAddressesStorage
 import mozilla.components.service.sync.logins.SyncableLoginsStorage
 import mozilla.components.support.utils.RunWhenReadyQueue
-import mozilla.telemetry.glean.private.NoExtras
 import org.mozilla.fenix.Config
-import org.mozilla.fenix.GleanMetrics.ClientAssociation
-import org.mozilla.fenix.GleanMetrics.Pings.fxAccounts
-import org.mozilla.fenix.GleanMetrics.SyncAuth
 import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.maxActiveTime
-import org.mozilla.fenix.ext.recordEventInNimbus
+
 import org.mozilla.fenix.perf.StrictModeManager
 import org.mozilla.fenix.perf.lazyMonitored
 import org.mozilla.fenix.sync.SyncedTabsIntegration
@@ -149,10 +145,7 @@ class BackgroundServices(
         }
     }
 
-    private val telemetryAccountObserver = TelemetryAccountObserver(
-        context,
-        settings,
-    )
+    private val telemetryAccountObserver = TelemetryAccountObserver(settings)
 
     val accountAbnormalities = AccountAbnormalities(context, crashReporter, strictMode)
 
@@ -272,15 +265,13 @@ internal class TelemetryMiddleware : Middleware<SyncState, SyncAction> {
         next(action)
         val accountUid = store.state.account?.uid
         if (prevState.account?.uid != accountUid && accountUid != null) {
-            ClientAssociation.uid.set(accountUid)
-            fxAccounts.submit()
+            // no-op: telemetry disabled
         }
     }
 }
 
 @VisibleForTesting(otherwise = PRIVATE)
 internal class TelemetryAccountObserver(
-    private val context: Context,
     private val settings: Settings,
 ) : AccountObserver {
     override fun onAuthenticated(account: OAuthAccount, authType: AuthType) {
@@ -288,22 +279,21 @@ internal class TelemetryAccountObserver(
         when (authType) {
             // User signed-in into an existing FxA account.
             AuthType.Signin -> {
-                SyncAuth.signIn.record(NoExtras())
-                context.recordEventInNimbus("sync_auth.sign_in")
+                // no-op: telemetry disabled
             }
 
             // User created a new FxA account.
-            AuthType.Signup -> SyncAuth.signUp.record(NoExtras())
+            AuthType.Signup -> {}
 
             // User paired to an existing account via QR code scanning.
-            AuthType.Pairing -> SyncAuth.paired.record(NoExtras())
+            AuthType.Pairing -> {}
 
             // Account Manager recovered a broken FxA auth state, without direct user involvement.
-            AuthType.Recovered -> SyncAuth.recovered.record(NoExtras())
+            AuthType.Recovered -> {}
 
             // User signed-in into an FxA account via unknown means.
             // Exact mechanism identified by the 'action' param.
-            is AuthType.OtherExternal -> SyncAuth.otherExternal.record(NoExtras())
+            is AuthType.OtherExternal -> {}
 
             // User signed-in into an FxA account shared from another locally installed app using the copy flow.
             AuthType.MigratedCopy,
@@ -318,7 +308,6 @@ internal class TelemetryAccountObserver(
     }
 
     override fun onLoggedOut() {
-        SyncAuth.signOut.record(NoExtras())
         settings.signedInFxaAccount = false
     }
 }

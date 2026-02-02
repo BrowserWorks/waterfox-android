@@ -8,12 +8,8 @@ import android.content.Context
 import android.content.res.Configuration
 import androidx.core.content.ContextCompat
 import androidx.datastore.preferences.preferencesDataStore
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import mozilla.components.browser.domains.autocomplete.BaseDomainAutocompleteProvider
 import mozilla.components.browser.domains.autocomplete.ShippedDomainsProvider
 import mozilla.components.browser.engine.gecko.GeckoEngine
@@ -47,7 +43,7 @@ import mozilla.components.feature.downloads.DefaultFileSizeFormatter
 import mozilla.components.feature.downloads.DownloadEstimator
 import mozilla.components.feature.downloads.DownloadMiddleware
 import mozilla.components.feature.downloads.FileSizeFormatter
-import mozilla.components.feature.fxsuggest.facts.FxSuggestFactsMiddleware
+
 import mozilla.components.feature.logins.exceptions.LoginExceptionStorage
 import mozilla.components.feature.media.MediaSessionFeature
 import mozilla.components.feature.media.middleware.LastMediaAccessMiddleware
@@ -65,14 +61,10 @@ import mozilla.components.feature.recentlyclosed.RecentlyClosedTabsStorage
 import mozilla.components.feature.search.SearchApplicationName
 import mozilla.components.feature.search.SearchDeviceType
 import mozilla.components.feature.search.SearchUpdateChannel
-import mozilla.components.feature.search.middleware.AdsTelemetryMiddleware
 import mozilla.components.feature.search.middleware.SearchExtraParams
 import mozilla.components.feature.search.middleware.SearchMiddleware
 import mozilla.components.feature.search.region.RegionMiddleware
 import mozilla.components.feature.search.storage.SearchEngineSelectorConfig
-import mozilla.components.feature.search.telemetry.SerpTelemetryRepository
-import mozilla.components.feature.search.telemetry.ads.AdsTelemetry
-import mozilla.components.feature.search.telemetry.incontent.InContentTelemetry
 import mozilla.components.feature.session.HistoryDelegate
 import mozilla.components.feature.session.middleware.LastAccessMiddleware
 import mozilla.components.feature.session.middleware.undo.UndoMiddleware
@@ -107,7 +99,6 @@ import mozilla.components.service.sync.logins.SyncableLoginsStorage
 import mozilla.components.support.base.log.Log
 import mozilla.components.support.base.worker.Frequency
 import mozilla.components.support.ktx.android.content.appVersionName
-import mozilla.components.support.ktx.android.content.res.readJSONObject
 import mozilla.components.support.locale.LocaleManager
 import mozilla.components.support.utils.DateTimeProvider
 import mozilla.components.support.utils.DefaultDateTimeProvider
@@ -148,7 +139,6 @@ import org.mozilla.fenix.summarization.onboarding.FenixSummarizationFeatureConfi
 import org.mozilla.fenix.summarization.onboarding.SummarizationFeatureDiscoveryConfiguration
 import org.mozilla.fenix.tabgroups.storage.redux.middleware.TabGroupMiddleware
 import org.mozilla.fenix.tabgroups.storage.repository.DefaultTabGroupRepository
-import org.mozilla.fenix.telemetry.TelemetryMiddleware
 import org.mozilla.fenix.translations.TranslationsEnabledSettings
 import org.mozilla.fenix.utils.Settings.DeleteDownloadBehavior
 import org.mozilla.fenix.utils.getUndoDelay
@@ -202,7 +192,7 @@ class Core(
             cookieBannerHandlingGlobalRulesSubFrames =
                 context.components.settings.shouldEnableCookieBannerGlobalRulesSubFrame,
             emailTrackerBlockingPrivateBrowsing = true,
-            userCharacteristicPingCurrentVersion = FxNimbus.features.userCharacteristics.value().currentVersion,
+            userCharacteristicPingCurrentVersion = 0,
             getDesktopMode = {
                 store.state.desktopMode
             },
@@ -389,7 +379,6 @@ class Core(
                     ),
                 ),
                 ReaderViewMiddleware(),
-                TelemetryMiddleware(context, context.components.settings, metrics, crashReporter),
                 ThumbnailsMiddleware(thumbnailStorage),
                 UndoMiddleware(context.components.settings.getUndoDelay()),
                 RegionMiddleware(context, locationService),
@@ -402,13 +391,11 @@ class Core(
                 ),
                 RecordingDevicesMiddleware(context, context.components.notificationsDelegate),
                 PromptMiddleware(),
-                AdsTelemetryMiddleware(adsTelemetry),
                 LastMediaAccessMiddleware(),
                 HistoryMetadataMiddleware(historyMetadataService),
                 ProtectionsDashboardMiddleware(protectionsStorage),
                 SessionPrioritizationMiddleware(),
                 SaveToPDFMiddleware(context),
-                FxSuggestFactsMiddleware(),
                 FileUploadsDirCleanerMiddleware(fileUploadsDirCleaner),
                 DesktopModeMiddleware(
                     repository = DefaultDesktopModeRepository(
@@ -454,20 +441,6 @@ class Core(
             // Install the "icons" WebExtension to automatically load icons for every visited website.
             icons.install(engine, this)
 
-            CoroutineScope(Dispatchers.Main).launch {
-                val readJson = { context.assets.readJSONObject("search/search_telemetry_v2.json") }
-                val providerList = withContext(Dispatchers.IO) {
-                    SerpTelemetryRepository(
-                        readJson = readJson,
-                        collectionName = COLLECTION_NAME,
-                        remoteSettingsService = context.components.remoteSettingsService.value,
-                    ).updateProviderList()
-                }
-                // Install the "ads" WebExtension to get the links in an partner page.
-                adsTelemetry.install(engine, this@apply, providerList)
-                // Install the "cookies" WebExtension and tracks user interaction with SERPs.
-                searchTelemetry.install(engine, this@apply, providerList)
-            }
 
             WebNotificationFeature(
                 context,
@@ -538,18 +511,6 @@ class Core(
             manifestProvider = merinoManifestProvider,
             useMerinoManifest = context.components.settings.enableMerinoManifest,
         )
-    }
-
-    val metrics by lazyMonitored {
-        context.components.analytics.metrics
-    }
-
-    val adsTelemetry by lazyMonitored {
-        AdsTelemetry()
-    }
-
-    val searchTelemetry by lazyMonitored {
-        InContentTelemetry()
     }
 
     /**
@@ -825,10 +786,5 @@ class Core(
         // Maximum number of suggestions returned from shortcut search engine.
         const val METADATA_SHORTCUT_SUGGESTION_LIMIT = 20
 
-        // collection name to fetch from server for SERP telemetry
-        const val COLLECTION_NAME = "search-telemetry-v2"
-        internal const val REMOTE_PROD_ENDPOINT_URL = "https://firefox.settings.services.mozilla.com"
-        internal const val REMOTE_STAGE_ENDPOINT_URL = "https://firefox.settings.services.allizom.org"
-        internal const val REMOTE_DEV_ENDPOINT_URL = "https://remote-settings-dev.allizom.org"
     }
 }

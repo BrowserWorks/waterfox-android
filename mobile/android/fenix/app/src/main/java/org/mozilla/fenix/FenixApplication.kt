@@ -82,7 +82,7 @@ import mozilla.components.support.utils.Browsers
 import mozilla.components.support.utils.RunWhenReadyQueue
 import mozilla.components.support.utils.logElapsedTime
 import mozilla.components.support.webextensions.WebExtensionSupport
-import mozilla.telemetry.glean.Glean
+
 import org.mozilla.experiments.nimbus.NullVariables
 import org.mozilla.fenix.GleanMetrics.Addons
 import org.mozilla.fenix.GleanMetrics.Addresses
@@ -104,7 +104,7 @@ import org.mozilla.fenix.GleanMetrics.UserAiSummarize
 import org.mozilla.fenix.components.Components
 import org.mozilla.fenix.components.Core
 import org.mozilla.fenix.components.appstate.AppAction
-import org.mozilla.fenix.components.initializeGlean
+
 import org.mozilla.fenix.components.metrics.MozillaProductDetector
 import org.mozilla.fenix.components.startMetricsIfEnabled
 import org.mozilla.fenix.experiments.maybeFetchExperiments
@@ -251,24 +251,15 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         }
     }
 
-    // Begin initialization of Glean if we have data-upload consent, otherwise we will have to
-    // wait until we do. Note that Glean initialization is asynchronous any may not be finished
-    // when this method returns.
-    @OptIn(DelicateCoroutinesApi::class) // GlobalScope usage
     private fun maybeInitializeGlean() {
-        // We delay the Glean initialization until we have user consent from onboarding.
-        // If onboarding is disabled (when in local builds), continue to initialize Glean.
-        if (components.fenixOnboarding.userHasBeenOnboarded() || !FeatureFlags.onboardingFeatureEnabled) {
-            initializeGlean(this, logger, components.settings.isTelemetryEnabled, components.core.client)
-        }
+        logger.debug("Preventing Glean from initializing, since telemetry is disabled")
     }
 
     /**
      * This phase of main-process initialization runs before application-services is fully setup
-     * so care must be taken. This phases begins loading the Nimbus, Glean, Gecko libraries.
+     * so care must be taken. This phase begins loading the Nimbus and Gecko libraries.
      *
-     * By the end of this, application-services, Nimbus and Gecko are initialized. Glean may or may
-     * not be initialized.
+     * By the end of this, application-services, Nimbus and Gecko are initialized. Glean remains disabled.
      */
     private fun setupEarlyMain() {
         // ⚠️ The sequence of CrashReporter / Nimbus / Engine / Glean is particularly subtle due to
@@ -307,9 +298,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         // construct the instance.
         components.core.engine
 
-        // Kick off initialization of Glean backend off-thread. Glean will continue to queue
-        // metric samples until the backend is ready. If we don't have data-upload consent then
-        // this will be a no-op and initialization may be attempted after onboarding.
         maybeInitializeGlean()
 
         // Initialize the [BrowserStore] so that [setStartupMetrics] can reference this.
@@ -401,7 +389,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
             VisibilityLifecycleObserver(),
         )
 
-        components.analytics.metricsStorage.tryRegisterAsUsageRecorder(this)
 
         CoroutineScope(IO).launch {
             components.useCases.wallpaperUseCases.fetchCurrentWallpaperUseCase.invoke()

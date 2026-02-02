@@ -384,12 +384,7 @@ private fun skipOnboardingBeforeLaunch() {
     // as it runs after the onboarding finishes
     Handler(Looper.getMainLooper()).post {
         appContext.components.strictMode.allowViolation(StrictMode::allowThreadDiskReads) {
-            initializeGlean(
-                applicationContext = appContext,
-                logger = Logger(),
-                isTelemetryUploadEnabled = appContext.components.settings.isTelemetryEnabled,
-                client = appContext.components.core.client,
-            )
+            initializeGlean(logger = Logger())
         }
     }
     Log.i(TAG, "skipOnboardingBeforeLaunch: Successfully skipped the onboarding before launching the app")

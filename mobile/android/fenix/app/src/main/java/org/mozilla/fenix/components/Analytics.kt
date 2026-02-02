@@ -17,7 +17,7 @@ import mozilla.components.lib.crash.runtimetagproviders.VersionInfoProvider
 import mozilla.components.lib.crash.sentry.SentryService
 import mozilla.components.lib.crash.sentry.eventprocessors.CrashMetadataEventProcessor
 import mozilla.components.lib.crash.service.CrashReporterService
-import mozilla.components.lib.crash.service.GleanCrashReporterService
+
 import mozilla.components.lib.crash.service.socorro.MozillaSocorroService
 import mozilla.components.lib.crash.store.CrashReportOption
 import mozilla.components.support.ktx.android.content.isMainProcess
@@ -123,21 +123,13 @@ class Analytics(
         CrashReporter(
             context = context,
             services = services,
-            telemetryServices = listOf(
-                GleanCrashReporterService(
-                    context,
-                    appChannel = MOZ_UPDATE_CHANNEL,
-                    appVersion = MOZ_APP_VERSION,
-                    appBuildId = MOZ_APP_BUILDID,
-                    isUploadEnabled = settings.isTelemetryEnabled,
-                ),
-            ),
+            telemetryServices = emptyList(),
             shouldPrompt = CrashReporter.Prompt.ALWAYS,
             promptConfiguration = CrashReporter.PromptConfiguration(
                 appName = context.getString(R.string.app_name),
                 organizationName = "Mozilla",
             ),
-            enabled = true,
+            enabled = false,
             nonFatalCrashIntent = pendingIntent,
             useLegacyReporting =
                 settings.crashReportOption() != CrashReportOption.Auto &&

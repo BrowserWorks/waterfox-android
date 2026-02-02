@@ -8,8 +8,6 @@ import android.content.Intent
 import android.net.Uri
 import androidx.annotation.VisibleForTesting
 import androidx.core.net.toUri
-import mozilla.components.service.nimbus.GleanMetrics.Microsurvey
-import mozilla.components.service.nimbus.GleanMetrics.Messaging as GleanMessaging
 
 /**
  * Bookkeeping for message actions in terms of Glean messages and the messaging store.
@@ -45,11 +43,9 @@ open class NimbusMessagingController(
     }
 
     override suspend fun onMicrosurveyShown(id: String) {
-        Microsurvey.shown.record(Microsurvey.ShownExtra(surveyId = id))
     }
 
     override suspend fun onMicrosurveyPrivacyNoticeTapped(id: String) {
-        Microsurvey.privacyNoticeTapped.record(Microsurvey.PrivacyNoticeTappedExtra(surveyId = id))
     }
 
     /**
@@ -65,18 +61,15 @@ open class NimbusMessagingController(
     }
 
     override suspend fun onMicrosurveyDismissed(message: Message) {
-        Microsurvey.dismissButtonTapped.record(Microsurvey.DismissButtonTappedExtra(surveyId = message.id))
         val messageMetadata = message.metadata
         val updatedMetadata = messageMetadata.copy(dismissed = true)
         messagingStorage.updateMetadata(updatedMetadata)
     }
 
     override suspend fun onMicrosurveySentConfirmationShown(id: String) {
-        Microsurvey.confirmationShown.record(Microsurvey.ConfirmationShownExtra(surveyId = id))
     }
 
     override suspend fun onMicrosurveyStarted(id: String) {
-        sendClickedMessageTelemetry(id, null)
     }
 
     override fun getIntentForMessage(message: Message) = Intent(
@@ -104,30 +97,18 @@ open class NimbusMessagingController(
     }
 
     private fun sendDismissedMessageTelemetry(messageId: String) {
-        GleanMessaging.messageDismissed.record(GleanMessaging.MessageDismissedExtra(messageId))
     }
 
     private fun sendShownMessageTelemetry(messageId: String) {
-        GleanMessaging.messageShown.record(GleanMessaging.MessageShownExtra(messageId))
     }
 
     private fun sendExpiredMessageTelemetry(messageId: String) {
-        GleanMessaging.messageExpired.record(GleanMessaging.MessageExpiredExtra(messageId))
     }
 
     private fun sendClickedMessageTelemetry(messageId: String, uuid: String?) {
-        GleanMessaging.messageClicked.record(
-            GleanMessaging.MessageClickedExtra(messageKey = messageId, actionUuid = uuid),
-        )
     }
 
     private fun sendMicrosurveyCompletedTelemetry(messageId: String, answer: String) {
-        Microsurvey.submitButtonTapped.record(
-            Microsurvey.SubmitButtonTappedExtra(
-                surveyId = messageId,
-                userSelection = answer,
-            ),
-        )
     }
 
     private fun convertActionIntoDeepLinkSchemeUri(action: String): Uri =

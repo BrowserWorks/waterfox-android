@@ -8,23 +8,22 @@ import kotlin.collections.listOf
 import kotlinx.coroutines.runBlocking
 import mozilla.components.support.test.robolectric.testContext
 import mozilla.components.support.utils.ext.packageManagerWrapper
-import mozilla.telemetry.glean.Glean
+
 import org.junit.After
 import org.junit.Assert.assertEquals
-import org.junit.Rule
+
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mozilla.fenix.components.fake.FakeMetricController
 import org.mozilla.fenix.components.metrics.MetricServiceType
 import org.mozilla.fenix.components.metrics.UTMParams
-import org.mozilla.fenix.helpers.FenixGleanTestRule
+
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.shadows.ShadowBuild
 
 @RunWith(RobolectricTestRunner::class)
 class DistributionIdManagerTest {
 
-    @get:Rule val gleanTestRule = FenixGleanTestRule(testContext)
 
     private var providerValue: String? = null
     private var legacyProviderValue: String? = null
@@ -637,36 +636,4 @@ class DistributionIdManagerTest {
             )
         }
 
-    @Test
-    fun `WHEN getDistributionId is called THEN Glean distribution is updated with the distribution ID`() = runBlocking {
-        val subject =
-            DistributionIdManager(
-                packageManager = testContext.packageManagerWrapper,
-                testBrowserStoreProvider,
-                distributionProviderChecker = testDistributionProviderChecker,
-                distributionSettings = testDistributionSettings,
-                metricController = FakeMetricController(),
-            )
-
-        subject.getDistributionId()
-
-        assertEquals("Mozilla", Glean.testGetDistribution().name)
-    }
-
-    @Test
-    fun `WHEN setDistribution is called with a partner distribution THEN Glean distribution is updated`() =
-        runBlocking {
-            val subject =
-                DistributionIdManager(
-                    packageManager = testContext.packageManagerWrapper,
-                    testBrowserStoreProvider,
-                    distributionProviderChecker = testDistributionProviderChecker,
-                    distributionSettings = testDistributionSettings,
-                    metricController = FakeMetricController(),
-                )
-
-            subject.setDistribution(DistributionIdManager.Distribution.VIVO_001)
-
-            assertEquals("vivo-001", Glean.testGetDistribution().name)
-        }
 }

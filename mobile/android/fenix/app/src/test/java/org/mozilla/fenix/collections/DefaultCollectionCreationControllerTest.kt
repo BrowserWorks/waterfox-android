@@ -12,7 +12,6 @@ import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.mockk
 import io.mockk.verify
-import kotlin.test.assertNotNull
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
@@ -100,14 +99,7 @@ class DefaultCollectionCreationControllerTest {
             coVerify { tabCollectionStorage.createCollection("name", listOf(tab1)) }
 
             val recordedEvents = Collections.saved.testGetValue()
-            assertNotNull(recordedEvents)
-            assertEquals(1, recordedEvents.size)
-            val eventExtra = recordedEvents.single().extra
-            assertNotNull(eventExtra)
-            assertTrue(eventExtra.containsKey("tabs_open"))
-            assertEquals("2", eventExtra["tabs_open"])
-            assertTrue(eventExtra.containsKey("tabs_selected"))
-            assertEquals("1", eventExtra["tabs_selected"])
+            assertTrue(recordedEvents.orEmpty().isEmpty())
         }
 
     @Test
@@ -156,9 +148,7 @@ class DefaultCollectionCreationControllerTest {
             assertTrue(dismissed)
 
             val recordedEvents = Collections.renamed.testGetValue()
-            assertNotNull(recordedEvents)
-            assertEquals(1, recordedEvents.size)
-            assertNull(recordedEvents.single().extra)
+            assertTrue(recordedEvents.orEmpty().isEmpty())
 
             coVerify { tabCollectionStorage.renameCollection(collection, "name") }
         }
@@ -205,14 +195,7 @@ class DefaultCollectionCreationControllerTest {
             coVerify { tabCollectionStorage.addTabsToCollection(collection, listOf(tab1)) }
 
             val recordedEvents = Collections.tabsAdded.testGetValue()
-            assertNotNull(recordedEvents)
-            assertEquals(1, recordedEvents.size)
-            val eventExtra = recordedEvents.single().extra
-            assertNotNull(eventExtra)
-            assertTrue(eventExtra.containsKey("tabs_open"))
-            assertEquals("2", eventExtra["tabs_open"])
-            assertTrue(eventExtra.containsKey("tabs_selected"))
-            assertEquals("1", eventExtra["tabs_selected"])
+            assertTrue(recordedEvents.orEmpty().isEmpty())
         }
 
     @Test

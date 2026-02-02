@@ -434,7 +434,7 @@ androidComponents {
 
 android.defaultConfig.with {
     buildConfigField 'boolean', 'CRASH_REPORTING', 'true'
-    buildConfigField 'boolean', 'TELEMETRY', 'true'
+    buildConfigField 'boolean', 'TELEMETRY', 'false'
 
     // Reading the sentry token from a local file (if it exists). In a release task on taskcluster it will be available.
     buildConfigField 'String', 'SENTRY_TOKEN', 'null'

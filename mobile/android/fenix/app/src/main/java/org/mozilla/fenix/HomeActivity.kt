@@ -138,7 +138,6 @@ import org.mozilla.fenix.crashes.UnsubmittedCrashDialog
 import org.mozilla.fenix.customtabs.ExternalAppBrowserActivity
 import org.mozilla.fenix.databinding.ActivityHomeBinding
 import org.mozilla.fenix.debugsettings.data.DefaultDebugSettingsRepository
-import org.mozilla.fenix.debugsettings.gleandebugtools.DefaultGleanDebugToolsStorage
 import org.mozilla.fenix.debugsettings.ui.FenixOverlay
 import org.mozilla.fenix.downloads.DownloadSnackbar
 import org.mozilla.fenix.e2e.EdgeToEdgeFragmentLifecycleCallbacks
@@ -486,9 +485,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
         binding = ActivityHomeBinding.inflate(layoutInflater)
 
         AutomatedLaunch.processIntentIfPerformanceTestOrAutomation(intent, this)
-
-        // Persist or clear a Glean debug view tag across restarts (Nightly/Debug only).
-        DefaultGleanDebugToolsStorage.persistDebugViewTagIfRequested(intent, components.settings)
 
         components.settings.seedOnboardingCompletedTimestampForDebugIfNeeded()
 
@@ -1035,9 +1031,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
         if (this is ExternalAppBrowserActivity) {
             return
         }
-
-        // Warm-launch path for the Glean debug intent; onCreate handles cold start (Nightly/Debug only).
-        DefaultGleanDebugToolsStorage.persistDebugViewTagIfRequested(intent, components.settings)
 
         if (intent.action == SEND_TO_DEVICES_ACTION) {
             handleSendToDevicesActionIntent(intent)

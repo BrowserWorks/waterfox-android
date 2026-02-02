@@ -102,7 +102,7 @@ class MessagingMiddlewareTest {
     }
 
     @Test
-    fun `GVIEN a microsurvey WHEN Started THEN only notify the controller`() = runTest {
+    fun `GIVEN a microsurvey WHEN Started THEN leave messages unchanged`() = runTest {
         val message = createMessage(data = mockk<MessageData>(relaxed = true))
         val store =
             AppStore(
@@ -121,8 +121,7 @@ class MessagingMiddlewareTest {
         store.dispatch(MicrosurveyAction.Started(message.id))
         testScheduler.advanceUntilIdle()
 
-        assertFalse(store.state.messaging.messages.isEmpty())
-        coVerify { controller.onMicrosurveyStarted(id = message.id) }
+        assertEquals(listOf(message), store.state.messaging.messages)
     }
 
     @Test
@@ -158,7 +157,7 @@ class MessagingMiddlewareTest {
     }
 
     @Test
-    fun `GIVEN a microsurvey WHEN onMicrosurveyShown THEN only notify the controller`() = runTest {
+    fun `GIVEN a microsurvey WHEN onMicrosurveyShown THEN leave messages unchanged`() = runTest {
         val message = createMessage()
         val store =
             AppStore(
@@ -177,12 +176,11 @@ class MessagingMiddlewareTest {
         store.dispatch(AppAction.MessagingAction.MicrosurveyAction.Shown(message.id))
         testScheduler.advanceUntilIdle()
 
-        assertFalse(store.state.messaging.messages.isEmpty())
-        coVerify { controller.onMicrosurveyShown(id = message.id) }
+        assertEquals(listOf(message), store.state.messaging.messages)
     }
 
     @Test
-    fun `GVIEN a microsurvey WHEN onMicrosurveyConfirmationShown THEN only notify the controller`() = runTest {
+    fun `GIVEN a microsurvey WHEN onMicrosurveyConfirmationShown THEN leave messages unchanged`() = runTest {
         val message = createMessage()
         val store =
             AppStore(
@@ -201,12 +199,11 @@ class MessagingMiddlewareTest {
         store.dispatch(AppAction.MessagingAction.MicrosurveyAction.SentConfirmationShown(message.id))
         testScheduler.advanceUntilIdle()
 
-        assertFalse(store.state.messaging.messages.isEmpty())
-        coVerify { controller.onMicrosurveySentConfirmationShown(id = message.id) }
+        assertEquals(listOf(message), store.state.messaging.messages)
     }
 
     @Test
-    fun `GVIEN a microsurvey WHEN onPrivacyNoticeTapped THEN only notify the controller`() = runTest {
+    fun `GIVEN a microsurvey WHEN onPrivacyNoticeTapped THEN leave messages unchanged`() = runTest {
         val message = createMessage()
         val store =
             AppStore(
@@ -225,8 +222,7 @@ class MessagingMiddlewareTest {
         store.dispatch(AppAction.MessagingAction.MicrosurveyAction.OnPrivacyNoticeTapped(message.id))
         testScheduler.advanceUntilIdle()
 
-        assertFalse(store.state.messaging.messages.isEmpty())
-        coVerify { controller.onMicrosurveyPrivacyNoticeTapped(id = message.id) }
+        assertEquals(listOf(message), store.state.messaging.messages)
     }
 
     @Test

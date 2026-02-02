@@ -62,10 +62,6 @@ class MessagingMiddleware(
 
             is MessageDismissed -> onMessageDismissed(store, action.message)
 
-            is MicrosurveyAction.Shown -> onMicrosurveyShown(action.id)
-
-            is MicrosurveyAction.OnPrivacyNoticeTapped -> onPrivacyNoticeTapped(action.id)
-
             is MicrosurveyAction.Dismissed -> {
                 store.state.messaging.messages
                     .find { it.id == action.id }
@@ -78,13 +74,9 @@ class MessagingMiddleware(
                 store.state.messaging.messages
                     .find { it.id == action.id }
                     ?.let { message ->
-                        onMicrosurveyCompleted(store, message, action.answer)
+                        onMicrosurveyCompleted(store, message)
                     }
             }
-
-            is MicrosurveyAction.SentConfirmationShown -> onMicrosurveyConfirmationShown(action.id)
-
-            is MicrosurveyAction.Started -> onMicrosurveyStarted(action.id)
 
             else -> {
                 // no-op
@@ -96,19 +88,12 @@ class MessagingMiddleware(
     private fun onMicrosurveyCompleted(
         store: AppStoreMiddlewareContext,
         message: Message,
-        answer: String,
     ) {
         val newMessages = removeMessage(store, message)
         store.dispatch(UpdateMessages(newMessages))
         consumeMessageToShowIfNeeded(store, message)
         coroutineScope.launch {
-            controller.onMicrosurveyCompleted(message, answer)
-        }
-    }
-
-    private fun onMicrosurveyShown(id: String) {
-        coroutineScope.launch {
-            controller.onMicrosurveyShown(id)
+            controller.onMicrosurveyCompleted(message)
         }
     }
 
@@ -121,18 +106,6 @@ class MessagingMiddleware(
         consumeMessageToShowIfNeeded(store, message)
         coroutineScope.launch {
             controller.onMicrosurveyDismissed(message)
-        }
-    }
-
-    private fun onMicrosurveyConfirmationShown(id: String) {
-        coroutineScope.launch {
-            controller.onMicrosurveySentConfirmationShown(id)
-        }
-    }
-
-    private fun onPrivacyNoticeTapped(id: String) {
-        coroutineScope.launch {
-            controller.onMicrosurveyPrivacyNoticeTapped(id)
         }
     }
 
@@ -179,12 +152,6 @@ class MessagingMiddleware(
         val newMessages = removeMessage(store, message)
         store.dispatch(UpdateMessages(newMessages))
         consumeMessageToShowIfNeeded(store, message)
-    }
-
-    private fun onMicrosurveyStarted(id: String) {
-        coroutineScope.launch {
-            controller.onMicrosurveyStarted(id)
-        }
     }
 
     private fun consumeMessageToShowIfNeeded(

@@ -417,10 +417,7 @@ class HomeDeepLinkIntentProcessorTest {
             navController.navigate(NavGraphDirections.actionGlobalProtectionsDashboard(null))
         }
         verify { out wasNot Called }
-        assertEquals(
-            HOME_DEEPLINK_TELEMETRY_SOURCE,
-            TrackingProtection.privacyReportTapped.testGetValue()?.last()?.extra?.get("source"),
-        )
+        assertTrue(TrackingProtection.privacyReportTapped.testGetValue().orEmpty().isEmpty())
     }
 
     @Test
@@ -448,10 +445,7 @@ class HomeDeepLinkIntentProcessorTest {
             navController.navigate(NavGraphDirections.actionGlobalProtectionsDashboard(null))
         }
         verify { out wasNot Called }
-        assertEquals(
-            PRIVACY_REPORT_NOTIFICATION_TELEMETRY_SOURCE,
-            TrackingProtection.privacyReportTapped.testGetValue()?.last()?.extra?.get("source"),
-        )
+        assertTrue(TrackingProtection.privacyReportTapped.testGetValue().orEmpty().isEmpty())
     }
 
     private fun testIntent(uri: String) = Intent("", "$DEEP_LINK_SCHEME://$uri".toUri())

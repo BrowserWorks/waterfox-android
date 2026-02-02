@@ -121,20 +121,13 @@ class Analytics(
         CrashReporter(
             context = context,
             services = services,
-            telemetryServices = listOf(
-                GleanCrashReporterService(
-                    context,
-                    appChannel = MOZ_UPDATE_CHANNEL,
-                    appVersion = MOZ_APP_VERSION,
-                    appBuildId = MOZ_APP_BUILDID,
-                ),
-            ),
+            telemetryServices = emptyList(),
             shouldPrompt = CrashReporter.Prompt.ALWAYS,
             promptConfiguration = CrashReporter.PromptConfiguration(
                 appName = context.getString(R.string.app_name),
                 organizationName = "Mozilla",
             ),
-            enabled = true,
+            enabled = false,
             nonFatalCrashIntent = pendingIntent,
             useLegacyReporting =
                 context.settings().crashReportOption() != CrashReportOption.Auto &&

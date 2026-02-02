@@ -216,11 +216,8 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
     // when this method returns.
     @OptIn(DelicateCoroutinesApi::class) // GlobalScope usage
     private fun maybeInitializeGlean() {
-        // We delay the Glean initialization until we have user consent from onboarding.
-        // If onboarding is disabled (when in local builds), continue to initialize Glean.
-        if (components.fenixOnboarding.userHasBeenOnboarded() || !FeatureFlags.onboardingFeatureEnabled) {
-            initializeGlean(this, logger, settings().isTelemetryEnabled, components.core.client)
-        }
+        logger.debug("Preventing Glean from initializing, since telemetry is disabled")
+        return
     }
 
     /**

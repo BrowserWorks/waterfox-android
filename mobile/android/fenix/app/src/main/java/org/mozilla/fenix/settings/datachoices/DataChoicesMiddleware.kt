@@ -14,6 +14,7 @@ import mozilla.components.lib.crash.store.CrashReportOption
 import mozilla.components.lib.state.Middleware
 import mozilla.components.lib.state.Store
 import mozilla.components.service.nimbus.NimbusApi
+import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.metrics.MetricController
 import org.mozilla.fenix.components.metrics.MetricServiceType
@@ -94,6 +95,8 @@ internal class DataChoicesMiddleware(
     }
 
     private fun updateMarketingDataChoice() {
+        if (!BuildConfig.TELEMETRY) return
+
         val newValue = !settings.isMarketingTelemetryEnabled
         settings.isMarketingTelemetryEnabled = newValue
         if (newValue) {
@@ -104,6 +107,8 @@ internal class DataChoicesMiddleware(
     }
 
     private fun updateTelemetryChoice() {
+        if (!BuildConfig.TELEMETRY) return
+
         val newValue = !settings.isTelemetryEnabled
         settings.isTelemetryEnabled = newValue
         if (newValue) {
@@ -129,6 +134,8 @@ internal class DataChoicesMiddleware(
     }
 
     private fun updateUsageChoice() {
+        if (!BuildConfig.TELEMETRY) return
+
         val newValue = !settings.isDailyUsagePingEnabled
         settings.isDailyUsagePingEnabled = newValue
         with(metrics) {

@@ -41,8 +41,6 @@ import mozilla.components.service.fxa.SyncFacts
 import mozilla.components.support.base.Component
 import mozilla.components.support.base.facts.Action
 import mozilla.components.support.base.facts.Fact
-import mozilla.components.support.base.facts.FactProcessor
-import mozilla.components.support.base.facts.Facts
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.webextensions.facts.WebExtensionFacts
 import mozilla.telemetry.glean.private.NoExtras
@@ -142,16 +140,6 @@ internal class ReleaseMetricController(
     private val settings: Settings,
 ) : MetricController {
     private var initialized = mutableSetOf<MetricServiceType>()
-
-    init {
-        Facts.registerProcessor(
-            object : FactProcessor {
-                override fun process(fact: Fact) {
-                    fact.process()
-                }
-            }
-        )
-    }
 
     @VisibleForTesting
     @Suppress("LongMethod", "CognitiveComplexMethod")
@@ -661,12 +649,9 @@ internal class ReleaseMetricController(
 
     private fun isInitialized(type: MetricServiceType): Boolean = initialized.contains(type)
 
-    private fun isTelemetryEnabled(type: MetricServiceType): Boolean =
-        when (type) {
-            MetricServiceType.Data -> isDataTelemetryEnabled()
-            MetricServiceType.Marketing -> isMarketingDataTelemetryEnabled()
-            MetricServiceType.UsageReporting -> isUsageTelemetryEnabled()
-        }
+    // Keep the per-service gate and argument evaluation while all telemetry types are disabled.
+    @Suppress("UNUSED_PARAMETER", "FunctionOnlyReturningConstant")
+    private fun isTelemetryEnabled(type: MetricServiceType): Boolean = false
 
     companion object {
         /** Text selection long press context items to be tracked. */

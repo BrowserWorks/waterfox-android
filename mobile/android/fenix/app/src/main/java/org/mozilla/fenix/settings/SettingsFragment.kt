@@ -480,10 +480,6 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                     null
                 }
 
-                resources.getString(R.string.pref_key_data_choices) -> {
-                    SettingsFragmentDirections.actionSettingsFragmentToDataChoicesFragment()
-                }
-
                 // Advanced preferences
                 resources.getString(R.string.pref_key_addons) -> {
                     Addons.openAddonsInSettings.record(NoExtras())

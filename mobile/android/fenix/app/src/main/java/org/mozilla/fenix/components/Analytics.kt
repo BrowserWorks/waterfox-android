@@ -17,7 +17,7 @@ import mozilla.components.lib.crash.runtimetagproviders.VersionInfoProvider
 import mozilla.components.lib.crash.sentry.SentryService
 import mozilla.components.lib.crash.sentry.eventprocessors.CrashMetadataEventProcessor
 import mozilla.components.lib.crash.service.CrashReporterService
-import mozilla.components.lib.crash.service.GleanCrashReporterService
+
 import mozilla.components.lib.crash.service.socorro.MozillaSocorroService
 import mozilla.components.lib.crash.store.CrashReportOption
 import mozilla.components.support.ktx.android.content.isMainProcess
@@ -42,7 +42,6 @@ import org.mozilla.fenix.crashes.CrashFactCollector
 import org.mozilla.fenix.crashes.NimbusExperimentDataProvider
 import org.mozilla.fenix.crashes.ReleaseRuntimeTagProvider
 import org.mozilla.fenix.crashes.crashReportOption
-import org.mozilla.fenix.ext.getCustomGleanServerUrlIfAvailable
 import org.mozilla.fenix.perf.lazyMonitored
 import org.mozilla.fenix.utils.Settings
 import org.mozilla.geckoview.BuildConfig.MOZ_APP_BUILDID
@@ -119,35 +118,17 @@ class Analytics(
                 crashReportingIntentFlags,
             )
 
-        val gleanServerEndpoint =
-            if (Config.channel.isNightlyOrDebug) {
-                // for testing, if custom glean server url is set in the secret menu, use it to initialize Glean
-                getCustomGleanServerUrlIfAvailable(context)
-            } else {
-                null
-            }
-
         CrashReporter(
             context = context,
             services = services,
-            telemetryServices =
-                listOf(
-                    GleanCrashReporterService(
-                        context,
-                        appChannel = MOZ_UPDATE_CHANNEL,
-                        appVersion = MOZ_APP_VERSION,
-                        appBuildId = MOZ_APP_BUILDID,
-                        isUploadEnabled = settings.isTelemetryEnabled,
-                        serverEndpoint = gleanServerEndpoint,
-                    )
-                ),
+            telemetryServices = emptyList(),
             shouldPrompt = CrashReporter.Prompt.ALWAYS,
             promptConfiguration =
                 CrashReporter.PromptConfiguration(
                     appName = context.getString(R.string.app_name),
                     organizationName = "Mozilla",
                 ),
-            enabled = true,
+            enabled = false,
             nonFatalCrashIntent = pendingIntent,
             useLegacyReporting = settings.crashReportOption() != CrashReportOption.Auto,
             runtimeTagProviders =

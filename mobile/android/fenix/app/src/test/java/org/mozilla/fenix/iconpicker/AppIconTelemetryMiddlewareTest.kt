@@ -5,10 +5,8 @@
 package org.mozilla.fenix.iconpicker
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import kotlin.test.assertNotNull
 import mozilla.components.support.test.robolectric.testContext
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -21,53 +19,34 @@ class AppIconTelemetryMiddlewareTest {
     @get:Rule val gleanRule = FenixGleanTestRule(testContext)
 
     @Test
-    fun `GIVEN user action Confirmed WHEN telemetry middleware gets invoked THEN record selection confirmed event`() {
+    fun `GIVEN user action Confirmed WHEN telemetry middleware gets invoked THEN no telemetry is recorded`() {
         val currentIcon = AppIcon.AppDefault
-        val newIcon = AppIcon.AppRetro2004
+        val newIcon = AppIcon.AppWaterfox2019
         val store = buildStore(currentIcon, newIcon)
 
-        assertNull(AppIconSelection.appIconSelectionConfirmed.testGetValue())
+        assertTrue(AppIconSelection.appIconSelectionConfirmed.testGetValue().orEmpty().isEmpty())
 
         store.dispatch(UserAction.Confirmed(newIcon = newIcon, oldIcon = currentIcon))
 
-        assertNotNull(AppIconSelection.appIconSelectionConfirmed.testGetValue())
-        assertEventExtraData(
-            oldIcon = currentIcon,
-            newIcon = newIcon,
-            eventExtraData = AppIconSelection.appIconSelectionConfirmed.testGetValue()!!.last().extra!!,
-        )
+        assertTrue(AppIconSelection.appIconSelectionConfirmed.testGetValue().orEmpty().isEmpty())
     }
 
     @Test
-    fun `GIVEN system action SnackbarShown WHEN telemetry middleware gets invoked THEN record selection confirmed event`() {
+    fun `GIVEN system action SnackbarShown WHEN telemetry middleware gets invoked THEN no telemetry is recorded`() {
         val currentIcon = AppIcon.AppDefault
-        val newIcon = AppIcon.AppRetro2004
+        val newIcon = AppIcon.AppWaterfox2019
         val store = buildStore(currentIcon, newIcon)
 
-        assertNull(AppIconSelection.errorSnackbarShown.testGetValue())
+        assertTrue(AppIconSelection.errorSnackbarShown.testGetValue().orEmpty().isEmpty())
 
         store.dispatch(SystemAction.SnackbarShown(newIcon = newIcon, oldIcon = currentIcon))
 
-        assertNotNull(AppIconSelection.errorSnackbarShown.testGetValue())
-        assertEventExtraData(
-            oldIcon = currentIcon,
-            newIcon = newIcon,
-            eventExtraData = AppIconSelection.errorSnackbarShown.testGetValue()!!.last().extra!!,
-        )
-    }
-
-    private fun assertEventExtraData(
-        oldIcon: AppIcon,
-        newIcon: AppIcon,
-        eventExtraData: Map<String, String>,
-    ) {
-        assertEquals(oldIcon.aliasSuffix, eventExtraData["old_icon"])
-        assertEquals(newIcon.aliasSuffix, eventExtraData["new_icon"])
+        assertTrue(AppIconSelection.errorSnackbarShown.testGetValue().orEmpty().isEmpty())
     }
 
     private fun buildStore(
         currentAppIcon: AppIcon = AppIcon.AppDefault,
-        userSelectedAppIcon: AppIcon? = AppIcon.AppRetro2004,
+        userSelectedAppIcon: AppIcon? = AppIcon.AppWaterfox2019,
     ) =
         AppIconStore(
             initialState =

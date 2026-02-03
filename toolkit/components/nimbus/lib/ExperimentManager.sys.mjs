@@ -83,8 +83,7 @@ const CannotEnrollFeatureReason = Object.freeze({
  * @property {boolean} ok
  */
 
-const IS_MAIN_PROCESS =
-  Services.appinfo.processType === Services.appinfo.PROCESS_TYPE_DEFAULT;
+const IS_MAIN_PROCESS = false;
 
 export const UnenrollmentCause = {
   fromCheckRecipeResult(result) {
@@ -257,13 +256,7 @@ export class ExperimentManager {
         return new Date();
       },
     };
-    Object.defineProperty(context, "activeExperiments", {
-      enumerable: true,
-      get: async () => {
-        await this.store.ready();
-        return this.store.getAllActiveExperiments().map(exp => exp.slug);
-      },
-    });
+
     Object.defineProperty(context, "activeRollouts", {
       enumerable: true,
       get: async () => {
@@ -411,6 +404,10 @@ export class ExperimentManager {
    *        See `CheckRecipeResult` for details.
    */
   async onRecipe(recipe, source, result) {
+    if (!IS_MAIN_PROCESS) {
+      return;
+    }
+
     const { EnrollmentStatus, EnrollmentStatusReason } = lazy.NimbusTelemetry;
     const enrollment = this.store.get(recipe.slug);
     if (enrollment) {
@@ -688,6 +685,10 @@ export class ExperimentManager {
    *                 as `recipe` and re-enrollment is prevented.
    */
   async enroll(recipe, source, { reenroll = false, branchSlug } = {}) {
+    if (!IS_MAIN_PROCESS) {
+      return null;
+    }
+
     if (typeof source !== "string") {
       throw new Error("source is required");
     }
@@ -793,6 +794,10 @@ export class ExperimentManager {
    * @returns {object} The computed enrollment.
    */
   _enroll(recipe, branchSlug, source) {
+    if (!IS_MAIN_PROCESS) {
+      return null;
+    }
+
     const { slug, isRollout } = recipe;
     const { enrollment, prefsToSet } = this.createEnrollment(
       recipe,
@@ -856,6 +861,10 @@ export class ExperimentManager {
    * If the branch does not exist.
    */
   createEnrollment(recipe, branchSlug, source, extra = {}) {
+    if (!IS_MAIN_PROCESS) {
+      return { enrollment: null, prefsToSet: [] };
+    }
+
     const enrollment = ExperimentManager.createIncompleteEnrollment(
       recipe,
       branchSlug,
@@ -975,6 +984,10 @@ export class ExperimentManager {
    * @returns {object} The resulting enrollment.
    */
   forceEnroll(recipe, branchOrBranchSlug) {
+    if (!IS_MAIN_PROCESS) {
+      return null;
+    }
+
     let branch;
     if (typeof branchOrBranchSlug === "string") {
       branch = recipe.branches.find(b => b.slug === branchOrBranchSlug);
@@ -2134,6 +2147,10 @@ export class ExperimentManager {
    * @returns {boolean} True if the opt-in was registered or false if there was a conflict.
    */
   registerOptIn(recipe, source) {
+    if (!IS_MAIN_PROCESS) {
+      return false;
+    }
+
     if (!recipe.isFirefoxLabsOptIn) {
       return false;
     }

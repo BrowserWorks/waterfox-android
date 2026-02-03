@@ -13,20 +13,6 @@ includes:
   - onboarding.fml.yaml
   - messaging-fenix.fml.yaml
 import:
-  - path: ../../android-components/components/browser/engine-gecko/geckoview.fml.yaml
-    channel: release
-    features:
-      pdfjs:
-        - channel: developer
-          value: {
-          download-button: false,
-          open-in-app-button: false
-        }
-        - channel: nightly
-          value: {
-          download-button: false,
-          open-in-app-button: false
-        }
   - path: ../../android-components/components/feature/fxsuggest/fxsuggest.fml.yaml
     channel: release
     features:

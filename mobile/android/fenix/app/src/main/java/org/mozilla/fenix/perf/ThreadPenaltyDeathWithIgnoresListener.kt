@@ -19,6 +19,7 @@ private const val ACTIVITY_MANAGER_SERVICE_CLASS = "com.android.server.am.Activi
 private const val IN_MEMORY_DEX_CLASS_LOADER_CLASS = "dalvik.system.InMemoryDexClassLoader"
 private const val MIUI_MULTI_LANG_HELPER_CLASS = "miui.util.font.MultiLangHelper"
 private const val PLATFORM_PREFERENCE_CLASS = "androidx.preference.Preference"
+private const val THUMBNAIL_DISK_CACHE_CLASS = "mozilla.components.browser.thumbnails.utils.ThumbnailDiskCache"
 
 /**
  * A [StrictMode.OnThreadViolationListener] that recreates
@@ -59,7 +60,8 @@ class ThreadPenaltyDeathWithIgnoresListener(
                 isXiaomiMultiLangHelperViolation(violation) ||
                 isFinishAttachApplication(violation) ||
                 containsInMemoryDexClassLoader(violation) ||
-                isInflatingPlatformPreference(violation)
+                isInflatingPlatformPreference(violation) ||
+                isThumbnailDiskCacheViolation(violation)
 
     private fun isSamsungIdsController(violation: Violation): Boolean {
         // See https://bugzilla.mozilla.org/show_bug.cgi?id=1806469
@@ -132,5 +134,9 @@ class ThreadPenaltyDeathWithIgnoresListener(
         return violation.stackTrace.any {
             it.className == PLATFORM_PREFERENCE_CLASS && it.methodName == "getSharedPreferences"
         }
+    }
+
+    private fun isThumbnailDiskCacheViolation(violation: Violation): Boolean {
+        return violation.stackTrace.any { it.className == THUMBNAIL_DISK_CACHE_CLASS }
     }
 }

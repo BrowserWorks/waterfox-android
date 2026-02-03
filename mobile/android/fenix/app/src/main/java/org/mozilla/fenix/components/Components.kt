@@ -264,7 +264,6 @@ class Components(private val context: Context) {
         NimbusComponents(
             context = context,
             engine = lazyMonitored { core.engine },
-            remoteSettingsService = remoteSettingsService.value.remoteSettingsService,
         )
     }
     val publicSuffixList by lazyMonitored { PublicSuffixList(context) }

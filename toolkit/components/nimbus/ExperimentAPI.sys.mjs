@@ -35,8 +35,7 @@ ChromeUtils.defineLazyGetter(lazy, "log", () => {
 const CRASHREPORTER_ENABLED =
   AppConstants.MOZ_CRASHREPORTER && AppConstants.MOZ_APP_NAME !== "thunderbird";
 
-const IS_MAIN_PROCESS =
-  Services.appinfo.processType === Services.appinfo.PROCESS_TYPE_DEFAULT;
+const IS_MAIN_PROCESS = false;
 
 const Prefs = Object.freeze({
   AI_FEATURES_ENABLED: "browser.ai.control.default",
@@ -260,6 +259,10 @@ export const ExperimentAPI = new (class {
    *          Whether or not the ExperimentAPI was initialized.
    */
   async init({ extraContext, forceSync = false } = {}) {
+    if (!IS_MAIN_PROCESS) {
+      return false;
+    }
+
     if (this.#initializedPromise) {
       // Either init has already finished, or it is in flight. Either way,
       // chain off the promise so we only return once init is actually complete.
@@ -478,26 +481,32 @@ export const ExperimentAPI = new (class {
   }
 
   get enabled() {
-    return this.labsEnabled || this.rolloutsEnabled || this.studiesEnabled;
+    return (
+      IS_MAIN_PROCESS &&
+      (this.labsEnabled || this.rolloutsEnabled || this.studiesEnabled)
+    );
   }
 
   get labsEnabled() {
-    return Services.policies.isAllowed("FirefoxLabs");
+    return IS_MAIN_PROCESS && Services.policies.isAllowed("FirefoxLabs");
   }
 
   get rolloutsEnabled() {
     return (
+      IS_MAIN_PROCESS &&
       this.#prefValues.rolloutsEnabled &&
       Services.policies.isAllowed("NimbusRollouts")
     );
   }
 
   get studiesEnabled() {
-    return this.#studiesEnabled;
+    return IS_MAIN_PROCESS && this.#studiesEnabled;
   }
 
   get aiFeaturesEnabled() {
-    return this.#prefValues.aiFeaturesEnabled === "available";
+    return (
+      IS_MAIN_PROCESS && this.#prefValues.aiFeaturesEnabled === "available"
+    );
   }
 
   /**
@@ -536,6 +545,10 @@ export const ExperimentAPI = new (class {
    *          store
    */
   async ready() {
+    if (!IS_MAIN_PROCESS) {
+      return;
+    }
+
     return this.manager.store.ready();
   }
 
@@ -692,6 +705,10 @@ export const ExperimentAPI = new (class {
    * @throws {Error} If enrollment fails.
    */
   async optInToExperiment(options) {
+    if (!IS_MAIN_PROCESS) {
+      throw new Error("Nimbus is disabled");
+    }
+
     return this._rsLoader._optInToExperiment(options);
   }
 

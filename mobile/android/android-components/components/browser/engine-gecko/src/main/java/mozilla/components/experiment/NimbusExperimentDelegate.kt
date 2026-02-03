@@ -4,10 +4,8 @@
 
 package mozilla.components.experiment
 
-import mozilla.components.browser.engine.gecko.GeckoNimbus
 import mozilla.components.support.base.log.logger.Logger
 import org.json.JSONObject
-import org.mozilla.experiments.nimbus.internal.FeatureHolder
 import org.mozilla.geckoview.ExperimentDelegate
 import org.mozilla.geckoview.ExperimentDelegate.ExperimentException
 import org.mozilla.geckoview.ExperimentDelegate.ExperimentException.ERROR_FEATURE_NOT_FOUND
@@ -28,13 +26,8 @@ class NimbusExperimentDelegate : ExperimentDelegate {
      */
     override fun onGetExperimentFeature(feature: String): GeckoResult<JSONObject> {
         val result = GeckoResult<JSONObject>()
-        val nimbusFeature = GeckoNimbus.getFeature(feature)
-        if (nimbusFeature != null) {
-            result.complete(nimbusFeature.toJSONObject())
-        } else {
-            logger.warn("Could not find Nimbus feature '$feature' to retrieve experiment information.")
-            result.completeExceptionally(ExperimentException(ERROR_FEATURE_NOT_FOUND))
-        }
+        logger.warn("Nimbus is disabled. Ignoring request for feature '$feature'.")
+        result.completeExceptionally(ExperimentException(ERROR_FEATURE_NOT_FOUND))
         return result
     }
 
@@ -45,7 +38,7 @@ class NimbusExperimentDelegate : ExperimentDelegate {
      * @return a [GeckoResult] that completes if the feature was found and recorded or completes exceptionally.
      */
     override fun onRecordExposureEvent(feature: String): GeckoResult<Void> {
-        return recordWithFeature(feature) { it.recordExposure() }
+        return recordWithFeature(feature)
     }
 
     /**
@@ -57,7 +50,7 @@ class NimbusExperimentDelegate : ExperimentDelegate {
      * @return a [GeckoResult] that completes if the feature was found and recorded or completes exceptionally.
      */
     override fun onRecordExperimentExposureEvent(feature: String, slug: String): GeckoResult<Void> {
-        return recordWithFeature(feature) { it.recordExperimentExposure(slug) }
+        return recordWithFeature(feature)
     }
 
     /**
@@ -68,7 +61,7 @@ class NimbusExperimentDelegate : ExperimentDelegate {
      * @return a [GeckoResult] that completes if the feature was found and recorded or completes exceptionally.
      */
     override fun onRecordMalformedConfigurationEvent(feature: String, part: String): GeckoResult<Void> {
-        return recordWithFeature(feature) { it.recordMalformedConfiguration(part) }
+        return recordWithFeature(feature)
     }
 
     /**
@@ -78,16 +71,10 @@ class NimbusExperimentDelegate : ExperimentDelegate {
      * @param closure Nimbus record function to use
      * @return a [GeckoResult] that completes if successful or else with an exception
      */
-    private fun recordWithFeature(featureId: String, closure: (FeatureHolder<*>) -> Unit): GeckoResult<Void> {
+    private fun recordWithFeature(featureId: String): GeckoResult<Void> {
         val result = GeckoResult<Void>()
-        val nimbusFeature = GeckoNimbus.getFeature(featureId)
-        if (nimbusFeature != null) {
-            closure(nimbusFeature)
-            result.complete(null)
-        } else {
-            logger.warn("Could not find Nimbus feature '$featureId' to record an exposure event.")
-            result.completeExceptionally(ExperimentException(ERROR_FEATURE_NOT_FOUND))
-        }
+        logger.warn("Nimbus is disabled. Ignoring exposure event for feature '$featureId'.")
+        result.completeExceptionally(ExperimentException(ERROR_FEATURE_NOT_FOUND))
         return result
     }
 }

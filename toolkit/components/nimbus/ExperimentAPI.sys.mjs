@@ -34,8 +34,7 @@ ChromeUtils.defineLazyGetter(lazy, "log", () => {
 const CRASHREPORTER_ENABLED =
   AppConstants.MOZ_CRASHREPORTER && AppConstants.MOZ_APP_NAME !== "thunderbird";
 
-const IS_MAIN_PROCESS =
-  Services.appinfo.processType === Services.appinfo.PROCESS_TYPE_DEFAULT;
+const IS_MAIN_PROCESS = false;
 
 const Prefs = Object.freeze({
   AI_FEATURES_ENABLED: "browser.ai.control.default",

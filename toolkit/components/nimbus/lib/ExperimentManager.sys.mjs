@@ -77,8 +77,7 @@ const CannotEnrollFeatureReason = Object.freeze({
  * @property {boolean} ok
  */
 
-const IS_MAIN_PROCESS =
-  Services.appinfo.processType === Services.appinfo.PROCESS_TYPE_DEFAULT;
+const IS_MAIN_PROCESS = false;
 
 export const UnenrollmentCause = {
   fromCheckRecipeResult(result) {
@@ -236,13 +235,7 @@ export class ExperimentManager {
         return new Date();
       },
     };
-    Object.defineProperty(context, "activeExperiments", {
-      enumerable: true,
-      get: async () => {
-        await this.store.ready();
-        return this.store.getAllActiveExperiments().map(exp => exp.slug);
-      },
-    });
+
     Object.defineProperty(context, "activeRollouts", {
       enumerable: true,
       get: async () => {

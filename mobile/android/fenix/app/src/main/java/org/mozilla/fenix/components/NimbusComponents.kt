@@ -5,7 +5,6 @@
 package org.mozilla.fenix.components
 
 import android.content.Context
-import mozilla.appservices.remotesettings.RemoteSettingsService
 import mozilla.components.ExperimentalAndroidComponentsApi
 import mozilla.components.concept.engine.Engine
 import mozilla.components.service.nimbus.NimbusApi
@@ -19,7 +18,6 @@ import org.mozilla.experiments.nimbus.NimbusMessagingHelperInterface
 import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.experiments.createNimbus
 import org.mozilla.fenix.experiments.prefhandling.NimbusGeckoPrefHandler
-import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.messaging.CustomAttributeProvider
 import org.mozilla.fenix.perf.lazyMonitored
 
@@ -30,7 +28,6 @@ import org.mozilla.fenix.perf.lazyMonitored
 class NimbusComponents(
     private val context: Context,
     private val engine: Lazy<Engine>,
-    remoteSettingsService: RemoteSettingsService?,
 ) {
 
     /**
@@ -38,13 +35,7 @@ class NimbusComponents(
      * should be mediated through a FML generated class, e.g. [FxNimbus].
      */
     val sdk: NimbusApi by lazyMonitored {
-        createNimbus(
-            context,
-            context.components.settings,
-            BuildConfig.NIMBUS_ENDPOINT,
-            remoteSettingsService,
-            geckoPrefHandler,
-        )
+        createNimbus(context)
     }
 
     /**

@@ -68,8 +68,7 @@ const SECURE_EXPERIMENTS_COLLECTION_ID = "nimbus-secure-experiments";
 const EXPERIMENTS_COLLECTION = "experiments";
 const SECURE_EXPERIMENTS_COLLECTION = "secureExperiments";
 
-const IS_MAIN_PROCESS =
-  Services.appinfo.processType === Services.appinfo.PROCESS_TYPE_DEFAULT;
+const IS_MAIN_PROCESS = false;
 
 // IMPORTANT: This list of feature IDs will *only* be accepted if they come from
 // the secure collection (nimbus-secure-experiments).
@@ -278,9 +277,7 @@ export class RemoteSettingsExperimentLoader {
    */
   async enable({ forceSync = false } = {}) {
     if (!IS_MAIN_PROCESS) {
-      throw new Error(
-        "RemoteSettingsExperimentLoader.enable() can only be called from the main process"
-      );
+      return;
     }
 
     if (!this._enabled) {
@@ -412,6 +409,7 @@ export class RemoteSettingsExperimentLoader {
     // complete in time and could result in partial state written to the
     // database or inconsistency between pref state and database state.
     if (
+      !IS_MAIN_PROCESS ||
       this._updating ||
       !this._enabled ||
       Services.startup.isInOrBeyondShutdownPhase(
@@ -892,6 +890,10 @@ export class RemoteSettingsExperimentLoader {
     collection,
     applyTargeting = false,
   }) {
+    if (!IS_MAIN_PROCESS) {
+      throw new Error("Nimbus is disabled");
+    }
+
     lazy.log.debug(`Attempting force enrollment with ${slug} / ${branchSlug}`);
 
     if (!lazy.NIMBUS_DEBUG) {

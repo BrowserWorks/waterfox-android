@@ -4,23 +4,25 @@
 
 package org.mozilla.fenix.experiments
 
-import org.junit.Assert.assertFalse
+import android.content.Context
+import io.mockk.mockk
+import mozilla.components.service.nimbus.NimbusDisabled
 import org.junit.Assert.assertTrue
 import org.junit.Test
-import org.mozilla.experiments.nimbus.internal.NimbusException
+import org.mozilla.fenix.components.NimbusComponents
 
 class NimbusSetupKtTest {
     @Test
-    fun `WHEN error is reportable THEN return true`() {
-        val error = NimbusException.IoException("bad error")
+    fun `WHEN Nimbus is created THEN experiments remain disabled`() {
+        val context = mockk<Context>(relaxed = true)
 
-        assertTrue(error.isReportableError())
+        assertTrue(createNimbus(context) is NimbusDisabled)
     }
 
     @Test
-    fun `WHEN error is non-reportable THEN return false`() {
-        val error = NimbusException.ClientException("oops")
+    fun `WHEN crash reporter requests enrollments THEN no Nimbus database is opened`() {
+        val components = NimbusComponents(mockk(relaxed = true), lazy { mockk() })
 
-        assertFalse(error.isReportableError())
+        assertTrue(components.getEnrollmentsForCrashReporter().isEmpty())
     }
 }

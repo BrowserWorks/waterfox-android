@@ -34,7 +34,6 @@ import org.mozilla.fenix.components.components
 import org.mozilla.fenix.components.toolbar.ToolbarPosition
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.home.interactor.HomepageInteractor
-import org.mozilla.fenix.home.pocket.ui.PocketSection
 import org.mozilla.fenix.home.store.HeaderState
 import org.mozilla.fenix.home.store.HomepageState
 import org.mozilla.fenix.home.store.MiddleSearchState
@@ -135,13 +134,6 @@ internal fun MiddleSearchHomepage(
                             }
 
                             Spacer(modifier = Modifier.weight(1f))
-
-                            if (pocketState != null) {
-                                PocketSection(
-                                    state = pocketState,
-                                    interactor = interactor,
-                                )
-                            }
 
                             Spacer(Modifier.height(BOTTOM_PADDING.dp))
                         }

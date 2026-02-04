@@ -63,7 +63,6 @@ import org.mozilla.fenix.home.collections.Collections
 import org.mozilla.fenix.home.collections.CollectionsState
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.home.interactor.HomepageInteractor
-import org.mozilla.fenix.home.pocket.ui.PocketSection
 import org.mozilla.fenix.home.recentsyncedtabs.view.RecentSyncedTab
 import org.mozilla.fenix.home.recenttabs.RecentTab
 import org.mozilla.fenix.home.recenttabs.interactor.RecentTabInteractor
@@ -298,21 +297,6 @@ internal fun Homepage(
                                 collectionsState = collectionsState,
                                 interactor = interactor,
                             )
-
-                            if (pocketState != null) {
-                                Spacer(
-                                    modifier = if (isMinimalLayout()) {
-                                        Modifier.weight(1f)
-                                    } else {
-                                        Modifier.padding(top = 72.dp)
-                                    },
-                                )
-
-                                PocketSection(
-                                    state = pocketState,
-                                    interactor = interactor,
-                                )
-                            }
 
                             Spacer(Modifier.height(bottomPadding.dp))
 

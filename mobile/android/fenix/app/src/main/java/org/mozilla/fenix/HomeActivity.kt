@@ -908,8 +908,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
         )
 
         components.core.macTopSitesUpdater.stopPeriodicWork()
-        components.core.pocketStoriesService.stopPeriodicContentRecommendationsRefresh()
-        components.core.pocketStoriesService.stopPeriodicSponsoredContentsRefresh()
         privateNotificationObserver?.stop()
         components.notificationsDelegate.unBindActivity(this)
 

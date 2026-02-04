@@ -13,20 +13,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.fragment.app.Fragment
 import androidx.fragment.compose.content
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.flow.map
 import org.mozilla.fenix.components.appstate.recommendations.ContentRecommendationsState
 import org.mozilla.fenix.components.components
 import org.mozilla.fenix.e2e.SystemInsetsPaddedFragment
-import org.mozilla.fenix.ext.requireComponents
-import org.mozilla.fenix.home.pocket.controller.DefaultPocketStoriesController
+import org.mozilla.fenix.home.pocket.controller.NoOpPocketStoriesController
 import org.mozilla.fenix.home.pocket.controller.PocketStoriesController
 import org.mozilla.fenix.home.pocket.interactor.DefaultPocketStoriesInteractor
 import org.mozilla.fenix.home.pocket.interactor.PocketStoriesInteractor
 import org.mozilla.fenix.home.pocket.ui.StoriesScreen
 import org.mozilla.fenix.theme.FirefoxTheme
-import java.lang.ref.WeakReference
 
 /**
  * A [Fragment] displaying the stories screen.
@@ -39,14 +36,7 @@ class StoriesFragment : Fragment(), SystemInsetsPaddedFragment {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        controller = DefaultPocketStoriesController(
-            navControllerRef = WeakReference(findNavController()),
-            appStore = requireComponents.appStore,
-            settings = requireComponents.settings,
-            fenixBrowserUseCases = requireComponents.useCases.fenixBrowserUseCases,
-            marsUseCases = requireComponents.useCases.marsUseCases,
-            viewLifecycleScope = viewLifecycleOwner.lifecycleScope,
-        )
+        controller = NoOpPocketStoriesController()
 
         interactor = DefaultPocketStoriesInteractor(
             controller = controller,

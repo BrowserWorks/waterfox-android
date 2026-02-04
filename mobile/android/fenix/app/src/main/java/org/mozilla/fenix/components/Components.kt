@@ -43,7 +43,6 @@ import org.mozilla.fenix.components.appstate.setup.checklist.getSetupChecklistCo
 import org.mozilla.fenix.components.metrics.MetricsMiddleware
 import org.mozilla.fenix.crashes.CrashReportingAppMiddleware
 import org.mozilla.fenix.crashes.SettingsCrashReportCache
-import org.mozilla.fenix.datastore.pocketStoriesSelectedCategoriesDataStore
 import org.mozilla.fenix.distributions.DefaultDistributionBrowserStoreProvider
 import org.mozilla.fenix.distributions.DefaultDistributionProviderChecker
 import org.mozilla.fenix.distributions.DefaultDistributionSettings
@@ -53,8 +52,6 @@ import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.filterState
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.ext.sort
-import org.mozilla.fenix.home.PocketMiddleware
-import org.mozilla.fenix.home.SettingsBackedPocketSettings
 import org.mozilla.fenix.home.blocklist.BlocklistHandler
 import org.mozilla.fenix.home.blocklist.BlocklistMiddleware
 import org.mozilla.fenix.home.middleware.HomeTelemetryMiddleware
@@ -288,12 +285,7 @@ class Components(private val context: Context) {
                 ProfileMarkerMiddleware(markerName = "AppStore", profiler = core.engine.profiler),
                 LogMiddleware(tag = "AppStore", shouldIncludeDetailedData = { Config.channel.isDebug }),
                 BlocklistMiddleware(blocklistHandler),
-                PocketMiddleware(
-                    lazyMonitored { core.pocketStoriesService },
-                    context.pocketStoriesSelectedCategoriesDataStore,
-                    SettingsBackedPocketSettings(settings),
-                    performance.visualCompletenessQueue,
-                ),
+
                 MessagingMiddleware(
                     controller = nimbus.messaging,
                     settings = settings,

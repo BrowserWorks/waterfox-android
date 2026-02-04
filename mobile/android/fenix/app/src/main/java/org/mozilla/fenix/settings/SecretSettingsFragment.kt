@@ -8,7 +8,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.core.content.edit
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
+
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -24,7 +24,7 @@ import org.mozilla.fenix.FeatureFlags
 import org.mozilla.fenix.R
 import org.mozilla.fenix.debugsettings.data.DefaultDebugSettingsRepository
 import org.mozilla.fenix.ext.components
-import org.mozilla.fenix.ext.nav
+
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.ext.showToolbar
 import org.mozilla.fenix.GleanMetrics.DebugDrawer as DebugDrawerMetrics
@@ -366,9 +366,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
             isVisible = Config.channel.isNightlyOrDebug && BuildConfig.GLEAN_CUSTOM_URL.isNullOrEmpty()
         }
 
-        requirePreference<Preference>(R.string.pref_key_custom_sponsored_stories_parameters).apply {
-            isVisible = Config.channel.isNightlyOrDebug
-        }
+        findPreference<Preference>(getString(R.string.pref_key_custom_sponsored_stories_parameters))?.isVisible = false
 
         requirePreference<SwitchPreference>(R.string.pref_key_remote_server_prod).apply {
             isVisible = true
@@ -486,13 +484,6 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        when (preference.key) {
-            getString(R.string.pref_key_custom_sponsored_stories_parameters) ->
-                findNavController().nav(
-                    R.id.secretSettingsPreference,
-                    SecretSettingsFragmentDirections.actionSecretSettingsFragmentToSponsoredStoriesSettings(),
-                )
-        }
         return super.onPreferenceTreeClick(preference)
     }
 

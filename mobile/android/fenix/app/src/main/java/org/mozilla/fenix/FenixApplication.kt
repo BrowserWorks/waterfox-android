@@ -418,10 +418,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
                         components.settings.hasMadeMarketingTelemetrySelection,
                 isDailyUsagePingEnabled = components.settings.isDailyUsagePingEnabled,
             )
-        } else {
-            CoroutineScope(IO).launch {
-                components.distributionIdManager.startAdjustIfSkippingConsentScreen()
-            }
         }
 
         setupPush()
@@ -977,11 +973,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
             }
 
             mozillaProducts.set(mozillaProductDetector.getInstalledMozillaProducts(applicationContext))
-
-            adjustCampaign.set(settings.adjustCampaignId)
-            adjustAdGroup.set(settings.adjustAdGroup)
-            adjustCreative.set(settings.adjustCreative)
-            adjustNetwork.set(settings.adjustNetwork)
 
             settings.migrateSearchWidgetInstalledPrefIfNeeded()
             searchWidgetInstalled.set(settings.searchWidgetInstalled)

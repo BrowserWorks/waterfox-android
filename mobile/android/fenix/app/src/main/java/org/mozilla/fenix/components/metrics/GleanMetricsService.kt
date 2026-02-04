@@ -7,7 +7,6 @@ package org.mozilla.fenix.components.metrics
 import android.content.Context
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.utils.RunWhenReadyQueue
-import org.mozilla.fenix.GleanMetrics.Pings
 import org.mozilla.fenix.ext.components
 
 /** Service responsible for sending the activation and installation pings. */
@@ -20,8 +19,6 @@ class GleanMetricsService(
 
     private val logger = Logger("GleanMetricsService")
     private var initialized = false
-
-    private val activationPing = ActivationPing(context)
 
     override fun start() {
         logger.debug("Data collection is disabled, not initializing Glean.")

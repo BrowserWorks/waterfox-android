@@ -63,7 +63,6 @@ test_artifacts/
 /build/test-tools/*.gz
 
 # Secrets files, e.g. tokens
-.adjust_token
 .gps_integrity_token
 .sentry_token
 .mls_token

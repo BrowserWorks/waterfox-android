@@ -5,7 +5,6 @@
 package org.mozilla.fenix.components
 
 import mozilla.components.support.base.log.logger.Logger
-import org.mozilla.fenix.components.metrics.Event
 import org.mozilla.fenix.components.metrics.MetricServiceType
 
 /**
@@ -24,21 +23,5 @@ fun startMetricsIfEnabled(
     isMarketingTelemetryEnabled: Boolean,
     isDailyUsagePingEnabled: Boolean,
 ) {
-    if (isTelemetryEnabled) {
-        analytics.metrics.start(MetricServiceType.Data)
-        analytics.crashFactCollector.start()
-        logger.info("Telemetry metrics service started")
-    }
-
-    if (isMarketingTelemetryEnabled) {
-        analytics.metrics.start(MetricServiceType.Marketing)
-        // Report the conversion event; with lazy init this also starts Adjust for attributed users.
-        analytics.metrics.track(Event.GrowthData.ConversionEvent6)
-        logger.info("Marketing metrics service started")
-    }
-
-    if (isDailyUsagePingEnabled) {
-        analytics.metrics.start(MetricServiceType.UsageReporting)
-        logger.info("Usage reporting metrics service started")
-    }
+    return
 }

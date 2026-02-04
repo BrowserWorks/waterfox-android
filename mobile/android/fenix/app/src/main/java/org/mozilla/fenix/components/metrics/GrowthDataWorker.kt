@@ -6,56 +6,24 @@ package org.mozilla.fenix.components.metrics
 
 import android.content.Context
 import androidx.work.CoroutineWorker
-import androidx.work.ExistingWorkPolicy
-import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import java.util.concurrent.TimeUnit
 import mozilla.components.support.utils.ext.packageManagerCompatHelper
-import org.mozilla.fenix.ext.components
 
-/** Worker that will send the User Activated event at the end of the first week. */
+/** Retained so previously scheduled growth work completes without collecting or sending data. */
 class GrowthDataWorker(
     context: Context,
     workerParameters: WorkerParameters,
 ) : CoroutineWorker(context, workerParameters) {
 
-    override suspend fun doWork(): Result {
-        val settings = applicationContext.components.settings
-        val metrics = applicationContext.components.analytics.metrics
-
-        if (!isAfterFirstWeekFromInstall(applicationContext) || settings.growthUserActivatedSent) {
-            return Result.success()
-        }
-
-        metrics.track(Event.GrowthData.ConversionEvent7(fromSearch = false))
-
-        return Result.success()
-    }
+    override suspend fun doWork(): Result = Result.success()
 
     companion object {
         private const val GROWTH_USER_ACTIVATED_WORK_NAME = "org.mozilla.fenix.growth.work"
 
-        /** Schedules the Activated User event if needed. */
+        /** Cancels legacy work instead of scheduling growth events. */
         fun sendActivatedSignalIfNeeded(context: Context) {
-            val instanceWorkManager = WorkManager.getInstance(context)
-
-            if (context.components.settings.growthUserActivatedSent) {
-                return
-            }
-
-            val growthSignalWork =
-                OneTimeWorkRequest.Builder(GrowthDataWorker::class.java)
-                    .setInitialDelay(FULL_WEEK_MILLIS, TimeUnit.MILLISECONDS)
-                    .build()
-
-            instanceWorkManager
-                .beginUniqueWork(
-                    GROWTH_USER_ACTIVATED_WORK_NAME,
-                    ExistingWorkPolicy.KEEP,
-                    growthSignalWork,
-                )
-                .enqueue()
+            WorkManager.getInstance(context).cancelUniqueWork(GROWTH_USER_ACTIVATED_WORK_NAME)
         }
     }
 }

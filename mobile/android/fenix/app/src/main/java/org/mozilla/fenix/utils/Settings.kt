@@ -409,30 +409,6 @@ class Settings(
             default = false,
         )
 
-    var adjustCampaignId by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_adjust_campaign),
-            default = "",
-        )
-
-    var adjustNetwork by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_adjust_network),
-            default = "",
-        )
-
-    var adjustAdGroup by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_adjust_adgroup),
-            default = "",
-        )
-
-    var adjustCreative by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_adjust_creative),
-            default = "",
-        )
-
     /**
      * The Glean debug view tag that may be persisted across app restarts. Empty when no tag is persisted. Only captured
      * from a tag set through Glean's debug intent using `persistDebugViewTag` at startup.
@@ -488,42 +464,6 @@ class Settings(
     var isUserMetaAttributed by
         booleanPreference(
             appContext.getPreferenceKey(R.string.pref_key_is_user_meta_attributed),
-            default = false,
-        )
-
-    var isUserTikTokAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_tiktok_attributed),
-            default = false,
-        )
-
-    var isUserRedditAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_reddit_attributed),
-            default = false,
-        )
-
-    var isUserXTwitterAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_x_twitter_attributed),
-            default = false,
-        )
-
-    var isUserMolocoAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_moloco_attributed),
-            default = false,
-        )
-
-    var isUserRakutenAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_rakuten_attributed),
-            default = false,
-        )
-
-    var isUserSkyflagAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_skyflag_attributed),
             default = false,
         )
 

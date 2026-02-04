@@ -12,12 +12,6 @@ When a user has "Telemetry" enabled under Data Choices in the browser settings, 
 
 ***
 
-## Adjust
-
-See [here](https://github.com/mozilla-mobile/fenix/wiki/Adjust-Usage) for details on Adjust usage in Firefox Preview.
-
-***
-
 ## Sentry
 
 Sentry collects a stack trace for each crash in Fenix.

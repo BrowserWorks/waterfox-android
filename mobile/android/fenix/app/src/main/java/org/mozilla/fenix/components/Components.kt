@@ -391,7 +391,6 @@ class Components(
             browserStoreProvider = DefaultDistributionBrowserStoreProvider(core.store),
             distributionProviderChecker = DefaultDistributionProviderChecker(context),
             distributionSettings = DefaultDistributionSettings(settings),
-            metricController = analytics.metrics,
         )
     }
 

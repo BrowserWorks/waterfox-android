@@ -152,9 +152,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_nimbus_use_preview).apply {
-            isVisible = true
-            isChecked = context.settings().nimbusUsePreview
-            onPreferenceChangeListener = SharedPreferenceUpdater()
+            isVisible = false
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_composable_toolbar).apply {

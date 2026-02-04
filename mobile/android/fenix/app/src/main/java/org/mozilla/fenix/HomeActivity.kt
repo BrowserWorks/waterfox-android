@@ -729,7 +729,12 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
                 MessageNotificationWorker.setMessageNotificationWorker(applicationContext)
             }
 
-            if (components.core.sentFromFirefoxManager.shouldShowSnackbar) {
+            val shouldShowSnackbar = try {
+                components.core.sentFromFirefoxManager.shouldShowSnackbar
+            } catch (e: org.mozilla.experiments.nimbus.internal.NimbusFeatureException) {
+                false
+            }
+            if (shouldShowSnackbar) {
                 components.appStore.dispatch(ShareAction.ShareToWhatsApp)
             }
         }
@@ -1456,7 +1461,11 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
     private suspend fun showFullscreenMessageIfNeeded(context: Context) {
         val messaging = context.components.nimbus.messaging
-        val nextMessage = messaging.getNextMessage(FenixMessageSurfaceId.SURVEY) ?: return
+        val nextMessage = try {
+            messaging.getNextMessage(FenixMessageSurfaceId.SURVEY)
+        } catch (e: org.mozilla.experiments.nimbus.internal.NimbusFeatureException) {
+            return
+        } ?: return
         val researchSurfaceDialogFragment = ResearchSurfaceDialogFragment.newInstance(
             keyMessageText = nextMessage.text,
             keyAcceptButtonText = nextMessage.buttonLabel,

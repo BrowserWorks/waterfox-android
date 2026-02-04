@@ -97,7 +97,6 @@ import org.mozilla.fenix.components.TabCollectionStorage
 import org.mozilla.fenix.components.VoiceSearchFeature
 import org.mozilla.fenix.components.accounts.FenixFxAEntryPoint
 import org.mozilla.fenix.components.appstate.AppAction
-import org.mozilla.fenix.components.appstate.AppAction.ContentRecommendationsAction
 import org.mozilla.fenix.components.appstate.AppAction.MessagingAction
 import org.mozilla.fenix.components.appstate.AppAction.MessagingAction.MicrosurveyAction
 import org.mozilla.fenix.components.appstate.AppAction.ReviewPromptAction.CheckIfEligibleForReviewPrompt
@@ -129,7 +128,7 @@ import org.mozilla.fenix.home.bookmarks.BookmarksFeature
 import org.mozilla.fenix.home.bookmarks.controller.DefaultBookmarksController
 import org.mozilla.fenix.home.ext.showWallpaperOnboardingDialog
 import org.mozilla.fenix.home.logo.LogoController
-import org.mozilla.fenix.home.pocket.controller.DefaultPocketStoriesController
+import org.mozilla.fenix.home.pocket.controller.NoOpPocketStoriesController
 import org.mozilla.fenix.home.privatebrowsing.controller.DefaultPrivateBrowsingController
 import org.mozilla.fenix.home.recentsyncedtabs.RecentSyncedTabFeature
 import org.mozilla.fenix.home.recentsyncedtabs.controller.DefaultRecentSyncedTabController
@@ -398,34 +397,6 @@ class HomeFragment : Fragment(), SystemInsetsPaddedFragment {
 
         initWallpaper()
 
-        lifecycleScope.launch(IO) {
-            val settings = requireContext().settings()
-
-            val showStories =
-                settings.showPocketRecommendationsFeature ||
-                    settings.privateModeAndStoriesEntryPointEnabled
-
-            val showSponsoredStories = showStories && settings.showPocketSponsoredStories
-
-            if (showStories) {
-                components.appStore.dispatch(
-                    ContentRecommendationsAction.ContentRecommendationsFetched(
-                        recommendations = components.core.pocketStoriesService.getContentRecommendations(),
-                    ),
-                )
-            } else {
-                components.appStore.dispatch(ContentRecommendationsAction.PocketStoriesClean)
-            }
-
-            if (showSponsoredStories) {
-                components.appStore.dispatch(
-                    ContentRecommendationsAction.SponsoredContentsChange(
-                        sponsoredContents = components.core.pocketStoriesService.getSponsoredContents(),
-                    ),
-                )
-            }
-        }
-
         if (requireContext().settings().isExperimentationEnabled) {
             messagingFeatureHomescreen.set(
                 feature = MessagingFeature(
@@ -661,14 +632,7 @@ class HomeFragment : Fragment(), SystemInsetsPaddedFragment {
                 scope = viewLifecycleOwner.lifecycleScope,
                 store = components.core.store,
             ),
-            pocketStoriesController = DefaultPocketStoriesController(
-                navControllerRef = WeakReference(findNavController()),
-                appStore = components.appStore,
-                settings = components.settings,
-                fenixBrowserUseCases = requireComponents.useCases.fenixBrowserUseCases,
-                marsUseCases = components.useCases.marsUseCases,
-                viewLifecycleScope = viewLifecycleOwner.lifecycleScope,
-            ),
+            pocketStoriesController = NoOpPocketStoriesController(),
             privateBrowsingController = DefaultPrivateBrowsingController(
                 navController = findNavController(),
                 browsingModeManager = browsingModeManager,

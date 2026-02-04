@@ -64,7 +64,6 @@ import org.mozilla.fenix.home.collections.Collections
 import org.mozilla.fenix.home.collections.CollectionsState
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.home.interactor.HomepageInteractor
-import org.mozilla.fenix.home.pocket.ui.PocketSection
 import org.mozilla.fenix.home.recentsyncedtabs.view.RecentSyncedTab
 import org.mozilla.fenix.home.recenttabs.RecentTab
 import org.mozilla.fenix.home.recenttabs.interactor.RecentTabInteractor
@@ -277,21 +276,7 @@ internal fun Homepage(
                                 )
                             }
 
-                            if (showPocketStoriesCarousel) {
-                                Spacer(
-                                    modifier = if (isMinimalLayout()) {
-                                        Modifier.weight(1f)
-                                    } else {
-                                        Modifier.padding(top = 72.dp)
-                                    },
-                                )
 
-                                PocketSection(
-                                    state = pocketState,
-                                    cardBackgroundColor = cardBackgroundColor,
-                                    interactor = interactor,
-                                )
-                            }
 
                             Spacer(Modifier.height(bottomPadding.dp))
 
@@ -614,12 +599,13 @@ private fun HomepagePreview() {
                     recentlyVisited = FakeHomepagePreview.recentHistory(),
                     collectionsState = FakeHomepagePreview.collectionsPlaceholder(),
                     pocketState = FakeHomepagePreview.pocketState(),
+
                     showTopSites = true,
                     showRecentTabs = true,
                     showRecentSyncedTab = true,
                     showBookmarks = true,
                     showRecentlyVisited = true,
-                    showPocketStoriesCarousel = true,
+                    showPocketStoriesCarousel = false,
                     showCollections = true,
                     showPrivacyReport = true,
                     trackersBlockedCount = 754,
@@ -722,12 +708,13 @@ private fun HomepagePreviewCollections() {
                     recentlyVisited = FakeHomepagePreview.recentHistory(),
                     collectionsState = FakeHomepagePreview.collectionState(),
                     pocketState = FakeHomepagePreview.pocketState(),
+
                     showTopSites = false,
                     showRecentTabs = false,
                     showRecentSyncedTab = false,
                     showBookmarks = false,
                     showRecentlyVisited = true,
-                    showPocketStoriesCarousel = true,
+                    showPocketStoriesCarousel = false,
                     showCollections = true,
                     showPrivacyReport = true,
                     trackersBlockedCount = 754,
@@ -776,12 +763,13 @@ private fun MinimalHomepagePreview() {
                     recentlyVisited = FakeHomepagePreview.recentHistory(),
                     collectionsState = FakeHomepagePreview.collectionState(),
                     pocketState = FakeHomepagePreview.pocketState(),
+
                     showTopSites = true,
                     showRecentTabs = false,
                     showRecentSyncedTab = false,
                     showBookmarks = false,
                     showRecentlyVisited = false,
-                    showPocketStoriesCarousel = true,
+                    showPocketStoriesCarousel = false,
                     showCollections = false,
                     showPrivacyReport = true,
                     trackersBlockedCount = 754,

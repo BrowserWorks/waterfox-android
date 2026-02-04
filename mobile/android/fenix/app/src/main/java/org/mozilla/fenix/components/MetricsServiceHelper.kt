@@ -23,19 +23,5 @@ fun startMetricsIfEnabled(
     isMarketingTelemetryEnabled: Boolean,
     isDailyUsagePingEnabled: Boolean,
 ) {
-    if (isTelemetryEnabled) {
-        analytics.metrics.start(MetricServiceType.Data)
-        analytics.crashFactCollector.start()
-        logger.info("Telemetry metrics service started")
-    }
-
-    if (isMarketingTelemetryEnabled) {
-        analytics.metrics.start(MetricServiceType.Marketing)
-        logger.info("Marketing metrics service started")
-    }
-
-    if (isDailyUsagePingEnabled) {
-        analytics.metrics.start(MetricServiceType.UsageReporting)
-        logger.info("Usage reporting metrics service started")
-    }
+    return
 }

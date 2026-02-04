@@ -19,11 +19,10 @@ import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.nimbus.FxNimbus
 
 const val GCLID_PREFIX = "gclid="
-const val ADJUST_REFTAG_PREFIX = "adjust_reftag="
 
 /**
  * A service to determine if marketing onboarding is needed. This will need to be started before
- * onboarding to quickly check install referrer and see if GLICD or Adjust reference tag is present.
+ * onboarding to quickly check install referrer and see if a GCLID reference tag is present.
  *
  * This should be only used when user has not gone through the onboarding flow.
  */
@@ -67,9 +66,6 @@ class MarketingAttributionService(private val context: Context) {
                                 context.settings().isUserMetaAttributed = isMetaAttribution(installReferrerResponse)
 
                                 distributionIdManager.updateDistributionIdFromUtmParams(utmParams)
-                                CoroutineScope(Dispatchers.IO).launch {
-                                    distributionIdManager.startAdjustIfSkippingConsentScreen()
-                                }
                             }
 
                             CoroutineScope(Dispatchers.IO).launch {
@@ -117,7 +113,7 @@ class MarketingAttributionService(private val context: Context) {
      * showing the marketing onboarding flow.
      */
     companion object {
-        private val marketingPrefixes = listOf(GCLID_PREFIX, ADJUST_REFTAG_PREFIX)
+        private val marketingPrefixes = listOf(GCLID_PREFIX)
         var response: String? = null
 
         @VisibleForTesting

@@ -364,7 +364,6 @@ class Components(private val context: Context) {
             browserStoreProvider = DefaultDistributionBrowserStoreProvider(core.store),
             distributionProviderChecker = DefaultDistributionProviderChecker(context),
             distributionSettings = DefaultDistributionSettings(settings),
-            metricController = analytics.metrics,
         )
     }
 

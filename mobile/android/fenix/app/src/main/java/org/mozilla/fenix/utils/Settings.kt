@@ -399,25 +399,7 @@ class Settings(
         default = false,
     )
 
-    var adjustCampaignId by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_adjust_campaign),
-        default = "",
-    )
 
-    var adjustNetwork by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_adjust_network),
-        default = "",
-    )
-
-    var adjustAdGroup by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_adjust_adgroup),
-        default = "",
-    )
-
-    var adjustCreative by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_adjust_creative),
-        default = "",
-    )
 
     var nimbusExperimentsFetched by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_nimbus_experiments_fetched),

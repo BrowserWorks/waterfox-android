@@ -322,10 +322,7 @@
     <string name="pref_key_privacy_enable_global_privacy_control" translatable="false">pref_key_privacy_enable_global_privacy_control</string>
     <string name="pref_key_pbm_lock_category_divider" translatable="false">pref_key_pbm_lock_category_divider</string>
 
-    <string name="pref_key_adjust_campaign" translatable="false">pref_key_adjust_campaign</string>
-    <string name="pref_key_adjust_network" translatable="false">pref_key_adjust_network</string>
-    <string name="pref_key_adjust_adgroup" translatable="false">pref_key_adjust_adgroup</string>
-    <string name="pref_key_adjust_creative" translatable="false">pref_key_adjust_creative</string>
+
 
     <string name="pref_key_nimbus_experiments_fetched" translatable="false">pref_key_nimbus_experiments_fetched</string>
     <string name="pref_key_utm_params_known" translatable="false">pref_key_utm_params_known</string>

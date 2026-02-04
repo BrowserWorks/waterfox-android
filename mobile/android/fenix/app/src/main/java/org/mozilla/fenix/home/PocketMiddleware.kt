@@ -8,10 +8,9 @@ import androidx.annotation.VisibleForTesting
 import androidx.datastore.core.DataStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import mozilla.components.lib.state.Action
+
 import mozilla.components.lib.state.Middleware
 import mozilla.components.lib.state.Store
 import mozilla.components.service.pocket.PocketStoriesService
@@ -21,7 +20,7 @@ import mozilla.components.service.pocket.PocketStory.PocketRecommendedStory
 import mozilla.components.service.pocket.PocketStory.PocketSponsoredStory
 import mozilla.components.service.pocket.PocketStory.SponsoredContent
 import mozilla.components.support.utils.RunWhenReadyQueue
-import org.mozilla.fenix.components.AppStore
+
 import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.components.appstate.AppAction.ContentRecommendationsAction
 import org.mozilla.fenix.components.appstate.AppState
@@ -76,78 +75,10 @@ class PocketMiddleware(
         next: (AppAction) -> Unit,
         action: AppAction,
     ) {
-        // Pre process actions
-        when (action) {
-            is AppAction.AppLifecycleAction.StartAction -> {
-                visualCompletenessQueue.runIfReadyOrQueue {
-                    coroutineScope.launch(IO) {
-                        if (settings.showPocketRecommendationsFeature) {
-                            pocketStoriesService.value.startPeriodicContentRecommendationsRefresh()
-                        }
-
-                        if (!settings.hasPocketSponsoredStoriesProfileMigrated) {
-                            migratePocketSponsoredStoriesProfile(pocketStoriesService.value)
-                        }
-
-                        if (settings.showPocketSponsoredStories) {
-                            pocketStoriesService.value.startPeriodicSponsoredContentsRefresh()
-                        }
-                    }
-                }
-            }
-            is ContentRecommendationsAction.PocketStoriesCategoriesChange -> {
-                // Intercept the original action which would only update categories and
-                // dispatch a new action which also updates which categories are selected by the user
-                // from previous locally persisted data.
-                restoreSelectedCategories(
-                    coroutineScope = coroutineScope,
-                    currentCategories = action.storiesCategories,
-                    store = store,
-                    selectedPocketCategoriesDataStore = selectedPocketCategoriesDataStore,
-                )
-            }
-            else -> {
-                // no-op
-            }
-        }
-
         next(action)
-
-        // Post process actions
-        when (action) {
-            is ContentRecommendationsAction.PocketStoriesShown -> {
-                persistStoriesImpressions(
-                    coroutineScope = coroutineScope,
-                    pocketStoriesService = pocketStoriesService.value,
-                    updatedStories = action.impressions.map { it.story },
-                )
-            }
-            is ContentRecommendationsAction.SelectPocketStoriesCategory,
-            is ContentRecommendationsAction.DeselectPocketStoriesCategory,
-            -> {
-                persistSelectedCategories(
-                    coroutineScope = coroutineScope,
-                    currentCategoriesSelections = store
-                        .state
-                        .recommendationState
-                        .pocketStoriesCategoriesSelections,
-                    selectedPocketCategoriesDataStore = selectedPocketCategoriesDataStore,
-                )
-            }
-            else -> {
-                // no-op
-            }
-        }
     }
 
-    /**
-     * Deletes the user's existing sponsored stories profile as part of the migration to the
-     * MARS API.
-     */
-    private fun migratePocketSponsoredStoriesProfile(pocketStoriesService: PocketStoriesService) {
-        pocketStoriesService.deleteProfile()
-        settings.hasPocketSponsoredStoriesProfileMigrated = true
-    }
+
 }
 
 /**

@@ -976,15 +976,7 @@
     <fragment
         android:id="@+id/secretSettingsPreference"
         android:name="org.mozilla.fenix.settings.SecretSettingsFragment"
-        android:label="@string/preferences_debug_settings">
-        <action
-            android:id="@+id/action_secretSettingsFragment_to_sponsoredStoriesSettings"
-            app:destination="@id/sponsoredStoriesSettings"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
+        android:label="@string/preferences_debug_settings" />
     <fragment
         android:id="@+id/secretInfoSettingsFragment"
         android:name="org.mozilla.fenix.settings.SecretDebugSettingsFragment"
@@ -1024,16 +1016,7 @@
         android:id="@+id/httpsOnlyFragment"
         android:name="org.mozilla.fenix.settings.HttpsOnlyFragment"
         android:label="@string/preferences_https_only_title" />
-    <fragment
-        android:id="@+id/sponsoredStoriesSettings"
-        android:name="org.mozilla.fenix.settings.SponsoredStoriesSettingsFragment"
-        android:label="@string/preferences_debug_settings_custom_sponsored_stories_parameters" >
-        <argument
-            android:name="preference_to_scroll_to"
-            android:defaultValue="@null"
-            app:argType="string"
-            app:nullable="true" />
-    </fragment>
+
     <fragment
         android:id="@+id/trackingProtectionFragment"
         android:name="org.mozilla.fenix.settings.TrackingProtectionFragment">

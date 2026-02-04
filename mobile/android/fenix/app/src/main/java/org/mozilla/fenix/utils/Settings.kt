@@ -204,8 +204,8 @@ class Settings(
      */
     var showPocketRecommendationsFeature by lazyFeatureFlagBooleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_pocket_homescreen_recommendations),
-        featureFlag = ContentRecommendationsFeatureHelper.isContentRecommendationsFeatureEnabled(appContext),
-        defaultValue = { homescreenSections[HomeScreenSection.POCKET] == true },
+        featureFlag = false,
+        defaultValue = { false },
     )
 
     /**
@@ -243,8 +243,8 @@ class Settings(
      */
     val showPocketSponsoredStories by lazyFeatureFlagBooleanPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_pocket_sponsored_stories),
-        defaultValue = { homescreenSections[HomeScreenSection.POCKET_SPONSORED_STORIES] == true },
-        featureFlag = ContentRecommendationsFeatureHelper.isPocketSponsoredStoriesFeatureEnabled(appContext),
+        defaultValue = { false },
+        featureFlag = false,
     )
 
     /**

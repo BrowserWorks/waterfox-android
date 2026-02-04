@@ -13,7 +13,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import mozilla.components.service.pocket.PocketStoriesService
 import mozilla.components.support.test.robolectric.testContext
-
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -135,17 +135,20 @@ internal class HomeSettingsFragmentTest {
     }
 
     @Test
-    fun `WHEN toggling the privacy report setting THEN no telemetry is recorded`() {
+    fun `WHEN toggling the privacy report setting THEN events preference_toggled is recorded with the privacy_report key`() {
         activateFragment()
 
         val result = getPrivacyReportPreference().callChangeListener(true)
 
         assertTrue(result)
-        assertTrue(Events.preferenceToggled.testGetValue().orEmpty().isEmpty())
+        val events = Events.preferenceToggled.testGetValue()!!
+        assertEquals(1, events.size)
+        assertEquals("privacy_report", events.single().extra?.get("preference_key"))
+        assertEquals("true", events.single().extra?.get("enabled"))
     }
 
     @Test
-    fun `WHEN toggling the weather setting THEN the preference changes without recording telemetry`() {
+    fun `WHEN toggling the weather setting THEN customize home preference_toggled is recorded with the weather key`() {
         every { appSettings.enableHomepageWeatherWidget } returns true
 
         activateFragment()
@@ -153,7 +156,10 @@ internal class HomeSettingsFragmentTest {
         val result = getWeatherPreference().callChangeListener(true)
 
         assertTrue(result)
-        assertTrue(CustomizeHome.preferenceToggled.testGetValue().orEmpty().isEmpty())
+        val events = CustomizeHome.preferenceToggled.testGetValue()!!
+        assertEquals(1, events.size)
+        assertEquals("weather", events.single().extra?.get("preference_key"))
+        assertEquals("true", events.single().extra?.get("enabled"))
         verify {
             appPrefsEditor.putBoolean(
                 homeSettingsFragment.getString(R.string.pref_key_show_homepage_weather_widget),

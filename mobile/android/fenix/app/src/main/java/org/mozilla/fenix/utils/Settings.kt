@@ -58,7 +58,6 @@ import org.mozilla.fenix.ext.TALL_SCREEN_HEIGHT_DP
 import org.mozilla.fenix.ext.WIDE_SCREEN_WIDTH_DP
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.getPreferenceKey
-import org.mozilla.fenix.home.pocket.ContentRecommendationsFeatureHelper
 import org.mozilla.fenix.home.topsites.TopSitesConfigConstants.TOP_SITES_MAX_COUNT
 import org.mozilla.fenix.nimbus.DefaultBrowserPrompt
 import org.mozilla.fenix.nimbus.FxNimbus
@@ -195,8 +194,8 @@ class Settings(
     var showPocketRecommendationsFeature by
         lazyFeatureFlagBooleanPreference(
             appContext.getPreferenceKey(R.string.pref_key_pocket_homescreen_recommendations),
-            featureFlag = ContentRecommendationsFeatureHelper.isContentRecommendationsFeatureEnabled(appContext),
-            defaultValue = { homescreenSections[HomeScreenSection.POCKET] == true },
+            featureFlag = false,
+            defaultValue = { false },
         )
 
     /** Indicates what simple toolbar shortcut key is currently selected. */
@@ -238,8 +237,8 @@ class Settings(
     val showPocketSponsoredStories by
         lazyFeatureFlagBooleanPreference(
             key = appContext.getPreferenceKey(R.string.pref_key_pocket_sponsored_stories),
-            defaultValue = { homescreenSections[HomeScreenSection.POCKET_SPONSORED_STORIES] == true },
-            featureFlag = ContentRecommendationsFeatureHelper.isPocketSponsoredStoriesFeatureEnabled(appContext),
+            defaultValue = { false },
+            featureFlag = false,
         )
 
     /** Indicates whether or not the "Recently Visited" section should be shown on the home screen. */
@@ -3045,10 +3044,12 @@ class Settings(
         )
 
     /** Whether the private mode and stories entry point experiment is enabled. */
+    @Suppress("DEPRECATION")
     var privateModeAndStoriesEntryPointEnabled by
-        booleanPreference(
+        lazyFeatureFlagBooleanPreference(
             key = appContext.getPreferenceKey(R.string.pref_key_private_mode_and_stories_entry_point),
-            default = { FxNimbus.features.privateModeAndStoriesEntryPoint.value().enabled },
+            defaultValue = { false },
+            featureFlag = false,
         )
 
     /**

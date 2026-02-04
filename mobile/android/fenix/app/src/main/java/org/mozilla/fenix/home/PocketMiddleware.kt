@@ -8,10 +8,8 @@ import androidx.annotation.VisibleForTesting
 import androidx.datastore.core.DataStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import mozilla.components.lib.state.Action
 import mozilla.components.lib.state.Middleware
 import mozilla.components.lib.state.Store
 import mozilla.components.service.pocket.PocketStoriesService
@@ -19,7 +17,6 @@ import mozilla.components.service.pocket.PocketStory
 import mozilla.components.service.pocket.PocketStory.ContentRecommendation
 import mozilla.components.service.pocket.PocketStory.SponsoredContent
 import mozilla.components.support.utils.RunWhenReadyQueue
-import org.mozilla.fenix.components.AppStore
 import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.components.appstate.AppAction.ContentRecommendationsAction
 import org.mozilla.fenix.components.appstate.AppState
@@ -75,7 +72,7 @@ class PocketMiddleware(
         when (action) {
             is AppAction.AppLifecycleAction.StartAction -> {
                 visualCompletenessQueue.runIfReadyOrQueue {
-                    coroutineScope.launch(IO) {
+                    coroutineScope.launch(Dispatchers.IO) {
                         if (settings.showPocketRecommendationsFeature) {
                             pocketStoriesService.value.startPeriodicContentRecommendationsRefresh()
                         }

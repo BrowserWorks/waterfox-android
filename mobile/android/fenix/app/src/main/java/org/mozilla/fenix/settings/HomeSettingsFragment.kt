@@ -17,12 +17,12 @@ import androidx.preference.SwitchPreference
 import org.mozilla.fenix.GleanMetrics.CustomizeHome
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.Components
-import org.mozilla.fenix.components.appstate.AppAction
+
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.navigateWithBreadcrumb
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.home.pocket.ContentRecommendationsFeatureHelper
+
 import org.mozilla.fenix.utils.Settings
 import org.mozilla.fenix.utils.view.addToRadioGroup
 
@@ -38,9 +38,6 @@ class HomeSettingsFragment : PreferenceFragmentCompat() {
 
     @VisibleForTesting
     internal var customizeHomeMetrics: CustomizeHome = CustomizeHome
-
-    @VisibleForTesting
-    internal var contentRecommendationsHelper: ContentRecommendationsFeatureHelper = ContentRecommendationsFeatureHelper
 
     @VisibleForTesting
     internal lateinit var fenixSettings: Settings
@@ -94,37 +91,9 @@ class HomeSettingsFragment : PreferenceFragmentCompat() {
             onPreferenceChangeListener = createMetricPreferenceChangeListener("bookmarks")
         }
 
-        requirePreference<SwitchPreference>(R.string.pref_key_pocket_homescreen_recommendations).apply {
-            isVisible = contentRecommendationsHelper.isContentRecommendationsFeatureEnabled(requireContext())
-            isChecked = fenixSettings.showPocketRecommendationsFeature
-            onPreferenceChangeListener = createMetricPreferenceChangeListener("pocket")
-        }
 
-        requirePreference<CheckBoxPreference>(R.string.pref_key_pocket_sponsored_stories).apply {
-            isVisible = contentRecommendationsHelper.isPocketSponsoredStoriesFeatureEnabled(requireContext())
-            isChecked = fenixSettings.showPocketSponsoredStories
-            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
-                val newBooleanValue = newValue as? Boolean ?: return@OnPreferenceChangeListener false
 
-                when (newBooleanValue) {
-                    true -> {
-                        fenixComponents.core.pocketStoriesService.startPeriodicSponsoredContentsRefresh()
-                    }
-                    false -> {
-                        fenixComponents.core.pocketStoriesService.deleteUser()
 
-                        fenixComponents.appStore.dispatch(
-                            AppAction.ContentRecommendationsAction.SponsoredContentsChange(
-                                sponsoredContents = emptyList(),
-                            ),
-                        )
-                    }
-                }
-
-                fenixSettings.preferences.edit { putBoolean(preference.key, newBooleanValue) }
-                true
-            }
-        }
 
         requirePreference<SwitchPreference>(R.string.pref_key_history_metadata_feature).apply {
             isVisible = fenixSettings.showHomepageRecentlyVisitedSectionToggle

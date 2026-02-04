@@ -14,7 +14,6 @@ import kotlinx.coroutines.withContext
 import mozilla.components.support.utils.DateTimeProvider
 import mozilla.components.support.utils.DefaultDateTimeProvider
 import mozilla.components.support.utils.ext.packageManagerCompatHelper
-import org.mozilla.fenix.Config
 import org.mozilla.fenix.android.DefaultActivityLifecycleCallbacks
 import org.mozilla.fenix.utils.Settings
 import java.text.SimpleDateFormat
@@ -375,12 +374,10 @@ internal class DefaultMetricsStorage(
         private const val NUMBER_OF_DAYS_IN_A_WEEK = 7
 
         /**
-         * Determines whether events should be tracked based on some general criteria:
-         * - user has accepted the marketing onboarding card
-         * - this is a release build
+         * Determines whether marketing events should be tracked.
          */
         fun shouldSendGenerally(settings: Settings): Boolean {
-            return settings.isMarketingTelemetryEnabled && Config.channel.isRelease
+            return false
         }
 
         fun getInstalledTime(context: Context): Long = context.packageManagerCompatHelper

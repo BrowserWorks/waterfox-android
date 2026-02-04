@@ -100,23 +100,6 @@ class InstallReferrerWorker(
                 settings.isUserMetaAttributed = false
             }
 
-            settings.isUserTikTokAttributed =
-                InstallReferrerHandlingService.isTikTokAttribution(installReferrerResponse)
-
-            settings.isUserRedditAttributed =
-                InstallReferrerHandlingService.isRedditAttribution(installReferrerResponse)
-
-            settings.isUserXTwitterAttributed =
-                InstallReferrerHandlingService.isXTwitterAttribution(installReferrerResponse)
-
-            settings.isUserMolocoAttributed =
-                InstallReferrerHandlingService.isMolocoAttribution(installReferrerResponse)
-
-            settings.isUserRakutenAttributed =
-                InstallReferrerHandlingService.isRakutenAttribution(installReferrerResponse)
-
-            settings.isUserSkyflagAttributed =
-                InstallReferrerHandlingService.isSkyflagAttribution(installReferrerResponse)
 
             utmParams.recordInstallReferrer(settings)
         }

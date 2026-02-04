@@ -211,11 +211,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onResume() {
         super.onResume()
 
-        // Use nimbus to set the title, and a trivial addition
-        val nimbusValidation = FxNimbus.features.nimbusValidation.value()
-
-        val title = nimbusValidation.settingsTitle
-        val suffix = nimbusValidation.settingsPunctuation
+        val title = getString(R.string.settings_title)
+        val suffix = ""
         val toolbarTitle = "$title$suffix"
 
         val showSearch = requireContext().settings().isSettingsSearchEnabled &&
@@ -575,7 +572,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         with(settings) {
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_nimbus_experiments),
-            )?.isVisible = showSecretDebugMenuThisSession
+            )?.isVisible = false
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_debug_settings),
             )?.isVisible = showSecretDebugMenuThisSession

@@ -321,8 +321,6 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
                     settings().hasMadeMarketingTelemetrySelection,
                 isDailyUsagePingEnabled = settings().isDailyUsagePingEnabled,
             )
-        } else {
-            components.distributionIdManager.startAdjustIfSkippingConsentScreen()
         }
 
         setupPush()
@@ -803,11 +801,6 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
                     applicationContext,
                 ),
             )
-
-            adjustCampaign.set(settings.adjustCampaignId)
-            adjustAdGroup.set(settings.adjustAdGroup)
-            adjustCreative.set(settings.adjustCreative)
-            adjustNetwork.set(settings.adjustNetwork)
 
             settings.migrateSearchWidgetInstalledPrefIfNeeded()
             searchWidgetInstalled.set(settings.searchWidgetInstalled)

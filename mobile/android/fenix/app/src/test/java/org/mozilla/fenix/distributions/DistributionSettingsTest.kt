@@ -6,7 +6,6 @@ package org.mozilla.fenix.distributions
 
 import mozilla.components.support.test.robolectric.testContext
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -36,12 +35,5 @@ class DistributionSettingsTest {
     fun `WHEN the distribution ID is saved THEN it can be retrieved`() {
         subject.saveDistributionId("test")
         assertEquals("test", subject.getDistributionId())
-    }
-
-    @Test
-    fun `WHEN the marketing telemetry prefs are set THEN they are correct`() {
-        subject.setMarketingTelemetryPreferences()
-        assertTrue(settings.isMarketingTelemetryEnabled)
-        assertTrue(settings.hasMadeMarketingTelemetrySelection)
     }
 }

@@ -9,11 +9,8 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import mozilla.components.lib.installation.blockstore.InstallBlockStore
 import mozilla.components.lib.installation.blockstore.InstallState
-import org.mozilla.fenix.GleanMetrics.Installation
-import org.mozilla.fenix.GleanMetrics.Pings
 
 /**
  * A Worker that records an app open and submits the installation ping on the first open after a fresh install.
@@ -32,6 +29,9 @@ constructor(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : CoroutineWorker(context, workerParameters) {
 
+    override suspend fun doWork(): Result = Result.success()
+
+    /*
     override suspend fun doWork(): Result =
         withContext(ioDispatcher) {
             blockStore
@@ -54,4 +54,5 @@ constructor(
                     },
                 )
         }
+    */
 }

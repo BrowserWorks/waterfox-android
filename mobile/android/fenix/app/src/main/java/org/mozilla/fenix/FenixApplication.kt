@@ -115,6 +115,7 @@ import org.mozilla.fenix.components.Core
 import org.mozilla.fenix.components.appstate.AppAction
 
 import org.mozilla.fenix.components.metrics.MozillaProductDetector
+import org.mozilla.fenix.components.metrics.InstallationMetricsService
 import org.mozilla.fenix.components.startMetricsIfEnabled
 import org.mozilla.fenix.experiments.maybeFetchExperiments
 import org.mozilla.fenix.ext.application
@@ -404,6 +405,7 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
      */
     private fun setupPostMegazord() {
         setupLeakCanary()
+        androidx.work.WorkManager.getInstance(this).cancelUniqueWork(InstallationMetricsService.WORK_NAME)
 
         if (components.fenixOnboarding.userHasBeenOnboarded()) {
             startMetricsIfEnabled(
@@ -415,10 +417,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
                         components.settings.hasMadeMarketingTelemetrySelection,
                 isDailyUsagePingEnabled = components.settings.isDailyUsagePingEnabled,
             )
-        } else {
-            CoroutineScope(IO).launch {
-                components.distributionIdManager.startAdjustIfSkippingConsentScreen()
-            }
         }
 
         setupPush()
@@ -987,11 +985,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
             }
 
             mozillaProducts.set(mozillaProductDetector.getInstalledMozillaProducts(applicationContext))
-
-            adjustCampaign.set(settings.adjustCampaignId)
-            adjustAdGroup.set(settings.adjustAdGroup)
-            adjustCreative.set(settings.adjustCreative)
-            adjustNetwork.set(settings.adjustNetwork)
 
             searchWidgetInstalled.set(settings.searchWidgetInstalled)
 

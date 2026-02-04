@@ -50,9 +50,6 @@ tasks:
             pre-gradlew:
                 - ["cd", "mobile/android/focus-android"]
             gradlew: ['clean', 'test']
-            dummy-secrets:
-                - content: "faketoken"
-                  path: .adjust_token
         treeherder:
             platform: 'focus-android-all/opt'
             symbol: focus-debug(T)

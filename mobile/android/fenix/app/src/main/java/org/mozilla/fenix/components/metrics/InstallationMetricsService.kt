@@ -9,9 +9,7 @@ import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import java.util.concurrent.TimeUnit
-import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.utils.RunWhenReadyQueue
-import org.mozilla.fenix.nimbus.FxNimbus
 
 /**
  * Metrics service that records an app open once per process and schedules the worker, after the app is visually
@@ -24,15 +22,16 @@ import org.mozilla.fenix.nimbus.FxNimbus
 class InstallationMetricsService(
     private val runWhenReadyQueue: RunWhenReadyQueue,
     private val workManager: () -> WorkManager,
-    private val isEnabled: () -> Boolean = { FxNimbus.features.installation.value().enabled },
+    private val isEnabled: () -> Boolean = { false },
 ) : MetricsService {
-    private val logger = Logger("InstallationMetricsService")
     override val type = MetricServiceType.Data
 
     private var started = false
     private var stopped = false
 
     override fun start() {
+        stop()
+        /*
         if (started) {
             return
         }
@@ -50,6 +49,7 @@ class InstallationMetricsService(
 
             scheduleWorker()
         }
+        */
     }
 
     override fun stop() {

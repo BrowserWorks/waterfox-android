@@ -7,14 +7,12 @@ package org.mozilla.fenix.messaging
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
 import mozilla.components.support.base.log.logger.Logger
 
 private val LOGGER = Logger("QaMessageWorkerReceiver")
 
 /**
- * Testing receiver to trigger [MessageNotificationWorker] on demand via adb.
+ * Retains the adb command for compatibility, cancelling disabled marketing work instead.
  *
  * Usage:
  * ```
@@ -27,12 +25,8 @@ class QAMessageNotificationWorkerReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action != ACTION_TRIGGER_MESSAGE_WORKER) return
 
-        LOGGER.info("Enqueueing MessageNotificationWorker via debug trigger")
-
-        val request = OneTimeWorkRequestBuilder<MessageNotificationWorker>().build()
-        WorkManager.getInstance(context.applicationContext).enqueue(request)
-
-        LOGGER.info("Enqueued work request: ${request.id}")
+        LOGGER.info("Ignoring disabled marketing notification debug trigger")
+        MessageNotificationWorker.setMessageNotificationWorker(context.applicationContext)
     }
 
     companion object {

@@ -79,7 +79,6 @@ import org.mozilla.fenix.ext.showToolbar
 import org.mozilla.fenix.ext.showToolbarWithIconButton
 import org.mozilla.fenix.home.maybeNavigateToSystemSetToDefaultAction
 import org.mozilla.fenix.home.maybeRequestDefaultBrowserPrompt
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.perf.ProfilerViewModel
 import org.mozilla.fenix.perf.ProfilerViewModelFactory
 import org.mozilla.fenix.settings.account.AccountUiView
@@ -203,8 +202,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
 
         findPreference<Preference>(
             getPreferenceKey(R.string.pref_key_translation),
-        )?.isVisible = FxNimbus.features.translations.value().globalSettingsEnabled &&
-            components.core.store.state.translationEngine.isEngineSupported == true
+        )?.isVisible = components.core.store.state.translationEngine.isEngineSupported == true
 
         findPreference<Preference>(
             getPreferenceKey(R.string.pref_key_page_summaries),
@@ -249,11 +247,8 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
     override fun onResume() {
         super.onResume()
 
-        // Use nimbus to set the title, and a trivial addition
-        val nimbusValidation = FxNimbus.features.nimbusValidation.value()
-
-        val title = nimbusValidation.settingsTitle
-        val suffix = nimbusValidation.settingsPunctuation
+        val title = getString(R.string.settings_title)
+        val suffix = ""
         val toolbarTitle = "$title$suffix"
 
         val showSearch = !args.searchInProgress
@@ -631,7 +626,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
         with(settings) {
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_nimbus_experiments),
-            )?.isVisible = showSecretDebugMenuThisSession
+            )?.isVisible = false
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_debug_settings),
             )?.isVisible = showSecretDebugMenuThisSession
@@ -876,7 +871,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
     @VisibleForTesting
     internal fun setLinkSharingPreference() {
         with(requirePreference<Preference>(R.string.pref_key_link_sharing)) {
-            isVisible = FxNimbus.features.sentFromFirefox.value().enabled
+            isVisible = false
         }
     }
 
@@ -900,7 +895,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
             getPreferenceKey(R.string.pref_key_ip_protection_settings),
         )?.apply {
             isVisible = ipProtectionStore.state.isEligible
-            showBetaBadge = FxNimbus.features.ipProtection.value().showBetaBadge
+            showBetaBadge = true
         }
     }
 

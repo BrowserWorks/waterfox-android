@@ -415,7 +415,7 @@ internal class DefaultMetricsStorage(
          * - this is a release build
          */
         fun shouldSendGenerally(context: Context): Boolean {
-            return context.settings().adjustCampaignId.isNotEmpty() && Config.channel.isRelease
+            return false
         }
 
         fun getInstalledTime(context: Context): Long = context.packageManagerCompatHelper

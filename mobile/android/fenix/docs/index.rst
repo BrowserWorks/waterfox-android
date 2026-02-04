@@ -28,7 +28,6 @@ Specific documentation on a few topics is available at:
    Telemetry - Implementation, Reviews, Renewals <Telemetry-implementation,-reviews,-renewals.md>
    Test Telemetry Pings <Test-telemetry-pings.md>
    Working with Strings <Working-with-Strings.md>
-   Adjust <adjust.md>
    Certificates <certificates.md>
    Crash Reporting <crash-reporting.md>
    Experiments <experiments.md>

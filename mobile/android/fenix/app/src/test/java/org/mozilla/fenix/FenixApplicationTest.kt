@@ -41,7 +41,6 @@ import org.mozilla.fenix.GleanMetrics.Preferences
 import org.mozilla.fenix.GleanMetrics.SearchDefaultEngine
 import org.mozilla.fenix.GleanMetrics.TabStrip
 import org.mozilla.fenix.GleanMetrics.TopSites
-import org.mozilla.fenix.components.fake.FakeMetricController
 import org.mozilla.fenix.components.metrics.MozillaProductDetector
 import org.mozilla.fenix.components.toolbar.ToolbarPosition
 import org.mozilla.fenix.distributions.DefaultDistributionBrowserStoreProvider
@@ -76,7 +75,6 @@ class FenixApplicationTest {
     private val testDistributionSettings = object : DistributionSettings {
         override fun getDistributionId(): String = ""
         override fun saveDistributionId(id: String) = Unit
-        override fun setMarketingTelemetryPreferences() = Unit
     }
 
     @Before
@@ -95,7 +93,6 @@ class FenixApplicationTest {
             browserStoreProvider = DefaultDistributionBrowserStoreProvider(browserStore),
             distributionProviderChecker = testDistributionProviderChecker,
             distributionSettings = testDistributionSettings,
-            metricController = FakeMetricController(),
         )
     }
 
@@ -143,10 +140,7 @@ class FenixApplicationTest {
         DefaultBrowserUtils.setAsDefaultBrowser(testContext.packageName)
         every { mozillaProductDetector.getMozillaBrowserDefault(any()) } returns expectedAppName
         every { mozillaProductDetector.getInstalledMozillaProducts(any()) } returns listOf(expectedAppName)
-        every { settings.adjustCampaignId } returns "ID"
-        every { settings.adjustAdGroup } returns "group"
-        every { settings.adjustCreative } returns "creative"
-        every { settings.adjustNetwork } returns "network"
+
         // Testing [settings.migrateSearchWidgetInstalledPrefIfNeeded]
         settings.preferences.edit().putInt("pref_key_search_widget_installed", 5).apply()
         settings.preferences.edit().putString("pref_key_current_wallpaper", "default").apply()
@@ -215,10 +209,7 @@ class FenixApplicationTest {
         assertEquals(true, Metrics.defaultBrowser.testGetValue())
         assertEquals(expectedAppName, Metrics.defaultMozBrowser.testGetValue())
         assertEquals(listOf(expectedAppName), Metrics.mozillaProducts.testGetValue())
-        assertEquals("ID", Metrics.adjustCampaign.testGetValue())
-        assertEquals("group", Metrics.adjustAdGroup.testGetValue())
-        assertEquals("creative", Metrics.adjustCreative.testGetValue())
-        assertEquals("network", Metrics.adjustNetwork.testGetValue())
+
         assertEquals(true, Metrics.searchWidgetInstalled.testGetValue())
         assertEquals(true, Metrics.hasOpenTabs.testGetValue())
         assertEquals(1, Metrics.tabsOpenCount.testGetValue())

@@ -44,9 +44,6 @@ task-defaults:
         tier: 1
     run:
         using: run-commands
-        dummy-secrets:
-            - content: "faketoken"
-              path: .adjust_token
 
 tasks:
     fenix:

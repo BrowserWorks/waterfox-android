@@ -34,9 +34,6 @@ import:
               I_AM_DEFAULT_BROWSER: "is_default_browser"
               I_AM_NOT_DEFAULT_BROWSER: "is_default_browser == false"
 
-              FUNNEL_PAID: "adjust_campaign != ''"
-              FUNNEL_ORGANIC: "adjust_campaign == ''"
-
               # Using Glean events, specific to the browser
               INACTIVE_1_DAY: "'app_opened'|eventLastSeen('Hours') >= 24"
               INACTIVE_2_DAYS: "'app_opened'|eventLastSeen('Days', 0) >= 2"

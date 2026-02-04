@@ -21,9 +21,7 @@ activation:
 
 first-session:
   description: |
-    **THIS IS NOT A GENERIC FIRST USE PING** This ping is intended to capture
-    Adjust attribution. Use of this ping for other analyses will result in
-    undesirable outcomes.
+    This ping captures the install source and distribution on first launch.
   include_client_id: true
   send_if_empty: true
   bugs:
@@ -36,18 +34,6 @@ first-session:
 play-store-attribution:
   description: |
     This ping captures the install referrer attribution data.
-  include_client_id: true
-  send_if_empty: true
-  bugs:
-    - https://bugzilla.mozilla.org/show_bug.cgi?id=1947786
-  data_reviews:
-    - https://phabricator.services.mozilla.com/D238284
-  notification_emails:
-    - android-probes@mozilla.com
-
-adjust-attribution:
-  description: |
-    This ping captures the Adjust attribution data.
   include_client_id: true
   send_if_empty: true
   bugs:

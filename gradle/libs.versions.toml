@@ -103,7 +103,6 @@ mockk = "1.14.11"
 robolectric = "4.16.1"
 
 # Third party libraries
-adjust = "5.7.0"
 androidsvg = "1.4"
 disklrucache = "2.0.2"
 jetbrains-markdown = "0.7.3"
@@ -290,7 +289,6 @@ mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 
 # Third party libraries
-adjust = { module = "com.adjust.sdk:adjust-android", version.ref = "adjust" }
 androidsvg = { module = "com.caverock:androidsvg-aar", version.ref = "androidsvg" }
 disklrucache = { module = "com.jakewharton:disklrucache", version.ref = "disklrucache" }
 jetbrains-markdown = { module = "org.jetbrains:markdown", version.ref = "jetbrains-markdown" }

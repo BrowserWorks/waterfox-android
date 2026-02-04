@@ -7,7 +7,6 @@
     <ID>ForbiddenSuppress:AddonPermissionsScreen.kt$@Suppress("LongParameterList", "LongMethod", "CognitiveComplexMethod")</ID>
     <ID>ForbiddenSuppress:AddonPopupBaseFragment.kt$AddonPopupBaseFragment$@Suppress("DEPRECATION", "LongMethod")</ID>
     <ID>ForbiddenSuppress:AddonsManagementFragment.kt$AddonsManagementFragment$@Suppress("CognitiveComplexMethod")</ID>
-    <ID>ForbiddenSuppress:AdjustMetricsService.kt$AdjustMetricsService$@Suppress("CognitiveComplexMethod")</ID>
     <ID>ForbiddenSuppress:AppStoreReducer.kt$AppStoreReducer$@Suppress("LongMethod", "CognitiveComplexMethod")</ID>
     <ID>ForbiddenSuppress:AwesomeBarComposable.kt$AwesomeBarComposable$@Suppress("LongMethod", "CyclomaticComplexMethod", "CognitiveComplexMethod")</ID>
     <ID>ForbiddenSuppress:BaseBrowserFragment.kt$BaseBrowserFragment$@Suppress("CognitiveComplexMethod")</ID>
@@ -429,7 +428,6 @@
     <ID>UndocumentedPublicClass:AccountUiView.kt$AccountUiView</ID>
     <ID>UndocumentedPublicClass:ActivationPing.kt$ActivationPing</ID>
     <ID>UndocumentedPublicClass:AddonDetailsBindingDelegate.kt$AddonDetailsInteractor</ID>
-    <ID>UndocumentedPublicClass:AdjustMetricsService.kt$AdjustMetricsService : MetricsService</ID>
     <ID>UndocumentedPublicClass:AppAction.kt$AppAction$AddNonFatalCrash : AppAction</ID>
     <ID>UndocumentedPublicClass:AppAction.kt$AppAction$Change : AppAction</ID>
     <ID>UndocumentedPublicClass:AppAction.kt$AppAction$CollectionExpanded : AppAction</ID>

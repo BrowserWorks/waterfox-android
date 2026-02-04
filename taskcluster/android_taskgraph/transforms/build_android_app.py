@@ -96,7 +96,6 @@ def add_shippable_secrets(config, tasks):
                     "path": target_file,
                 }
                 for fake_value, target_file in (
-                    ("faketoken", ".adjust_token"),
                     ("faketoken", ".mls_token"),
                     ("https://fake@sentry.prod.mozaws.net/368", ".sentry_token"),
                     ("0", ".gps_integrity_token"),
@@ -108,7 +107,6 @@ def add_shippable_secrets(config, tasks):
 
 def _get_secrets_keys_and_target_files(task):
     secrets = [
-        ("adjust", ".adjust_token"),
         ("sentry_dsn", ".sentry_token"),
         ("mls", ".mls_token"),
         ("nimbus_url", ".nimbus"),

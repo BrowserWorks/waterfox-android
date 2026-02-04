@@ -90,14 +90,6 @@ class InstallReferrerWorker(
                 settings.isUserMetaAttributed = false
             }
 
-            settings.isUserTikTokAttributed =
-                InstallReferrerHandlingService.isTikTokAttribution(installReferrerResponse)
-
-            settings.isUserRedditAttributed =
-                InstallReferrerHandlingService.isRedditAttribution(installReferrerResponse)
-
-            settings.isUserXTwitterAttributed =
-                InstallReferrerHandlingService.isXTwitterAttribution(installReferrerResponse)
 
             utmParams.recordInstallReferrer(settings)
         }

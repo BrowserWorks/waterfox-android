@@ -11,9 +11,6 @@ import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.utils.ext.PackageManagerWrapper
 
 import org.mozilla.fenix.Config
-
-import org.mozilla.fenix.components.metrics.MetricController
-import org.mozilla.fenix.components.metrics.MetricServiceType
 import org.mozilla.fenix.components.metrics.UTMParams
 import java.io.File
 import java.util.Locale
@@ -44,7 +41,6 @@ private val logger = Logger(DistributionIdManager::class.simpleName)
  * @param browserStoreProvider used to update and fetch the stored distribution Id
  * @param distributionProviderChecker used for checking content providers for a distribution provider
  * @param distributionSettings used to persist and retrieve the distribution ID
- * @param metricController a controller used to start Adjust.
  * @param appPreinstalledOnVivoDevice checks if the vivo preinstalled file exists.
  * @param isDtTelefonicaInstalled checks if the DT telefonica app is installed on the device
  * @param isDtUsaInstalled checks if one of the DT USA carrier apps is installed on the device
@@ -54,7 +50,6 @@ class DistributionIdManager(
     private val browserStoreProvider: DistributionBrowserStoreProvider,
     private val distributionProviderChecker: DistributionProviderChecker,
     private val distributionSettings: DistributionSettings,
-    private val metricController: MetricController,
     private val appPreinstalledOnVivoDevice: () -> Boolean = { wasAppPreinstalledOnVivoDevice() },
     private val isDtTelefonicaInstalled: () -> Boolean = { isDtTelefonicaInstalled(packageManager) },
     private val isDtUsaInstalled: () -> Boolean = { isDtUsaInstalled(packageManager) },
@@ -181,18 +176,6 @@ class DistributionIdManager(
             Distribution.DT_003 -> true
             Distribution.AURA_001 -> true
             Distribution.XIAOMI_001 -> true
-        }
-    }
-
-    /**
-     * Sets the proper marketing telemetry preferences and starts Adjust if the
-     * current distribution is one that should skip the marketing data sharing
-     * consent screen.
-     */
-    suspend fun startAdjustIfSkippingConsentScreen() {
-        if (shouldSkipMarketingConsentScreen()) {
-            distributionSettings.setMarketingTelemetryPreferences()
-            metricController.start(MetricServiceType.Marketing)
         }
     }
 

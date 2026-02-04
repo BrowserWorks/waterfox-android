@@ -435,13 +435,6 @@ android.defaultConfig.with {
     buildConfigField 'String', 'BUILD_DATE', '"' + buildDate + '"'
 
     try {
-        def token = new File("${rootDir}/.adjust_token").text.trim()
-        buildConfigField 'String', 'ADJUST_TOKEN', '"' + token + '"'
-    } catch (FileNotFoundException ignored) {
-        buildConfigField 'String', 'ADJUST_TOKEN', 'null'
-    }
-
-    try {
         def url = new File("${rootDir}/.nimbus").text.trim()
         buildConfigField 'String', 'NIMBUS_ENDPOINT', '"' + url + '"'
     } catch (FileNotFoundException ignored) {
@@ -491,7 +484,6 @@ android.buildTypes.debug.with {
     buildConfigField 'boolean', 'TELEMETRY', 'false'
     buildConfigField 'String', 'BUILD_DATE', '"debug build"'
     buildConfigField 'String', 'SENTRY_TOKEN', 'null'
-    buildConfigField 'String', 'ADJUST_TOKEN', 'null'
 
     if (gradle.hasProperty("localProperties.nimbus.remote-settings.url")) {
         def url = gradle.getProperty("localProperties.nimbus.remote-settings.url")
@@ -654,7 +646,6 @@ dependencies {
     implementation ComponentsDependencies.mozilla_appservices_merino
 
     implementation libs.accompanist.drawablepainter
-    implementation libs.adjust
     implementation libs.androidx.activity
     implementation libs.androidx.annotation
     implementation libs.androidx.appcompat

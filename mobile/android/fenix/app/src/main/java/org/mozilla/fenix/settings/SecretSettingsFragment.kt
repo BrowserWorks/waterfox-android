@@ -153,9 +153,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_nimbus_use_preview).apply {
-            isVisible = true
-            isChecked = settings.nimbusUsePreview
-            onPreferenceChangeListener = SharedPreferenceUpdater()
+            isVisible = false
         }
 
         requirePreference<Preference>(R.string.pref_key_search_optimization).apply {

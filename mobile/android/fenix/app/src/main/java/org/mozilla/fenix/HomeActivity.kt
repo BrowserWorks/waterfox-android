@@ -5,7 +5,6 @@
 package org.mozilla.fenix
 
 import android.app.assist.AssistContent
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.Intent.ACTION_MAIN
@@ -32,7 +31,7 @@ import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
 import androidx.compose.runtime.mutableStateOf
-import androidx.core.app.NotificationManagerCompat
+
 import androidx.core.net.toUri
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.text.layoutDirection
@@ -78,7 +77,7 @@ import mozilla.components.support.ktx.android.content.call
 import mozilla.components.support.ktx.android.content.email
 import mozilla.components.support.ktx.android.content.share
 import mozilla.components.support.locale.LocaleAwareAppCompatActivity
-import mozilla.components.support.utils.BootUtils
+
 import mozilla.components.support.utils.Browsers
 import mozilla.components.support.utils.BrowsersCache
 import mozilla.components.support.utils.BuildManufacturerChecker
@@ -104,7 +103,7 @@ import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.browser.browsingmode.BrowsingModeManager
 import org.mozilla.fenix.browser.browsingmode.DefaultBrowsingModeManager
 import org.mozilla.fenix.components.appstate.AppAction
-import org.mozilla.fenix.components.appstate.AppAction.ShareAction
+
 import org.mozilla.fenix.components.appstate.OrientationMode
 import org.mozilla.fenix.components.ipprotection.ErrorMessages
 import org.mozilla.fenix.components.ipprotection.IPProtectionInfoPrompter
@@ -126,7 +125,7 @@ import org.mozilla.fenix.debugsettings.data.DefaultDebugSettingsRepository
 import org.mozilla.fenix.debugsettings.ui.FenixOverlay
 import org.mozilla.fenix.downloads.DownloadSnackbar
 import org.mozilla.fenix.e2e.EdgeToEdgeFragmentLifecycleCallbacks
-import org.mozilla.fenix.experiments.ResearchSurfaceDialogFragment
+
 import org.mozilla.fenix.ext.alreadyOnDestination
 import org.mozilla.fenix.ext.breadcrumb
 import org.mozilla.fenix.ext.components
@@ -153,9 +152,7 @@ import org.mozilla.fenix.home.intent.OpenSpecificTabIntentProcessor
 import org.mozilla.fenix.home.intent.SpeechProcessingIntentProcessor
 import org.mozilla.fenix.home.intent.StartSearchIntentProcessor
 import org.mozilla.fenix.home.topsites.DefaultTopSitesBinding
-import org.mozilla.fenix.messaging.FenixMessageSurfaceId
-import org.mozilla.fenix.messaging.MessageNotificationWorker
-import org.mozilla.fenix.nimbus.FxNimbus
+
 import org.mozilla.fenix.pbmlock.DefaultPrivateBrowsingLockStorage
 import org.mozilla.fenix.pbmlock.PrivateBrowsingLockFeature
 import org.mozilla.fenix.perf.DefaultStartupPathProvider
@@ -170,10 +167,7 @@ import org.mozilla.fenix.perf.StartupTypeTelemetry
 import org.mozilla.fenix.session.PrivateNotificationService
 import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.shortcut.NewTabShortcutIntentProcessor.Companion.ACTION_OPEN_PRIVATE_TAB
-import org.mozilla.fenix.splashscreen.ApplyExperimentsOperation
-import org.mozilla.fenix.splashscreen.DefaultExperimentsOperationStorage
 import org.mozilla.fenix.splashscreen.DefaultSplashScreenStorage
-import org.mozilla.fenix.splashscreen.FetchExperimentsOperation
 import org.mozilla.fenix.splashscreen.SplashScreenManager
 import org.mozilla.fenix.splashscreen.SplashScreenOperation
 import org.mozilla.fenix.tabhistory.TabHistoryDialogFragment
@@ -184,7 +178,6 @@ import org.mozilla.fenix.translations.TranslationsAIControllableFeatureRegistrar
 import org.mozilla.fenix.translations.TranslationsEnabledSettings
 import org.mozilla.fenix.utils.AccessibilityUtils.announcePrivateModeForAccessibility
 import org.mozilla.fenix.utils.Settings
-import org.mozilla.fenix.utils.changeAppLauncherIcon
 import java.util.Locale
 import mozilla.components.ui.icons.R as iconsR
 
@@ -251,7 +244,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
             errorMessages = ErrorMessages(
                 dataLimitReached = this.getString(
                     R.string.ip_protection_data_limit_reached_snackbar,
-                    FxNimbus.features.ipProtection.value().dataLimitGigabyte,
+                    50,
                 ),
             ),
         )
@@ -464,7 +457,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
         SplashScreenManager(
             splashScreenOperation = createSplashScreenOperation(shouldShowOnboarding),
             scope = lifecycleScope,
-            splashScreenTimeout = FxNimbus.features.splashScreen.value().maximumDurationMs.toLong(),
+            splashScreenTimeout = 0L,
             storage = DefaultSplashScreenStorage(components.settings),
             showSplashScreen = { installSplashScreen().setKeepOnScreenCondition(it) },
             onSplashScreenFinished = { result ->
@@ -525,10 +518,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
         }
 
         if (!shouldShowOnboarding) {
-            lifecycleScope.launch(IO) {
-                showFullscreenMessageIfNeeded(applicationContext)
-            }
-
             // Unless the activity is recreated, navigate to home first (without rendering it)
             // to add it to the back stack.
             if (savedInstanceState == null) {
@@ -756,14 +745,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
 
             GrowthDataWorker.sendActivatedSignalIfNeeded(applicationContext)
             FontEnumerationWorker.sendActivatedSignalIfNeeded(applicationContext)
-
-            if (NotificationManagerCompat.from(applicationContext).areNotificationsEnabled()) {
-                MessageNotificationWorker.setMessageNotificationWorker(applicationContext)
-            }
-
-            if (components.core.sentFromFirefoxManager.shouldShowSnackbar) {
-                components.appStore.dispatch(ShareAction.ShareToWhatsApp)
-            }
         }
 
         onBackPressedCallback.isEnabled = true
@@ -824,20 +805,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
                 "finishing" to isFinishing.toString(),
             ),
         )
-
-        if (FxNimbus.features.alternativeAppLauncherIcon.value().enabled) {
-            // User has been enrolled in alternative app icon experiment.
-            // Note: Updating the icon will subsequently trigger a call to onDestroy().
-            with(applicationContext) {
-                changeAppLauncherIcon(
-                    context = this,
-                    appAlias = ComponentName(this, "$packageName.App"),
-                    alternativeAppAlias = ComponentName(this, "$packageName.AlternativeApp"),
-                    resetToDefault = FxNimbus.features.alternativeAppLauncherIcon.value().resetToDefault,
-                    crashReporter = components.analytics.crashReporter,
-                )
-            }
-        }
 
         components.core.engine.profiler?.addMarker(
             MarkersActivityLifecycleCallbacks.MARKER_NAME,
@@ -1263,23 +1230,18 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
     }
 
     private fun createSplashScreenOperation(shouldShowOnboarding: Boolean): SplashScreenOperation {
-        val nimbusOperation = if (FxNimbus.features.splashScreen.value().offTrainOnboarding) {
-            ApplyExperimentsOperation(
-                storage = DefaultExperimentsOperationStorage(components.settings),
-                nimbus = components.nimbus.sdk,
-            )
-        } else {
-            FetchExperimentsOperation(
-                storage = DefaultExperimentsOperationStorage(components.settings),
-                nimbus = components.nimbus.sdk,
-            )
-        }
-
         if (shouldShowOnboarding) {
             InstallReferrerHandlingService(applicationContext).start()
         }
 
-        return nimbusOperation
+        return object : SplashScreenOperation {
+            override val type = "disabled"
+            override val dataFetched = false
+
+            override suspend fun run() = Unit
+
+            override fun dispose() = Unit
+        }
     }
 
     private fun setupTheme() {
@@ -1589,36 +1551,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
             !processIntent(intent)
     }
 
-    private suspend fun showFullscreenMessageIfNeeded(context: Context) {
-        val messaging = context.components.nimbus.messaging
-        val nextMessage = messaging.getNextMessage(FenixMessageSurfaceId.SURVEY) ?: return
-        val researchSurfaceDialogFragment = ResearchSurfaceDialogFragment.newInstance(
-            keyMessageText = nextMessage.text,
-            keyAcceptButtonText = nextMessage.buttonLabel,
-            keyDismissButtonText = null,
-        )
 
-        researchSurfaceDialogFragment.onAccept = {
-            processIntent(messaging.getIntentForMessage(nextMessage))
-            components.appStore.dispatch(AppAction.MessagingAction.MessageClicked(nextMessage))
-        }
-
-        researchSurfaceDialogFragment.onDismiss = {
-            components.appStore.dispatch(AppAction.MessagingAction.MessageDismissed(nextMessage))
-        }
-
-        lifecycleScope.launch(Main) {
-            researchSurfaceDialogFragment.showNow(
-                supportFragmentManager,
-                ResearchSurfaceDialogFragment.FRAGMENT_TAG,
-            )
-        }
-
-        // Update message as displayed.
-        val currentBootUniqueIdentifier = BootUtils.getBootIdentifier(context)
-
-        messaging.onMessageDisplayed(nextMessage, currentBootUniqueIdentifier)
-    }
 
     /**
      * Dispatches the received [CrashAction] from [UnsubmittedCrashDialog]

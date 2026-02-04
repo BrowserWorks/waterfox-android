@@ -83,6 +83,7 @@ import mozilla.components.support.utils.RunWhenReadyQueue
 import mozilla.components.support.utils.logElapsedTime
 import mozilla.components.support.webextensions.WebExtensionSupport
 import mozilla.telemetry.glean.Glean
+import org.mozilla.experiments.nimbus.NullVariables
 import org.mozilla.fenix.GleanMetrics.Addons
 import org.mozilla.fenix.GleanMetrics.Addresses
 import org.mozilla.fenix.GleanMetrics.AndroidAutofill
@@ -472,15 +473,11 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
                     // we can prevent with this.
                     components.core.topSitesStorage.getTopSites(
                         totalSites = components.settings.topSitesMaxLimit,
-                        frecencyConfig = if (FxNimbus.features.homepageHideFrecentTopSites.value().enabled) {
-                            null
-                        } else {
-                            TopSitesFrecencyConfig(
-                                frecencyTresholdOption = FrecencyThresholdOption.SKIP_ONE_TIME_PAGES,
-                            ) {
-                                !it.url.toUri()
-                                    .containsQueryParameters(components.settings.frecencyFilterQuery)
-                            }
+                        frecencyConfig = TopSitesFrecencyConfig(
+                            frecencyTresholdOption = FrecencyThresholdOption.SKIP_ONE_TIME_PAGES,
+                        ) {
+                            !it.url.toUri()
+                                .containsQueryParameters(components.settings.frecencyFilterQuery)
                         },
                         providerConfig = TopSitesProviderConfig(
                             showProviderTopSites = components.settings.showContileFeature,
@@ -677,10 +674,8 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
     }
 
     private fun initializeNimbus() {
-        // This lazily constructs the Nimbus object…
-        val nimbus = components.nimbus.sdk
-        // … which we then can populate the feature configuration.
-        FxNimbus.initialize { nimbus }
+        NullVariables.instance.setContext(this)
+        FxNimbus.initialize { mozilla.components.service.nimbus.NimbusDisabled(this) }
     }
 
     /**

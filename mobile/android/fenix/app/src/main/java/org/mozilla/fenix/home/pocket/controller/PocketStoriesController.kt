@@ -86,6 +86,31 @@ interface PocketStoriesController {
     fun handleDiscoverMoreScreenViewed()
 }
 
+/** Ignores story interactions when Pocket recommendations are disabled. */
+class NoOpPocketStoriesController : PocketStoriesController {
+    override fun handleStoryShown(
+        storyShown: PocketStory,
+        storyPosition: Triple<Int, Int, Int>,
+    ) = Unit
+
+    override fun handleStoriesShown(
+        storiesShown: List<PocketStory>,
+        source: StoriesImpressionSource,
+    ) = Unit
+
+    override fun handleCategoryClick(categoryClicked: PocketRecommendedStoriesCategory) = Unit
+
+    override fun handleStoryClicked(
+        storyClicked: PocketStory,
+        storyPosition: Triple<Int, Int, Int>,
+        source: StoriesImpressionSource,
+    ) = Unit
+
+    override fun handleDiscoverMoreClicked() = Unit
+
+    override fun handleDiscoverMoreScreenViewed() = Unit
+}
+
 /**
  * Default behavior for handling all user interactions with the Pocket recommended stories feature.
  *

@@ -52,9 +52,6 @@ task-defaults:
     run:
         clone-with: hg
         using: run-commands
-        dummy-secrets:
-            - content: "faketoken"
-              path: .adjust_token
     routes:
         by-level:
             '3':

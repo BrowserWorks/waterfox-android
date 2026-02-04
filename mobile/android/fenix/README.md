@@ -127,7 +127,6 @@ To get an idea of Fenix's startup execution timeline, visit the diagram in [star
 Some features are disabled by default when Fenix is built locally. This can be problematic at times for checking performance since you might want to know how your code behaves with those features.
 The known features that are disabled by default are:
 - Sentry
-- Adjust
 - Mozilla Location Services (also known as MLS)
 - Firebase Push Services
 - Telemetry (only disabled by default in debug builds)

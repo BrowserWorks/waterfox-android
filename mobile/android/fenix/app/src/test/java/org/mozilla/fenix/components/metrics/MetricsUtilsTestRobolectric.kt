@@ -19,8 +19,9 @@ import org.junit.runner.RunWith
 import org.mozilla.experiments.nimbus.NimbusEventStore
 import org.mozilla.fenix.GleanMetrics.Events
 import org.mozilla.fenix.GleanMetrics.Metrics
-import org.mozilla.fenix.components.metrics.MetricsUtilsTest.Companion.ENGINE_SOURCE_IDENTIFIER
 import org.robolectric.RobolectricTestRunner
+
+private const val ENGINE_SOURCE_IDENTIFIER = "google-2018"
 
 /**
  * Just the Robolectric tests for MetricsUtil. Splitting these files out means our other tests will run more quickly.

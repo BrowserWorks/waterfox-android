@@ -37,7 +37,6 @@ import org.mozilla.fenix.components.components
 import org.mozilla.fenix.components.toolbar.ToolbarPosition
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.home.interactor.HomepageInteractor
-import org.mozilla.fenix.home.pocket.ui.PocketSection
 import org.mozilla.fenix.home.store.HeaderState
 import org.mozilla.fenix.home.store.HomepageState
 import org.mozilla.fenix.home.toolbar.HomeToolbarComposable
@@ -139,14 +138,6 @@ internal fun MiddleSearchHomepage(
 
                             Spacer(modifier = Modifier.weight(1f))
 
-                            if (showPocketStoriesCarousel) {
-                                PocketSection(
-                                    state = pocketState,
-                                    cardBackgroundColor = cardBackgroundColor,
-                                    interactor = interactor,
-                                )
-                            }
-
                             Spacer(Modifier.height(BOTTOM_PADDING.dp))
                         }
                     }
@@ -200,7 +191,7 @@ private fun MiddleSearchHomepagePreview() {
                 showRecentSyncedTab = false,
                 showBookmarks = false,
                 showRecentlyVisited = true,
-                showPocketStoriesCarousel = true,
+                showPocketStoriesCarousel = false,
                 showCollections = true,
                 showPrivacyReport = true,
                 longfoxEnabled = true,

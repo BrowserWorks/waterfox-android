@@ -37,13 +37,15 @@
 
     <androidx.preference.SwitchPreferenceCompat
         android:key="@string/pref_key_pocket_homescreen_recommendations"
-        android:title="@string/customize_toggle_pocket_3" />
+        android:title="@string/customize_toggle_pocket_3"
+        app:isPreferenceVisible="false" />
 
     <androidx.preference.CheckBoxPreference
         android:dependency="@string/pref_key_pocket_homescreen_recommendations"
         android:layout="@layout/checkbox_left_sub_preference"
         android:key="@string/pref_key_pocket_sponsored_stories"
-        android:title="@string/customize_toggle_pocket_sponsored" />
+        android:title="@string/customize_toggle_pocket_sponsored"
+        app:isPreferenceVisible="false" />
 
     <androidx.preference.Preference
         android:key="@string/pref_key_wallpapers"

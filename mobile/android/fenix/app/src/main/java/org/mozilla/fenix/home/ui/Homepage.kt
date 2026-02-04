@@ -65,7 +65,6 @@ import org.mozilla.fenix.home.collections.Collections
 import org.mozilla.fenix.home.collections.CollectionsState
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.home.interactor.HomepageInteractor
-import org.mozilla.fenix.home.pocket.ui.PocketSection
 import org.mozilla.fenix.home.recentsyncedtabs.view.RecentSyncedTab
 import org.mozilla.fenix.home.recenttabs.RecentTab
 import org.mozilla.fenix.home.recenttabs.interactor.RecentTabInteractor
@@ -320,22 +319,6 @@ internal fun Homepage(
                             if (showCollections) {
                                 CollectionsSection(
                                     collectionsState = collectionsState,
-                                    interactor = interactor,
-                                )
-                            }
-
-                            if (showPocketStoriesCarousel) {
-                                Spacer(
-                                    modifier = if (isMinimalLayout()) {
-                                        Modifier.weight(1f)
-                                    } else {
-                                        Modifier.padding(top = 72.dp)
-                                    },
-                                )
-
-                                PocketSection(
-                                    state = pocketState,
-                                    cardBackgroundColor = cardBackgroundColor,
                                     interactor = interactor,
                                 )
                             }
@@ -658,7 +641,7 @@ private fun HomepagePreview() {
                     showRecentSyncedTab = true,
                     showBookmarks = true,
                     showRecentlyVisited = true,
-                    showPocketStoriesCarousel = true,
+                    showPocketStoriesCarousel = false,
                     showCollections = true,
                     showPrivacyReport = true,
                     longfoxEnabled = false,
@@ -770,7 +753,7 @@ private fun HomepagePreviewCollections() {
                     showRecentSyncedTab = false,
                     showBookmarks = false,
                     showRecentlyVisited = true,
-                    showPocketStoriesCarousel = true,
+                    showPocketStoriesCarousel = false,
                     showCollections = true,
                     showPrivacyReport = true,
                     longfoxEnabled = false,
@@ -826,7 +809,7 @@ private fun MinimalHomepagePreview() {
                     showRecentSyncedTab = false,
                     showBookmarks = false,
                     showRecentlyVisited = false,
-                    showPocketStoriesCarousel = true,
+                    showPocketStoriesCarousel = false,
                     showCollections = false,
                     showPrivacyReport = true,
                     longfoxEnabled = false,

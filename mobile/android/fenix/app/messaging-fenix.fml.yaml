@@ -39,9 +39,6 @@ import:
               MARKETING_NOTIFICATIONS_ARE_ENABLED: "are_marketing_notifications_enabled == true"
               MARKETING_NOTIFICATIONS_ARE_DISABLED: "are_marketing_notifications_enabled == false"
 
-              FUNNEL_PAID: "adjust_campaign != ''"
-              FUNNEL_ORGANIC: "adjust_campaign == ''"
-
               # Using Glean events, specific to the browser
               INACTIVE_1_DAY: "'app_opened'|eventLastSeen('Hours') >= 24"
               INACTIVE_2_DAYS: "'app_opened'|eventLastSeen('Days', 0) >= 2"

@@ -408,30 +408,6 @@ class Settings(
             default = false,
         )
 
-    var adjustCampaignId by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_adjust_campaign),
-            default = "",
-        )
-
-    var adjustNetwork by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_adjust_network),
-            default = "",
-        )
-
-    var adjustAdGroup by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_adjust_adgroup),
-            default = "",
-        )
-
-    var adjustCreative by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_adjust_creative),
-            default = "",
-        )
-
     /**
      * The Glean debug view tag that may be persisted across app restarts. Empty when no tag is persisted. Only captured
      * from a tag set through Glean's debug intent using `persistDebugViewTag` at startup.
@@ -448,124 +424,8 @@ class Settings(
             default = false,
         )
 
-    var utmParamsKnown by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_utm_params_known),
-            default = false,
-        )
+    val isUserPairingCampaignAttributed: Boolean = false
 
-    var utmSource by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_utm_source),
-            default = "",
-        )
-
-    var utmMedium by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_utm_medium),
-            default = "",
-        )
-
-    var utmCampaign by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_utm_campaign),
-            default = "",
-        )
-
-    var utmTerm by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_utm_term),
-            default = "",
-        )
-
-    var utmContent by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_utm_content),
-            default = "",
-        )
-
-    var isUserMetaAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_meta_attributed),
-            default = false,
-        )
-
-    var isUserTikTokAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_tiktok_attributed),
-            default = false,
-        )
-
-    var isUserRedditAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_reddit_attributed),
-            default = false,
-        )
-
-    var isUserXTwitterAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_x_twitter_attributed),
-            default = false,
-        )
-
-    var isUserMolocoAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_moloco_attributed),
-            default = false,
-        )
-
-    var isUserRakutenAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_rakuten_attributed),
-            default = false,
-        )
-
-    var isUserSkyflagAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_skyflag_attributed),
-            default = false,
-        )
-
-    var isUserPairingCampaignAttributed by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_is_user_pairing_campaign_attributed),
-            default = false,
-        )
-
-    /**
-     * Whether the `referrals` ping has already been submitted for this profile. A referral code must only ever be
-     * reported once.
-     */
-    var referralPingSubmitted by
-        booleanPreference(
-            appContext.getPreferenceKey(R.string.pref_key_referral_ping_submitted),
-            default = false,
-        )
-
-    /** The referral code carried by the install referrer, recorded for display in the debug drawer only. */
-    var referralCode by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_referral_code),
-            default = "",
-        )
-
-    var rtamoAddonDownloadUrl by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_rtamo_addon_download_url),
-            default = "",
-        )
-
-    var rtamoAddonImageUrl by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_rtamo_addon_image_url),
-            default = "",
-        )
-
-    var rtamoAddonName by
-        stringPreference(
-            appContext.getPreferenceKey(R.string.pref_key_rtamo_addon_name),
-            default = "",
-        )
 
     var contileContextId by
         stringPreference(

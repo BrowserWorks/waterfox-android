@@ -34,7 +34,6 @@ import org.junit.runner.RunWith
 import org.mozilla.fenix.GleanMetrics.Metrics
 import org.mozilla.fenix.GleanMetrics.Preferences
 import org.mozilla.fenix.GleanMetrics.TopSites
-import org.mozilla.fenix.components.fake.FakeMetricController
 import org.mozilla.fenix.components.metrics.MozillaProductDetector
 import org.mozilla.fenix.distributions.DefaultDistributionBrowserStoreProvider
 import org.mozilla.fenix.distributions.DistributionIdManager
@@ -67,8 +66,6 @@ class FenixApplicationTest {
             override fun getDistributionId(): String = ""
 
             override fun saveDistributionId(id: String) = Unit
-
-            override fun setMarketingTelemetryPreferences() = Unit
         }
 
     @Before
@@ -88,7 +85,6 @@ class FenixApplicationTest {
                 browserStoreProvider = DefaultDistributionBrowserStoreProvider(browserStore),
                 distributionProviderChecker = testDistributionProviderChecker,
                 distributionSettings = testDistributionSettings,
-                metricController = FakeMetricController(),
             )
     }
 

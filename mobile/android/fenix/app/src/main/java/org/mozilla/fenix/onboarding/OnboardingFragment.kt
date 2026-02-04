@@ -21,12 +21,7 @@ import androidx.compose.runtime.toMutableStateList
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.compose.content
-
 import androidx.navigation.fragment.findNavController
-
-import mozilla.components.browser.state.action.WebExtensionAction
-import mozilla.components.browser.state.state.extension.WebExtensionPromptRequest
-import mozilla.components.concept.engine.webextension.InstallationMethod
 import mozilla.components.lib.state.helpers.StoreProvider.Companion.fragmentStore
 import mozilla.components.service.nimbus.evalJexlSafe
 import mozilla.components.service.nimbus.messaging.use
@@ -35,14 +30,10 @@ import mozilla.components.support.base.feature.ViewBoundFeatureWrapper
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.utils.Browsers
 import mozilla.components.support.utils.BuildManufacturerChecker
-
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.accounts.FenixFxAEntryPoint
 import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.components.appstate.SupportedMenuNotifications
-
-import org.mozilla.fenix.components.metrics.InstallReferrerHandlingService
-import org.mozilla.fenix.components.metrics.RtamoAttributionHandler
 import org.mozilla.fenix.components.metrics.installSourcePackage
 import org.mozilla.fenix.components.startMetricsIfEnabled
 import org.mozilla.fenix.ext.application
@@ -73,10 +64,6 @@ class OnboardingFragment : Fragment() {
     private val logger = Logger("OnboardingFragment")
 
     private val addMarketingFeature = ViewBoundFeatureWrapper<MarketingPageAdditionSupport>()
-
-    private val rtamoAttributionHandler by lazy {
-        RtamoAttributionHandler(requireContext(), requireComponents.settings, requireComponents.addonsProvider)
-    }
 
     private val termsOfServiceEventHandler by lazy {
         DefaultOnboardingTermsOfServiceEventHandler(
@@ -352,7 +339,6 @@ class OnboardingFragment : Fragment() {
 
     private fun startGlean() {
         val settings = requireComponents.settings
-        rtamoAttributionHandler.handleReferrer(InstallReferrerHandlingService.response)
 
         // The marketing telemetry may be enabled after finishing onboarding.
         startMetricsIfEnabled(
@@ -396,23 +382,6 @@ class OnboardingFragment : Fragment() {
                 id = R.id.onboardingFragment,
                 directions = OnboardingFragmentDirections.actionHome(),
             )
-
-        val downloadUrl = settings.rtamoAddonDownloadUrl
-        if (downloadUrl.isNotBlank()) {
-            requireComponents.core.store.dispatch(
-                WebExtensionAction.UpdatePromptRequestWebExtensionAction(
-                    WebExtensionPromptRequest.InstallationRequested(
-                        url = downloadUrl,
-                        name = settings.rtamoAddonName,
-                        iconUrl = settings.rtamoAddonImageUrl,
-                        installationMethod = InstallationMethod.RTAMO,
-                    )
-                )
-            )
-        }
-        settings.rtamoAddonDownloadUrl = ""
-        settings.rtamoAddonName = ""
-        settings.rtamoAddonImageUrl = ""
 
         maybeAddMenuNotification()
     }

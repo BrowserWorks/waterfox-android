@@ -294,7 +294,7 @@ class BaseBrowserFragmentTest {
     }
 
     @Test
-    fun `WHEN isMicrosurveyEnabled and isExperimentationEnabled are true GIVEN a call to setupMicrosurvey THEN messagingFeature is initialized`() {
+    fun `WHEN isMicrosurveyEnabled and isExperimentationEnabled are true GIVEN a call to setupMicrosurvey THEN messagingFeature is not initialized`() {
         every { testContext.components.settings.isExperimentationEnabled } returns true
         every { testContext.components.settings.microsurveyFeatureEnabled } returns true
 
@@ -302,7 +302,7 @@ class BaseBrowserFragmentTest {
 
         fragment.initializeMicrosurveyFeature(testContext)
 
-        assertNotNull(fragment.messagingFeatureMicrosurvey.get())
+        assertNull(fragment.messagingFeatureMicrosurvey.get())
     }
 
     @Test

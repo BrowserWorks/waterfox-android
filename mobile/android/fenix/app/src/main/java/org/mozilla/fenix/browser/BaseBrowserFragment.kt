@@ -645,10 +645,6 @@ abstract class BaseBrowserFragment :
 
         _browserToolbarView = initializeBrowserToolbar(activity, store, readerMenuController)
 
-        if (context.settings().microsurveyFeatureEnabled) {
-            listenForMicrosurveyMessage(context)
-        }
-
         (browserToolbarView as? BrowserToolbarView)?.toolbarIntegration?.let {
             toolbarIntegration.set(
                 feature = it,
@@ -1814,19 +1810,7 @@ abstract class BaseBrowserFragment :
     }
 
     @VisibleForTesting
-    internal fun initializeMicrosurveyFeature(context: Context) {
-        if (context.settings().isExperimentationEnabled && context.settings().microsurveyFeatureEnabled) {
-            messagingFeatureMicrosurvey.set(
-                feature = MessagingFeature(
-                    appStore = requireComponents.appStore,
-                    surface = FenixMessageSurfaceId.MICROSURVEY,
-                    runWhenReadyQueue = requireComponents.performance.visualCompletenessQueue,
-                ),
-                owner = viewLifecycleOwner,
-                view = binding.root,
-            )
-        }
-    }
+    internal fun initializeMicrosurveyFeature(context: Context) = Unit
 
     @Suppress("LongMethod", "CognitiveComplexMethod")
     private fun initializeMicrosurveyPrompt() {
@@ -2077,8 +2061,7 @@ abstract class BaseBrowserFragment :
         }
     }
 
-    private fun evaluateMessagesForMicrosurvey(components: Components) =
-        components.appStore.dispatch(MessagingAction.Evaluate(FenixMessageSurfaceId.MICROSURVEY))
+    private fun evaluateMessagesForMicrosurvey(components: Components) = Unit
 
     @CallSuper
     override fun onPause() {

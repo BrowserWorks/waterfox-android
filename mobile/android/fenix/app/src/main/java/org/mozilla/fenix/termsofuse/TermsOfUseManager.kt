@@ -14,17 +14,18 @@ import org.mozilla.fenix.termsofuse.store.TermsOfUsePromptRepository
  * @param currentTimeMillis provider for the current time in milliseconds, injectable for testing.
  */
 class TermsOfUseManager(
-    private val repository: TermsOfUsePromptRepository,
+    @Suppress("UNUSED_PARAMETER") // Retain the constructor API while Terms of Use prompts are disabled.
+    repository: TermsOfUsePromptRepository,
     private val currentTimeMillis: () -> Long = { System.currentTimeMillis() },
 ) {
 
-    private var isFirstCheckSinceAppStart: Boolean = false
-
     /** Determines whether the Terms of Use bottom sheet should be shown on the homepage. */
-    fun shouldShowTermsOfUsePromptOnHomepage() = shouldShowTermsOfUsePrompt(ignoreFirstCheckSinceAppStart = true)
+    @Suppress("FunctionOnlyReturningConstant") // Preserve the prompt API without showing Terms of Use.
+    fun shouldShowTermsOfUsePromptOnHomepage() = false
 
     /** Determines whether the Terms of Use bottom sheet should be shown in the browser fragment. */
-    fun shouldShowTermsOfUsePromptOnBrowserFragment() = shouldShowTermsOfUsePrompt()
+    @Suppress("FunctionOnlyReturningConstant") // Preserve the prompt API without showing Terms of Use.
+    fun shouldShowTermsOfUsePromptOnBrowserFragment() = false
 
     /**
      * Determines whether the Terms of Use bottom sheet should be shown.
@@ -34,28 +35,13 @@ class TermsOfUseManager(
      * @return `true` if the Terms of Use bottom sheet should be shown; otherwise, `false`.
      */
     @VisibleForTesting
+    // Preserve the test-facing signature and default clock evaluation while prompts are disabled.
+    @Suppress("UNUSED_PARAMETER", "FunctionOnlyReturningConstant")
     internal fun shouldShowTermsOfUsePrompt(
         ignoreFirstCheckSinceAppStart: Boolean = false,
         currentTimeInMillis: Long = currentTimeMillis(),
-    ): Boolean =
-        repository.canShowTermsOfUsePrompt() &&
-            !repository.userPostponedAndWithinCooldownPeriod(currentTimeInMillis) &&
-            isFirstCheckFromAppStart(ignoreFirstCheckSinceAppStart)
+    ): Boolean = false
 
-    /**
-     * This is the first time checking to see if we should show the prompt since starting the app OR the [ignore] flag
-     * is true (we should ignore this when checking from homepage).
-     */
-    private fun isFirstCheckFromAppStart(ignore: Boolean): Boolean {
-        val isFirstCheck = isFirstCheckSinceAppStart
-        isFirstCheckSinceAppStart = false
-        return ignore || isFirstCheck
-    }
-
-    /**
-     * Called from the [org.mozilla.fenix.HomeActivity]'s onStart. Used to track the first check since starting the app.
-     */
-    fun onStart() {
-        isFirstCheckSinceAppStart = true
-    }
+    /** Lifecycle compatibility hook; Terms of Use prompts are disabled in Waterfox. */
+    fun onStart() = Unit
 }

@@ -444,7 +444,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_terms_accepted).apply {
-            isVisible = Config.channel.isNightlyOrDebug || Config.channel.isBeta
+            isVisible = false
             isChecked = context.settings().hasAcceptedTermsOfService
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }

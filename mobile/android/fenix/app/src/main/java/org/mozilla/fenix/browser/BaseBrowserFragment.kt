@@ -132,7 +132,6 @@ import mozilla.components.feature.sitepermissions.SitePermissionsLearnMoreUrlPro
 import mozilla.components.feature.tabs.LastTabFeature
 import mozilla.components.feature.webauthn.WebAuthnFeature
 import mozilla.components.lib.state.ext.consumeFlow
-import mozilla.components.lib.state.ext.consumeFrom
 import mozilla.components.lib.state.ext.flowScoped
 import mozilla.components.lib.state.ext.observeAsComposableState
 import mozilla.components.lib.state.helpers.StoreProvider.Companion.fragmentStore
@@ -229,7 +228,6 @@ import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.runIfFragmentIsAttached
 import org.mozilla.fenix.ext.secure
 import org.mozilla.fenix.ext.tabClosedUndoMessage
-import org.mozilla.fenix.messaging.FenixMessageSurfaceId
 import org.mozilla.fenix.messaging.MessagingFeature
 import org.mozilla.fenix.microsurvey.ui.MicrosurveyRequestPrompt
 import org.mozilla.fenix.nimbus.FxNimbus
@@ -554,10 +552,6 @@ abstract class BaseBrowserFragment :
 
         _browserToolbar = initializeBrowserToolbar(activity, store, readerMenuController)
         browserTabStrip = initializeBrowserTabStripView(activity, appStore, settings)
-
-        if (settings.microsurveyFeatureEnabled) {
-            listenForMicrosurveyMessage(context)
-        }
 
         toolbarsIntegration.set(
             feature =
@@ -1879,25 +1873,8 @@ abstract class BaseBrowserFragment :
     }
 
     @VisibleForTesting
-    internal fun initializeMicrosurveyFeature(context: Context) {
-        if (
-            context.components.settings.isExperimentationEnabled &&
-                context.components.settings.microsurveyFeatureEnabled
-        ) {
-            val messagingFeature =
-                MessagingFeature(
-                    appStore = requireComponents.appStore,
-                    surface = FenixMessageSurfaceId.MICROSURVEY,
-                )
-            messagingFeatureMicrosurvey.set(
-                feature = messagingFeature,
-                owner = viewLifecycleOwner,
-                view = binding.root,
-            )
-
-            viewLifecycleOwner.lifecycle.addObserver(messagingFeature)
-        }
-    }
+    @Suppress("UNUSED_PARAMETER") // Retain the test-facing API without enabling microsurveys.
+    internal fun initializeMicrosurveyFeature(context: Context) = Unit
 
     @Suppress("LongMethod", "CognitiveComplexMethod")
     private fun initializeMicrosurveyPrompt() {
@@ -1986,23 +1963,6 @@ abstract class BaseBrowserFragment :
 
     private fun removeBottomToolbarDivider() {
         browserToolbar.layout.elevation = 0.0f
-    }
-
-    /**
-     * Listens for the microsurvey message, initializes the microsurvey prompt if one is available, and updates the
-     * engine view insets when the prompt is shown or hidden.
-     */
-    private fun listenForMicrosurveyMessage(context: Context) {
-        var wasMicrosurveyVisible = isMicrosurveyPromptVisible()
-        binding.root.consumeFrom(context.components.appStore, viewLifecycleOwner) { state ->
-            val isMicrosurveyVisible = state.microsurvey.current != null
-            if (isMicrosurveyVisible && _bottomToolbarContainerView == null) {
-                initializeMicrosurveyPrompt()
-            } else if (isMicrosurveyVisible != wasMicrosurveyVisible) {
-                reinitializeEngineView()
-            }
-            wasMicrosurveyVisible = isMicrosurveyVisible
-        }
     }
 
     private fun isToolbarDynamic(context: Context) =

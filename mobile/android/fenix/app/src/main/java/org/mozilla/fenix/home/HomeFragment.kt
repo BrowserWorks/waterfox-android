@@ -103,7 +103,6 @@ import org.mozilla.fenix.components.TabCollectionStorage
 import org.mozilla.fenix.components.VoiceSearchFeature
 import org.mozilla.fenix.components.accounts.FenixFxAEntryPoint
 import org.mozilla.fenix.components.appstate.AppAction
-import org.mozilla.fenix.components.appstate.AppAction.MessagingAction
 import org.mozilla.fenix.components.appstate.AppAction.MessagingAction.MicrosurveyAction
 import org.mozilla.fenix.components.appstate.AppAction.ReviewPromptAction.CheckIfEligibleForReviewPrompt
 import org.mozilla.fenix.components.appstate.AppState
@@ -516,23 +515,7 @@ class HomeFragment : Fragment(), UserInteractionHandler, OnLongPressedListener {
         }
     }
 
-    @VisibleForTesting
-    internal fun initializeMicrosurveyFeature(isMicrosurveyEnabled: Boolean, view: View) {
-        if (isMicrosurveyEnabled) {
-            val messagingFeature =
-                MessagingFeature(
-                    appStore = requireComponents.appStore,
-                    surface = FenixMessageSurfaceId.MICROSURVEY,
-                )
-            messagingFeatureMicrosurvey.set(
-                feature = messagingFeature,
-                owner = viewLifecycleOwner,
-                view = view,
-            )
-
-            viewLifecycleOwner.lifecycle.addObserver(messagingFeature)
-        }
-    }
+    @VisibleForTesting internal fun initializeMicrosurveyFeature(isMicrosurveyEnabled: Boolean, view: View) = Unit
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // DO NOT ADD ANYTHING ABOVE THIS getProfilerTime CALL!
@@ -1119,8 +1102,7 @@ class HomeFragment : Fragment(), UserInteractionHandler, OnLongPressedListener {
             AuthenticationStatus.NOT_AUTHENTICATED
     }
 
-    private fun evaluateMessagesForMicrosurvey(components: Components) =
-        components.appStore.dispatch(MessagingAction.Evaluate(FenixMessageSurfaceId.MICROSURVEY))
+    private fun evaluateMessagesForMicrosurvey(components: Components) = Unit
 
     override fun onPause() {
         super.onPause()

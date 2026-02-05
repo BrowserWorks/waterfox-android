@@ -31,7 +31,6 @@ import androidx.annotation.IdRes
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
-import androidx.core.app.NotificationManagerCompat
 import androidx.core.net.toUri
 import androidx.core.os.BundleCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -82,7 +81,6 @@ import mozilla.components.support.ktx.android.content.call
 import mozilla.components.support.ktx.android.content.email
 import mozilla.components.support.ktx.android.content.share
 import mozilla.components.support.locale.LocaleAwareAppCompatActivity
-
 import mozilla.components.support.utils.Browsers
 import mozilla.components.support.utils.BrowsersCache
 import mozilla.components.support.utils.BuildManufacturerChecker
@@ -115,7 +113,6 @@ import org.mozilla.fenix.components.DefaultHomepageAsANewTabPreferenceRepository
 import org.mozilla.fenix.components.DefaultShortcutManagerCompatWrapper
 import org.mozilla.fenix.components.accounts.FenixFxAEntryPoint
 import org.mozilla.fenix.components.appstate.AppAction
-
 import org.mozilla.fenix.components.appstate.OrientationMode
 import org.mozilla.fenix.components.ipprotection.ErrorMessages
 import org.mozilla.fenix.components.ipprotection.IPProtectionInfoPrompter
@@ -718,10 +715,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
 
         lifecycleScope.launch(IO) {
             uninstallSurveyManager.updateUninstallSurveyShortcut()
-        }
-
-        if (components.settings.uninstallSurveyFeatureFlagEnabled) {
-            uninstallSurveyManager.showUninstallSurvey(intent, navHost.navController)
         }
 
         restorePendingSendToDevicesTab(savedInstanceState)
@@ -1726,8 +1719,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
     private fun shouldNavigateToBrowserOnColdStart(savedInstanceState: Bundle?): Boolean {
         return isActivityColdStarted(intent, savedInstanceState) && !processIntent(intent)
     }
-
-
 
     /** Dispatches the received [CrashAction] from [UnsubmittedCrashDialog] */
     override fun dispatchCrashAction(action: CrashAction) {

@@ -587,7 +587,7 @@ class HomeFragment : Fragment() {
 
         nullableToolbarView = buildToolbar(activity)
 
-        if (requireContext().settings().microsurveyFeatureEnabled) {
+        if (false) {
             listenForMicrosurveyMessage(requireContext())
         }
 
@@ -682,7 +682,7 @@ class HomeFragment : Fragment() {
         (toolbarView as? HomeToolbarView)?.dismissMenu()
 
         // If the microsurvey feature is visible, we should update it's state.
-        if (shouldShowMicrosurveyPrompt(requireContext())) {
+        if (false) {
             updateMicrosurveyPromptForConfigurationChange(
                 parent = binding.homeLayout,
                 bottomToolbarContainerView = _bottomToolbarContainerView?.toolbarContainerView,
@@ -733,19 +733,7 @@ class HomeFragment : Fragment() {
     }
 
     @VisibleForTesting
-    internal fun initializeMicrosurveyFeature(isMicrosurveyEnabled: Boolean) {
-        if (isMicrosurveyEnabled) {
-            messagingFeatureMicrosurvey.set(
-                feature = MessagingFeature(
-                    appStore = requireComponents.appStore,
-                    surface = FenixMessageSurfaceId.MICROSURVEY,
-                    runWhenReadyQueue = requireComponents.performance.visualCompletenessQueue,
-                ),
-                owner = viewLifecycleOwner,
-                view = binding.root,
-            )
-        }
-    }
+    internal fun initializeMicrosurveyFeature(isMicrosurveyEnabled: Boolean) = Unit
 
     @Suppress("CognitiveComplexMethod")
     private fun initializeMicrosurveyPrompt() {
@@ -1271,8 +1259,7 @@ class HomeFragment : Fragment() {
             AuthenticationStatus.NOT_AUTHENTICATED
     }
 
-    private fun evaluateMessagesForMicrosurvey(components: Components) =
-        components.appStore.dispatch(MessagingAction.Evaluate(FenixMessageSurfaceId.MICROSURVEY))
+    private fun evaluateMessagesForMicrosurvey(components: Components) = Unit
 
     @VisibleForTesting
     internal fun maybeShowEncourageSearchCfr(

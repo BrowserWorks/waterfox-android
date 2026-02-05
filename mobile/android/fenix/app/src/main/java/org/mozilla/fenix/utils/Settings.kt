@@ -2546,9 +2546,10 @@ class Settings(
     /**
      * Indicates if the microsurvey feature is enabled.
      */
-    var microsurveyFeatureEnabled by booleanPreference(
+    var microsurveyFeatureEnabled by hardcodedFeatureFlagBooleanPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_microsurvey_feature_enabled),
-        default = { FxNimbus.features.microsurveys.value().enabled },
+        defaultValue = { false },
+        featureFlag = false,
     )
 
     /**

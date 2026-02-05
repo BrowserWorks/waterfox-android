@@ -294,26 +294,20 @@ class BaseBrowserFragmentTest {
     }
 
     @Test
-    fun `WHEN isMicrosurveyEnabled and isExperimentationEnabled are true GIVEN a call to initializeMicrosurveyFeature THEN messagingFeature is initialized and observer is added`() {
+    fun `WHEN isMicrosurveyEnabled and isExperimentationEnabled are true GIVEN a call to initializeMicrosurveyFeature THEN messagingFeature is not initialized`() {
         every { testContext.components.settings.isExperimentationEnabled } returns true
         every { testContext.components.settings.microsurveyFeatureEnabled } returns true
-        val lifecycle = fragment.viewLifecycleOwner.lifecycle
-
         assertNull(fragment.messagingFeatureMicrosurvey.get())
 
         fragment.initializeMicrosurveyFeature(testContext)
 
-        val feature = fragment.messagingFeatureMicrosurvey.get()
-        assertNotNull(feature)
-        verify(exactly = 1) { lifecycle.addObserver(feature) }
+        assertNull(fragment.messagingFeatureMicrosurvey.get())
     }
 
     @Test
     fun `WHEN isMicrosurveyEnabled and isExperimentationEnabled are false GIVEN a call to initializeMicrosurveyFeature THEN messagingFeature is not initialized and observer is not added`() {
         every { testContext.components.settings.isExperimentationEnabled } returns false
         every { testContext.components.settings.microsurveyFeatureEnabled } returns false
-        val lifecycle = fragment.viewLifecycleOwner.lifecycle
-
         assertNull(fragment.messagingFeatureMicrosurvey.get())
 
         fragment.initializeMicrosurveyFeature(testContext)
@@ -327,8 +321,6 @@ class BaseBrowserFragmentTest {
     fun `WHEN isMicrosurveyEnabled is true and isExperimentationEnabled false GIVEN a call to initializeMicrosurveyFeature THEN messagingFeature is not initialized and observer is not added`() {
         every { testContext.components.settings.isExperimentationEnabled } returns false
         every { testContext.components.settings.microsurveyFeatureEnabled } returns true
-        val lifecycle = fragment.viewLifecycleOwner.lifecycle
-
         assertNull(fragment.messagingFeatureMicrosurvey.get())
 
         fragment.initializeMicrosurveyFeature(testContext)
@@ -342,8 +334,6 @@ class BaseBrowserFragmentTest {
     fun `WHEN isMicrosurveyEnabled is false and isExperimentationEnabled true GIVEN a call to initializeMicrosurveyFeature THEN messagingFeature is not initialized and observer is not added`() {
         every { testContext.components.settings.isExperimentationEnabled } returns true
         every { testContext.components.settings.microsurveyFeatureEnabled } returns false
-        val lifecycle = fragment.viewLifecycleOwner.lifecycle
-
         assertNull(fragment.messagingFeatureMicrosurvey.get())
 
         fragment.initializeMicrosurveyFeature(testContext)

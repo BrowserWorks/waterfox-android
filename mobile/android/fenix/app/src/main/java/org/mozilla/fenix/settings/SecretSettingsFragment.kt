@@ -414,7 +414,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_microsurvey_feature_enabled).apply {
-            isVisible = true
+            isVisible = false
             isChecked = context.settings().microsurveyFeatureEnabled
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }

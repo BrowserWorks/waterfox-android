@@ -6,74 +6,49 @@ package org.mozilla.fenix.experiments
 
 import android.content.Context
 import android.content.Intent
-import androidx.core.content.pm.ShortcutInfoCompat
-import androidx.core.graphics.drawable.IconCompat
 import androidx.navigation.NavController
 import mozilla.components.support.base.log.logger.Logger
-import mozilla.components.ui.icons.R as iconsR
-import org.mozilla.fenix.IntentReceiverActivity
-import org.mozilla.fenix.R
 import org.mozilla.fenix.components.ShortcutManagerCompatWrapper
 import org.mozilla.fenix.ext.components
-import org.mozilla.fenix.home.HomeFragmentDirections
 import org.mozilla.fenix.utils.Settings
 
 /**
- * Manager class responsible for creating the uninstall survey app shortcut and handling its navigation routing.
+ * Removes legacy uninstall survey shortcuts without offering surveys.
  *
  * @param context The application context.
  * @param shortcutManagerWrapper The wrapper used to publish or remove dynamic shortcuts.
- * @param settings The [Settings] instance used to retrieve the feature flag state.
+ * @param settings Retained for source compatibility; cannot enable surveys.
  */
 class UninstallSurveyManager(
     private val context: Context,
     private val shortcutManagerWrapper: ShortcutManagerCompatWrapper,
-    private val settings: Settings = context.components.settings,
+    @Suppress("UNUSED_PARAMETER") settings: Settings = context.components.settings,
 ) {
 
     private val logger = Logger("UninstallSurveyManager")
-    private val shortcutIntent =
-        Intent(context, IntentReceiverActivity::class.java).apply {
-            action = ACTION_UNINSTALL_SURVEY
-        }
 
-    /** Programmatically registers or updates the dynamic shortcut on the device home screen. */
+    /**
+     * Removes the dynamic shortcut left by an earlier installation.
+     */
     fun updateUninstallSurveyShortcut() {
-        if (settings.uninstallSurveyFeatureFlagEnabled) {
-            val shortcut =
-                ShortcutInfoCompat.Builder(context, SHORTCUT_ID)
-                    .setShortLabel(context.getString(R.string.home_screen_shortcut_uninstall_survey))
-                    .setIcon(IconCompat.createWithResource(context, iconsR.drawable.mozac_ic_delete_black_24))
-                    .setIntent(shortcutIntent)
-                    .build()
-
-            try {
-                shortcutManagerWrapper.pushDynamicShortcut(context, shortcut)
-            } catch (e: SecurityException) {
-                logger.error("Knox or system security policy blocked shortcut creation", e)
-            } catch (e: IllegalStateException) {
-                logger.error("Failed to push dynamic shortcut due to invalid system state", e)
-            }
-        } else {
+        try {
             shortcutManagerWrapper.removeDynamicShortcuts(context, listOf(SHORTCUT_ID))
+        } catch (e: SecurityException) {
+            logger.error("System security policy blocked uninstall survey shortcut cleanup", e)
+        } catch (e: IllegalStateException) {
+            logger.error("Failed to remove uninstall survey shortcut", e)
         }
     }
 
     /**
-     * Checks the intent action and routes the user to the uninstall survey dialog if applicable.
+     * Consumes a legacy survey intent without navigating or prompting for uninstallation.
      *
      * @param intent The incoming [Intent] containing the action.
      * @param navController The [NavController] used to trigger the navigation.
      */
+    @Suppress("UNUSED_PARAMETER")
     fun showUninstallSurvey(intent: Intent?, navController: NavController) {
         if (intent?.action == ACTION_UNINSTALL_SURVEY) {
-            val isAlreadyShowing = navController.currentDestination?.id == R.id.uninstallSurveyBottomSheetFragment
-
-            if (!isAlreadyShowing) {
-                navController.navigate(
-                    HomeFragmentDirections.actionGlobalUninstallSurveyDialog(UNINSTALL_MICROSURVEY_ID)
-                )
-            }
             intent.action = null
         }
     }
@@ -81,6 +56,5 @@ class UninstallSurveyManager(
     companion object {
         const val ACTION_UNINSTALL_SURVEY = "org.mozilla.fenix.ACTION_UNINSTALL_SURVEY"
         private const val SHORTCUT_ID = "uninstall_survey_shortcut"
-        private const val UNINSTALL_MICROSURVEY_ID = "microsurvey-uninstall-survey"
     }
 }

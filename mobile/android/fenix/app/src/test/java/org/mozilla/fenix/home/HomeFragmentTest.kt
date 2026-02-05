@@ -50,16 +50,12 @@ class HomeFragmentTest {
     }
 
     @Test
-    fun `WHEN isMicrosurveyEnabled is true GIVEN a call to initializeMicrosurveyFeature THEN messagingFeature is initialized and observer is added`() {
-        val lifecycle = homeFragment.viewLifecycleOwner.lifecycle
-
+    fun `WHEN isMicrosurveyEnabled is true GIVEN a call to initializeMicrosurveyFeature THEN messagingFeature is not initialized`() {
         assertNull(homeFragment.messagingFeatureMicrosurvey.get())
 
         homeFragment.initializeMicrosurveyFeature(isMicrosurveyEnabled = true, view = view)
 
-        val feature = homeFragment.messagingFeatureMicrosurvey.get()
-        assertNotNull(feature)
-        verify { lifecycle.addObserver(feature) }
+        assertNull(homeFragment.messagingFeatureMicrosurvey.get())
     }
 
     @Test

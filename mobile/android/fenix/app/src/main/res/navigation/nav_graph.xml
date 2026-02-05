@@ -49,10 +49,6 @@
         app:destination="@id/microsurveyDialogFragment" />
 
     <action
-        android:id="@+id/action_global_uninstall_survey_dialog"
-        app:destination="@id/uninstallSurveyBottomSheetFragment" />
-
-    <action
         android:id="@+id/action_global_terms_of_use_dialog"
         app:destination="@+id/termsOfUseDialogFragment"
         app:launchSingleTop="true" />
@@ -344,15 +340,6 @@
             android:name="microsurvey_id"
             app:argType="string"
             app:nullable="false" />
-    </dialog>
-
-    <dialog
-      android:id="@+id/uninstallSurveyBottomSheetFragment"
-      android:name="org.mozilla.fenix.experiments.UninstallSurveyBottomSheetFragment">
-      <argument
-        android:name="microsurvey_id"
-        app:argType="string"
-        app:nullable="false" />
     </dialog>
 
     <dialog

@@ -699,10 +699,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
             uninstallSurveyManager.updateUninstallSurveyShortcut()
         }
 
-        if (components.settings.uninstallSurveyFeatureFlagEnabled) {
-            uninstallSurveyManager.showUninstallSurvey(intent, navHost.navController)
-        }
-
         restorePendingSendToDevicesTab(savedInstanceState)
 
         StartupTimeline.onActivityCreateEndHome(this) // DO NOT MOVE ANYTHING BELOW HERE.

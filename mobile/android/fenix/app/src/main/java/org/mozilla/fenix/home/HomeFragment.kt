@@ -510,22 +510,7 @@ class HomeFragment : Fragment() {
     }
 
     @VisibleForTesting
-    internal fun initializeMicrosurveyFeature(isMicrosurveyEnabled: Boolean, view: View) {
-        if (isMicrosurveyEnabled) {
-            val messagingFeature =
-                MessagingFeature(
-                    appStore = requireComponents.appStore,
-                    surface = FenixMessageSurfaceId.MICROSURVEY,
-                )
-            messagingFeatureMicrosurvey.set(
-                feature = messagingFeature,
-                owner = viewLifecycleOwner,
-                view = view,
-            )
-
-            viewLifecycleOwner.lifecycle.addObserver(messagingFeature)
-        }
-    }
+    internal fun initializeMicrosurveyFeature(isMicrosurveyEnabled: Boolean, view: View) = Unit
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // DO NOT ADD ANYTHING ABOVE THIS getProfilerTime CALL!
@@ -1088,8 +1073,7 @@ class HomeFragment : Fragment() {
             AuthenticationStatus.NOT_AUTHENTICATED
     }
 
-    private fun evaluateMessagesForMicrosurvey(components: Components) =
-        components.appStore.dispatch(MessagingAction.Evaluate(FenixMessageSurfaceId.MICROSURVEY))
+    private fun evaluateMessagesForMicrosurvey(components: Components) = Unit
 
     override fun onPause() {
         super.onPause()

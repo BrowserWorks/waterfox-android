@@ -50,7 +50,7 @@ class UninstallSurveyManagerTest {
     }
 
     @Test
-    fun `WHEN feature flag is enabled THEN push dynamic shortcut`() {
+    fun `WHEN feature flag is enabled THEN remove legacy shortcut without offering a survey`() {
         // Given
         val wrapper = FakeShortcutManagerCompatWrapper()
         val settings =
@@ -63,14 +63,14 @@ class UninstallSurveyManagerTest {
         manager.updateUninstallSurveyShortcut()
 
         // Then
-        assertEquals(1, wrapper.pushDynamicShortcutInvocations)
-        assertEquals(0, wrapper.removeDynamicShortcutsInvocations)
+        assertEquals(0, wrapper.pushDynamicShortcutInvocations)
+        assertEquals(1, wrapper.removeDynamicShortcutsInvocations)
     }
 
     @Test
     fun `WHEN updateUninstallSurveyShortcut throws SecurityException THEN catch it gracefully`() {
         // Given
-        val wrapper = FakeShortcutManagerCompatWrapper(pushDynamicShortcutException = SecurityException("Knox block"))
+        val wrapper = FakeShortcutManagerCompatWrapper(removeDynamicShortcutException = SecurityException("Knox block"))
         val settings =
             Settings(context).apply {
                 uninstallSurveyFeatureFlagEnabled = true
@@ -81,11 +81,11 @@ class UninstallSurveyManagerTest {
         manager.updateUninstallSurveyShortcut()
 
         // Then
-        assertEquals(1, wrapper.pushDynamicShortcutInvocations)
+        assertEquals(0, wrapper.pushDynamicShortcutInvocations)
     }
 
     @Test
-    fun `WHEN intent action matches AND not already showing THEN navigate to survey dialog`() {
+    fun `WHEN intent action matches THEN consume it without navigation`() {
         // Given
         val currentDestination = NavDestination("").apply { id = R.id.homeFragment }
         val fakeNavController = FakeNavController(context, currentDestination)
@@ -96,13 +96,13 @@ class UninstallSurveyManagerTest {
         manager.showUninstallSurvey(intent, fakeNavController)
 
         // Then
-        assertEquals(1, fakeNavController.navigateInvocations)
+        assertEquals(0, fakeNavController.navigateInvocations)
     }
 
     @Test
-    fun `WHEN survey dialog is already showing THEN do not navigate again`() {
+    fun `WHEN a legacy survey intent is handled on home THEN do not navigate`() {
         // Given
-        val currentDestination = NavDestination("").apply { id = R.id.uninstallSurveyBottomSheetFragment }
+        val currentDestination = NavDestination("").apply { id = R.id.homeFragment }
         val fakeNavController = FakeNavController(context, currentDestination)
         val settings = Settings(context)
         val manager = UninstallSurveyManager(context, FakeShortcutManagerCompatWrapper(), settings)
@@ -128,7 +128,7 @@ class UninstallSurveyManagerTest {
         assertEquals(0, fakeNavController.navigateInvocations)
     }
 
-    private class FakeShortcutManagerCompatWrapper(private val pushDynamicShortcutException: Exception? = null) :
+    private class FakeShortcutManagerCompatWrapper(private val removeDynamicShortcutException: Exception? = null) :
         ShortcutManagerCompatWrapper {
         var pushDynamicShortcutInvocations = 0
         var removeDynamicShortcutsInvocations = 0
@@ -146,12 +146,12 @@ class UninstallSurveyManagerTest {
         override fun pushDynamicShortcut(context: Context, shortcut: ShortcutInfoCompat) {
             pushDynamicShortcutInvocations++
             lastPushedShortcut = shortcut
-            pushDynamicShortcutException?.let { throw it }
         }
 
         override fun removeDynamicShortcuts(context: Context, shortcutIds: List<String>) {
             removeDynamicShortcutsInvocations++
             lastRemovedShortcutIds = shortcutIds
+            removeDynamicShortcutException?.let { throw it }
         }
     }
 

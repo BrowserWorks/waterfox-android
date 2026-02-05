@@ -2618,9 +2618,10 @@ class Settings(
 
     /** Indicates if the microsurvey feature is enabled. */
     var microsurveyFeatureEnabled by
-        booleanPreference(
+        hardcodedFeatureFlagBooleanPreference(
             key = appContext.getPreferenceKey(R.string.pref_key_microsurvey_feature_enabled),
-            default = { FxNimbus.features.microsurveys.value().enabled },
+            defaultValue = { false },
+            featureFlag = false,
         )
 
     /** Nimbus controlled feature flag that Indicates if the Shake to Summarize feature should be enabled */
@@ -3268,8 +3269,7 @@ class Settings(
         )
 
     /**
-     * Feature flag that indicates if the uninstall survey shortcut feature is enabled. It checks if the feature is
-     * activated via the remote Nimbus experiment OR forced via Secret Settings.
+     * Feature flag that indicates if the uninstall survey shortcut feature is enabled.
      */
     var uninstallSurveyFeatureFlagEnabled by
         booleanPreference(

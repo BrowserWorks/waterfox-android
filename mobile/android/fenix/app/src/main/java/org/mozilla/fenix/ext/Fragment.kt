@@ -254,7 +254,7 @@ fun Fragment.getBottomToolbarHeight(
 ): Int {
     val settings = requireComponents.settings
 
-    val isMicrosurveyEnabled = settings.shouldShowMicrosurveyPrompt
+    val isMicrosurveyEnabled = settings.microsurveyFeatureEnabled && settings.shouldShowMicrosurveyPrompt
     val isToolbarAtBottom = settings.toolbarPosition == ToolbarPosition.BOTTOM
     val isNavBarEnabled = settings.shouldUseExpandedToolbar && isTallWindow() && !isWideWindow()
     val shouldShowTabStrip = includeTabStripIfAvailable && settings.shouldShowTabStripAtBottom

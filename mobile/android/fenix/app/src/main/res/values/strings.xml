@@ -131,7 +131,7 @@
     <!-- Shortcut action to open Passwords screen -->
     <string name="home_screen_shortcut_passwords">Passwords</string>
     <!-- Shortcut action to open uninstall survey -->
-    <string name="home_screen_shortcut_uninstall_survey">Uninstall, why?</string>
+    <string name="home_screen_shortcut_uninstall_survey" tools:ignore="UnusedResources">Uninstall, why?</string>
 
     <!-- Recent Tabs -->
     <!-- Header text on the homescreen for continuing to browse the most recent browser tab -->
@@ -3763,21 +3763,21 @@
     <string name="microsurvey_describe_your_experience_title" tools:ignore="BrandUsage,UnusedResources">Help us improve Waterfox. Which best describes your experience so far?</string>
     <!-- Uninstall Survey -->
     <!-- Title text for the uninstall survey dialog, asking the user for the reason they are removing the app -->
-    <string name="microsurvey_uninstall_survey_title">Your feedback matters. Why are you uninstalling?</string>
+    <string name="microsurvey_uninstall_survey_title" tools:ignore="UnusedResources">Your feedback matters. Why are you uninstalling?</string>
     <!-- Uninstall survey answer option -->
-    <string name="uninstall_survey_option_1_v2">It’s slow or unreliable</string>
+    <string name="uninstall_survey_option_1_v2" tools:ignore="UnusedResources">It’s slow or unreliable</string>
     <!-- Uninstall survey answer option -->
-    <string name="uninstall_survey_option_2_v2">Websites didn’t work properly</string>
+    <string name="uninstall_survey_option_2_v2" tools:ignore="UnusedResources">Websites didn’t work properly</string>
     <!-- Uninstall survey answer option -->
-    <string name="uninstall_survey_option_3_v2">Missing features I need</string>
+    <string name="uninstall_survey_option_3_v2" tools:ignore="UnusedResources">Missing features I need</string>
     <!-- Uninstall survey answer option -->
-    <string name="uninstall_survey_option_4_v2">Videos, downloads, or media didn’t work</string>
+    <string name="uninstall_survey_option_4_v2" tools:ignore="UnusedResources">Videos, downloads, or media didn’t work</string>
     <!-- Uninstall survey answer option -->
-    <string name="uninstall_survey_option_5_v2">It’s hard to use or poorly designed</string>
+    <string name="uninstall_survey_option_5_v2" tools:ignore="UnusedResources">It’s hard to use or poorly designed</string>
     <!-- Uninstall survey answer option -->
-    <string name="uninstall_survey_option_6_v2">Privacy or security concerns</string>
+    <string name="uninstall_survey_option_6_v2" tools:ignore="UnusedResources">Privacy or security concerns</string>
     <!-- Button label shown at the bottom of the uninstall survey -->
-    <string name="uninstall_survey_button_label">Submit feedback and uninstall</string>
+    <string name="uninstall_survey_button_label" tools:ignore="UnusedResources">Submit feedback and uninstall</string>
     <!-- Accessibility -->
     <!-- Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.  -->
     <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Waterfox logo</string>

@@ -227,8 +227,6 @@ import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.runIfFragmentIsAttached
 import org.mozilla.fenix.ext.secure
 import org.mozilla.fenix.ext.tabClosedUndoMessage
-import org.mozilla.fenix.ext.updateMicrosurveyPromptForConfigurationChange
-import org.mozilla.fenix.messaging.FenixMessageSurfaceId
 import org.mozilla.fenix.messaging.MessagingFeature
 import org.mozilla.fenix.microsurvey.ui.MicrosurveyRequestPrompt
 import org.mozilla.fenix.nimbus.FxNimbus
@@ -542,10 +540,6 @@ abstract class BaseBrowserFragment :
 
         _browserToolbar = initializeBrowserToolbar(activity, store, readerMenuController)
         browserTabStrip = initializeBrowserTabStripView(activity, appStore, settings)
-
-        if (settings.microsurveyFeatureEnabled) {
-            listenForMicrosurveyMessage(context)
-        }
 
         toolbarsIntegration.set(
             feature =
@@ -1838,26 +1832,7 @@ abstract class BaseBrowserFragment :
             )
     }
 
-    @VisibleForTesting
-    internal fun initializeMicrosurveyFeature(context: Context) {
-        if (
-            context.components.settings.isExperimentationEnabled &&
-                context.components.settings.microsurveyFeatureEnabled
-        ) {
-            val messagingFeature =
-                MessagingFeature(
-                    appStore = requireComponents.appStore,
-                    surface = FenixMessageSurfaceId.MICROSURVEY,
-                )
-            messagingFeatureMicrosurvey.set(
-                feature = messagingFeature,
-                owner = viewLifecycleOwner,
-                view = binding.root,
-            )
-
-            viewLifecycleOwner.lifecycle.addObserver(messagingFeature)
-        }
-    }
+    @VisibleForTesting internal fun initializeMicrosurveyFeature(context: Context) = Unit
 
     @Suppress("LongMethod", "CognitiveComplexMethod")
     private fun initializeMicrosurveyPrompt() {
@@ -2369,15 +2344,6 @@ abstract class BaseBrowserFragment :
     @CallSuper
     internal open fun onUpdateToolbarForConfigurationChange(toolbar: BrowserToolbarComposable) {
         reinitializeEngineView()
-
-        // If the microsurvey feature is visible, we should update it's state.
-        if (shouldShowMicrosurveyPrompt(requireContext())) {
-            updateMicrosurveyPromptForConfigurationChange(
-                parent = binding.browserLayout,
-                bottomToolbarContainerView = _bottomToolbarContainerView?.toolbarContainerView,
-                reinitializeMicrosurveyPrompt = ::initializeMicrosurveyPrompt,
-            )
-        }
 
         view?.let { setupIMEInsetsHandling(it) }
     }

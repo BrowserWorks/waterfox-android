@@ -53,10 +53,6 @@
 
     <uses-permission android:name="${applicationId}.permission.PROFILER_INTERNAL" />
 
-    <!-- Needed to prompt the user directly for app uninstallation as part of an
-    'uninstall survey' experiment. This is ONLY used to uninstall the Firefox application -->
-    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" tools:node="replace" />
-
     <permission
         android:name="${applicationId}.permission.PROFILER_INTERNAL"
         android:protectionLevel="signature" />

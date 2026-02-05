@@ -19,13 +19,12 @@ class TermsOfUseManager(private val repository: TermsOfUsePromptRepository) {
     /**
      * Determines whether the Terms of Use bottom sheet should be shown on the homepage.
      */
-    fun shouldShowTermsOfUsePromptOnHomepage() =
-        shouldShowTermsOfUsePrompt(ignoreFirstCheckSinceAppStart = true)
+    fun shouldShowTermsOfUsePromptOnHomepage() = false
 
     /**
      * Determines whether the Terms of Use bottom sheet should be shown in the browser fragment.
      */
-    fun shouldShowTermsOfUsePromptOnBrowserFragment() = shouldShowTermsOfUsePrompt()
+    fun shouldShowTermsOfUsePromptOnBrowserFragment() = false
 
     /**
      * Determines whether the Terms of Use bottom sheet should be shown.
@@ -39,9 +38,7 @@ class TermsOfUseManager(private val repository: TermsOfUsePromptRepository) {
     internal fun shouldShowTermsOfUsePrompt(
         ignoreFirstCheckSinceAppStart: Boolean = false,
         currentTimeInMillis: Long = System.currentTimeMillis(),
-    ): Boolean = repository.canShowTermsOfUsePrompt() &&
-            !repository.userPostponedAndWithinCooldownPeriod(currentTimeInMillis) &&
-            isFirstCheckFromAppStart(ignoreFirstCheckSinceAppStart)
+    ): Boolean = false
 
     /**
      * This is the first time checking to see if we should show the prompt since starting the app

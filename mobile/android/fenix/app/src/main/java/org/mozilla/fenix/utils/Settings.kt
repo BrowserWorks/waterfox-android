@@ -2718,7 +2718,7 @@ class Settings(
      */
     var microsurveyFeatureEnabled by booleanPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_microsurvey_feature_enabled),
-        default = { FxNimbus.features.microsurveys.value().enabled },
+        default = { false },
     )
 
     /**

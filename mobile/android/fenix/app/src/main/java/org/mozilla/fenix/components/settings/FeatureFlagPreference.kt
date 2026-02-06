@@ -44,7 +44,7 @@ private class DummyProperty : ReadWriteProperty<PreferencesHolder, Boolean> {
  * ```
  * val isMyFeatureEnabled by featureFlagBooleanPreference(
  *     …
- *     featureFlag = FeatureFlags.onboardingFeatureEnabled,
+ *     featureFlag = FeatureFlags.ONBOARDING_FEATURE_ENABLED,
  *     …
  * )
  * ```
@@ -99,7 +99,7 @@ private class LazyBooleanPreference(val key: String, val defaultValue: () -> Boo
  * ```
  * val isMyFeatureEnabled by lazyFeatureFlagBooleanPreference(
  *     …
- *     featureFlag = FeatureFlags.onboardingFeatureEnabled,
+ *     featureFlag = FeatureFlags.ONBOARDING_FEATURE_ENABLED,
  *     …
  * )
  * ```
@@ -114,6 +114,20 @@ private class LazyBooleanPreference(val key: String, val defaultValue: () -> Boo
     ),
 )
 fun lazyFeatureFlagBooleanPreference(key: String, featureFlag: Boolean, defaultValue: () -> Boolean) =
+    if (featureFlag) {
+        LazyBooleanPreference(key, defaultValue)
+    } else {
+        DummyProperty()
+    }
+
+/**
+ * Boolean preference delegate gated by a local feature flag, without a Nimbus dependency.
+ *
+ * @param key The shared preference key used when the feature is enabled.
+ * @param featureFlag If false, reads return false and writes leave the stored preference unchanged.
+ * @param defaultValue Evaluated on each enabled read to supply the default for an unset preference.
+ */
+fun hardcodedFeatureFlagBooleanPreference(key: String, featureFlag: Boolean, defaultValue: () -> Boolean) =
     if (featureFlag) {
         LazyBooleanPreference(key, defaultValue)
     } else {

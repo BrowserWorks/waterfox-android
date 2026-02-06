@@ -9,21 +9,20 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
 import java.util.Locale
-import org.mozilla.fenix.nimbus.FxNimbus
 
 /** Contains an ISO 8601 date. */
 @JvmInline value class IsoPromoDeadline(val date: String)
 
-/** A formatted promo date based on feature properties in [org.mozilla.fenix.nimbus.IpProtection]. */
+/** A formatted promo date based on the built-in VPN defaults. */
 internal fun formatPromoDateOrCatch(
-    maxGib: Int = FxNimbus.features.ipProtection.value().dataLimitGigabyte,
+    maxGib: Int = 50,
     onException: (Exception) -> Unit,
 ): String? {
     if (maxGib > 0) {
         return null
     }
 
-    val date = IsoPromoDeadline(FxNimbus.features.ipProtection.value().promoDeadline)
+    val date = IsoPromoDeadline("2026-08-31")
     return date.formatPromoDateOrCatch(onException)
 }
 

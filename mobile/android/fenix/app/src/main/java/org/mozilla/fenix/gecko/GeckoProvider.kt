@@ -18,7 +18,6 @@ import mozilla.components.service.sync.autofill.GeckoCreditCardsAddressesStorage
 import mozilla.components.service.sync.logins.GeckoLoginStorageDelegate
 import org.mozilla.fenix.Config
 import org.mozilla.fenix.ext.components
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.geckoview.GeckoRuntime
 import org.mozilla.geckoview.GeckoRuntimeSettings
 
@@ -132,18 +131,10 @@ object GeckoProvider {
                 .extensionsWebAPIEnabled(true)
                 .translationsOfferPopup(context.components.settings.offerTranslation)
                 .crashPullNeverShowAgain(true)
-                .setSameDocumentNavigationOverridesLoadType(
-                    FxNimbus.features.sameDocumentNavigationOverridesLoadType.value().enabled
-                )
-                .setSameDocumentNavigationOverridesLoadTypeForceDisable(
-                    FxNimbus.features.sameDocumentNavigationOverridesLoadType.value().forceDisableUri
-                )
+                .setSameDocumentNavigationOverridesLoadType(false)
+                .setSameDocumentNavigationOverridesLoadTypeForceDisable("")
                 .isolatedProcessEnabled(context.components.settings.isIsolatedProcessEnabled)
                 .appZygoteProcessEnabled(context.components.settings.isAppZygoteEnabled)
-
-        if (FxNimbus.features.fission.value().shouldUseNimbus) {
-            builder.fissionEnabled(FxNimbus.features.fission.value().enabled)
-        }
 
         return builder.build()
     }

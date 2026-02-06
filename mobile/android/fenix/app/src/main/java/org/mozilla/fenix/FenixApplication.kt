@@ -489,7 +489,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         queueIncrementNumberOfAppLaunches(queue)
         queueRestoreLocale(queue)
         queueStorageMaintenance(queue)
-        queueIntegrityClientWarmUp(queue)
         queueDownloadWallpapers(queue)
         queueUpdateAutofillServiceState(queue)
         queuePublishSearchBarWidgetPreviews(queue)
@@ -626,19 +625,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
             components.core.autofillStorage.registerStorageMaintenanceWorker()
         }
 
-    private fun queueIntegrityClientWarmUp(queue: RunWhenReadyQueue) {
-        // We want to avoid shipping this warmup into UI test builds to reduce quota impact, especially given
-        // that the Integrity verdicts will always fail anyway.
-        if (!BuildConfig.TELEMETRY) {
-            return
-        }
-        runOnVisualCompleteness(queue) {
-            applicationScope.launch(ioDispatcher) {
-                components.integrityClient.warmUp()
-            }
-        }
-    }
-
     @OptIn(ExperimentalAndroidComponentsApi::class)
     private fun queueNimbusFetchInForeground(queue: RunWhenReadyQueue) =
         runOnVisualCompleteness(queue) {
@@ -718,6 +704,7 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
     }
 
     private fun maybeSetupIPProtection() {
+        if (!components.settings.isIPProtectionAvailable) return
         components.ipProtection.initialize()
     }
 
@@ -1272,9 +1259,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
     }
 
     private fun reportHomeScreenSectionMetrics(settings: Settings) {
-        // These settings are backed by Nimbus features.
-        // We break them out here so they can be recorded when
-        // `nimbus.applyPendingExperiments()` is called.
         CustomizeHome.jumpBackIn.set(settings.showRecentTabsFeature)
         CustomizeHome.bookmarks.set(settings.showBookmarksHomeFeature)
         CustomizeHome.mostVisitedSites.set(settings.showTopSitesFeature)

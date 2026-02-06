@@ -118,3 +118,10 @@ fun lazyFeatureFlagBooleanPreference(key: String, featureFlag: Boolean, defaultV
     } else {
         DummyProperty()
     }
+
+fun hardcodedFeatureFlagBooleanPreference(key: String, featureFlag: Boolean, defaultValue: () -> Boolean) =
+    if (featureFlag) {
+        LazyBooleanPreference(key, defaultValue)
+    } else {
+        DummyProperty()
+    }

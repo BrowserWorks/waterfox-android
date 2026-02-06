@@ -6,7 +6,6 @@ package org.mozilla.fenix.components
 
 import org.mozilla.fenix.settings.ToolbarShortcutSettingsSearchProvider
 import org.mozilla.fenix.settings.datachoices.DataChoicesSearchProvider
-import org.mozilla.fenix.settings.labs.FirefoxLabsSettingsSearchProvider
 import org.mozilla.fenix.settings.settingssearch.SettingsSearchProvider
 import org.mozilla.fenix.summarization.onboarding.SummarizationFeatureDiscoveryConfiguration
 
@@ -28,6 +27,5 @@ internal fun settingsSearchProviders(
 ): List<SettingsSearchProvider> =
     listOf(
         DataChoicesSearchProvider,
-        FirefoxLabsSettingsSearchProvider(),
         ToolbarShortcutSettingsSearchProvider,
     )

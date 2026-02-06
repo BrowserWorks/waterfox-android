@@ -2459,21 +2459,6 @@ class Settings(
             default = false,
         )
 
-    /** Indicates if the Homepage Weather Widget is enabled. */
-    var enableHomepageWeatherWidget by
-        hardcodedFeatureFlagBooleanPreference(
-            key = appContext.getPreferenceKey(R.string.pref_key_enable_homepage_weather_widget),
-            defaultValue = { false },
-            featureFlag = false,
-        )
-
-    /** Indicates if the Homepage Weather Widget should be visible on the homepage. */
-    var showHomepageWeatherWidget by
-        booleanPreference(
-            key = appContext.getPreferenceKey(R.string.pref_key_show_homepage_weather_widget),
-            default = true,
-        )
-
     /** Adjust Activated User sent */
     var growthUserActivatedSent by
         booleanPreference(

@@ -19,8 +19,8 @@ class SecretSettingsKeysProviderTest {
     fun `WHEN parsing the secret settings preference XML THEN the switch preference keys are returned`() {
         val keys = getSecretSettingsPreferenceKeys(testContext.resources)
 
-        assertTrue(keys.contains(testContext.getString(R.string.pref_key_allow_third_party_root_certs)))
-        assertTrue(keys.contains(testContext.getString(R.string.pref_key_native_share_sheet)))
+        assertTrue(keys.contains(testContext.getString(R.string.pref_key_hide_collections)))
+        assertTrue(keys.contains(testContext.getString(R.string.pref_key_doh_settings_enabled)))
         assertFalse(keys.contains(testContext.getString(R.string.pref_key_show_debug_info)))
         assertFalse(keys.contains(testContext.getString(R.string.pref_key_custom_glean_server_url)))
     }

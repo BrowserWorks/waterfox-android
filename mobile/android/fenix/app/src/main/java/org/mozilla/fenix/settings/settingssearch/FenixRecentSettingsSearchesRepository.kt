@@ -20,7 +20,7 @@ internal val Context.recentSearchesDataStore: DataStore<RecentSettingsSearches> 
 
 internal val Context.secretRecentSearchesDataStore: DataStore<RecentSettingsSearches> by
     dataStore(
-        fileName = "secret_settings_recent_searches.pb",
+        fileName = "advanced_settings_recent_searches.pb",
         serializer = RecentSettingsSearchesSerializer,
     )
 

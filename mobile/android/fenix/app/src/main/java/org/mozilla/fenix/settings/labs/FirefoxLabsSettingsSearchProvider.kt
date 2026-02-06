@@ -5,27 +5,13 @@
 package org.mozilla.fenix.settings.labs
 
 import android.content.Context
-import org.mozilla.fenix.R
-import org.mozilla.fenix.settings.settingssearch.PreferenceFileInformation
 import org.mozilla.fenix.settings.settingssearch.SettingsSearchItem
 import org.mozilla.fenix.settings.settingssearch.SettingsSearchProvider
 
-/** [SettingsSearchProvider] for making "Firefox Labs" discoverable in settings search. */
+/** Disabled [SettingsSearchProvider] for Firefox Labs. */
 class FirefoxLabsSettingsSearchProvider : SettingsSearchProvider {
 
-    private val preferenceFileInformation = PreferenceFileInformation.FirefoxLabsPreferences
-
-    override fun getSearchItems(context: Context): List<SettingsSearchItem> {
-        return listOf(
-            SettingsSearchItem(
-                title = context.getString(R.string.firefox_labs_title),
-                summary = "",
-                preferenceKey = FIREFOX_LABS_KEY,
-                categoryHeader = context.getString(preferenceFileInformation.categoryHeaderResourceId),
-                preferenceFileInformation = preferenceFileInformation,
-            )
-        )
-    }
+    override fun getSearchItems(context: Context): List<SettingsSearchItem> = emptyList()
 
     companion object {
         const val FIREFOX_LABS_KEY = "FIREFOX_LABS"

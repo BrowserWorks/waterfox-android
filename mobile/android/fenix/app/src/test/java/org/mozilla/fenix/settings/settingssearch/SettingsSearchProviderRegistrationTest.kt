@@ -46,7 +46,7 @@ class SettingsSearchProviderRegistrationTest {
      */
     private val intentionallyNotIndexed =
         setOf<PreferenceFileInformation>(
-            // Debug-only screen, indexed on its own by SecretSettingsSearchFragment.
+            // Advanced settings are indexed on their own by SecretSettingsSearchFragment.
             PreferenceFileInformation.SecretSettingsPreferences
         )
 

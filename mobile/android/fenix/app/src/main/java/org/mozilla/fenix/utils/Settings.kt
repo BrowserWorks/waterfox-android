@@ -2511,26 +2511,11 @@ class Settings(
     val enableRegionalDefaultShortcuts: Boolean
         get() = FxNimbus.features.regionalDefaultShortcuts.value().enabled
 
-    /** Indicates if the Homepage Weather Widget is enabled. */
-    var enableHomepageWeatherWidget by
-        hardcodedFeatureFlagBooleanPreference(
-            key = appContext.getPreferenceKey(R.string.pref_key_enable_homepage_weather_widget),
-            defaultValue = { false },
-            featureFlag = false,
-        )
-
-    /** Indicates if the Homepage Weather Widget should be visible on the homepage. */
-    var showHomepageWeatherWidget by
-        booleanPreference(
-            key = appContext.getPreferenceKey(R.string.pref_key_show_homepage_weather_widget),
-            default = true,
-        )
-
     /** Indicates if the Homepage Wrexham Widget is enabled. */
     var enableHomepageWrexhamWidget by
         booleanPreference(
             key = appContext.getPreferenceKey(R.string.pref_key_enable_homepage_wrexham_widget),
-            default = { FxNimbus.features.homepageWrexhamWidget.value().enabled },
+            default = false,
         )
 
     /** Indicates if the Homepage Wrexham Widget should be visible on the homepage. */

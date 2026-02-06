@@ -96,7 +96,6 @@ import org.mozilla.fenix.perf.StartupActivityLog
 import org.mozilla.fenix.perf.StartupStateProvider
 import org.mozilla.fenix.perf.StrictModeManager
 import org.mozilla.fenix.perf.lazyMonitored
-import org.mozilla.fenix.reviewprompt.ReviewPromptMiddleware
 import org.mozilla.fenix.search.VoiceSearchAIControlFeature
 import org.mozilla.fenix.settings.emailmasks.middleware.DefaultEmailMasksRepository
 import org.mozilla.fenix.settings.emailmasks.middleware.EmailMasksRepository
@@ -305,6 +304,7 @@ class Components(
 
     val appStore by lazyMonitored {
         val blocklistHandler = BlocklistHandler(settings)
+        settings.migrateLastReviewPromptTimePrefIfNeeded()
 
         AppStore(
                 initialState =
@@ -349,6 +349,7 @@ class Components(
                         HomeTelemetryMiddleware(),
                         SetupChecklistPreferencesMiddleware(DefaultSetupChecklistRepository(context, settings)),
                         SetupChecklistTelemetryMiddleware(),
+                        /*
                         ReviewPromptMiddleware(
                                 continuousOnboardingInProgress = {
                                     val continuousOnboardingCompleted =
@@ -361,10 +362,8 @@ class Components(
                                 disableCustomPrompt = { settings.customReviewPromptUiEnabled = false },
                                 createJexlHelper = nimbus::createJexlHelper,
                                 nimbusEventStore = nimbus.events,
-                            )
-                            .also {
-                                settings.migrateLastReviewPromptTimePrefIfNeeded(nimbus.events)
-                            },
+                            ),
+                        */
                         AppVisualCompletenessMiddleware(performance.visualCompletenessQueue),
                     ),
             )

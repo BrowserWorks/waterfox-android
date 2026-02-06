@@ -125,7 +125,6 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
         // preference is not shown
         setupGesturesCategory(
             isSwipeToolbarToSwitchTabsVisible = !tabletAndTabStripEnabled,
-            isSummarizationEnabled = status.isSummarizationFeatureEnabled,
             isSummarizationGestureEnabled = status.isSummarizationGestureEnabled,
         )
     }
@@ -352,7 +351,6 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
 
     private fun setupGesturesCategory(
         isSwipeToolbarToSwitchTabsVisible: Boolean,
-        isSummarizationEnabled: Boolean,
         isSummarizationGestureEnabled: Boolean,
     ) {
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_website_pull_to_refresh).apply {
@@ -374,7 +372,7 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_shake_gesture_enabled).apply {
-            isVisible = context.components.settings.shakeToSummarizeFeatureFlagEnabled && isSummarizationEnabled
+            isVisible = false
             isChecked = isSummarizationGestureEnabled
             onPreferenceChangeListener = { _, newValue ->
                 val updatedValue = (newValue as? Boolean) ?: false

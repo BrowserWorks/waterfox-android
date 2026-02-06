@@ -23,7 +23,6 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.e2e.SystemInsetsPaddedFragment
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.scrollToPreferenceWithHighlight
 
 /** A [androidx.preference.PreferenceFragmentCompat] that displays settings related to downloads. */
@@ -91,7 +90,7 @@ class DownloadsSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPadded
 
         val fileStorageCategory =
             findPreference<PreferenceCategory>(getString(R.string.pref_key_downloads_storage_category))
-        fileStorageCategory?.isVisible = FxNimbus.features.downloadsCustomLocation.value().enabled
+        fileStorageCategory?.isVisible = true
     }
 
     private fun setUpDeleteBehaviorPreference() {

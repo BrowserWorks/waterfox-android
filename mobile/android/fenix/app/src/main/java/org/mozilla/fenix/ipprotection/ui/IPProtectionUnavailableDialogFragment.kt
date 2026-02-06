@@ -33,11 +33,22 @@ class IPProtectionUnavailableDialogFragment : AppCompatDialogFragment() {
         (requireActivity() as HomeActivity).browsingModeManager.mode.isPrivate
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        if (!requireComponents.settings.isIPProtectionAvailable) {
+            showsDialog = false
+            dismissAllowingStateLoss()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View = content {
+        if (!components.settings.isIPProtectionAvailable) return@content
+
         val state = components.ipProtection.store.observeAsComposableState { it }.value
         // This is not an early return strategy: we expect to reach this condition after the user has turned the proxy
         // off and the state machine has processed the toggle action. The proxy disconnects, the error state clears, and

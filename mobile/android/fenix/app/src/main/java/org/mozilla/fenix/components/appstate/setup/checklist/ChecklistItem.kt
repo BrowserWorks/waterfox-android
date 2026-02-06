@@ -8,8 +8,13 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import mozilla.components.ui.icons.R as iconsR
 import org.mozilla.fenix.R
-import org.mozilla.fenix.nimbus.SetupChecklistType
 import org.mozilla.fenix.utils.Settings
+
+/** Selects between a flat list of setup tasks and tasks grouped into expandable sections. */
+enum class SetupChecklistType {
+    COLLECTION_1,
+    COLLECTION_2,
+}
 
 /**
  * A sealed class representing an item in the setup checklist.

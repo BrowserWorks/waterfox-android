@@ -485,8 +485,7 @@ class HomeFragment : Fragment(), UserInteractionHandler, OnLongPressedListener {
             settings = activity.components.settings,
             directToSearchConfig =
                 DirectToSearchConfig(
-                    startSearch =
-                        bundleArgs.getBoolean(FOCUS_ON_ADDRESS_BAR) || FxNimbus.features.oneClickSearch.value().enabled,
+                    startSearch = bundleArgs.getBoolean(FOCUS_ON_ADDRESS_BAR),
                     startVoiceSearch = bundleArgs.getBoolean(START_VOICE_SEARCH),
                     sessionId = bundleArgs.getString(SESSION_TO_START_SEARCH_FOR),
                     source = args.searchAccessPoint,

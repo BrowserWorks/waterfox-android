@@ -5,8 +5,7 @@
 package org.mozilla.fenix.tabstray
 
 import androidx.compose.runtime.staticCompositionLocalOf
-import org.mozilla.fenix.Config
-import org.mozilla.fenix.nimbus.FxNimbus
+
 
 /** Feature helper for managing the release of the Tabs Tray UI enhancements. */
 interface TabManagementFeatureHelper {
@@ -34,22 +33,22 @@ interface TabManagementFeatureHelper {
 data object DefaultTabManagementFeatureHelper : TabManagementFeatureHelper {
 
     override val openingAnimationEnabled: Boolean
-        get() = Config.channel.isDebug || FxNimbus.features.tabManagementEnhancements.value().openingAnimationEnabled
+        get() = true
 
     override val tabGroupsEnabled: Boolean
-        get() = Config.channel.isDebug || FxNimbus.features.tabGroups.value().enabled
+        get() = true
 
     override val tabGroupsDragAndDropEnabled: Boolean
-        get() = Config.channel.isDebug || FxNimbus.features.tabGroupsDragAndDrop.value().enabled
+        get() = true
 
     override val tabGroupsLiveReorderEnabled: Boolean
-        get() = FxNimbus.features.tabGroupsLiveReorder.value().enabled
+        get() = true
 
     override val ungroupTabGroupEnabled: Boolean
         get() = false
 
     override val tabGroupsOnboardingEnabled: Boolean
-        get() = Config.channel.isDebug || FxNimbus.features.tabGroupsOnboarding.value().enabled
+        get() = true
 }
 
 val LocalTabManagementFeatureHelper =

@@ -13,7 +13,8 @@
         android:dependency="@string/pref_key_show_top_sites"
         android:layout="@layout/checkbox_left_sub_preference"
         android:key="@string/pref_key_enable_contile"
-        android:title="@string/customize_toggle_contile" />
+        android:title="@string/customize_toggle_contile"
+        app:isPreferenceVisible="false" />
 
     <androidx.preference.SwitchPreferenceCompat
         android:key="@string/pref_key_privacy_report"

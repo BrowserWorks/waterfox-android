@@ -591,18 +591,17 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
             )?.isVisible = false
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_debug_settings),
-            )?.isVisible = showSecretDebugMenuThisSession
+            )?.isVisible = true
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_secret_debug_info),
-            )?.isVisible = showSecretDebugMenuThisSession
+            )?.isVisible = false
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_sync_debug),
-            )?.isVisible = showSecretDebugMenuThisSession
+            )?.isVisible = showSecretDebugMenuThisSession && !Config.channel.isRelease
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_firefox_labs),
             )?.isVisible = enableFirefoxLabs
-            preferenceStartProfiler?.isVisible = showSecretDebugMenuThisSession &&
-                (components.core.engine.profiler?.isProfilerActive() != null)
+            preferenceStartProfiler?.isVisible = false
         }
         setupCookieBannerPreference(settings)
         setupInstallAddonFromFilePreference(settings)
@@ -681,7 +680,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
         val preferenceEnabledGeckoLogs =
             findPreference<Preference>(getPreferenceKey(R.string.pref_key_enable_gecko_logs))
 
-        val show = settings.showSecretDebugMenuThisSession
+        val show = settings.showSecretDebugMenuThisSession && !Config.channel.isRelease
         preferenceEnabledGeckoLogs?.isVisible = show
 
         preferenceEnabledGeckoLogs?.onPreferenceChangeListener =

@@ -60,6 +60,24 @@ class SettingsFragmentTest {
         activity.supportFragmentManager.beginTransaction().add(settingsFragment, "test").commitNow()
     }
 
+    @Test
+    fun `GIVEN debug menu is disabled THEN Advanced Settings is visible without enabling debug features`() {
+        val settings = testContext.components.settings
+        assertFalse(settings.showSecretDebugMenuThisSession)
+
+        val preference =
+            settingsFragment.findPreference<Preference>(
+                settingsFragment.getPreferenceKey(R.string.pref_key_debug_settings)
+            )
+
+        assertNotNull(preference)
+        assertTrue(preference.isVisible)
+        assertEquals("Advanced Settings", preference.title)
+        assertEquals(settingsFragment.getPreferenceKey(R.string.pref_key_advanced), preference.parent?.key)
+
+        verify(exactly = 0) { settings.showSecretDebugMenuThisSession = any() }
+    }
+
     @OptIn(ExperimentalCoroutinesApi::class) // advanceUntilIdle
     @Test
     fun `Add-on collection override pref is visible if debug menu active and feature is enabled`() = runTest {

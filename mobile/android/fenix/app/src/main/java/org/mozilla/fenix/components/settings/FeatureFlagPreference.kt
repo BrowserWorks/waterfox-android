@@ -43,7 +43,7 @@ private class DummyProperty : ReadWriteProperty<PreferencesHolder, Boolean> {
  * ```
  * val isMyFeatureEnabled by featureFlagBooleanPreference(
  *     …
- *     featureFlag = FeatureFlags.onboardingFeatureEnabled,
+ *     featureFlag = FeatureFlags.ONBOARDING_FEATURE_ENABLED,
  *     …
  * )
  * ```
@@ -98,7 +98,7 @@ private class LazyBooleanPreference(val key: String, val defaultValue: () -> Boo
  * ```
  * val isMyFeatureEnabled by lazyFeatureFlagBooleanPreference(
  *     …
- *     featureFlag = FeatureFlags.onboardingFeatureEnabled,
+ *     featureFlag = FeatureFlags.ONBOARDING_FEATURE_ENABLED,
  *     …
  * )
  * ```
@@ -113,6 +113,13 @@ private class LazyBooleanPreference(val key: String, val defaultValue: () -> Boo
     ),
 )
 fun lazyFeatureFlagBooleanPreference(key: String, featureFlag: Boolean, defaultValue: () -> Boolean) =
+    if (featureFlag) {
+        LazyBooleanPreference(key, defaultValue)
+    } else {
+        DummyProperty()
+    }
+
+fun hardcodedFeatureFlagBooleanPreference(key: String, featureFlag: Boolean, defaultValue: () -> Boolean) =
     if (featureFlag) {
         LazyBooleanPreference(key, defaultValue)
     } else {

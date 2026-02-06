@@ -33,7 +33,7 @@ object FeatureFlags {
      *
      * ⚠️ DO NOT MODIFY THIS FLAG IN PRODUCTION.
      */
-    val onboardingFeatureEnabled = !Config.channel.isDebug
+    const val ONBOARDING_FEATURE_ENABLED = false
 
     /**
      * Enables Firefox Labs.

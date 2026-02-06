@@ -35,7 +35,7 @@ object FeatureFlags {
     /**
      * Enable Meta attribution.
      */
-    const val META_ATTRIBUTION_ENABLED = true
+    const val META_ATTRIBUTION_ENABLED = false
 
     /**
      * Disables the Onboarding feature for debug builds by default. Set this to `true` if you need
@@ -43,7 +43,7 @@ object FeatureFlags {
      *
      * ⚠️ DO NOT MODIFY THIS FLAG IN PRODUCTION.
      */
-    val onboardingFeatureEnabled = !Config.channel.isDebug
+    val onboardingFeatureEnabled = false
 
     /**
      * Enables the "Discover more" stories screen.

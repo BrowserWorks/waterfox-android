@@ -35,6 +35,7 @@ private const val REVIEW_PROMPT_SHOWN_NIMBUS_EVENT_ID = "review_prompt_shown"
  * @param buildTriggerSubCriteria Builds a sequence of trigger's sub-criteria. Only one of these needs to be true (in
  *   addition to the main criteria).
  * @param nimbusEventStore [NimbusEventStore] used to record events evaluated in JEXL expressions.
+ * @param isReviewPromptFeatureEnabled Whether review-prompt eligibility should be evaluated.
  */
 class ReviewPromptMiddleware(
     private val continuousOnboardingInProgress: () -> Boolean = { false },
@@ -46,6 +47,7 @@ class ReviewPromptMiddleware(
     private val buildTriggerSubCriteria: (NimbusMessagingHelperInterface) -> Sequence<Boolean> =
         TriggerBuilder::subCriteria,
     private val nimbusEventStore: NimbusEventStore,
+    private val isReviewPromptFeatureEnabled: () -> Boolean = { false },
 ) : Middleware<AppState, AppAction> {
 
     private object TriggerBuilder {
@@ -95,6 +97,11 @@ class ReviewPromptMiddleware(
         // set the state to not eligible instead of leaving it unknown.
         // The state lives as long as the app process, so the prompt is only re-evaluated on the next cold start.
         if (continuousOnboardingInProgress()) {
+            store.dispatch(DoNotShowReviewPrompt)
+            return
+        }
+
+        if (!isReviewPromptFeatureEnabled()) {
             store.dispatch(DoNotShowReviewPrompt)
             return
         }

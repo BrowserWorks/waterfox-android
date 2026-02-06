@@ -19,7 +19,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.preference.PreferenceManager
 import java.io.File
 import java.security.InvalidParameterException
-import java.util.concurrent.TimeUnit.MILLISECONDS
 import mozilla.components.concept.engine.Engine
 import mozilla.components.concept.engine.Engine.HttpsOnlyMode
 import mozilla.components.feature.automotive.isAndroidAutomotiveAvailable
@@ -41,7 +40,6 @@ import mozilla.components.support.locale.LocaleManager
 import mozilla.components.support.utils.Browsers
 import mozilla.components.support.utils.ext.PackageManagerCompatHelper
 import mozilla.components.support.utils.ext.packageManagerCompatHelper
-import org.mozilla.experiments.nimbus.NimbusEventStore
 import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.Config
 import org.mozilla.fenix.FeatureFlags
@@ -347,31 +345,14 @@ class Settings(
      * In bug 1979885 we switched from manually tracking displaying review prompt to recording it as an event in Nimbus
      * which let's us check if later with a JEXL expression.
      *
-     * If a previously tracked value exists then this migrates it to an event.
+     * If a previously tracked value exists then this removes it; Waterfox does not record the event.
      */
-    fun migrateLastReviewPromptTimePrefIfNeeded(nimbusEventStore: NimbusEventStore) {
+    fun migrateLastReviewPromptTimePrefIfNeeded() {
         val oldKey = "pref_key_last_review_prompt_shown_time"
 
         if (!preferences.contains(oldKey)) return
 
-        val lastReviewPromptTimeInMillis =
-            try {
-                preferences.getLong(oldKey, 0L)
-            } catch (e: ClassCastException) {
-                logger.warn("Unexpected pref type when trying to migrate last review prompt time", e)
-                0
-            }
-
         preferences.edit { remove(oldKey) }
-
-        if (lastReviewPromptTimeInMillis != 0L) {
-            val millisAgo = timeNowInMillis() - lastReviewPromptTimeInMillis
-            nimbusEventStore.recordPastEvent(
-                eventId = "review_prompt_shown",
-                timeAgo = millisAgo,
-                timeUnit = MILLISECONDS,
-            )
-        }
     }
 
     /** Indicates if the custom review prompt UI should be enabled. */

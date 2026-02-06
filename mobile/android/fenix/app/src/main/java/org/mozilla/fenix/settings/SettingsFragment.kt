@@ -573,18 +573,17 @@ class SettingsFragment : PreferenceFragmentCompat() {
             )?.isVisible = false
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_debug_settings),
-            )?.isVisible = showSecretDebugMenuThisSession
+            )?.isVisible = true
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_secret_debug_info),
-            )?.isVisible = showSecretDebugMenuThisSession
+            )?.isVisible = false
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_sync_debug),
             )?.isVisible = showSecretDebugMenuThisSession
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_firefox_labs),
             )?.isVisible = enableFirefoxLabs
-            preferenceStartProfiler?.isVisible = showSecretDebugMenuThisSession &&
-                (components.core.engine.profiler?.isProfilerActive() != null)
+            preferenceStartProfiler?.isVisible = false
         }
         setupCookieBannerPreference(settings)
         setupInstallAddonFromFilePreference(settings)

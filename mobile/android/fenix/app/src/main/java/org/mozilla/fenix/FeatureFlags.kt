@@ -33,7 +33,7 @@ object FeatureFlags {
      *
      * ⚠️ DO NOT MODIFY THIS FLAG IN PRODUCTION.
      */
-    val onboardingFeatureEnabled = !Config.channel.isDebug
+    val onboardingFeatureEnabled = false
 
     /**
      * Enables the "Discover more" stories screen.

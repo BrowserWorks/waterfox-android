@@ -53,6 +53,9 @@ class ReviewPromptMiddleware(
     private val nimbusEventStore: NimbusEventStore,
 ) : Middleware<AppState, AppAction> {
 
+    private fun isReviewPromptFeatureEnabled(): Boolean =
+        shouldUseNewTriggerCriteria()
+
     private object TriggerBuilder {
         fun mainCriteria(jexlHelper: NimbusMessagingHelperInterface): Sequence<Boolean> {
             return sequence {
@@ -109,6 +112,11 @@ class ReviewPromptMiddleware(
 
         if (store.state.reviewPrompt != ReviewPromptState.Unknown) {
             // We only want to try to show it once to avoid unnecessary disk reads.
+            return
+        }
+
+        if (!isReviewPromptFeatureEnabled()) {
+            store.dispatch(DoNotShowReviewPrompt)
             return
         }
 

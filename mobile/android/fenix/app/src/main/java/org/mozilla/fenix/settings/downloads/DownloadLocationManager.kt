@@ -9,7 +9,6 @@ import android.provider.DocumentsContract
 import androidx.core.net.toUri
 import java.io.FileNotFoundException
 import mozilla.components.support.base.log.logger.Logger
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.utils.Settings
 
 /** A utility class for managing the default download location. */
@@ -35,7 +34,7 @@ class DownloadLocationManager(
 
         val configuredLocation = settings.downloadsDefaultLocation
 
-        if (!FxNimbus.features.downloadsCustomLocation.value().enabled || configuredLocation.isEmpty()) {
+        if (configuredLocation.isEmpty()) {
             return defaultFallbackPath
         }
 

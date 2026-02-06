@@ -32,7 +32,7 @@ class StartSearchIntentProcessor(
 ) : HomeIntentProcessor {
 
     override fun process(intent: Intent, navController: NavController, out: Intent, settings: Settings): Boolean {
-        if (!userHasBeenOnboarded()) {
+        if (settings.onboardingFeatureEnabled && !userHasBeenOnboarded()) {
             return false
         }
 

@@ -838,7 +838,7 @@ abstract class BaseBrowserFragment :
                                         }
                                         .show()
                             } else {
-                                if (!FxNimbus.features.downloadsCustomLocation.value().enabled) {
+                                if (false) {
                                     showFirstPartyDownloadDialog(
                                         currentDownloadState = currentDownloadState,
                                         positiveAction = positiveAction,
@@ -2646,10 +2646,6 @@ abstract class BaseBrowserFragment :
     }
 
     private fun appLinksPromptDialog(): ((RedirectDialogData) -> AppLinksPromptFragment)? {
-        if (!FxNimbus.features.appLinks.value().showNewPrompt) {
-            return null
-        }
-
         return { redirectDialogData ->
             AppLinksPromptFragment.create(
                 appName = requireContext().appName,

@@ -31,9 +31,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import mozilla.components.compose.base.button.FilledButton
-import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.Config
-import org.mozilla.fenix.FeatureFlags
 import org.mozilla.fenix.R
 import org.mozilla.fenix.debugsettings.data.DefaultDebugSettingsRepository
 import org.mozilla.fenix.e2e.SystemInsetsPaddedFragment
@@ -193,6 +191,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_firefox_labs).apply {
+            isVisible = false
             isChecked = settings.enableFirefoxLabs
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -208,16 +207,19 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_merino_client).apply {
+            isVisible = false
             isChecked = settings.enableMerinoClient
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_merino_manifest).apply {
+            isVisible = false
             isChecked = settings.enableMerinoManifest
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_mozilla_ads_client).apply {
+            isVisible = false
             isChecked = settings.enableMozillaAdsClient
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -264,7 +266,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_fxsuggest).apply {
-            isVisible = FeatureFlags.FX_SUGGEST
+            isVisible = false
             isChecked = settings.enableFxSuggest
             onPreferenceChangeListener = object : Preference.OnPreferenceChangeListener {
                 override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
@@ -292,7 +294,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
 
         lifecycleScope.launch {
             requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_debug_drawer).apply {
-                isVisible = true
+                isVisible = false
                 isChecked = debugSettingsRepository.debugDrawerEnabled.first()
                 onPreferenceChangeListener =
                     Preference.OnPreferenceChangeListener { _, newValue ->
@@ -314,16 +316,16 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
 
         // for performance reasons, this is only available in Nightly or Debug builds
         requirePreference<EditTextPreference>(R.string.pref_key_custom_glean_server_url).apply {
-            isVisible = Config.channel.isNightlyOrDebug && BuildConfig.GLEAN_CUSTOM_URL.isNullOrEmpty()
+            isVisible = false
         }
 
         requirePreference<Preference>(R.string.pref_key_remote_settings_server).apply {
-            isVisible = true
+            isVisible = false
             summary = settings.getRemoteSettingsServerString()
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_use_remote_search_configuration).apply {
-            isVisible = true
+            isVisible = false
             isChecked = settings.useRemoteSearchConfiguration
             onPreferenceChangeListener = object : SharedPreferenceUpdater() {
                 override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
@@ -344,7 +346,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_shake_to_summarize).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = false
             isChecked = settings.shakeToSummarizeFeatureFlagEnabled
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -368,7 +370,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_persistent_debug_menu).apply {
-            isVisible = true
+            isVisible = false
             isChecked = settings.isDebugMenuPersistentlyRevealed
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -398,24 +400,25 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_debug_terms_trigger_time).apply {
-            isVisible = Config.channel.isNightlyOrDebug || Config.channel.isBeta
+            isVisible = false
             isChecked = settings.isDebugTermsOfServiceTriggerTimeEnabled
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_isolated_process).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = true
             isChecked = settings.isIsolatedProcessEnabled
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_app_zygote_process).apply {
-            isVisible = Config.channel.isNightlyOrDebug && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+            isVisible = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
             isChecked = settings.isAppZygoteEnabled
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_persistent_onboarding).apply {
+            isVisible = false
             isChecked = settings.enablePersistentOnboarding
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -439,6 +442,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_private_mode_and_stories_entry_point).apply {
+            isVisible = false
             isChecked = settings.privateModeAndStoriesEntryPointEnabled
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -455,7 +459,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFra
         }
 
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_google_lens_integration).apply {
-            isVisible = Config.channel.isNightlyOrDebug || Config.channel.isBeta
+            isVisible = false
             isChecked = settings.googleLensIntegrationEnabled
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }

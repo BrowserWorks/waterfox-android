@@ -53,10 +53,7 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.customization_preferences, rootKey)
 
-        setupPreferences(
-            isSummarizationEnabled = false,
-            isSummarizationGestureEnabled = false,
-        )
+        setupPreferences(isSummarizationGestureEnabled = false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -72,11 +69,8 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
                     isFeatureEnabled to isGestureEnabled
                 }
                     .distinctUntilChanged()
-                    .collect { (isFeatureEnabled, isGestureEnabled) ->
-                        setupPreferences(
-                            isSummarizationEnabled = isFeatureEnabled ?: false,
-                            isSummarizationGestureEnabled = isGestureEnabled,
-                        )
+                    .collect { (_, isGestureEnabled) ->
+                        setupPreferences(isSummarizationGestureEnabled = isGestureEnabled)
                     }
             }
         }
@@ -91,7 +85,6 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
     }
 
     private fun setupPreferences(
-        isSummarizationEnabled: Boolean,
         isSummarizationGestureEnabled: Boolean,
     ) {
         bindFollowDeviceTheme()
@@ -109,7 +102,6 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
         // preference is not shown
         setupGesturesCategory(
             isSwipeToolbarToSwitchTabsVisible = !tabletAndTabStripEnabled,
-            isSummarizationEnabled = isSummarizationEnabled,
             isSummarizationGestureEnabled = isSummarizationGestureEnabled,
         )
     }
@@ -310,7 +302,6 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
 
     private fun setupGesturesCategory(
         isSwipeToolbarToSwitchTabsVisible: Boolean,
-        isSummarizationEnabled: Boolean,
         isSummarizationGestureEnabled: Boolean,
     ) {
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_website_pull_to_refresh).apply {
@@ -332,8 +323,7 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_shake_gesture_enabled).apply {
-            isVisible = context.components.settings.shakeToSummarizeFeatureFlagEnabled &&
-                    isSummarizationEnabled
+            isVisible = false
             isChecked = isSummarizationGestureEnabled
             onPreferenceChangeListener = { _, newValue ->
                 val updatedValue = (newValue as? Boolean) ?: false

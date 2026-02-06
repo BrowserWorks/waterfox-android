@@ -190,15 +190,15 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
 
         findPreference<Preference>(
             getPreferenceKey(R.string.pref_key_translation),
-        )?.isVisible = components.core.store.state.translationEngine.isEngineSupported == true
+        )?.isVisible = components.core.store.state.translationEngine.isEngineSupported != false
 
         findPreference<Preference>(
             getPreferenceKey(R.string.pref_key_page_summaries),
-        )?.isVisible = components.settings.shakeToSummarizeFeatureFlagEnabled
+        )?.isVisible = false
 
         findPreference<Preference>(
             getPreferenceKey(R.string.pref_key_ai_controls),
-        )?.isVisible = requireComponents.settings.aiControlsFeatureFlagEnabled
+        )?.isVisible = false
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -407,14 +407,6 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                 SettingsFragmentDirections.actionSettingsFragmentToTranslationsSettingsFragment()
             }
 
-            resources.getString(R.string.pref_key_page_summaries) -> {
-                SettingsFragmentDirections.actionSettingsFragmentToPageSummariesSettingsFragment()
-            }
-
-            resources.getString(R.string.pref_key_ai_controls) -> {
-                SettingsFragmentDirections.actionSettingsFragmentToAiControlsFragment()
-            }
-
             // Privacy and security preferences
             resources.getString(R.string.pref_key_private_browsing) -> {
                 SettingsFragmentDirections.actionSettingsFragmentToPrivateBrowsingFragment()
@@ -615,12 +607,11 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
             )?.isVisible = showSecretDebugMenuThisSession
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_sync_debug),
-            )?.isVisible = showSecretDebugMenuThisSession
+            )?.isVisible = showSecretDebugMenuThisSession && !Config.channel.isRelease
             findPreference<Preference>(
                 getPreferenceKey(R.string.pref_key_firefox_labs),
             )?.isVisible = enableFirefoxLabs
-            preferenceStartProfiler?.isVisible = showSecretDebugMenuThisSession &&
-                (components.core.engine.profiler?.isProfilerActive() != null)
+            preferenceStartProfiler?.isVisible = false
         }
         setupCookieBannerPreference(settings)
         setupInstallAddonFromFilePreference(settings)
@@ -712,7 +703,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
         val preferenceEnabledGeckoLogs =
             findPreference<Preference>(getPreferenceKey(R.string.pref_key_enable_gecko_logs))
 
-        val show = settings.showSecretDebugMenuThisSession
+        val show = settings.showSecretDebugMenuThisSession && !Config.channel.isRelease
         preferenceEnabledGeckoLogs?.isVisible = show
 
         preferenceEnabledGeckoLogs?.onPreferenceChangeListener =

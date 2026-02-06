@@ -229,6 +229,7 @@
         <androidx.preference.Preference
             android:key="@string/pref_key_remote_improvements"
             android:title="@string/preferences_remote_improvements"
+            app:isPreferenceVisible="false"
             app:iconSpaceReserved="false" />
 
         <androidx.preference.SwitchPreferenceCompat
@@ -240,6 +241,7 @@
         <androidx.preference.SwitchPreferenceCompat
             android:defaultValue="false"
             android:key="@string/pref_key_enable_gecko_logs"
+            app:isPreferenceVisible="false"
             app:iconSpaceReserved="false"
             android:title="@string/preferences_enable_gecko_logs" />
     </PreferenceCategory>

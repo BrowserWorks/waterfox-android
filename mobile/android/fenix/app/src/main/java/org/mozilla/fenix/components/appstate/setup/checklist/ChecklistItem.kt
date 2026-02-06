@@ -8,8 +8,9 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import mozilla.components.ui.icons.R as iconsR
 import org.mozilla.fenix.R
-import org.mozilla.fenix.nimbus.SetupChecklistType
 import org.mozilla.fenix.utils.Settings
+
+enum class SetupChecklistType { COLLECTION_1, COLLECTION_2 }
 
 /**
  * A sealed class representing an item in the setup checklist.

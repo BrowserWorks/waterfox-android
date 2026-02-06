@@ -260,7 +260,7 @@ class SearchEngineFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragm
     /**
      * Initialises the Google Lens search preference.
      *
-     * The preference is only visible when the Nimbus-backed [Settings.googleLensIntegrationEnabled] flag is on. Its
+     * The preference is only visible when the [Settings.googleLensIntegrationEnabled] flag is on. Its
      * checked state reflects the local-only [Settings.googleLensIntegrationUserEnabled] override and changes are
      * persisted via [SharedPreferenceUpdater]. Changing it also redraws the search widgets, which show a Lens button
      * only while the setting is on.

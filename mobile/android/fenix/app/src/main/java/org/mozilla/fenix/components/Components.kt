@@ -58,6 +58,7 @@ import org.mozilla.fenix.browser.relay.RelayFeatureIntegration
 import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.components.appstate.AppState
 import org.mozilla.fenix.components.appstate.setup.checklist.SetupChecklistState
+import org.mozilla.fenix.components.appstate.setup.checklist.SetupChecklistType
 import org.mozilla.fenix.components.appstate.setup.checklist.getSetupChecklistCollection
 import org.mozilla.fenix.components.bookmarks.lastSavedFolderCache
 import org.mozilla.fenix.components.ipprotection.IPProtection
@@ -392,7 +393,7 @@ class Components(
 
     private fun setupChecklistState() =
         if (settings.showSetupChecklist) {
-            val type = FxNimbus.features.setupChecklist.value().setupChecklistType
+            val type = SetupChecklistType.COLLECTION_1
             SetupChecklistState(
                 checklistItems =
                     getSetupChecklistCollection(

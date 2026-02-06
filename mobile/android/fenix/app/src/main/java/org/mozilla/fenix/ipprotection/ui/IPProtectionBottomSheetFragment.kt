@@ -30,7 +30,6 @@ import org.mozilla.fenix.ipprotection.store.IPProtectionPromptState
 import org.mozilla.fenix.ipprotection.store.IPProtectionPromptStore
 import org.mozilla.fenix.ipprotection.store.IPProtectionPromptTelemetryMiddleware
 import org.mozilla.fenix.ipprotection.store.Surface
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.theme.FirefoxTheme
 
@@ -58,6 +57,12 @@ class IPProtectionBottomSheetFragment : BottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        if (!requireComponents.settings.isIPProtectionAvailable) {
+            showsDialog = false
+            dismissAllowingStateLoss()
+            return
+        }
+
         // The user might already have an account, that we should check - they either need to authorize, or they are
         // already entitled to use the service, and we will save them an authorization flow.
         // FIXME(IPP): the user might navigate into try now faster than the account check completes, in which case,
@@ -84,12 +89,14 @@ class IPProtectionBottomSheetFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View {
+    ): View? {
+        if (!requireComponents.settings.isIPProtectionAvailable) return null
+
         isAlreadyShowing = savedInstanceState?.getBoolean(IS_ALREADY_SHOW_KEY) ?: false
         ipProtectionPromptStore.dispatch(IPProtectionPromptAction.OnPromptCreated)
-        val maxGib = FxNimbus.features.ipProtection.value().dataLimitGigabyte
+        val maxGib = 50
         val formattedPromoDate =
-            FxNimbus.features.ipProtection.value().promoDeadline.let { promoDate ->
+            "2026-08-31".let { promoDate ->
                 IsoPromoDeadline(promoDate)
                     .formatPromoDateOrCatch { requireComponents.analytics.crashReporter.submitCaughtException(it) }
                     ?.takeIf { LocalDate.now() <= LocalDate.parse(promoDate) }
@@ -145,6 +152,8 @@ class IPProtectionBottomSheetFragment : BottomSheetDialogFragment() {
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
+        if (!requireComponents.settings.isIPProtectionAvailable) return
+
         ipProtectionPromptStore.dispatch(IPProtectionPromptAction.OnPromptDismissed)
     }
 
@@ -159,6 +168,8 @@ class IPProtectionBottomSheetFragment : BottomSheetDialogFragment() {
          * @param surface The [Surface] the prompt is shown on.
          */
         fun showPrompt(fragment: Fragment, surface: Surface) {
+            if (!fragment.requireComponents.settings.isIPProtectionAvailable) return
+
             if (fragment.parentFragmentManager.findFragmentByTag(TAG) != null) {
                 return
             }

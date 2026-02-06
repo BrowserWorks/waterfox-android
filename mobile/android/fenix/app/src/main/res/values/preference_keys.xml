@@ -615,7 +615,7 @@
 
     <!-- Google Lens Integration -->
     <string name="pref_key_google_lens_integration" translatable="false">pref_key_google_lens_integration</string>
-    <string name="pref_key_google_lens_integration_user_enabled" translatable="false">pref_key_google_lens_integration_user_enabled</string>
+    <string name="pref_key_google_lens_integration_user_enabled" translatable="false">pref_key_waterfox_google_lens_enabled</string>
     <string name="pref_key_has_accepted_google_lens_first_run" translatable="false">pref_key_has_accepted_google_lens_first_run</string>
 
     <!-- Voice Search in Display Toolbar -->

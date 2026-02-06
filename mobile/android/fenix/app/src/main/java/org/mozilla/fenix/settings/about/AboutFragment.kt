@@ -119,10 +119,8 @@ class AboutFragment(
             onDebugMenuActivated = { onDebugMenuActivated(view.context, view.settings()) },
         )
 
-        if (!settings.showSecretDebugMenuThisSession) {
-            view.setOnClickListener {
-                secretDebugMenuTrigger.onClick()
-            }
+        view.setOnClickListener {
+            onDebugMenuActivated(view.context, view.settings())
         }
 
         lifecycle.addObserver(secretDebugMenuTrigger)

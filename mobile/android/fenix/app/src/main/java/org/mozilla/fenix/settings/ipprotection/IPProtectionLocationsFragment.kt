@@ -26,6 +26,7 @@ import mozilla.components.feature.ipprotection.store.state.isActivationInFlight
 import mozilla.components.lib.state.ext.observeAsComposableState
 import mozilla.components.support.base.feature.ViewBoundFeatureWrapper
 import org.mozilla.fenix.GleanMetrics.Vpn
+import org.mozilla.fenix.GlobalDirections
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.components
 import org.mozilla.fenix.e2e.SystemInsetsPaddedFragment
@@ -47,6 +48,8 @@ class IPProtectionLocationsFragment : Fragment(), SystemInsetsPaddedFragment {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ) = content {
+        if (!components.settings.isIPProtectionAvailable) return@content
+
         val selectedLocation =
             components.ipProtection.store.observeAsComposableState { it.locationState.selectedLocation }.value
         val locations = components.ipProtection.store.observeAsComposableState { it.locationState.locations }.value
@@ -66,6 +69,8 @@ class IPProtectionLocationsFragment : Fragment(), SystemInsetsPaddedFragment {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (!requireComponents.settings.isIPProtectionAvailable) return
 
         ipProtectionSnackbarBinding.set(
             feature =
@@ -96,6 +101,17 @@ class IPProtectionLocationsFragment : Fragment(), SystemInsetsPaddedFragment {
             owner = this,
             view = view,
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if (!requireComponents.settings.isIPProtectionAvailable) {
+            val navController = findNavController()
+            if (!navController.popBackStack()) {
+                navController.navigate(GlobalDirections.Settings.navDirections)
+            }
+        }
     }
 
     /**

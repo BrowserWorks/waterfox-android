@@ -34,6 +34,7 @@ import mozilla.components.lib.state.ext.observeAsComposableState
 import mozilla.components.support.base.feature.ViewBoundFeatureWrapper
 import mozilla.telemetry.glean.private.NoExtras
 import org.mozilla.fenix.GleanMetrics.Vpn
+import org.mozilla.fenix.GlobalDirections
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.components
 import org.mozilla.fenix.e2e.SystemInsetsPaddedFragment
@@ -44,7 +45,6 @@ import org.mozilla.fenix.home.HomeFragmentDirections
 import org.mozilla.fenix.ipprotection.helpers.IsoPromoDeadline
 import org.mozilla.fenix.ipprotection.helpers.formatPromoDateOrCatch
 import org.mozilla.fenix.ipprotection.ui.IPProtectionSnackbarBinding
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.snackbar.FenixSnackbarDelegate
 import org.mozilla.fenix.theme.FirefoxTheme
 
@@ -63,7 +63,7 @@ class IPProtectionFragment : Fragment(), SystemInsetsPaddedFragment {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (args.startAuthFlow) {
+        if (requireComponents.settings.isIPProtectionAvailable && args.startAuthFlow) {
             requireComponents.ipProtection.store.dispatch(IPProtectionAction.Toggle)
         }
     }
@@ -74,6 +74,8 @@ class IPProtectionFragment : Fragment(), SystemInsetsPaddedFragment {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ) = content {
+        if (!components.settings.isIPProtectionAvailable) return@content
+
         val state = components.ipProtection.store.observeAsComposableState { it }.value
 
         // When navigating to the fragment from the vpn onboarding screen, it immediately starts the auth flow.
@@ -81,7 +83,7 @@ class IPProtectionFragment : Fragment(), SystemInsetsPaddedFragment {
         if (shouldHideUi(state)) return@content
 
         val promoDate =
-            FxNimbus.features.ipProtection.value().promoDeadline.let { promoDate ->
+            "2026-08-31".let { promoDate ->
                 IsoPromoDeadline(promoDate)
                     .formatPromoDateOrCatch { requireComponents.analytics.crashReporter.submitCaughtException(it) }
                     ?.takeIf { LocalDate.now() <= LocalDate.parse(promoDate) }
@@ -142,6 +144,8 @@ class IPProtectionFragment : Fragment(), SystemInsetsPaddedFragment {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (!requireComponents.settings.isIPProtectionAvailable) return
 
         fxaAccountAuthFlow.set(
             feature =
@@ -237,6 +241,15 @@ class IPProtectionFragment : Fragment(), SystemInsetsPaddedFragment {
 
     override fun onResume() {
         super.onResume()
+
+        if (!requireComponents.settings.isIPProtectionAvailable) {
+            val navController = findNavController()
+            if (!navController.popBackStack()) {
+                navController.navigate(GlobalDirections.Settings.navDirections)
+            }
+            return
+        }
+
         hideToolbar()
     }
 }

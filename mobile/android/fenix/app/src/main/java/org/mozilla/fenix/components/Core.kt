@@ -6,7 +6,6 @@ package org.mozilla.fenix.components
 
 import android.content.Context
 import android.content.res.Configuration
-import androidx.annotation.VisibleForTesting
 import androidx.core.content.ContextCompat
 import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.CoroutineScope
@@ -63,7 +62,6 @@ import mozilla.components.feature.recentlyclosed.RecentlyClosedTabsStorage
 import mozilla.components.feature.search.SearchApplicationName
 import mozilla.components.feature.search.SearchDeviceType
 import mozilla.components.feature.search.SearchUpdateChannel
-import mozilla.components.feature.search.middleware.SearchExtraParams
 import mozilla.components.feature.search.middleware.SearchMiddleware
 import mozilla.components.feature.search.region.RegionMiddleware
 import mozilla.components.feature.search.storage.SearchEngineSelectorConfig
@@ -128,9 +126,6 @@ import org.mozilla.fenix.historymetadata.HistoryMetadataMiddleware
 import org.mozilla.fenix.historymetadata.HistoryMetadataService
 import org.mozilla.fenix.longfox.LongFoxFeature
 import org.mozilla.fenix.media.MediaSessionService
-import org.mozilla.fenix.nimbus.BaselineFpp
-import org.mozilla.fenix.nimbus.FingerprintingProtection
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.perf.StrictModeManager
 import org.mozilla.fenix.perf.lazyMonitored
 import org.mozilla.fenix.settings.advanced.getSelectedLocale
@@ -187,24 +182,24 @@ class Core(
                 dohDefaultProviderUrl = context.components.settings.dohDefaultProviderUrl,
                 dohExceptionsList = context.components.settings.dohExceptionsList.toList(),
                 globalPrivacyControlEnabled = context.components.settings.shouldEnableGlobalPrivacyControl,
-                fdlibmMathEnabled = FxNimbus.features.fingerprintingProtection.value().fdlibmMath,
+                fdlibmMathEnabled = false,
                 emailTrackerBlockingPrivateBrowsing = true,
                 userCharacteristicPingCurrentVersion = 0,
                 getDesktopMode = {
                     store.state.desktopMode
                 },
                 webContentIsolationStrategy =
-                    WebContentIsolationStrategy.fromValue(FxNimbus.features.fission.value().isolationStrategy),
+                    WebContentIsolationStrategy.fromValue(if (Config.channel.isNightlyOrDebug) 2 else 0),
                 fetchPriorityEnabled = true,
-                parallelMarkingEnabled = FxNimbus.features.javascript.value().parallelMarkingEnabled,
-                certificateTransparencyMode = FxNimbus.features.pki.value().certificateTransparencyMode,
-                postQuantumKeyExchangeEnabled = FxNimbus.features.pqcrypto.value().postQuantumKeyExchangeEnabled,
-                dohAutoselectEnabled = FxNimbus.features.doh.value().autoselectEnabled,
-                bannedPorts = FxNimbus.features.networkingBannedPorts.value().bannedPortList,
+                parallelMarkingEnabled = false,
+                certificateTransparencyMode = null,
+                postQuantumKeyExchangeEnabled = null,
+                dohAutoselectEnabled = false,
+                bannedPorts = "",
                 lnaBlockingEnabled = context.components.settings.isLnaBlockingEnabled,
                 lnaFeatureEnabled = context.components.settings.isLnaFeatureEnabled,
                 lnaTrackerBlockingEnabled = context.components.settings.isLnaTrackerBlockingEnabled,
-                crliteChannel = FxNimbus.features.pki.value().crliteChannel,
+                crliteChannel = null,
                 downloadDelegate =
                     EngineDownloadDelegate(
                         context = context,
@@ -216,6 +211,7 @@ class Core(
                 useContentBlockingDatabase = true,
             )
 
+        /*
         applyFingerprintingProtectionFeature(
             defaultSettings,
             FxNimbus.features.fingerprintingProtection.value(),
@@ -252,6 +248,7 @@ class Core(
                 defaultSettings.safeBrowsingRealTimeSimulationNegativeCacheTTLSec = simulationNegativeCacheTtlSec
             }
         }
+        */
 
         GeckoEngine(
 
@@ -323,20 +320,6 @@ class Core(
 
     /** The [BrowserStore] holds the global [BrowserState]. */
     val store by lazyMonitored {
-        val searchExtraParamsNimbus = FxNimbus.features.searchExtraParams.value()
-        val searchExtraParams =
-            searchExtraParamsNimbus
-                .takeIf { it.enabled }
-                ?.run {
-                    SearchExtraParams(
-                        searchEngine,
-                        featureEnabler.keys.firstOrNull(),
-                        featureEnabler.values.firstOrNull(),
-                        channelId.keys.first(),
-                        channelId.values.first(),
-                    )
-                }
-
         val middlewareList =
             listOf(
                 ProfileMarkerMiddleware(markerName = "BrowserStore", profiler = engine.profiler),
@@ -369,7 +352,7 @@ class Core(
                     context = context,
                     additionalBundledSearchEngineIds = ADDITIONAL_BUNDLED_SEARCH_ENGINE_IDS,
                     migration = SearchMigration(context),
-                    searchExtraParams = searchExtraParams,
+                    searchExtraParams = null,
                     searchEngineSelectorConfig = getSearchEngineSelectorConfig(),
                 ),
                 RecordingDevicesMiddleware(context, context.components.notificationsDelegate),
@@ -488,15 +471,13 @@ class Core(
 
     /** A component for managing `sent from firefox` feature. */
     val sentFromFirefoxManager by lazyMonitored {
-        with(FxNimbus.features.sentFromFirefox.value()) {
-            DefaultSentFromFirefoxManager(
-                snackbarEnabled = showSnackbar,
-                templateMessage = templateMessage,
-                appName = context.getString(R.string.firefox),
-                downloadLink = downloadLink,
-                storage = DefaultSentFromStorage(context.components.settings),
-            )
-        }
+        DefaultSentFromFirefoxManager(
+            snackbarEnabled = false,
+            templateMessage = "",
+            appName = context.getString(R.string.firefox),
+            downloadLink = "",
+            storage = DefaultSentFromStorage(context.components.settings),
+        )
     }
 
     // Lazy wrappers around storage components are used to pass references to these components without
@@ -539,7 +520,7 @@ class Core(
 
     val domainsAutocompleteProvider: BaseDomainAutocompleteProvider?
         get() =
-            if (FxNimbus.features.suggestShippedDomains.value().enabled) {
+            if (false) {
                 lazyDomainsAutocompleteProvider.value
             } else {
                 null
@@ -732,6 +713,7 @@ class Core(
     }
 }
 
+/*
 /**
  * Applies the Nimbus `fingerprinting-protection` feature to [settings].
  *
@@ -769,3 +751,4 @@ internal fun applyBaselineFingerprintingProtectionFeature(
     feature.enabled?.let { settings.baselineFingerprintingProtection = it }
     feature.overrides?.let { settings.baselineFingerprintingProtectionOverrides = it }
 }
+*/

@@ -9,7 +9,6 @@ import androidx.annotation.VisibleForTesting
 import mozilla.components.support.utils.Browsers
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.isDefaultBrowserPromptSupported
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.onboarding.view.OnboardingPageUiData
 
 /** An interface to calculate and persist the state of the default browser prompt. */
@@ -54,8 +53,7 @@ class DefaultBrowserPromptManager(
 
     @VisibleForTesting
     internal fun canShowPrompt(): Boolean {
-        return FxNimbus.features.defaultBrowserPrompt.value().enabled &&
-            !storage.isDefaultBrowser &&
+        return !storage.isDefaultBrowser &&
             storage.isDefaultBrowserPromptSupported &&
             !storage.promptToSetAsDefaultBrowserDisplayedInOnboarding
     }

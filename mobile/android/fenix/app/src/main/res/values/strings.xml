@@ -728,6 +728,8 @@
     <string name="preferences_set_as_default_browser">Set as default browser</string>
     <!-- Preference category for advanced settings -->
     <string name="preferences_category_advanced">Advanced</string>
+    <!-- Preference and screen title for additional browser settings. -->
+    <string name="preferences_debug_settings">Advanced Settings</string>
     <!-- Preference category for privacy and security settings -->
     <string name="preferences_category_privacy_security">Privacy and security</string>
     <!-- Preference for advanced site settings -->
@@ -4102,7 +4104,7 @@
     <string name="collections_migration_homepage_card_link">View my tab groups</string>
 
     <!-- Google Lens prototype related strings -->
-    <string name="preferences_debug_settings_google_lens_integration">Enable Google Lens Integration</string>
+    <string name="preferences_debug_settings_google_lens_integration" tools:ignore="UnusedResources">Enable Google Lens Integration</string>
     <!-- Lens image search button content description -->
     <string name="lens_search_content_description">Search with image</string>
     <!-- Content description for the gallery picker button in the Lens camera screen -->

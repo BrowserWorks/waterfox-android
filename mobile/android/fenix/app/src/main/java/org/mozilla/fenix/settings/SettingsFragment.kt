@@ -204,11 +204,9 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
         findPreference<Preference>(getPreferenceKey(R.string.pref_key_translation))?.isVisible =
             components.core.store.state.translationEngine.isEngineSupported != false
 
-        findPreference<Preference>(getPreferenceKey(R.string.pref_key_page_summaries))?.isVisible =
-            components.settings.shakeToSummarizeFeatureFlagEnabled
+        findPreference<Preference>(getPreferenceKey(R.string.pref_key_page_summaries))?.isVisible = false
 
-        findPreference<Preference>(getPreferenceKey(R.string.pref_key_ai_controls))?.isVisible =
-            requireComponents.settings.aiControlsFeatureFlagEnabled
+        findPreference<Preference>(getPreferenceKey(R.string.pref_key_ai_controls))?.isVisible = false
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -419,14 +417,6 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                     SettingsFragmentDirections.actionSettingsFragmentToTranslationsSettingsFragment()
                 }
 
-                resources.getString(R.string.pref_key_page_summaries) -> {
-                    SettingsFragmentDirections.actionSettingsFragmentToPageSummariesSettingsFragment()
-                }
-
-                resources.getString(R.string.pref_key_ai_controls) -> {
-                    SettingsFragmentDirections.actionSettingsFragmentToAiControlsFragment()
-                }
-
                 // Privacy and security preferences
                 resources.getString(R.string.pref_key_private_browsing) -> {
                     SettingsFragmentDirections.actionSettingsFragmentToPrivateBrowsingFragment()
@@ -548,11 +538,6 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                     SettingsFragmentDirections.actionSettingsFragmentToOpenDownloadsSettingsFragment()
                 }
 
-                resources.getString(R.string.pref_key_firefox_labs) -> {
-                    SettingsMetrics.firefoxLabs.record()
-                    SettingsFragmentDirections.actionSettingsFragmentToFirefoxLabsFragment()
-                }
-
                 resources.getString(R.string.pref_key_sync_debug) -> {
                     SettingsFragmentDirections.actionSettingsFragmentToSyncDebugFragment()
                 }
@@ -627,12 +612,9 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
 
         with(settings) {
             findPreference<Preference>(getPreferenceKey(R.string.pref_key_nimbus_experiments))?.isVisible = false
-            findPreference<Preference>(getPreferenceKey(R.string.pref_key_debug_settings))?.isVisible =
-                showSecretDebugMenuThisSession
             findPreference<Preference>(getPreferenceKey(R.string.pref_key_sync_debug))?.isVisible =
-                showSecretDebugMenuThisSession
-            preferenceStartProfiler?.isVisible =
-                showSecretDebugMenuThisSession && (components.core.engine.profiler?.isProfilerActive() != null)
+                showSecretDebugMenuThisSession && !Config.channel.isRelease
+            preferenceStartProfiler?.isVisible = false
         }
         setupInstallAddonFromFilePreference(settings)
         setLinkSharingPreference()
@@ -724,7 +706,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
         val preferenceEnabledGeckoLogs =
             findPreference<Preference>(getPreferenceKey(R.string.pref_key_enable_gecko_logs))
 
-        val show = settings.showSecretDebugMenuThisSession
+        val show = settings.showSecretDebugMenuThisSession && !Config.channel.isRelease
         preferenceEnabledGeckoLogs?.isVisible = show
 
         preferenceEnabledGeckoLogs?.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->

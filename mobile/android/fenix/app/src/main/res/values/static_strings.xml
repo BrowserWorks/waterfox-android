@@ -19,28 +19,16 @@
     <!-- Application Services abbreviation used in AboutFragment -->
     <string name="app_services_abbreviation" translatable="false">AS</string>
 
-    <!-- App preference label for keeping the debug menu (secret settings, secret debug info, nimbus experiments, etc.) permanently revealed -->
-    <string name="preferences_persistent_debug_menu" translatable="false">Keep Debug Menu revealed</string>
-
-    <!-- Secret Settings Strings -->
-    <!-- Label for the secret settings preference -->
-    <string name="preferences_debug_settings">Secret Settings</string>
-    <!-- App preference label for showing the debug info -->
-    <string name="preferences_show_debug_info" translatable="false">Show debug info</string>
+    <!-- Advanced Settings Strings -->
 
     <!-- Labels for secret settings preference categories -->
     <string name="secret_settings_category_homepage_title" translatable="false">Homepage</string>
     <string name="secret_settings_category_toolbar_title" translatable="false">Toolbar</string>
-    <string name="secret_settings_category_search_title" translatable="false">Search</string>
+
     <string name="secret_settings_category_tabs_title" translatable="false">Tabs</string>
     <string name="secret_settings_category_network_title" translatable="false">Network</string>
     <string name="secret_settings_category_performance_title" translatable="false">Performance</string>
-    <string name="secret_settings_category_terms_of_service_title" translatable="false">Terms of Service</string>
-    <string name="secret_settings_category_features_title" translatable="false">Features</string>
-    <string name="secret_settings_category_debug_title" translatable="false">Debug</string>
 
-    <!-- Title for the secret setting that enables the "Check Archived Version" button on error pages. -->
-    <string name="preferences_debug_settings_wayback_machine" translatable="false">Show Archived Version Button On Error Pages</string>
 
     <!-- Label for remote settings server preference -->
     <string name="preferences_debug_settings_remote_settings_server_label" translatable="false">Remote Settings Server (requires restart)</string>
@@ -56,10 +44,7 @@
     <string name="preferences_remote_settings_synced" translatable="false">Remote settings synced successfully</string>
     <!-- Toast message shown when remote settings sync fails. %s is replaced with the error message -->
     <string name="preferences_remote_settings_sync_failed" translatable="false">Failed to sync remote settings: %s</string>
-    <!-- Label for allowing third party root certificates from the Android OS CA store preference -->
-    <string name="preferences_debug_settings_allow_third_party_root_certs">Use third party CA certificates</string>
-    <!-- Label for a longer description of allowing third party root certificates from the Android OS CA store preference -->
-    <string name="preferences_debug_settings_allow_third_party_root_certs_summary">Allows the use of third party certificates from the Android CA store</string>
+
     <!-- Label for the Nimbus experiments preference -->
     <string name="preferences_nimbus_experiments">Nimbus Experiments</string>
     <!-- Label for the title section of active experiments the user is enrolled in. -->
@@ -68,10 +53,7 @@
     <string name="preferences_nimbus_experiments_no_items">None</string>
     <!-- Label for the title section of inactive experiments the user is not enrolled in. -->
     <string name="preferences_nimbus_experiments_inactive">Inactive Experiments</string>
-    <!-- Label for using the nimbus collections preview -->
-    <string name="preferences_nimbus_use_preview_collection">Use Nimbus Preview Collection (requires restart)</string>
-    <!-- Label for custom Glean server URL -->
-    <string name="preferences_debug_settings_custom_glean_server_url" translatable="false">Custom Glean server URL (requires restart)</string>
+
     <!-- Title of preference for sync debugging (only shown in the when the secret debug menu is enabled) -->
     <string name="preferences_sync_debug">Sync Debug</string>
     <!-- Preference to override the Push server -->
@@ -113,12 +95,10 @@
     <string name="preferences_debug_settings_show_more_shortcuts" translatable="false">Show More Shortcuts</string>
     <!-- Label for enabling Homepage Weather Widget -->
     <string name="preferences_debug_settings_homepage_weather_widget" translatable="false">Enable Homepage Weather Widget</string>
-    <!-- Label for enabling Mozilla Ads Client for Sponsored Stories -->
-    <string name="preferences_debug_settings_ads_client_for_stories" translatable="false">Enable Ads Client for Stories</string>
+
     <!-- Label for enabling the custom tab extension -->
     <string name="preferences_debug_settings_custom_tab_extensions" translatable="false">Enable Custom Tab Extension List</string>
-    <!-- Label for enabling Firefox Suggest -->
-    <string name="preferences_debug_settings_fxsuggest" translatable="false">Enable Waterfox Suggest</string>
+
     <!-- Label for the option of using a minimal bottom tolbar while entering text in a website -->
     <string name="preferences_debug_settings_use_minimal_bottom_toolbar_while_entering_text" translatable="false">Use a minimal bottom toolbar while entering text in a website</string>
     <!-- Label for the option of using new scroll data for animating the dynamic toolbar -->
@@ -127,30 +107,10 @@
     <string name="preferences_debug_settings_show_toolbar_in_focus_mode" translatable="false">Enable focus mode</string>
     <!-- Label for the option to enable browser menu customization -->
     <string name="preferences_debug_settings_enable_menu_customization" translatable="false">Enable menu customization</string>
-    <!-- Label for toggling Remote Crash Pull -->
-    <string name="preferences_crash_pull_never_show_again" translatable="false">Never show Crash Pull</string>
-    <!-- Label for enabling the Debug Drawer -->
-    <string name="preferences_debug_settings_debug_drawer" translatable="false">Enable Debug Drawer</string>
-    <!-- Label for enabling the Crash Dialog Preview -->
-    <string name="preferences_debug_crash_dialog_preview" translatable="false">Enable New Crash Flow</string>
-    <!-- Label for enabling the microsurvey feature -->
-    <string name="preferences_debug_settings_microsurvey_feature" translatable="false">Enable Microsurvey Feature</string>
-    <!-- Label for enabling shake to summarize -->
-    <string name="preferences_key_enable_shake_to_summarize" translatable="false">Enable Shake to Summarize Feature Flag</string>
-    <!-- Label for enabling listen to page -->
-    <string name="preferences_key_enable_listen_to_page" translatable="false">Enable Listen to Page Feature Flag</string>
-    <!-- Label for enabling the weekly privacy notification -->
-    <string name="preferences_debug_settings_privacy_report_notification" translatable="false">Enable Weekly Privacy Notification Feature</string>
-    <!-- Label for forcing the weekly privacy report notification to show, with a fixed count of blocked trackers -->
-    <string name="preferences_debug_settings_force_weekly_privacy_report_notification" translatable="false">Force weekly privacy report notification trackers over threshold</string>
-    <!-- Label for enabling remote search configuration -->
-    <string name="preferences_debug_settings_remote_search_configuration" translatable="false">Enable Remote Search Configuration (requires restart)</string>
-    <!-- Label for enabling Address Sync -->
-    <string name="preferences_debug_settings_address_sync" translatable="false">Enable Address Sync for supported regions</string>
+
     <!-- Label for enabling the DNS over HTTPS settings -->
     <string name="preferences_debug_settings_enable_doh_settings" translatable="false">Enable DNS over HTTPS settings</string>
-    <!-- Label for enabling the persistent onboarding -->
-    <string name="preferences_debug_settings_enable_persistent_onboarding" translatable="false">Show onboarding on each app cold open</string>
+
     <!-- Label for enabling Homepage Customization -->
     <string name="preferences_debug_settings_homepage_customization" translatable="false">Enable Homepage Customization</string>
 
@@ -162,17 +122,10 @@
     <string name="preferences_debug_settings_enable_search_optimization_flight" translatable="false">Show Search Optimization Flight cards</string>
     <string name="preferences_debug_settings_search_optimization_card_summary" translatable="false">This needs the Search Optimization Feature enabled</string>
 
-    <!-- Label for enabling Private Mode and Stories Entry Point -->
-    <string name="preferences_debug_settings_private_mode_and_stories_entry_point" translatable="false">Enable Private Mode and Stories Entry Point</string>
-
-    <!-- longfox secret setting -->
-    <string name="preferences_debug_settings_enable_longfox" translatable="false">Enable Longfox</string>
 
     <!-- Search suggestions title for Firefox Suggest Online -->
     <string name="firefox_suggest_online_header" translatable="false" tools:ignore="BrandUsage">Waterfox Suggest Online</string>
 
-    <!-- Label for toggling the native android share sheet feature -->
-    <string name="preferences_debug_settings_native_android_share_sheet" translatable="false">Enable Native Android Share Sheet</string>
 
     <!--  Voice Search in Display Mode toolbar strings  -->
     <!-- Label for toggling voice search visibility in the display-mode toolbar -->
@@ -193,16 +146,6 @@
     <!-- Label for toggling the scroll-aware thumbnail capture that feeds the tab reload cover -->
     <string name="preferences_debug_settings_tab_reload_cover_scroll_aware_enabled" translatable="false">Enable scroll-aware capture (requires tab reload cover)</string>
 
-    <string name="preferences_terms_of_use_accepted" translatable="false">Terms of Use accepted</string>
-    <string name="preferences_terms_of_use_debug_timer" translatable="false">30s ToU timer enabled</string>
-    <string name="preferences_terms_of_use_latest_update_date" translatable="false">Set latest ToU update date to now</string>
-
-    <!-- Label for enabling IPProtection through secret settings -->
-    <string name="preferences_debug_settings_ip_protection" translatable="false">Enable IP Protection UI</string>
-    <string name="preferences_debug_settings_ip_protection_locations" translatable="false">Enable IP Protection Locations selection</string>
-
-    <!-- Label for forcing GPI (Google Play Integrity) authentication for IPProtection through secret settings -->
-    <string name="preferences_debug_settings_ip_protection_use_gpi" translatable="false">Use GPI authentication for IP Protection (requires restart)</string>
 
     <!-- Label for enabling LNA blocking -->
     <string name="preferences_debug_settings_enable_lna_blocking" translatable="false">Enable LNA request blocking</string>
@@ -213,18 +156,10 @@
     <string name="preferences_debug_settings_isolated_process" translatable="false">Enable Isolated Content Process (requires restart)</string>
     <string name="preferences_debug_settings_app_zygote" translatable="false">Enable Isolated Processes with Zygote Preloading (requires restart)</string>
 
-    <!-- Label for enabling uninstall survey in secret settings. -->
-    <string name="preferences_debug_settings_uninstall_survey">Enable Uninstall Survey</string>
-
-    <!-- Label for showing the OLED theme option in secret settings. -->
-    <string name="preferences_debug_settings_oled_theme" translatable="false">Show OLED Theme option</string>
-
-    <!-- Label for using the new PDF viewer tools in secret settings. -->
-    <string name="preferences_debug_settings_use_new_pdf_tools" translatable="false">Use New PDF Tools</string>
 
     <!-- Label for the defaults section and reset action in secret settings. -->
     <string name="preferences_debug_settings_reset_defaults" translatable="false">Reset switches to defaults</string>
-    <string name="preferences_debug_settings_reset_defaults_message" translatable="false">This will reset all toggle switches to their defaults. Custom Glean Server and Remote Settings Server are not affected.</string>
+    <string name="preferences_debug_settings_reset_defaults_message" translatable="false">This will reset all toggle switches on this screen to their defaults.</string>
     <string name="preferences_debug_settings_reset_defaults_confirm" translatable="false">Reset</string>
     <string name="preferences_debug_settings_reset_defaults_cancel" translatable="false">Cancel</string>
 
@@ -415,8 +350,7 @@
 
     <!-- Import Bookmarks pref title -->
     <string name="preferences_import_bookmarks">Import Bookmarks</string>
-    <!-- Label for the secret settings preference to enable Import Bookmarks -->
-    <string name="preferences_debug_settings_import_bookmarks">Enable Import Bookmarks</string>
+
 
     <!-- Debug info -->
     <!-- The title of the Debug info bottom sheet. -->
@@ -430,8 +364,6 @@
     <!-- Status badge label shown when a debug info item is disabled. -->
     <string name="debug_info_disabled" translatable="false">Disabled</string>
 
-    <!-- Label for the secret settings preference to enable Import Passwords -->
-    <string name="preferences_debug_settings_import_passwords">Enable Import Passwords</string>
 
     <!-- Summary for secret settings that are still being developed and not recommended to be enabled by nightly users. -->
     <string name="preferences_debug_settings_development_phase_summary" translatable="false">In development phase</string>

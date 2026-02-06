@@ -249,6 +249,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_enable_firefox_labs).apply {
+            isVisible = false
             isChecked = context.settings().enableFirefoxLabs
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -264,6 +265,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_enable_mozilla_ads_client).apply {
+            isVisible = false
             isChecked = context.settings().enableMozillaAdsClient
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -322,7 +324,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_enable_fxsuggest).apply {
-            isVisible = FeatureFlags.FX_SUGGEST
+            isVisible = false
             isChecked = context.settings().enableFxSuggest
             onPreferenceChangeListener = object : Preference.OnPreferenceChangeListener {
                 override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
@@ -350,7 +352,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
 
         lifecycleScope.launch {
             requirePreference<SwitchPreference>(R.string.pref_key_enable_debug_drawer).apply {
-                isVisible = true
+                isVisible = false
                 isChecked = debugSettingsRepository.debugDrawerEnabled.first()
                 onPreferenceChangeListener =
                     Preference.OnPreferenceChangeListener { _, newValue ->
@@ -373,11 +375,11 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
 
         // for performance reasons, this is only available in Nightly or Debug builds
         requirePreference<EditTextPreference>(R.string.pref_key_custom_glean_server_url).apply {
-            isVisible = Config.channel.isNightlyOrDebug && BuildConfig.GLEAN_CUSTOM_URL.isNullOrEmpty()
+            isVisible = false
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_remote_server_prod).apply {
-            isVisible = true
+            isVisible = false
             isChecked = context.settings().useProductionRemoteSettingsServer
             onPreferenceChangeListener = object : SharedPreferenceUpdater() {
                 override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
@@ -399,7 +401,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_use_remote_search_configuration).apply {
-            isVisible = true
+            isVisible = false
             isChecked = context.settings().useRemoteSearchConfiguration
             onPreferenceChangeListener = object : SharedPreferenceUpdater() {
                 override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
@@ -426,7 +428,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_persistent_debug_menu).apply {
-            isVisible = true
+            isVisible = false
             isChecked = context.settings().isDebugMenuPersistentlyRevealed
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -456,19 +458,19 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_debug_terms_trigger_time).apply {
-            isVisible = Config.channel.isNightlyOrDebug || Config.channel.isBeta
+            isVisible = false
             isChecked = context.settings().isDebugTermsOfServiceTriggerTimeEnabled
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_enable_isolated_process).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = true
             isChecked = context.settings().isIsolatedProcessEnabled
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_enable_app_zygote_process).apply {
-            isVisible = Config.channel.isNightlyOrDebug && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+            isVisible = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
             isChecked = context.settings().isAppZygoteEnabled
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -480,6 +482,7 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_enable_persistent_onboarding).apply {
+            isVisible = false
             isChecked = context.settings().enablePersistentOnboarding
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }

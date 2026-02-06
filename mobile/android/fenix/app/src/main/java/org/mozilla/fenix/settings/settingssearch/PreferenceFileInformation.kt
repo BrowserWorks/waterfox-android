@@ -150,7 +150,7 @@ sealed class PreferenceFileInformation(
             fragmentId = R.id.trackingProtectionFragment,
         )
 
-    /** Represents the Secret Settings screen. */
+    /** Represents the Advanced Settings screen. */
     object SecretSettingsPreferences :
         PreferenceFileInformation(
             xmlResourceId = R.xml.secret_settings_preferences,

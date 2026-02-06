@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="pref_key_make_default_browser" translatable="false">pref_key_make_default_browser</string>
     <string name="pref_key_search_settings" translatable="false">pref_key_search_settings</string>
     <string name="pref_key_search_engine" translatable="false">pref_key_search_engine</string>
@@ -16,7 +16,7 @@
     <string name="pref_key_accessibility_font_scale" translatable="false">pref_key_accessibility_font_scale</string>
     <string name="pref_key_accessibility_force_enable_zoom" translatable="false">pref_key_accessibility_force_enable_zoom</string>
     <string name="pref_key_advanced" translatable="false">pref_key_advanced</string>
-    <string name="pref_key_firefox_labs" translatable="false">pref_key_firefox_labs</string>
+    <string name="pref_key_firefox_labs" translatable="false" tools:ignore="UnusedResources">pref_key_firefox_labs</string>
     <string name="pref_key_language" translatable="false">pref_key_language</string>
     <string name="pref_key_translation" translatable="false">pref_key_translation</string>
     <string name="pref_key_ai_controls" translatable="false">pref_key_ai_controls</string>
@@ -28,7 +28,6 @@
     <string name="pref_key_has_used_ip_protection" translatable="false">pref_key_has_used_vpn</string>
     <string name="pref_key_has_shown_ip_protection_prompt" translatable="false">pref_key_has_shown_ip_protection_prompt</string>
     <string name="pref_key_ip_protection_settings" translatable="false">pref_key_ip_protection_settings</string>
-    <string name="pref_key_enable_ip_protection_locations" translatable="false">pref_key_enable_ip_protection_locations</string>
     <string name="pref_key_data_choices" translatable="false">pref_key_data_choices</string>
     <string name="pref_key_delete_browsing_data" translatable="false">pref_key_delete_browsing_data</string>
     <string name="pref_key_delete_browsing_data_on_quit_preference" translatable="false">pref_key_delete_browsing_data_on_quit_preference</string>
@@ -100,7 +99,6 @@
     <string name="pref_key_home_blocklist">pref_key_home_blocklist</string>
     <string name="pref_key_hidden_engines_restored" translatable="false">pref_key_hidden_engines_restored</string>
     <string name="pref_key_enable_fxsuggest" translatable="false">pref_key_fxsuggest_enabled</string>
-    <string name="pref_key_enable_debug_drawer" translatable="false">pref_key_enable_debug_drawer</string>
     <string name="pref_key_hide_collections" translatable="false">pref_key_hide_collections</string>
     <string name="pref_key_migrate_collections_to_tab_groups" translatable="false">pref_key_migrate_collections_to_tab_groups</string>
     <string name="pref_key_has_migrated_collections_to_tab_groups" translatable="false">pref_key_has_migrated_collections_to_tab_groups</string>
@@ -464,8 +462,6 @@
     <string name="pref_key_enable_universal_edge_to_edge_wallpapers" translatable="false">pref_key_enable_universal_edge_to_edge_wallpapers</string>
     <string name="pref_key_enable_ads_client_for_stories" translatable="false">pref_key_enable_ads_client_for_stories</string>
     <string name="pref_key_show_more_shortcuts" translatable="false">pref_key_show_more_shortcuts</string>
-    <string name="pref_key_enable_homepage_weather_widget" translatable="false">pref_key_enable_homepage_weather_widget</string>
-    <string name="pref_key_show_homepage_weather_widget" translatable="false">pref_key_show_homepage_weather_widget</string>
     <string name="pref_key_use_minimal_bottom_toolbar_while_entering_text" translatable="false">pref_key_use_minimal_bottom_toolbar_while_entering_text</string>"
     <string name="pref_key_enable_address_sync" translatable="false">pref_key_enable_address_sync</string>"
     <string name="pref_key_enable_lna_blocking_enabled" translatable="false">pref_key_enable_lna_blocking_enabled</string>
@@ -556,7 +552,6 @@
     <!-- Crash reporting -->
     <string name="pref_key_crash_reporting_cutoff_date" translatable="false">pref_key_crash_reporting_cutoff_date_2026_08_18</string>
     <string name="pref_key_crash_reporting_deferred_until" translatable="false">pref_key_crash_reporting_deferred_until</string>
-    <string name="pref_key_use_new_crash_reporter" translatable="false">pref_key_use_new_crash_reporter</string>
 
     <!-- Bookmarks -->
     <string name="pref_last_folder_saved_in" translatable="false">pref_last_folder_saved_in</string>

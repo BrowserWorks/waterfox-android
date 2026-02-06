@@ -120,7 +120,6 @@ class HomeSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragm
         }
 
         setupOpeningScreenPreferences()
-        setupWeatherPreference()
     }
 
     private fun createMetricPreferenceChangeListener(
@@ -171,13 +170,5 @@ class HomeSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragm
             openingScreenLastTab,
             openingScreenAfterFourHours,
         )
-    }
-
-    private fun setupWeatherPreference() {
-        requirePreference<SwitchPreferenceCompat>(R.string.pref_key_show_homepage_weather_widget).apply {
-            isVisible = fenixSettings.enableHomepageWeatherWidget
-            isChecked = fenixSettings.showHomepageWeatherWidget
-            onPreferenceChangeListener = createMetricPreferenceChangeListener("weather")
-        }
     }
 }

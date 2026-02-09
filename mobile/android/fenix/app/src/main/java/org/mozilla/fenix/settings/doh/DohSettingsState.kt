@@ -48,6 +48,10 @@ internal sealed class ProtectionLevel {
         override fun toDohSettingsMode() = Engine.DohSettingsMode.MAX
     }
 
+    data object Ultra : ProtectionLevel() {
+        override fun toDohSettingsMode() = Engine.DohSettingsMode.ULTRA
+    }
+
     data object Off : ProtectionLevel() {
         override fun toDohSettingsMode() = Engine.DohSettingsMode.OFF
     }

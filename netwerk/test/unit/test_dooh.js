@@ -12,6 +12,7 @@ const { setTimeout } = ChromeUtils.importESModule(
 let httpServer;
 let ohttpServer;
 let ohttpEncodedConfig = "not a valid config";
+let ohttpConfigRequestCount = 0;
 
 // Decapsulate the request, send it to the actual TRR, receive the response,
 // encapsulate it, and send it back through `response`.
@@ -114,13 +115,13 @@ add_setup(async function setup() {
     });
   });
   httpServer.registerPathHandler("/config", function (request, response) {
+    ohttpConfigRequestCount++;
     response.setStatusLine(request.httpVersion, 200, "OK");
     response.setHeader("Content-Type", "application/ohttp-keys", false);
     response.write(ohttpEncodedConfig);
   });
   httpServer.start(-1);
 
-  Services.prefs.setBoolPref("network.trr.use_ohttp", true);
   // On windows the TTL fetch will race with clearing the cache
   // to refresh the cache entry.
   Services.prefs.setBoolPref("network.dns.get-ttl", false);
@@ -147,6 +148,27 @@ add_task(async function test_ohttp_not_configured() {
   Services.dns.clearCache(true);
   setModeAndURI(2, "doh?responseIP=2.2.2.2");
   await new TRRDNSListener("example.com", "127.0.0.1");
+});
+
+add_task(async function test_ohttp_config_fetch_requires_ohttp() {
+  Cc["@mozilla.org/network/oblivious-http-service;1"].getService(
+    Ci.nsIObliviousHttpService
+  );
+  const initialRequestCount = ohttpConfigRequestCount;
+  let configPromise = TestUtils.topicObserved("ohttp-service-config-loaded");
+  Services.prefs.setCharPref(
+    "network.trr.ohttp.config_uri",
+    `http://localhost:${httpServer.identity.primaryPort}/config`
+  );
+  let [, status] = await configPromise;
+  equal(status, "no-changes");
+  equal(ohttpConfigRequestCount, initialRequestCount);
+
+  configPromise = TestUtils.topicObserved("ohttp-service-config-loaded");
+  Services.prefs.setBoolPref("network.trr.use_ohttp", true);
+  [, status] = await configPromise;
+  equal(status, "success");
+  equal(ohttpConfigRequestCount, initialRequestCount + 1);
 });
 
 add_task(async function set_ohttp_invalid_prefs() {

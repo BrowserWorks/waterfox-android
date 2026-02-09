@@ -19,12 +19,20 @@ exclude: true
 - Updated the [`PURGED_BOUNCETRACKER`][129.3] value and added new [`REPLACED_FINGERPRINTING_CONTENT`] ContentBlockingController.Event. ([bug 2039485]({{bugzilla}}2039485))
 - Added  [`clearTrackingDb`][153.4] to ContentBlockingController to support clearing all data stored about blocked trackers in previous browsing sessions. ([bug 2042068]({{bugzilla}}2042068))
 - Added experimental [`ContentPermission.notifyShown`][153.5] so embedders can signal that a permission prompt UI has been displayed to the user, enabling per-prompt telemetry on the Gecko side (e.g. for local network access). ([bug 2009145]({{bugzilla}}2009145)) (also included in 154, but uplifted to 153)
+- Added [`GeckoRuntimeSettings.setTrustedRecursiveResolverUseGet`][153.6],
+  [`GeckoRuntimeSettings.getTrustedRecursiveResolverUseGet`][153.7],
+  [`GeckoRuntimeSettings.setTrustedRecursiveResolverUseOhttp`][153.8], and
+  [`GeckoRuntimeSettings.getTrustedRecursiveResolverUseOhttp`][153.9] to configure GET and Oblivious HTTP for DNS Ultra protection.
 
 [153.1]: {{javadoc_uri}}/GeckoSession.ScrollPositionUpdate.SourceType.html
 [153.2]: {{javadoc_uri}}/GeckoSession.ScrollPositionUpdate.html#source
 [153.3]: {{javadoc_uri}}/ContentBlockingController.Event.html#REPLACED_FINGERPRINTING_CONTENT
 [153.4]: {{javadoc_uri}}/ContentBlockingController.html#clearTrackingDb()
 [153.5]: {{javadoc_uri}}/GeckoSession.PermissionDelegate.ContentPermission.html#notifyShown()
+[153.6]: {{javadoc_uri}}/GeckoRuntimeSettings.html#setTrustedRecursiveResolverUseGet(boolean)
+[153.7]: {{javadoc_uri}}/GeckoRuntimeSettings.html#getTrustedRecursiveResolverUseGet()
+[153.8]: {{javadoc_uri}}/GeckoRuntimeSettings.html#setTrustedRecursiveResolverUseOhttp(boolean)
+[153.9]: {{javadoc_uri}}/GeckoRuntimeSettings.html#getTrustedRecursiveResolverUseOhttp()
 
 ## v152
 - Added [`WebExtensionController.INSTALLATION_METHOD_RTAMO`][152.1], which should be used when a `WebExtension` is installed for the RTAMO feature. ([bug 2029607]({{bugzilla}}2029607))
@@ -1988,4 +1996,4 @@ to allow adding gecko profiler markers.
 [65.24]: {{javadoc_uri}}/CrashReporter.html#sendCrashReport(android.content.Context,android.os.Bundle,java.lang.String)
 [65.25]: {{javadoc_uri}}/GeckoResult.html
 
-[api-version]: e2d7b4a86368971ed93ef141051e884efaf2e472
+[api-version]: 51724e16892ffe7aa75672e5fc41d6697e4bee3c

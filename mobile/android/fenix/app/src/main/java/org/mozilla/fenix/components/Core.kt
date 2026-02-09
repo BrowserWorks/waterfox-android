@@ -183,6 +183,7 @@ class Core(
             dohProviderUrl = context.components.settings.dohProviderUrl,
             dohDefaultProviderUrl = context.components.settings.dohDefaultProviderUrl,
             dohExceptionsList = context.components.settings.dohExceptionsList.toList(),
+            dohUseOhttp = context.components.settings.dohUseOhttp,
             globalPrivacyControlEnabled = context.components.settings.shouldEnableGlobalPrivacyControl,
             fdlibmMathEnabled = FxNimbus.features.fingerprintingProtection.value().fdlibmMath,
             cookieBannerHandlingMode = context.components.settings.getCookieBannerHandling(),

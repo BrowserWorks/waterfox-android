@@ -65,7 +65,9 @@ class DefaultTermsOfUseDataProvider(private val settings: Settings) : TermsOfUse
 
     override fun isIncreasedDohProtectionEnabled(): Boolean {
         val dohSettingsMode = settings.getDohSettingsMode()
-        return dohSettingsMode == Engine.DohSettingsMode.INCREASED || dohSettingsMode == Engine.DohSettingsMode.MAX
+        return dohSettingsMode == Engine.DohSettingsMode.INCREASED ||
+            dohSettingsMode == Engine.DohSettingsMode.MAX ||
+            dohSettingsMode == Engine.DohSettingsMode.ULTRA
     }
 
     override fun enabledHttpsOnlyMode() = settings.getHttpsOnlyMode() != HttpsOnlyMode.DISABLED

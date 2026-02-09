@@ -206,6 +206,16 @@ internal enum class InfoScreenTopic(
             BulletPoint(R.string.preference_doh_max_protection_info_3) to null,
         ),
     ),
+    ULTRA(
+        titleId = R.string.preference_doh_ultra_protection,
+        bulletPoints = listOf(
+            BulletPoint(R.string.preference_doh_ultra_protection_info_1) to null,
+            BulletPoint(R.string.preference_doh_ultra_protection_info_2) to null,
+            BulletPoint(R.string.preference_doh_ultra_protection_info_3) to null,
+            BulletPoint(R.string.preference_doh_ultra_protection_info_4) to null,
+            BulletPoint(R.string.preference_doh_ultra_protection_info_5) to null,
+        ),
+    ),
 }
 
 @FlexibleWindowPreview

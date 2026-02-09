@@ -449,8 +449,6 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                 null
             }
 
-
-
             // Advanced preferences
             resources.getString(R.string.pref_key_addons) -> {
                 Addons.openAddonsInSettings.record(NoExtras())
@@ -781,6 +779,7 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                 Engine.DohSettingsMode.OFF -> getString(R.string.preference_doh_off)
                 Engine.DohSettingsMode.INCREASED -> getString(R.string.preference_doh_increased_protection)
                 Engine.DohSettingsMode.MAX -> getString(R.string.preference_doh_max_protection)
+                Engine.DohSettingsMode.ULTRA -> getString(R.string.preference_doh_ultra_protection)
             }
         }
     }

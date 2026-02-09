@@ -1782,27 +1782,55 @@ class GeckoEngine(
                 } catch (npe: NullPointerException) {
                     runtime.settings.setTrustedRecursiveResolverMode(GeckoRuntimeSettings.TRR_MODE_OFF)
                 }
-                return when (runtime.settings.trustedRecusiveResolverMode) {
-                    GeckoRuntimeSettings.TRR_MODE_OFF -> Engine.DohSettingsMode.DEFAULT
-                    GeckoRuntimeSettings.TRR_MODE_FIRST -> Engine.DohSettingsMode.INCREASED
-                    GeckoRuntimeSettings.TRR_MODE_ONLY -> Engine.DohSettingsMode.MAX
-                    GeckoRuntimeSettings.TRR_MODE_DISABLED -> Engine.DohSettingsMode.OFF
+                val trrMode = runtime.settings.trustedRecusiveResolverMode
+                val useOhttp = try {
+                    runtime.settings.trustedRecursiveResolverUseOhttp
+                } catch (npe: NullPointerException) {
+                    runtime.settings.setTrustedRecursiveResolverUseOhttp(false)
+                    runtime.settings.setTrustedRecursiveResolverUseGet(true)
+                    false
+                }
+                return when {
+                    trrMode == GeckoRuntimeSettings.TRR_MODE_OFF -> Engine.DohSettingsMode.DEFAULT
+                    trrMode == GeckoRuntimeSettings.TRR_MODE_FIRST -> Engine.DohSettingsMode.INCREASED
+                    trrMode == GeckoRuntimeSettings.TRR_MODE_ONLY && useOhttp -> Engine.DohSettingsMode.ULTRA
+                    trrMode == GeckoRuntimeSettings.TRR_MODE_ONLY -> Engine.DohSettingsMode.MAX
+                    trrMode == GeckoRuntimeSettings.TRR_MODE_DISABLED -> Engine.DohSettingsMode.OFF
                     else -> Engine.DohSettingsMode.DEFAULT
                 }
             }
             set(value) {
                 when (value) {
-                    Engine.DohSettingsMode.DEFAULT ->
+                    Engine.DohSettingsMode.DEFAULT -> {
                         runtime.settings.setTrustedRecursiveResolverMode(GeckoRuntimeSettings.TRR_MODE_OFF)
+                        runtime.settings.setTrustedRecursiveResolverUseOhttp(false)
+                        runtime.settings.setTrustedRecursiveResolverUseGet(true)
+                    }
 
-                    Engine.DohSettingsMode.INCREASED ->
+                    Engine.DohSettingsMode.INCREASED -> {
                         runtime.settings.setTrustedRecursiveResolverMode(GeckoRuntimeSettings.TRR_MODE_FIRST)
+                        runtime.settings.setTrustedRecursiveResolverUseOhttp(false)
+                        runtime.settings.setTrustedRecursiveResolverUseGet(true)
+                    }
 
-                    Engine.DohSettingsMode.MAX ->
+                    Engine.DohSettingsMode.MAX -> {
                         runtime.settings.setTrustedRecursiveResolverMode(GeckoRuntimeSettings.TRR_MODE_ONLY)
+                        runtime.settings.setTrustedRecursiveResolverUseOhttp(false)
+                        runtime.settings.setTrustedRecursiveResolverUseGet(true)
+                    }
 
-                    Engine.DohSettingsMode.OFF ->
+                    Engine.DohSettingsMode.ULTRA -> {
+                        runtime.settings.setTrustedRecursiveResolverMode(GeckoRuntimeSettings.TRR_MODE_ONLY)
+                        runtime.settings.setTrustedRecursiveResolverUseOhttp(true)
+                        // Cloudflare's DoOH gateway rejects GET-encoded inner queries.
+                        runtime.settings.setTrustedRecursiveResolverUseGet(false)
+                    }
+
+                    Engine.DohSettingsMode.OFF -> {
                         runtime.settings.setTrustedRecursiveResolverMode(GeckoRuntimeSettings.TRR_MODE_DISABLED)
+                        runtime.settings.setTrustedRecursiveResolverUseOhttp(false)
+                        runtime.settings.setTrustedRecursiveResolverUseGet(true)
+                    }
                 }
             }
 
@@ -1848,6 +1876,22 @@ class GeckoEngine(
                 }
             }
             set(value) { runtime.settings.setTrustedRecursiveResolverExcludedDomains(value) }
+
+        @Suppress("TooGenericExceptionCaught")
+        override var dohUseOhttp: Boolean
+            get() {
+                return try {
+                    runtime.settings.trustedRecursiveResolverUseOhttp
+                } catch (npe: NullPointerException) {
+                    runtime.settings.setTrustedRecursiveResolverUseOhttp(false)
+                    runtime.settings.setTrustedRecursiveResolverUseGet(true)
+                    false
+                }
+            }
+            set(value) {
+                runtime.settings.setTrustedRecursiveResolverUseOhttp(value)
+                runtime.settings.setTrustedRecursiveResolverUseGet(!value)
+            }
 
         override var globalPrivacyControlEnabled: Boolean
             get() = runtime.settings.globalPrivacyControl
@@ -2029,6 +2073,7 @@ class GeckoEngine(
             this.firefoxRelay = it.firefoxRelay
             this.enterpriseRootsEnabled = it.enterpriseRootsEnabled
             this.httpsOnlyMode = it.httpsOnlyMode
+            this.dohUseOhttp = it.dohUseOhttp
             this.dohSettingsMode = it.dohSettingsMode
             this.dohProviderUrl = it.dohProviderUrl
             this.dohDefaultProviderUrl = it.dohDefaultProviderUrl

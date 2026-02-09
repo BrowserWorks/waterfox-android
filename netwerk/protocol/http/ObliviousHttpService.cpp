@@ -25,6 +25,7 @@ ObliviousHttpService::ObliviousHttpService()
   nsCOMPtr<nsIPrefBranch> prefBranch(do_GetService(NS_PREFSERVICE_CONTRACTID));
   if (prefBranch) {
     prefBranch->AddObserver("network.trr.ohttp", this, false);
+    prefBranch->AddObserver("network.trr.use_ohttp", this, false);
   }
 
   if (nsCOMPtr<nsIObserverService> obs =
@@ -42,6 +43,8 @@ static constexpr nsLiteralCString kTRRohttpConfigURIPref =
     "network.trr.ohttp.config_uri"_ns;
 static constexpr nsLiteralCString kTRRohttpRelayURIPref =
     "network.trr.ohttp.relay_uri"_ns;
+static constexpr nsLiteralCString kTRRUseOhttpPref =
+    "network.trr.use_ohttp"_ns;
 
 void ObliviousHttpService::FetchConfig(bool aConfigURIChanged) {
   auto scopeExit = MakeScopeExit([&] {
@@ -51,6 +54,12 @@ void ObliviousHttpService::FetchConfig(bool aConfigURIChanged) {
     }
     obs->NotifyObservers(nullptr, "ohttp-service-config-loaded", u"no-changes");
   });
+
+  if (!StaticPrefs::network_trr_use_ohttp()) {
+    auto trrConfig = mTRRConfig.Lock();
+    trrConfig->mEncodedConfig.Clear();
+    return;
+  }
 
   {
     auto trrConfig = mTRRConfig.Lock();
@@ -114,6 +123,11 @@ void ObliviousHttpService::FetchConfig(bool aConfigURIChanged) {
 }
 
 void ObliviousHttpService::ReadPrefs(const nsACString& whichPref) {
+  if (whichPref.Equals(kTRRUseOhttpPref)) {
+    FetchConfig(true);
+    return;
+  }
+
   if (whichPref.Equals(kTRRohttpRelayURIPref) || whichPref.EqualsLiteral("*")) {
     nsAutoCString relayURIString;
     nsresult rv =
@@ -185,6 +199,7 @@ ObliviousHttpService::Observe(nsISupports* subject, const char* topic,
     if (nsCOMPtr<nsIPrefBranch> prefBranch =
             do_GetService(NS_PREFSERVICE_CONTRACTID)) {
       prefBranch->RemoveObserver("network.trr.ohttp", this);
+      prefBranch->RemoveObserver("network.trr.use_ohttp", this);
     }
 
     if (nsCOMPtr<nsIObserverService> obs =

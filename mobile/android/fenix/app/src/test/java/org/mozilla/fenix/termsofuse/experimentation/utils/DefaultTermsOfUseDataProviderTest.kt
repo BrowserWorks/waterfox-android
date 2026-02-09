@@ -41,7 +41,7 @@ class DefaultTermsOfUseDataProviderTest {
     }
 
     @Test
-    fun `isIncreasedDohProtectionEnabled returns true if the referenced Settings value is increased or max`() {
+    fun `isIncreasedDohProtectionEnabled returns true for increased max or ultra`() {
         Engine.DohSettingsMode.entries.forEach {
             val settings = mockk<Settings>()
             every { settings.getDohSettingsMode() } returns it
@@ -51,6 +51,7 @@ class DefaultTermsOfUseDataProviderTest {
             when (it) {
                 Engine.DohSettingsMode.INCREASED,
                 Engine.DohSettingsMode.MAX,
+                Engine.DohSettingsMode.ULTRA,
                     -> assertTrue(result)
 
                 Engine.DohSettingsMode.DEFAULT,

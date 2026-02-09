@@ -62,6 +62,50 @@ class TrustedRecursiveResolverTest : BaseSessionTest() {
         )
     }
 
+    @Test fun trustedRecursiveResolverOhttp() {
+        val settings = sessionRule.runtime.settings
+        val useOhttpPref = "network.trr.use_ohttp"
+        val useGetPref = "network.trr.useGET"
+
+        assertThat(
+            "Initial OHTTP setting should be false",
+            settings.getTrustedRecursiveResolverUseOhttp(),
+            `is`(false),
+        )
+        assertThat(
+            "Initial DoH GET setting should be true",
+            settings.getTrustedRecursiveResolverUseGet(),
+            `is`(true),
+        )
+
+        settings.setTrustedRecursiveResolverUseOhttp(true)
+        settings.setTrustedRecursiveResolverUseGet(false)
+
+        assertThat(
+            "OHTTP pref should be enabled",
+            sessionRule.getPrefs(useOhttpPref)[0] as Boolean,
+            `is`(true),
+        )
+        assertThat(
+            "DoH GET pref should be disabled",
+            sessionRule.getPrefs(useGetPref)[0] as Boolean,
+            `is`(false),
+        )
+        assertThat(
+            "OHTTP getter should return the committed value",
+            settings.getTrustedRecursiveResolverUseOhttp(),
+            `is`(true),
+        )
+        assertThat(
+            "DoH GET getter should return the committed value",
+            settings.getTrustedRecursiveResolverUseGet(),
+            `is`(false),
+        )
+
+        settings.setTrustedRecursiveResolverUseOhttp(false)
+        settings.setTrustedRecursiveResolverUseGet(true)
+    }
+
     @Test fun trustedRecursiveResolverUrl() {
         val settings = sessionRule.runtime.settings
         val trustedRecursiveResolverUriPerf = "network.trr.uri"

@@ -77,6 +77,7 @@ import org.mockito.ArgumentMatchers.anyList
 import org.mockito.ArgumentMatchers.anyLong
 import org.mockito.ArgumentMatchers.anyString
 import org.mockito.Mockito.doReturn
+import org.mockito.Mockito.inOrder
 import org.mockito.Mockito.never
 import org.mockito.Mockito.reset
 import org.mockito.Mockito.spy
@@ -611,6 +612,100 @@ class GeckoEngineTest {
         reset(mockRuntime.settings)
         engine.settings.httpsOnlyMode = Engine.HttpsOnlyMode.DISABLED
         verify(mockRuntime.settings).allowInsecureConnections = GeckoRuntimeSettings.ALLOW_ALL
+    }
+
+    @Test
+    fun `WHEN a DoH mode is set THEN OHTTP and GET settings are consistent`() {
+        val mockRuntime = mock<GeckoRuntime>()
+        val runtimeSettings = mock<GeckoRuntimeSettings>()
+        whenever(mockRuntime.settings).thenReturn(runtimeSettings)
+
+        val engine = GeckoEngine(testContext, runtime = mockRuntime)
+
+        engine.settings.dohSettingsMode = Engine.DohSettingsMode.ULTRA
+        verify(runtimeSettings).setTrustedRecursiveResolverMode(GeckoRuntimeSettings.TRR_MODE_ONLY)
+        verify(runtimeSettings).setTrustedRecursiveResolverUseOhttp(true)
+        verify(runtimeSettings).setTrustedRecursiveResolverUseGet(false)
+
+        reset(runtimeSettings)
+        engine.settings.dohSettingsMode = Engine.DohSettingsMode.MAX
+        verify(runtimeSettings).setTrustedRecursiveResolverMode(GeckoRuntimeSettings.TRR_MODE_ONLY)
+        verify(runtimeSettings).setTrustedRecursiveResolverUseOhttp(false)
+        verify(runtimeSettings).setTrustedRecursiveResolverUseGet(true)
+    }
+
+    @Test
+    fun `WHEN OHTTP is set directly THEN GET is inverted and missing values use safe defaults`() {
+        val mockRuntime = mock<GeckoRuntime>()
+        val runtimeSettings = mock<GeckoRuntimeSettings>()
+        whenever(mockRuntime.settings).thenReturn(runtimeSettings)
+
+        val engine = GeckoEngine(testContext, runtime = mockRuntime)
+
+        engine.settings.dohUseOhttp = true
+        verify(runtimeSettings).setTrustedRecursiveResolverUseOhttp(true)
+        verify(runtimeSettings).setTrustedRecursiveResolverUseGet(false)
+
+        reset(runtimeSettings)
+        engine.settings.dohUseOhttp = false
+        verify(runtimeSettings).setTrustedRecursiveResolverUseOhttp(false)
+        verify(runtimeSettings).setTrustedRecursiveResolverUseGet(true)
+
+        reset(runtimeSettings)
+        whenever(runtimeSettings.trustedRecursiveResolverUseOhttp).thenThrow(NullPointerException())
+        assertFalse(engine.settings.dohUseOhttp)
+        verify(runtimeSettings).setTrustedRecursiveResolverUseOhttp(false)
+        verify(runtimeSettings).setTrustedRecursiveResolverUseGet(true)
+    }
+
+    @Test
+    fun `WHEN Ultra defaults disable OHTTP THEN the mode is applied last`() {
+        val mockRuntime = mock<GeckoRuntime>()
+        val runtimeSettings = mock<GeckoRuntimeSettings>()
+        whenever(mockRuntime.settings).thenReturn(runtimeSettings)
+        whenever(runtimeSettings.contentBlocking).thenReturn(ContentBlocking.Settings.Builder().build())
+
+        GeckoEngine(
+            context = testContext,
+            runtime = mockRuntime,
+            defaultSettings = DefaultSettings(
+                dohSettingsMode = Engine.DohSettingsMode.ULTRA,
+                dohUseOhttp = false,
+            ),
+        )
+
+        inOrder(runtimeSettings).apply {
+            verify(runtimeSettings).setTrustedRecursiveResolverUseOhttp(false)
+            verify(runtimeSettings).setTrustedRecursiveResolverUseGet(true)
+            verify(runtimeSettings).setTrustedRecursiveResolverMode(GeckoRuntimeSettings.TRR_MODE_ONLY)
+            verify(runtimeSettings).setTrustedRecursiveResolverUseOhttp(true)
+            verify(runtimeSettings).setTrustedRecursiveResolverUseGet(false)
+        }
+    }
+
+    @Test
+    fun `WHEN Max defaults enable OHTTP THEN the mode is applied last`() {
+        val mockRuntime = mock<GeckoRuntime>()
+        val runtimeSettings = mock<GeckoRuntimeSettings>()
+        whenever(mockRuntime.settings).thenReturn(runtimeSettings)
+        whenever(runtimeSettings.contentBlocking).thenReturn(ContentBlocking.Settings.Builder().build())
+
+        GeckoEngine(
+            context = testContext,
+            runtime = mockRuntime,
+            defaultSettings = DefaultSettings(
+                dohSettingsMode = Engine.DohSettingsMode.MAX,
+                dohUseOhttp = true,
+            ),
+        )
+
+        inOrder(runtimeSettings).apply {
+            verify(runtimeSettings).setTrustedRecursiveResolverUseOhttp(true)
+            verify(runtimeSettings).setTrustedRecursiveResolverUseGet(false)
+            verify(runtimeSettings).setTrustedRecursiveResolverMode(GeckoRuntimeSettings.TRR_MODE_ONLY)
+            verify(runtimeSettings).setTrustedRecursiveResolverUseOhttp(false)
+            verify(runtimeSettings).setTrustedRecursiveResolverUseGet(true)
+        }
     }
 
     @Test

@@ -340,6 +340,13 @@ pref("network.ohttp.configURL", "https://prod.ohttp-gateway.prod.webservices.moz
 // Controls OHTTP relay URL
 pref("network.ohttp.relayURL", "https://mozilla-ohttp.fastly-edge.com/");
 
+// Waterfox-specific relay for Oblivious HTTP (OHTTP) used with DNS-over-HTTPS (DoH).
+pref("network.trr.ohttp.relay_uri", "https://dooh.waterfox.net/");
+// Config URI for OHTTP.
+pref("network.trr.ohttp.config_uri", "https://dooh.cloudflare-dns.com/.well-known/doohconfig");
+// URI for OHTTP DoH queries.
+pref("network.trr.ohttp.uri", "https://dooh.cloudflare-dns.com/dns-query");
+
 // Nimbus QA prefs. Used for testing pref-setting experiments.
 pref("nimbus.qa.pref-string-default", "default");
 pref("nimbus.qa.pref-string-user", "default");

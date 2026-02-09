@@ -797,6 +797,10 @@ public final class GeckoRuntimeSettings extends RuntimeSettings {
       new PrefWithoutDefault<>("network.trr.default_provider_uri");
   /* package */ final PrefWithoutDefault<String> mTrustedRecursiveResolverExcludedDomains =
       new PrefWithoutDefault<>("network.trr.excluded-domains");
+  /* package */ final PrefWithoutDefault<Boolean> mTrustedRecursiveResolverUseOhttp =
+      new PrefWithoutDefault<>("network.trr.use_ohttp");
+  /* package */ final PrefWithoutDefault<Boolean> mTrustedRecursiveResolverUseGet =
+      new PrefWithoutDefault<>("network.trr.useGET");
   /* package */ final PrefWithoutDefault<Integer> mLargeKeepalivefactor =
       new PrefWithoutDefault<>("network.http.largeKeepaliveFactor");
   /* package */ final Pref<Integer> mProcessCount = new Pref<>("dom.ipc.processCount", 2);
@@ -2372,9 +2376,51 @@ public final class GeckoRuntimeSettings extends RuntimeSettings {
   }
 
   /**
+   * Get whether DNS-over-HTTPS should use Oblivious HTTP
+   *
+   * @return True if DoH should use Oblivious HTTP, false otherwise.
+   */
+  public @NonNull boolean getTrustedRecursiveResolverUseOhttp() {
+    final Boolean useOhttp = mTrustedRecursiveResolverUseOhttp.get();
+    return useOhttp != null && useOhttp;
+  }
+
+  /**
+   * Set whether DNS-over-HTTPS should use Oblivious HTTP
+   *
+   * @param useOhttp True to enable Oblivious HTTP for DoH, false to disable.
+   * @return This GeckoRuntimeSettings instance.
+   */
+  public @NonNull GeckoRuntimeSettings setTrustedRecursiveResolverUseOhttp(final boolean useOhttp) {
+    mTrustedRecursiveResolverUseOhttp.commit(useOhttp);
+    return this;
+  }
+
+  /**
+   * Get whether DNS-over-HTTPS uses GET (rather than POST) to encode queries.
+   *
+   * @return True if DoH queries are GET-encoded, false if POST-encoded.
+   */
+  public @NonNull boolean getTrustedRecursiveResolverUseGet() {
+    final Boolean useGet = mTrustedRecursiveResolverUseGet.get();
+    return useGet == null || useGet;
+  }
+
+  /**
+   * Set whether DNS-over-HTTPS should use GET (rather than POST) to encode queries.
+   *
+   * @param useGet True to GET-encode DoH queries, false to POST-encode.
+   * @return This GeckoRuntimeSettings instance.
+   */
+  public @NonNull GeckoRuntimeSettings setTrustedRecursiveResolverUseGet(final boolean useGet) {
+    mTrustedRecursiveResolverUseGet.commit(useGet);
+    return this;
+  }
+
+  /**
    * Get the current user characteristic ping version.
    *
-   * @return The current version.
+   * @return The current user characteristic ping version.
    */
   public @NonNull int getUserCharacteristicPingCurrentVersion() {
     return mUserCharacteristicPingCurrentVersion.get();

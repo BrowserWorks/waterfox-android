@@ -2576,6 +2576,21 @@
     <!-- Bullet point 3 for "Max Protection" information page under "DNS over HTTPS" -->
     <string name="preference_doh_max_protection_info_3">If secure DNS is not available sites will not load or function properly</string>
 
+    <!-- Title displayed for "Ultra Protection" option under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection">Ultra Protection</string>
+    <!-- Summary displayed for "Ultra Protection" option under "DNS over HTTPS". %1$s is the name of the application (e.g. Fenix). -->
+    <string name="preference_doh_ultra_protection_summary">%1$s partners with Fastly to provide anonymous DNS queries for ultimate privacy protection.</string>
+    <!-- Bullet point 1 for "Ultra Protection" information page under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection_info_1">Partners with Fastly’s relay service and Cloudflare’s oblivious resolver for enhanced privacy</string>
+    <!-- Bullet point 2 for "Ultra Protection" information page under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection_info_2">Always warn if secure DNS isn’t available</string>
+    <!-- Bullet point 3 for "Ultra Protection" information page under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection_info_3">Uses Oblivious HTTP to make DNS queries completely anonymous. Your network provider, relay, and resolver cannot link queries to you</string>
+    <!-- Bullet point 4 for "Ultra Protection" information page under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection_info_4">Bypasses VPN DNS resolvers - uses secure DNS instead of your VPN’s resolver</string>
+    <!-- Bullet point 5 for "Ultra Protection" information page under "DNS over HTTPS" -->
+    <string name="preference_doh_ultra_protection_info_5">If secure DNS is not available sites will not load or function properly</string>
+
     <!-- Title displayed for "Off" option under "DNS over HTTPS" -->
     <string name="preference_doh_off">Off</string>
     <!-- Summary displayed for "Off" option under "DNS over HTTPS" -->

@@ -11,6 +11,7 @@ import mozilla.components.concept.engine.DefaultSettings
 import mozilla.components.concept.engine.Engine
 import mozilla.components.support.test.fakes.engine.FakeEngine
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertThrows
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -37,7 +38,9 @@ class DefaultDohSettingsProviderTest {
                 engine = fakeEngine,
                 settings = appSettings,
             )
-        every { appSettings.getDohSettingsMode() } returns Engine.DohSettingsMode.INCREASED
+        var selectedMode = Engine.DohSettingsMode.INCREASED
+        every { appSettings.getDohSettingsMode() } answers { selectedMode }
+        every { appSettings.setDohSettingsMode(any()) } answers { selectedMode = firstArg() }
         every { appSettings.dohProviderUrl } returns DefaultDohSettingsProvider.nextDnsUri
         every { appSettings.dohDefaultProviderUrl } returns DefaultDohSettingsProvider.cloudflareUri
         every { appSettings.dohExceptionsList } returns
@@ -166,6 +169,25 @@ class DefaultDohSettingsProviderTest {
             dohProvider.url,
             fakeEngine.settings.dohProviderUrl,
         )
+    }
+
+    @Test
+    fun `WHEN protection level is set to Ultra, the app layer and engine are updated without a provider`() {
+        settingsProvider.setProtectionLevel(
+            protectionLevel = ProtectionLevel.Ultra,
+            provider = null,
+        )
+
+        verify { appSettings.setDohSettingsMode(ProtectionLevel.Ultra.toDohSettingsMode()) }
+        assertEquals(
+            Engine.DohSettingsMode.ULTRA,
+            fakeEngine.settings.dohSettingsMode,
+        )
+        assertEquals(
+            ProtectionLevel.Ultra,
+            settingsProvider.getSelectedProtectionLevel(),
+        )
+        assertNull(settingsProvider.getSelectedProvider())
     }
 
     @Test

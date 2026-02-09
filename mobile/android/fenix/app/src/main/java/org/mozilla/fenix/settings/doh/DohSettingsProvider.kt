@@ -29,12 +29,18 @@ internal interface DohSettingsProvider {
 internal class DefaultDohSettingsProvider(
     val engine: Engine,
     val settings: Settings,
+    private val applyMode: (Engine.DohSettingsMode) -> Unit = { mode ->
+        if (engine.settings.dohSettingsMode != mode) {
+            engine.settings.dohSettingsMode = mode
+        }
+    },
 ) : DohSettingsProvider {
     override fun getProtectionLevels(): List<ProtectionLevel> {
         return listOf(
             ProtectionLevel.Default,
             ProtectionLevel.Increased,
             ProtectionLevel.Max,
+            ProtectionLevel.Ultra,
             ProtectionLevel.Off,
         )
     }
@@ -77,6 +83,7 @@ internal class DefaultDohSettingsProvider(
             Engine.DohSettingsMode.DEFAULT -> ProtectionLevel.Default
             Engine.DohSettingsMode.INCREASED -> ProtectionLevel.Increased
             Engine.DohSettingsMode.MAX -> ProtectionLevel.Max
+            Engine.DohSettingsMode.ULTRA -> ProtectionLevel.Ultra
             Engine.DohSettingsMode.OFF -> ProtectionLevel.Off
         }
     }
@@ -84,12 +91,13 @@ internal class DefaultDohSettingsProvider(
     override fun getSelectedProvider(): Provider? {
         return when (settings.getDohSettingsMode()) {
             Engine.DohSettingsMode.OFF,
-            Engine.DohSettingsMode.DEFAULT -> {
+            Engine.DohSettingsMode.DEFAULT,
+            Engine.DohSettingsMode.ULTRA -> {
                 null
             }
 
             else -> {
-                when (settings.dohProviderUrl) {
+                when (engine.settings.dohProviderUrl) {
                     cloudflareUri -> cloudflare
                     nextDnsUri -> nextDns
                     "" -> getDefaultProviders().first()
@@ -113,7 +121,7 @@ internal class DefaultDohSettingsProvider(
         val newMode = protectionLevel.toDohSettingsMode()
         // Update the app layer
         settings.setDohSettingsMode(newMode)
-        engine.settings.dohSettingsMode = newMode
+        applyMode(newMode)
     }
 
     override fun setCustomProvider(url: String) {

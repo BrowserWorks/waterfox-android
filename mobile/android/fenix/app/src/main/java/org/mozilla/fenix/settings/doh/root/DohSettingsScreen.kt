@@ -72,6 +72,8 @@ import org.mozilla.fenix.theme.Theme
  * @param onDefaultInfoClicked Invoked when the user accesses info about Default DoH level.
  * @param onIncreasedInfoClicked Invoked when the user accesses info about Increased DoH level.
  * @param onMaxInfoClicked Invoked when the user accesses info about Max DoH level.
+ * @param onUltraInfoClicked Invoked when the user accesses info about Ultra DoH level.
+ * @param vpnSettings Live VPN pause controls shown within the selected Ultra option.
  */
 @Composable
 internal fun DohSettingsScreen(
@@ -85,6 +87,8 @@ internal fun DohSettingsScreen(
     onDefaultInfoClicked: () -> Unit = {},
     onIncreasedInfoClicked: () -> Unit = {},
     onMaxInfoClicked: () -> Unit = {},
+    onUltraInfoClicked: () -> Unit = {},
+    vpnSettings: @Composable () -> Unit = {},
 ) {
     Surface {
         Column(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
@@ -99,6 +103,8 @@ internal fun DohSettingsScreen(
                 onDefaultInfoClicked = onDefaultInfoClicked,
                 onIncreasedInfoClicked = onIncreasedInfoClicked,
                 onMaxInfoClicked = onMaxInfoClicked,
+                onUltraInfoClicked = onUltraInfoClicked,
+                vpnSettings = vpnSettings,
             )
 
             HorizontalDivider(modifier = Modifier.padding(8.dp))
@@ -209,6 +215,8 @@ private fun DohSelection(
     onDefaultInfoClicked: () -> Unit,
     onIncreasedInfoClicked: () -> Unit,
     onMaxInfoClicked: () -> Unit,
+    onUltraInfoClicked: () -> Unit,
+    vpnSettings: @Composable () -> Unit,
 ) {
     state.allProtectionLevels.forEach { protectionLevel ->
         when (protectionLevel) {
@@ -304,6 +312,29 @@ private fun DohSelection(
                         )
                     },
                 )
+
+            is ProtectionLevel.Ultra -> Column {
+                DohProtectionLevel(
+                    modifier = Modifier.fillMaxWidth(),
+                    selected = protectionLevel == state.selectedProtectionLevel,
+                    label = stringResource(R.string.preference_doh_ultra_protection),
+                    summary = stringResource(
+                        R.string.preference_doh_ultra_protection_summary,
+                        stringResource(id = R.string.app_name),
+                    ),
+                    showInfoIcon = true,
+                    onInfoClick = onUltraInfoClicked,
+                    onClick = {
+                        onDohOptionSelected(
+                            protectionLevel,
+                            null,
+                        )
+                    },
+                )
+                if (protectionLevel == state.selectedProtectionLevel) {
+                    vpnSettings()
+                }
+            }
 
             is ProtectionLevel.Off ->
                 DohProtectionLevel(
@@ -535,6 +566,7 @@ private fun DohScreenDefaultProviderPreview(@PreviewParameter(PreviewThemeProvid
                             ProtectionLevel.Default,
                             ProtectionLevel.Increased,
                             ProtectionLevel.Max,
+                            ProtectionLevel.Ultra,
                             ProtectionLevel.Off,
                         ),
                     selectedProtectionLevel = ProtectionLevel.Increased,
@@ -560,6 +592,7 @@ private fun DohScreenCustomProviderPreview(@PreviewParameter(PreviewThemeProvide
                             ProtectionLevel.Default,
                             ProtectionLevel.Increased,
                             ProtectionLevel.Max,
+                            ProtectionLevel.Ultra,
                             ProtectionLevel.Off,
                         ),
                     selectedProtectionLevel = ProtectionLevel.Increased,

@@ -34,9 +34,19 @@ exclude: true
 - Added the [`IPProxyException.ERROR_CATASTROPHIC`][155.1] and [`IPProxyException.ERROR_VPN_UNAVAILABLE`][155.2]
   error codes for the [`IPProtectioController.activate`][155.3].
 
+- Added [`GeckoRuntimeSettings.setTrustedRecursiveResolverUseGet`][155.4],
+  [`GeckoRuntimeSettings.getTrustedRecursiveResolverUseGet`][155.5],
+  [`GeckoRuntimeSettings.setTrustedRecursiveResolverUseOhttp`][155.6], and
+  [`GeckoRuntimeSettings.getTrustedRecursiveResolverUseOhttp`][155.7] to configure GET and Oblivious HTTP for DNS Ultra protection.
+
 [155.1]: {{javadoc_uri}}/IPProtectionController.IPProxyException.html#ERROR_CATASTROPHIC
 [155.2]: {{javadoc_uri}}/IPProtectionController.IPProxyException.html#ERROR_VPN_UNAVAILABLE
 [155.3]: {{javadoc_uri}}/IPProtectionController.html#activate(boolean,boolean,java.lang.String)
+
+[155.4]: {{javadoc_uri}}/GeckoRuntimeSettings.html#setTrustedRecursiveResolverUseGet(boolean)
+[155.5]: {{javadoc_uri}}/GeckoRuntimeSettings.html#getTrustedRecursiveResolverUseGet()
+[155.6]: {{javadoc_uri}}/GeckoRuntimeSettings.html#setTrustedRecursiveResolverUseOhttp(boolean)
+[155.7]: {{javadoc_uri}}/GeckoRuntimeSettings.html#getTrustedRecursiveResolverUseOhttp()
 
 ## v154
 - Added [`Autofill.Node.getDatalist`][154.1] to expose predefined values by [`datalist`][154.2] elements for input fields.
@@ -2073,4 +2083,4 @@ to allow adding gecko profiler markers.
 [65.24]: {{javadoc_uri}}/CrashReporter.html#sendCrashReport(android.content.Context,android.os.Bundle,java.lang.String)
 [65.25]: {{javadoc_uri}}/GeckoResult.html
 
-[api-version]: 90215a592b27dd13c83e94187e882cecedef6d30
+[api-version]: 9a4cb13032faf1559556529f18a5b4148441ad71

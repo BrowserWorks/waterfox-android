@@ -28,12 +28,14 @@ internal class DohSettingsFragment : Fragment(), SystemInsetsPaddedFragment {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ) = content {
+        val core = requireComponents.core
         val buildStore = { composeNavController: NavHostController ->
             val navController = findNavController()
             val settingsProvider =
                 DefaultDohSettingsProvider(
-                    engine = requireContext().components.core.engine,
+                    engine = core.engine,
                     settings = requireContext().components.settings,
+                    applyMode = { core.ultraDnsCoordinator.applySelectedMode() },
                 )
 
             val store by
@@ -63,6 +65,7 @@ internal class DohSettingsFragment : Fragment(), SystemInsetsPaddedFragment {
         FirefoxTheme {
             DohSettingsNavHost(
                 buildStore = buildStore,
+                vpnSettings = { UltraDnsVpnSettings(core.ultraDnsCoordinator) },
                 onUpdateToolbar = { titleResId ->
                     safeShowToolbar(titleResId)
                 },

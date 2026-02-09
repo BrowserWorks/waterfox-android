@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<resources>
+    <string name="pref_key_waterfox_dns_pause_on_vpn" translatable="false">pref_key_waterfox_dns_pause_on_vpn</string>
+    <string name="waterfox_dns_pause_on_vpn">Pause Ultra DNS while a VPN is connected</string>
+    <string name="waterfox_dns_pause_on_vpn_summary">When a VPN handles Waterfox’s network connection, use system/VPN DNS instead of Ultra DNS. Ultra DNS resumes automatically after the VPN disconnects.</string>
+    <string name="waterfox_dns_paused">Ultra DNS is paused: a VPN is handling Waterfox’s connection. System/VPN DNS is used instead. Ultra DNS will resume automatically after the VPN disconnects.</string>
+    <string name="waterfox_dns_vpn_pause_disabled">A VPN is handling Waterfox’s connection, but automatic pausing is off. Ultra DNS remains enabled.</string>
+    <string name="waterfox_dns_vpn_limits">Waterfox cannot detect VPNs on your router. Switching DNS is not instantaneous and may not affect requests already in progress. System/VPN DNS is not necessarily encrypted.</string>
+</resources>

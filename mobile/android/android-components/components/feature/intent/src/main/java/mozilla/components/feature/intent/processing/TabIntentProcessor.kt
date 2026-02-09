@@ -107,13 +107,16 @@ class TabIntentProcessor(
 
     private fun getWarmupUrl(normalizedUrl: String): String? {
         val engineSettings = engine?.settings ?: return normalizedUrl
-        val dohMode = engineSettings.dohSettingsMode
-        val isDohEnabled = dohMode == Engine.DohSettingsMode.INCREASED ||
-            dohMode == Engine.DohSettingsMode.MAX
-        return if (isDohEnabled) {
-            engineSettings.dohProviderUrl.ifEmpty { null }
-        } else {
-            normalizedUrl
+        return when (engineSettings.dohSettingsMode) {
+            Engine.DohSettingsMode.DEFAULT,
+            Engine.DohSettingsMode.OFF,
+                -> normalizedUrl
+
+            Engine.DohSettingsMode.INCREASED,
+            Engine.DohSettingsMode.MAX,
+                -> engineSettings.dohProviderUrl.ifEmpty { null }
+
+            Engine.DohSettingsMode.ULTRA -> null
         }
     }
 

@@ -9,6 +9,7 @@ internal class FakeDohSettingsProvider(
         ProtectionLevel.Default,
         ProtectionLevel.Increased,
         ProtectionLevel.Max,
+        ProtectionLevel.Ultra,
         ProtectionLevel.Off,
     ),
     private var selectedProtectionLevel: ProtectionLevel = ProtectionLevel.Default,
@@ -30,7 +31,11 @@ internal class FakeDohSettingsProvider(
 
     override fun setProtectionLevel(protectionLevel: ProtectionLevel, provider: Provider?) {
         selectedProtectionLevel = when (protectionLevel) {
-            is ProtectionLevel.Off, ProtectionLevel.Default -> protectionLevel
+            is ProtectionLevel.Off, ProtectionLevel.Default, ProtectionLevel.Ultra -> {
+                selectedProvider = null
+                protectionLevel
+            }
+
             is ProtectionLevel.Increased, ProtectionLevel.Max -> {
                 require(provider != null) { "Provider must not be null for Increased/Max protection level" }
                 selectedProvider = provider

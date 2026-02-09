@@ -577,6 +577,25 @@ class TabIntentProcessorTest {
     }
 
     @Test
+    fun `getHostForDnsWarmup returns null when DoH is ULTRA`() {
+        val settings = DefaultSettings(
+            dohSettingsMode = Engine.DohSettingsMode.ULTRA,
+            dohProviderUrl = "https://mozilla.cloudflare-dns.com/dns-query",
+        )
+        whenever(engine.settings).thenReturn(settings)
+        val handler = TabIntentProcessor(
+            TabsUseCases(store),
+            searchUseCases.newTabSearch,
+            engine = engine,
+            applicationScope = scope,
+        )
+
+        val result = handler.getHostForDnsWarmup("https://mozilla.org/path")
+
+        assertNull(result)
+    }
+
+    @Test
     fun `getHostForDnsWarmup returns null when DoH is enabled but provider URL is empty`() {
         val settings =
             DefaultSettings(

@@ -96,6 +96,9 @@ interface Engine :
         /** DoH setting is set to "Max", corresponds to TRR_MODE_ONLY (3) from GeckoView. */
         MAX,
 
+        /** DoH setting is set to "Ultra", corresponds to TRR_MODE_ONLY (3) with OHTTP enabled. */
+        ULTRA,
+
         /** DoH is disabled, corresponds to TRR_MODE_DISABLED (5) from GeckoView. */
         OFF,
     }

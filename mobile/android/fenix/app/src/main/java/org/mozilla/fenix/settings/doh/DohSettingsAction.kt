@@ -86,6 +86,11 @@ internal sealed class DohSettingsRootAction : DohSettingsAction {
     data object MaxInfoClicked : DohSettingsAction
 
     /**
+     * The user has clicked to see information about the ultra DoH level.
+     */
+    data object UltraInfoClicked : DohSettingsAction
+
+    /**
      * Actions specific to handling custom DoH provider dialogs.
      */
     sealed class DohCustomProviderDialogAction : DohSettingsRootAction() {

@@ -2963,12 +2963,30 @@ class Settings(
             default = emptySet(),
         )
 
-    /** Retrieves the current DohSettingsMode based on trrMode */
+    /** Stores whether DNS over HTTPS should use Oblivious HTTP. */
+    var dohUseOhttp by
+        booleanPreference(
+            key = appContext.getPreferenceKey(R.string.pref_key_doh_use_ohttp),
+            default = false,
+        )
+
+    /** Whether Ultra DNS should defer to system/VPN DNS on the app's VPN network. */
+    var pauseUltraDnsOnVpn by
+        booleanPreference(
+            key = appContext.getPreferenceKey(R.string.pref_key_waterfox_dns_pause_on_vpn),
+            default = true,
+        )
+
+    /** Retrieves the selected DoH mode, defaulting to Ultra only when no mode is stored. */
     fun getDohSettingsMode(): Engine.DohSettingsMode {
+        if (!preferences.contains(appContext.getPreferenceKey(R.string.pref_key_doh_settings_mode))) {
+            return Engine.DohSettingsMode.ULTRA
+        }
+
         return when (trrMode) {
             DOH_SETTINGS_DEFAULT -> Engine.DohSettingsMode.DEFAULT
             DOH_SETTINGS_INCREASED -> Engine.DohSettingsMode.INCREASED
-            DOH_SETTINGS_MAX -> Engine.DohSettingsMode.MAX
+            DOH_SETTINGS_MAX -> if (dohUseOhttp) Engine.DohSettingsMode.ULTRA else Engine.DohSettingsMode.MAX
             DOH_SETTINGS_OFF -> Engine.DohSettingsMode.OFF
             else -> Engine.DohSettingsMode.DEFAULT
         }
@@ -2976,13 +2994,28 @@ class Settings(
 
     /** Updates trrMode by converting the given DohSettingsMode */
     fun setDohSettingsMode(mode: Engine.DohSettingsMode) {
-        trrMode =
-            when (mode) {
-                Engine.DohSettingsMode.DEFAULT -> DOH_SETTINGS_DEFAULT
-                Engine.DohSettingsMode.INCREASED -> DOH_SETTINGS_INCREASED
-                Engine.DohSettingsMode.MAX -> DOH_SETTINGS_MAX
-                Engine.DohSettingsMode.OFF -> DOH_SETTINGS_OFF
+        trrMode = when (mode) {
+            Engine.DohSettingsMode.DEFAULT -> {
+                dohUseOhttp = false
+                DOH_SETTINGS_DEFAULT
             }
+            Engine.DohSettingsMode.INCREASED -> {
+                dohUseOhttp = false
+                DOH_SETTINGS_INCREASED
+            }
+            Engine.DohSettingsMode.MAX -> {
+                dohUseOhttp = false
+                DOH_SETTINGS_MAX
+            }
+            Engine.DohSettingsMode.ULTRA -> {
+                dohUseOhttp = true
+                DOH_SETTINGS_MAX
+            }
+            Engine.DohSettingsMode.OFF -> {
+                dohUseOhttp = false
+                DOH_SETTINGS_OFF
+            }
+        }
     }
 
     /** Indicates if the user has completed the setup step for choosing the toolbar location */

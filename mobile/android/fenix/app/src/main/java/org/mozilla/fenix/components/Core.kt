@@ -129,6 +129,7 @@ import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.perf.StrictModeManager
 import org.mozilla.fenix.perf.lazyMonitored
 import org.mozilla.fenix.settings.advanced.getSelectedLocale
+import org.mozilla.fenix.settings.doh.UltraDnsCoordinator
 import org.mozilla.fenix.settings.downloads.DownloadLocationManager
 import org.mozilla.fenix.share.DefaultSentFromFirefoxManager
 import org.mozilla.fenix.share.DefaultSentFromStorage
@@ -153,8 +154,14 @@ class Core(
     strictMode: StrictModeManager,
     visualCompletenessQueue: RunWhenReadyQueue,
 ) {
+    /** Process-wide Ultra DNS policy, shared by engine initialization and DNS settings. */
+    val ultraDnsCoordinator: UltraDnsCoordinator by lazyMonitored {
+        UltraDnsCoordinator(context.applicationContext, context.components.settings)
+    }
+
     /** The browser engine component initialized based on the build configuration (see build variants). */
     val engine: Engine by lazyMonitored {
+        val initialDohMode = ultraDnsCoordinator.initialMode()
         val defaultSettings =
             DefaultSettings(
                 requestInterceptor = requestInterceptor,
@@ -175,10 +182,11 @@ class Core(
                         R.color.fx_mobile_surface,
                     ),
                 httpsOnlyMode = context.components.settings.getHttpsOnlyMode(),
-                dohSettingsMode = context.components.settings.getDohSettingsMode(),
+                dohSettingsMode = initialDohMode,
                 dohProviderUrl = context.components.settings.dohProviderUrl,
                 dohDefaultProviderUrl = context.components.settings.dohDefaultProviderUrl,
                 dohExceptionsList = context.components.settings.dohExceptionsList.toList(),
+                dohUseOhttp = initialDohMode == Engine.DohSettingsMode.ULTRA,
                 globalPrivacyControlEnabled = context.components.settings.shouldEnableGlobalPrivacyControl,
                 fdlibmMathEnabled = FxNimbus.features.fingerprintingProtection.value().fdlibmMath,
                 emailTrackerBlockingPrivateBrowsing = true,
@@ -257,6 +265,7 @@ class Core(
                 runtime = geckoRuntime,
             )
             .also {
+                ultraDnsCoordinator.start(it)
                 it.installBuiltInWebExtension(
                     "amo@waterfox.net",
                     "resource://android/assets/extensions/amo/",

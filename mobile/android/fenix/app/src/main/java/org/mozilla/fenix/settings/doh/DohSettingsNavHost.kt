@@ -95,6 +95,11 @@ internal fun DohSettingsNavHost(
                         DohSettingsRootAction.MaxInfoClicked,
                     )
                 },
+                onUltraInfoClicked = {
+                    store.dispatch(
+                        DohSettingsRootAction.UltraInfoClicked,
+                    )
+                },
             )
         }
 
@@ -125,6 +130,19 @@ internal fun DohSettingsNavHost(
         composable(route = DohSettingsDestinations.INFO_MAX) {
             InfoScreen(
                 infoScreenTopic = InfoScreenTopic.MAX,
+                onLearnMoreClicked = { url ->
+                    store.dispatch(
+                        LearnMoreClicked(
+                            url,
+                        ),
+                    )
+                },
+            )
+        }
+
+        composable(route = DohSettingsDestinations.INFO_ULTRA) {
+            InfoScreen(
+                infoScreenTopic = InfoScreenTopic.ULTRA,
                 onLearnMoreClicked = { url ->
                     store.dispatch(
                         LearnMoreClicked(
@@ -182,6 +200,7 @@ private fun UpdateToolbar(
         DohSettingsDestinations.INFO_DEFAULT -> R.string.preference_doh_default_protection
         DohSettingsDestinations.INFO_INCREASED -> R.string.preference_doh_increased_protection
         DohSettingsDestinations.INFO_MAX -> R.string.preference_doh_max_protection
+        DohSettingsDestinations.INFO_ULTRA -> R.string.preference_doh_ultra_protection
         DohSettingsDestinations.EXCEPTIONS_LIST -> R.string.preference_doh_exceptions
         DohSettingsDestinations.ADD_EXCEPTION -> R.string.preference_doh_exceptions_add
         else -> R.string.preference_doh_title
@@ -197,6 +216,7 @@ internal object DohSettingsDestinations {
     const val INFO_DEFAULT = "doh:settings:info"
     const val INFO_INCREASED = "doh:settings:info-increased"
     const val INFO_MAX = "doh:settings:info-max"
+    const val INFO_ULTRA = "doh:settings:info-ultra"
     const val EXCEPTIONS_LIST = "doh:settings:list-exceptions"
     const val ADD_EXCEPTION = "doh:settings:add-exception"
 }

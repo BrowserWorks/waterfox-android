@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
@@ -24,6 +27,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import mozilla.components.compose.base.annotation.FlexibleWindowPreview
 import org.mozilla.fenix.R
+import mozilla.components.ui.icons.R as iconsR
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
 import org.mozilla.fenix.settings.SupportUtils
@@ -41,6 +45,7 @@ import org.mozilla.fenix.theme.ThemeProvider
 @Suppress("SpreadOperator")
 internal fun InfoScreen(
     infoScreenTopic: InfoScreenTopic,
+    onNavigateUp: (() -> Unit)? = null,
     onLearnMoreClicked: (String) -> Unit = {},
 ) {
     val title = stringResource(infoScreenTopic.titleId)
@@ -66,6 +71,7 @@ internal fun InfoScreen(
         ) {
             Title(
                 title = title,
+                onNavigateUp = onNavigateUp,
             )
 
             bulletPoints.forEach { (text, url) ->
@@ -85,6 +91,7 @@ internal fun InfoScreen(
 @Composable
 private fun Title(
     title: String,
+    onNavigateUp: (() -> Unit)? = null,
 ) {
     Row(
         modifier = Modifier
@@ -95,6 +102,18 @@ private fun Title(
                 bottom = 6.dp,
             ),
     ) {
+        if (onNavigateUp != null) {
+            IconButton(
+                onClick = onNavigateUp,
+            ) {
+                Icon(
+                    painter = painterResource(iconsR.drawable.mozac_ic_back_24),
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+
         Text(
             text = title,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -204,6 +223,16 @@ internal enum class InfoScreenTopic(
             BulletPoint(R.string.preference_doh_max_protection_info_1) to null,
             BulletPoint(R.string.preference_doh_max_protection_info_2) to null,
             BulletPoint(R.string.preference_doh_max_protection_info_3) to null,
+        ),
+    ),
+    ULTRA(
+        titleId = R.string.preference_doh_ultra_protection,
+        bulletPoints = listOf(
+            BulletPoint(R.string.preference_doh_ultra_protection_info_1) to null,
+            BulletPoint(R.string.preference_doh_ultra_protection_info_2) to null,
+            BulletPoint(R.string.preference_doh_ultra_protection_info_3) to null,
+            BulletPoint(R.string.preference_doh_ultra_protection_info_4) to null,
+            BulletPoint(R.string.preference_doh_ultra_protection_info_5) to null,
         ),
     ),
 }

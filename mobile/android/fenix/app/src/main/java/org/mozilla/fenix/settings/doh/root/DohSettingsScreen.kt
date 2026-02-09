@@ -72,6 +72,8 @@ import org.mozilla.fenix.theme.FirefoxTheme
  * @param onDefaultInfoClicked Invoked when the user accesses info about Default DoH level.
  * @param onIncreasedInfoClicked Invoked when the user accesses info about Increased DoH level.
  * @param onMaxInfoClicked Invoked when the user accesses info about Max DoH level.
+ * @param onUltraInfoClicked Invoked when the user accesses info about Ultra DoH level.
+ * @param vpnSettings Live VPN pause controls shown within the selected Ultra option.
  */
 @Composable
 internal fun DohSettingsScreen(
@@ -85,6 +87,8 @@ internal fun DohSettingsScreen(
     onDefaultInfoClicked: () -> Unit = {},
     onIncreasedInfoClicked: () -> Unit = {},
     onMaxInfoClicked: () -> Unit = {},
+    onUltraInfoClicked: () -> Unit = {},
+    vpnSettings: @Composable () -> Unit = {},
 ) {
     Surface {
         Column(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
@@ -96,9 +100,14 @@ internal fun DohSettingsScreen(
                 onCustomClicked = onCustomClicked,
                 onCustomCancelClicked = onCustomCancelClicked,
                 onCustomAddClicked = onCustomAddClicked,
-                onDefaultInfoClicked = onDefaultInfoClicked,
-                onIncreasedInfoClicked = onIncreasedInfoClicked,
-                onMaxInfoClicked = onMaxInfoClicked,
+                infoCallbacks =
+                    DohInfoCallbacks(
+                        onDefaultClicked = onDefaultInfoClicked,
+                        onIncreasedClicked = onIncreasedInfoClicked,
+                        onMaxClicked = onMaxInfoClicked,
+                        onUltraClicked = onUltraInfoClicked,
+                    ),
+                vpnSettings = vpnSettings,
             )
 
             HorizontalDivider(modifier = Modifier.padding(8.dp))
@@ -198,6 +207,13 @@ private fun DohProtectionLevel(
     }
 }
 
+private data class DohInfoCallbacks(
+    val onDefaultClicked: () -> Unit,
+    val onIncreasedClicked: () -> Unit,
+    val onMaxClicked: () -> Unit,
+    val onUltraClicked: () -> Unit,
+)
+
 @Composable
 @Suppress("LongMethod")
 private fun DohSelection(
@@ -206,9 +222,8 @@ private fun DohSelection(
     onCustomClicked: () -> Unit,
     onCustomCancelClicked: () -> Unit,
     onCustomAddClicked: (Provider.Custom, String) -> Unit,
-    onDefaultInfoClicked: () -> Unit,
-    onIncreasedInfoClicked: () -> Unit,
-    onMaxInfoClicked: () -> Unit,
+    infoCallbacks: DohInfoCallbacks,
+    vpnSettings: @Composable () -> Unit,
 ) {
     state.allProtectionLevels.forEach { protectionLevel ->
         when (protectionLevel) {
@@ -223,7 +238,7 @@ private fun DohSelection(
                             stringResource(id = R.string.app_name),
                         ),
                     showInfoIcon = true,
-                    onInfoClick = onDefaultInfoClicked,
+                    onInfoClick = infoCallbacks.onDefaultClicked,
                     onClick = {
                         onDohOptionSelected(protectionLevel, null)
                     },
@@ -239,24 +254,12 @@ private fun DohSelection(
                     provider =
                         if (protectionLevel == state.selectedProtectionLevel) {
                             {
-                                state.selectedProvider?.let {
-                                    ProviderDropdown(
-                                        selectedProviderOption = it,
-                                        onProviderSelected = { provider ->
-                                            onDohOptionSelected(
-                                                protectionLevel,
-                                                provider,
-                                            )
-                                        },
-                                        providers = state.providers,
-                                        onCustomClicked = onCustomClicked,
-                                    )
-                                }
+                                DohProviderDropdown(state, protectionLevel, onDohOptionSelected, onCustomClicked)
                             }
                         } else {
                             null
                         },
-                    onInfoClick = onIncreasedInfoClicked,
+                    onInfoClick = infoCallbacks.onIncreasedClicked,
                     onClick = {
                         onDohOptionSelected(
                             protectionLevel,
@@ -279,24 +282,12 @@ private fun DohSelection(
                     provider =
                         if (protectionLevel == state.selectedProtectionLevel) {
                             {
-                                state.selectedProvider?.let {
-                                    ProviderDropdown(
-                                        selectedProviderOption = it,
-                                        onProviderSelected = { provider ->
-                                            onDohOptionSelected(
-                                                protectionLevel,
-                                                provider,
-                                            )
-                                        },
-                                        providers = state.providers,
-                                        onCustomClicked = onCustomClicked,
-                                    )
-                                }
+                                DohProviderDropdown(state, protectionLevel, onDohOptionSelected, onCustomClicked)
                             }
                         } else {
                             null
                         },
-                    onInfoClick = onMaxInfoClicked,
+                    onInfoClick = infoCallbacks.onMaxClicked,
                     onClick = {
                         onDohOptionSelected(
                             protectionLevel,
@@ -304,6 +295,31 @@ private fun DohSelection(
                         )
                     },
                 )
+
+            is ProtectionLevel.Ultra ->
+                Column {
+                    DohProtectionLevel(
+                        modifier = Modifier.fillMaxWidth(),
+                        selected = protectionLevel == state.selectedProtectionLevel,
+                        label = stringResource(R.string.preference_doh_ultra_protection),
+                        summary =
+                            stringResource(
+                                R.string.preference_doh_ultra_protection_summary,
+                                stringResource(id = R.string.app_name),
+                            ),
+                        showInfoIcon = true,
+                        onInfoClick = infoCallbacks.onUltraClicked,
+                        onClick = {
+                            onDohOptionSelected(
+                                protectionLevel,
+                                null,
+                            )
+                        },
+                    )
+                    if (protectionLevel == state.selectedProtectionLevel) {
+                        vpnSettings()
+                    }
+                }
 
             is ProtectionLevel.Off ->
                 DohProtectionLevel(
@@ -319,6 +335,15 @@ private fun DohSelection(
         }
     }
 
+    DohCustomProviderDialog(state, onCustomCancelClicked, onCustomAddClicked)
+}
+
+@Composable
+private fun DohCustomProviderDialog(
+    state: DohSettingsState,
+    onCustomCancelClicked: () -> Unit,
+    onCustomAddClicked: (Provider.Custom, String) -> Unit,
+) {
     if (state.selectedProvider is Provider.Custom && state.isCustomProviderDialogOn) {
         AlertDialogAddCustomProvider(
             customProviderUrl = state.selectedProvider.url,
@@ -327,6 +352,23 @@ private fun DohSelection(
             onCustomAddClicked = { url ->
                 onCustomAddClicked(state.selectedProvider, url)
             },
+        )
+    }
+}
+
+@Composable
+private fun DohProviderDropdown(
+    state: DohSettingsState,
+    protectionLevel: ProtectionLevel,
+    onDohOptionSelected: (ProtectionLevel, Provider?) -> Unit,
+    onCustomClicked: () -> Unit,
+) {
+    state.selectedProvider?.let { provider ->
+        ProviderDropdown(
+            selectedProviderOption = provider,
+            onProviderSelected = { onDohOptionSelected(protectionLevel, it) },
+            providers = state.providers,
+            onCustomClicked = onCustomClicked,
         )
     }
 }
@@ -536,6 +578,7 @@ private fun DohScreenDefaultProviderPreview(@PreviewParameter(PreviewThemeProvid
                             ProtectionLevel.Default,
                             ProtectionLevel.Increased,
                             ProtectionLevel.Max,
+                            ProtectionLevel.Ultra,
                             ProtectionLevel.Off,
                         ),
                     selectedProtectionLevel = ProtectionLevel.Increased,
@@ -561,6 +604,7 @@ private fun DohScreenCustomProviderPreview(@PreviewParameter(PreviewThemeProvide
                             ProtectionLevel.Default,
                             ProtectionLevel.Increased,
                             ProtectionLevel.Max,
+                            ProtectionLevel.Ultra,
                             ProtectionLevel.Off,
                         ),
                     selectedProtectionLevel = ProtectionLevel.Increased,

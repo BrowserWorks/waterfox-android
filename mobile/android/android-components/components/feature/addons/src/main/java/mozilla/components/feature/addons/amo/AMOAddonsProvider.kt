@@ -114,6 +114,9 @@ class AMOAddonsProvider(
         readTimeoutInSeconds: Long?,
         language: String?,
     ): List<Addon> = withContext(ioDispatcher) {
+        // prevent any network calls
+        return@withContext emptyList()
+
         // We want to make sure we always use useFallbackFile = false here, as it warranties
         // that we are trying to fetch the latest localized add-ons when the user changes
         // language from the previous one.

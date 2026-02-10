@@ -190,19 +190,7 @@ class MenuDialogMiddleware(
                 return@launch
             }
 
-            val recommendedAddons = addons
-                .filter { !it.isInstalled() }
-                .shuffled()
-                .take(NUMBER_OF_RECOMMENDED_ADDONS_TO_SHOW)
 
-            if (recommendedAddons.isNotEmpty()) {
-                store.dispatch(
-                    MenuAction.UpdateExtensionState(
-                        recommendedAddons = recommendedAddons,
-                    ),
-                )
-                store.dispatch(MenuAction.UpdateShowExtensionsOnboarding(true))
-            }
         } catch (e: AddonManagerException) {
             logger.error("Failed to query extensions", e)
         }

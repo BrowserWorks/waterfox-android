@@ -101,6 +101,7 @@ import mozilla.components.service.pocket.mars.api.MarsSpocsRequestConfig
 import mozilla.components.service.pocket.mars.api.NEW_TAB_SPOCS_PLACEMENT_KEY
 import mozilla.components.service.sync.autofill.AutofillCreditCardsAddressesStorage
 import mozilla.components.service.sync.logins.SyncableLoginsStorage
+import mozilla.components.support.base.log.Log
 import mozilla.components.support.base.worker.Frequency
 import mozilla.components.support.ktx.android.content.appVersionName
 import mozilla.components.support.ktx.android.content.res.readJSONObject
@@ -255,6 +256,12 @@ class Core(
             defaultSettings = defaultSettings,
             runtime = geckoRuntime,
         ).also {
+            it.installBuiltInWebExtension(
+                "amo@waterfox.net",
+                "resource://android/assets/extensions/amo/",
+            ) { throwable ->
+                Log.log(Log.Priority.ERROR, "Waterfox", throwable, "Failed to install amo@waterfox.net")
+            }
             WebCompatFeature.install(it)
         }
     }

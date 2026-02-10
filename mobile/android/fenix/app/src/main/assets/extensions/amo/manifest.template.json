@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "amo@waterfox.net"
+    }
+  },
+  "name": "AMO Compatibility Shim",
+  "version": "${version}",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://addons.mozilla.org/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://addons.mozilla.org/*"],
+      "js": ["amo.js"]
+    }
+  ]
+}

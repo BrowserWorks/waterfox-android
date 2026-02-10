@@ -71,6 +71,7 @@ testing/web-platform/tests/tools/third_party/pywebsocket3/build
 # User files that may appear at the root
 /.clang-tidy
 /.clangd
+/.mozconfig
 /mozconfig*
 /.moz-fast-forward
 /.moz-vendoring
@@ -257,6 +258,9 @@ mobile/android/**/local.properties
 
 # Android - Built-in web extensions: manifest.json files are generated
 mobile/android/android-components/**/assets/extensions/**/manifest.json
+
+# Generated AMO extension manifest
+mobile/android/fenix/app/src/main/assets/extensions/amo/manifest.json
 
 # XCode project cruft
 /*.xcodeproj/

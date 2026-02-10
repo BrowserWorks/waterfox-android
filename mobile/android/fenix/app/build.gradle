@@ -3,6 +3,7 @@ import com.android.build.api.variant.FilterConfiguration
 import java.time.format.DateTimeFormatter
 
 import static org.mozilla.conventions.BuildConfigKt.getBuildId
+import static org.mozilla.conventions.BuildConfigKt.updateExtensionVersion
 
 buildscript {
     repositories {
@@ -72,8 +73,8 @@ android {
         buildConfigField "String", "VCS_HASH", "\"\""
         // This should be the "public" base URL of AMO.
         buildConfigField "String", "AMO_BASE_URL", "\"https://addons.mozilla.org\""
-        buildConfigField "String", "AMO_COLLECTION_NAME", "\"Extensions-for-Android\""
-        buildConfigField "String", "AMO_COLLECTION_USER", "\"mozilla\""
+        buildConfigField "String", "AMO_COLLECTION_NAME", "\"\""
+        buildConfigField "String", "AMO_COLLECTION_USER", "\"\""
         // This should be the base URL used to call the AMO API.
         buildConfigField "String", "AMO_SERVER_URL", "\"https://services.addons.mozilla.org\""
 
@@ -538,6 +539,10 @@ nimbus {
             ? gradle.getProperty('localProperties.autoPublish.application-services.dir') : null
 }
 
+tasks.register("updateAMOExtensionVersion", Copy) { task ->
+    updateExtensionVersion(task, 'src/main/assets/extensions/amo', rootProject.ext.config.componentsVersion)
+}
+
 dependencies {
     implementation project('longfox')
     implementation project(':components:browser-engine-gecko')
@@ -881,3 +886,5 @@ tasks.register("detekt", Exec) {
     workingDir file("${gradle.mozconfig.topsrcdir}")
     commandLine "./mach", "gradle", "-p", "mobile/android/fenix", ":detekt"
 }
+
+preBuild.dependsOn updateAMOExtensionVersion

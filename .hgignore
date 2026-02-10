@@ -248,6 +248,7 @@ services/app-services/tools/nimbus-gradle-plugin/build
 
 # Android - Built-in web extensions: manifest.json files are generated
 ^mobile/android/android-components/.*/assets/extensions/.*/manifest\.json
+^mobile/android/fenix/app/src/main/assets/extensions/amo/manifest\.json
 
 # XCode project cruft
 ^[^/]*\.xcodeproj/

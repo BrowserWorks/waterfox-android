@@ -624,6 +624,11 @@ bool WebExtensionPolicy::IsRestrictedURI(const URLInfo& aURI) {
   }
 
   if (AddonManagerWebAPI::IsValidSite(aURI.URI())) {
+#ifdef MOZ_WIDGET_ANDROID
+    if (StaticPrefs::privacy_resistFingerprinting_block_mozAddonManager()) {
+      return false;
+    }
+#endif
     return true;
   }
 

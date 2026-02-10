@@ -13,7 +13,6 @@ import com.google.android.material.R as materialR
 import java.io.UnsupportedEncodingException
 import java.net.URLEncoder
 import java.util.Locale
-import mozilla.components.support.ktx.android.content.appVersionName
 import mozilla.components.support.ktx.android.content.getColorFromAttr
 import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.IntentReceiverActivity
@@ -34,7 +33,7 @@ object SupportUtils {
     // This is locale-less on purpose so that the content negotiation happens on the AMO side because the current
     // user language might not be supported by AMO and/or the language might not be exactly what AMO is expecting
     // (e.g. `en` instead of `en-US`).
-    const val AMO_HOMEPAGE_FOR_ANDROID = "${BuildConfig.AMO_BASE_URL}/android/"
+    const val AMO_HOMEPAGE_FOR_ANDROID = "https://addons.mozilla.org/"
 
     enum class SumoTopic(internal val topicStr: String) {
         HELP("faq-android"),
@@ -53,9 +52,7 @@ object SupportUtils {
         SPONSOR_PRIVACY("sponsor-privacy"),
         HTTPS_ONLY_MODE("https-only-mode-waterfox-android"),
         DNS_OVER_HTTPS("https-only-mode-waterfox-android"),
-        DNS_OVER_HTTPS_LOCAL_PROVIDER(
-            "https-only-mode-waterfox-android"
-        ),
+        DNS_OVER_HTTPS_LOCAL_PROVIDER("https-only-mode-waterfox-android"),
         DNS_OVER_HTTPS_NETWORK("https-only-mode-waterfox-android"),
         UNSIGNED_ADDONS("unsigned-addons"),
         FX_SUGGEST("search-suggestions-waterfox"),

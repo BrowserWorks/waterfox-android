@@ -9,9 +9,9 @@ object FeatureFlags {
 
     /**
      * Enables custom extension collection feature, This feature does not only depend on this flag. It requires the AMO
-     * collection override to be enabled which is behind the Secret Settings.
+     * collection override to be configured in Settings.
      */
-    val customExtensionCollectionFeature = Config.channel.isNightlyOrDebug || Config.channel.isBeta
+    val customExtensionCollectionFeature = true
 
     /** Pull-to-refresh allows you to pull the web content down far enough to have the page to reload. */
     const val PULL_TO_REFRESH_ENABLED = true

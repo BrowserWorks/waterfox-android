@@ -501,7 +501,6 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                     null
                 }
 
-                // Only displayed when secret settings are enabled
                 resources.getString(R.string.pref_key_override_amo_collection) -> {
                     val context = requireContext()
                     val dialogView = LayoutInflater.from(context).inflate(R.layout.amo_collection_override_dialog, null)
@@ -740,11 +739,8 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
         val preferenceAmoCollectionOverride =
             findPreference<Preference>(getPreferenceKey(R.string.pref_key_override_amo_collection))
 
-        val show =
-            (customExtensionCollectionFeature &&
-                (settings.amoCollectionOverrideConfigured() || settings.showSecretDebugMenuThisSession))
         preferenceAmoCollectionOverride?.apply {
-            isVisible = show
+            isVisible = customExtensionCollectionFeature
             summary = settings.overrideAmoCollection.ifEmpty { null }
         }
     }

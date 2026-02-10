@@ -87,8 +87,8 @@ android {
         buildConfigField "String", "VCS_HASH", "\"\""
         // This should be the "public" base URL of AMO.
         buildConfigField "String", "AMO_BASE_URL", "\"https://addons.mozilla.org\""
-        buildConfigField "String", "AMO_COLLECTION_NAME", "\"Extensions-for-Android\""
-        buildConfigField "String", "AMO_COLLECTION_USER", "\"mozilla\""
+        buildConfigField "String", "AMO_COLLECTION_NAME", "\"\""
+        buildConfigField "String", "AMO_COLLECTION_USER", "\"\""
         // This should be the base URL used to call the AMO API.
         buildConfigField "String", "AMO_SERVER_URL", "\"https://services.addons.mozilla.org\""
 
@@ -595,6 +595,10 @@ nimbus {
             ? gradle.getProperty('localProperties.autoPublish.application-services.dir') : null
 }
 
+tasks.register("updateAMOExtensionVersion", Copy) { task ->
+    updateExtensionVersion(task, 'src/main/assets/extensions/amo')
+}
+
 dependencies {
     implementation project(':components:browser-engine-gecko')
     implementation project(':components:compose-awesomebar')
@@ -992,3 +996,5 @@ tasks.withType(DependencyTask).configureEach { task ->
     // make the dependency task depend on its cleanup task.
     task.dependsOn(tasks.named(cleanUpTaskName))
 }
+
+preBuild.dependsOn updateAMOExtensionVersion

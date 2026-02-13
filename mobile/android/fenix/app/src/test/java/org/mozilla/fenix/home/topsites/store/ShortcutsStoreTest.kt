@@ -55,7 +55,7 @@ class ShortcutsStoreTest {
 
         assertTrue(store.state.popularSites.isEmpty())
 
-        val popularSites = listOf(PopularSite(title = "Mozilla", url = "https://mozilla.org", iconUrl = null))
+        val popularSites = listOf(PopularSite(title = "Mozilla", url = "https://mozilla.org"))
         store.dispatch(ShortcutsAction.UpdatePopularSites(popularSites))
 
         assertEquals(popularSites, store.state.popularSites)

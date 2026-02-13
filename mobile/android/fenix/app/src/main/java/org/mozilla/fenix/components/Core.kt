@@ -465,7 +465,7 @@ class Core(
         BrowserIcons(
             context = context,
             httpClient = client,
-            manifestProvider = merinoManifestProvider,
+            preparers = BrowserIcons.nonMerinoIconPreparers(),
         )
     }
 

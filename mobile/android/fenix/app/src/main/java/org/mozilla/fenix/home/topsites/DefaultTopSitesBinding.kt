@@ -75,7 +75,7 @@ class DefaultTopSitesBinding(
     internal suspend fun getTopSites(region: String): List<Pair<String, String>> = withContext(ioDispatcher) {
         try {
             val json = Json { ignoreUnknownKeys = true }
-            val jsonString = resources.openRawResource(R.raw.initial_shortcuts).bufferedReader()
+            val jsonString = resources.openRawResource(R.raw.initial_shortcuts_empty).bufferedReader()
                 .use { it.readText() }
 
             json.decodeFromString<DefaultTopSitesList>(jsonString).data.filter { item ->

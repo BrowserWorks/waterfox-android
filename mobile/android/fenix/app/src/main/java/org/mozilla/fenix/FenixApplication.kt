@@ -67,7 +67,6 @@ import mozilla.components.support.ktx.android.arch.lifecycle.addObservers
 import mozilla.components.support.ktx.android.content.isMainProcess
 import mozilla.components.support.ktx.android.content.runOnlyInMainProcess
 import mozilla.components.support.locale.LocaleManager
-import mozilla.components.support.remotesettings.GlobalRemoteSettingsDependencyProvider
 import mozilla.components.support.rusthttp.RustHttpConfig
 import mozilla.components.support.utils.BrowsersCache
 import mozilla.components.support.utils.RunWhenReadyQueue
@@ -413,10 +412,8 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         queueRestoreLocale(queue)
         queueStorageMaintenance(queue)
         queueIntegrityClientWarmUp(queue)
-        queueNimbusFetchInForeground(queue)
         queueSetAutofillMetrics(queue)
         queueDownloadWallpapers(queue)
-
         if (settings().enableFxSuggest) {
             queueSuggestIngest(queue)
         }
@@ -781,7 +778,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
     }
 
     private fun initializeRemoteSettingsSupport() {
-        GlobalRemoteSettingsDependencyProvider.initialize(components.remoteSettingsService.value)
         components.remoteSettingsSyncScheduler.registerForSync()
     }
 

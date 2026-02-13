@@ -17,22 +17,15 @@ import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.json.Json
-import mozilla.appservices.errorsupport.RustComponentsErrorTelemetry
 import mozilla.appservices.remotesettings.Attachment
-import mozilla.appservices.remotesettings.RemoteSettings
-import mozilla.appservices.remotesettings.RemoteSettingsConfig
-import mozilla.appservices.remotesettings.RemoteSettingsException
 import mozilla.appservices.remotesettings.RemoteSettingsRecord
 import mozilla.appservices.remotesettings.RemoteSettingsResponse
-import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.ktx.util.writeString
-import mozilla.components.support.rusterrors.reportRustError
 import org.json.JSONObject
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.IOException
 import java.net.URL
-import mozilla.appservices.remotesettings.InternalException as UniffiInternalException
 
 /**
  * Helper class to download collections from remote settings in app services.
@@ -51,11 +44,6 @@ class RemoteSettingsClient(
     private val collectionName: String,
 ) {
 
-    private val config = RemoteSettingsConfig(
-        serverUrl = serverUrl,
-        bucketName = bucketName,
-        collectionName = collectionName,
-    )
     private val serverHostName = URL(serverUrl).host
     private val path = "${storageRootDirectory.path}/$serverHostName/$bucketName/$collectionName"
 
@@ -65,25 +53,8 @@ class RemoteSettingsClient(
     /**
      * Fetches a response that includes Remote Settings records and the last time the collection was modified.
      */
-    @Suppress("TooGenericExceptionCaught")
     suspend fun fetch(): RemoteSettingsResult = withContext(Dispatchers.IO) {
-        try {
-            val serverRecords = RemoteSettings(config).use {
-                it.getRecords()
-            }
-            RemoteSettingsResult.Success(serverRecords)
-        } catch (e: RemoteSettingsException) {
-            Logger.error(e.message.toString())
-            RemoteSettingsResult.NetworkFailure(e)
-        } catch (e: NullPointerException) {
-            Logger.error(e.message.toString())
-            RemoteSettingsResult.NetworkFailure(e)
-        } catch (e: UniffiInternalException) {
-            Logger.error(e.toString())
-            RustComponentsErrorTelemetry.submitErrorPing("remote-settings-internal-error", e.toString())
-            reportRustError("remote-settings-internal-error", e.toString())
-            RemoteSettingsResult.NetworkFailure(e)
-        }
+        RemoteSettingsResult.NetworkFailure(Exception("Remote fetching disabled"))
     }
 
     /**
@@ -131,7 +102,7 @@ class RemoteSettingsClient(
 suspend fun RemoteSettingsClient.readOrFetch(): RemoteSettingsResult {
     val readResult = read()
     return if (readResult is RemoteSettingsResult.DiskFailure) {
-        fetch()
+        RemoteSettingsResult.NetworkFailure(Exception("Remote fetching disabled"))
     } else {
         readResult
     }

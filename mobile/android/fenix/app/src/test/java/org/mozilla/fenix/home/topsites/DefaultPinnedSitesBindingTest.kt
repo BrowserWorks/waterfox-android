@@ -44,7 +44,7 @@ class DefaultPinnedSitesBindingTest {
 
         browserStore = BrowserStore()
 
-        every { resources.openRawResource(R.raw.default_pinned_shortcuts) } answers
+        every { resources.openRawResource(R.raw.initial_shortcuts_empty) } answers
             {
                 this.javaClass.classLoader!!.getResourceAsStream("raw/test_default_pinned_shortcuts.json")!!
             }
@@ -188,7 +188,7 @@ class DefaultPinnedSitesBindingTest {
     @Test
     fun `GIVEN the raw resource is missing WHEN getPinnedSites is called THEN return empty list and report crash`() =
         runTest(dispatcher) {
-            every { resources.openRawResource(R.raw.default_pinned_shortcuts) } throws Resources.NotFoundException()
+            every { resources.openRawResource(R.raw.initial_shortcuts_empty) } throws Resources.NotFoundException()
 
             val binding = createBinding()
             val pinnedSites = binding.getPinnedSites(region = "XX")
@@ -209,7 +209,7 @@ class DefaultPinnedSitesBindingTest {
         runTest(dispatcher) {
             val malformedJson =
                 "{\"data\": [{\"url\": \"https://example.com\", \"title\": \"Valid\"}, {\"id\": \"invalid\"}]}"
-            every { resources.openRawResource(R.raw.default_pinned_shortcuts) } returns
+            every { resources.openRawResource(R.raw.initial_shortcuts_empty) } returns
                 ByteArrayInputStream(malformedJson.toByteArray())
 
             val binding = createBinding()
@@ -230,7 +230,7 @@ class DefaultPinnedSitesBindingTest {
     fun `GIVEN malformed json WHEN getPinnedSites is called THEN return empty list and report crash for illegal argument`() =
         runTest(dispatcher) {
             val malformedJson = "this is not a valid json"
-            every { resources.openRawResource(R.raw.default_pinned_shortcuts) } returns
+            every { resources.openRawResource(R.raw.initial_shortcuts_empty) } returns
                 ByteArrayInputStream(malformedJson.toByteArray())
 
             val binding = createBinding()

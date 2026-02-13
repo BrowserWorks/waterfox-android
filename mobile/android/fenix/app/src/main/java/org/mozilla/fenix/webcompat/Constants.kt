@@ -5,4 +5,4 @@
 package org.mozilla.fenix.webcompat
 
 const val WEB_COMPAT_REPORTER_URL = "https://webcompat.com/issues/new?url="
-const val WEB_COMPAT_REPORTER_SUMO_URL = "https://support.mozilla.org/km/kb/report-breakage-due-blocking"
+const val WEB_COMPAT_REPORTER_SUMO_URL = "https://www.waterfox.com/support/report-breakage-due-blocking"

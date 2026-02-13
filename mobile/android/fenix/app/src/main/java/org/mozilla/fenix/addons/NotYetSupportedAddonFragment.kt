@@ -21,7 +21,7 @@ import org.mozilla.fenix.e2e.SystemInsetsPaddedFragment
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.showToolbar
 
-private const val LEARN_MORE_URL = "https://support.mozilla.org/kb/add-compatibility-firefox-preview"
+private const val LEARN_MORE_URL = "https://www.waterfox.com/support/add-compatibility-waterfox"
 
 /** Fragment for displaying and managing add-ons that are not yet supported by the browser. */
 class NotYetSupportedAddonFragment :

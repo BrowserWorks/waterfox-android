@@ -63,7 +63,6 @@ import mozilla.components.support.ktx.android.arch.lifecycle.addObservers
 import mozilla.components.support.ktx.android.content.isMainProcess
 import mozilla.components.support.ktx.android.content.runOnlyInMainProcess
 import mozilla.components.support.locale.LocaleAwareApplication
-import mozilla.components.support.remotesettings.GlobalRemoteSettingsDependencyProvider
 import mozilla.components.support.rusthttp.RustHttpConfig
 import mozilla.components.support.utils.BrowsersCache
 import mozilla.components.support.utils.logElapsedTime
@@ -480,16 +479,16 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
             }
         }
 
-        @OptIn(DelicateCoroutinesApi::class) // GlobalScope usage
-        fun queueNimbusFetchInForeground() {
-            queue.runIfReadyOrQueue {
-                GlobalScope.launch(IO) {
-                    components.nimbus.sdk.maybeFetchExperiments(
-                        context = this@FenixApplication,
-                    )
-                }
-            }
-        }
+        // @OptIn(DelicateCoroutinesApi::class) // GlobalScope usage
+        // fun queueNimbusFetchInForeground() {
+        //     queue.runIfReadyOrQueue {
+        //         GlobalScope.launch(IO) {
+        //             components.nimbus.sdk.maybeFetchExperiments(
+        //                 context = this@FenixApplication,
+        //             )
+        //         }
+        //     }
+        // }
 
         @OptIn(DelicateCoroutinesApi::class) // GlobalScope usage
         fun queueSuggestIngest() {
@@ -513,7 +512,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         queueIncrementNumberOfAppLaunches()
         queueRestoreLocale()
         queueStorageMaintenance()
-        queueNimbusFetchInForeground()
+        // queueNimbusFetchInForeground()
         queueDownloadWallpapers()
         if (settings().enableFxSuggest) {
             queueSuggestIngest()
@@ -700,7 +699,6 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
     }
 
     private fun initializeRemoteSettingsSupport() {
-        GlobalRemoteSettingsDependencyProvider.initialize(components.remoteSettingsService.value)
         components.remoteSettingsSyncScheduler.registerForSync()
     }
 

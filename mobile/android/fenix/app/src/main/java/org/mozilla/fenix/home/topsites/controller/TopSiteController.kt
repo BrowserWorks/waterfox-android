@@ -245,7 +245,7 @@ class DefaultTopSiteController(
             // Any top site sharing the URL of a default top site from the provider needs to be added to the blocklist,
             // whatever its type, otherwise the default top site would reappear in its place.
             val shouldBlock =
-                defaultTopSitesProvider.getDefaultTopSites().any { it.url.hasSameBlocklistEntryAs(topSite.url) }
+                false && defaultTopSitesProvider.getDefaultTopSites().any { it.url.hasSameBlocklistEntryAs(topSite.url) }
             appStore.dispatch(AppAction.RemoveTopSite(topSite = topSite, shouldBlock = shouldBlock))
 
             topSitesUseCases.removeTopSites(topSite)

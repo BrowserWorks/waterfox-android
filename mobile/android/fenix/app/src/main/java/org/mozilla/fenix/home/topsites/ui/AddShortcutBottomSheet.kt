@@ -114,7 +114,7 @@ private fun AddShortcutBottomSheetPreview() {
         Surface {
             AddShortcutBottomSheetContent(
                 popularSites = List(PREVIEW_POPULAR_SITE_COUNT) {
-                    PopularSite(title = "Mozilla", url = "https://mozilla.com", iconUrl = null)
+                    PopularSite(title = "Mozilla", url = "https://mozilla.com")
                 },
                 onAddWebsiteClicked = {},
                 onAddPopularSiteClick = {},

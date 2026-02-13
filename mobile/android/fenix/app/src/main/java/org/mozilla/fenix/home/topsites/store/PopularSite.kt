@@ -11,12 +11,10 @@ import mozilla.components.service.merino.manifest.ManifestEntry
  *
  * @property title The display title of the site.
  * @property url The URL of the site.
- * @property iconUrl The URL of the site's icon or null if not available.
  */
 data class PopularSite(
     val title: String,
     val url: String,
-    val iconUrl: String?,
 )
 
 /**
@@ -25,5 +23,4 @@ data class PopularSite(
 fun ManifestEntry.toPopularSite(): PopularSite = PopularSite(
     title = title,
     url = url,
-    iconUrl = icon.ifEmpty { null },
 )

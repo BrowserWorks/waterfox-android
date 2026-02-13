@@ -113,10 +113,7 @@ private fun PopularSiteItem(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Box(contentAlignment = Alignment.BottomEnd) {
-            FaviconCard(
-                url = site.url,
-                imageUrl = site.iconUrl,
-            )
+            FaviconCard(url = site.url)
 
             AddBadge()
         }
@@ -136,7 +133,6 @@ private fun PopularSiteItem(
 @Composable
 private fun FaviconCard(
     url: String,
-    imageUrl: String?,
     modifier: Modifier = Modifier,
 ) {
     Card(
@@ -161,7 +157,6 @@ private fun FaviconCard(
                 Favicon(
                     url = url,
                     size = TOP_SITES_FAVICON_SIZE.dp,
-                    imageUrl = imageUrl,
                 )
             }
         }
@@ -201,7 +196,7 @@ private fun PopularSitesPreview() {
             PopularSites(
                 sites =
                     List(PREVIEW_SITE_COUNT) {
-                        PopularSite(title = "Mozilla", url = "https://mozilla.com", iconUrl = null)
+                        PopularSite(title = "Mozilla", url = "https://mozilla.com")
                     },
                 onClick = {},
             )

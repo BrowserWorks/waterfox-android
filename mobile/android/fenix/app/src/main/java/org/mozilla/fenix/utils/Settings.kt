@@ -2508,7 +2508,7 @@ class Settings(
 
     /** Indicates if the regional default shortcuts are enabled. */
     val enableRegionalDefaultShortcuts: Boolean
-        get() = FxNimbus.features.regionalDefaultShortcuts.value().enabled
+        get() = false
 
     /** Indicates if the Homepage Wrexham Widget is enabled. */
     var enableHomepageWrexhamWidget by

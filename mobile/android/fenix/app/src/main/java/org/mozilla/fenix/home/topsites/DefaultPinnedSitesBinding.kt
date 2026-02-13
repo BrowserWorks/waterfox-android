@@ -133,7 +133,7 @@ class DefaultPinnedSitesBinding(
         withContext(ioDispatcher) {
             fetchDefaultTopSites(
                     resources = resources,
-                    rawResId = R.raw.default_pinned_shortcuts,
+                    rawResId = R.raw.initial_shortcuts_empty,
                     crashReporter = crashReporter,
                     region = region,
                 )

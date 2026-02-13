@@ -22,7 +22,7 @@ import org.mozilla.fenix.ext.showToolbar
 import mozilla.components.feature.addons.R as addonsR
 
 private const val LEARN_MORE_URL =
-    "https://support.mozilla.org/kb/add-compatibility-firefox-preview"
+    "https://www.waterfox.com/support/add-compatibility-waterfox"
 
 /**
  * Fragment for displaying and managing add-ons that are not yet supported by the browser.

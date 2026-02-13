@@ -76,7 +76,7 @@ class DefaultTopSitesBinding(
             try {
                 val json = Json { ignoreUnknownKeys = true }
                 val jsonString =
-                    resources.openRawResource(R.raw.initial_shortcuts).bufferedReader().use { it.readText() }
+                    resources.openRawResource(R.raw.initial_shortcuts_empty).bufferedReader().use { it.readText() }
 
                 json
                     .decodeFromString<DefaultTopSitesList>(jsonString)

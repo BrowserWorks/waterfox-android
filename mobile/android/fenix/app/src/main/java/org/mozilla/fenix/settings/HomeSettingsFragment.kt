@@ -72,6 +72,15 @@ class HomeSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragm
             onPreferenceChangeListener = createMetricPreferenceChangeListener("most_visited_sites")
         }
 
+        requirePreference<SwitchPreferenceCompat>(R.string.pref_key_show_more_shortcuts).apply {
+            isChecked = fenixSettings.showMoreShortcuts
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                val enabled = newValue as? Boolean ?: return@OnPreferenceChangeListener false
+                fenixSettings.showMoreShortcuts = enabled
+                true
+            }
+        }
+
         requirePreference<CheckBoxPreference>(R.string.pref_key_enable_contile).apply {
             isChecked = fenixSettings.showContileFeature
             onPreferenceChangeListener = createMetricPreferenceChangeListener("contile")

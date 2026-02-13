@@ -392,6 +392,16 @@ class BrowserIcons(
         sharedMemoryCache.clear()
     }
 
+    companion object {
+        /**
+         * Uses page-provided icons and the default caches without adding third-party manifest URLs.
+         */
+        fun nonMerinoIconPreparers(): List<IconPreprarer> = listOf(
+            MemoryIconPreparer(sharedMemoryCache),
+            DiskIconPreparer(sharedDiskCache),
+        )
+    }
+
     private suspend fun subscribeToUpdates(
         store: BrowserStore,
         flow: Flow<BrowserState>,

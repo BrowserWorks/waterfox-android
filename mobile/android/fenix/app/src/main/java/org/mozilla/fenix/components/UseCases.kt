@@ -156,6 +156,7 @@ class UseCases(
             client.value,
             rootStorageDirectory,
             currentLocale,
+            context,
         )
     }
 

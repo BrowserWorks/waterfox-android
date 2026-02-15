@@ -4,7 +4,9 @@
 
 package org.mozilla.fenix.wallpapers
 
+import android.content.Context
 import android.content.res.Configuration
+import android.net.Uri
 import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -57,6 +59,7 @@ class WallpapersUseCasesTest {
         every { currentWallpaperCardColorLight = any() } just Runs
         every { currentWallpaperCardColorDark } returns 0L
         every { currentWallpaperCardColorDark = any() } just Runs
+        every { customWallpaperUseSingleImage = any() } just Runs
         every { shouldMigrateLegacyWallpaper } returns false
         every { shouldMigrateLegacyWallpaper = any() } just Runs
         every { shouldMigrateLegacyWallpaperCardColors } returns false
@@ -69,7 +72,8 @@ class WallpapersUseCasesTest {
         coEvery { downloadWallpaper(any()) } returns mockk()
     }
     private val mockFileManager = mockk<WallpaperFileManager> {
-        coEvery { clean(any(), any()) } returns mockk()
+        every { clean(any(), any()) } just Runs
+        coEvery { customWallpaperExists() } returns false
     }
 
     private val mockFolder: File by lazy { temporaryFolder.newFolder() }
@@ -77,6 +81,7 @@ class WallpapersUseCasesTest {
 
     @Before
     fun setup() {
+        coEvery { mockFileManager.customWallpaperExists() } returns false
         mockMigrationHelper = spyk(
             LegacyWallpaperMigration(
                 storageRootDirectory = mockFolder,
@@ -98,9 +103,20 @@ class WallpapersUseCasesTest {
         every { mockSettings.currentWallpaperCardColorDark } returns cardColorDark
         val chosenWallpaper = Wallpaper.Default.copy(name = name, textColor = textColor, cardColorLight = cardColorLight, cardColorDark = cardColorDark)
 
-        WallpapersUseCases.DefaultFetchCurrentWallpaperUseCase(mockSettings, appStore).invoke()
+        WallpapersUseCases.DefaultFetchCurrentWallpaperUseCase(mockSettings, appStore, mockFileManager).invoke()
 
         assertEquals(chosenWallpaper, appStore.state.wallpaperState.currentWallpaper)
+    }
+
+    @Test
+    fun `GIVEN custom wallpaper is selected and exists WHEN retrieving wallpaper choice THEN appstore is updated with custom wallpaper`() = runTest {
+        val appStore = AppStore()
+        every { mockSettings.currentWallpaperName } returns Wallpaper.CUSTOM
+        coEvery { mockFileManager.customWallpaperExists() } returns true
+
+        WallpapersUseCases.DefaultFetchCurrentWallpaperUseCase(mockSettings, appStore, mockFileManager).invoke()
+
+        assertEquals(Wallpaper.Custom, appStore.state.wallpaperState.currentWallpaper)
     }
 
     @Test
@@ -152,6 +168,54 @@ class WallpapersUseCasesTest {
     }
 
     @Test
+    fun `GIVEN custom wallpaper exists WHEN initializing THEN custom wallpaper is kept and available`() = runTest {
+        val appStore = AppStore()
+        val fakeRemoteWallpapers = listOf("first", "second", "third").map { name ->
+            makeFakeRemoteWallpaper(TimeRelation.LATER, name)
+        }
+        every { mockSettings.enableHomepageEdgeToEdgeBackgroundFeature } returns true
+        every { mockSettings.currentWallpaperName } returns ""
+        coEvery { mockFileManager.customWallpaperExists() } returns true
+        coEvery { mockFileManager.lookupExpiredWallpaper(any()) } returns null
+        coEvery { mockMetadataFetcher.downloadWallpaperList() } returns fakeRemoteWallpapers
+        coEvery { mockDownloader.downloadThumbnail(any()) } returns Wallpaper.ImageFileState.Downloaded
+
+        WallpapersUseCases.DefaultInitializeWallpaperUseCase(
+            appStore,
+            mockDownloader,
+            mockFileManager,
+            mockMetadataFetcher,
+            mockMigrationHelper,
+            mockSettings,
+            "en-US",
+        ).invoke()
+
+        assertTrue(appStore.state.wallpaperState.availableWallpapers.contains(Wallpaper.Custom))
+        verify { mockFileManager.clean(Wallpaper.Default, fakeRemoteWallpapers + Wallpaper.Custom) }
+    }
+
+    @Test
+    fun `GIVEN custom wallpaper is selected WHEN initializing THEN custom wallpaper is current`() = runTest {
+        val appStore = AppStore()
+        every { mockSettings.enableHomepageEdgeToEdgeBackgroundFeature } returns true
+        every { mockSettings.currentWallpaperName } returns Wallpaper.CUSTOM
+        coEvery { mockFileManager.customWallpaperExists() } returns true
+        coEvery { mockMetadataFetcher.downloadWallpaperList() } returns emptyList()
+
+        WallpapersUseCases.DefaultInitializeWallpaperUseCase(
+            appStore,
+            mockDownloader,
+            mockFileManager,
+            mockMetadataFetcher,
+            mockMigrationHelper,
+            mockSettings,
+            "en-US",
+        ).invoke()
+
+        assertEquals(Wallpaper.Custom, appStore.state.wallpaperState.currentWallpaper)
+    }
+
+    @Test
     fun `GIVEN wallpapers that expired WHEN invoking initialize use case THEN expired wallpapers are filtered out and cleaned up`() = runTest {
         val fakeRemoteWallpapers = listOf("first", "second", "third").map { name ->
             makeFakeRemoteWallpaper(TimeRelation.LATER, name)
@@ -178,7 +242,7 @@ class WallpapersUseCasesTest {
 
         val expectedFilteredWallpaper = fakeExpiredRemoteWallpapers[0]
         assertFalse(appStore.state.wallpaperState.availableWallpapers.contains(expectedFilteredWallpaper))
-        coVerify { mockFileManager.clean(Wallpaper.Default, fakeRemoteWallpapers) }
+        verify { mockFileManager.clean(Wallpaper.Default, fakeRemoteWallpapers) }
     }
 
     @Test
@@ -523,6 +587,83 @@ class WallpapersUseCasesTest {
     }
 
     @Test
+    fun `GIVEN only landscape URI WHEN setting custom wallpaper THEN portrait falls back to landscape`() = runTest {
+        val context = mockk<Context>()
+        val settings = mockk<Settings>(relaxed = true)
+        val appStore = AppStore()
+        val fileManager = mockk<WallpaperFileManager> {
+            coEvery { copyCustomWallpaperImage(any(), any(), any()) } returns true
+        }
+        val landscapeUri = mockk<Uri>()
+
+        val result = WallpapersUseCases.DefaultSetCustomWallpaperUseCase(
+            context = context,
+            fileManager = fileManager,
+            appStore = appStore,
+            settings = settings,
+        ).invoke(
+            portraitUri = null,
+            landscapeUri = landscapeUri,
+            useSingleImage = false,
+        )
+
+        assertTrue(result)
+        coVerify {
+            fileManager.copyCustomWallpaperImage(context, Wallpaper.ImageType.Portrait, landscapeUri)
+            fileManager.copyCustomWallpaperImage(context, Wallpaper.ImageType.Landscape, landscapeUri)
+        }
+        coVerify(exactly = 0) { fileManager.deleteCustomWallpaperImage(any()) }
+        verify { settings.customWallpaperUseSingleImage = false }
+        assertEquals(Wallpaper.Custom, appStore.state.wallpaperState.currentWallpaper)
+    }
+
+    @Test
+    fun `GIVEN single image mode WHEN setting custom wallpaper THEN both orientations use portrait URI`() = runTest {
+        val context = mockk<Context>()
+        val settings = mockk<Settings>(relaxed = true)
+        val appStore = AppStore()
+        val fileManager = mockk<WallpaperFileManager> {
+            coEvery { copyCustomWallpaperImage(any(), any(), any()) } returns true
+        }
+        val portraitUri = mockk<Uri>()
+
+        val result = WallpapersUseCases.DefaultSetCustomWallpaperUseCase(
+            context = context,
+            fileManager = fileManager,
+            appStore = appStore,
+            settings = settings,
+        ).invoke(
+            portraitUri = portraitUri,
+            landscapeUri = null,
+            useSingleImage = true,
+        )
+
+        assertTrue(result)
+        coVerify {
+            fileManager.copyCustomWallpaperImage(context, Wallpaper.ImageType.Portrait, portraitUri)
+            fileManager.copyCustomWallpaperImage(context, Wallpaper.ImageType.Landscape, portraitUri)
+        }
+        coVerify(exactly = 0) { fileManager.deleteCustomWallpaperImage(any()) }
+        verify { settings.customWallpaperUseSingleImage = true }
+    }
+
+    @Test
+    fun `GIVEN no URI WHEN setting custom wallpaper THEN false is returned`() = runTest {
+        val result = WallpapersUseCases.DefaultSetCustomWallpaperUseCase(
+            context = mockk(),
+            fileManager = mockk(),
+            appStore = AppStore(),
+            settings = mockk(),
+        ).invoke(
+            portraitUri = null,
+            landscapeUri = null,
+            useSingleImage = false,
+        )
+
+        assertFalse(result)
+    }
+
+    @Test
     fun `GIVEN the portrait orientation WHEN bitmap is loaded THEN loadWallpaperFromDisk method is called with the correct wallpaper and orientation`() =
         runTest {
             val wallpaper: Wallpaper = mockk {
@@ -629,7 +770,7 @@ class WallpapersUseCasesTest {
         every { mockSettings.enableHomepageEdgeToEdgeBackgroundFeature } returns false
         every { mockSettings.currentWallpaperName } returns Wallpaper.EDGE_TO_EDGE
 
-        WallpapersUseCases.DefaultFetchCurrentWallpaperUseCase(mockSettings, appStore).invoke()
+        WallpapersUseCases.DefaultFetchCurrentWallpaperUseCase(mockSettings, appStore, mockFileManager).invoke()
 
         assertEquals(Wallpaper.Default, appStore.state.wallpaperState.currentWallpaper)
     }

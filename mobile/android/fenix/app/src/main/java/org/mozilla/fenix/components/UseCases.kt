@@ -144,6 +144,7 @@ class UseCases(
             rootStorageDirectory,
             currentLocale,
             getDisplaySize = { displaySize(context) },
+            context = context,
         )
     }
 

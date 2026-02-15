@@ -4,7 +4,12 @@
 
 package org.mozilla.fenix.wallpapers
 
+import android.content.Context
+import android.net.Uri
 import java.io.File
+import java.io.InputStream
+import java.io.OutputStream
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -72,4 +77,104 @@ class WallpaperFileManager(
         withContext(coroutineDispatcher) {
             allAssetsExist(wallpaper.name)
         }
+
+    /** Copies [uri] into [imageType]'s custom file, returning false on access, size, or copy failure. */
+    suspend fun copyCustomWallpaperImage(
+        context: Context,
+        imageType: Wallpaper.ImageType,
+        uri: Uri,
+    ): Boolean =
+        withContext(coroutineDispatcher) {
+            val localFile = customWallpaperFile(imageType)
+            val parentFile = localFile.parentFile ?: return@withContext false
+            val temporaryFile = File(parentFile, "${localFile.name}.tmp")
+
+            return@withContext try {
+                parentFile.mkdirs()
+                temporaryFile.delete()
+
+                val copied =
+                    context.contentResolver.openInputStream(uri)?.use { input ->
+                        temporaryFile.outputStream().use { output ->
+                            copyWithinLimit(input, output)
+                        }
+                    } ?: false
+
+                if (!copied) {
+                    temporaryFile.delete()
+                    return@withContext false
+                }
+
+                replaceCustomWallpaperFile(temporaryFile, localFile)
+            } catch (e: CancellationException) {
+                runCatching { temporaryFile.delete() }
+                throw e
+            } catch (_: Exception) {
+                temporaryFile.delete()
+                false
+            }
+        }
+
+    private fun replaceCustomWallpaperFile(temporaryFile: File, localFile: File): Boolean {
+        if (localFile.exists() && !localFile.delete()) {
+            temporaryFile.delete()
+            return false
+        }
+
+        if (!temporaryFile.renameTo(localFile)) {
+            temporaryFile.copyTo(localFile, overwrite = true)
+            temporaryFile.delete()
+        }
+        return true
+    }
+
+    /** Deletes the custom [imageType] file; missing files count as success and denied access as failure. */
+    suspend fun deleteCustomWallpaperImage(imageType: Wallpaper.ImageType): Boolean =
+        withContext(coroutineDispatcher) {
+            return@withContext try {
+                val localFile = customWallpaperFile(imageType)
+                if (localFile.exists()) {
+                    localFile.delete()
+                } else {
+                    true
+                }
+            } catch (e: SecurityException) {
+                false
+            }
+        }
+
+    /** Returns whether either custom wallpaper orientation exists. */
+    suspend fun customWallpaperExists(): Boolean =
+        withContext(coroutineDispatcher) {
+            customWallpaperFile(Wallpaper.ImageType.Portrait).exists() ||
+                customWallpaperFile(Wallpaper.ImageType.Landscape).exists()
+        }
+
+    private fun customWallpaperFile(imageType: Wallpaper.ImageType): File =
+        File(
+            storageRootDirectory,
+            Wallpaper.getLocalPath(Wallpaper.CUSTOM, imageType),
+        )
+
+    private fun copyWithinLimit(input: InputStream, output: OutputStream): Boolean {
+        val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+        var bytesCopied = 0L
+
+        while (true) {
+            val bytesRead = input.read(buffer)
+            if (bytesRead == -1) {
+                return true
+            }
+
+            bytesCopied += bytesRead
+            if (bytesCopied > MAX_CUSTOM_WALLPAPER_FILE_SIZE_BYTES) {
+                return false
+            }
+            output.write(buffer, 0, bytesRead)
+        }
+    }
+
+    companion object {
+        internal const val MAX_CUSTOM_WALLPAPER_FILE_SIZE_BYTES = 10 * 1024 * 1024L
+    }
 }

@@ -41,6 +41,7 @@ import org.mozilla.fenix.theme.FirefoxTheme
  * @param onCloseClicked Callback for when the close button is clicked.
  * @param onExploreMoreButtonClicked Callback for when the bottom text button is clicked.
  * @param onSelectWallpaper Callback for when a new wallpaper is selected.
+ * @param onSetCustomWallpaper Callback for when the custom wallpaper entry point is clicked.
  */
 @Composable
 fun WallpaperOnboarding(
@@ -50,6 +51,7 @@ fun WallpaperOnboarding(
     onCloseClicked: () -> Unit,
     onExploreMoreButtonClicked: () -> Unit,
     onSelectWallpaper: (Wallpaper) -> Unit,
+    onSetCustomWallpaper: () -> Unit,
 ) {
     Surface(
         shape =
@@ -94,6 +96,8 @@ fun WallpaperOnboarding(
                 selectedWallpaper = currentWallpaper,
                 loadWallpaperResource = { wallpaper, size -> loadWallpaperResource(wallpaper, size) },
                 onSelectWallpaper = { onSelectWallpaper(it) },
+                showCustomWallpaper = true,
+                onSetCustomWallpaper = onSetCustomWallpaper,
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -125,6 +129,7 @@ private fun WallpaperSnackbarPreview() {
             onExploreMoreButtonClicked = {},
             loadWallpaperResource = { _, _ -> null },
             onSelectWallpaper = {},
+            onSetCustomWallpaper = {},
         )
     }
 }

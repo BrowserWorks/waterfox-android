@@ -53,6 +53,7 @@ class WallpaperSettingsTest {
                         createBitmap(BITMAP_SIZE, BITMAP_SIZE, Bitmap.Config.ARGB_8888)
                     },
                     onSelectWallpaper = {},
+                    onSetCustomWallpaper = {},
                 )
             }
         }

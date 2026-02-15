@@ -14,6 +14,7 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
 import mozilla.components.lib.state.ext.observeAsComposableState
 import mozilla.telemetry.glean.private.NoExtras
@@ -83,6 +84,11 @@ class WallpaperSettingsFragment : Fragment() {
                                     url = url,
                                     collectionName = collectionName,
                                 ),
+                            )
+                        },
+                        onSetCustomWallpaper = {
+                            findNavController().navigate(
+                                WallpaperSettingsFragmentDirections.actionWallpaperSettingsFragmentToCustomWallpaperFragment(),
                             )
                         },
                     )

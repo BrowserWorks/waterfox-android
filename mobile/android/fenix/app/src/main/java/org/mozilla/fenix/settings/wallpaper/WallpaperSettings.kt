@@ -39,7 +39,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.SemanticsPropertyReceiver
@@ -79,6 +81,7 @@ fun WallpaperSettings(
     selectedWallpaper: Wallpaper,
     onSelectWallpaper: (Wallpaper) -> Unit,
     onLearnMoreClick: (String, String) -> Unit,
+    onSetCustomWallpaper: () -> Unit,
 ) {
     Surface {
         Column(
@@ -103,6 +106,7 @@ fun WallpaperSettings(
                         loadWallpaperResource = loadWallpaperResource,
                         selectedWallpaper = selectedWallpaper,
                         onSelectWallpaper = onSelectWallpaper,
+                        onSetCustomWallpaper = onSetCustomWallpaper,
                     )
 
                     Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic400))
@@ -194,18 +198,35 @@ fun WallpaperThumbnails(
     selectedWallpaper: Wallpaper,
     loadWallpaperResource: suspend (Wallpaper) -> Bitmap?,
     onSelectWallpaper: (Wallpaper) -> Unit,
+    onSetCustomWallpaper: () -> Unit,
 ) {
     FlowRow(
         horizontalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
         verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
     ) {
         wallpapers.forEach { wallpaper ->
-            WallpaperThumbnailItem(
-                wallpaper = wallpaper,
-                loadWallpaperResource = loadWallpaperResource,
-                isSelected = selectedWallpaper.name == wallpaper.name,
-                isLoading = wallpaper.assetsFileState == Wallpaper.ImageFileState.Downloading,
-                onSelect = onSelectWallpaper,
+            if (wallpaper.name == Wallpaper.CUSTOM) {
+                CustomWallpaperThumbnailItem(
+                    wallpaper = wallpaper,
+                    isSelected = selectedWallpaper.name == wallpaper.name,
+                    onSelect = { _ -> onSetCustomWallpaper() },
+                )
+            } else {
+                WallpaperThumbnailItem(
+                    wallpaper = wallpaper,
+                    loadWallpaperResource = loadWallpaperResource,
+                    isSelected = selectedWallpaper.name == wallpaper.name,
+                    isLoading = wallpaper.assetsFileState == Wallpaper.ImageFileState.Downloading,
+                    onSelect = onSelectWallpaper,
+                )
+            }
+        }
+
+        if (wallpapers.none { it.name == Wallpaper.CUSTOM }) {
+            CustomWallpaperThumbnailItem(
+                wallpaper = Wallpaper.Custom,
+                isSelected = selectedWallpaper.name == Wallpaper.CUSTOM,
+                onSelect = { _ -> onSetCustomWallpaper() },
             )
         }
     }
@@ -374,6 +395,66 @@ private fun WallpaperThumbnailsPreview(
                 selectedWallpaper = wallpaper
             },
             onLearnMoreClick = { _, _ -> },
+            onSetCustomWallpaper = { },
         )
+    }
+}
+
+@Composable
+@Suppress("LongParameterList")
+private fun CustomWallpaperThumbnailItem(
+    wallpaper: Wallpaper,
+    isSelected: Boolean,
+    aspectRatio: Float = CustomWallpaperUtils.WALLPAPER_THUMBNAIL_ASPECT_RATIO,
+    onSelect: (Wallpaper) -> Unit,
+) {
+    val border = if (isSelected) {
+        BorderStroke(
+            width = FirefoxTheme.layout.border.thick,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    } else {
+        null
+    }
+
+    val description = stringResource(
+        R.string.wallpapers_item_name_content_description,
+        stringResource(R.string.wallpaper_custom),
+    )
+
+    Surface(
+        modifier = Modifier
+            .width(width = FirefoxTheme.layout.size.static1200)
+            .aspectRatio(aspectRatio)
+            .debouncedClickable { onSelect(wallpaper) },
+        shape = RoundedCornerShape(size = FirefoxTheme.layout.corner.large),
+        border = border,
+        shadowElevation = FirefoxTheme.layout.elevation.level2,
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = FirefoxTheme.colors.layer2),
+            contentAlignment = Alignment.Center,
+        ) {
+            val customWallpaperFile = CustomWallpaperUtils.getCustomWallpaperPreviewFile(LocalContext.current)
+            if (customWallpaperFile != null && customWallpaperFile.exists()) {
+                CustomWallpaperImage(
+                    file = customWallpaperFile,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .semantics { contentDescription = description },
+                    contentDescription = description,
+                    defaultImageRes = R.drawable.ic_file_type_image,
+                )
+            } else {
+                Image(
+                    painter = painterResource(R.drawable.ic_file_type_image),
+                    contentDescription = description,
+                    contentScale = ContentScale.None,
+                    modifier = Modifier.fillMaxSize(),
+                )
+            }
+        }
     }
 }

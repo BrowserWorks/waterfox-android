@@ -126,6 +126,7 @@ import org.mozilla.fenix.utils.enterMenu
 import org.mozilla.fenix.utils.enterSubmenu
 import org.mozilla.fenix.utils.exitMenu
 import org.mozilla.fenix.utils.exitSubmenu
+import org.mozilla.fenix.whatsnew.WhatsNew
 import org.mozilla.fenix.webcompat.DefaultWebCompatReporterMoreInfoSender
 import org.mozilla.fenix.webcompat.middleware.DefaultWebCompatReporterRetrievalService
 import org.mozilla.fenix.webcompat.middleware.WebCompatInfoDeserializer
@@ -706,6 +707,10 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                     },
                                     onWallpaperButtonClick = {
                                         store.dispatch(MenuAction.Navigate.Wallpaper)
+                                    },
+                                    onWhatsNewMenuClick = {
+                                        WhatsNew.userViewedWhatsNew(context)
+                                        openToBrowser(BrowserNavigationParams(url = SupportUtils.WHATS_NEW_URL))
                                     },
                                     onBookmarkPageMenuClick = {
                                         store.dispatch(MenuAction.AddBookmark)

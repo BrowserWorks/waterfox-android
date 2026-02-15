@@ -2504,6 +2504,8 @@
     <string name="etp_back_button_content_description">Navigate back</string>
     <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
     <string name="about_whats_new">What’s new in %s</string>
+    <!-- Main menu item label for opening the What's New page. -->
+    <string name="browser_menu_whats_new">What’s new</string>
     <!-- Open source licenses page title
     %s is the name of the app (for example "Firefox") -->
     <string name="open_source_licenses_title">%s | OSS Libraries</string>

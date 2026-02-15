@@ -5,6 +5,7 @@
 package org.mozilla.fenix.settings.wallpaper
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Test
 import org.mozilla.fenix.wallpapers.Wallpaper
 
@@ -55,6 +56,18 @@ class ExtensionsTest {
     }
 
     @Test
+    fun `GIVEN custom wallpaper WHEN grouped by collection THEN custom is in classic firefox`() {
+        val seasonalCollection = getSeasonalCollection("finally fall")
+        val seasonalWallpapers = (0..5).map { generateSeasonalWallpaper("${seasonalCollection.name}$it", seasonalCollection.name) }
+        val allWallpapers = listOf(Wallpaper.Default, Wallpaper.Custom) + seasonalWallpapers
+
+        val result = allWallpapers.groupByDisplayableCollection()
+
+        assertEquals(listOf(Wallpaper.Default, Wallpaper.Custom), result[classicCollection])
+        assertEquals(seasonalWallpapers, result[seasonalCollection])
+    }
+
+    @Test
     fun `GIVEN that classic firefox thumbnails fail to download WHEN grouped by collection THEN default is still available`() {
         val seasonalCollection = getSeasonalCollection("finally fall")
         val downloadedSeasonalWallpapers = (0..5).map {
@@ -73,7 +86,7 @@ class ExtensionsTest {
     }
 
     @Test
-    fun `GIVEN two collections of appropriate size WHEN fetched for onboarding THEN result contains 3 seasonal and 1 classic`() {
+    fun `GIVEN two collections of appropriate size WHEN fetched for onboarding THEN result reserves one custom slot`() {
         val seasonalCollectionName = "finally fall"
         val seasonalWallpapers = (0..5).map { generateSeasonalWallpaper("${seasonalCollectionName}$it", seasonalCollectionName) }
         val classicFirefoxWallpapers = (0..5).map { generateClassicFirefoxWallpaper("firefox$it") }
@@ -86,14 +99,13 @@ class ExtensionsTest {
             generateSeasonalWallpaper("finally fall0", "finally fall"),
             generateSeasonalWallpaper("finally fall1", "finally fall"),
             generateSeasonalWallpaper("finally fall2", "finally fall"),
-            generateClassicFirefoxWallpaper("firefox0"),
         )
 
         assertEquals(expected, result)
     }
 
     @Test
-    fun `GIVEN five collections of insufficient size WHEN fetched for onboarding THEN result contains 2 seasonal and 2 classic`() {
+    fun `GIVEN five seasonal collections WHEN fetched for onboarding THEN result contains 3 seasonal`() {
         val seasonalCollectionAName = "finally winter"
         val seasonalWallpapers = generateSeasonalWallpaper("${seasonalCollectionAName}0", seasonalCollectionAName)
         val seasonalCollectionBName = "finally spring"
@@ -117,7 +129,6 @@ class ExtensionsTest {
             generateSeasonalWallpaper("finally winter0", "finally winter"),
             generateSeasonalWallpaper("finally spring0", "finally spring"),
             generateSeasonalWallpaper("finally summer0", "finally summer"),
-            generateClassicFirefoxWallpaper("firefox0"),
         )
 
         assertEquals(expected, result)
@@ -138,7 +149,6 @@ class ExtensionsTest {
             generateSeasonalWallpaper("finally fall0", "finally fall"),
             generateClassicFirefoxWallpaper("firefox0"),
             generateClassicFirefoxWallpaper("firefox1"),
-            generateClassicFirefoxWallpaper("firefox2"),
         )
 
         assertEquals(expected, result)
@@ -157,7 +167,6 @@ class ExtensionsTest {
             generateClassicFirefoxWallpaper("firefox0"),
             generateClassicFirefoxWallpaper("firefox1"),
             generateClassicFirefoxWallpaper("firefox2"),
-            generateClassicFirefoxWallpaper("firefox3"),
         )
         assertEquals(expected, result)
     }
@@ -187,7 +196,6 @@ class ExtensionsTest {
             generateSeasonalWallpaper("finally fall0", "finally fall"),
             generateSeasonalWallpaper("finally fall1", "finally fall"),
             generateSeasonalWallpaper("finally fall2", "finally fall"),
-            generateSeasonalWallpaper("finally fall3", "finally fall"),
         )
 
         assertEquals(expected, result)
@@ -216,11 +224,26 @@ class ExtensionsTest {
             generateSeasonalWallpaper("finally fall1", "finally fall"),
             generateSeasonalWallpaper("finally fall2", "finally fall"),
             generateClassicFirefoxWallpaper("firefox0"),
-            generateClassicFirefoxWallpaper("firefox1"),
         )
 
         val result = allWallpapers.getWallpapersForOnboarding()
         assertEquals(expected, result)
+    }
+
+    @Test
+    fun `GIVEN a custom wallpaper WHEN grouped for onboarding THEN it is excluded from the reserved list`() {
+        val seasonalCollectionName = "finally fall"
+        val seasonalWallpapers = (0..5).map {
+            generateSeasonalWallpaper("${seasonalCollectionName}$it", seasonalCollectionName)
+        }
+        val classicFirefoxWallpapers = (0..5).map { generateClassicFirefoxWallpaper("firefox$it") }
+        val allWallpapers = listOf(Wallpaper.EdgeToEdge, Wallpaper.Default, Wallpaper.Custom) +
+            classicFirefoxWallpapers + seasonalWallpapers
+
+        val result = allWallpapers.getWallpapersForOnboarding()
+
+        assertEquals(5, result.size)
+        assertFalse(result.contains(Wallpaper.Custom))
     }
 
     private fun generateClassicFirefoxWallpaper(name: String) = Wallpaper(

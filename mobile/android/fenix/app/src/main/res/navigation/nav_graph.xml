@@ -76,6 +76,10 @@
         app:destination="@id/wallpaperSettingsFragment" />
 
     <action
+        android:id="@+id/action_global_customWallpaperFragment"
+        app:destination="@id/customWallpaperFragment" />
+
+    <action
         android:id="@+id/action_global_shareFragment"
         app:destination="@id/shareFragment" />
     <action
@@ -885,7 +889,15 @@
     <fragment
         android:id="@+id/wallpaperSettingsFragment"
         android:name="org.mozilla.fenix.settings.wallpaper.WallpaperSettingsFragment"
-        android:label="@string/customize_wallpapers"/>
+        android:label="@string/customize_wallpapers">
+        <action
+            android:id="@+id/action_wallpaperSettingsFragment_to_customWallpaperFragment"
+            app:destination="@id/customWallpaperFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customWallpaperFragment"
+        android:name="org.mozilla.fenix.settings.wallpaper.CustomWallpaperFragment"
+        android:label="@string/customize_wallpapers" />
     <fragment
         android:id="@+id/ipProtectionFragment"
         android:name="org.mozilla.fenix.settings.IPProtectionFragment"

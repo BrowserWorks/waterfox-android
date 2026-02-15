@@ -995,6 +995,21 @@
     <!-- Wallpapers -->
     <!-- Content description for various wallpapers. %1$s is the name of the wallpaper. -->
     <string name="wallpapers_item_name_content_description">Wallpaper Item: %1$s</string>
+    <string name="wallpaper_custom_images_header">Images</string>
+    <string name="wallpaper_portrait_image">Portrait image</string>
+    <string name="wallpaper_landscape_image">Landscape image</string>
+    <string name="wallpaper_select_image">Select image</string>
+    <string name="wallpaper_change_image">Change image</string>
+    <string name="wallpaper_save_custom">Save</string>
+    <string name="wallpaper_use_single_image">Use single image</string>
+    <string name="wallpaper_use_single_image_summary">Use the same image in portrait and landscape</string>
+    <string name="wallpaper_image_content_description">Wallpaper image</string>
+    <string name="wallpaper_custom">Custom</string>
+    <string name="wallpaper_error_no_image_selected">Please select at least one image</string>
+    <string name="wallpaper_error_invalid_format">Selected file could not be opened as an image</string>
+    <string name="wallpaper_error_file_too_large">Selected image is too large. Please choose an image smaller than 10MB</string>
+    <string name="wallpaper_error_generic">An error occurred: %s</string>
+    <string name="wallpaper_error_save_failed">Failed to save wallpaper. Please try again</string>
     <!-- Snackbar message for when wallpaper couldn't be downloaded -->
     <string name="wallpaper_download_error_snackbar_message">Couldn’t download wallpaper</string>
     <!-- Snackbar label for action to retry downloading the wallpaper -->

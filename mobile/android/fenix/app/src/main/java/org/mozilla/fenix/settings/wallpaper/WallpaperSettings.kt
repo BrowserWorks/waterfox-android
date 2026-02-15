@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -38,7 +39,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.SemanticsPropertyReceiver
@@ -52,6 +55,7 @@ import androidx.core.graphics.createBitmap
 import mozilla.components.compose.base.annotation.FlexibleWindowPreview
 import mozilla.components.compose.base.modifier.debouncedClickable
 import mozilla.components.compose.base.modifier.thenConditional
+import mozilla.components.compose.base.theme.AcornCorners
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.ClickableSubstringLink
 import org.mozilla.fenix.theme.FirefoxTheme
@@ -78,6 +82,7 @@ fun WallpaperSettings(
     selectedWallpaper: Wallpaper,
     onSelectWallpaper: (Wallpaper) -> Unit,
     onLearnMoreClick: (String, String) -> Unit,
+    onSetCustomWallpaper: () -> Unit,
 ) {
     Surface {
         Column(
@@ -102,6 +107,8 @@ fun WallpaperSettings(
                         loadWallpaperResource = loadWallpaperResource,
                         selectedWallpaper = selectedWallpaper,
                         onSelectWallpaper = onSelectWallpaper,
+                        showCustomWallpaper = collection.name == Wallpaper.CLASSIC_FIREFOX_COLLECTION,
+                        onSetCustomWallpaper = onSetCustomWallpaper,
                     )
 
                     Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic400))
@@ -186,6 +193,7 @@ private fun WallpaperGroupHeading(
  * @param selectedWallpaper The currently selected wallpaper.
  * @param loadWallpaperResource Callback to handle loading a wallpaper bitmap. Only optional in the default case.
  * @param onSelectWallpaper Action to take when a new wallpaper is selected.
+ * @param showCustomWallpaper Whether to show the custom wallpaper entry point.
  */
 @Composable
 fun WallpaperThumbnails(
@@ -193,18 +201,28 @@ fun WallpaperThumbnails(
     selectedWallpaper: Wallpaper,
     loadWallpaperResource: suspend (Wallpaper) -> Bitmap?,
     onSelectWallpaper: (Wallpaper) -> Unit,
+    showCustomWallpaper: Boolean = false,
+    onSetCustomWallpaper: () -> Unit,
 ) {
     FlowRow(
         horizontalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
         verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
     ) {
-        wallpapers.forEach { wallpaper ->
+        wallpapers.filterNot { it.name == Wallpaper.CUSTOM }.forEach { wallpaper ->
             WallpaperThumbnailItem(
                 wallpaper = wallpaper,
                 loadWallpaperResource = loadWallpaperResource,
                 isSelected = selectedWallpaper.name == wallpaper.name,
                 isLoading = wallpaper.assetsFileState == Wallpaper.ImageFileState.Downloading,
                 onSelect = onSelectWallpaper,
+            )
+        }
+
+        if (showCustomWallpaper) {
+            CustomWallpaperThumbnailItem(
+                wallpaper = Wallpaper.Custom,
+                isSelected = selectedWallpaper.name == Wallpaper.CUSTOM,
+                onSelect = { _ -> onSetCustomWallpaper() },
             )
         }
     }
@@ -373,6 +391,66 @@ private fun WallpaperThumbnailsPreview(
                 selectedWallpaper = wallpaper
             },
             onLearnMoreClick = { _, _ -> },
+            onSetCustomWallpaper = { },
         )
+    }
+}
+
+@Composable
+@Suppress("LongParameterList")
+private fun CustomWallpaperThumbnailItem(
+    wallpaper: Wallpaper,
+    isSelected: Boolean,
+    aspectRatio: Float = CustomWallpaperUtils.WALLPAPER_THUMBNAIL_ASPECT_RATIO,
+    onSelect: (Wallpaper) -> Unit,
+) {
+    val border = if (isSelected) {
+        BorderStroke(
+            width = FirefoxTheme.layout.border.thick,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    } else {
+        null
+    }
+
+    val description = stringResource(
+        R.string.wallpapers_item_name_content_description,
+        stringResource(R.string.wallpaper_custom),
+    )
+
+    Surface(
+        modifier = Modifier
+            .width(width = FirefoxTheme.layout.size.static1200)
+            .aspectRatio(aspectRatio)
+            .debouncedClickable { onSelect(wallpaper) },
+        shape = RoundedCornerShape(size = AcornCorners.large),
+        border = border,
+        shadowElevation = FirefoxTheme.layout.elevation.level2,
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = MaterialTheme.colorScheme.surfaceContainerLow),
+            contentAlignment = Alignment.Center,
+        ) {
+            val customWallpaperFile = CustomWallpaperUtils.getCustomWallpaperPreviewFile(LocalContext.current)
+            if (customWallpaperFile != null && customWallpaperFile.exists()) {
+                CustomWallpaperImage(
+                    file = customWallpaperFile,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .semantics { contentDescription = description },
+                    contentDescription = description,
+                    defaultImageRes = R.drawable.ic_file_type_image,
+                )
+            } else {
+                Image(
+                    painter = painterResource(R.drawable.ic_file_type_image),
+                    contentDescription = description,
+                    contentScale = ContentScale.None,
+                    modifier = Modifier.fillMaxSize(),
+                )
+            }
+        }
     }
 }

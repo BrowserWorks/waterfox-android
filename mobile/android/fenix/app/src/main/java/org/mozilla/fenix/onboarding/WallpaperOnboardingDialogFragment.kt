@@ -109,6 +109,10 @@ class WallpaperOnboardingDialogFragment : BottomSheetDialogFragment() {
                         findNavController().navigate(directions)
                         Wallpapers.onboardingExploreMoreClick.record(NoExtras())
                     },
+                    onSetCustomWallpaper = {
+                        val directions = NavGraphDirections.actionGlobalCustomWallpaperFragment()
+                        findNavController().navigate(directions)
+                    },
                     loadWallpaperResource = { wallpaperUseCases.loadThumbnail(it) },
                     onSelectWallpaper = {
                         coroutineScope.launch {

@@ -13,6 +13,8 @@ sealed interface FenixExpandableMenuItem {
 
 /** All items that can be shown in the menu. */
 sealed interface FenixMenuItem {
+
+    data object Quit : FenixMenuItem
     /** A menu item allowing to customize the reader view. */
     data object CustomizeReaderView : FenixMenuItem
 

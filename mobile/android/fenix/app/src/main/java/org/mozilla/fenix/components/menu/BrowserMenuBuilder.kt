@@ -24,6 +24,7 @@ import org.mozilla.fenix.components.menu.FenixMenuItem.IPProtection
 import org.mozilla.fenix.components.menu.FenixMenuItem.More
 import org.mozilla.fenix.components.menu.FenixMenuItem.MoveToNormalTabs
 import org.mozilla.fenix.components.menu.FenixMenuItem.OpenInApp
+import org.mozilla.fenix.components.menu.FenixMenuItem.Quit
 import org.mozilla.fenix.components.menu.FenixMenuItem.Print
 import org.mozilla.fenix.components.menu.FenixMenuItem.Refresh
 import org.mozilla.fenix.components.menu.FenixMenuItem.ReportBrokenSite
@@ -163,6 +164,7 @@ class BrowserMenuBuilder(
                                         Print,
                                     )
                                 ),
+                                Quit,
                             ),
                     ),
                 )

@@ -528,7 +528,7 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                 accessPoint = args.accesspoint,
                                 account = account,
                                 accountState = accountState,
-                                showQuitMenu = settings.shouldDeleteBrowsingDataOnQuit,
+                                showQuitMenu = true,
                                 isBottomToolbar = settings.shouldUseBottomToolbar,
                                 isExpandedToolbarEnabled = settings.shouldUseExpandedToolbar,
                                 isSiteLoading = isSiteLoading,
@@ -983,10 +983,14 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
             is NavigationEvent.Dismiss -> dismiss()
             is NavigationEvent.DeleteBrowsingDataAndQuit ->
                 activity?.let { activity ->
-                    activity.lifecycleScope.launch {
-                        deleteBrowsingDataController.clearBrowsingDataOnQuit {
-                            activity.finishAndRemoveTask()
+                    if (requireComponents.settings.shouldDeleteAnyDataOnQuit()) {
+                        activity.lifecycleScope.launch {
+                            deleteBrowsingDataController.clearBrowsingDataOnQuit {
+                                activity.finishAndRemoveTask()
+                            }
                         }
+                    } else {
+                        activity.finishAndRemoveTask()
                     }
                 }
             is NavigationEvent.SendPendingIntentWithUrl -> {

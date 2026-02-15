@@ -4,6 +4,20 @@
 
 package org.mozilla.fenix.components.menu
 
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
+import mozilla.components.compose.base.text.Text
+import mozilla.components.compose.menu.data.MenuItem
+import mozilla.components.compose.menu.data.StandardMenuItem
+import mozilla.components.compose.menu.ui.MenuItemIconRes
+import mozilla.components.lib.state.Middleware
+import mozilla.components.ui.icons.R as iconsR
+import org.mozilla.fenix.components.menu.store.MenuAction
+import org.mozilla.fenix.settings.deletebrowsingdata.DefaultDeleteBrowsingDataController
+import org.mozilla.fenix.settings.deletebrowsingdata.DefaultDeleteBrowsingDataController.DataStorage
+import org.mozilla.fenix.settings.deletebrowsingdata.DefaultDeleteBrowsingDataController.DeleteDataUseCases
+import org.mozilla.fenix.settings.deletebrowsingdata.DefaultDeleteBrowsingDataController.Stores
 import android.app.Dialog
 import android.content.res.Configuration
 import android.os.Build
@@ -86,6 +100,29 @@ private const val MENU_ANIMATION_START_OFFSET_RATIO = 0.2f
 class MenuFragment : BottomSheetDialogFragment() {
     private val snackbarHostState = SnackbarHostState()
     private var bottomSheetBehavior: BottomSheetBehavior<View>? = null
+
+    private val deleteBrowsingDataController by lazy {
+        DefaultDeleteBrowsingDataController(
+            deleteDataUseCases =
+                DeleteDataUseCases(
+                    removeAllTabs = requireComponents.useCases.tabsUseCases.removeAllTabs,
+                    removeAllDownloads = requireComponents.useCases.downloadUseCases.removeAllDownloads,
+                ),
+            dataStorage =
+                DataStorage(
+                    history = requireComponents.core.historyStorage,
+                    permissions = requireComponents.core.permissionStorage,
+                ),
+            stores =
+                Stores(
+                    appStore = requireComponents.appStore,
+                    browserStore = requireComponents.core.store,
+                ),
+            engine = requireComponents.core.engine,
+            settings = requireComponents.settings,
+        )
+    }
+
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         Events.toolbarMenuVisible.record(NoExtras())
@@ -240,6 +277,17 @@ class MenuFragment : BottomSheetDialogFragment() {
 
             FenixMenuItem.FindInPage -> FindInPageMenuItemProvider()
 
+            FenixMenuItem.Quit -> menuItemProvider(
+                StandardMenuItem(
+                    title = Text.String(requireContext().getString(
+                        R.string.browser_menu_delete_browsing_data_on_quit,
+                        getString(R.string.app_name),
+                    )),
+                    icon = MenuItemIconRes(iconsR.drawable.mozac_ic_cross_circle_fill_24),
+                    onClickEvent = MenuAction.DeleteBrowsingDataAndQuit,
+                )
+            )
+
             FenixMenuItem.DesktopSite ->
                 DesktopSiteMenuItemProvider(
                     browserStore = requireComponents.core.store,
@@ -355,9 +403,30 @@ class MenuFragment : BottomSheetDialogFragment() {
                         scope = viewLifecycleOwner.lifecycle.coroutineScope,
                         applicationScope = requireComponents.applicationScope,
                     ),
+                    Middleware<MenuState, mozilla.components.compose.menu.store.MenuAction> { _, next, action ->
+                        next(action)
+                        if (action == MenuAction.DeleteBrowsingDataAndQuit) {
+                            activity?.let { activity ->
+                                if (requireComponents.settings.shouldDeleteAnyDataOnQuit()) {
+                                    activity.lifecycleScope.launch {
+                                        deleteBrowsingDataController.clearBrowsingDataOnQuit {
+                                            activity.finishAndRemoveTask()
+                                        }
+                                    }
+                                } else {
+                                    activity.finishAndRemoveTask()
+                                }
+                            }
+                            dismiss()
+                        }
+                    },
                     MenuTelemetryMiddleware(accessPoint = MenuAccessPoint.Browser),
                 ),
         )
+
+    private fun menuItemProvider(item: MenuItem?) = object : MenuItemProvider {
+        override val itemFlow = MutableStateFlow(item)
+    }
 
     private fun buildWebCompatReporterMoreInfoSender() =
         DefaultWebCompatReporterMoreInfoSender(

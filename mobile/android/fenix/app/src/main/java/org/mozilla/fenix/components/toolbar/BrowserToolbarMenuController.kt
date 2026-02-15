@@ -169,7 +169,11 @@ class DefaultBrowserToolbarMenuController(
                 }
             }
             is ToolbarMenu.Item.Quit -> {
-                deleteAndQuit(activity)
+                if (settings.shouldDeleteAnyDataOnQuit()) {
+                    deleteAndQuit(activity)
+                } else {
+                    activity.finishAndRemoveTask()
+                }
             }
             is ToolbarMenu.Item.CustomizeReaderView -> {
                 readerModeController.showControls()

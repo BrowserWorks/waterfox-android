@@ -316,10 +316,14 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                 topSitesMaxLimit = components.settings.topSitesMaxLimit,
                                 onDeleteAndQuit = {
                                     activity?.let { activity ->
-                                        activity.lifecycleScope.launch {
-                                            deleteBrowsingDataController.clearBrowsingDataOnQuit {
-                                                activity.finishAndRemoveTask()
+                                        if (activity.settings().shouldDeleteAnyDataOnQuit()) {
+                                            activity.lifecycleScope.launch {
+                                                deleteBrowsingDataController.clearBrowsingDataOnQuit {
+                                                    activity.finishAndRemoveTask()
+                                                }
                                             }
+                                        } else {
+                                            activity.finishAndRemoveTask()
                                         }
                                     }
                                 },
@@ -589,7 +593,7 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                     accessPoint = args.accesspoint,
                                     account = account,
                                     accountState = accountState,
-                                    showQuitMenu = settings.shouldDeleteBrowsingDataOnQuit,
+                                    showQuitMenu = true,
                                     isBottomToolbar = settings.shouldUseBottomToolbar,
                                     isExpandedToolbarEnabled = settings.shouldUseExpandedToolbar,
                                     isSiteLoading = isSiteLoading,

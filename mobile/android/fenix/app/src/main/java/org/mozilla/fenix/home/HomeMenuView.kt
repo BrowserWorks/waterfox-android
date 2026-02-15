@@ -204,10 +204,14 @@ class HomeMenuView(
                 )
             }
             HomeMenu.Item.Quit -> {
-                homeActivity.lifecycleScope.launch {
-                    deleteBrowsingDataController.clearBrowsingDataOnQuit {
-                        homeActivity.finishAndRemoveTask()
+                if (homeActivity.settings().shouldDeleteAnyDataOnQuit()) {
+                    homeActivity.lifecycleScope.launch {
+                        deleteBrowsingDataController.clearBrowsingDataOnQuit {
+                            homeActivity.finishAndRemoveTask()
+                        }
                     }
+                } else {
+                    homeActivity.finishAndRemoveTask()
                 }
             }
             HomeMenu.Item.ReconnectSync -> {

@@ -95,7 +95,7 @@
   <!-- Marketing onboarding body link text. -->
   <string name="nova_onboarding_marketing_body_link_text_1">Uzzināt vairāk</string>
   <!-- "Add search widget" onboarding button. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">Pievienot Firefox logrīku</string>
+  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">Pievienot Waterfox logrīku</string>
   <!-- Text preview for smaller sized widgets -->
   <string name="search_widget_text_short">Meklēt</string>
   <!-- Text preview for larger sized widgets -->
@@ -338,7 +338,7 @@
   <!-- Send tab to synced devices: Empty state title - Displayed when the user has no synced devices -->
   <string name="sync_send_tab_empty_state_title">Nav savienota neviena ierīce</string>
   <!-- Send tab to synced devices: Empty state message - Displayed when the user has no synced devices -->
-  <string name="sync_send_tab_empty_state_description" tools:ignore="BrandUsage">Lai nosūtītu cilni, jāpiesakās Firefox vismaz vienā citā ierīcē.</string>
+  <string name="sync_send_tab_empty_state_description" tools:ignore="BrandUsage">Lai nosūtītu cilni, jāpiesakās Waterfox vismaz vienā citā ierīcē.</string>
   <!-- Send tab to synced devices: Empty state link - Displayed when the user has no synced devices -->
   <string name="sync_send_tab_empty_state_link">Uzzini, kā pievienot ierīci</string>
   <!-- Send tab to synced devices: Connectivity Error title -->
@@ -351,7 +351,7 @@
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Padarīt Firefox par noklusējuma pārlūku</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Padarīt Waterfox par noklusējuma pārlūku</string>
   <!--
     Privacy report notification
 

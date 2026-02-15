@@ -11,6 +11,8 @@ import groovy.json.JsonOutput
 // :annotations project.
 evaluationDependsOn(':annotations')
 
+def publishedVariant = 'release'
+
 android {
     buildToolsVersion = project.ext.buildToolsVersion
     compileSdk {
@@ -153,7 +155,7 @@ android {
     }
 
     publishing {
-        singleVariant('debug')
+        singleVariant(publishedVariant)
     }
 
     namespace = 'org.mozilla.geckoview'
@@ -406,10 +408,10 @@ publishing {
     }
 }
 
-// Declared in afterEvaluate so the `debug` software component (from singleVariant('debug')) exists.
+// Declared in afterEvaluate so the software component from singleVariant exists.
 afterEvaluate {
-    publishing.publications.create('debug', MavenPublication) {
-        from components.debug
+    publishing.publications.create(publishedVariant, MavenPublication) {
+        from components.getByName(publishedVariant)
         artifactId = computeArtifactId()
 
         pom {
@@ -438,8 +440,8 @@ afterEvaluate {
         }
 
         // Javadoc and sources for developer ergononomics.
-        artifact tasks.named("javadocJarDebug")
-        artifact tasks.named("sourcesJarDebug")
+        artifact tasks.named("javadocJar${publishedVariant.capitalize()}")
+        artifact tasks.named("sourcesJar${publishedVariant.capitalize()}")
     }
 }
 

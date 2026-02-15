@@ -72,7 +72,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">เอาออก</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content" tools:ignore="BrandUsage">%1$s ผลิตขึ้นโดย Mozilla</string>
+  <string name="about_content" tools:ignore="BrandUsage">%1$s ผลิตขึ้นโดย BrowserWorks</string>
   <!-- Private Browsing -->
   <string name="private_browsing_common_myths">ความเข้าใจผิดที่พบบ่อยเกี่ยวกับการท่องเว็บแบบส่วนตัว</string>
   <!-- Text to be announced by the accessibility service to inform the user that the private browsing mode is currently active. -->
@@ -457,7 +457,7 @@
   -->
   <string name="onboarding_home_content_description_close_button">ปิด</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">ช่วยเราทำให้ Firefox ดีขึ้น</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">ช่วยเราทำให้ Waterfox ดีขึ้น</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">ส่งรายงานข้อขัดข้องโดยอัตโนมัติ</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -475,23 +475,23 @@
   <!-- Button text to reopen firefox after the crash is processed %s is the name of the app (for example "Firefox") -->
   <string name="startup_crash_restart">เปิด %s ใหม่</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title" tools:ignore="BrandUsage">ส่งข้อมูลทางเทคนิคและข้อมูลการโต้ตอบไปยัง Mozilla</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">ข้อมูลเกี่ยวกับอุปกรณ์ของคุณ การกำหนดค่าฮาร์ดแวร์ และพฤติกรรมการใช้งาน Firefox ช่วยปรับปรุงคุณลักษณะ ประสิทธิภาพ และเสถียรภาพสำหรับผู้ใช้จากทุกที่ได้</string>
+  <string name="onboarding_preferences_dialog_usage_data_title" tools:ignore="BrandUsage">ส่งข้อมูลทางเทคนิคและข้อมูลการโต้ตอบไปยัง BrowserWorks</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">ข้อมูลเกี่ยวกับอุปกรณ์ของคุณ การกำหนดค่าฮาร์ดแวร์ และพฤติกรรมการใช้งาน Waterfox ช่วยปรับปรุงคุณลักษณะ ประสิทธิภาพ และเสถียรภาพสำหรับผู้ใช้จากทุกที่ได้</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">เรียนรู้เพิ่มเติม</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">เสร็จสิ้น</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">ยินดีต้อนรับสู่ Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">ยินดีต้อนรับสู่ Waterfox</string>
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">เมื่อดำเนินการต่อ แสดงว่าคุณยอมรับ%1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">เงื่อนไขการใช้งาน Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">เงื่อนไขการใช้งาน Waterfox</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Firefox ห่วงใยเกี่ยวกับความเป็นส่วนตัวของคุณ เรียนรู้เพิ่มเติมใน%1$sของเรา</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Waterfox ห่วงใยเกี่ยวกับความเป็นส่วนตัวของคุณ เรียนรู้เพิ่มเติมใน%1$sของเรา</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">ประกาศความเป็นส่วนตัว</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">เพื่อช่วยปรับปรุงเบราว์เซอร์ Firefox จะส่งข้อมูลวินิจฉัยและการโต้ตอบไปยัง Mozilla %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">เพื่อช่วยปรับปรุงเบราว์เซอร์ Waterfox จะส่งข้อมูลวินิจฉัยและการโต้ตอบไปยัง BrowserWorks %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">จัดการ</string>
   <!-- Terms of use (ToU) onboarding redesign title. -->
@@ -508,19 +508,19 @@
   -->
   <string name="onboarding_redesign_tou_body_one" tools:ignore="UnusedResources">เมื่อดำเนินการต่อ แสดงว่าคุณยอมรับ%1$s</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_one. -->
-  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">เงื่อนไขการใช้งาน Firefox</string>
+  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">เงื่อนไขการใช้งาน Waterfox</string>
   <!--
     Terms of use (ToU) second body text. 'Firefox' is intentionally hardcoded.
     %1$s is replaced by an active link, using onboarding_redesign_tou_body_two_link_text as text (“Privacy Notice”).
   -->
-  <string name="onboarding_redesign_tou_body_two" tools:ignore="BrandUsage,UnusedResources">Firefox ห่วงใยเกี่ยวกับความเป็นส่วนตัวของคุณ เรียนรู้เพิ่มเติมใน%1$sของเรา</string>
+  <string name="onboarding_redesign_tou_body_two" tools:ignore="BrandUsage,UnusedResources">Waterfox ห่วงใยเกี่ยวกับความเป็นส่วนตัวของคุณ เรียนรู้เพิ่มเติมใน%1$sของเรา</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_two. -->
   <string name="onboarding_redesign_tou_body_two_link_text" tools:ignore="UnusedResources">ประกาศความเป็นส่วนตัว</string>
   <!--
     Terms of use (ToU) third body text. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link using onboarding_redesign_tou_body_three_link_text as text (“Manage Settings”).
   -->
-  <string name="onboarding_redesign_tou_body_three" tools:ignore="BrandUsage,UnusedResources">เพื่อช่วยปรับปรุงเบราว์เซอร์ Firefox จะส่งข้อมูลวินิจฉัยและการโต้ตอบไปยัง Mozilla %1$s</string>
+  <string name="onboarding_redesign_tou_body_three" tools:ignore="BrandUsage,UnusedResources">เพื่อช่วยปรับปรุงเบราว์เซอร์ Waterfox จะส่งข้อมูลวินิจฉัยและการโต้ตอบไปยัง BrowserWorks %1$s</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_three. -->
   <string name="onboarding_redesign_tou_body_three_link_text" tools:ignore="UnusedResources">จัดการการตั้งค่า</string>
   <!-- Terms of use (ToU) onboarding page continue button label. -->
@@ -530,9 +530,9 @@
   <!-- Onboarding label for 'Continue' button. -->
   <string name="onboarding_redesign_continue_button" tools:ignore="UnusedResources">ดำเนินการต่อ</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_redesign_title" tools:ignore="BrandUsage">ช่วยเราพัฒนา Firefox</string>
+  <string name="onboarding_marketing_redesign_title" tools:ignore="BrandUsage">ช่วยเราพัฒนา Waterfox</string>
   <!-- Marketing onboarding page opt-out checkbox. Unchecking the box does not increase data collection. Our data practices remain the same. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_redesign_opt_out_checkbox" tools:ignore="BrandUsage,UnusedResources">แบ่งปันว่าคุณค้นพบ Firefox ได้อย่างไร และคุณใช้มันอย่างไรกับพันธมิตรด้านการตลาดของ Mozilla โดยข้อมูลนี้จะไม่ถูกนำไปขาย</string>
+  <string name="onboarding_marketing_redesign_opt_out_checkbox" tools:ignore="BrandUsage,UnusedResources">แบ่งปันว่าคุณค้นพบ Waterfox ได้อย่างไร และคุณใช้มันอย่างไรกับพันธมิตรด้านการตลาดของ BrowserWorks โดยข้อมูลนี้จะไม่ถูกนำไปขาย</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_redesign_learn_more" tools:ignore="UnusedResources">เราใช้ข้อมูลอย่างไร</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -542,7 +542,7 @@
   <!-- Set to default browser onboarding redesign body. -->
   <string name="onboarding_redesign_set_default_browser_body" tools:ignore="UnusedResources">ช่วยหยุดไม่ให้บริษัทต่าง ๆ สอดส่องการท่องเว็บของคุณด้วยเพียงแตะเดียว</string>
   <!-- Sync onboarding redesign title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">ซิงค์ข้อมูลได้ทุกที่ที่คุณใช้ Firefox</string>
+  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">ซิงค์ข้อมูลได้ทุกที่ที่คุณใช้ Waterfox</string>
   <!-- Sync onboarding redesign body. -->
   <string name="onboarding_redesign_sync_body" tools:ignore="UnusedResources">นำที่คั่นหน้า แท็บ และรหัสผ่านมาไว้บนอุปกรณ์ใดก็ได้ พร้อมป้องกันด้วยการเข้ารหัสลับ</string>
   <!-- Sync onboarding redesign positive button text. -->
@@ -552,7 +552,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">ขั้นตอนสุดท้าย</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">แบ่งปันว่าคุณค้นพบ Firefox ได้อย่างไร และคุณใช้มันอย่างไรกับพันธมิตรด้านการตลาดของ Mozilla โดยข้อมูลนี้จะไม่ถูกนำไปขาย</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">แบ่งปันว่าคุณค้นพบ Waterfox ได้อย่างไร และคุณใช้มันอย่างไรกับพันธมิตรด้านการตลาดของ BrowserWorks โดยข้อมูลนี้จะไม่ถูกนำไปขาย</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">ยอมรับและเริ่มการเรียกดู</string>
   <!-- ==== Project "Nova" onboarding strings ==== -->
@@ -575,19 +575,19 @@
   -->
   <string name="nova_onboarding_tou_body_line_1">เมื่อดำเนินการต่อ แสดงว่าคุณยอมรับ%1$s</string>
   <!-- Terms of use (ToU) onboarding body line one link text for nova_onboarding_tou_body_line_1. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_tou_body_line_1_link_text" tools:ignore="BrandUsage">เงื่อนไขการใช้งาน Firefox</string>
+  <string name="nova_onboarding_tou_body_line_1_link_text" tools:ignore="BrandUsage">เงื่อนไขการใช้งาน Waterfox</string>
   <!--
     Terms of use (ToU) onboarding body line two. 'Firefox' is intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_tou_body_line_2_link_text as text (“Privacy Notice”).
   -->
-  <string name="nova_onboarding_tou_body_line_2" tools:ignore="BrandUsage">Firefox ห่วงใยเกี่ยวกับความเป็นส่วนตัวของคุณ เรียนรู้เพิ่มเติมใน%1$sของเรา</string>
+  <string name="nova_onboarding_tou_body_line_2" tools:ignore="BrandUsage">Waterfox ห่วงใยเกี่ยวกับความเป็นส่วนตัวของคุณ เรียนรู้เพิ่มเติมใน%1$sของเรา</string>
   <!-- Terms of use (ToU) onboarding body line two link text for nova_onboarding_tou_body_line_2. -->
   <string name="nova_onboarding_tou_body_line_2_link_text">ประกาศความเป็นส่วนตัว</string>
   <!--
     Terms of use (ToU) onboarding body line three. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_tou_body_line_3_link_text as text (“Manage Settings”).
   -->
-  <string name="nova_onboarding_tou_body_line_3" tools:ignore="BrandUsage">เพื่อช่วยปรับปรุงเบราว์เซอร์ Firefox จะส่งข้อมูลวินิจฉัยและการโต้ตอบไปยัง Mozilla %1$s</string>
+  <string name="nova_onboarding_tou_body_line_3" tools:ignore="BrandUsage">เพื่อช่วยปรับปรุงเบราว์เซอร์ Waterfox จะส่งข้อมูลวินิจฉัยและการโต้ตอบไปยัง BrowserWorks %1$s</string>
   <!-- Terms of use (ToU) onboarding body line three link text for nova_onboarding_tou_body_line_3. -->
   <string name="nova_onboarding_tou_body_line_3_link_text">จัดการการตั้งค่า</string>
   <!-- "Set to default" onboarding title. -->
@@ -624,46 +624,46 @@
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text as text (“How we use the data”).
   -->
-  <string name="nova_onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">แบ่งปันว่าคุณค้นพบ Firefox ได้อย่างไร และคุณใช้มันอย่างไรกับพันธมิตรด้านการตลาดของ Mozilla โดยข้อมูลนี้จะไม่ถูกนำไปขาย %1$s</string>
+  <string name="nova_onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">แบ่งปันว่าคุณค้นพบ Waterfox ได้อย่างไร และคุณใช้มันอย่างไรกับพันธมิตรด้านการตลาดของ BrowserWorks โดยข้อมูลนี้จะไม่ถูกนำไปขาย %1$s</string>
   <!-- Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_2" tools:ignore="BrandUsage">แบ่งปันว่าคุณค้นพบ Firefox ได้อย่างไร และคุณใช้มันอย่างไรกับพันธมิตรด้านการตลาดของ Mozilla โดยข้อมูลนี้จะไม่ถูกนำไปขาย</string>
+  <string name="nova_onboarding_marketing_body_2" tools:ignore="BrandUsage">แบ่งปันว่าคุณค้นพบ Waterfox ได้อย่างไร และคุณใช้มันอย่างไรกับพันธมิตรด้านการตลาดของ BrowserWorks โดยข้อมูลนี้จะไม่ถูกนำไปขาย</string>
   <!-- Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_3" tools:ignore="BrandUsage,UnusedResources">คุณสามารถช่วยเราเข้าถึงผู้คนได้มากขึ้นด้วยการอนุญาตให้ Mozilla แจ้งช่องทางต่าง ๆ ที่เราโปรโมต Firefox ว่าคุณคือผู้ใช้ Firefox</string>
+  <string name="nova_onboarding_marketing_body_3" tools:ignore="BrandUsage,UnusedResources">คุณสามารถช่วยเราเข้าถึงผู้คนได้มากขึ้นด้วยการอนุญาตให้ BrowserWorks แจ้งช่องทางต่าง ๆ ที่เราโปรโมต Waterfox ว่าคุณคือผู้ใช้ Waterfox</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
   -->
-  <string name="nova_onboarding_marketing_body_4" tools:ignore="BrandUsage,UnusedResources">คุณสามารถช่วยเราเข้าถึงผู้คนได้มากขึ้นด้วยการอนุญาตให้ Mozilla แจ้งแพลตฟอร์มที่คุณเข้ามาว่าคุณใช้ Firefox</string>
+  <string name="nova_onboarding_marketing_body_4" tools:ignore="BrandUsage,UnusedResources">คุณสามารถช่วยเราเข้าถึงผู้คนได้มากขึ้นด้วยการอนุญาตให้ BrowserWorks แจ้งแพลตฟอร์มที่คุณเข้ามาว่าคุณใช้ Waterfox</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
   -->
-  <string name="nova_onboarding_marketing_body_5" tools:ignore="BrandUsage,UnusedResources">ช่วยเราเข้าถึงผู้คนได้มากขึ้นด้วยการอนุญาตให้ Mozilla แจ้งแพลตฟอร์มที่คุณเข้ามาว่าคุณใช้ Firefox</string>
+  <string name="nova_onboarding_marketing_body_5" tools:ignore="BrandUsage,UnusedResources">ช่วยเราเข้าถึงผู้คนได้มากขึ้นด้วยการอนุญาตให้ BrowserWorks แจ้งแพลตฟอร์มที่คุณเข้ามาว่าคุณใช้ Waterfox</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text as text (“How we use the data”).
   -->
-  <string name="nova_onboarding_marketing_body_6" tools:ignore="BrandUsage,UnusedResources">ช่วยเราเข้าถึงผู้คนได้มากขึ้นด้วยการอนุญาตให้ Mozilla แจ้งแพลตฟอร์มที่คุณเข้ามาว่าคุณใช้ Firefox %1$s</string>
+  <string name="nova_onboarding_marketing_body_6" tools:ignore="BrandUsage,UnusedResources">ช่วยเราเข้าถึงผู้คนได้มากขึ้นด้วยการอนุญาตให้ BrowserWorks แจ้งแพลตฟอร์มที่คุณเข้ามาว่าคุณใช้ Waterfox %1$s</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text_1 as text (“Learn More”).
   -->
-  <string name="nova_onboarding_marketing_body_7" tools:ignore="BrandUsage">คุณสามารถช่วยเราเข้าถึงผู้คนได้มากขึ้นด้วยการอนุญาตให้ Mozilla แจ้งแพลตฟอร์มที่คุณเข้ามาว่าคุณใช้ Firefox %1$s</string>
+  <string name="nova_onboarding_marketing_body_7" tools:ignore="BrandUsage">คุณสามารถช่วยเราเข้าถึงผู้คนได้มากขึ้นด้วยการอนุญาตให้ BrowserWorks แจ้งแพลตฟอร์มที่คุณเข้ามาว่าคุณใช้ Waterfox %1$s</string>
   <!-- Marketing onboarding additional body text. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_line_two" tools:ignore="BrandUsage">Firefox เป็นองค์กรอิสระอย่างภาคภูมิใจ และมุ่งมั่นที่จะปกป้องเว็บแบบเปิดจากบริษัทเทคโนโลยียักษ์ใหญ่</string>
+  <string name="nova_onboarding_marketing_body_line_two" tools:ignore="BrandUsage">Waterfox เป็นองค์กรอิสระอย่างภาคภูมิใจ และมุ่งมั่นที่จะปกป้องเว็บแบบเปิดจากบริษัทเทคโนโลยียักษ์ใหญ่</string>
   <!--
     Marketing onboarding additional body text. 'Firefox' is intentionally hardcoded.
     “Allowing” refers to the main button “Allow and Continue”; the ask for the user is to allow communicating back to the platform.
   -->
-  <string name="nova_onboarding_marketing_body_line_three" tools:ignore="BrandUsage">โปรดพิจารณาอนุญาตเพื่อช่วยเหลือ Firefox ในการนี้</string>
+  <string name="nova_onboarding_marketing_body_line_three" tools:ignore="BrandUsage">โปรดพิจารณาอนุญาตเพื่อช่วยเหลือ Waterfox ในการนี้</string>
   <!-- Marketing onboarding body link text. -->
   <string name="nova_onboarding_marketing_body_link_text">เราใช้ข้อมูลอย่างไร</string>
   <!-- Marketing onboarding body link text. -->
   <string name="nova_onboarding_marketing_body_link_text_1">เรียนรู้เพิ่มเติม</string>
   <!-- Marketing onboarding primary button text. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_primary_button_text" tools:ignore="BrandUsage,UnusedResources">ช่วย Firefox</string>
+  <string name="nova_onboarding_marketing_primary_button_text" tools:ignore="BrandUsage,UnusedResources">ช่วย Waterfox</string>
   <!-- Marketing onboarding primary button text. -->
   <string name="nova_onboarding_marketing_primary_button_text_3">ใช่</string>
   <!-- Marketing onboarding primary button text. -->
@@ -673,17 +673,17 @@
   <!-- Marketing onboarding secondary button text. -->
   <string name="nova_onboarding_marketing_secondary_button_text_2">ไม่</string>
   <!-- Notifications onboarding title. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">การแจ้งเตือนช่วยให้คุณปลอดภัยยิ่งขึ้นด้วย Firefox</string>
+  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">การแจ้งเตือนช่วยให้คุณปลอดภัยยิ่งขึ้นด้วย Waterfox</string>
   <!-- Notifications onboarding subtitle. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_notifications_subtitle" tools:ignore="BrandUsage,UnusedResources">ค้นพบฟีเจอร์ด้านความเป็นส่วนตัวใหม่ๆ ใน Firefox เพื่อให้คุณทราบวิธีปกป้องตัวเองอยู่เสมอ</string>
+  <string name="nova_onboarding_notifications_subtitle" tools:ignore="BrandUsage,UnusedResources">ค้นพบฟีเจอร์ด้านความเป็นส่วนตัวใหม่ๆ ใน Waterfox เพื่อให้คุณทราบวิธีปกป้องตัวเองอยู่เสมอ</string>
   <!-- Notifications onboarding button. -->
   <string name="nova_onboarding_notifications_button">เปิดการแจ้งเตือน</string>
   <!-- "Add search widget" onboarding title. -->
   <string name="nova_onboarding_add_search_widget_title">ทำให้ทุกการค้นหาเป็นส่วนตัวยิ่งขึ้น</string>
   <!-- "Add search widget" onboarding subtitle. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_subtitle" tools:ignore="BrandUsage">เริ่มการค้นหาทุกครั้งจากหน้าจอหลักของโทรศัพท์คุณ และมั่นใจได้ว่าการป้องกันอัตโนมัติของ Firefox คอยคุ้มครองคุณอยู่</string>
+  <string name="nova_onboarding_add_search_widget_subtitle" tools:ignore="BrandUsage">เริ่มการค้นหาทุกครั้งจากหน้าจอหลักของโทรศัพท์คุณ และมั่นใจได้ว่าการป้องกันอัตโนมัติของ Waterfox คอยคุ้มครองคุณอยู่</string>
   <!-- "Add search widget" onboarding button. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">เพิ่มวิดเจ็ต Firefox</string>
+  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">เพิ่มวิดเจ็ต Waterfox</string>
   <!-- Customize prompt onboarding title. -->
   <string name="nova_onboarding_customize_prompt_title" tools:ignore="UnusedResources">ปรับแต่งได้ง่ายและมีความเป็นส่วนตัวมากขึ้นทุกครั้งที่แตะ</string>
   <plurals name="nova_onboarding_customize_prompt_body" tools:ignore="UnusedResources">
@@ -757,9 +757,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">การกำหนดลักษณะแถบที่อยู่</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">แถบที่อยู่ - Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">แถบที่อยู่ - Waterfox Suggest</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">เรียนรู้เพิ่มเติมเกี่ยวกับ Firefox Suggest</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">เรียนรู้เพิ่มเติมเกี่ยวกับ Waterfox Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">ให้คะแนนบน Google Play</string>
   <!--
@@ -848,7 +848,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">การช่วยเข้าถึง</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server" tools:ignore="BrandUsage">เซิร์ฟเวอร์บัญชี Mozilla ที่กำหนดเอง</string>
+  <string name="preferences_override_account_server" tools:ignore="BrandUsage">เซิร์ฟเวอร์บัญชี BrowserWorks ที่กำหนดเอง</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">เซิร์ฟเวอร์ Sync ที่กำหนดเอง</string>
   <!-- Preference category for account information -->
@@ -876,7 +876,7 @@
   <!-- Preference description shown in the banner prompting the user to sign in for sync features -->
   <string name="preferences_sign_in_description">ซิงค์แท็บ ที่คั่นหน้า รหัสผ่าน และอื่น ๆ</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">บัญชี Mozilla</string>
+  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">บัญชี BrowserWorks</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">เชื่อมต่ออีกครั้งเพื่อทำการซิงค์ต่อ</string>
   <!-- Preference for language -->
@@ -924,7 +924,7 @@
   <!-- Summary for preference to show Firefox Suggest search suggestions for web content -->
   <string name="preferences_show_nonsponsored_suggestions_summary">รับคำแนะนำจากเว็บที่เกี่ยวข้องกับการค้นหาของคุณ</string>
   <!-- Preference title for switch preference to show search optimization cards -->
-  <string name="preferences_show_search_optimization_cards" tools:ignore="BrandUsage">ดึงคำแนะนำจาก Mozilla ขณะที่คุณพิมพ์</string>
+  <string name="preferences_show_search_optimization_cards" tools:ignore="BrandUsage">ดึงคำแนะนำจาก BrowserWorks ขณะที่คุณพิมพ์</string>
   <!-- Preference for link sharing -->
   <string name="preferences_link_sharing">การแบ่งปันลิงก์</string>
   <!-- Title for the link sharing toggle. %1$s is replaced by the brand name (e.g. Firefox). -->
@@ -1147,7 +1147,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">มีส่วนขยายใหม่ใช้งานได้ในขณะนี้</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">ลองดูส่วนขยายใหม่กว่า 100 รายการที่ให้คุณสร้าง Firefox ในแบบของคุณเอง</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">ลองดูส่วนขยายใหม่กว่า 100 รายการที่ให้คุณสร้าง Waterfox ในแบบของคุณเอง</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">สำรวจส่วนขยาย</string>
   <!--
@@ -1219,7 +1219,7 @@
   -->
   <string name="fxa_received_tab_channel_name">แท็บที่ได้รับ</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">การแจ้งเตือนสำหรับแท็บที่ได้รับจากอุปกรณ์ Firefox อื่น ๆ</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">การแจ้งเตือนสำหรับแท็บที่ได้รับจากอุปกรณ์ Waterfox อื่น ๆ</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">แท็บที่ได้รับ</string>
   <!-- %s is the device name -->
@@ -1251,10 +1251,10 @@
   <!-- Preference switch for usage and technical learn more link in new compose -->
   <string name="preference_usage_data_learn_more_2">เรียนรู้เพิ่มเติมเกี่ยวกับข้อมูลทางเทคนิค</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">ข้อมูลเกี่ยวกับอุปกรณ์ของคุณ การกำหนดค่าฮาร์ดแวร์ และการใช้งานของคุณช่วยปรับปรุงคุณลักษณะ ประสิทธิภาพ และเสถียรภาพของ Firefox</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">ข้อมูลเกี่ยวกับอุปกรณ์ของคุณ การกำหนดค่าฮาร์ดแวร์ และการใช้งานของคุณช่วยปรับปรุงคุณลักษณะ ประสิทธิภาพ และเสถียรภาพของ Waterfox</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">พิงการใช้งานรายวัน</string>
-  <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">ตัวเลือกนี้ช่วยให้ Mozilla ประเมินจำนวนผู้ใช้ที่มีความเคลื่อนไหวได้</string>
+  <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">ตัวเลือกนี้ช่วยให้ BrowserWorks ประเมินจำนวนผู้ใช้ที่มีความเคลื่อนไหวได้</string>
   <string name="preferences_daily_usage_ping_learn_more">เรียนรู้เพิ่มเติมเกี่ยวกับพิงการใช้งานรายวัน</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="crash_reporting_snack_bar_message">ส่งรายงานแล้ว</string>
@@ -1274,13 +1274,13 @@
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">แบ่งปันว่าคุณค้นพบ Firefox ได้อย่างไร และคุณใช้มันอย่างไรกับพันธมิตรด้านเทคโนโลยีการตลาดของ Mozilla</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">แบ่งปันว่าคุณค้นพบ Waterfox ได้อย่างไร และคุณใช้มันอย่างไรกับพันธมิตรด้านเทคโนโลยีการตลาดของ BrowserWorks</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">เรียนรู้เพิ่มเติมเกี่ยวกับข้อมูลการตลาด</string>
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">การศึกษา</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">อนุญาตให้ Mozilla ติดตั้งและเรียกใช้การศึกษา</string>
+  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">อนุญาตให้ BrowserWorks ติดตั้งและเรียกใช้การศึกษา</string>
   <!--
     Turn On Sync Preferences
 
@@ -1494,7 +1494,7 @@
   <!-- Title of the active section on the studies list -->
   <string name="studies_active">ใช้งานอยู่</string>
   <!-- Description for studies. Note: The word "Firefox" should NOT be translated -->
-  <string name="studies_description_4" tools:ignore="BrandUsage">Firefox จะสุ่มผู้ใช้งานเพื่อทดลองฟีเจอร์ ซึ่งช่วยยกระดับคุณภาพให้กับผู้ใช้ทุกคน</string>
+  <string name="studies_description_4" tools:ignore="BrandUsage">Waterfox จะสุ่มผู้ใช้งานเพื่อทดลองฟีเจอร์ ซึ่งช่วยยกระดับคุณภาพให้กับผู้ใช้ทุกคน</string>
   <!-- Title of the Studies data preference -->
   <string name="studies_title_2">อนุญาตให้ทำการทดสอบคุณสมบัติ</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
@@ -1506,7 +1506,7 @@
   -->
   <string name="remote_improvements_title">อนุญาตการปรับปรุงทางไกล</string>
   <!-- Description for remote improvements. Note: The word "Firefox" should NOT be translated -->
-  <string name="remote_improvements_description" tools:ignore="BrandUsage">ระหว่างการอัปเดต Firefox จะปรับปรุงฟีเจอร์ การตอบสนอง และความเสถียร โดยการเปลี่ยนแปลงสามารถนำไปใช้จากระยะไกลได้</string>
+  <string name="remote_improvements_description" tools:ignore="BrandUsage">ระหว่างการอัปเดต Waterfox จะปรับปรุงฟีเจอร์ การตอบสนอง และความเสถียร โดยการเปลี่ยนแปลงสามารถนำไปใช้จากระยะไกลได้</string>
   <!-- Learn more link for remote improvements, links to an article for more information about rollouts. -->
   <string name="remote_improvements_learn_more">เรียนรู้เพิ่มเติม</string>
   <!-- Title for remote improvements preference in Advanced settings -->
@@ -2039,7 +2039,7 @@
   -->
   <string name="tab_crash_title_2">ขออภัย %1$s ไม่สามารถโหลดหน้านั้นได้</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report" tools:ignore="BrandUsage">ส่งรายงานข้อขัดข้องไปยัง Mozilla</string>
+  <string name="tab_crash_send_report" tools:ignore="BrandUsage">ส่งรายงานข้อขัดข้องไปยัง BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">ปิดแท็บ</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -2399,7 +2399,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">เชื่อมต่ออุปกรณ์อื่น</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">เมื่อต้องการส่งแท็บ ให้ลงชื่อเข้าไปยัง Firefox บนอุปกรณ์อื่นอย่างน้อยหนึ่งเครื่อง</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">เมื่อต้องการส่งแท็บ ให้ลงชื่อเข้าไปยัง Waterfox บนอุปกรณ์อื่นอย่างน้อยหนึ่งเครื่อง</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">เข้าใจแล้ว</string>
   <!-- Share error message -->
@@ -2431,19 +2431,19 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox นั้นรวดเร็วและเป็นส่วนตัว</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox นั้นรวดเร็วและเป็นส่วนตัว</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">ทำให้ Firefox เป็นเบราว์เซอร์เริ่มต้นของคุณ</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">ทำให้ Waterfox เป็นเบราว์เซอร์เริ่มต้นของคุณ</string>
   <!--
     Survey
 
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">โปรดช่วยทำให้ Firefox ดีขึ้นโดยการทำแบบสำรวจสั้นๆ</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">โปรดช่วยทำให้ Waterfox ดีขึ้นโดยการทำแบบสำรวจสั้นๆ</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">ทำแบบสำรวจ</string>
   <!-- Preference for not taking the short survey. -->
@@ -2573,7 +2573,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">สแกนรหัส</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[บนคอมพิวเตอร์ของคุณ ให้เปิด Firefox แล้วไปที่ <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[บนคอมพิวเตอร์ของคุณ ให้เปิด Waterfox แล้วไปที่ <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">พร้อมที่จะสแกน</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2581,7 +2581,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">ใช้อีเมลแทน</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ไม่มีบัญชีใช่หรือไม่? <u>สร้างบัญชี</u>เพื่อซิงค์ Firefox ระหว่างอุปกรณ์]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ไม่มีบัญชีใช่หรือไม่? <u>สร้างบัญชี</u>เพื่อซิงค์ Waterfox ระหว่างอุปกรณ์]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s จะหยุดซิงค์กับบัญชีของคุณ แต่จะไม่ลบข้อมูลการท่องเว็บใด ๆ ของคุณบนอุปกรณ์นี้</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -3396,7 +3396,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">โปรดเปิดใช้งานซิงค์แท็บ</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">คุณไม่มีแท็บใด ๆ ที่เปิดอยู่ใน Firefox บนอุปกรณ์อื่น ๆ ของคุณ</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">คุณไม่มีแท็บใด ๆ ที่เปิดอยู่ใน Waterfox บนอุปกรณ์อื่น ๆ ของคุณ</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">ดูรายการแท็บจากอุปกรณ์อื่น ๆ ของคุณ</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -3484,7 +3484,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">ปิดอัตโนมัติหลังจากหนึ่งเดือน?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox สามารถปิดแท็บที่คุณไม่ได้ดูในช่วงเดือนที่ผ่านมาได้</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox สามารถปิดแท็บที่คุณไม่ได้ดูในช่วงเดือนที่ผ่านมาได้</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">เปิดการปิดอัตโนมัติ</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -3494,7 +3494,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Suggest</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox Suggest</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -3513,7 +3513,7 @@
   -->
   <string name="default_browser_experiment_card_title">เปลี่ยนเบราว์เซอร์เริ่มต้นของคุณ</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">ตั้งลิงก์จากเว็บไซต์ อีเมล และข้อความให้เปิดโดยอัตโนมัติใน Firefox</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">ตั้งลิงก์จากเว็บไซต์ อีเมล และข้อความให้เปิดโดยอัตโนมัติใน Waterfox</string>
   <!-- Content description radio buttons with a link to more information -->
   <string name="radio_preference_info_content_description">คลิกเพื่อดูรายละเอียดเพิ่มเติม</string>
   <!-- Content description for the action bar "up" button -->
@@ -3947,7 +3947,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">ช่วยเราทำให้ Firefox ดีขึ้น โดยสละเวลาเพียงนาทีเดียว</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">ช่วยเราทำให้ Waterfox ดีขึ้น โดยสละเวลาเพียงนาทีเดียว</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">ดำเนินการต่อ</string>
   <!--
@@ -3977,7 +3977,7 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">ฉันไม่ได้ใช้มัน</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">ฉันไม่ใช้การค้นหาบน Firefox</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">ฉันไม่ใช้การค้นหาบน Waterfox</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">ฉันไม่ใช้การซิงค์</string>
   <!-- Option for likert scale -->
@@ -3989,29 +3989,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_its_okay" tools:ignore="UnusedResources">ก็พอใช้ได้ แต่ไม่ได้ดีไปกว่าเบราว์เซอร์อื่น ๆ</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_i_plan_to_keep_using" tools:ignore="BrandUsage,UnusedResources">ฉันวางแผนที่จะใช้ Firefox ต่อไป</string>
+  <string name="likert_scale_option_i_plan_to_keep_using" tools:ignore="BrandUsage,UnusedResources">ฉันวางแผนที่จะใช้ Waterfox ต่อไป</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">ช่วยเราทำให้ระบบการพิมพ์ใน Firefox ดีขึ้น โดยสละเวลาเพียงนาทีเดียว</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">ช่วยเราทำให้ระบบการพิมพ์ใน Waterfox ดีขึ้น โดยสละเวลาเพียงนาทีเดียว</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">ช่วยทำให้การค้นหาใน Firefox ดีขึ้น โดยสละเวลาเพียงนาทีเดียว</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">ช่วยทำให้การค้นหาใน Waterfox ดีขึ้น โดยสละเวลาเพียงนาทีเดียว</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">ช่วยทำให้ซิงค์ใน Firefox ดีขึ้น โดยสละเวลาเพียงนาทีเดียว</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">ช่วยทำให้ซิงค์ใน Waterfox ดีขึ้น โดยสละเวลาเพียงนาทีเดียว</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">คุณพึงพอใจกับระบบการพิมพ์ใน Firefox มากน้อยเพียงใด?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">คุณพึงพอใจกับระบบการพิมพ์ใน Waterfox มากน้อยเพียงใด?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">คุณพึงพอใจกับหน้าแรกของ Firefox มากน้อยเพียงใด?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">คุณพึงพอใจกับหน้าแรกของ Waterfox มากน้อยเพียงใด?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">คุณพอใจกับการค้นหาใน Firefox มากแค่ไหน?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">คุณพอใจกับการค้นหาใน Waterfox มากแค่ไหน?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">คุณพอใจกับการซิงค์ใน Firefox มากแค่ไหน?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">คุณพอใจกับการซิงค์ใน Waterfox มากแค่ไหน?</string>
   <!-- Text shown in the survey title for 'describe your experience so far' microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_describe_your_experience_title" tools:ignore="BrandUsage,UnusedResources">ช่วยเราปรับปรุง Firefox ให้ดียิ่งขึ้น ประสบการณ์ของคุณกับ Firefox ตรงกับคำอธิบายใดมากที่สุด?</string>
+  <string name="microsurvey_describe_your_experience_title" tools:ignore="BrandUsage,UnusedResources">ช่วยเราปรับปรุง Waterfox ให้ดียิ่งขึ้น ประสบการณ์ของคุณกับ Waterfox ตรงกับคำอธิบายใดมากที่สุด?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">โลโก้ Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">โลโก้ Waterfox</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">ไอคอนคุณลักษณะแบบสำรวจ</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -4129,27 +4129,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">อัปเดตตอนนี้</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">อัปเดตเบราว์เซอร์ Firefox ของคุณ</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">อัปเดตเบราว์เซอร์ Waterfox ของคุณ</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">ใบรับรองรากจะหมดอายุ ทำให้คุณลักษณะบางอย่างหยุดทำงานเมื่อถึงวันที่ 14 มีนาคม</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">โปรดอัปเดตก่อนวันที่ 14 มีนาคม</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">ใบรับรองรากจะหมดอายุ ทำให้ Firefox รุ่นของคุณไม่สามารถทำงานอย่างถูกต้อง</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">ใบรับรองรากจะหมดอายุ ทำให้ Waterfox รุ่นของคุณไม่สามารถทำงานอย่างถูกต้อง</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">เหลือเวลาไม่ถึง 7 วันสำหรับการอัปเดต</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">เมื่อถึงวันที่ 14 มีนาคม ส่วนเสริมและคุณลักษณะ Firefox อื่นๆ จะหยุดทำงานเนื่องจากใบรับรองรากจะหมดอายุ</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">เมื่อถึงวันที่ 14 มีนาคม ส่วนเสริมและคุณลักษณะ Waterfox อื่นๆ จะหยุดทำงานเนื่องจากใบรับรองรากจะหมดอายุ</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">โอกาสสุดท้ายที่จะรักษา Firefox ของคุณไว้</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">โอกาสสุดท้ายที่จะรักษา Waterfox ของคุณไว้</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Firefox รุ่นของคุณจะไม่สามารถทำงานอย่างถูกต้องเมื่อถึงวันที่ 14 มีนาคมเนื่องจากใบรับรองรากจะหมดอายุ</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Waterfox รุ่นของคุณจะไม่สามารถทำงานอย่างถูกต้องเมื่อถึงวันที่ 14 มีนาคมเนื่องจากใบรับรองรากจะหมดอายุ</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">อัปเดตที่แนะนำ</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">ส่วนเสริมและคุณลักษณะบางอย่างจะหยุดทำงานเมื่อถึงวันที่ 14 มีนาคม</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">คุณใช้ Firefox รุ่นเก่ากว่า</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">คุณใช้ Waterfox รุ่นเก่ากว่า</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">อัปเดตก่อนวันที่ 14 มีนาคมเพื่อใช้งานส่วนเสริมและคุณลักษณะอื่นๆ ต่อไป</string>
   <!-- Push notification message about old Firefox version -->
@@ -4580,7 +4580,7 @@
     %1$s is replaced by an active link using privacy_notice_updated_homepage_message_privacy_notice as text (Privacy Notice)
     %2$s is replaced by an active link using privacy_notice_updated_homepage_message_learn_more as text (Learn more)
   -->
-  <string name="privacy_notice_updated_homepage_message" tools:ignore="BrandUsage,UnusedResources">เราได้ปรับปรุง%1$sของเราให้สอดคล้องกับคุณลักษณะล่าสุดใน Firefox %2$s</string>
+  <string name="privacy_notice_updated_homepage_message" tools:ignore="BrandUsage,UnusedResources">เราได้ปรับปรุง%1$sของเราให้สอดคล้องกับคุณลักษณะล่าสุดใน Waterfox %2$s</string>
   <!-- The first active link used in privacy_notice_updated_homepage_message -->
   <string name="privacy_notice_updated_homepage_message_privacy_notice" tools:ignore="UnusedResources">ประกาศความเป็นส่วนตัว</string>
   <!-- The second active link used in privacy_notice_updated_homepage_message -->
@@ -4607,7 +4607,7 @@
     The "Labs" portion can be localized, "Firefox" must be treated as a brand and kept
     in English.
   -->
-  <string name="firefox_labs_title" tools:ignore="BrandUsage">Firefox Labs</string>
+  <string name="firefox_labs_title" tools:ignore="BrandUsage">Waterfox Labs</string>
   <!-- Banner title text on the Firefox Labs screen. -->
   <string name="firefox_labs_banner_title_2">ลองใช้คุณลักษณะทดลองของเรา!</string>
   <!--

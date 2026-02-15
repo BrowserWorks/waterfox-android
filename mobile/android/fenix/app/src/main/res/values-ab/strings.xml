@@ -339,9 +339,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Адресқәа рпанель архиарақәа</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Адресқәа рпанель - Firefox Адгалара</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Адресқәа рпанель - Waterfox Адгалара</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Еиҳаны еилкаа Firefox Suggest иазкны</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Еиҳаны еилкаа Waterfox Suggest иазкны</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Google Play аҟны ахәшьара</string>
   <!--
@@ -583,7 +583,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">Анарҭбаара ҿыцқәа ыҟоуп</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Еилышәкаа анарҭбаара ҿыцқәа 100 инареиҳаны, Firefox шәхатәы ҟаҵара алзыршо.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Еилышәкаа анарҭбаара ҿыцқәа 100 инареиҳаны, Waterfox шәхатәы ҟаҵара алзыршо.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Анарҭбаарақәа раартра</string>
   <!--
@@ -655,7 +655,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Егьырҭ аиқәыршәагақәа рҟынтә абларҭақәа</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Егьырҭ Firefox ахархәагақәа рҟынтәи иааз анҵамҭақәа ирызку ардыррақәа.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Егьырҭ Waterfox ахархәагақәа рҟынтәи иааз анҵамҭақәа ирызку ардыррақәа.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Иалҵшәоу абларҭа</string>
   <!-- %s is the device name -->
@@ -1200,7 +1200,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Даҽа хархәагак аҿактәуп</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Аҭаӡҩыра еицаҳзеиԥшхарц азы, даҽа ҳәагак иадамзаргьы Firefox шәҭала.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Аҭаӡҩыра еицаҳзеиԥшхарц азы, даҽа ҳәагак иадамзаргьы Waterfox шәҭала.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Еилкаауп</string>
   <!-- Share error message -->
@@ -1228,19 +1228,19 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox иццакуеит, иагьыхадоуп</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox иццакуеит, иагьыхадоуп</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Firefox браузерс иҟашәҵа</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Waterfox браузерс иҟашәҵа</string>
   <!--
     Survey
 
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Ҳаҳәоит, абри аҭҵаара кьаҿ амҩаԥгарала Firefox аиӷьтәраҿы шәыцхраа.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Ҳаҳәоит, абри аҭҵаара кьаҿ амҩаԥгарала Waterfox аиӷьтәраҿы шәыцхраа.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Аҭҵаара амҩаԥгара</string>
   <!-- Preference for not taking the short survey. -->
@@ -1368,7 +1368,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Ае-маил ахархәара</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Макьана аконт умаӡами? <u>Иаԥҵатәуп акы</u> Firefox аиқәыршәагақәа рыбжьара асинхронизациа азы.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Макьана аконт умаӡами? <u>Иаԥҵатәуп акы</u> Waterfox аиқәыршәагақәа рыбжьара асинхронизациа азы.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s ухыԥхьаӡара асинхронизациа ааннакылоит, аха уи аиқәыршәагаҿы увеб-ԥшааратә дыррақәа зегьы аныхӡом.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1863,7 +1863,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Ҳаҳәоит, абӷьыц асинхронизациа аус арутәуп.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Егьырҭ шәхыхәҭақәа рҿы Firefox аҿы анҵамҭақәа аартуп.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Егьырҭ шәхыхәҭақәа рҿы Waterfox аҿы анҵамҭақәа аартуп.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Егьырҭ ахархәагақәа рҟынтәи аҭаӡҩырақәа рсиа шәахәаԥш.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1925,7 +1925,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Мызкы ашьҭахь автоматла иаркуама?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox иҳаҩсыз амзазы узҭамлаз анҵамҭақәа аркра алшоит.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox иҳаҩсыз амзазы узҭамлаз анҵамҭақәа аркра алшоит.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">АВТОМАТИКА ААРКЫРА АУРТ</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -1935,7 +1935,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Адгалара</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox Адгалара</string>
   <!-- Title for search suggestions when Google is the default search suggestion engine. -->
   <string name="google_search_engine_suggestion_header">Google Аԥшаара</string>
   <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. %s is default search engine name. -->
@@ -1947,7 +1947,7 @@
   -->
   <string name="default_browser_experiment_card_title">Убраузер ишыҟоу ԥсахтәуп</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Firefox аҟны асаитқәа, аимеилқәа, адырраҭарақәа рҟынтәи азхьарԥшқәа автоматикала раартра еиқәыршәатәуп.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Waterfox аҟны асаитқәа, аимеилқәа, адырраҭарақәа рҟынтәи азхьарԥшқәа автоматикала раартра еиқәыршәатәуп.</string>
   <!-- Content description radio buttons with a link to more information -->
   <string name="radio_preference_info_content_description">Еиҳаны адырразы шәақәыӷәӷәа</string>
   <!-- Content description for the action bar "up" button -->
@@ -2263,7 +2263,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Firefox аиӷьтәра ҳацхраа. Минуҭк ауп иаҭаххо.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Waterfox аиӷьтәра ҳацхраа. Минуҭк ауп иаҭаххо.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Ацҵара</string>
   <!--
@@ -2293,29 +2293,29 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">Сара уи схы иасырхәом</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Сара аԥшаара схы иасырхәом Firefox аҟны</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Сара аԥшаара схы иасырхәом Waterfox аҟны</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">Сара асинхрон схы иасырхәом</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Firefox аҟны акьыԥхьра аиӷьтәраҿы ацхыраара. Секундк ауп иаҭаххо</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Waterfox аҟны акьыԥхьра аиӷьтәраҿы ацхыраара. Секундк ауп иаҭаххо</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Firefox аԥшаара еиӷьны аҟаҵараҿы ацхыраара. Минуҭк ауп иаҭаххо</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Waterfox аԥшаара еиӷьны аҟаҵараҿы ацхыраара. Минуҭк ауп иаҭаххо</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Firefox аҟны асинхронизациа аиӷьтәразы ацхыраара. Минуҭк ауп иаҭаххо</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Waterfox аҟны асинхронизациа аиӷьтәразы ацхыраара. Минуҭк ауп иаҭаххо</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Шаҟа угәы иақәшәозеи Firefox ала акьыԥхьра?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">Шаҟа угәы иақәшәозеи Waterfox ала акьыԥхьра?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Шаҟа угәы иақәшәозеи Firefox ахатә даҟьа?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">Шаҟа угәы иақәшәозеи Waterfox ахатә даҟьа?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Шаҟа угәы иақәшәозеи Firefox аԥшаара?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Шаҟа угәы иақәшәозеи Waterfox аԥшаара?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Шаҟа угәы иақәшәозеи Firefox аҟны асинхронизациа?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Шаҟа угәы иақәшәозеи Waterfox аҟны асинхронизациа?</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Firefox алоготип</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Waterfox алоготип</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Абжьаҭара афункциа адыргаҷа</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->

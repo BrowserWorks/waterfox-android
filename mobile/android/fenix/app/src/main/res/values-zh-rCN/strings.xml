@@ -72,7 +72,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">移除</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content" tools:ignore="BrandUsage">%1$s 由 Mozilla 倾力打造。</string>
+  <string name="about_content" tools:ignore="BrandUsage">%1$s 由 BrowserWorks 倾力打造。</string>
   <!-- Private Browsing -->
   <string name="private_browsing_common_myths">正确认识隐私浏览功能</string>
   <!-- Text to be announced by the accessibility service to inform the user that the private browsing mode is currently active. -->
@@ -457,7 +457,7 @@
   -->
   <string name="onboarding_home_content_description_close_button">关闭</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">帮助我们改进 Firefox</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">帮助我们改进 Waterfox</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">自动发送崩溃报告</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -475,23 +475,23 @@
   <!-- Button text to reopen firefox after the crash is processed %s is the name of the app (for example "Firefox") -->
   <string name="startup_crash_restart">重新打开 %s</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title" tools:ignore="BrandUsage">向 Mozilla 发送技术与交互数据</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">与您的设备、硬件配置、Firefox 使用方式相关的数据，有助于为全体用户改进功能、性能、稳定性。</string>
+  <string name="onboarding_preferences_dialog_usage_data_title" tools:ignore="BrandUsage">向 BrowserWorks 发送技术与交互数据</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">与您的设备、硬件配置、Waterfox 使用方式相关的数据，有助于为全体用户改进功能、性能、稳定性。</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">详细了解</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">完成</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">欢迎使用 Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">欢迎使用 Waterfox</string>
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">继续使用即表示您同意 %1$s。</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Firefox 使用条款</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Waterfox 使用条款</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Firefox 重视您的隐私。阅读%1$s可详细了解。</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Waterfox 重视您的隐私。阅读%1$s可详细了解。</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">隐私声明</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">为帮助改进浏览器，Firefox 会向 Mozilla 发送诊断和交互数据。%1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">为帮助改进浏览器，Waterfox 会向 BrowserWorks 发送诊断和交互数据。%1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">管理</string>
   <!-- Terms of use (ToU) onboarding redesign title. -->
@@ -508,19 +508,19 @@
   -->
   <string name="onboarding_redesign_tou_body_one" tools:ignore="UnusedResources">继续使用即表示您同意 %1$s。</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_one. -->
-  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">Firefox 使用条款</string>
+  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">Waterfox 使用条款</string>
   <!--
     Terms of use (ToU) second body text. 'Firefox' is intentionally hardcoded.
     %1$s is replaced by an active link, using onboarding_redesign_tou_body_two_link_text as text (“Privacy Notice”).
   -->
-  <string name="onboarding_redesign_tou_body_two" tools:ignore="BrandUsage,UnusedResources">Firefox 重视您的隐私。阅读%1$s可详细了解。</string>
+  <string name="onboarding_redesign_tou_body_two" tools:ignore="BrandUsage,UnusedResources">Waterfox 重视您的隐私。阅读%1$s可详细了解。</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_two. -->
   <string name="onboarding_redesign_tou_body_two_link_text" tools:ignore="UnusedResources">隐私声明</string>
   <!--
     Terms of use (ToU) third body text. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link using onboarding_redesign_tou_body_three_link_text as text (“Manage Settings”).
   -->
-  <string name="onboarding_redesign_tou_body_three" tools:ignore="BrandUsage,UnusedResources">为帮助改进浏览器，Firefox 会向 Mozilla 发送诊断和交互数据。%1$s</string>
+  <string name="onboarding_redesign_tou_body_three" tools:ignore="BrandUsage,UnusedResources">为帮助改进浏览器，Waterfox 会向 BrowserWorks 发送诊断和交互数据。%1$s</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_three. -->
   <string name="onboarding_redesign_tou_body_three_link_text" tools:ignore="UnusedResources">管理设置</string>
   <!-- Terms of use (ToU) onboarding page continue button label. -->
@@ -530,9 +530,9 @@
   <!-- Onboarding label for 'Continue' button. -->
   <string name="onboarding_redesign_continue_button" tools:ignore="UnusedResources">继续</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_redesign_title" tools:ignore="BrandUsage">助力壮大 Firefox</string>
+  <string name="onboarding_marketing_redesign_title" tools:ignore="BrandUsage">助力壮大 Waterfox</string>
   <!-- Marketing onboarding page opt-out checkbox. Unchecking the box does not increase data collection. Our data practices remain the same. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_redesign_opt_out_checkbox" tools:ignore="BrandUsage,UnusedResources">与 Mozilla 的营销合作伙伴分享您发现 Firefox 的途径及使用方式。我们绝不会出售此数据。</string>
+  <string name="onboarding_marketing_redesign_opt_out_checkbox" tools:ignore="BrandUsage,UnusedResources">与 BrowserWorks 的营销合作伙伴分享您发现 Waterfox 的途径及使用方式。我们绝不会出售此数据。</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_redesign_learn_more" tools:ignore="UnusedResources">我们如何使用您的数据</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -542,7 +542,7 @@
   <!-- Set to default browser onboarding redesign body. -->
   <string name="onboarding_redesign_set_default_browser_body" tools:ignore="UnusedResources">一触阻断大公司窥探您的浏览活动。</string>
   <!-- Sync onboarding redesign title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">在使用 Firefox 的各设备间同步</string>
+  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">在使用 Waterfox 的各设备间同步</string>
   <!-- Sync onboarding redesign body. -->
   <string name="onboarding_redesign_sync_body" tools:ignore="UnusedResources">跨设备查看书签、历史记录和密码，所有数据均受加密保护。</string>
   <!-- Sync onboarding redesign positive button text. -->
@@ -552,7 +552,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">最后一件事</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">与 Mozilla 的营销合作伙伴分享您发现 Firefox 的途径及使用方式。我们绝不会出售此数据。</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">与 BrowserWorks 的营销合作伙伴分享您发现 Waterfox 的途径及使用方式。我们绝不会出售此数据。</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">同意并开始浏览</string>
   <!-- ==== Project "Nova" onboarding strings ==== -->
@@ -575,19 +575,19 @@
   -->
   <string name="nova_onboarding_tou_body_line_1">继续使用即表示您同意 %1$s。</string>
   <!-- Terms of use (ToU) onboarding body line one link text for nova_onboarding_tou_body_line_1. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_tou_body_line_1_link_text" tools:ignore="BrandUsage">Firefox 使用条款</string>
+  <string name="nova_onboarding_tou_body_line_1_link_text" tools:ignore="BrandUsage">Waterfox 使用条款</string>
   <!--
     Terms of use (ToU) onboarding body line two. 'Firefox' is intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_tou_body_line_2_link_text as text (“Privacy Notice”).
   -->
-  <string name="nova_onboarding_tou_body_line_2" tools:ignore="BrandUsage">Firefox 重视您的隐私。阅读%1$s可详细了解。</string>
+  <string name="nova_onboarding_tou_body_line_2" tools:ignore="BrandUsage">Waterfox 重视您的隐私。阅读%1$s可详细了解。</string>
   <!-- Terms of use (ToU) onboarding body line two link text for nova_onboarding_tou_body_line_2. -->
   <string name="nova_onboarding_tou_body_line_2_link_text">隐私声明</string>
   <!--
     Terms of use (ToU) onboarding body line three. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_tou_body_line_3_link_text as text (“Manage Settings”).
   -->
-  <string name="nova_onboarding_tou_body_line_3" tools:ignore="BrandUsage">为帮助改进浏览器，Firefox 会向 Mozilla 发送诊断和交互数据。%1$s</string>
+  <string name="nova_onboarding_tou_body_line_3" tools:ignore="BrandUsage">为帮助改进浏览器，Waterfox 会向 BrowserWorks 发送诊断和交互数据。%1$s</string>
   <!-- Terms of use (ToU) onboarding body line three link text for nova_onboarding_tou_body_line_3. -->
   <string name="nova_onboarding_tou_body_line_3_link_text">管理设置</string>
   <!-- "Set to default" onboarding title. -->
@@ -624,60 +624,60 @@
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text as text (“How we use the data”).
   -->
-  <string name="nova_onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">与 Mozilla 的营销合作伙伴分享您发现 Firefox 的途径及使用方式。我们绝不会出售此数据。%1$s</string>
+  <string name="nova_onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">与 BrowserWorks 的营销合作伙伴分享您发现 Waterfox 的途径及使用方式。我们绝不会出售此数据。%1$s</string>
   <!-- Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_2" tools:ignore="BrandUsage">与 Mozilla 的营销合作伙伴分享您发现 Firefox 的途径及使用方式。我们绝不会出售此数据。</string>
+  <string name="nova_onboarding_marketing_body_2" tools:ignore="BrandUsage">与 BrowserWorks 的营销合作伙伴分享您发现 Waterfox 的途径及使用方式。我们绝不会出售此数据。</string>
   <!-- Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_3" tools:ignore="BrandUsage,UnusedResources">您可以通过允许 Mozilla 将您是 Firefox 用户这一信息告知我们推广 Firefox 的渠道，来帮助我们触达更多人。</string>
+  <string name="nova_onboarding_marketing_body_3" tools:ignore="BrandUsage,UnusedResources">您可以通过允许 BrowserWorks 将您是 Waterfox 用户这一信息告知我们推广 Waterfox 的渠道，来帮助我们触达更多人。</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
   -->
-  <string name="nova_onboarding_marketing_body_4" tools:ignore="BrandUsage,UnusedResources">您可以通过允许 Mozilla 将您正在使用 Firefox 这一信息告知您来源的平台，来帮助我们触达更多人。</string>
+  <string name="nova_onboarding_marketing_body_4" tools:ignore="BrandUsage,UnusedResources">您可以通过允许 BrowserWorks 将您正在使用 Waterfox 这一信息告知您来源的平台，来帮助我们触达更多人。</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
   -->
-  <string name="nova_onboarding_marketing_body_5" tools:ignore="BrandUsage,UnusedResources">允许 Mozilla 将您正在使用 Firefox 这一信息告知您来源的平台，来帮助我们触达更多人。</string>
+  <string name="nova_onboarding_marketing_body_5" tools:ignore="BrandUsage,UnusedResources">允许 BrowserWorks 将您正在使用 Waterfox 这一信息告知您来源的平台，来帮助我们触达更多人。</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text as text (“How we use the data”).
   -->
-  <string name="nova_onboarding_marketing_body_6" tools:ignore="BrandUsage,UnusedResources">允许 Mozilla 将您正在使用 Firefox 这一信息告知您来源的平台，来帮助我们触达更多人。%1$s</string>
+  <string name="nova_onboarding_marketing_body_6" tools:ignore="BrandUsage,UnusedResources">允许 BrowserWorks 将您正在使用 Waterfox 这一信息告知您来源的平台，来帮助我们触达更多人。%1$s</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text_1 as text (“Learn More”).
   -->
-  <string name="nova_onboarding_marketing_body_7" tools:ignore="BrandUsage">您可以通过允许 Mozilla 将您正在使用 Firefox 这一信息告知您来源的平台，来帮助我们触达更多人。%1$s</string>
+  <string name="nova_onboarding_marketing_body_7" tools:ignore="BrandUsage">您可以通过允许 BrowserWorks 将您正在使用 Waterfox 这一信息告知您来源的平台，来帮助我们触达更多人。%1$s</string>
   <!--
     Marketing onboarding additional body text. 'Firefox' is intentionally hardcoded.
     “Allowing” refers to the main button “Allow and Continue”; the ask for the user is to allow communicating back to the platform.
   -->
-  <string name="nova_onboarding_marketing_body_line_three" tools:ignore="BrandUsage">请考虑允许以帮助成就 Firefox。</string>
+  <string name="nova_onboarding_marketing_body_line_three" tools:ignore="BrandUsage">请考虑允许以帮助成就 Waterfox。</string>
   <!-- Marketing onboarding body link text. -->
   <string name="nova_onboarding_marketing_body_link_text">我们如何使用您的数据</string>
   <!-- Marketing onboarding body link text. -->
   <string name="nova_onboarding_marketing_body_link_text_1">详细了解</string>
   <!-- Marketing onboarding primary button text. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_primary_button_text" tools:ignore="BrandUsage,UnusedResources">帮助 Firefox</string>
+  <string name="nova_onboarding_marketing_primary_button_text" tools:ignore="BrandUsage,UnusedResources">帮助 Waterfox</string>
   <!-- Marketing onboarding primary button text. -->
   <string name="nova_onboarding_marketing_primary_button_text_2">允许并继续</string>
   <!-- Marketing onboarding secondary button text. -->
   <string name="nova_onboarding_marketing_secondary_button_text" tools:ignore="UnusedResources">不了，谢谢</string>
   <!-- Notifications onboarding title. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">允许通知可让 Firefox 更好地为您保驾护航</string>
+  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">允许通知可让 Waterfox 更好地为您保驾护航</string>
   <!-- Notifications onboarding subtitle. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_notifications_subtitle" tools:ignore="BrandUsage,UnusedResources">探索 Firefox 最新隐私功能，紧跟隐私保护新潮流。</string>
+  <string name="nova_onboarding_notifications_subtitle" tools:ignore="BrandUsage,UnusedResources">探索 Waterfox 最新隐私功能，紧跟隐私保护新潮流。</string>
   <!-- Notifications onboarding button. -->
   <string name="nova_onboarding_notifications_button">开启通知</string>
   <!-- "Add search widget" onboarding title. -->
   <string name="nova_onboarding_add_search_widget_title">让每次搜索都更有隐私</string>
   <!-- "Add search widget" onboarding subtitle. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_subtitle" tools:ignore="BrandUsage">直接从手机主屏幕开始搜索，Firefox 的自动保护功能时刻为您护航。</string>
+  <string name="nova_onboarding_add_search_widget_subtitle" tools:ignore="BrandUsage">直接从手机主屏幕开始搜索，Waterfox 的自动保护功能时刻为您护航。</string>
   <!-- "Add search widget" onboarding button. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">添加 Firefox 小组件</string>
+  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">添加 Waterfox 小组件</string>
   <!-- Customize prompt onboarding title. -->
   <string name="nova_onboarding_customize_prompt_title" tools:ignore="UnusedResources">定制好轻松，浏览更私密</string>
   <plurals name="nova_onboarding_customize_prompt_body" tools:ignore="UnusedResources">
@@ -751,9 +751,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">地址栏首选项</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">地址栏 - Firefox 建议</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">地址栏 - Waterfox 建议</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">详细了解 Firefox 建议</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">详细了解 Waterfox 建议</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">在 Google Play 上评分</string>
   <!--
@@ -842,7 +842,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">无障碍环境</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server" tools:ignore="BrandUsage">自定义 Mozilla 账户服务器</string>
+  <string name="preferences_override_account_server" tools:ignore="BrandUsage">自定义 BrowserWorks 账户服务器</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">自定义同步服务器</string>
   <!-- Preference category for account information -->
@@ -870,7 +870,7 @@
   <!-- Preference description shown in the banner prompting the user to sign in for sync features -->
   <string name="preferences_sign_in_description">同步标签页、书签、密码等数据。</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">Mozilla 账户</string>
+  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">BrowserWorks 账户</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">重新连接以恢复同步</string>
   <!-- Preference for language -->
@@ -918,7 +918,7 @@
   <!-- Summary for preference to show Firefox Suggest search suggestions for web content -->
   <string name="preferences_show_nonsponsored_suggestions_summary">从网络上获取与您的搜索关键词相关的建议</string>
   <!-- Preference title for switch preference to show search optimization cards -->
-  <string name="preferences_show_search_optimization_cards" tools:ignore="BrandUsage">在键入时获取来自 Mozilla 的建议</string>
+  <string name="preferences_show_search_optimization_cards" tools:ignore="BrandUsage">在键入时获取来自 BrowserWorks 的建议</string>
   <!-- Preference for link sharing -->
   <string name="preferences_link_sharing">分享链接</string>
   <!-- Title for the link sharing toggle. %1$s is replaced by the brand name (e.g. Firefox). -->
@@ -1141,7 +1141,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">扩展上新</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">探索百余件新鲜扩展，让 Firefox 用起来更得心应手。</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">探索百余件新鲜扩展，让 Waterfox 用起来更得心应手。</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">发现更多扩展</string>
   <!--
@@ -1213,7 +1213,7 @@
   -->
   <string name="fxa_received_tab_channel_name">收到标签页</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">收到来自其他 Firefox 设备的标签页通知。</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">收到来自其他 Waterfox 设备的标签页通知。</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">收到标签页</string>
   <!-- %s is the device name -->
@@ -1245,10 +1245,10 @@
   <!-- Preference switch for usage and technical learn more link in new compose -->
   <string name="preference_usage_data_learn_more_2">详细了解技术数据</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">与您的设备、硬件配置、使用方式相关的数据，有助于我们改进 Firefox 的功能、性能、稳定性。</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">与您的设备、硬件配置、使用方式相关的数据，有助于我们改进 Waterfox 的功能、性能、稳定性。</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">每日使用情况报告</string>
-  <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">此信息可帮助 Mozilla 估算活跃用户数量。</string>
+  <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">此信息可帮助 BrowserWorks 估算活跃用户数量。</string>
   <string name="preferences_daily_usage_ping_learn_more">详细了解每日使用情况报告</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="crash_reporting_snack_bar_message">报告已发送</string>
@@ -1268,13 +1268,13 @@
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">与 Mozilla 的营销技术合作伙伴分享您发现 Firefox 的途径及使用方式。</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">与 BrowserWorks 的营销技术合作伙伴分享您发现 Waterfox 的途径及使用方式。</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">详细了解营销数据</string>
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">研究</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">允许 Mozilla 安装和运行研究</string>
+  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">允许 BrowserWorks 安装和运行研究</string>
   <!--
     Turn On Sync Preferences
 
@@ -1488,7 +1488,7 @@
   <!-- Title of the active section on the studies list -->
   <string name="studies_active">进行中</string>
   <!-- Description for studies. Note: The word "Firefox" should NOT be translated -->
-  <string name="studies_description_4" tools:ignore="BrandUsage">Firefox 会随机选择用户测试功能，以为全体用户改进质量。</string>
+  <string name="studies_description_4" tools:ignore="BrandUsage">Waterfox 会随机选择用户测试功能，以为全体用户改进质量。</string>
   <!-- Title of the Studies data preference -->
   <string name="studies_title_2">允许功能研究</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
@@ -1500,7 +1500,7 @@
   -->
   <string name="remote_improvements_title">允许远程改进</string>
   <!-- Description for remote improvements. Note: The word "Firefox" should NOT be translated -->
-  <string name="remote_improvements_description" tools:ignore="BrandUsage">Firefox 将在更新间隔期间改进功能、性能、稳定性，更改会远程进行。</string>
+  <string name="remote_improvements_description" tools:ignore="BrandUsage">Waterfox 将在更新间隔期间改进功能、性能、稳定性，更改会远程进行。</string>
   <!-- Learn more link for remote improvements, links to an article for more information about rollouts. -->
   <string name="remote_improvements_learn_more">详细了解</string>
   <!-- Title for remote improvements preference in Advanced settings -->
@@ -2033,7 +2033,7 @@
   -->
   <string name="tab_crash_title_2">抱歉，%1$s 无法加载该页面。</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report" tools:ignore="BrandUsage">向 Mozilla 发送崩溃报告</string>
+  <string name="tab_crash_send_report" tools:ignore="BrandUsage">向 BrowserWorks 发送崩溃报告</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">关闭标签页</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -2393,7 +2393,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">连接其他设备</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">请在至少另一台设备上的 Firefox 登录才能发送标签页。</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">请在至少另一台设备上的 Waterfox 登录才能发送标签页。</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">明白了</string>
   <!-- Share error message -->
@@ -2425,19 +2425,19 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox 又快又私密</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox 又快又私密</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">将 Firefox 设为您的默认浏览器</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">将 Waterfox 设为您的默认浏览器</string>
   <!--
     Survey
 
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">请填写这份简短的问卷，帮助 Firefox 变得更好。</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">请填写这份简短的问卷，帮助 Waterfox 变得更好。</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">问卷调查</string>
   <!-- Preference for not taking the short survey. -->
@@ -2569,7 +2569,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">扫码</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[在计算机上使用 Firefox 打开 <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[在计算机上使用 Waterfox 打开 <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">立即扫码</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2577,7 +2577,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">改用电子邮件</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[尚无账户？<u>立即创建</u>以在设备间同步 Firefox。]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[尚无账户？<u>立即创建</u>以在设备间同步 Waterfox。]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s 将停止与您的账户的同步，但不会删除您在这台设备上的任何上网数据。</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -3398,7 +3398,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">请启用标签页同步。</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">您其他设备上的 Firefox 没有打开任何标签页。</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">您其他设备上的 Waterfox 没有打开任何标签页。</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">查看您其他设备上的标签页列表。</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -3486,7 +3486,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">要一个月后自动关闭吗？</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox 可自动关闭您一个月内未查看的标签页。</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox 可自动关闭您一个月内未查看的标签页。</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">启用自动关闭标签页功能</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -3496,7 +3496,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox 建议</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox 建议</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -3515,7 +3515,7 @@
   -->
   <string name="default_browser_experiment_card_title">切换默认浏览器</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">将网站、电子邮件及聊天工具中的链接设为在 Firefox 中自动打开。</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">将网站、电子邮件及聊天工具中的链接设为在 Waterfox 中自动打开。</string>
   <!-- Content description radio buttons with a link to more information -->
   <string name="radio_preference_info_content_description">点击了解更多信息</string>
   <!-- Content description for the action bar "up" button -->
@@ -3998,7 +3998,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">帮助我们改进 Firefox，只需占用您一分钟时间。</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">帮助我们改进 Waterfox，只需占用您一分钟时间。</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">继续</string>
   <!--
@@ -4028,7 +4028,7 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">未曾使用</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">我没用过 Firefox 的搜索功能</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">我没用过 Waterfox 的搜索功能</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">我没用过同步功能</string>
   <!-- Option for likert scale -->
@@ -4040,23 +4040,23 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_its_okay" tools:ignore="UnusedResources">体验尚可，但未优于其他浏览器</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_i_plan_to_keep_using" tools:ignore="BrandUsage,UnusedResources">我打算继续使用 Firefox</string>
+  <string name="likert_scale_option_i_plan_to_keep_using" tools:ignore="BrandUsage,UnusedResources">我打算继续使用 Waterfox</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">请帮助 Firefox 的打印更出色。只需片刻</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">请帮助 Waterfox 的打印更出色。只需片刻</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">帮助改进 Firefox 的搜索功能，只需占用您一分钟时间</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">帮助改进 Waterfox 的搜索功能，只需占用您一分钟时间</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">帮助改进 Firefox 的同步功能，只需占用您一分钟时间</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">帮助改进 Waterfox 的同步功能，只需占用您一分钟时间</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">您对在 Firefox 中打印的满意度如何？</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">您对在 Waterfox 中打印的满意度如何？</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">您对 Firefox 主页使用体验的满意度如何？</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">您对 Waterfox 主页使用体验的满意度如何？</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">您对 Firefox 的搜索体验满意度如何？</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">您对 Waterfox 的搜索体验满意度如何？</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">您对 Firefox 的同步体验满意度如何？</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">您对 Waterfox 的同步体验满意度如何？</string>
   <!-- Text shown in the survey title for 'describe your experience so far' microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_describe_your_experience_title" tools:ignore="BrandUsage,UnusedResources">帮助我们改进 Firefox。以下哪项最符合您目前的使用体验？</string>
+  <string name="microsurvey_describe_your_experience_title" tools:ignore="BrandUsage,UnusedResources">帮助我们改进 Waterfox。以下哪项最符合您目前的使用体验？</string>
   <!--
     Uninstall Survey
 
@@ -4070,7 +4070,7 @@
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Firefox 徽标</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Waterfox 徽标</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">问卷功能图标</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -4188,27 +4188,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">立即更新</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">更新您的 Firefox 浏览器</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">更新您的 Waterfox 浏览器</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">一份根证书即将过期，会导致部分功能自 3 月 14 日起失效。</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">请在 3 月 14 日之前更新</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">一份根证书即将过期，会导致您的 Firefox 无法正常运作。</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">一份根证书即将过期，会导致您的 Waterfox 无法正常运作。</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">更新时间只剩不到 7 天</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">由于一份根证书将于 3 月 14 日过期，附加组件和其他 Firefox 功能将会失效。</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">由于一份根证书将于 3 月 14 日过期，附加组件和其他 Waterfox 功能将会失效。</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">续用 Firefox 的最后机会</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">续用 Waterfox 的最后机会</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">由于一份根证书即将过期，您的 Firefox 自 3 月 14 日起将无法正常运作。</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">由于一份根证书即将过期，您的 Waterfox 自 3 月 14 日起将无法正常运作。</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">建议更新</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">自 3 月 14 日起，附加组件和部分功能将失效。</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">您正在使用旧版本 Firefox</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">您正在使用旧版本 Waterfox</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">在 3 月 14 日前更新，以继续使用附加组件和其他功能。</string>
   <!-- Push notification message about old Firefox version -->
@@ -4639,7 +4639,7 @@
     %1$s is replaced by an active link using privacy_notice_updated_homepage_message_privacy_notice as text (Privacy Notice)
     %2$s is replaced by an active link using privacy_notice_updated_homepage_message_learn_more as text (Learn more)
   -->
-  <string name="privacy_notice_updated_homepage_message" tools:ignore="BrandUsage,UnusedResources">我们更新了%1$s，使之符合 Firefox 功能的最新实际情况。%2$s</string>
+  <string name="privacy_notice_updated_homepage_message" tools:ignore="BrandUsage,UnusedResources">我们更新了%1$s，使之符合 Waterfox 功能的最新实际情况。%2$s</string>
   <!-- The first active link used in privacy_notice_updated_homepage_message -->
   <string name="privacy_notice_updated_homepage_message_privacy_notice" tools:ignore="UnusedResources">隐私声明</string>
   <!-- The second active link used in privacy_notice_updated_homepage_message -->
@@ -4672,7 +4672,7 @@
     The "Labs" portion can be localized, "Firefox" must be treated as a brand and kept
     in English.
   -->
-  <string name="firefox_labs_title" tools:ignore="BrandUsage">Firefox 实验室</string>
+  <string name="firefox_labs_title" tools:ignore="BrandUsage">Waterfox 实验室</string>
   <!-- Banner title text on the Firefox Labs screen. -->
   <string name="firefox_labs_banner_title_2">欢迎试用我们的实验性功能！</string>
   <!--

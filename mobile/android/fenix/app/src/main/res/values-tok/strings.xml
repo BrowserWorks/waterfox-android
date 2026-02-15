@@ -52,7 +52,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">o weka</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content" tools:ignore="BrandUsage">kulupu Mozilla li pali e ilo %1$s.</string>
+  <string name="about_content" tools:ignore="BrandUsage">kulupu BrowserWorks li pali e ilo %1$s.</string>
   <!-- Private Browsing -->
   <string name="private_browsing_common_myths">o kama sona pona e nasin len</string>
   <!--
@@ -296,19 +296,19 @@
   -->
   <string name="onboarding_home_content_description_close_button">o pini</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">o pana e pona tawa ilo Firefox</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">o pana e pona tawa ilo Waterfox</string>
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">o sona</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">pona</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">o kama pona tawa ilo Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">o kama pona tawa ilo Waterfox</string>
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">sina kepeken ilo ni la %1$s li lawa e sina.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">nasin kepeken pi ilo Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">nasin kepeken pi ilo Waterfox</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">ilo Firefox li wile awen e len sina. o lukin e %1$s</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">ilo Waterfox li wile awen e len sina. o lukin e %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">toki lawa pi len sona</string>
   <!-- ==== Project "Nova" onboarding strings ==== -->
@@ -346,9 +346,9 @@
   <!-- Preference for settings related to Search engines -->
   <string name="preferences_search_engines">ilo alasa</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">ilo Firefox Suggest la poki alasa</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">ilo Waterfox Suggest la poki alasa</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">o sona e ilo Firefox Suggest</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">o sona e ilo Waterfox Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">o pana e pilin lon ilo Google Play</string>
   <!--
@@ -389,7 +389,7 @@
   <!-- Preference for settings related to visual options -->
   <string name="preferences_customize">o nasin sina</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">sijelo pi kulupu Mozilla</string>
+  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">sijelo pi kulupu BrowserWorks</string>
   <!-- Preference for language -->
   <string name="preferences_language">toki ilo</string>
   <!-- Preference for translations -->
@@ -502,7 +502,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">ilo namako sin li lon</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">o alasa e ilo namako mute a. ona li ken nasin sina e ilo Firefox.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">o alasa e ilo namako mute a. ona li ken nasin sina e ilo Waterfox.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">o alasa e ilo namako</string>
   <!--
@@ -861,7 +861,7 @@
   -->
   <string name="tab_crash_title_2">pakala la ilo %1$s li ken ala pana e lipu ni.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report" tools:ignore="BrandUsage">o pana e sona pakala tawa kulupu Mozilla</string>
+  <string name="tab_crash_send_report" tools:ignore="BrandUsage">o pana e sona pakala tawa kulupu BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">o weka e poki</string>
   <!-- Unsubmitted crash dialog negative button to dismiss the dialog -->
@@ -1039,7 +1039,7 @@
   <!-- Text displayed when sync is offline and cannot be accessed -->
   <string name="sync_offline">linja ala</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">pana lipu la o kama tawa ilo Firefox lon ilo ante</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">pana lipu la o kama tawa ilo Waterfox lon ilo ante</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">mi sona</string>
   <!-- Add new device screen title -->
@@ -1063,12 +1063,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">ilo Firefox li awen suli</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">ilo Waterfox li awen suli</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">o open e lipu ale kepeken ilo Firefox</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">o open e lipu ale kepeken ilo Waterfox</string>
   <!-- Preference for not taking the short survey. -->
   <string name="preferences_not_take_survey">mi wile ala</string>
   <!--
@@ -1130,7 +1130,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">o kepeken nimi nasin pi poki lipu</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[sina jo ala e sijelo anu seme? <u>o open e sijelo</u> tawa ni: sina ken sama e ilo sina lon nasin Firefox.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[sina jo ala e sijelo anu seme? <u>o open e sijelo</u> tawa ni: sina ken sama e ilo sina lon nasin Waterfox.]]></string>
   <!-- Text displayed that links to website about enhanced tracking protection -->
   <string name="preference_enhanced_tracking_protection_explanation_learn_more">o sona</string>
   <!-- Preference for enhanced tracking protection for the standard protection settings -->

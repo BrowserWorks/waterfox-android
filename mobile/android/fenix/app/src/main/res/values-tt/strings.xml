@@ -60,7 +60,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Бетерү</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content" tools:ignore="BrandUsage">%1$s Mozilla тарафыннан җитештерелә.</string>
+  <string name="about_content" tools:ignore="BrandUsage">%1$s BrowserWorks тарафыннан җитештерелә.</string>
   <!-- Private Browsing -->
   <string name="private_browsing_common_myths">Хосусый гизү турында киң таралган мифлар</string>
   <!-- Text to be announced by the accessibility service to inform the user that the private browsing mode is currently active. -->
@@ -310,7 +310,7 @@
   -->
   <string name="onboarding_home_content_description_close_button">Ябу</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Безгә Firefox-ны яхшыртырга ярдәм итегез</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Безгә Waterfox-ны яхшыртырга ярдәм итегез</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">Ватылу турында хәбәрләрне автоматик рәвештә җибәрү</string>
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -321,15 +321,15 @@
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">Әзер</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Firefox-ка рәхим итегез</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Waterfox-ка рәхим итегез</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Firefox куллану шартлары</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Waterfox куллану шартлары</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">Хосусыйлык аңлатмасы</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">Идарә итү</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_one. -->
-  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">Firefox куллану шартлары</string>
+  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">Waterfox куллану шартлары</string>
   <!-- Terms of use (ToU) onboarding page continue button label. -->
   <string name="onboarding_redesign_tou_agree_and_continue_button_label" tools:ignore="UnusedResources">Дәвам итү</string>
   <!-- Onboarding label for 'Continue' button. -->
@@ -345,11 +345,11 @@
   <!-- Theme selection onboarding "dark" option label. -->
   <string name="nova_onboarding_theme_selection_dark_label" tools:ignore="UnusedResources">Караңгы</string>
   <!-- Notifications onboarding title. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">Искәртүләр Сезгә Firefox белән иминлерәк булып калырга ярдәм итә</string>
+  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">Искәртүләр Сезгә Waterfox белән иминлерәк булып калырга ярдәм итә</string>
   <!-- Notifications onboarding button. -->
   <string name="nova_onboarding_notifications_button">Искәртүләрне кабызу</string>
   <!-- "Add search widget" onboarding button. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">Firefox виджетын өстәү</string>
+  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">Waterfox виджетын өстәү</string>
   <!-- ==== End of Project "Nova" onboarding strings ==== -->
 
   <!--
@@ -391,9 +391,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Адрес юлына кагылышлы көйләүләр</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Адрес юлы - Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Адрес юлы - Waterfox Suggest</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Firefox Suggest турында күбрәк белү</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Waterfox Suggest турында күбрәк белү</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Google Play-да бәяләү</string>
   <!--
@@ -464,7 +464,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Кулайлык</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server" tools:ignore="BrandUsage">Үзгә Mozilla Хисап серверы</string>
+  <string name="preferences_override_account_server" tools:ignore="BrandUsage">Үзгә BrowserWorks Хисап серверы</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Үзгә Синхронлау серверы</string>
   <!-- Preference category for account information -->
@@ -482,7 +482,7 @@
   <!-- Preference description shown in the banner prompting the user to sign in for sync features -->
   <string name="preferences_sign_in_description">Таблар, кыстыргычлар, серсүзләр һәм башкаларны cинхронлау.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">Mozilla хисап язмасы</string>
+  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">BrowserWorks хисап язмасы</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Синхронлауны дәвам итү өчен яңадан тоташыгыз</string>
   <!-- Preference for language -->
@@ -700,7 +700,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Башка җиһаздагы таблар</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Башка Firefox җиһазларыннан алынган таблар өчен искәртүләр.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Башка Waterfox җиһазларыннан алынган таблар өчен искәртүләр.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Таб кабул ителде</string>
   <!-- %s is the device name -->
@@ -727,11 +727,11 @@
   <string name="exceptions_empty_message_learn_more_link">Күбрәк белү</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">Көндәлек куллану пингы</string>
-  <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">Бу Mozilla-га актив кулланучылар санын бәяләргә ярдәм итә.</string>
+  <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">Бу BrowserWorks-га актив кулланучылар санын бәяләргә ярдәм итә.</string>
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Тикшеренүләр</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Mozilla-га тикшеренүләр урнаштырырга һәм үткәрергә рөхсәт итү</string>
+  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorks-га тикшеренүләр урнаштырырга һәм үткәрергә рөхсәт итү</string>
   <!-- Preference for reconnecting to FxA sync -->
   <string name="preferences_sync_sign_in_to_reconnect">Яңадан тоташу өчен керегез</string>
   <!-- Preference for removing FxA account -->
@@ -741,7 +741,7 @@
 
     Instructions on how to access pairing
   -->
-  <string name="pair_instructions_2"><![CDATA[<b>Firefox.com/pair</b> адресында күрсәтелгән QR кодны сканерлагыз]]></string>
+  <string name="pair_instructions_2"><![CDATA[<b>Waterfox.com/pair</b> адресында күрсәтелгән QR кодны сканерлагыз]]></string>
   <!--
     Toolbar Preferences
 
@@ -1050,7 +1050,7 @@
   -->
   <string name="tab_crash_title_2">Гафу. %1$s бу сәхифәне йөкли алмый.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report" tools:ignore="BrandUsage">Mozilla-га ватылу турында хәбәр җибәрү</string>
+  <string name="tab_crash_send_report" tools:ignore="BrandUsage">BrowserWorks-га ватылу турында хәбәр җибәрү</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Табны ябу</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1322,7 +1322,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Башка җиһазны тоташтыру</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Табны җибәрү өчен, кимендә тагын бер башка җиһаздан Firefox-ка керегез.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Табны җибәрү өчен, кимендә тагын бер башка җиһаздан Waterfox-ка керегез.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Аңладым</string>
   <!-- Share error message -->
@@ -1349,19 +1349,19 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox — тиз һәм хосусый</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Waterfox — тиз һәм хосусый</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Firefox-ны төп браузерыгыз итү</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Waterfox-ны төп браузерыгыз итү</string>
   <!--
     Survey
 
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Зинһар, Firefox-ны яхшыртырга ярдәм итү өчен бу кыска сораулыкны алыгыз.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Зинһар, Waterfox-ны яхшыртырга ярдәм итү өчен бу кыска сораулыкны алыгыз.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Анкетада катнашу</string>
   <!-- Preference for not taking the short survey. -->
@@ -1479,7 +1479,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Кодны сканерлау</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Компьютерыгызда Firefox-ны ачыгыз һәм <b>https://firefox.com/pair</b> адресына үтегез]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Компьютерыгызда Waterfox-ны ачыгыз һәм <b>https://firefox.com/pair</b> адресына үтегез]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Сканерлауга әзер</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -1487,7 +1487,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Моның урынына эл. почта кулланыгыз</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Аккаунтыгыз юкмы? Firefox-ны җиһазлар арасында синхронлау өчен, бер <u>хисап булдырыгыз</u>.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Аккаунтыгыз юкмы? Waterfox-ны җиһазлар арасында синхронлау өчен, бер <u>хисап булдырыгыз</u>.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s хисабыгыз белән синхронлауны туктатачак, ләкин бу җиһаздагы гизү мәгълүматларының берсен дә бетермәячәк.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1976,7 +1976,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Зинһар, таблар синхронлауны кабызыгыз.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Башка җиһазларыгыздагы Firefox-ларда ачык таблар юк.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Башка җиһазларыгыздагы Waterfox-ларда ачык таблар юк.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Башка җиһазларыгызда ачылган таблар исемлеген карау.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2032,7 +2032,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Бер айдан соң үзлегеннән ябылсынмы?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox соңгы айда каралмаган табларны яба ала.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox соңгы айда каралмаган табларны яба ала.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">АВТОЯБУНЫ КАБЫЗУ</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2042,7 +2042,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Suggest</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Waterfox Suggest</string>
   <!-- Title for search suggestions when Google is the default search suggestion engine. -->
   <string name="google_search_engine_suggestion_header">Google-да эзләү</string>
   <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. %s is default search engine name. -->
@@ -2054,7 +2054,7 @@
   -->
   <string name="default_browser_experiment_card_title">Башка браузерны төп браузер итү</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Вебсайтлардан, эл. хатлардан һәм хәбәрләрдән сылтамаларны автоматик рәвештә Firefox-та ачылсын.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Вебсайтлардан, эл. хатлардан һәм хәбәрләрдән сылтамаларны автоматик рәвештә Waterfox-та ачылсын.</string>
   <!-- Content description radio buttons with a link to more information -->
   <string name="radio_preference_info_content_description">Күбрәк белү өчен басыгыз</string>
   <!-- Content description for the action bar "up" button -->
@@ -2326,7 +2326,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Безгә Firefox-ны яхшыртырга ярдәм итегез. Моңа берничә минут кына кирәк.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Безгә Waterfox-ны яхшыртырга ярдәм итегез. Моңа берничә минут кына кирәк.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Дәвам итү</string>
   <!--
@@ -2356,21 +2356,21 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">Мин аны кулланмыйм</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Мин Firefox-та эзләү кулланмыйм</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Мин Waterfox-та эзләү кулланмыйм</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">Мин синхронлауны кулланмыйм</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Безгә Firefox эчендәге бастыруны яхшыртырга ярдәм итегез. Моңа берничә секунд кына кирәк</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Безгә Waterfox эчендәге бастыруны яхшыртырга ярдәм итегез. Моңа берничә секунд кына кирәк</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Безгә Firefox эчендәге эзләүне яхшыртырга ярдәм итегез. Моңа берничә минут кына кирәк</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Безгә Waterfox эчендәге эзләүне яхшыртырга ярдәм итегез. Моңа берничә минут кына кирәк</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Безгә Firefox эчендәге синхронлауны яхшыртырга ярдәм итегез. Моңа берничә минут кына кирәк</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Безгә Waterfox эчендәге синхронлауны яхшыртырга ярдәм итегез. Моңа берничә минут кына кирәк</string>
   <!--
     Accessibility
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Firefox логотибы</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Waterfox логотибы</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Сораулык үзенчәлеге тамгасы</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->

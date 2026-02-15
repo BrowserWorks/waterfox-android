@@ -68,7 +68,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">យកចេញ</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content" tools:ignore="BrandUsage">%1$s ត្រូវ​បាន​ផលិត​ដោយ Mozilla។</string>
+  <string name="about_content" tools:ignore="BrandUsage">%1$s ត្រូវ​បាន​ផលិត​ដោយ BrowserWorks។</string>
   <!-- Private Browsing -->
   <string name="private_browsing_common_myths">ទេវកថាទូទៅអំពីការរុករកឯកជន</string>
   <!-- Text to be announced by the accessibility service to inform the user that the private browsing mode is currently active. -->
@@ -397,7 +397,7 @@
   -->
   <string name="onboarding_home_content_description_close_button">បិទ</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">ជួយយើងធ្វើឱ្យ Firefox កាន់តែប្រសើរឡើង</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">ជួយយើងធ្វើឱ្យ Waterfox កាន់តែប្រសើរឡើង</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">ផ្ញើរបាយការណ៍គាំងដោយស្វ័យប្រវត្តិ</string>
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -413,16 +413,16 @@
   <!-- Button text to reopen firefox after the crash is processed %s is the name of the app (for example "Firefox") -->
   <string name="startup_crash_restart">បើក %s ឡើងវិញ</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title" tools:ignore="BrandUsage">ផ្ញើទិន្នន័យបច្ចេកទេស និងអន្តរកម្មទៅ Mozilla</string>
+  <string name="onboarding_preferences_dialog_usage_data_title" tools:ignore="BrandUsage">ផ្ញើទិន្នន័យបច្ចេកទេស និងអន្តរកម្មទៅ BrowserWorks</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">ស្វែងយល់​បន្ថែម</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">ធ្វើ​រួច</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">សូមស្វាគមន៍មកកាន់ Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">សូមស្វាគមន៍មកកាន់ Waterfox</string>
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">ដោយការបន្ត អ្នកយល់ព្រមតាម %1$s។</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">លក្ខខណ្ឌប្រើប្រាស់ Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">លក្ខខណ្ឌប្រើប្រាស់ Waterfox</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">ការជូនដំណឹង​អំពី​ឯកជនភាព</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
@@ -435,7 +435,7 @@
   -->
   <string name="onboarding_redesign_tou_body_one" tools:ignore="UnusedResources">ដោយការបន្ត អ្នកយល់ព្រមតាម %1$s។</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_one. -->
-  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">លក្ខខណ្ឌនៃការប្រើប្រាស់ Firefox</string>
+  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">លក្ខខណ្ឌនៃការប្រើប្រាស់ Waterfox</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_two. -->
   <string name="onboarding_redesign_tou_body_two_link_text" tools:ignore="UnusedResources">ការជូនដំណឹង​អំពី​ឯកជនភាព</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_three. -->
@@ -445,15 +445,15 @@
   <!-- Onboarding label for 'Continue' button. -->
   <string name="onboarding_redesign_continue_button" tools:ignore="UnusedResources">បន្ត</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_redesign_title" tools:ignore="BrandUsage">ជួយយើងធ្វើឱ្យ Firefox រីកចម្រើន</string>
+  <string name="onboarding_marketing_redesign_title" tools:ignore="BrandUsage">ជួយយើងធ្វើឱ្យ Waterfox រីកចម្រើន</string>
   <!-- Marketing onboarding page opt-out checkbox. Unchecking the box does not increase data collection. Our data practices remain the same. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_redesign_opt_out_checkbox" tools:ignore="BrandUsage,UnusedResources">ចែករំលែកពីរបៀបដែលអ្នកបានស្គាល់ Firefox និងការប្រើប្រាស់វា ជាមួយដៃគូទីផ្សាររបស់ Mozilla។ ទិន្នន័យនេះមិនត្រូវបានលក់ឡើយ។</string>
+  <string name="onboarding_marketing_redesign_opt_out_checkbox" tools:ignore="BrandUsage,UnusedResources">ចែករំលែកពីរបៀបដែលអ្នកបានស្គាល់ Waterfox និងការប្រើប្រាស់វា ជាមួយដៃគូទីផ្សាររបស់ BrowserWorks។ ទិន្នន័យនេះមិនត្រូវបានលក់ឡើយ។</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_redesign_learn_more" tools:ignore="UnusedResources">របៀបដែលយើងប្រើប្រាស់ទិន្នន័យ</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_redesign_positive_button" tools:ignore="UnusedResources">អះអាង</string>
   <!-- Sync onboarding redesign title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">ធ្វើសមកាលកម្មគ្រប់ទីកន្លែងដែលអ្នកប្រើ Firefox</string>
+  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">ធ្វើសមកាលកម្មគ្រប់ទីកន្លែងដែលអ្នកប្រើ Waterfox</string>
   <!-- Sync onboarding redesign body. -->
   <string name="onboarding_redesign_sync_body" tools:ignore="UnusedResources">ទទួលបានចំណាំ ផ្ទាំង និងពាក្យសម្ងាត់នៅលើឧបករណ៍ណាមួយ។ ទាំងអស់ត្រូវបានការពារដោយការអ៊ិនគ្រីប។</string>
   <!-- Sync onboarding redesign positive button text. -->
@@ -463,7 +463,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">រឿងចុងក្រោយមួយទៀត</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">ចែករំលែកពីរបៀបដែលអ្នកបានរកឃើញ Firefox និងរបៀបដែលអ្នកប្រើប្រាស់វា ជាមួយដៃគូទីផ្សាររបស់ Mozilla។ ទិន្នន័យនេះមិនដែលត្រូវបានលក់ឡើយ។</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">ចែករំលែកពីរបៀបដែលអ្នកបានរកឃើញ Waterfox និងរបៀបដែលអ្នកប្រើប្រាស់វា ជាមួយដៃគូទីផ្សាររបស់ BrowserWorks។ ទិន្នន័យនេះមិនដែលត្រូវបានលក់ឡើយ។</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">យល់ព្រម ហើយចាប់ផ្តើមរុករក</string>
   <!-- ==== Project "Nova" onboarding strings ==== -->
@@ -480,7 +480,7 @@
   -->
   <string name="nova_onboarding_tou_body_line_1">ដោយការបន្ត អ្នកយល់ព្រមតាម %1$s។</string>
   <!-- Terms of use (ToU) onboarding body line one link text for nova_onboarding_tou_body_line_1. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_tou_body_line_1_link_text" tools:ignore="BrandUsage">លក្ខខណ្ឌប្រើប្រាស់ Firefox</string>
+  <string name="nova_onboarding_tou_body_line_1_link_text" tools:ignore="BrandUsage">លក្ខខណ្ឌប្រើប្រាស់ Waterfox</string>
   <!-- Terms of use (ToU) onboarding body line two link text for nova_onboarding_tou_body_line_2. -->
   <string name="nova_onboarding_tou_body_line_2_link_text">ការជូនដំណឹង​អំពី​ឯកជនភាព</string>
   <!-- Terms of use (ToU) onboarding body line three link text for nova_onboarding_tou_body_line_3. -->
@@ -508,13 +508,13 @@
   <!-- Marketing onboarding body link text. -->
   <string name="nova_onboarding_marketing_body_link_text">របៀបដែលយើងប្រើប្រាស់ទិន្នន័យ</string>
   <!-- Notifications onboarding title. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">ការជូនដំណឹងជួយអ្នកឱ្យមានសុវត្ថិភាពជាមួយ Firefox</string>
+  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">ការជូនដំណឹងជួយអ្នកឱ្យមានសុវត្ថិភាពជាមួយ Waterfox</string>
   <!-- Notifications onboarding button. -->
   <string name="nova_onboarding_notifications_button">បើកការជូនដំណឹង</string>
   <!-- "Add search widget" onboarding title. -->
   <string name="nova_onboarding_add_search_widget_title">ធ្វើឱ្យការស្វែងរកនីមួយៗកាន់តែឯកជនភាព</string>
   <!-- "Add search widget" onboarding button. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">បន្ថែមធាតុក្រាហ្វិក Firefox</string>
+  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">បន្ថែមធាតុក្រាហ្វិក Waterfox</string>
   <!-- ==== End of Project "Nova" onboarding strings ==== -->
 
   <!--
@@ -562,9 +562,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">ចំណូលចិត្តរបារអាសយដ្ឋាន</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">របារអាសយដ្ឋាន - ការណែនាំរបស់ Firefox</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">របារអាសយដ្ឋាន - ការណែនាំរបស់ Waterfox</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">ស្វែងយល់បន្ថែមអំពីការណែនាំរបស់ Firefox</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">ស្វែងយល់បន្ថែមអំពីការណែនាំរបស់ Waterfox</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">វាយតម្លៃនៅលើ Google Play</string>
   <!--
@@ -621,7 +621,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">ភាពងាយស្រួល</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server" tools:ignore="BrandUsage">ម៉ាស៊ីនបម្រើគណនី Mozilla ផ្ទាល់ខ្លួន</string>
+  <string name="preferences_override_account_server" tools:ignore="BrandUsage">ម៉ាស៊ីនបម្រើគណនី BrowserWorks ផ្ទាល់ខ្លួន</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">សេវូបករណ៍សមកាលកម្មផ្ទាល់ខ្លួន</string>
   <!-- Preference category for account information -->
@@ -649,7 +649,7 @@
   <!-- Preference description shown in the banner prompting the user to sign in for sync features -->
   <string name="preferences_sign_in_description">ធ្វើសមកាលកម្មផ្ទាំង ចំណាំ ពាក្យសម្ងាត់ និងច្រើនទៀត។</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">គណនី Mozilla</string>
+  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">គណនី BrowserWorks</string>
   <!-- Preference for language -->
   <string name="preferences_language">ភាសា</string>
   <!-- Preference for translations -->
@@ -815,7 +815,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">ផ្នែកបន្ថែមថ្មីៗ ឥឡូវមានហើយ</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">សូមពិនិត្យមើលផ្នែកបន្ថែមថ្មីជាង 100 ដែលអនុញ្ញាតឱ្យអ្នកបង្កើត Firefox ដោយខ្លួនឯងបាន។</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">សូមពិនិត្យមើលផ្នែកបន្ថែមថ្មីជាង 100 ដែលអនុញ្ញាតឱ្យអ្នកបង្កើត Waterfox ដោយខ្លួនឯងបាន។</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">រុករកផ្នែកបន្ថែម</string>
   <!--
@@ -905,7 +905,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">ការសិក្សា</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">អនុញ្ញាតឱ្យ Mozilla ដំឡើងនិងដំណើរការសិក្សា</string>
+  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">អនុញ្ញាតឱ្យ BrowserWorks ដំឡើងនិងដំណើរការសិក្សា</string>
   <!--
     Turn On Sync Preferences
 
@@ -1480,7 +1480,7 @@
   <!-- Text displayed when sync is offline and cannot be accessed -->
   <string name="sync_offline">ក្រៅ​បណ្ដាញ</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ដើម្បីផ្ញើផ្ទាំង សូមចូលទៅក្នុង Firefox នៅលើឧបករណ៍ផ្សេងទៀតយ៉ាងហោចណាស់មួយ។</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ដើម្បីផ្ញើផ្ទាំង សូមចូលទៅក្នុង Waterfox នៅលើឧបករណ៍ផ្សេងទៀតយ៉ាងហោចណាស់មួយ។</string>
   <!-- Text for the button to learn about sending tabs -->
   <string name="sync_add_new_device_learn_button">ស្វែងយល់អំពីការផ្ញើផ្ទាំង…</string>
   <!--
@@ -1557,7 +1557,7 @@
   <!-- Text shown in snackbar when one tab has been sent to device -->
   <string name="sync_sent_tab_snackbar_2">បានផ្ញើផ្ទាំង</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[គ្មានគណនីទេ? <u>បង្កើតមួយ</u> ដើម្បីធ្វើសមកាលកម្ម Firefox រវាងឧបករណ៍នានា។]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[គ្មានគណនីទេ? <u>បង្កើតមួយ</u> ដើម្បីធ្វើសមកាលកម្ម Waterfox រវាងឧបករណ៍នានា។]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s នឹងឈប់ធ្វើសមកាលកម្មជាមួយគណនីរបស់អ្នក ប៉ុន្តែនឹងមិនលុបទិន្នន័យរុករកណាមួយរបស់អ្នកនៅលើឧបករណ៍នេះទេ។</string>
   <!-- Option to cancel signing out shown in confirmation dialog to sign out of account -->

@@ -72,7 +72,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">הסרה</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content" tools:ignore="BrandUsage">‏%1$s נוצר על־ידי Mozilla.</string>
+  <string name="about_content" tools:ignore="BrandUsage">‏%1$s נוצר על־ידי BrowserWorks.</string>
   <!-- Private Browsing -->
   <string name="private_browsing_common_myths">מיתוסים נפוצים על גלישה פרטית</string>
   <!-- Text to be announced by the accessibility service to inform the user that the private browsing mode is currently active. -->
@@ -457,7 +457,7 @@
   -->
   <string name="onboarding_home_content_description_close_button">סגירה</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">עזרו לנו לשפר את Firefox</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">עזרו לנו לשפר את Waterfox</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">שליחת דיווחי קריסה באופן אוטומטי</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -475,23 +475,23 @@
   <!-- Button text to reopen firefox after the crash is processed %s is the name of the app (for example "Firefox") -->
   <string name="startup_crash_restart">פתיחת %s מחדש</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title" tools:ignore="BrandUsage">שליחת נתונים טכניים ונתוני אינטראקציה ל־Mozilla</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">נתונים על המכשיר שלך, תצורת החומרה והאופן שבו Firefox משמש אותך עוזרים לשפר את היכולות, הביצועים והיציבות עבור כולם.</string>
+  <string name="onboarding_preferences_dialog_usage_data_title" tools:ignore="BrandUsage">שליחת נתונים טכניים ונתוני אינטראקציה ל־BrowserWorks</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">נתונים על המכשיר שלך, תצורת החומרה והאופן שבו Waterfox משמש אותך עוזרים לשפר את היכולות, הביצועים והיציבות עבור כולם.</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">מידע נוסף</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">סיום</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">ברוכים הבאים אל Firefox</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">ברוכים הבאים אל Waterfox</string>
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">בחירה בהמשך מהווה הסכמה ל%1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">תנאי השימוש של Firefox</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">תנאי השימוש של Waterfox</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">‏Firefox דואג לפרטיות שלך. מידע נוסף ב%1$s שלנו.</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">‏Waterfox דואג לפרטיות שלך. מידע נוסף ב%1$s שלנו.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">הצהרת הפרטיות</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">כדי לסייע בשיפור הדפדפן, Firefox שולח נתוני אבחון ואינטראקציה ל־Mozilla. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">כדי לסייע בשיפור הדפדפן, Waterfox שולח נתוני אבחון ואינטראקציה ל־BrowserWorks. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">ניהול</string>
   <!-- Terms of use (ToU) onboarding redesign title. -->
@@ -508,19 +508,19 @@
   -->
   <string name="onboarding_redesign_tou_body_one" tools:ignore="UnusedResources">בחירה בהמשך מהווה הסכמה ל%1$s.</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_one. -->
-  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">תנאי השימוש של Firefox</string>
+  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">תנאי השימוש של Waterfox</string>
   <!--
     Terms of use (ToU) second body text. 'Firefox' is intentionally hardcoded.
     %1$s is replaced by an active link, using onboarding_redesign_tou_body_two_link_text as text (“Privacy Notice”).
   -->
-  <string name="onboarding_redesign_tou_body_two" tools:ignore="BrandUsage,UnusedResources">‏Firefox דואג לפרטיות שלך. מידע נוסף ב%1$s שלנו.</string>
+  <string name="onboarding_redesign_tou_body_two" tools:ignore="BrandUsage,UnusedResources">‏Waterfox דואג לפרטיות שלך. מידע נוסף ב%1$s שלנו.</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_two. -->
   <string name="onboarding_redesign_tou_body_two_link_text" tools:ignore="UnusedResources">הצהרת הפרטיות</string>
   <!--
     Terms of use (ToU) third body text. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link using onboarding_redesign_tou_body_three_link_text as text (“Manage Settings”).
   -->
-  <string name="onboarding_redesign_tou_body_three" tools:ignore="BrandUsage,UnusedResources">כדי לסייע בשיפור הדפדפן, Firefox שולח נתוני אבחון ואינטראקציה ל־Mozilla. %1$s</string>
+  <string name="onboarding_redesign_tou_body_three" tools:ignore="BrandUsage,UnusedResources">כדי לסייע בשיפור הדפדפן, Waterfox שולח נתוני אבחון ואינטראקציה ל־BrowserWorks. %1$s</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_three. -->
   <string name="onboarding_redesign_tou_body_three_link_text" tools:ignore="UnusedResources">ניהול הגדרות</string>
   <!-- Terms of use (ToU) onboarding page continue button label. -->
@@ -530,9 +530,9 @@
   <!-- Onboarding label for 'Continue' button. -->
   <string name="onboarding_redesign_continue_button" tools:ignore="UnusedResources">המשך</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_redesign_title" tools:ignore="BrandUsage">עזרו לנו להצמיח את Firefox</string>
+  <string name="onboarding_marketing_redesign_title" tools:ignore="BrandUsage">עזרו לנו להצמיח את Waterfox</string>
   <!-- Marketing onboarding page opt-out checkbox. Unchecking the box does not increase data collection. Our data practices remain the same. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_redesign_opt_out_checkbox" tools:ignore="BrandUsage,UnusedResources">שתפו כיצד גיליתם את Firefox וכי אתם משתמשים בו, עם שותפי הטכנולוגיה השיווקית של Mozilla. הנתונים האלה לעולם לא נמכרים.</string>
+  <string name="onboarding_marketing_redesign_opt_out_checkbox" tools:ignore="BrandUsage,UnusedResources">שתפו כיצד גיליתם את Waterfox וכי אתם משתמשים בו, עם שותפי הטכנולוגיה השיווקית של BrowserWorks. הנתונים האלה לעולם לא נמכרים.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_redesign_learn_more" tools:ignore="UnusedResources">כיצד אנו משתמשים בנתונים</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -542,7 +542,7 @@
   <!-- Set to default browser onboarding redesign body. -->
   <string name="onboarding_redesign_set_default_browser_body" tools:ignore="UnusedResources">הקשה אחת מסייעת לעצור חברות לרגל אחר הלחיצות שלך.</string>
   <!-- Sync onboarding redesign title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">סנכרון בכל מקום בו Firefox משמש אותך</string>
+  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">סנכרון בכל מקום בו Waterfox משמש אותך</string>
   <!-- Sync onboarding redesign body. -->
   <string name="onboarding_redesign_sync_body" tools:ignore="UnusedResources">קבלת סימניות, לשוניות וססמאות בכל מכשיר. הכל מוגן באמצעות הצפנה.</string>
   <!-- Sync onboarding redesign positive button text. -->
@@ -552,7 +552,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">דבר אחד אחרון</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">שתפו כיצד גיליתם את Firefox וכי אתם משתמשים בו, עם שותפי הטכנולוגיה השיווקית של Mozilla. הנתונים האלה לעולם לא נמכרים.</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">שתפו כיצד גיליתם את Waterfox וכי אתם משתמשים בו, עם שותפי הטכנולוגיה השיווקית של BrowserWorks. הנתונים האלה לעולם לא נמכרים.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">מתן הסכמה והתחלת גלישה</string>
   <!-- ==== Project "Nova" onboarding strings ==== -->
@@ -575,19 +575,19 @@
   -->
   <string name="nova_onboarding_tou_body_line_1">בחירה בהמשך מהווה הסכמה ל%1$s.</string>
   <!-- Terms of use (ToU) onboarding body line one link text for nova_onboarding_tou_body_line_1. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_tou_body_line_1_link_text" tools:ignore="BrandUsage">תנאי השימוש של Firefox</string>
+  <string name="nova_onboarding_tou_body_line_1_link_text" tools:ignore="BrandUsage">תנאי השימוש של Waterfox</string>
   <!--
     Terms of use (ToU) onboarding body line two. 'Firefox' is intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_tou_body_line_2_link_text as text (“Privacy Notice”).
   -->
-  <string name="nova_onboarding_tou_body_line_2" tools:ignore="BrandUsage">‏Firefox דואג לפרטיות שלך. מידע נוסף ב%1$s שלנו.</string>
+  <string name="nova_onboarding_tou_body_line_2" tools:ignore="BrandUsage">‏Waterfox דואג לפרטיות שלך. מידע נוסף ב%1$s שלנו.</string>
   <!-- Terms of use (ToU) onboarding body line two link text for nova_onboarding_tou_body_line_2. -->
   <string name="nova_onboarding_tou_body_line_2_link_text">הצהרת הפרטיות</string>
   <!--
     Terms of use (ToU) onboarding body line three. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_tou_body_line_3_link_text as text (“Manage Settings”).
   -->
-  <string name="nova_onboarding_tou_body_line_3" tools:ignore="BrandUsage">כדי לסייע בשיפור הדפדפן, Firefox שולח נתוני אבחון ואינטראקציה ל־Mozilla. %1$s</string>
+  <string name="nova_onboarding_tou_body_line_3" tools:ignore="BrandUsage">כדי לסייע בשיפור הדפדפן, Waterfox שולח נתוני אבחון ואינטראקציה ל־BrowserWorks. %1$s</string>
   <!-- Terms of use (ToU) onboarding body line three link text for nova_onboarding_tou_body_line_3. -->
   <string name="nova_onboarding_tou_body_line_3_link_text">ניהול הגדרות</string>
   <!-- "Set to default" onboarding title. -->
@@ -624,46 +624,46 @@
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text as text (“How we use the data”).
   -->
-  <string name="nova_onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">שתפו כיצד גיליתם את Firefox וכי אתם משתמשים בו, עם שותפי הטכנולוגיה השיווקית של Mozilla. הנתונים האלה לעולם לא נמכרים. %1$s</string>
+  <string name="nova_onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">שתפו כיצד גיליתם את Waterfox וכי אתם משתמשים בו, עם שותפי הטכנולוגיה השיווקית של BrowserWorks. הנתונים האלה לעולם לא נמכרים. %1$s</string>
   <!-- Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_2" tools:ignore="BrandUsage">שתפו כיצד גיליתם את Firefox וכי אתם משתמשים בו, עם שותפי הטכנולוגיה השיווקית של Mozilla. הנתונים האלה לעולם לא נמכרים.</string>
+  <string name="nova_onboarding_marketing_body_2" tools:ignore="BrandUsage">שתפו כיצד גיליתם את Waterfox וכי אתם משתמשים בו, עם שותפי הטכנולוגיה השיווקית של BrowserWorks. הנתונים האלה לעולם לא נמכרים.</string>
   <!-- Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_3" tools:ignore="BrandUsage,UnusedResources">באפשרותכם לסייע לנו להגיע ליותר אנשים בכך שתאפשרו ל־Mozilla ליידע את הערוצים שבהם אנו מקדמים את Firefox, שהינכם משתמשים ב־Firefox.</string>
+  <string name="nova_onboarding_marketing_body_3" tools:ignore="BrandUsage,UnusedResources">באפשרותכם לסייע לנו להגיע ליותר אנשים בכך שתאפשרו ל־BrowserWorks ליידע את הערוצים שבהם אנו מקדמים את Waterfox, שהינכם משתמשים ב־Waterfox.</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
   -->
-  <string name="nova_onboarding_marketing_body_4" tools:ignore="BrandUsage,UnusedResources">באפשרותכם לסייע לנו להגיע ליותר אנשים בכך שתאפשרו ל־Mozilla ליידע את הפלטרפורמה שממנה הגעתם, שהינכם משתמשים ב־Firefox.</string>
+  <string name="nova_onboarding_marketing_body_4" tools:ignore="BrandUsage,UnusedResources">באפשרותכם לסייע לנו להגיע ליותר אנשים בכך שתאפשרו ל־BrowserWorks ליידע את הפלטרפורמה שממנה הגעתם, שהינכם משתמשים ב־Waterfox.</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
   -->
-  <string name="nova_onboarding_marketing_body_5" tools:ignore="BrandUsage,UnusedResources">סייעו לנו להגיע ליותר אנשים בכך שתאפשרו ל־Mozilla ליידע את הפלטרפורמה שממנה הגעתם, שהינכם משתמשים ב־Firefox.</string>
+  <string name="nova_onboarding_marketing_body_5" tools:ignore="BrandUsage,UnusedResources">סייעו לנו להגיע ליותר אנשים בכך שתאפשרו ל־BrowserWorks ליידע את הפלטרפורמה שממנה הגעתם, שהינכם משתמשים ב־Waterfox.</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text as text (“How we use the data”).
   -->
-  <string name="nova_onboarding_marketing_body_6" tools:ignore="BrandUsage,UnusedResources">סייעו לנו להגיע ליותר אנשים בכך שתאפשרו ל־Mozilla ליידע את הפלטרפורמה שממנה הגעתם, שהינכם משתמשים ב־Firefox. %1$s</string>
+  <string name="nova_onboarding_marketing_body_6" tools:ignore="BrandUsage,UnusedResources">סייעו לנו להגיע ליותר אנשים בכך שתאפשרו ל־BrowserWorks ליידע את הפלטרפורמה שממנה הגעתם, שהינכם משתמשים ב־Waterfox. %1$s</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text_1 as text (“Learn More”).
   -->
-  <string name="nova_onboarding_marketing_body_7" tools:ignore="BrandUsage">באפשרותכם לסייע לנו להגיע ליותר אנשים בכך שתאפשרו ל־Mozilla ליידע את הפלטרפורמה שממנה הגעתם, שהינכם משתמשים ב־Firefox. %1$s</string>
+  <string name="nova_onboarding_marketing_body_7" tools:ignore="BrandUsage">באפשרותכם לסייע לנו להגיע ליותר אנשים בכך שתאפשרו ל־BrowserWorks ליידע את הפלטרפורמה שממנה הגעתם, שהינכם משתמשים ב־Waterfox. %1$s</string>
   <!-- Marketing onboarding additional body text. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_line_two" tools:ignore="BrandUsage">‏Firefox גאה להיות עצמאית, ומחוייבת להגנה על האינטרנט הפתוח מפני מונופולים טכנולוגיים.</string>
+  <string name="nova_onboarding_marketing_body_line_two" tools:ignore="BrandUsage">‏Waterfox גאה להיות עצמאית, ומחוייבת להגנה על האינטרנט הפתוח מפני מונופולים טכנולוגיים.</string>
   <!--
     Marketing onboarding additional body text. 'Firefox' is intentionally hardcoded.
     “Allowing” refers to the main button “Allow and Continue”; the ask for the user is to allow communicating back to the platform.
   -->
-  <string name="nova_onboarding_marketing_body_line_three" tools:ignore="BrandUsage">אנחנו מבקשים ממך לשקול לאפשר כדי לעזור ל־Firefox לנצח.</string>
+  <string name="nova_onboarding_marketing_body_line_three" tools:ignore="BrandUsage">אנחנו מבקשים ממך לשקול לאפשר כדי לעזור ל־Waterfox לנצח.</string>
   <!-- Marketing onboarding body link text. -->
   <string name="nova_onboarding_marketing_body_link_text">כיצד אנו משתמשים בנתונים</string>
   <!-- Marketing onboarding body link text. -->
   <string name="nova_onboarding_marketing_body_link_text_1">מידע נוסף</string>
   <!-- Marketing onboarding primary button text. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_primary_button_text" tools:ignore="BrandUsage,UnusedResources">לסייע ל־Firefox</string>
+  <string name="nova_onboarding_marketing_primary_button_text" tools:ignore="BrandUsage,UnusedResources">לסייע ל־Waterfox</string>
   <!-- Marketing onboarding primary button text. -->
   <string name="nova_onboarding_marketing_primary_button_text_3">כן</string>
   <!-- Marketing onboarding primary button text. -->
@@ -673,17 +673,17 @@
   <!-- Marketing onboarding secondary button text. -->
   <string name="nova_onboarding_marketing_secondary_button_text_2">לא</string>
   <!-- Notifications onboarding title. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">התרעות עוזרות לך להישאר בטוח יותר עם Firefox</string>
+  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">התרעות עוזרות לך להישאר בטוח יותר עם Waterfox</string>
   <!-- Notifications onboarding subtitle. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_notifications_subtitle" tools:ignore="BrandUsage,UnusedResources">גלו תכונות של פרטיות ב־Firefox כדי שתמיד תהיו מעודכנים על כיצד להישאר מוגנים.</string>
+  <string name="nova_onboarding_notifications_subtitle" tools:ignore="BrandUsage,UnusedResources">גלו תכונות של פרטיות ב־Waterfox כדי שתמיד תהיו מעודכנים על כיצד להישאר מוגנים.</string>
   <!-- Notifications onboarding button. -->
   <string name="nova_onboarding_notifications_button">הפעלת התרעות</string>
   <!-- "Add search widget" onboarding title. -->
   <string name="nova_onboarding_add_search_widget_title">להפוך כל חיפוש לפרטי עוד יותר</string>
   <!-- "Add search widget" onboarding subtitle. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_subtitle" tools:ignore="BrandUsage">ניתן להתחיל כל חיפוש ממסך הבית של הטלפון שלך ולהיות רגוע שההגנות האוטומטיות של Firefox עומדות מאחוריך.</string>
+  <string name="nova_onboarding_add_search_widget_subtitle" tools:ignore="BrandUsage">ניתן להתחיל כל חיפוש ממסך הבית של הטלפון שלך ולהיות רגוע שההגנות האוטומטיות של Waterfox עומדות מאחוריך.</string>
   <!-- "Add search widget" onboarding button. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">הוספת ווידג’ט של Firefox</string>
+  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">הוספת ווידג’ט של Waterfox</string>
   <!-- Customize prompt onboarding title. -->
   <string name="nova_onboarding_customize_prompt_title" tools:ignore="UnusedResources">קל להתאמה אישית ופרטי יותר עם כל נגיעה</string>
   <plurals name="nova_onboarding_customize_prompt_body" tools:ignore="UnusedResources">
@@ -759,9 +759,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">העדפות שורת הכתובת</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">שורת הכתובת - Firefox Suggest</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">שורת הכתובת - Waterfox Suggest</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">מידע נוסף על Firefox Suggest</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">מידע נוסף על Waterfox Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">דירוג ב־Google Play</string>
   <!--
@@ -850,7 +850,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">נגישות</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server" tools:ignore="BrandUsage">שרת חשבוןו Mozilla מותאם אישית</string>
+  <string name="preferences_override_account_server" tools:ignore="BrandUsage">שרת חשבוןו BrowserWorks מותאם אישית</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">שרת Sync מותאם אישית</string>
   <!-- Preference category for account information -->
@@ -878,7 +878,7 @@
   <!-- Preference description shown in the banner prompting the user to sign in for sync features -->
   <string name="preferences_sign_in_description">סנכרון לשוניות, סימניות, ססמאות ועוד.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">חשבון Mozilla</string>
+  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">חשבון BrowserWorks</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">יש להתחבר מחדש כדי להמשיך בסנכרון</string>
   <!-- Preference for language -->
@@ -926,7 +926,7 @@
   <!-- Summary for preference to show Firefox Suggest search suggestions for web content -->
   <string name="preferences_show_nonsponsored_suggestions_summary">קבלת הצעות מהאינטרנט הקשורות לחיפוש שלך</string>
   <!-- Preference title for switch preference to show search optimization cards -->
-  <string name="preferences_show_search_optimization_cards" tools:ignore="BrandUsage">אחזור הצעות מ־Mozilla תוך כדי הקלדה</string>
+  <string name="preferences_show_search_optimization_cards" tools:ignore="BrandUsage">אחזור הצעות מ־BrowserWorks תוך כדי הקלדה</string>
   <!-- Preference for link sharing -->
   <string name="preferences_link_sharing">שיתוף קישורים</string>
   <!-- Title for the link sharing toggle. %1$s is replaced by the brand name (e.g. Firefox). -->
@@ -1149,7 +1149,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">הרחבות חדשות זמינות כעת</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">יש לנו יותר מ־100 הרחבות חדשות המאפשרות לך להפוך את Firefox לשלך.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">יש לנו יותר מ־100 הרחבות חדשות המאפשרות לך להפוך את Waterfox לשלך.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">עיון בהרחבות</string>
   <!--
@@ -1221,7 +1221,7 @@
   -->
   <string name="fxa_received_tab_channel_name">לשוניות שהתקבלו</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">התרעות עבור לשוניות שהתקבלו ממכשירי Firefox אחרים.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">התרעות עבור לשוניות שהתקבלו ממכשירי Waterfox אחרים.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">התקבלה לשונית</string>
   <!-- %s is the device name -->
@@ -1253,10 +1253,10 @@
   <!-- Preference switch for usage and technical learn more link in new compose -->
   <string name="preference_usage_data_learn_more_2">מידע נוסף על נתונים טכניים</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">נתונים על המכשיר שלך, תצורת החומרה ואופן השימוש בדפדפן מסייעים לנו לשפר את היכולות, הביצועים והיציבות של Firefox.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">נתונים על המכשיר שלך, תצורת החומרה ואופן השימוש בדפדפן מסייעים לנו לשפר את היכולות, הביצועים והיציבות של Waterfox.</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">פינג שימוש יומי</string>
-  <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">זה מסייע ל־Mozilla להעריך כמה יש משתמשים פעילים.</string>
+  <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">זה מסייע ל־BrowserWorks להעריך כמה יש משתמשים פעילים.</string>
   <string name="preferences_daily_usage_ping_learn_more">מידע נוסף על פינג שימוש יומי</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="crash_reporting_snack_bar_message">הדיווח נשלח</string>
@@ -1276,13 +1276,13 @@
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">שתפו כיצד גיליתם את Firefox וכי אתם משתמשים בו, עם שותפי הטכנולוגיה השיווקית של Mozilla.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">שתפו כיצד גיליתם את Waterfox וכי אתם משתמשים בו, עם שותפי הטכנולוגיה השיווקית של BrowserWorks.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">מידע נוסף על נתוני שיווק</string>
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">מחקרים</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">מאפשר ל־Mozilla להתקין ולהריץ מחקרים</string>
+  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">מאפשר ל־BrowserWorks להתקין ולהריץ מחקרים</string>
   <!--
     Turn On Sync Preferences
 
@@ -1496,7 +1496,7 @@
   <!-- Title of the active section on the studies list -->
   <string name="studies_active">פעיל</string>
   <!-- Description for studies. Note: The word "Firefox" should NOT be translated -->
-  <string name="studies_description_4" tools:ignore="BrandUsage">‏Firefox בוחר באופן אקראי משתמשים לבדיקת תכונות, מה שמשפר את האיכות עבור כולם.</string>
+  <string name="studies_description_4" tools:ignore="BrandUsage">‏Waterfox בוחר באופן אקראי משתמשים לבדיקת תכונות, מה שמשפר את האיכות עבור כולם.</string>
   <!-- Title of the Studies data preference -->
   <string name="studies_title_2">לאפשר מחקרי תכונות</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
@@ -1508,7 +1508,7 @@
   -->
   <string name="remote_improvements_title">לאפשר שיפורים מרוחקים</string>
   <!-- Description for remote improvements. Note: The word "Firefox" should NOT be translated -->
-  <string name="remote_improvements_description" tools:ignore="BrandUsage">‏Firefox ישפר תכונות, ביצועים ויציבות בין עדכונים. שינויים יוחלו מרחוק.</string>
+  <string name="remote_improvements_description" tools:ignore="BrandUsage">‏Waterfox ישפר תכונות, ביצועים ויציבות בין עדכונים. שינויים יוחלו מרחוק.</string>
   <!-- Learn more link for remote improvements, links to an article for more information about rollouts. -->
   <string name="remote_improvements_learn_more">מידע נוסף</string>
   <!-- Title for remote improvements preference in Advanced settings -->
@@ -2059,7 +2059,7 @@
   -->
   <string name="tab_crash_title_2">ל־%1$s אין אפשרות לטעון דף זה, עמך הסליחה.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report" tools:ignore="BrandUsage">שליחת דיווח קריסה אל Mozilla</string>
+  <string name="tab_crash_send_report" tools:ignore="BrandUsage">שליחת דיווח קריסה אל BrowserWorks</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">סגירת לשונית</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -2419,7 +2419,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">חיבור מכשיר נוסף</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">כדי לשלוח לשונית, יש להתחבר ל־Firefox לפחות במכשיר אחד נוסף.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">כדי לשלוח לשונית, יש להתחבר ל־Waterfox לפחות במכשיר אחד נוסף.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">הבנתי</string>
   <!-- Share error message -->
@@ -2451,19 +2451,19 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">‏Firefox הוא מהיר ופרטי</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">‏Waterfox הוא מהיר ופרטי</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">הגדרת Firefox כדפדפן ברירת המחדל שלך</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">הגדרת Waterfox כדפדפן ברירת המחדל שלך</string>
   <!--
     Survey
 
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">אנא עזרו לשפר את Firefox על־ידי השתתפות בסקר קצר.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">אנא עזרו לשפר את Waterfox על־ידי השתתפות בסקר קצר.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">לקיחת סקר</string>
   <!-- Preference for not taking the short survey. -->
@@ -2595,7 +2595,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">סריקת הקוד</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[במחשב שלך יש לפתוח את Firefox ולעבור לכתובת <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[במחשב שלך יש לפתוח את Waterfox ולעבור לכתובת <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">מוכן לסריקה</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2603,7 +2603,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">שימוש בדוא״ל במקום</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[אין לך חשבון? <u>באפשרותך ליצור אחד</u> כדי לסנכרן את Firefox בין מכשירים.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[אין לך חשבון? <u>באפשרותך ליצור אחד</u> כדי לסנכרן את Waterfox בין מכשירים.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">‏‏%s יפסיק להסתנכרן עם החשבון שלך, אבל לא ימחק את נתוני הגלישה שלך ממכשיר זה.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -3426,7 +3426,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">נא להפעיל סנכרון לשוניות.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">אין לך לשוניות פתוחות ב־Firefox בשאר המכשירים שלך.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">אין לך לשוניות פתוחות ב־Waterfox בשאר המכשירים שלך.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">הצגת רשימת לשוניות משאר המכשירים שלך.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -3514,7 +3514,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">לסגור באופן אוטומטי לאחר חודש אחד?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">‏Firefox יכול לסגור לשוניות שלא צפית בהן במהלך החודש האחרון.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">‏Waterfox יכול לסגור לשוניות שלא צפית בהן במהלך החודש האחרון.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">הפעלת סגירה אוטומטית</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -3524,7 +3524,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">הצעות של Firefox</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">הצעות של Waterfox</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -3543,7 +3543,7 @@
   -->
   <string name="default_browser_experiment_card_title">החלפת דפדפן ברירת המחדל שלך</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">הגדרת קישורים מאתרים, מהודעות דוא״ל ומהודעות לפתיחה אוטומטית ב־Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">הגדרת קישורים מאתרים, מהודעות דוא״ל ומהודעות לפתיחה אוטומטית ב־Waterfox.</string>
   <!-- Content description radio buttons with a link to more information -->
   <string name="radio_preference_info_content_description">יש ללחוץ לפרטים נוספים</string>
   <!-- Content description for the action bar "up" button -->
@@ -4044,7 +4044,7 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">עזרו לנו לשפר את Firefox. זה ייקח רק דקה.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">עזרו לנו לשפר את Waterfox. זה ייקח רק דקה.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">המשך</string>
   <!--
@@ -4074,7 +4074,7 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">אין לי שימוש בזה</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">אין לי שימוש בחיפוש ב־Firefox</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">אין לי שימוש בחיפוש ב־Waterfox</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">אין לי שימוש בסנכרון</string>
   <!-- Option for likert scale -->
@@ -4086,23 +4086,23 @@
   <!-- Option for likert scale -->
   <string name="likert_scale_option_its_okay" tools:ignore="UnusedResources">זה בסדר, אבל לא יותר טוב מדפדפנים אחרים</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_i_plan_to_keep_using" tools:ignore="BrandUsage,UnusedResources">בכווונתי להמשיך להשתמש ב־Firefox</string>
+  <string name="likert_scale_option_i_plan_to_keep_using" tools:ignore="BrandUsage,UnusedResources">בכווונתי להמשיך להשתמש ב־Waterfox</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">עזרו לשפר את יכולות ההדפסה ב־Firefox. זה ייקח רק שנייה</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">עזרו לשפר את יכולות ההדפסה ב־Waterfox. זה ייקח רק שנייה</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">עזרו לנו לשפר החיפוש ב־Firefox. זה ייקח רק דקה</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">עזרו לנו לשפר החיפוש ב־Waterfox. זה ייקח רק דקה</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">עזרו לנו לשפר הסנכרון ב־Firefox. זה ייקח רק דקה</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">עזרו לנו לשפר הסנכרון ב־Waterfox. זה ייקח רק דקה</string>
   <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">עד כמה הינך מרוצה מההדפסה ב־Firefox?</string>
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">עד כמה הינך מרוצה מההדפסה ב־Waterfox?</string>
   <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">עד כמה הינך מרוצה מדף הבית שלך ב־Firefox?</string>
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">עד כמה הינך מרוצה מדף הבית שלך ב־Waterfox?</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">עד כמה הינך מרוצה מחווית החיפוש ב־Firefox?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">עד כמה הינך מרוצה מחווית החיפוש ב־Waterfox?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">עד כמה הינך מרוצה מחווית הסנכרון ב־Firefox?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">עד כמה הינך מרוצה מחווית הסנכרון ב־Waterfox?</string>
   <!-- Text shown in the survey title for 'describe your experience so far' microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_describe_your_experience_title" tools:ignore="BrandUsage,UnusedResources">נשמח לקבל ממך עזרה לשפר את Firefox. מה מתאר בצורה הטובה ביותר את החוויה שלך עד כה?</string>
+  <string name="microsurvey_describe_your_experience_title" tools:ignore="BrandUsage,UnusedResources">נשמח לקבל ממך עזרה לשפר את Waterfox. מה מתאר בצורה הטובה ביותר את החוויה שלך עד כה?</string>
   <!--
     Uninstall Survey
 
@@ -4128,7 +4128,7 @@
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">הסמל של Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">הסמל של Waterfox</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">סמל של סקר על תכונות</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -4244,27 +4244,27 @@
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">עדכון כעת</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">עדכון דפדפן ה־Firefox שלך</string>
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">עדכון דפדפן ה־Waterfox שלך</string>
   <!-- Homepage card message about old Firefox version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">יפוג תוקפו של אישור שורש, מה שיגרום לחלק מהתכונות להפסיק לעבוד ב־14 במרץ.</string>
   <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">עדכון לפני 14 במרץ</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">יפוג תוקפו של אישור שורש, מה שיגרום לגרסה הנוכחית של ה־Firefox שלך להפסיק לעבוד כראוי.</string>
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">יפוג תוקפו של אישור שורש, מה שיגרום לגרסה הנוכחית של ה־Waterfox שלך להפסיק לעבוד כראוי.</string>
   <!-- Homepage card title about old Firefox version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">נותרו פחות מ־7 ימים לעדכון</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">ב־14 במרץ, תוספות ויכולות אחרות של Firefox יפסיקו לעבוד מכיוון שיפוג תוקפו של אישור שורש.</string>
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">ב־14 במרץ, תוספות ויכולות אחרות של Waterfox יפסיקו לעבוד מכיוון שיפוג תוקפו של אישור שורש.</string>
   <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">הזדמנות אחרונה לשמור על ה־Firefox שלך</string>
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">הזדמנות אחרונה לשמור על ה־Waterfox שלך</string>
   <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">הגרסה הנוכחית של ה־Firefox שלך תפסיק לעבוד כראוי ב־14 במרץ מכיוון שיפוג תוקפו של אישור שורש.</string>
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">הגרסה הנוכחית של ה־Waterfox שלך תפסיק לעבוד כראוי ב־14 במרץ מכיוון שיפוג תוקפו של אישור שורש.</string>
   <!-- Push notification title about old Firefox version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">עדכון מומלץ</string>
   <!-- Push notification message about old Firefox version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">תוספות ותכונות מסוימות יפסיקו לעבוד ב־14 במרץ.</string>
   <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">יש לך גרסה ישנה יותר של Firefox</string>
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">יש לך גרסה ישנה יותר של Waterfox</string>
   <!-- Push notification message about old Firefox version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">יש לעדכן לפני ה־14 במרץ כדי להמשיך להשתמש בתוספות ותכונות אחרות.</string>
   <!-- Push notification message about old Firefox version -->
@@ -4695,7 +4695,7 @@
     %1$s is replaced by an active link using privacy_notice_updated_homepage_message_privacy_notice as text (Privacy Notice)
     %2$s is replaced by an active link using privacy_notice_updated_homepage_message_learn_more as text (Learn more)
   -->
-  <string name="privacy_notice_updated_homepage_message" tools:ignore="BrandUsage,UnusedResources">עדכנו את %1$s שלנו כדי לשקף את התכונות העדכניות ביותר ב־Firefox. %2$s</string>
+  <string name="privacy_notice_updated_homepage_message" tools:ignore="BrandUsage,UnusedResources">עדכנו את %1$s שלנו כדי לשקף את התכונות העדכניות ביותר ב־Waterfox. %2$s</string>
   <!-- The first active link used in privacy_notice_updated_homepage_message -->
   <string name="privacy_notice_updated_homepage_message_privacy_notice" tools:ignore="UnusedResources">הצהרת הפרטיות</string>
   <!-- The second active link used in privacy_notice_updated_homepage_message -->
@@ -4746,7 +4746,7 @@
     The "Labs" portion can be localized, "Firefox" must be treated as a brand and kept
     in English.
   -->
-  <string name="firefox_labs_title" tools:ignore="BrandUsage">Firefox Labs</string>
+  <string name="firefox_labs_title" tools:ignore="BrandUsage">Waterfox Labs</string>
   <!-- Banner title text on the Firefox Labs screen. -->
   <string name="firefox_labs_banner_title_2">נסו את התכונות הניסיוניות שלנו!</string>
   <!--

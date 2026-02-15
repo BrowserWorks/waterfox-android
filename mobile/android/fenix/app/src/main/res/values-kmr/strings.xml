@@ -74,7 +74,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Rake</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content" tools:ignore="BrandUsage">%1$s berhemeke Mozillayê ye.</string>
+  <string name="about_content" tools:ignore="BrandUsage">%1$s berhemeke BrowserWorksyê ye.</string>
   <!-- Private Browsing -->
   <string name="private_browsing_common_myths">Efsaneyên berbelav ên têkildarî gerîna veşartî</string>
   <!--
@@ -453,7 +453,7 @@
   -->
   <string name="onboarding_home_content_description_close_button">Bigire</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Alîkariya me bike ku em Firefoxê çêtir bikin</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Alîkariya me bike ku em Waterfoxê çêtir bikin</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">Raporên têkçûnê bixweber bişîne</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -471,23 +471,23 @@
   <!-- Button text to reopen firefox after the crash is processed %s is the name of the app (for example "Firefox") -->
   <string name="startup_crash_restart">%s`ê ji nû ve veke</string>
   <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title" tools:ignore="BrandUsage">Agahiyên teknîkî û danûstandinê ji Mozillayê re bişîne</string>
-  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Daneyên têkildarî cîhaza te, avaniha reqalavê û şêwaza bikaranîna te ya Firefoxê alîkariya me dikin ku em taybetiyan, performansê û biryardariyê ji bo her kesî çêtir bikin.</string>
+  <string name="onboarding_preferences_dialog_usage_data_title" tools:ignore="BrandUsage">Agahiyên teknîkî û danûstandinê ji BrowserWorksyê re bişîne</string>
+  <string name="onboarding_preferences_dialog_usage_data_description_2" tools:ignore="BrandUsage">Daneyên têkildarî cîhaza te, avaniha reqalavê û şêwaza bikaranîna te ya Waterfoxê alîkariya me dikin ku em taybetiyan, performansê û biryardariyê ji bo her kesî çêtir bikin.</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">Zêdetir bizane</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">Qediya</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Bi xêr hatî Firefox`ê</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Bi xêr hatî Waterfox`ê</string>
   <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">Bi berdewamkirinê, tu %1$s qebûl dikî.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Mercên Bikaranînê Firefoxê</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Mercên Bikaranînê Waterfoxê</string>
   <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Firefox girîngiyê dide nepeniya we. Di %1$s-ên me de bêtir fêr bibin.</string>
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Waterfox girîngiyê dide nepeniya we. Di %1$s-ên me de bêtir fêr bibin.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">Danezana Nihêniyê</string>
   <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Ji bo çêtirkirina gerokê, Firefox daneyên teşhîs û têkiliyê ji Mozillayê re dişîne. %1$s</string>
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Ji bo çêtirkirina gerokê, Waterfox daneyên teşhîs û têkiliyê ji BrowserWorksyê re dişîne. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">Birêvebirin</string>
   <!-- Terms of use (ToU) onboarding redesign title. -->
@@ -504,19 +504,19 @@
   -->
   <string name="onboarding_redesign_tou_body_one" tools:ignore="UnusedResources">Bi berdewamkirinê, tu %1$s qebûl dikî.</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_one. -->
-  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">Mercên Bikaranîna Firefoxê</string>
+  <string name="onboarding_redesign_tou_body_one_link_text" tools:ignore="BrandUsage,UnusedResources">Mercên Bikaranîna Waterfoxê</string>
   <!--
     Terms of use (ToU) second body text. 'Firefox' is intentionally hardcoded.
     %1$s is replaced by an active link, using onboarding_redesign_tou_body_two_link_text as text (“Privacy Notice”).
   -->
-  <string name="onboarding_redesign_tou_body_two" tools:ignore="BrandUsage,UnusedResources">Firefox girîngiyê dide nepeniya te. Di %1$s-ên me de bêtir fêr bibe.</string>
+  <string name="onboarding_redesign_tou_body_two" tools:ignore="BrandUsage,UnusedResources">Waterfox girîngiyê dide nepeniya te. Di %1$s-ên me de bêtir fêr bibe.</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_two. -->
   <string name="onboarding_redesign_tou_body_two_link_text" tools:ignore="UnusedResources">Danezana Nepeniyê</string>
   <!--
     Terms of use (ToU) third body text. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link using onboarding_redesign_tou_body_three_link_text as text (“Manage Settings”).
   -->
-  <string name="onboarding_redesign_tou_body_three" tools:ignore="BrandUsage,UnusedResources">Ji bo çêtirkirina gerokê, Firefox daneyên teşhîs û têkiliyê ji Mozillayê re dişîne. %1$s</string>
+  <string name="onboarding_redesign_tou_body_three" tools:ignore="BrandUsage,UnusedResources">Ji bo çêtirkirina gerokê, Waterfox daneyên teşhîs û têkiliyê ji BrowserWorksyê re dişîne. %1$s</string>
   <!-- Used as text for the link in onboarding_redesign_tou_body_three. -->
   <string name="onboarding_redesign_tou_body_three_link_text" tools:ignore="UnusedResources">Eyaran bi rê ve bibe</string>
   <!-- Terms of use (ToU) onboarding page continue button label. -->
@@ -526,9 +526,9 @@
   <!-- Onboarding label for 'Continue' button. -->
   <string name="onboarding_redesign_continue_button" tools:ignore="UnusedResources">Bidomîne</string>
   <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_redesign_title" tools:ignore="BrandUsage">Alîkariya pêşxistina Firefoxê bike</string>
+  <string name="onboarding_marketing_redesign_title" tools:ignore="BrandUsage">Alîkariya pêşxistina Waterfoxê bike</string>
   <!-- Marketing onboarding page opt-out checkbox. Unchecking the box does not increase data collection. Our data practices remain the same. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_redesign_opt_out_checkbox" tools:ignore="BrandUsage,UnusedResources">Bi hevkarên bazargeriyê yên Mozillayê re parve bike ka te Firefox çawa keşf kir û wê çawa bi kar tînî. Ev dane qet nayên firotin.</string>
+  <string name="onboarding_marketing_redesign_opt_out_checkbox" tools:ignore="BrandUsage,UnusedResources">Bi hevkarên bazargeriyê yên BrowserWorksyê re parve bike ka te Waterfox çawa keşf kir û wê çawa bi kar tînî. Ev dane qet nayên firotin.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_redesign_learn_more" tools:ignore="UnusedResources">Em daneyan çawa bi kar tînin</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
@@ -538,7 +538,7 @@
   <!-- Set to default browser onboarding redesign body. -->
   <string name="onboarding_redesign_set_default_browser_body" tools:ignore="UnusedResources">Tu dikarî bi tiliyekê rê li şirketan bigirî ku tikandinên te neşopînin.</string>
   <!-- Sync onboarding redesign title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">Li her dera ku tu Firefoxê bi kar tînî, senkronîze bike</string>
+  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">Li her dera ku tu Waterfoxê bi kar tînî, senkronîze bike</string>
   <!-- Sync onboarding redesign body. -->
   <string name="onboarding_redesign_sync_body" tools:ignore="UnusedResources">Li ser hemû cîhayan xwe bigihîne favoriyan, tab û şîfreyan. Hemû bi şîfrekirinê têne parastin.</string>
   <!-- Sync onboarding redesign positive button text. -->
@@ -548,7 +548,7 @@
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">Tiştekî dawî</string>
   <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Bi hevkarên bazargeriyê yên Mozillayê re parve bike ka te Firefox çawa keşf kir û wê çawa bi kar tînî. Ev dane qet nayên firotin.</string>
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Bi hevkarên bazargeriyê yên BrowserWorksyê re parve bike ka te Waterfox çawa keşf kir û wê çawa bi kar tînî. Ev dane qet nayên firotin.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">Piştrast bike û dest bi gerê bike</string>
   <!-- "Continue" onboarding button. -->
@@ -569,19 +569,19 @@
   -->
   <string name="nova_onboarding_tou_body_line_1">Bi berdewamkirinê, tu %1$s qebûl dikî.</string>
   <!-- Terms of use (ToU) onboarding body line one link text for nova_onboarding_tou_body_line_1. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_tou_body_line_1_link_text" tools:ignore="BrandUsage">Mercên Bikaranînê Firefoxê</string>
+  <string name="nova_onboarding_tou_body_line_1_link_text" tools:ignore="BrandUsage">Mercên Bikaranînê Waterfoxê</string>
   <!--
     Terms of use (ToU) onboarding body line two. 'Firefox' is intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_tou_body_line_2_link_text as text (“Privacy Notice”).
   -->
-  <string name="nova_onboarding_tou_body_line_2" tools:ignore="BrandUsage">Firefox girîngiyê dide nepeniya te. Di %1$s’ên me de zêdetir bizane.</string>
+  <string name="nova_onboarding_tou_body_line_2" tools:ignore="BrandUsage">Waterfox girîngiyê dide nepeniya te. Di %1$s’ên me de zêdetir bizane.</string>
   <!-- Terms of use (ToU) onboarding body line two link text for nova_onboarding_tou_body_line_2. -->
   <string name="nova_onboarding_tou_body_line_2_link_text">Danezana Nihêniyê</string>
   <!--
     Terms of use (ToU) onboarding body line three. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_tou_body_line_3_link_text as text (“Manage Settings”).
   -->
-  <string name="nova_onboarding_tou_body_line_3" tools:ignore="BrandUsage">Ji bo çêtirkirina gerokê, Firefox daneyên teşhîs û têkiliyê ji Mozillayê re dişîne. %1$s</string>
+  <string name="nova_onboarding_tou_body_line_3" tools:ignore="BrandUsage">Ji bo çêtirkirina gerokê, Waterfox daneyên teşhîs û têkiliyê ji BrowserWorksyê re dişîne. %1$s</string>
   <!-- Terms of use (ToU) onboarding body line three link text for nova_onboarding_tou_body_line_3. -->
   <string name="nova_onboarding_tou_body_line_3_link_text">Eyaran bi rê ve bibe</string>
   <!-- "Set to default" onboarding title. -->
@@ -618,35 +618,35 @@
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text as text (“How we use the data”).
   -->
-  <string name="nova_onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Bi hevkarên bazargeriyê yên Mozillayê re parve bike ka te Firefox çawa keşf kir û wê çawa bi kar tînî. Ev dane qet nayên firotin. %1$s</string>
+  <string name="nova_onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Bi hevkarên bazargeriyê yên BrowserWorksyê re parve bike ka te Waterfox çawa keşf kir û wê çawa bi kar tînî. Ev dane qet nayên firotin. %1$s</string>
   <!-- Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_2" tools:ignore="BrandUsage,UnusedResources">Bi hevkarên bazargeriyê yên Mozillayê re parve bike ka te Firefox çawa keşf kir û wê çawa bi kar tînî. Ev dane qet nayên firotin.</string>
+  <string name="nova_onboarding_marketing_body_2" tools:ignore="BrandUsage,UnusedResources">Bi hevkarên bazargeriyê yên BrowserWorksyê re parve bike ka te Waterfox çawa keşf kir û wê çawa bi kar tînî. Ev dane qet nayên firotin.</string>
   <!-- Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_3" tools:ignore="BrandUsage,UnusedResources">Heke tu destûrê bidî ku em li kanalên ku Mozilla Firefoxê dide nasandin diyar bikin ku tu bikarhênera/ê Firefoxê yî, em ê dikaribin xwe bigihînin zêdetir bikarhêneran.</string>
+  <string name="nova_onboarding_marketing_body_3" tools:ignore="BrandUsage,UnusedResources">Heke tu destûrê bidî ku em li kanalên ku BrowserWorks Waterfoxê dide nasandin diyar bikin ku tu bikarhênera/ê Waterfoxê yî, em ê dikaribin xwe bigihînin zêdetir bikarhêneran.</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
   -->
-  <string name="nova_onboarding_marketing_body_4" tools:ignore="BrandUsage,UnusedResources">Heke tu destûrê bidî ku em li kanalên ku Mozilla Firefoxê dide nasandin diyar bikin ku tu Firefoxê bi kar tînî, em ê dikaribin xwe bigihînin zêdetir bikarhêneran.</string>
+  <string name="nova_onboarding_marketing_body_4" tools:ignore="BrandUsage,UnusedResources">Heke tu destûrê bidî ku em li kanalên ku BrowserWorks Waterfoxê dide nasandin diyar bikin ku tu Waterfoxê bi kar tînî, em ê dikaribin xwe bigihînin zêdetir bikarhêneran.</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
   -->
-  <string name="nova_onboarding_marketing_body_5" tools:ignore="BrandUsage,UnusedResources">Heke tu destûrê bidî ku Mozilla ji ciyê tu jê hatî re bibêje tu Firefoxê bi kar tînî, em ê dikaribin xwe bigihînin zêdetir bikarhêneran.</string>
+  <string name="nova_onboarding_marketing_body_5" tools:ignore="BrandUsage,UnusedResources">Heke tu destûrê bidî ku BrowserWorks ji ciyê tu jê hatî re bibêje tu Waterfoxê bi kar tînî, em ê dikaribin xwe bigihînin zêdetir bikarhêneran.</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text as text (“How we use the data”).
   -->
-  <string name="nova_onboarding_marketing_body_6" tools:ignore="BrandUsage,UnusedResources">Heke tu destûrê bidî ku Mozilla ji ciyê tu jê hatî re bibêje tu Firefoxê bi kar tînî, em ê dikaribin xwe bigihînin zêdetir bikarhêneran. %1$s</string>
+  <string name="nova_onboarding_marketing_body_6" tools:ignore="BrandUsage,UnusedResources">Heke tu destûrê bidî ku BrowserWorks ji ciyê tu jê hatî re bibêje tu Waterfoxê bi kar tînî, em ê dikaribin xwe bigihînin zêdetir bikarhêneran. %1$s</string>
   <!--
     Marketing onboarding body. 'Firefox' and 'Mozilla' are intentionally hardcoded.
     “Platform you came from” refers to the external app, website, store, campaign, or other source that directed the user to Firefox.
     %1$s is replaced by an active link, using nova_onboarding_marketing_body_link_text_1 as text (“Learn More”).
   -->
-  <string name="nova_onboarding_marketing_body_7" tools:ignore="BrandUsage">Heke tu destûrê bidî ku Mozilla ji ciyê tu jê hatî re bibêje tu Firefoxê bi kar tînî, em ê dikaribin xwe bigihînin zêdetir bikarhêneran. %1$s</string>
+  <string name="nova_onboarding_marketing_body_7" tools:ignore="BrandUsage">Heke tu destûrê bidî ku BrowserWorks ji ciyê tu jê hatî re bibêje tu Waterfoxê bi kar tînî, em ê dikaribin xwe bigihînin zêdetir bikarhêneran. %1$s</string>
   <!-- Marketing onboarding additional body text. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_body_line_two" tools:ignore="BrandUsage">Firefox bi serbilindî serbixwe ye û ji bo parastina weba vekirî li dijî monopolên teknolojiyê dilsoz e.</string>
+  <string name="nova_onboarding_marketing_body_line_two" tools:ignore="BrandUsage">Waterfox bi serbilindî serbixwe ye û ji bo parastina weba vekirî li dijî monopolên teknolojiyê dilsoz e.</string>
   <!--
     Marketing onboarding additional body text. 'Firefox' is intentionally hardcoded.
     “Allowing” refers to the main button “Allow and Continue”; the ask for the user is to allow communicating back to the platform.
@@ -657,7 +657,7 @@
   <!-- Marketing onboarding body link text. -->
   <string name="nova_onboarding_marketing_body_link_text_1">Zêdetir Bizane</string>
   <!-- Marketing onboarding primary button text. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_marketing_primary_button_text" tools:ignore="BrandUsage,UnusedResources">Alîkariya Firefoxê bike</string>
+  <string name="nova_onboarding_marketing_primary_button_text" tools:ignore="BrandUsage,UnusedResources">Alîkariya Waterfoxê bike</string>
   <!-- Marketing onboarding primary button text. -->
   <string name="nova_onboarding_marketing_primary_button_text_3">Erê</string>
   <!-- Marketing onboarding secondary button text. -->
@@ -665,17 +665,17 @@
   <!-- Marketing onboarding secondary button text. -->
   <string name="nova_onboarding_marketing_secondary_button_text_2">Na</string>
   <!-- Notifications onboarding title. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">Agahdarî dihêlin ku tu bi Firefoxê re ewletir bî</string>
+  <string name="nova_onboarding_notifications_title" tools:ignore="BrandUsage,UnusedResources">Agahdarî dihêlin ku tu bi Waterfoxê re ewletir bî</string>
   <!-- Notifications onboarding subtitle. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_notifications_subtitle" tools:ignore="BrandUsage,UnusedResources">Taybetmendiyên nepenîtiyê yên herî dawî yên Firefoxê kifş bike da ku çêtir bizanî ka xwe çawa biparêzî.</string>
+  <string name="nova_onboarding_notifications_subtitle" tools:ignore="BrandUsage,UnusedResources">Taybetmendiyên nepenîtiyê yên herî dawî yên Waterfoxê kifş bike da ku çêtir bizanî ka xwe çawa biparêzî.</string>
   <!-- Notifications onboarding button. -->
   <string name="nova_onboarding_notifications_button">Agahdariyan veke</string>
   <!-- "Add search widget" onboarding title. -->
   <string name="nova_onboarding_add_search_widget_title">Hemû lêgerînan nepentir bike</string>
   <!-- "Add search widget" onboarding subtitle. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_subtitle" tools:ignore="BrandUsage">Hemû lêgerînan ji ekrana sereke ya telefona xwe bide destpêkirin û bizane ku parastinên otomatîkî yên Firefoxê li pişta te ne.</string>
+  <string name="nova_onboarding_add_search_widget_subtitle" tools:ignore="BrandUsage">Hemû lêgerînan ji ekrana sereke ya telefona xwe bide destpêkirin û bizane ku parastinên otomatîkî yên Waterfoxê li pişta te ne.</string>
   <!-- "Add search widget" onboarding button. 'Firefox' is intentionally hardcoded. -->
-  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">Widgeta Firefoxê lê zêde bike</string>
+  <string name="nova_onboarding_add_search_widget_button" tools:ignore="BrandUsage">Widgeta Waterfoxê lê zêde bike</string>
   <!-- Customize prompt onboarding title. -->
   <string name="nova_onboarding_customize_prompt_title" tools:ignore="UnusedResources">Şexsîkirina wê hêsan e û bi her tikandinê re nepentir e</string>
   <plurals name="nova_onboarding_customize_prompt_body" tools:ignore="UnusedResources">
@@ -760,9 +760,9 @@
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Tercîhên darikê navnîşanan</string>
   <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Darikê navnîşanan - Pêşniyara Firefoxê</string>
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Darikê navnîşanan - Pêşniyara Waterfoxê</string>
   <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Zêdetir li ser Pêşniyara Firefoxê fêr bibe</string>
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Zêdetir li ser Pêşniyara Waterfoxê fêr bibe</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Li ser Google Playê puan bide</string>
   <!--
@@ -817,7 +817,7 @@
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Gihînbarî</string>
   <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server" tools:ignore="BrandUsage">Servera hesabê Mozillayê ya şesxî</string>
+  <string name="preferences_override_account_server" tools:ignore="BrandUsage">Servera hesabê BrowserWorksyê ya şesxî</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Servera Sync’ê ya taybet</string>
   <!-- Preference category for account information -->
@@ -849,7 +849,7 @@
   <!-- Preference description shown in the banner prompting the user to sign in for sync features -->
   <string name="preferences_sign_in_description">Hilpekînan, favoriyan, şîfreyan û hêj bêtir senkronîze bike.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">Hesabê Mozillayê</string>
+  <string name="preferences_account_default_name_2" tools:ignore="BrandUsage">Hesabê BrowserWorksyê</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Ji bo senkronîzekirinê bidomînî, dîsa girê bide</string>
   <!-- Preference for language -->
@@ -899,7 +899,7 @@
   <!-- Summary for preference to show Firefox Suggest search suggestions for web content -->
   <string name="preferences_show_nonsponsored_suggestions_summary">Ji webê pşniyarên têkildarî lêgerîna xwe bistîne</string>
   <!-- Preference title for switch preference to show search optimization cards -->
-  <string name="preferences_show_search_optimization_cards" tools:ignore="BrandUsage">Di dema nivîsandinê de pêşniyaran ji Mozilla bistîne</string>
+  <string name="preferences_show_search_optimization_cards" tools:ignore="BrandUsage">Di dema nivîsandinê de pêşniyaran ji BrowserWorks bistîne</string>
   <!-- Preference for link sharing -->
   <string name="preferences_link_sharing">Parvekirina lînkan</string>
   <!-- Title for the link sharing toggle. %1$s is replaced by the brand name (e.g. Firefox). -->
@@ -1132,7 +1132,7 @@
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">Niha pêvekên nû berdest in</string>
   <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">100+ pêvekên nû yên ji bo taybetkirina Firefox`ê bibîne.</string>
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">100+ pêvekên nû yên ji bo taybetkirina Waterfox`ê bibîne.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Li pêvekan bigere</string>
   <!--
@@ -1216,7 +1216,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Hilpekînên hatine stendin</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Danezanên hilpekînan ên ji cîhazên Firefoxê tên stendin.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Danezanên hilpekînan ên ji cîhazên Waterfoxê tên stendin.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Hilpekîn hate stendin</string>
   <!-- %s is the device name -->
@@ -1248,10 +1248,10 @@
   <!-- Preference switch for usage and technical learn more link in new compose -->
   <string name="preference_usage_data_learn_more_2">Derbarê daneyên teknîkî de zêdetir bizane</string>
   <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Daneyên têkildarî cîhaza te, avaniha reqalavê û şêwaza bikaranîna te ya Firefoxê alîkariya me dikin ku em taybetiyan, performansê û biryardariyê ji bo her kesî çêtir bikin.</string>
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Daneyên têkildarî cîhaza te, avaniha reqalavê û şêwaza bikaranîna te ya Waterfoxê alîkariya me dikin ku em taybetiyan, performansê û biryardariyê ji bo her kesî çêtir bikin.</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">Pinga bikaranîna rojane</string>
-  <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">Ev alîkariya Mozillayê dike ku bikarhênerên çalak texmîn bike.</string>
+  <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">Ev alîkariya BrowserWorksyê dike ku bikarhênerên çalak texmîn bike.</string>
   <string name="preferences_daily_usage_ping_learn_more">Derbarê pinga bikarnîna rojane de zêdetir bizane</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="crash_reporting_snack_bar_message">Raport hat şandin</string>
@@ -1271,13 +1271,13 @@
     Preference description for marketing data collection.
     Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Bi hevkarên bazargeriyê yên Mozillayê re parve bike ka te Firefox çawa keşf kir û wê çawa bi kar tînî.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Bi hevkarên bazargeriyê yên BrowserWorksyê re parve bike ka te Waterfox çawa keşf kir û wê çawa bi kar tînî.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Derbarên daneyên bazirganiyê de zêdetir bizane</string>
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Lêkolîn</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Destûrê bide Mozillayê ku lêkolînan saz bike û bimeşîne</string>
+  <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Destûrê bide BrowserWorksyê ku lêkolînan saz bike û bimeşîne</string>
   <!--
     Turn On Sync Preferences
 
@@ -1518,7 +1518,7 @@
   <!-- Title of the active section on the studies list -->
   <string name="studies_active">Çalak</string>
   <!-- Description for studies. Note: The word "Firefox" should NOT be translated -->
-  <string name="studies_description_4" tools:ignore="BrandUsage">Firefox bi awayekî rasthatî bikarhêneran hildibijêre da ku taybetmendiyan biceribîne, ku ev yek kalîteyê ji bo her kesî baştir dike.</string>
+  <string name="studies_description_4" tools:ignore="BrandUsage">Waterfox bi awayekî rasthatî bikarhêneran hildibijêre da ku taybetmendiyan biceribîne, ku ev yek kalîteyê ji bo her kesî baştir dike.</string>
   <!-- Title of the Studies data preference -->
   <string name="studies_title_2">Destûrê bide lêkolînên taybetmendiyê</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
@@ -1530,7 +1530,7 @@
   -->
   <string name="remote_improvements_title">Destûrê bide başkirinên ji dûr ve</string>
   <!-- Description for remote improvements. Note: The word "Firefox" should NOT be translated -->
-  <string name="remote_improvements_description" tools:ignore="BrandUsage">Firefox dê taybetmendî, performans û aramiya di navbera nûvekirinan de baştir bike. Guhertin ji dûr ve têne sepandin.</string>
+  <string name="remote_improvements_description" tools:ignore="BrandUsage">Waterfox dê taybetmendî, performans û aramiya di navbera nûvekirinan de baştir bike. Guhertin ji dûr ve têne sepandin.</string>
   <!-- Learn more link for remote improvements, links to an article for more information about rollouts. -->
   <string name="remote_improvements_learn_more">Zêdetir bizane</string>
   <!-- Title for remote improvements preference in Advanced settings -->
@@ -2067,7 +2067,7 @@
   -->
   <string name="tab_crash_title_2">Bibore. %1$s, nikare vê rûpelê bar bike.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report" tools:ignore="BrandUsage">Rapora têkçûnê ji Mozillayê re bişîne</string>
+  <string name="tab_crash_send_report" tools:ignore="BrandUsage">Rapora têkçûnê ji BrowserWorksyê re bişîne</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Hilpekînê bigire</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -2429,7 +2429,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Cîhazeke din girê bide</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Ji bo şandina hilpekînekê, herî kêm ji cîhazeke din têkeve Firefoxê.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Ji bo şandina hilpekînekê, herî kêm ji cîhazeke din têkeve Waterfoxê.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Min fêm kir</string>
   <!-- Share error message -->
@@ -2455,7 +2455,7 @@
   <!-- Send tab to synced devices: Empty state title - Displayed when the user has no synced devices -->
   <string name="sync_send_tab_empty_state_title">Cîhaza girêdayî tune ye</string>
   <!-- Send tab to synced devices: Empty state message - Displayed when the user has no synced devices -->
-  <string name="sync_send_tab_empty_state_description" tools:ignore="BrandUsage">Ji bo şandina hilpekînekê, herî kêm ji cîhazeke din têkeve Firefoxê.</string>
+  <string name="sync_send_tab_empty_state_description" tools:ignore="BrandUsage">Ji bo şandina hilpekînekê, herî kêm ji cîhazeke din têkeve Waterfoxê.</string>
   <!-- Send tab to synced devices: Empty state link - Displayed when the user has no synced devices -->
   <string name="sync_send_tab_empty_state_link">Fêr bibe ka mirov çawa amûrekê girêdide</string>
   <!-- Send tab to synced devices: Connectivity Error title -->
@@ -2484,14 +2484,14 @@
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Firefoxê bike geroka xwe ya standard</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Waterfoxê bike geroka xwe ya standard</string>
   <!--
     Privacy report notification
 
     Name of the weekly privacy report notification channel. Displayed in the "App notifications" system settings for the app.
   -->
   <string name="notification_privacy_report_channel_name">Rapora nepeniyê</string>
-  <!-- Description of the weekly privacy report notification channel. Displayed in the "App notifications" system settings for the app. %1$s is the app name (e.g. Firefox) -->
+  <!-- Description of the weekly privacy report notification channel. Displayed in the "App notifications" system settings for the app. %1$s is the app name (e.g. Waterfox) -->
   <string name="notification_privacy_report_channel_description">%1$s nîşan dide ka dema tu di webê de digeriyayî çend şopîner asteng kirine.</string>
   <!-- Body text for the weekly privacy report notification for when trackers have been blocked. %1$s is the app name (e.g. Firefox) -->
   <string name="notification_privacy_report_body_has_trackers">Gerê berdewam bike. %1$s dê astengkirinê berdewam bike.</string>
@@ -2635,7 +2635,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Kodê bide xwendin</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Firefoxê ji ser kombersa xwe veke û here ser rûpela <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Waterfoxê ji ser kombersa xwe veke û here ser rûpela <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Aniha kodê bide xwendin</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -2643,7 +2643,7 @@
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Bi emaîlê têkeve</string>
   <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Hesabê te tune ye? Ji bo ku Firefoxê di navbera cîhazan de senkronîze bikî <u>Hesêb veke</u>.]]></string>
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Hesabê te tune ye? Ji bo ku Waterfoxê di navbera cîhazan de senkronîze bikî <u>Hesêb veke</u>.]]></string>
   <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
   <string name="sign_out_confirmation_message_2">%s ew ê bi hesabê te re senkronîzekirinê rawestîne, lê ti daneyên te yên gerînê yên di vê cîhazê de nayên jêbirin.</string>
   <!-- Title of the confirmation dialog shown when the user signs out of their account -->
@@ -3173,15 +3173,15 @@
   <!-- Label for the Recommended server location option which is automatically selected by the browser. -->
   <string name="ip_protection_recommended_location" tools:ignore="UnusedResources">Pêşniyarkirî</string>
   <!-- Headline for the card that promotes the standalone Mozilla VPN product. -->
-  <string name="ip_protection_mozilla_vpn_upsell_headline" tools:ignore="UnusedResources,BrandUsage">Bi Mozilla VPN-ê bêtir biparêze</string>
+  <string name="ip_protection_mozilla_vpn_upsell_headline" tools:ignore="UnusedResources,BrandUsage">Bi BrowserWorks VPN-ê bêtir biparêze</string>
   <!-- Body for the card that promotes the standalone Mozilla VPN product. -->
   <string name="ip_protection_mozilla_vpn_upsell_body" tools:ignore="UnusedResources">Ji nav 300+ cîgehan hilbijêre û hemû sepanên xwe li ser heta 5 cîhazan biparêze.</string>
   <!-- Label for the button that takes the user to get the standalone Mozilla VPN product. -->
-  <string name="ip_protection_mozilla_vpn_upsell_button" tools:ignore="UnusedResources,BrandUsage">VPNa Mozillayê bistîne</string>
+  <string name="ip_protection_mozilla_vpn_upsell_button" tools:ignore="UnusedResources,BrandUsage">VPNa BrowserWorksyê bistîne</string>
   <!-- Title for the browser VPN location picker screen. -->
   <string name="ip_protection_location_picker_title" tools:ignore="UnusedResources">Cîgeha VPNê hilbijêre</string>
   <!-- Description for what it means to use the Recommended setting and let the app automatically pick the best server location. -->
-  <string name="ip_protection_location_fastest_description" tools:ignore="BrandUsage">Firefox cîgeha herî bilez dibîne</string>
+  <string name="ip_protection_location_fastest_description" tools:ignore="BrandUsage">Waterfox cîgeha herî bilez dibîne</string>
   <!-- Description for an unavailable VPN location in the location list. -->
   <string name="ip_protection_location_unavailable_description">Ne berdest e</string>
   <!-- Error message shown when the selected browser VPN location is unavailable. -->
@@ -3423,7 +3423,7 @@
   <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Ji kerema xwe, senkronîzekirina hilpekînê veke.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Di Firefoxên li ser cîhazên te yên din de ti hilpekîneke vekirî tune ye.</string>
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Di Waterfoxên li ser cîhazên te yên din de ti hilpekîneke vekirî tune ye.</string>
   <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Lîsteyeke hilpekînan a ji cîhazên xwe yên din bibîne.</string>
   <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -3521,7 +3521,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Bila piştî mehekê bixweber bên girtin?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox dikare hilpekînên ku te mehekê venekirine bigire.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Waterfox dikare hilpekînên ku te mehekê venekirine bigire.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">GIRTINA BIXWEBER VEKE</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -3531,7 +3531,7 @@
 
     Search suggestions title for Firefox Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Pêşniyara Firefoxê</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Pêşniyara Waterfoxê</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -3550,7 +3550,7 @@
   -->
   <string name="default_browser_experiment_card_title">Geroka xwe ya standard biguherîne</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Bila lînkên ji malperan, e-posteyan û peyaman xweber di Firefoxê de bên vekirin.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Bila lînkên ji malperan, e-posteyan û peyaman xweber di Waterfoxê de bên vekirin.</string>
   <!-- Content description radio buttons with a link to more information -->
   <string name="radio_preference_info_content_description">Ji bo agahiyên zêdetir, bitikîne</string>
   <!-- Content description for the action bar "up" button -->
@@ -3919,23 +3919,23 @@
 
     The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Alîkariya me bike ku em Firefoxê çêtir bikin. Tenê deqeyekê digire.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Alîkariya me bike ku em Waterfoxê çêtir bikin. Tenê deqeyekê digire.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Bidomîne</string>
   <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Ez li ser Firefoxê lêgerînê bi kar naynim</string>
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">Ez li ser Waterfoxê lêgerînê bi kar naynim</string>
   <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Alîkariya me bike ku em çapkirina di Firefoxê de çêtir bikin. Tenê deqeyekê digire</string>
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Alîkariya me bike ku em çapkirina di Waterfoxê de çêtir bikin. Tenê deqeyekê digire</string>
   <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Alîkariyê bike da ku lêgerîn di Firefoxê de baştir bibe. Tenê deqeyekê digire</string>
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Alîkariyê bike da ku lêgerîn di Waterfoxê de baştir bibe. Tenê deqeyekê digire</string>
   <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Alîkariya me bike ku em syncê di Firefoxê de çêtir bikin. Tenê deqeyekê digire</string>
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Alîkariya me bike ku em syncê di Waterfoxê de çêtir bikin. Tenê deqeyekê digire</string>
   <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Tu ji ezmûna lêgerîna di Firefox de çiqas razî yî?</string>
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">Tu ji ezmûna lêgerîna di Waterfox de çiqas razî yî?</string>
   <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Tu ji ezmûna senkronîzasyona Firefoxê çiqasî razî yî?</string>
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">Tu ji ezmûna senkronîzasyona Waterfoxê çiqasî razî yî?</string>
   <!-- Text shown in the survey title for 'describe your experience so far' microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_describe_your_experience_title" tools:ignore="BrandUsage,UnusedResources">Ji bo baştirkirina Firefoxê alîkariya me bike. Kîjan ezmûna te ya heta niha ya herî baş e?</string>
+  <string name="microsurvey_describe_your_experience_title" tools:ignore="BrandUsage,UnusedResources">Ji bo baştirkirina Waterfoxê alîkariya me bike. Kîjan ezmûna te ya heta niha ya herî baş e?</string>
   <!--
     Uninstall Survey
 
@@ -3961,7 +3961,7 @@
 
     Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logoya Firefoxê</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logoya Waterfoxê</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Îkona taybetmendiya anketê</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -4023,5 +4023,5 @@
     The "Labs" portion can be localized, "Firefox" must be treated as a brand and kept
     in English.
   -->
-  <string name="firefox_labs_title" tools:ignore="BrandUsage">Firefox Labs</string>
+  <string name="firefox_labs_title" tools:ignore="BrandUsage">Waterfox Labs</string>
 </resources>

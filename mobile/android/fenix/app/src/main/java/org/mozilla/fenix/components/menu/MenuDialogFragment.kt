@@ -111,6 +111,7 @@ import org.mozilla.fenix.utils.enterSubmenu
 import org.mozilla.fenix.utils.exitMenu
 import org.mozilla.fenix.utils.exitSubmenu
 import org.mozilla.fenix.utils.lastSavedFolderCache
+import org.mozilla.fenix.whatsnew.WhatsNew
 import org.mozilla.fenix.webcompat.DefaultWebCompatReporterMoreInfoSender
 import org.mozilla.fenix.webcompat.middleware.DefaultWebCompatReporterRetrievalService
 import org.mozilla.fenix.webcompat.middleware.WebCompatInfoDeserializer
@@ -624,6 +625,10 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                     },
                                     onSettingsButtonClick = {
                                         store.dispatch(MenuAction.Navigate.Settings)
+                                    },
+                                    onWhatsNewMenuClick = {
+                                        WhatsNew.userViewedWhatsNew(context)
+                                        store.dispatch(MenuAction.Navigate.ReleaseNotes)
                                     },
                                     onBookmarkPageMenuClick = {
                                         store.dispatch(MenuAction.AddBookmark)

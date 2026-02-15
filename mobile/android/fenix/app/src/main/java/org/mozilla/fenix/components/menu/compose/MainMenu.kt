@@ -64,6 +64,7 @@ import org.mozilla.fenix.components.menu.compose.header.MozillaAccountMenuItem
 import org.mozilla.fenix.components.menu.store.WebExtensionMenuItem
 import org.mozilla.fenix.theme.FirefoxTheme
 import org.mozilla.fenix.theme.Theme
+import org.mozilla.fenix.whatsnew.WhatsNew
 import mozilla.components.ui.icons.R as iconsR
 
 /**
@@ -149,6 +150,7 @@ fun MainMenu(
     onCustomizeReaderViewMenuClick: () -> Unit,
     onMozillaAccountButtonClick: () -> Unit,
     onSettingsButtonClick: () -> Unit,
+    onWhatsNewMenuClick: () -> Unit = {},
     onBookmarkPageMenuClick: () -> Unit,
     onEditBookmarkButtonClick: () -> Unit,
     onSwitchToDesktopSiteMenuClick: () -> Unit,
@@ -170,6 +172,9 @@ fun MainMenu(
     moreSettingsSubmenu: @Composable () -> Unit,
     extensionSubmenu: @Composable () -> Unit,
 ) {
+    val context = LocalContext.current
+    val shouldHighlightWhatsNew = WhatsNew.shouldHighlightWhatsNew(context)
+
     MenuFrame(
         contentModifier = Modifier
             .padding(
@@ -308,6 +313,15 @@ fun MainMenu(
                 isPrivate = isPrivate,
                 onClick = onMozillaAccountButtonClick,
             )
+
+            if (shouldHighlightWhatsNew) {
+                MenuItem(
+                    label = stringResource(id = R.string.browser_menu_whats_new),
+                    beforeIconPainter = painterResource(id = R.drawable.ic_whats_new),
+                    isBeforeIconHighlighted = true,
+                    onClick = onWhatsNewMenuClick,
+                )
+            }
 
             MenuItem(
                 label = stringResource(id = R.string.browser_menu_settings),

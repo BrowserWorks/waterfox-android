@@ -332,6 +332,12 @@ class MenuItemProvidersFactory(
 
             FenixMenuItem.CustomizeHomepage -> CustomizeHomepageMenuItemProvider(target = target)
 
+            FenixMenuItem.WhatsNew ->
+                WhatsNewMenuItemProvider(
+                    context = context.applicationContext,
+                    fenixBrowserUseCases = useCases.fenixBrowserUseCases,
+                )
+
             FenixMenuItem.Settings -> SettingsMenuItemProvider(target = target)
 
             FenixMenuItem.Quit ->

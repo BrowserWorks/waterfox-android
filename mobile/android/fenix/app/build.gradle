@@ -72,7 +72,7 @@ android {
     compileSdk { version = release(config.compileSdkMajorVersion) { minorApiLevel = config.compileSdkMinorVersion } }
 
     defaultConfig {
-        applicationId "org.mozilla"
+        applicationId "net.waterfox.android"
         minSdk config.minSdkVersion
         targetSdk config.targetSdkVersion
         versionCode 1
@@ -92,7 +92,7 @@ android {
         // This should be the base URL used to call the AMO API.
         buildConfigField "String", "AMO_SERVER_URL", "\"https://services.addons.mozilla.org\""
 
-        def deepLinkSchemeValue = "fenix-dev"
+        def deepLinkSchemeValue = "waterfox-dev"
         buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
 
         manifestPlaceholders = [
@@ -150,7 +150,7 @@ android {
         debug {
             shrinkResources = false
             minifyEnabled = false
-            applicationIdSuffix ".fenix.debug"
+            applicationIdSuffix ".debug"
             resValue "bool", "IS_DEBUG", "true"
             pseudoLocalesEnabled = true
         }
@@ -182,18 +182,10 @@ android {
         }
         release releaseTemplate >> {
             buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
-            applicationIdSuffix ".firefox"
-            def deepLinkSchemeValue = "fenix"
+            applicationIdSuffix ".release"
+            def deepLinkSchemeValue = "waterfox"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
             manifestPlaceholders.putAll([
-                    // This release type is meant to replace Firefox (Release channel) and therefore needs to inherit
-                    // its sharedUserId for all eternity. See:
-                    // https://searchfox.org/mozilla-esr68/search?q=moz_android_shared_id&case=false&regexp=false&path=
-                    // Shipping an app update without sharedUserId can have
-                    // fatal consequences. For example see:
-                    //  - https://issuetracker.google.com/issues/36924841
-                    //  - https://issuetracker.google.com/issues/36905922
-                    "sharedUserId": "org.mozilla.firefox.sharedID",
                     "deepLinkScheme": deepLinkSchemeValue,
             ])
         }
@@ -205,6 +197,13 @@ android {
             signingConfig = signingConfigs.debug
             debuggable false
             buildConfigField "boolean", "IS_BENCHMARK_BUILD", "true"
+        }
+    }
+
+    flavorDimensions "brand"
+    productFlavors {
+        waterfox {
+            dimension "brand"
         }
     }
 
@@ -250,6 +249,13 @@ android {
     sourceSets {
         androidTest {
             resources.srcDirs += ['src/androidTest/resources']
+        }
+
+        waterfoxDebug {
+            res.srcDirs += ['src/waterfoxDebug/res']
+        }
+        waterfoxRelease {
+            res.srcDirs += ['src/waterfoxRelease/res']
         }
         if (project.hasProperty('baselineProfilePath')) {
             main {
@@ -336,19 +342,33 @@ android.applicationVariants.configureEach { variant ->
     project.logger.debug("Telemetry enabled: " + !isDebug)
 
     if (useReleaseVersioning) {
-        // The Google Play Store does not allow multiple APKs for the same app that all have the
-        // same version code. Therefore we need to have different version codes for our ARM and x86
-        // builds.
 
-        def versionName = variant.buildType.name == 'nightly' ?
-                "${Config.nightlyVersionName(project)}" :
-                "${Config.releaseVersionName(project)}"
+
+        def localPropertiesFile = project.rootProject.file('local.properties')
+        def localProperties = new Properties()
+        def customVersionName = null
+
+        if (localPropertiesFile.exists()) {
+            localProperties.load(localPropertiesFile.newDataInputStream())
+            customVersionName = localProperties.getProperty('branchBuild.waterfox.version')
+        }
+
+        def versionName = customVersionName ?:
+                (variant.buildType.name == 'nightly' ?
+                    "${Config.nightlyVersionName(project)}" :
+                    "${Config.releaseVersionName(project)}")
         project.logger.debug("versionName override: $versionName")
 
         variant.outputs.each { output ->
+            def abi = getAbi(output)
+            if (isAppBundle) {
+                abi = "AAB"
+            }
+            def customFileName = "waterfox-${versionName}-${abi}-${variant.buildType.name}.${output.outputFile.name.split('\\.').last()}"
+            output.outputFileName = customFileName
+
             // We use the same version code generator, that we inherited from Fennec, across all channels - even on
             // channels that never shipped a Fennec build.
-            def abi = getAbi(output)
             def versionCodeOverride = Config.generateFennecVersionCode(abi)
 
             project.logger.debug("versionCode for $abi = $versionCodeOverride")
@@ -358,17 +378,28 @@ android.applicationVariants.configureEach { variant ->
             }
             output.versionCodeOverride = versionCodeOverride
         }
-    } else if (gradle.hasProperty("localProperties.branchBuild.fenix.version")) {
-        def versionName = gradle.getProperty("localProperties.branchBuild.fenix.version")
-        project.logger.debug("versionName override: $versionName")
-        variant.outputs.each { output ->
-            output.versionNameOverride = versionName
+    }
+
+    if (useReleaseVersioning) {
+        def bundleTaskName = "bundle${variant.name.capitalize()}"
+        tasks.matching { it.name == bundleTaskName }.configureEach {
+            doLast {
+                def bundleDir = file("$buildDir/outputs/bundle/${variant.name}")
+                def aabFiles = fileTree(bundleDir) { include("*.aab") }.files
+                if (aabFiles.size() == 1) {
+                    def target = new File(bundleDir, "waterfox-${variant.buildType.name}.aab")
+                    if (aabFiles.first().name != target.name) {
+                        delete(target)
+                        aabFiles.first().renameTo(target)
+                    }
+                }
+            }
         }
     }
 
-// -------------------------------------------------------------------------------------------------
-// BuildConfig: Set variables for Sentry, Crash Reporting, and Telemetry
-// -------------------------------------------------------------------------------------------------
+ // -------------------------------------------------------------------------------------------------
+ // BuildConfig: Set variables for Sentry, Crash Reporting, and Telemetry
+ // -------------------------------------------------------------------------------------------------
 
     buildConfigField 'String', 'SENTRY_TOKEN', 'null'
     if (!isDebug) {
@@ -550,6 +581,11 @@ nimbus {
             beta: "beta",
             release: "release",
             benchmark: "developer",
+            waterfoxDebug: "developer",
+            waterfoxNightly: "nightly",
+            waterfoxBeta: "beta",
+            waterfoxRelease: "release",
+            waterfoxBenchmark: "developer",
     ]
     // This is generated by the FML and should be checked into git.
     // It will be fetched by Experimenter (the Nimbus experiment website)

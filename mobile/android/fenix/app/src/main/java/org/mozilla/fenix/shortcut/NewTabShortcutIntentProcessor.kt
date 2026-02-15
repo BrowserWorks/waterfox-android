@@ -36,7 +36,7 @@ class NewTabShortcutIntentProcessor : IntentProcessor {
     }
 
     companion object {
-        const val ACTION_OPEN_TAB = "org.mozilla.fenix.OPEN_TAB"
-        const val ACTION_OPEN_PRIVATE_TAB = "org.mozilla.fenix.OPEN_PRIVATE_TAB"
+        const val ACTION_OPEN_TAB = "net.waterfox.android.OPEN_TAB"
+        const val ACTION_OPEN_PRIVATE_TAB = "net.waterfox.android.OPEN_PRIVATE_TAB"
     }
 }

@@ -14,7 +14,12 @@ sealed interface FenixExpandableMenuItem {
 /** All items that can be shown in the menu. */
 sealed interface FenixMenuItem {
 
+    /** Closes the browser using the user's delete-on-quit settings. */
     data object Quit : FenixMenuItem
+
+    /** Opens Waterfox release notes after an update. */
+    data object WhatsNew : FenixMenuItem
+
     /** A menu item allowing to customize the reader view. */
     data object CustomizeReaderView : FenixMenuItem
 

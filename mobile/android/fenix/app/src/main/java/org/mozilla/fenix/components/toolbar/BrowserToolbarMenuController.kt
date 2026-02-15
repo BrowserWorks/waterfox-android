@@ -163,7 +163,12 @@ class DefaultBrowserToolbarMenuController(
                 }
             }
             is ToolbarMenu.Item.Quit -> {
-                deleteAndQuit(fragment.requireActivity())
+                val activity = fragment.requireActivity()
+                if (settings.shouldDeleteAnyDataOnQuit()) {
+                    deleteAndQuit(activity)
+                } else {
+                    activity.finishAndRemoveTask()
+                }
             }
             is ToolbarMenu.Item.CustomizeReaderView -> {
                 readerModeController.showControls()

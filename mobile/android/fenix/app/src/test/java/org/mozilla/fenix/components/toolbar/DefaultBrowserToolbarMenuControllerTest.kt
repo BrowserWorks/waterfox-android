@@ -275,14 +275,29 @@ class DefaultBrowserToolbarMenuControllerTest {
     }
 
     @Test
-    fun `WHEN quit menu item is pressed THEN menu item is handled correctly`() = runTest {
+    fun `WHEN quit menu item is pressed and data is selected for deletion THEN delete and quit is triggered`() = runTest {
         val item = ToolbarMenu.Item.Quit
+        every { settings.shouldDeleteAnyDataOnQuit() } returns true
 
         val controller = createController(scope = mockk(), store = browserStore)
 
         controller.handleToolbarItemInteraction(item)
 
         assertTrue(deleteAndQuitCalled)
+        verify(exactly = 0) { activity.finishAndRemoveTask() }
+    }
+
+    @Test
+    fun `WHEN quit menu item is pressed and no data is selected for deletion THEN activity finishes immediately`() = runTest {
+        val item = ToolbarMenu.Item.Quit
+        every { settings.shouldDeleteAnyDataOnQuit() } returns false
+
+        val controller = createController(scope = mockk(), store = browserStore)
+
+        controller.handleToolbarItemInteraction(item)
+
+        assertTrue(!deleteAndQuitCalled)
+        verify { activity.finishAndRemoveTask() }
     }
 
     @Test

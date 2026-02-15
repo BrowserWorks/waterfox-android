@@ -155,7 +155,7 @@ def fenix_format(_paths, config, fix=None, **lintargs):
         fix,
         os.path.join("mobile", "android", "fenix"),
         project_name="fenix",
-        lint_tasks=[":fenix:lintDebug"],
+        lint_tasks=[":fenix:lintWaterfoxDebug"],
         disable_android_components_tasks=True,
         **lintargs,
     )

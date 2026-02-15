@@ -88,6 +88,21 @@ android {
         buildConfigField "boolean", "IS_BENCHMARK_BUILD", "false"
     }
 
+    signingConfigs {
+        // Only create release signing config if all required environment variables are present
+        if (System.getenv("SIGNING_STORE_PASSWORD") &&
+            System.getenv("SIGNING_KEY_ALIAS") &&
+            System.getenv("SIGNING_KEY_PASSWORD")) {
+
+            release {
+                storeFile file("keystore.jks")
+                storePassword System.getenv("SIGNING_STORE_PASSWORD")
+                keyAlias System.getenv("SIGNING_KEY_ALIAS")
+                keyPassword System.getenv("SIGNING_KEY_PASSWORD")
+            }
+        }
+    }
+
     def releaseTemplate = {
         // We allow disabling optimization by passing `-PdisableOptimization` to gradle. This is used
         // in automation for UI testing non-debug builds.
@@ -96,15 +111,21 @@ android {
         proguardFiles = [getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro']
         matchingFallbacks = ['release'] // Use on the "release" build type in dependencies (AARs)
 
+        // Conditionally use release signing config if available
+        if (signingConfigs.findByName('release') != null) {
+            signingConfig signingConfigs.release
+        }
+
         // Present in release builds.
         if (gradle.mozconfig.substs.MOZ_INCLUDE_SOURCE_INFO) {
             buildConfigField("String", "VCS_HASH", "\"" + gradle.mozconfig.source_repo.MOZ_SOURCE_STAMP + "\"")
         }
 
-	    // If building locally, just use debug signing. In official automation builds, the
-	    // files are signed using a separate service and not within gradle.
-	    // Also skip during buildconfig linting, and skip if the `disableDebugSigning` Gradle property is set.
-        if (!project.hasProperty("disableDebugSigning") && !gradle.hasProperty("localProperties.disableDebugSigning") && !gradle.mozconfig.substs.MOZ_AUTOMATION && System.getenv("MOZ_BUILD_CONFIG_LINT") != "1") {
+        // Use debug signing only when release signing config is unavailable,
+        // and the `disableDebugSigning` property isn't set.
+        if (signingConfigs.findByName('release') == null
+            && !project.hasProperty("disableDebugSigning")
+            && !gradle.hasProperty("localProperties.disableDebugSigning")) {
             signingConfig = signingConfigs.debug
         }
 

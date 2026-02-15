@@ -503,6 +503,14 @@ class Settings(
     )
 
     /**
+     * Indicates whether custom wallpaper uses single image for both orientations.
+     */
+    var customWallpaperUseSingleImage by booleanPreference(
+        key = appContext.getPreferenceKey(R.string.pref_key_custom_wallpaper_single_image),
+        default = false,
+    )
+
+    /**
      * Indicates if the current legacy wallpaper card colors should be migrated.
      */
     var shouldMigrateLegacyWallpaperCardColors by booleanPreference(
@@ -1178,6 +1186,7 @@ class Settings(
             legacyThemeColors.forEach { remove(it.first) }
         }
     }
+
     var shouldFollowDeviceTheme by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_follow_device_theme),
         default = false,

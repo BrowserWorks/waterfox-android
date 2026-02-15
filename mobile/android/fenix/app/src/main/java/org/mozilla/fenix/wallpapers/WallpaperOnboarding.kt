@@ -92,6 +92,7 @@ fun WallpaperOnboarding(
                 selectedWallpaper = currentWallpaper,
                 loadWallpaperResource = { loadWallpaperResource(it) },
                 onSelectWallpaper = { onSelectWallpaper(it) },
+                onSetCustomWallpaper = {},
             )
 
             Spacer(modifier = Modifier.height(16.dp))

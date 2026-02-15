@@ -44,6 +44,7 @@ private fun reducer(state: MenuState, action: MenuAction): MenuState {
         is MenuAction.DefaultBrowserMenuBannerClicked,
         is MenuAction.DefaultBrowserMenuBannerDismissed,
         is MenuAction.OpenInApp,
+        is MenuAction.OpenWhatsNew,
         is MenuAction.OpenInFirefox,
         is MenuAction.InstallAddon,
         is MenuAction.CustomMenuItemAction,

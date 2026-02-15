@@ -57,6 +57,7 @@ import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.ext.navigateSafe
 import org.mozilla.fenix.ext.openSetDefaultBrowserOption
+import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.telemetry.ACTION_NAVIGATE_BACK_CLICKED
 import org.mozilla.fenix.telemetry.ACTION_NAVIGATE_BACK_LONG_CLICKED
 import org.mozilla.fenix.telemetry.ACTION_NAVIGATE_FORWARD_CLICKED
@@ -169,7 +170,11 @@ class DefaultBrowserToolbarMenuController(
                 }
             }
             is ToolbarMenu.Item.Quit -> {
-                deleteAndQuit(activity)
+                if (activity.settings().shouldDeleteBrowsingDataOnQuit) {
+                    deleteAndQuit(activity)
+                } else {
+                    activity.finishAndRemoveTask()
+                }
             }
             is ToolbarMenu.Item.CustomizeReaderView -> {
                 readerModeController.showControls()

@@ -64,6 +64,7 @@ import org.mozilla.fenix.theme.PreviewThemeProvider
 import org.mozilla.fenix.theme.Theme
 import org.mozilla.fenix.theme.ThemedValue
 import org.mozilla.fenix.theme.ThemedValueProvider
+import org.mozilla.fenix.whatsnew.WhatsNew
 import mozilla.components.ui.icons.R as iconsR
 
 /**
@@ -99,6 +100,7 @@ import mozilla.components.ui.icons.R as iconsR
  * @param onMozillaAccountButtonClick Invoked when the user clicks on Mozilla account button.
  * @param onSettingsButtonClick Invoked when the user clicks on the settings button.
  * @param onCustomizeHomepageButtonClick Invoked when the user clicks on the customize homepage button.
+ * @param onWhatsNewMenuClick Invoked when the user clicks on the What's New menu item.
  * @param onBookmarkPageMenuClick Invoked when the user clicks on the bookmark page menu item.
  * @param onEditBookmarkButtonClick Invoked when the user clicks on the edit bookmark button.
  * @param onSwitchToDesktopSiteMenuClick Invoked when the user clicks on the switch to desktop site
@@ -155,6 +157,7 @@ fun MainMenu(
     onMozillaAccountButtonClick: () -> Unit,
     onSettingsButtonClick: () -> Unit,
     onCustomizeHomepageButtonClick: () -> Unit,
+    onWhatsNewMenuClick: () -> Unit = {},
     onBookmarkPageMenuClick: () -> Unit,
     onEditBookmarkButtonClick: () -> Unit,
     onSwitchToDesktopSiteMenuClick: () -> Unit,
@@ -178,6 +181,9 @@ fun MainMenu(
     moreSettingsSubmenu: @Composable () -> Unit,
     extensionSubmenu: @Composable () -> Unit,
 ) {
+    val context = LocalContext.current
+    val shouldHighlightWhatsNew = WhatsNew.shouldHighlightWhatsNew(context)
+
     MenuFrame(
         contentModifier = Modifier
             .padding(
@@ -329,6 +335,15 @@ fun MainMenu(
                     label = stringResource(id = R.string.browser_menu_customize_homepage),
                     beforeIconPainter = painterResource(id = iconsR.drawable.mozac_ic_home_24),
                     onClick = onCustomizeHomepageButtonClick,
+                )
+            }
+
+            if (shouldHighlightWhatsNew) {
+                MenuItem(
+                    label = stringResource(id = R.string.browser_menu_whats_new),
+                    beforeIconPainter = painterResource(id = iconsR.drawable.mozac_ic_whats_new_24),
+                    isBeforeIconHighlighted = true,
+                    onClick = onWhatsNewMenuClick,
                 )
             }
 

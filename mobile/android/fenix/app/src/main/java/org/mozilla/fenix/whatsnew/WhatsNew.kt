@@ -30,12 +30,11 @@ class WhatsNew private constructor(
     private fun hasBeenUpdatedRecently(currentVersion: WhatsNewVersion): Boolean {
         val lastKnownAppVersion = storage.getVersion()
 
-        // Update the version and date if *just* updated
-        if (lastKnownAppVersion == null ||
-            currentVersion.majorVersionNumber > lastKnownAppVersion.majorVersionNumber
-        ) {
+        // Update stored version metadata if this is a fresh install or app version change.
+        if (lastKnownAppVersion == null || currentVersion != lastKnownAppVersion) {
             storage.setVersion(currentVersion)
             storage.setDateOfUpdate(currentTimeMillis())
+            storage.setWhatsNewHasBeenCleared(false)
             return true
         }
 

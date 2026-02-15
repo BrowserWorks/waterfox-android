@@ -34,7 +34,7 @@ open class WhatsNewVersion(internal open val version: String) {
         get() = version.split(".").first().toIntOrNull() ?: 0
 }
 
-data class ContextWhatsNewVersion(private val context: Context) : WhatsNewVersion("") {
+class ContextWhatsNewVersion(private val context: Context) : WhatsNewVersion("") {
     override val version: String
         get() = context.appVersionName
 }

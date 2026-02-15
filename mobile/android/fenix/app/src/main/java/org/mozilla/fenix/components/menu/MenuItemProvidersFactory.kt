@@ -10,6 +10,7 @@ import kotlin.LazyThreadSafetyMode.NONE
 import kotlinx.coroutines.CoroutineScope
 import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.browser.storage.sync.PlacesHistoryStorage
+import mozilla.components.compose.menu.store.MenuEvent
 import mozilla.components.concept.engine.Engine
 import mozilla.components.concept.fetch.Client
 import mozilla.components.concept.storage.BookmarksStorage
@@ -319,12 +320,24 @@ class MenuItemProvidersFactory(
 
             FenixMenuItem.Quit ->
                 QuitMenuItemProvider(
-                    appName = context.getString(R.string.app_name),
-                    deletesBrowsingDataOnQuit = settings.shouldDeleteBrowsingDataOnQuit,
-                    deleteBrowsingDataController = { deleteBrowsingDataController },
-                    quitApplicationDelegate = quitApplicationDelegate,
-                    applicationScope = applicationScope,
-                )
+                        appName = context.getString(R.string.app_name),
+                        deletesBrowsingDataOnQuit = true,
+                        deleteBrowsingDataController = { deleteBrowsingDataController },
+                        quitApplicationDelegate = quitApplicationDelegate,
+                        applicationScope = applicationScope,
+                    )
+                    .let { provider ->
+                        object : MenuItemProvider by provider {
+                            override fun onEvent(event: MenuEvent, menu: MenuHost) {
+                                if (settings.shouldDeleteAnyDataOnQuit()) {
+                                    provider.onEvent(event, menu)
+                                } else {
+                                    menu.dismiss()
+                                    quitApplicationDelegate()
+                                }
+                            }
+                        }
+                    }
         }
 
     // Only ever needed by users who asked for their data to be deleted when they quit, and only once they do.

@@ -10,6 +10,5 @@
                 - https://issuetracker.google.com/issues/36924841
                 - https://issuetracker.google.com/issues/36905922
 -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:sharedUserId="${sharedUserId}">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 </manifest>

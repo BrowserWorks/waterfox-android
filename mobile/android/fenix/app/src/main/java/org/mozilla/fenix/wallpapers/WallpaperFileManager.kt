@@ -4,6 +4,8 @@
 
 package org.mozilla.fenix.wallpapers
 
+import android.content.Context
+import android.net.Uri
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -74,4 +76,66 @@ class WallpaperFileManager(
     suspend fun wallpaperImagesExist(wallpaper: Wallpaper): Boolean = withContext(coroutineDispatcher) {
         allAssetsExist(wallpaper.name)
     }
+
+    suspend fun copyCustomWallpaperImage(
+        context: Context,
+        imageType: Wallpaper.ImageType,
+        uri: Uri,
+    ): Boolean = withContext(coroutineDispatcher) {
+        return@withContext try {
+            val localFile = customWallpaperFile(imageType)
+            val parentFile = localFile.parentFile ?: return@withContext false
+            val temporaryFile = File(parentFile, "${localFile.name}.tmp")
+            parentFile.mkdirs()
+            temporaryFile.delete()
+
+            val copied = context.contentResolver.openInputStream(uri)?.use { input ->
+                temporaryFile.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+                true
+            } ?: false
+
+            if (!copied) {
+                temporaryFile.delete()
+                return@withContext false
+            }
+
+            if (localFile.exists() && !localFile.delete()) {
+                temporaryFile.delete()
+                return@withContext false
+            }
+
+            if (!temporaryFile.renameTo(localFile)) {
+                temporaryFile.copyTo(localFile, overwrite = true)
+                temporaryFile.delete()
+            }
+            true
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    suspend fun deleteCustomWallpaperImage(imageType: Wallpaper.ImageType): Boolean = withContext(coroutineDispatcher) {
+        return@withContext try {
+            val localFile = customWallpaperFile(imageType)
+            if (localFile.exists()) {
+                localFile.delete()
+            } else {
+                true
+            }
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    suspend fun customWallpaperExists(): Boolean = withContext(coroutineDispatcher) {
+        customWallpaperFile(Wallpaper.ImageType.Portrait).exists() ||
+            customWallpaperFile(Wallpaper.ImageType.Landscape).exists()
+    }
+
+    private fun customWallpaperFile(imageType: Wallpaper.ImageType): File = File(
+        storageRootDirectory,
+        Wallpaper.getLocalPath(Wallpaper.CUSTOM, imageType),
+    )
 }

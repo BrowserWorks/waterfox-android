@@ -55,6 +55,18 @@ class ExtensionsTest {
     }
 
     @Test
+    fun `GIVEN custom wallpaper WHEN grouped by collection THEN custom is in classic firefox`() {
+        val seasonalCollection = getSeasonalCollection("finally fall")
+        val seasonalWallpapers = (0..5).map { generateSeasonalWallpaper("${seasonalCollection.name}$it", seasonalCollection.name) }
+        val allWallpapers = listOf(Wallpaper.Default, Wallpaper.Custom) + seasonalWallpapers
+
+        val result = allWallpapers.groupByDisplayableCollection()
+
+        assertEquals(listOf(Wallpaper.Default, Wallpaper.Custom), result[classicCollection])
+        assertEquals(seasonalWallpapers, result[seasonalCollection])
+    }
+
+    @Test
     fun `GIVEN that classic firefox thumbnails fail to download WHEN grouped by collection THEN default is still available`() {
         val seasonalCollection = getSeasonalCollection("finally fall")
         val downloadedSeasonalWallpapers = (0..5).map {

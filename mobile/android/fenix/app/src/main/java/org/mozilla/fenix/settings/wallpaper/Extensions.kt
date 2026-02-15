@@ -12,19 +12,35 @@ import kotlin.math.max
 /**
  * The extension function to group wallpapers into the appropriate collections for display.
  **/
-fun List<Wallpaper>.groupByDisplayableCollection(): Map<Wallpaper.Collection, List<Wallpaper>> =
-    groupBy {
-        if (it.collection == Wallpaper.DefaultCollection) {
-            Wallpaper.ClassicFirefoxCollection
-        } else {
-            it.collection
+fun List<Wallpaper>.groupByDisplayableCollection(): Map<Wallpaper.Collection, List<Wallpaper>> {
+    val (customWallpapers, regularWallpapers) = partition { it.name == Wallpaper.CUSTOM }
+
+    val groupedWallpapers = regularWallpapers
+        .groupBy { wallpaper ->
+            if (wallpaper.collection == Wallpaper.DefaultCollection) {
+                Wallpaper.ClassicFirefoxCollection
+            } else {
+                wallpaper.collection
+            }
         }
-    }.map {
-        val wallpapers = it.value.filter { wallpaper ->
-            wallpaper.thumbnailFileState == Wallpaper.ImageFileState.Downloaded
+        .mapValues { (_, wallpapers) ->
+            wallpapers.filter { wallpaper ->
+                wallpaper.thumbnailFileState == Wallpaper.ImageFileState.Downloaded
+            }
         }
-        it.key to wallpapers
-    }.toMap()
+
+    val classicCollection = groupedWallpapers.keys.firstOrNull {
+        it.name == Wallpaper.CLASSIC_FIREFOX_COLLECTION
+    } ?: Wallpaper.ClassicFirefoxCollection
+
+    val classicFirefoxWallpapers = (
+        listOf(Wallpaper.Default) +
+            groupedWallpapers[classicCollection].orEmpty().filterNot { it.name == Wallpaper.DEFAULT } +
+            customWallpapers
+        ).distinctBy { it.name }
+
+    return groupedWallpapers + (classicCollection to classicFirefoxWallpapers)
+}
 
 /**
  * Returns a list of wallpapers to display in the wallpaper onboarding.

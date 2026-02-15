@@ -124,8 +124,6 @@ jobs:
           set -euo pipefail
           OBJDIR="obj-${{ matrix.arch }}"
           GRADLE_DIR="$OBJDIR/gradle"
-          export GRADLE_INVOKED_WITHIN_MACH_BUILD=1
-          ./mach gradle :geckoview:publishReleasePublicationToMavenRepository
           python3 scripts/create-maven-zip.py --objdir "$OBJDIR" --include-snapshots --require-aar
           test -f "$GRADLE_DIR/target.maven.zip"
 

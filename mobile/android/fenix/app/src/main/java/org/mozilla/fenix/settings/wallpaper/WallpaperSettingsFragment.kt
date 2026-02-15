@@ -89,6 +89,11 @@ class WallpaperSettingsFragment : Fragment(), SystemInsetsPaddedFragment {
                                 ),
                             )
                         },
+                        onSetCustomWallpaper = {
+                            findNavController().navigate(
+                                WallpaperSettingsFragmentDirections.actionWallpaperSettingsFragmentToCustomWallpaperFragment(),
+                            )
+                        },
                     )
                 }
             }

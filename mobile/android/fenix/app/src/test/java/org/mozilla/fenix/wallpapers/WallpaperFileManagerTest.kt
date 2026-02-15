@@ -4,6 +4,9 @@
 
 package org.mozilla.fenix.wallpapers
 
+import android.content.ContentResolver
+import android.content.Context
+import android.net.Uri
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -146,6 +149,61 @@ class WallpaperFileManagerTest {
         assertFalse(result)
     }
 
+    @Test
+    fun `WHEN copying a custom wallpaper image THEN the destination contains the content URI data`() = runTest(dispatcher) {
+        val sourceFile = tempFolder.newFile("custom-source.png").apply { writeText("custom") }
+        val sourceUri = Uri.fromFile(sourceFile)
+        val context = mockContextFor(sourceUri, sourceFile)
+
+        val result = fileManager.copyCustomWallpaperImage(
+            context,
+            Wallpaper.ImageType.Portrait,
+            sourceUri,
+        )
+
+        assertTrue(result)
+        assertEquals("custom", getCustomWallpaperFile(Wallpaper.ImageType.Portrait).readText())
+    }
+
+    @Test
+    fun `GIVEN existing custom wallpaper file WHEN copying from the same URI THEN the file is preserved`() = runTest(dispatcher) {
+        val existingFile = getCustomWallpaperFile(Wallpaper.ImageType.Portrait).apply {
+            parentFile?.mkdirs()
+            writeText("existing")
+        }
+        val existingUri = Uri.fromFile(existingFile)
+        val context = mockContextFor(existingUri, existingFile)
+
+        val result = fileManager.copyCustomWallpaperImage(
+            context,
+            Wallpaper.ImageType.Portrait,
+            existingUri,
+        )
+
+        assertTrue(result)
+        assertEquals("existing", existingFile.readText())
+    }
+
+    @Test
+    fun `GIVEN content resolver returns no stream WHEN copying custom wallpaper image THEN false is returned`() = runTest(dispatcher) {
+        val sourceUri = Uri.parse("content://wallpaper/missing")
+        val contentResolver = mockk<ContentResolver> {
+            every { openInputStream(sourceUri) } returns null
+        }
+        val context = mockk<Context> {
+            every { getContentResolver() } returns contentResolver
+        }
+
+        val result = fileManager.copyCustomWallpaperImage(
+            context,
+            Wallpaper.ImageType.Portrait,
+            sourceUri,
+        )
+
+        assertFalse(result)
+        assertFalse(getCustomWallpaperFile(Wallpaper.ImageType.Portrait).exists())
+    }
+
     private fun createAllFiles(name: String) {
         for (file in getAllFiles(name)) {
             file.mkdirs()
@@ -161,6 +219,20 @@ class WallpaperFileManagerTest {
             File(folder, "landscape.png"),
             File(folder, "thumbnail.png"),
         )
+    }
+
+    private fun getCustomWallpaperFile(imageType: Wallpaper.ImageType): File = File(
+        tempFolder.root,
+        Wallpaper.getLocalPath(Wallpaper.CUSTOM, imageType),
+    )
+
+    private fun mockContextFor(uri: Uri, file: File): Context {
+        val contentResolver = mockk<ContentResolver> {
+            every { openInputStream(uri) } answers { file.inputStream() }
+        }
+        return mockk {
+            every { getContentResolver() } returns contentResolver
+        }
     }
 
     private fun generateWallpaper(name: String) = Wallpaper(

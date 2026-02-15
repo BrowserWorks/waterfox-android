@@ -33,6 +33,6 @@ class PasswordManagerIntentProcessor : IntentProcessor {
     }
 
     companion object {
-        const val ACTION_OPEN_PASSWORD_MANAGER = "org.mozilla.fenix.OPEN_PASSWORD_MANAGER"
+        const val ACTION_OPEN_PASSWORD_MANAGER = "net.waterfox.android.OPEN_PASSWORD_MANAGER"
     }
 }

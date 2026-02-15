@@ -4,8 +4,8 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Name of the application -->
-    <string name="app_name" translatable="false">Firefox Fenix</string>
-    <string name="firefox" translatable="false">Firefox</string>
+    <string name="app_name" translatable="false">Waterfox Fenix</string>
+    <string name="firefox" translatable="false">Waterfox</string>
 
     <!-- Preference for developers -->
     <string name="preference_leakcanary" translatable="false">LeakCanary</string>
@@ -67,11 +67,11 @@
     <!-- Preference to override the Push server -->
     <string name="preferences_override_push_server">Custom Push server</string>
     <!-- Preference to use the experimental React (The web framework) Mozilla Account page, used only in testing -->
-    <string name="preferences_use_react_fxa">Use New React Mozilla Account page</string>
+    <string name="preferences_use_react_fxa">Use New React BrowserWorks Account page</string>
     <!-- Quit app button title for the Sync Debug preferences -->
-    <string name="preferences_sync_debug_quit_button_title">Stop Firefox</string>
+    <string name="preferences_sync_debug_quit_button_title">Stop Waterfox</string>
     <!-- Quit app button summary for the Sync Debug preferences -->
-    <string name="preferences_sync_debug_quit_button_summary">Custom server changes will take effect on the next Firefox run.</string>
+    <string name="preferences_sync_debug_quit_button_summary">Custom server changes will take effect on the next Waterfox run.</string>
     <!-- Button title for simulating an FxA network error inside the Sync Debug menu -->
     <string name="preferences_sync_debug_network_error_button_title">Simulate account network error</string>
     <!-- Button title for simulating an FxA temporary auth error inside the Sync Debug menu -->
@@ -83,11 +83,11 @@
   <!-- Label for enabling Homepage as a New Tab -->
     <string name="preferences_debug_settings_homepage_as_new_tab" translatable="false">Enable Homepage as a New Tab</string>
     <!-- Label for enabling Firefox Labs -->
-    <string name="preferences_debug_settings_firefox_labs" translatable="false">Enable Firefox Labs</string>
+    <string name="preferences_debug_settings_firefox_labs" translatable="false">Enable Waterfox Labs</string>
     <!-- Label for enabling Merino Client -->
     <string name="preferences_debug_settings_merino_client" translatable="false">Enable Merino Client</string>
     <!-- Label for enabling Mozilla Ads Client -->
-    <string name="preferences_debug_settings_mozilla_ads_client" translatable="false">Enable Mozilla Ads Client</string>
+    <string name="preferences_debug_settings_mozilla_ads_client" translatable="false">Enable BrowserWorks Ads Client</string>
     <!-- Label for enabling Discover more stories -->
     <string name="preferences_debug_settings_discover_more_stories" translatable="false">Enable Discover More Stories</string>
     <!-- Label for enabling Privacy Report on homepage -->
@@ -97,7 +97,7 @@
     <!-- Label for a longer description of the custom tab extensions depending on the menu redesign or composable toolbar feature -->
     <string name="preferences_debug_settings_custom_tab_extensions_summary" translatable="false">This needs the Menu Redesign or Composable Toolbar feature enabled</string>
     <!-- Label for enabling Firefox Suggest -->
-    <string name="preferences_debug_settings_fxsuggest" translatable="false">Enable Firefox Suggest</string>
+    <string name="preferences_debug_settings_fxsuggest" translatable="false">Enable Waterfox Suggest</string>
     <!-- Label for enabling the composable toolbar -->
     <string name="preferences_debug_settings_composable_toolbar" translatable="false">Enable Composable Toolbar</string>
     <!-- Label for enabling the redesigned toolbar options -->
@@ -149,7 +149,7 @@
     <string name="preferences_debug_settings_enable_longfox" translatable="false">Enable Longfox</string>
 
     <!-- Search suggestions title for Firefox Suggest Online -->
-    <string name="firefox_suggest_online_header" tools:ignore="BrandUsage" translatable="false">Firefox Suggest Online</string>
+    <string name="firefox_suggest_online_header" tools:ignore="BrandUsage" translatable="false">Waterfox Suggest Online</string>
 
     <!-- Label for toggling the native android share sheet feature -->
     <string name="preferences_debug_settings_native_android_share_sheet" translatable="false">Enable Native Android Share Sheet</string>
@@ -201,15 +201,15 @@
     <string name="profiler_active_notification" translatable="false">Profiler active</string>
     <string name="profiler_notification_text" translatable="false">Profiling is active. Tap to stop profiler</string>
     <string name="profiler_settings_title">Profiler Settings</string>
-    <string name="profiler_filter_firefox">Firefox</string>
+    <string name="profiler_filter_firefox">Waterfox</string>
     <string name="profiler_running">Profiler is currently running</string>
-    <string name="profiler_filter_firefox_explain">Recommended preset for profiling Firefox</string>
+    <string name="profiler_filter_firefox_explain">Recommended preset for profiling Waterfox</string>
     <string name="profiler_filter_graphics">Graphics</string>
-    <string name="profiler_filter_graphics_explain">Preset for investigating graphics bugs in Firefox</string>
+    <string name="profiler_filter_graphics_explain">Preset for investigating graphics bugs in Waterfox</string>
     <string name="profiler_filter_media">Media</string>
-    <string name="profiler_filter_media_explain">Preset for investigating audio and video bugs in Firefox</string>
+    <string name="profiler_filter_media_explain">Preset for investigating audio and video bugs in Waterfox</string>
     <string name="profiler_filter_networking">Networking</string>
-    <string name="profiler_filter_networking_explain">Preset for investigating networking bugs in Firefox</string>
+    <string name="profiler_filter_networking_explain">Preset for investigating networking bugs in Waterfox</string>
     <string name="profiler_filter_debug">Debug</string>
     <string name="profiler_filter_debug_explain">Preset for debugging. High overhead, do not use for performance work but use for focusing on understanding browser behavior.</string>
     <string name="profiler_filter_web_compat">Web Compat</string>
@@ -321,7 +321,7 @@
         experimental and in-development features, and turn those features on and off.
         The "Labs" portion can be localized, "Firefox" must be treated as a brand and kept
         in English. -->
-    <string name="firefox_labs_title" tools:ignore="BrandUsage">Firefox Labs</string>
+    <string name="firefox_labs_title" tools:ignore="BrandUsage">Waterfox Labs</string>
     <!-- Description text displayed in the Firefox Labs screen. %s is the name of the app (for example "Firefox"). -->
     <string name="firefox_labs_experimental_description">Give our experimental features a try! They’re in development and evolving, which could impact how %s works.</string>
     <!-- Button text for restoring the default settings by turning off any experimental features in the Firefox Labs screen. -->

@@ -16,6 +16,9 @@ sealed interface FenixMenuItem {
     /** A banner allowing to set this application as the default browser. */
     data object DefaultBrowserBanner : FenixMenuItem
 
+    /** Opens Waterfox release notes after an update. */
+    data object WhatsNew : FenixMenuItem
+
     /** A menu item allowing to customize the reader view. */
     data object CustomizeReaderView : FenixMenuItem
 

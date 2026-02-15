@@ -36,6 +36,7 @@ import org.mozilla.fenix.components.menu.FenixMenuItem.Share
 import org.mozilla.fenix.components.menu.FenixMenuItem.Shortcut
 import org.mozilla.fenix.components.menu.FenixMenuItem.SummarizePage
 import org.mozilla.fenix.components.menu.FenixMenuItem.Translate
+import org.mozilla.fenix.components.menu.FenixMenuItem.WhatsNew
 import org.mozilla.fenix.components.menu.MenuPresentationMode.Grid
 import org.mozilla.fenix.components.menu.MenuPresentationMode.Row
 
@@ -114,7 +115,7 @@ object MenuConfigurations {
                 MenuSectionConfiguration(
                     id = BROWSER_MENU_GROUP_5_ID,
                     presentationMode = Row,
-                    items = listOf(MozillaAccount, Settings),
+                    items = listOf(MozillaAccount, WhatsNew, Settings),
                 ),
                 MenuSectionConfiguration(
                     id = BROWSER_MENU_GROUP_6_ID,

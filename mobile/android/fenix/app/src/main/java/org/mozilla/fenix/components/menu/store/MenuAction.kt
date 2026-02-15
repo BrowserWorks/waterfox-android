@@ -14,6 +14,9 @@ import org.mozilla.fenix.tabgroups.flow.TabGroupFlowEntryPoint
 /** Actions to dispatch through the [MenuStore] to modify the [MenuState]. */
 sealed class MenuAction : MenuEvent {
 
+    /** Opens Waterfox release notes. */
+    data object OpenWhatsNew : MenuAction()
+
     /**
      * [MenuAction] dispatched to indicate that the store is initialized and ready to use. This action is dispatched
      * automatically before any other action is processed. Its main purpose is to trigger initialization logic in

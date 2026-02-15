@@ -130,6 +130,7 @@ import org.mozilla.fenix.utils.exitMenu
 import org.mozilla.fenix.utils.exitSubmenu
 import org.mozilla.fenix.webcompat.DefaultWebCompatReporterMoreInfoSender
 import org.mozilla.fenix.webcompat.middleware.DefaultWebCompatReporterRetrievalService
+import org.mozilla.fenix.whatsnew.WhatsNew
 
 private const val EXPANDED_OFFSET = 56
 private const val HIDING_FRICTION = 0.9f
@@ -565,6 +566,10 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                 },
                                 onCustomizeHomepageButtonClick = {
                                     menuStore.dispatch(MenuAction.Navigate.CustomizeHomepage)
+                                },
+                                onWhatsNewMenuClick = {
+                                    WhatsNew.userViewedWhatsNew(context)
+                                    openToBrowser(BrowserNavigationParams(url = SupportUtils.WHATS_NEW_URL))
                                 },
                                 onBookmarkPageMenuClick = {
                                     menuStore.dispatch(MenuAction.AddBookmark)

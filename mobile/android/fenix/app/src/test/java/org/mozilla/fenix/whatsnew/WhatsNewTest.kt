@@ -56,14 +56,14 @@ class WhatsNewTest {
     }
 
     @Test
-    fun `should not highlight if new version is only a minor update`() {
+    fun `should highlight if new version is a patch or minor update`() {
         storage.setVersion(WhatsNewVersion("1.0"))
-        assertEquals(false, WhatsNew.shouldHighlightWhatsNew(WhatsNewVersion("1.0.1"), storage))
+        assertEquals(true, WhatsNew.shouldHighlightWhatsNew(WhatsNewVersion("1.0.1"), storage))
 
         WhatsNew.wasUpdatedRecently = null
 
         storage.setVersion(WhatsNewVersion("1.0"))
-        assertEquals(false, WhatsNew.shouldHighlightWhatsNew(WhatsNewVersion("1.1"), storage))
+        assertEquals(true, WhatsNew.shouldHighlightWhatsNew(WhatsNewVersion("1.1"), storage))
     }
 
     @Test
@@ -80,6 +80,15 @@ class WhatsNewTest {
 
         storage.setVersion(WhatsNewVersion("3.2"))
         assertEquals(true, WhatsNew.shouldHighlightWhatsNew(WhatsNewVersion("4.2"), storage))
+    }
+
+    @Test
+    fun `should reset cleared flag when app version changes`() {
+        storage.setVersion(WhatsNewVersion("1.2.0"))
+        storage.setWhatsNewHasBeenCleared(true)
+
+        assertEquals(true, WhatsNew.shouldHighlightWhatsNew(WhatsNewVersion("1.2.1"), storage))
+        assertEquals(false, storage.getWhatsNewHasBeenCleared())
     }
 
     @Test

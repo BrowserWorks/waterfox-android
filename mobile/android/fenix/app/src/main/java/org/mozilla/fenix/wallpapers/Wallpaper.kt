@@ -61,6 +61,7 @@ data class Wallpaper(
         const val FIREFOX_COLLECTION = "firefox"
         const val DEFAULT = "default"
         const val EDGE_TO_EDGE = "edge-to-edge"
+        const val CUSTOM = "custom"
 
         private val localWallpapers = listOf(DEFAULT, EDGE_TO_EDGE)
 
@@ -120,6 +121,24 @@ data class Wallpaper(
                 thumbnailFileState = ImageFileState.Downloaded,
                 assetsFileState = ImageFileState.Downloaded,
             )
+        val CustomCollection = Collection(
+            name = CUSTOM,
+            heading = null,
+            description = null,
+            learnMoreUrl = null,
+            availableLocales = null,
+            startDate = null,
+            endDate = null,
+        )
+        val Custom = Wallpaper(
+            name = CUSTOM,
+            collection = CustomCollection,
+            textColor = null,
+            cardColorLight = null,
+            cardColorDark = null,
+            thumbnailFileState = ImageFileState.Downloaded,
+            assetsFileState = ImageFileState.Downloaded,
+        )
 
         /**
          * Defines the standard path at which a wallpaper resource is kept on disk.

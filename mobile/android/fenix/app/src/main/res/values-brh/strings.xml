@@ -68,7 +68,7 @@
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">مٹائفبو</string>
   <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content" tools:ignore="BrandUsage">%1$s اے Mozilla جوڈ کرینے۔</string>
+  <string name="about_content" tools:ignore="BrandUsage">%1$s اے BrowserWorks جوڈ کرینے۔</string>
   <!--
     Private Browsing
 
@@ -296,7 +296,7 @@
   -->
   <string name="onboarding_home_content_description_close_button">بند</string>
   <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Firefox اے بہتر کننگ کن نن تون کمک کبو</string>
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Waterfox اے بہتر کننگ کن نن تون کمک کبو</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">تینٹ پننگ نا رپورٹ اتے رائ کے</string>
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
@@ -315,9 +315,9 @@
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">مس</string>
   <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Firefox ٹی ببوخیرٹ</string>
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Waterfox ٹی ببوخیرٹ</string>
   <!-- Sync onboarding redesign title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">ہر جا کہ Firefox استعمال کیرے ہمگام کبو</string>
+  <string name="onboarding_redesign_sync_title" tools:ignore="BrandUsage,UnusedResources">ہر جا کہ Waterfox استعمال کیرے ہمگام کبو</string>
   <!-- Sync onboarding redesign negative button text. -->
   <string name="onboarding_redesign_sync_negative_button" tools:ignore="UnusedResources">داسہ نہ</string>
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->

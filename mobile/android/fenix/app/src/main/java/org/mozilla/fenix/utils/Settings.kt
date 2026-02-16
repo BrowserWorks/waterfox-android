@@ -66,11 +66,13 @@ import org.mozilla.fenix.settings.sitepermissions.AUTOPLAY_BLOCK_ALL
 import org.mozilla.fenix.settings.sitepermissions.AUTOPLAY_BLOCK_AUDIBLE
 import org.mozilla.fenix.tabstray.DefaultTabManagementFeatureHelper
 import org.mozilla.fenix.termsofuse.TOU_VERSION
+import org.mozilla.fenix.theme.ThemeColor
 import org.mozilla.fenix.utils.Settings.Companion.LONGFOX_PEEK_ANIMATION_MAX_SHOWS
 import org.mozilla.fenix.wallpapers.Wallpaper
 
 private const val AUTOPLAY_USER_SETTING = "AUTOPLAY_USER_SETTING"
 private const val MAX_ANIMATION_FOREGROUND = 5
+private const val THEME_COLOR_DEFAULT = "default"
 
 /**
  * A simple wrapper for SharedPreferences that makes reading preference a little bit easier.
@@ -1105,6 +1107,93 @@ class Settings(
             appContext.getPreferenceKey(R.string.pref_key_oled_theme),
             default = false,
         )
+
+    var shouldUseBlackTheme by
+        booleanPreference(
+            appContext.getPreferenceKey(R.string.pref_key_black_theme),
+            default = false,
+        )
+
+    var useSystemThemeForBlack by
+        booleanPreference(
+            appContext.getPreferenceKey(R.string.pref_key_use_system_theme_for_black),
+            default = false,
+        )
+
+    var customThemeColorLight by
+        stringPreference(
+            appContext.getPreferenceKey(R.string.pref_key_custom_theme_color_light),
+            default = THEME_COLOR_DEFAULT,
+        )
+
+    var customThemeColorDark by
+        stringPreference(
+            appContext.getPreferenceKey(R.string.pref_key_custom_theme_color_dark),
+            default = THEME_COLOR_DEFAULT,
+        )
+
+    /** Migrates legacy black/color theme choices once without overwriting explicit current choices. */
+    fun migrateLegacyThemePreferencesIfNeeded() {
+        val legacyBlackThemeKey = "pref_key_use_black_theme_in_dark_mode"
+        if (preferences.contains(legacyBlackThemeKey)) {
+            preferences.edit {
+                if (shouldMigrateLegacyBlackTheme(legacyBlackThemeKey)) {
+                    putBoolean(appContext.getPreferenceKey(R.string.pref_key_black_theme), true)
+                    putBoolean(appContext.getPreferenceKey(R.string.pref_key_follow_device_theme), false)
+                    putBoolean(appContext.getPreferenceKey(R.string.pref_key_use_system_theme_for_black), true)
+                }
+                remove(legacyBlackThemeKey)
+            }
+        }
+
+        val legacyThemeColors =
+            listOf(
+                "pref_key_violet_theme" to ThemeColor.Violet,
+                "pref_key_blue_theme" to ThemeColor.Blue,
+                "pref_key_pink_theme" to ThemeColor.Pink,
+                "pref_key_green_theme" to ThemeColor.Green,
+                "pref_key_red_theme" to ThemeColor.Red,
+                "pref_key_orange_theme" to ThemeColor.Orange,
+                "pref_key_yellow_theme" to ThemeColor.Yellow,
+                "pref_key_cyan_theme" to ThemeColor.Blue,
+                "pref_key_purple_theme" to ThemeColor.Purple,
+            )
+
+        val hasLegacyKeys = legacyThemeColors.any { preferences.contains(it.first) }
+        if (!hasLegacyKeys) {
+            return
+        }
+
+        val hasCustomTheme = customThemeColorLight != THEME_COLOR_DEFAULT || customThemeColorDark != THEME_COLOR_DEFAULT
+        if (!hasCustomTheme) {
+            val legacyTheme = legacyThemeColors.firstOrNull { preferences.getBoolean(it.first, false) }?.second
+            if (legacyTheme != null) {
+                customThemeColorLight = legacyTheme.prefValue
+                customThemeColorDark = legacyTheme.prefValue
+
+                if (hasNoThemeModeSelected()) {
+                    shouldUseDarkTheme = true
+                }
+            }
+        }
+
+        preferences.edit {
+            legacyThemeColors.forEach { remove(it.first) }
+        }
+    }
+
+    private fun shouldMigrateLegacyBlackTheme(legacyKey: String): Boolean =
+        preferences.getBoolean(legacyKey, false) && shouldFollowDeviceTheme && canMigrateToSystemBlackTheme()
+
+    private fun canMigrateToSystemBlackTheme(): Boolean =
+        !shouldUseBlackTheme &&
+            !preferences.contains(appContext.getPreferenceKey(R.string.pref_key_use_system_theme_for_black))
+
+    private fun hasExplicitThemeModeSelected(): Boolean =
+        shouldUseLightTheme || shouldUseDarkTheme || shouldUseBlackTheme
+
+    private fun hasNoThemeModeSelected(): Boolean =
+        !hasExplicitThemeModeSelected() && !shouldFollowDeviceTheme && !shouldUseAutoBatteryTheme
 
     var shouldFollowDeviceTheme by
         booleanPreference(

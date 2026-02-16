@@ -25,10 +25,12 @@ import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.R
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.customtabs.ExternalAppBrowserActivity
+import org.mozilla.fenix.ext.settings
 import com.google.android.material.R as materialR
 
 abstract class ThemeManager {
 
+    protected abstract val activity: Activity
     abstract var currentTheme: BrowsingMode
 
     /**
@@ -166,7 +168,7 @@ abstract class ThemeManager {
 
 class DefaultThemeManager(
     currentTheme: BrowsingMode,
-    private val activity: Activity,
+    override val activity: Activity,
 ) : ThemeManager() {
     override var currentTheme: BrowsingMode = currentTheme
         set(value) {

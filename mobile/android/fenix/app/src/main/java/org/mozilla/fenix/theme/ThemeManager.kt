@@ -26,9 +26,11 @@ import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.R
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.customtabs.ExternalAppBrowserActivity
+import org.mozilla.fenix.ext.components
 
 abstract class ThemeManager {
 
+    protected abstract val activity: Activity
     abstract var currentTheme: BrowsingMode
 
     /** Returns the style resource corresponding to the [currentTheme]. */
@@ -36,7 +38,17 @@ abstract class ThemeManager {
     val currentThemeResource
         get() =
             when (currentTheme) {
-                BrowsingMode.Normal -> R.style.NormalTheme
+                BrowsingMode.Normal -> {
+                    val settings = activity.components.settings
+                    val isDark =
+                        (activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+                            Configuration.UI_MODE_NIGHT_YES
+                    if (settings.shouldUseBlackThemeFor(isDark)) {
+                        R.style.NormalBlackTheme
+                    } else {
+                        settings.resolveThemeColor(isDark).styleRes
+                    }
+                }
                 BrowsingMode.Private -> R.style.PrivateTheme
             }
 
@@ -99,8 +111,20 @@ abstract class ThemeManager {
          */
         @Composable
         fun resolveAttributeColor(attribute: Int): Color {
-            val resourceId = resolveAttribute(attribute, LocalContext.current)
-            return colorResource(resourceId)
+            val typedValue = TypedValue()
+            val theme = LocalContext.current.theme
+            val resolved = theme.resolveAttribute(attribute, typedValue, true)
+
+            if (!resolved) {
+                return Color.Unspecified
+            }
+
+            return when {
+                typedValue.resourceId != 0 -> colorResource(typedValue.resourceId)
+                typedValue.type in TypedValue.TYPE_FIRST_COLOR_INT..TypedValue.TYPE_LAST_COLOR_INT ->
+                    Color(typedValue.data)
+                else -> Color.Unspecified
+            }
         }
 
         private fun updateLightSystemBars(window: Window, context: Context) {
@@ -132,7 +156,7 @@ abstract class ThemeManager {
 
 class DefaultThemeManager(
     currentTheme: BrowsingMode,
-    private val activity: Activity,
+    override val activity: Activity,
 ) : ThemeManager() {
     override var currentTheme: BrowsingMode = currentTheme
         set(value) {

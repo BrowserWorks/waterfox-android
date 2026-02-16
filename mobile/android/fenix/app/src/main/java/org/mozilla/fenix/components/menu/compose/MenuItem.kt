@@ -60,6 +60,7 @@ import org.mozilla.fenix.components.menu.MenuDialogTestTag.WEB_EXTENSION_ITEM
 import org.mozilla.fenix.compose.list.IconListItem
 import org.mozilla.fenix.compose.list.TextListItem
 import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.ThemeManager
 import org.mozilla.fenix.utils.DURATION_MS_MAIN_MENU_ITEM
 
 private val MENU_ITEM_HEIGHT_WITHOUT_DESC = 52.dp
@@ -113,17 +114,11 @@ internal fun MenuItem(
     val labelTextColor = getLabelTextColor(state = state)
     val descriptionTextColor = getDescriptionTextColor(state = descriptionState)
     val iconTint = getIconTint(state = state)
+    val menuItemButtonTint = ThemeManager.resolveAttributeColor(attribute = R.attr.menuItemButtonTintColor)
+    val afterIconTint = if (onAfterIconClick != null) menuItemButtonTint else iconTint
     val enabled = state != MenuItemState.DISABLED
 
-    var contentDescription = label
-
-    if (description != null) {
-        contentDescription = "$contentDescription $description"
-    }
-
-    if (stateDescription.isNotEmpty()) {
-        contentDescription = "$contentDescription $stateDescription"
-    }
+    val contentDescription = menuItemContentDescription(label, description, stateDescription)
 
     IconListItem(
         label = label,
@@ -174,11 +169,22 @@ internal fun MenuItem(
         showDivider = showDivider,
         afterIconPainter = afterIconPainter,
         afterIconDescription = afterIconDescription,
-        afterIconTint = iconTint,
+        afterIconTint = afterIconTint,
         onAfterIconClick = onAfterIconClick,
         afterListAction = afterContent,
     )
 }
+
+private fun menuItemContentDescription(label: String, description: String?, stateDescription: String): String =
+    buildString {
+        append(label)
+        if (description != null) {
+            append(' ').append(description)
+        }
+        if (stateDescription.isNotEmpty()) {
+            append(' ').append(stateDescription)
+        }
+    }
 
 /**
  * An [IconListItem] wrapper for menu items in a [MenuGroup] with an optional icon at the end.
@@ -288,7 +294,7 @@ internal fun WebExtensionMenuItem(
                     ) {
                         Icon(
                             painter = painterResource(iconsR.drawable.mozac_ic_settings_24),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            tint = ThemeManager.resolveAttributeColor(attribute = R.attr.menuItemButtonTintColor),
                             contentDescription = null,
                         )
                     }

@@ -653,7 +653,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
                     AppCompatDelegate.MODE_NIGHT_NO,
                 )
             }
-            settings.shouldUseDarkTheme -> {
+            settings.shouldUseDarkTheme || settings.shouldUseBlackTheme -> {
                 AppCompatDelegate.setDefaultNightMode(
                     AppCompatDelegate.MODE_NIGHT_YES,
                 )
@@ -1011,7 +1011,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
             userTheme.set(
                 when {
                     settings.shouldUseLightTheme -> "light"
-                    settings.shouldUseDarkTheme -> "dark"
+                    settings.shouldUseDarkTheme || settings.shouldUseBlackTheme -> "dark"
                     settings.shouldFollowDeviceTheme -> "system"
                     settings.shouldUseAutoBatteryTheme -> "battery"
                     else -> ""

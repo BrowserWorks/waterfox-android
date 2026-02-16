@@ -114,6 +114,7 @@
         <item name="textAccent">@color/photonViolet20</item>
         <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_violet</item>
     </style>
+
     <style name="BottomSheet" parent="BottomSheetBase">
         <item name="android:windowLightStatusBar">false</item>
 
@@ -125,6 +126,6 @@
         <item name="android:windowLightStatusBar">false</item>
 
         <!-- Style the navigation bar -->
-        <item name="android:navigationBarColor">@color/fx_mobile_surface</item>
+        <item name="android:navigationBarColor">?attr/layer1</item>
     </style>
 </resources>

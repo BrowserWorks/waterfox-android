@@ -338,7 +338,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         // Note: This is a historical artifact and should be revisited.
         val store = components.core.store
 
-
         // StartupMetrics accesses shared preferences so do this off thread.
         @OptIn(DelicateCoroutinesApi::class)
         GlobalScope.launch(IO) {
@@ -772,7 +771,10 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
             settings.shouldUseLightTheme -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
-            settings.shouldUseDarkTheme -> {
+            settings.shouldUseBlackTheme && settings.useSystemThemeForBlack -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
+            settings.shouldUseDarkTheme || settings.shouldUseBlackTheme -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
             SDK_INT < Build.VERSION_CODES.P && settings.shouldUseAutoBatteryTheme -> {
@@ -1134,7 +1136,7 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
             userTheme.set(
                 when {
                     settings.shouldUseLightTheme -> "light"
-                    settings.shouldUseDarkTheme -> "dark"
+                    settings.shouldUseDarkTheme || settings.shouldUseBlackTheme -> "dark"
                     settings.shouldFollowDeviceTheme -> "system"
                     settings.shouldUseAutoBatteryTheme -> "battery"
                     else -> ""

@@ -24,7 +24,9 @@ import mozilla.components.compose.base.theme.lightAcornGradientScheme
 import mozilla.components.compose.base.theme.lightColorPalette
 import mozilla.components.compose.base.theme.privateAcornGradientScheme
 import mozilla.components.compose.base.theme.privateColorPalette
+import mozilla.components.compose.base.utils.ColorStop
 import mozilla.components.compose.base.utils.inComposePreview
+import mozilla.components.ui.colors.PhotonColors
 import org.mozilla.fenix.ext.components
 
 /**
@@ -44,9 +46,15 @@ fun FirefoxTheme(
         LocalContext.current.components.settings
     }
 
+    val isBlackTheme = theme == Theme.Dark && settings?.shouldUseBlackThemeFor(isDark = true) == true
+
     val selectedThemeColor = when (theme) {
         Theme.Light -> settings?.resolveThemeColor(isDark = false)
-        Theme.Dark -> settings?.resolveThemeColor(isDark = true)
+        Theme.Dark -> if (isBlackTheme) {
+            null
+        } else {
+            settings?.resolveThemeColor(isDark = true)
+        }
         Theme.Private -> null
     }
 
@@ -71,7 +79,7 @@ fun FirefoxTheme(
 
     val baseColorScheme: ColorScheme = when (theme) {
         Theme.Light -> acornLightColorScheme()
-        Theme.Dark -> acornDarkColorScheme()
+        Theme.Dark -> if (isBlackTheme) blackColorScheme else acornDarkColorScheme()
         Theme.Private -> acornPrivateColorScheme()
     }
 
@@ -99,11 +107,7 @@ fun FirefoxTheme(
         baseColorScheme
     }
 
-    val gradients: AcornGradientScheme = when (theme) {
-        Theme.Light -> lightAcornGradientScheme
-        Theme.Dark -> darkAcornGradientScheme
-        Theme.Private -> privateAcornGradientScheme
-    }
+    val gradients = firefoxGradientScheme(theme, customPalette, isBlackTheme)
 
     val tabGroupColors: TabGroupColorPalette =
         when (theme) {
@@ -122,6 +126,30 @@ fun FirefoxTheme(
     }
 }
 
+internal fun firefoxGradientScheme(
+    theme: Theme,
+    customPalette: ThemeColorPalette?,
+    isBlackTheme: Boolean,
+): AcornGradientScheme {
+    val base = when (theme) {
+        Theme.Light -> lightAcornGradientScheme
+        Theme.Dark -> darkAcornGradientScheme
+        Theme.Private -> return privateAcornGradientScheme
+    }
+    val backgroundColor = when {
+        theme == Theme.Dark && isBlackTheme -> PhotonColors.Black
+        customPalette != null -> customPalette.layer1
+        else -> return base
+    }
+
+    // Match the custom toolbar surface in both the tab strip and its status-bar overlay.
+    return base.copy(
+        accentSubtle = base.accentSubtle.copy(
+            colorStops = base.accentSubtle.colorStops.map { ColorStop(it.position, backgroundColor) },
+        ),
+    )
+}
+
 @Composable
 private fun ProvideFirefoxTokens(
     tabGroupColors: TabGroupColorPalette,
@@ -132,6 +160,19 @@ private fun ProvideFirefoxTokens(
         content = content,
     )
 }
+
+private val blackColorScheme = acornDarkColorScheme().copy(
+    background = PhotonColors.Black,
+    surface = PhotonColors.Black,
+    surfaceDim = PhotonColors.Black,
+    surfaceBright = PhotonColors.DarkGrey80,
+    surfaceContainerLowest = PhotonColors.DarkGrey80,
+    surfaceContainerLow = PhotonColors.DarkGrey80,
+    surfaceContainer = PhotonColors.DarkGrey90,
+    surfaceContainerHigh = PhotonColors.DarkGrey80,
+    surfaceContainerHighest = PhotonColors.DarkGrey70,
+    surfaceVariant = PhotonColors.DarkGrey80,
+)
 
 /** Provides access to the Firefox design system tokens. */
 object FirefoxTheme {

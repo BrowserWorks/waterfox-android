@@ -14,12 +14,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
-import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
@@ -116,6 +116,7 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
         bindDarkTheme()
         bindDarkestTheme()
         bindBlackTheme()
+        bindBlackThemeSystemMode()
         bindCustomThemeColors()
         bindLightTheme()
         bindAutoBatteryTheme()
@@ -279,7 +280,30 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
     private fun bindBlackTheme() {
         radioBlackTheme = requirePreference(R.string.pref_key_black_theme)
         radioBlackTheme.onClickListener {
-            setNewTheme(AppCompatDelegate.MODE_NIGHT_YES)
+            setNewBlackTheme()
+        }
+    }
+
+    private fun setNewBlackTheme() {
+        setNewTheme(
+            if (requireComponents.settings.useSystemThemeForBlack) {
+                AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+            } else {
+                AppCompatDelegate.MODE_NIGHT_YES
+            },
+        )
+    }
+
+    private fun bindBlackThemeSystemMode() {
+        val settings = requireComponents.settings
+        requirePreference<SwitchPreferenceCompat>(R.string.pref_key_use_system_theme_for_black).apply {
+            isVisible = SDK_INT >= Build.VERSION_CODES.P && settings.shouldUseBlackTheme
+            isChecked = settings.useSystemThemeForBlack
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                settings.useSystemThemeForBlack = newValue as Boolean
+                setNewBlackTheme()
+                true
+            }
         }
     }
 
@@ -303,8 +327,10 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
     }
 
     private fun setNewTheme(mode: Int) {
-        if (AppCompatDelegate.getDefaultNightMode() == mode) return
-        AppCompatDelegate.setDefaultNightMode(mode)
+        bindBlackThemeSystemMode()
+        if (AppCompatDelegate.getDefaultNightMode() != mode) {
+            AppCompatDelegate.setDefaultNightMode(mode)
+        }
         activity?.recreate()
         with(requireComponents.core) {
             engine.settings.preferredColorScheme = getPreferredColorScheme()

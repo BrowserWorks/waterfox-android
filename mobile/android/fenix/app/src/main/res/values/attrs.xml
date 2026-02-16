@@ -6,6 +6,8 @@
     <!-- Design system color attributes -->
 
     <!-- Layers -->
+    <!-- App background -->
+    <attr name="layer1" format="reference" />
     <!-- Card background, Menu background, Dialog, Banner -->
     <attr name="layer2" format="reference" />
     <!-- Search -->
@@ -39,7 +41,6 @@
     <!-- Icon -->
     <!-- Icon inverted (on color) -->
     <attr name="iconOnColor" format="reference" />
-
     <!-- Color palette attributes -->
     <attr name="accent" format="reference" />
     <attr name="accentBright" format="reference" />
@@ -47,6 +48,10 @@
     <attr name="accentUsedOnDarkBackground" format="reference" />
     <attr name="neutral" format="reference" />
     <attr name="neutralFaded" format="reference" />
+
+    <!-- Color used in DefaultToolbarMenu for buttons placed at the end of menu items -->
+    <attr name="menuItemButtonTintColor" format="reference"/>
+    <attr name="menuItemBackground" format="reference"/>
 
     <!-- Misc -->
     <attr name="bottomBarBackground" format="reference"/>

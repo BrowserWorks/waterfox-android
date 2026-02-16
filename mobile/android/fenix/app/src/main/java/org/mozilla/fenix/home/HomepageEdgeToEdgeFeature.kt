@@ -5,6 +5,7 @@
 package org.mozilla.fenix.home
 
 import android.app.Activity
+import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -82,6 +83,30 @@ class HomepageEdgeToEdgeFeature(
         wallpaperScope = null
     }
 
+    private fun setBackground(background: Background) {
+        val isPrivateMode = browsingModeManager.mode == BrowsingMode.Private
+
+        if (isPrivateMode) {
+            activity.window?.setBackgroundDrawableResource(R.color.fx_mobile_private_surface)
+            return
+        }
+
+        when (background) {
+            Background.Regular -> {
+                val surfaceColor = MaterialColors.getColor(
+                    activity,
+                    com.google.android.material.R.attr.colorSurface,
+                    "Could not resolve color",
+                )
+                activity.window?.setBackgroundDrawable(ColorDrawable(surfaceColor))
+            }
+
+            Background.HomeEdgeToEdge -> {
+                activity.window?.setBackgroundDrawableResource(R.drawable.home_background_gradient)
+            }
+        }
+    }
+
     private fun setWallpaper(wallpaper: Wallpaper) {
         if (wallpaper == Wallpaper.EdgeToEdge) {
             if (setupStatusBarBackground()) {
@@ -105,13 +130,6 @@ class HomepageEdgeToEdgeFeature(
         toolbarScope?.cancel()
         toolbarScope = null
         backgroundView = null
-    }
-
-    private fun setBackground(background: Background) {
-        val isPrivateMode = browsingModeManager.mode == BrowsingMode.Private
-        activity.window?.setBackgroundDrawableResource(
-            if (isPrivateMode) R.color.fx_mobile_private_surface else background.resourceId,
-        )
     }
 
     /**
@@ -202,8 +220,8 @@ class HomepageEdgeToEdgeFeature(
     /**
      * Enum representing the available background drawable resources.
      */
-    enum class Background(val resourceId: Int) {
-        Regular(R.color.fx_mobile_surface),
-        HomeEdgeToEdge(R.drawable.home_background_gradient),
+    enum class Background {
+        Regular,
+        HomeEdgeToEdge,
     }
 }

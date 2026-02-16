@@ -36,7 +36,14 @@ abstract class ThemeManager {
      */
     @get:StyleRes
     val currentThemeResource get() = when (currentTheme) {
-        BrowsingMode.Normal -> R.style.NormalTheme
+        BrowsingMode.Normal -> if (activity.settings().shouldUseBlackTheme) {
+            R.style.NormalBlackTheme
+        } else {
+            val isDark =
+                (activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+                    Configuration.UI_MODE_NIGHT_YES
+            activity.settings().resolveThemeColor(isDark).styleRes
+        }
         BrowsingMode.Private -> R.style.PrivateTheme
     }
 
@@ -106,8 +113,20 @@ abstract class ThemeManager {
          */
         @Composable
         fun resolveAttributeColor(attribute: Int): Color {
-            val resourceId = resolveAttribute(attribute, LocalContext.current)
-            return colorResource(resourceId)
+            val typedValue = TypedValue()
+            val theme = LocalContext.current.theme
+            val resolved = theme.resolveAttribute(attribute, typedValue, true)
+
+            if (!resolved) {
+                return Color.Unspecified
+            }
+
+            return when {
+                typedValue.resourceId != 0 -> colorResource(typedValue.resourceId)
+                typedValue.type in TypedValue.TYPE_FIRST_COLOR_INT..TypedValue.TYPE_LAST_COLOR_INT ->
+                    Color(typedValue.data)
+                else -> Color.Unspecified
+            }
         }
 
         private fun updateLightSystemBars(window: Window, context: Context, overrideThemeStatusBarColor: Boolean) {

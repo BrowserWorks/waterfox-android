@@ -60,6 +60,7 @@ import org.mozilla.fenix.components.menu.MenuDialogTestTag.WEB_EXTENSION_ITEM
 import org.mozilla.fenix.compose.list.IconListItem
 import org.mozilla.fenix.compose.list.TextListItem
 import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.ThemeManager
 import org.mozilla.fenix.utils.DURATION_MS_MAIN_MENU_ITEM
 
 private val MENU_ITEM_HEIGHT_WITHOUT_DESC = 52.dp
@@ -113,6 +114,8 @@ internal fun MenuItem(
     val labelTextColor = getLabelTextColor(state = state)
     val descriptionTextColor = getDescriptionTextColor(state = descriptionState)
     val iconTint = getIconTint(state = state)
+    val menuItemButtonTint = ThemeManager.resolveAttributeColor(attribute = R.attr.menuItemButtonTintColor)
+    val afterIconTint = if (onAfterIconClick != null) menuItemButtonTint else iconTint
     val enabled = state != MenuItemState.DISABLED
 
     var contentDescription = label
@@ -174,7 +177,7 @@ internal fun MenuItem(
         showDivider = showDivider,
         afterIconPainter = afterIconPainter,
         afterIconDescription = afterIconDescription,
-        afterIconTint = iconTint,
+        afterIconTint = afterIconTint,
         onAfterIconClick = onAfterIconClick,
         afterListAction = afterContent,
     )
@@ -285,7 +288,9 @@ internal fun WebExtensionMenuItem(
                     ) {
                         Icon(
                             painter = painterResource(iconsR.drawable.mozac_ic_settings_24),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            tint = ThemeManager.resolveAttributeColor(
+                                attribute = R.attr.menuItemButtonTintColor,
+                            ),
                             contentDescription = null,
                         )
                     }

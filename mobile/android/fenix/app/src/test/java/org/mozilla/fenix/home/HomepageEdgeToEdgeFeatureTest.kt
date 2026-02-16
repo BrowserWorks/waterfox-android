@@ -144,8 +144,12 @@ class HomepageEdgeToEdgeFeatureTest {
 
             assertEquals(initialChildCount, decorView.childCount)
             assertEquals(
-                R.color.fx_mobile_surface,
-                shadowOf(shadowOf(activity.window).backgroundDrawable).createdFromResId,
+                MaterialColors.getColor(
+                    activity,
+                    com.google.android.material.R.attr.colorSurface,
+                    "Could not resolve color",
+                ),
+                (shadowOf(activity.window).backgroundDrawable as ColorDrawable).color,
             )
         }
 
@@ -176,8 +180,12 @@ class HomepageEdgeToEdgeFeatureTest {
 
             assertEquals(initialChildCount, decorView.childCount)
             assertEquals(
-                R.color.fx_mobile_surface,
-                shadowOf(shadowOf(activity.window).backgroundDrawable).createdFromResId,
+                MaterialColors.getColor(
+                    activity,
+                    com.google.android.material.R.attr.colorSurface,
+                    "Could not resolve color",
+                ),
+                (shadowOf(activity.window).backgroundDrawable as ColorDrawable).color,
             )
         }
 

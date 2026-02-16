@@ -77,6 +77,7 @@ import java.security.InvalidParameterException
 import java.util.concurrent.TimeUnit.MILLISECONDS
 
 private const val AUTOPLAY_USER_SETTING = "AUTOPLAY_USER_SETTING"
+private const val THEME_COLOR_DEFAULT = "default"
 
 /**
  * A simple wrapper for SharedPreferences that makes reading preference a little bit easier.

@@ -87,7 +87,7 @@
     <!-- Warning text on Secondary button -->
     <color name="fx_mobile_text_color_critical_button">@color/photonRed20</color>
     <!-- Small heading, Text link -->
-    <color name="fx_mobile_text_color_accent">@color/photonViolet20</color>lor>
+    <color name="fx_mobile_text_color_accent">@color/photonViolet20</color>
     <!-- Text Inverted/On Color -->
     <color name="fx_mobile_text_color_oncolor_primary">@color/photonLightGrey05</color>
     <!-- Text Inverted/On Color -->
@@ -121,7 +121,6 @@
     <!-- Action Secondary Icon -->
     <color name="fx_mobile_icon_color_action_secondary">@color/photonLightGrey05</color>
 
-    <!-- Border -->
     <!-- Active tab (Nav), Selected tab, Active form -->
     <color name="fx_mobile_border_color_accent">@color/photonViolet40</color>
 
@@ -158,6 +157,16 @@
 
     <!-- Private Mode mask icon circle fill colors -->
     <color name="mozac_ui_private_mode_circle_fill" tools:ignore="UnusedResources">@color/photonPurple60</color>
+
+    <!-- Theme color overlays -->
+    <color name="theme_color_action_primary_disabled_blue">#800060DF</color>
+    <color name="theme_color_action_primary_disabled_green">#803FE1B0</color>
+    <color name="theme_color_action_primary_disabled_yellow">#80FFA436</color>
+    <color name="theme_color_action_primary_disabled_orange">#80FF7139</color>
+    <color name="theme_color_action_primary_disabled_red">#80FF4F5E</color>
+    <color name="theme_color_action_primary_disabled_pink">#80FF298A</color>
+    <color name="theme_color_action_primary_disabled_purple">#80B833E1</color>
+    <color name="theme_color_action_primary_disabled_violet">#809059FF</color>
 
     <!-- Account Sync Avatar fill colors -->
     <color name="mozac_ui_avatar_warning_bg_fill_critical">@color/fx_mobile_icon_color_secondary</color>

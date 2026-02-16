@@ -46,4 +46,5 @@
         <item name="android:windowLightNavigationBar">@bool/theme_is_light</item>
         <item name="android:navigationBarDividerColor">@android:color/transparent</item>
     </style>
+
 </resources>

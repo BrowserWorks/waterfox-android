@@ -25,6 +25,7 @@ import mozilla.components.compose.base.theme.lightColorPalette
 import mozilla.components.compose.base.theme.privateAcornGradientScheme
 import mozilla.components.compose.base.theme.privateColorPalette
 import mozilla.components.compose.base.utils.inComposePreview
+import mozilla.components.ui.colors.PhotonColors
 import org.mozilla.fenix.ext.components
 
 /**
@@ -44,9 +45,15 @@ fun FirefoxTheme(
         LocalContext.current.components.settings
     }
 
+    val isBlackTheme = theme == Theme.Dark && settings?.shouldUseBlackTheme == true
+
     val selectedThemeColor = when (theme) {
         Theme.Light -> settings?.resolveThemeColor(isDark = false)
-        Theme.Dark -> settings?.resolveThemeColor(isDark = true)
+        Theme.Dark -> if (isBlackTheme) {
+            null
+        } else {
+            settings?.resolveThemeColor(isDark = true)
+        }
         Theme.Private -> null
     }
 
@@ -71,7 +78,7 @@ fun FirefoxTheme(
 
     val baseColorScheme: ColorScheme = when (theme) {
         Theme.Light -> acornLightColorScheme()
-        Theme.Dark -> acornDarkColorScheme()
+        Theme.Dark -> if (isBlackTheme) blackColorScheme else acornDarkColorScheme()
         Theme.Private -> acornPrivateColorScheme()
     }
 
@@ -131,6 +138,19 @@ private fun ProvideFirefoxTokens(
         content = content,
     )
 }
+
+private val blackColorScheme = acornDarkColorScheme().copy(
+    background = PhotonColors.Black,
+    surface = PhotonColors.Black,
+    surfaceDim = PhotonColors.Black,
+    surfaceBright = PhotonColors.DarkGrey80,
+    surfaceContainerLowest = PhotonColors.DarkGrey80,
+    surfaceContainerLow = PhotonColors.DarkGrey80,
+    surfaceContainer = PhotonColors.DarkGrey90,
+    surfaceContainerHigh = PhotonColors.DarkGrey80,
+    surfaceContainerHighest = PhotonColors.DarkGrey70,
+    surfaceVariant = PhotonColors.DarkGrey80,
+)
 
 /**
  * Provides access to the Firefox design system tokens.

@@ -13,12 +13,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
-import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
@@ -247,8 +247,9 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
     }
 
     private fun setNewTheme(mode: Int) {
-        if (AppCompatDelegate.getDefaultNightMode() == mode) return
-        AppCompatDelegate.setDefaultNightMode(mode)
+        if (AppCompatDelegate.getDefaultNightMode() != mode) {
+            AppCompatDelegate.setDefaultNightMode(mode)
+        }
         activity?.recreate()
         with(requireComponents.core) {
             engine.settings.preferredColorScheme = getPreferredColorScheme()

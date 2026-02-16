@@ -24,7 +24,7 @@
         <item name="layer1">@color/photonBlack</item>
         <item name="layer2">@color/photonDarkGrey90</item>
         <item name="layer3">@color/fx_mobile_layer_color_3</item>
-        <item name="menuItemBackground">@drawable/selectable_item_background_theme_color</item>
+        <item name="menuItemBackground">@drawable/selectable_item_background_black</item>
     </style>
 
     <style name="NormalTheme.Color.Blue" parent="NormalTheme.Color.Base">
@@ -114,10 +114,12 @@
         <item name="colorTertiary">@color/photonViolet20</item>
         <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_violet</item>
     </style>
+
     <style name="BottomSheet" parent="BottomSheetBase">
         <item name="android:windowLightStatusBar">false</item>
 
         <!-- Style the navigation bar -->
         <item name="android:navigationBarColor">?attr/colorSurface</item>
     </style>
+
 </resources>

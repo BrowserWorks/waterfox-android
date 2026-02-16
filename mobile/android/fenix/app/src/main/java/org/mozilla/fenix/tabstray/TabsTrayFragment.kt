@@ -128,7 +128,11 @@ class TabsTrayFragment : AppCompatDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         recordBreadcrumb("TabsTrayFragment dismissTabsTray")
-        setStyle(STYLE_NO_TITLE, R.style.TabTrayDialogStyle)
+        if (requireContext().settings().shouldUseBlackTheme) {
+            setStyle(STYLE_NO_TITLE, R.style.NormalBlackTheme_TabTrayDialogStyle)
+        } else {
+            setStyle(STYLE_NO_TITLE, R.style.TabTrayDialogStyle)
+        }
     }
 
     @Suppress("LongMethod")

@@ -21,6 +21,7 @@ import mozilla.components.compose.base.theme.layout.AcornWindowSize
 import mozilla.components.compose.base.theme.lightColorPalette
 import mozilla.components.compose.base.theme.privateColorPalette
 import mozilla.components.compose.base.utils.inComposePreview
+import mozilla.components.ui.colors.PhotonColors
 import org.mozilla.fenix.ext.settings
 
 /**
@@ -46,6 +47,7 @@ fun FirefoxTheme(
     val baseColors: AcornColors = when (theme) {
         Theme.Light -> lightColorPalette
         Theme.Dark -> darkColorPalette
+        Theme.Black -> darkColorPalette
         Theme.Private -> privateColorPalette
     }
 
@@ -73,6 +75,7 @@ fun FirefoxTheme(
     val baseColorScheme: ColorScheme = when (theme) {
         Theme.Light -> acornLightColorScheme()
         Theme.Dark -> acornDarkColorScheme()
+        Theme.Black -> blackColorScheme
         Theme.Private -> acornPrivateColorScheme()
     }
 
@@ -106,12 +109,26 @@ fun FirefoxTheme(
     )
 }
 
+private val blackColorScheme = acornDarkColorScheme().copy(
+    background = PhotonColors.Black,
+    surface = PhotonColors.Black,
+    surfaceDim = PhotonColors.Black,
+    surfaceBright = PhotonColors.DarkGrey80,
+    surfaceContainerLowest = PhotonColors.DarkGrey80,
+    surfaceContainerLow = PhotonColors.DarkGrey80,
+    surfaceContainer = PhotonColors.DarkGrey90,
+    surfaceContainerHigh = PhotonColors.DarkGrey80,
+    surfaceContainerHighest = PhotonColors.DarkGrey70,
+    surfaceVariant = PhotonColors.DarkGrey80,
+)
+
 /**
  * Indicates the theme that is displayed.
  */
 enum class Theme {
     Light,
     Dark,
+    Black,
     Private,
     ;
 
@@ -132,7 +149,11 @@ enum class Theme {
             ) {
                 Private
             } else if (isSystemInDarkTheme()) {
-                Dark
+                if (LocalContext.current.settings().shouldUseBlackTheme) {
+                    Black
+                } else {
+                    Dark
+                }
             } else {
                 Light
             }

@@ -167,6 +167,7 @@ fun TextListItem(
  * @param onLongClick Called when the user long clicks on the item.
  * @param showDivider Whether or not to display a vertical divider line before the [IconButton] at the end.
  * @param iconPainter [Painter] used to display an [IconButton] after the list item.
+ * @param iconTint [Color] used to tint the icon.
  * @param iconButtonModifier [Modifier] to be applied to the icon button.
  * @param iconDescription Content description of the icon.
  * @param onIconClick Called when the user clicks on the icon.
@@ -185,6 +186,13 @@ fun FaviconListItem(
     onLongClick: (() -> Unit)? = null,
     showDivider: Boolean = false,
     iconPainter: Painter? = null,
+    iconTint: Color = if (showDivider) {
+        org.mozilla.fenix.theme.ThemeManager.resolveAttributeColor(
+            attribute = org.mozilla.fenix.R.attr.menuItemButtonTintColor,
+        )
+    } else {
+        Color.Unspecified
+    },
     iconButtonModifier: Modifier = Modifier,
     iconDescription: String? = null,
     onIconClick: (() -> Unit)? = null,
@@ -228,6 +236,7 @@ fun FaviconListItem(
                 Icon(
                     painter = iconPainter,
                     contentDescription = iconDescription,
+                    tint = iconTint,
                 )
             }
         },

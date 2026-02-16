@@ -6,8 +6,11 @@
     <!-- Design system color attributes -->
 
     <!-- Layers -->
+    <!-- App background -->
+    <attr name="layer1" format="reference" />
     <!-- Card background, Menu background, Dialog, Banner -->
     <attr name="layer2" format="reference" />
+    <attr name="layer3" format="reference" />
     <attr name="scrim" format="reference" />
 
     <!-- Action -->
@@ -15,6 +18,7 @@
     <attr name="actionPrimaryDisabled" format="reference" />
 
     <!-- Text -->
+    <attr name="textOnColorPrimary" format="reference" />
     <!-- Action Primary disabled text -->
     <attr name="textActionPrimaryDisabled" format="reference" />
 
@@ -37,6 +41,16 @@
     <attr name="colorAutofillText" format="reference" />
     <attr name="colorSelectedText" format="reference" />
     <attr name="colorIconPrivate" format="reference" />
+
+    <!-- Color palette attributes -->
+    <attr name="accent" format="reference" />
+    <attr name="accentBright" format="reference" />
+    <attr name="accentHighContrast" format="reference" />
+    <attr name="accentUsedOnDarkBackground" format="reference" />
+
+    <!-- Color used in DefaultToolbarMenu for buttons placed at the end of menu items -->
+    <attr name="menuItemButtonTintColor" format="reference"/>
+    <attr name="menuItemBackground" format="reference"/>
 
     <!-- Misc -->
     <attr name="fenixLogo" format="reference" />

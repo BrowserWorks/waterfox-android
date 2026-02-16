@@ -94,6 +94,7 @@
     <color name="fx_mobile_icon_color_accent_green">@color/photonGreen20</color>
     <color name="fx_mobile_icon_color_accent_yellow">@color/photonYellow20</color>
 
+
     <!-- Normal theme colors for dark mode -->
     <color name="accent_normal_theme">@color/photonViolet50</color>
     <color name="accent_high_contrast_normal_theme">@color/photonViolet40</color>
@@ -132,6 +133,15 @@
     <color name="mozac_ui_tabcounter_default_tint" tools:ignore="UnusedResources">@color/fx_mobile_on_surface</color>
     <color name="mozac_ui_tabcounter_default_text" tools:ignore="UnusedResources">@color/fx_mobile_on_surface</color>
 
+    <!-- Theme color overlays -->
+    <color name="theme_color_action_primary_disabled_blue">#800060DF</color>
+    <color name="theme_color_action_primary_disabled_green">#803FE1B0</color>
+    <color name="theme_color_action_primary_disabled_yellow">#80FFA436</color>
+    <color name="theme_color_action_primary_disabled_orange">#80FF7139</color>
+    <color name="theme_color_action_primary_disabled_red">#80FF4F5E</color>
+    <color name="theme_color_action_primary_disabled_pink">#80FF298A</color>
+    <color name="theme_color_action_primary_disabled_purple">#80B833E1</color>
+    <color name="theme_color_action_primary_disabled_violet">#809059FF</color>
     <!-- Account Sync Avatar fill colors -->
     <color name="mozac_ui_avatar_warning_bg_fill_critical">@color/fx_mobile_on_surface_variant</color>
     <color name="mozac_ui_avatar_warning_fill_critical">@color/fx_mobile_error</color>

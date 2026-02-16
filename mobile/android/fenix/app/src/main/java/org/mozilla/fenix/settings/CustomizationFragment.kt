@@ -18,6 +18,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
@@ -46,6 +47,8 @@ import org.mozilla.fenix.utils.view.addToRadioGroup
 class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment {
     private lateinit var radioLightTheme: RadioButtonPreference
     private lateinit var radioDarkTheme: RadioButtonPreference
+    private lateinit var radioBlackTheme: RadioButtonPreference
+    private lateinit var customThemeColorsPreference: Preference
     private lateinit var radioAutoBatteryTheme: RadioButtonPreference
     private lateinit var radioFollowDeviceTheme: RadioButtonPreference
     private val args by navArgs<CustomizationFragmentArgs>()
@@ -89,6 +92,8 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
     ) {
         bindFollowDeviceTheme()
         bindDarkTheme()
+        bindBlackTheme()
+        bindCustomThemeColors()
         bindLightTheme()
         bindAutoBatteryTheme()
         setupRadioGroups()
@@ -180,6 +185,7 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
         addToRadioGroup(
             radioLightTheme,
             radioDarkTheme,
+            radioBlackTheme,
             if (SDK_INT >= Build.VERSION_CODES.P) {
                 radioFollowDeviceTheme
             } else {
@@ -211,6 +217,23 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
                 ),
             )
             setNewTheme(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+    }
+
+    private fun bindBlackTheme() {
+        radioBlackTheme = requirePreference(R.string.pref_key_black_theme)
+        radioBlackTheme.onClickListener {
+            setNewTheme(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+    }
+
+    private fun bindCustomThemeColors() {
+        customThemeColorsPreference = requirePreference(R.string.pref_key_custom_theme_colors)
+        customThemeColorsPreference.setOnPreferenceClickListener {
+            val directions =
+                CustomizationFragmentDirections.actionCustomizationFragmentToCustomThemeFragment()
+            findNavController().navigate(directions)
+            true
         }
     }
 

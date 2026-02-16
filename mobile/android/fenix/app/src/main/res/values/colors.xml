@@ -271,6 +271,16 @@
     <color name="mozac_ui_private_mode_circle_stroke_fill" tools:ignore="UnusedResources">@color/fx_mobile_private_surface</color>
     <color name="mozac_ui_private_mode_mask_fill" tools:ignore="UnusedResources">@color/fx_mobile_private_on_surface</color>
 
+    <!-- Theme color overlays -->
+    <color name="theme_color_action_primary_disabled_blue">#330060DF</color>
+    <color name="theme_color_action_primary_disabled_green">#333FE1B0</color>
+    <color name="theme_color_action_primary_disabled_yellow">#33FFA436</color>
+    <color name="theme_color_action_primary_disabled_orange">#33FF7139</color>
+    <color name="theme_color_action_primary_disabled_red">#33FF4F5E</color>
+    <color name="theme_color_action_primary_disabled_pink">#33FF298A</color>
+    <color name="theme_color_action_primary_disabled_purple">#33B833E1</color>
+    <color name="theme_color_action_primary_disabled_violet">#339059FF</color>
+
     <!-- Account Sync Avatar fill colors -->
     <color name="mozac_ui_avatar_warning_bg_fill_critical" tools:ignore="UnusedResources">@color/fx_mobile_on_surface_variant</color>
     <color name="mozac_ui_avatar_warning_fill_critical" tools:ignore="UnusedResources">@color/fx_mobile_error</color>

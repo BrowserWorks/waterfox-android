@@ -8,6 +8,7 @@ import androidx.compose.material3.ColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.ui.platform.LocalContext
 import mozilla.components.compose.base.theme.AcornColors
 import mozilla.components.compose.base.theme.AcornGradientScheme
 import mozilla.components.compose.base.theme.AcornTheme
@@ -23,6 +24,8 @@ import mozilla.components.compose.base.theme.lightAcornGradientScheme
 import mozilla.components.compose.base.theme.lightColorPalette
 import mozilla.components.compose.base.theme.privateAcornGradientScheme
 import mozilla.components.compose.base.theme.privateColorPalette
+import mozilla.components.compose.base.utils.inComposePreview
+import org.mozilla.fenix.ext.components
 
 /**
  * The theme for Mozilla Firefox for Android (Fenix).
@@ -35,16 +38,65 @@ fun FirefoxTheme(
     theme: Theme = getThemeProvider().provideTheme(),
     content: @Composable () -> Unit,
 ) {
-    val colors: AcornColors = when (theme) {
+    val settings = if (inComposePreview) {
+        null
+    } else {
+        LocalContext.current.components.settings
+    }
+
+    val selectedThemeColor = when (theme) {
+        Theme.Light -> settings?.resolveThemeColor(isDark = false)
+        Theme.Dark -> settings?.resolveThemeColor(isDark = true)
+        Theme.Private -> null
+    }
+
+    val customPalette = selectedThemeColor
+        ?.takeUnless { it == ThemeColor.Default }
+        ?.palette(isDark = theme == Theme.Dark)
+
+    val baseColors: AcornColors = when (theme) {
         Theme.Light -> lightColorPalette
         Theme.Dark -> darkColorPalette
         Theme.Private -> privateColorPalette
     }
 
-    val colorScheme: ColorScheme = when (theme) {
+    val colors = if (customPalette != null) {
+        baseColors.copy(
+            formDefault = customPalette.control,
+            surfaceDimVariant = customPalette.layer2,
+        )
+    } else {
+        baseColors
+    }
+
+    val baseColorScheme: ColorScheme = when (theme) {
         Theme.Light -> acornLightColorScheme()
         Theme.Dark -> acornDarkColorScheme()
         Theme.Private -> acornPrivateColorScheme()
+    }
+
+    val colorScheme = if (customPalette != null) {
+        val isDark = theme == Theme.Dark
+        baseColorScheme.copy(
+            primary = if (isDark) customPalette.textAccent else customPalette.action,
+            primaryContainer = customPalette.layer2,
+            inversePrimary = customPalette.action,
+            secondaryContainer = customPalette.layer3,
+            background = customPalette.layer1,
+            surface = customPalette.layer1,
+            surfaceDim = customPalette.layer1,
+            surfaceBright = customPalette.layer2,
+            surfaceContainerLowest = customPalette.layer1,
+            surfaceContainerLow = customPalette.layer2,
+            surfaceContainer = customPalette.layer2,
+            surfaceContainerHigh = customPalette.layer3,
+            surfaceContainerHighest = customPalette.layer3,
+            surfaceVariant = customPalette.layer2,
+            outline = customPalette.control,
+            outlineVariant = customPalette.layer3,
+        )
+    } else {
+        baseColorScheme
     }
 
     val gradients: AcornGradientScheme = when (theme) {

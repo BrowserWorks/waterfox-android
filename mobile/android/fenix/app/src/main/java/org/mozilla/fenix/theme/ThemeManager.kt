@@ -25,10 +25,12 @@ import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.R
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.customtabs.ExternalAppBrowserActivity
+import org.mozilla.fenix.ext.components
 import com.google.android.material.R as materialR
 
 abstract class ThemeManager {
 
+    protected abstract val activity: Activity
     abstract var currentTheme: BrowsingMode
 
     /**
@@ -36,7 +38,14 @@ abstract class ThemeManager {
      */
     @get:StyleRes
     val currentThemeResource get() = when (currentTheme) {
-        BrowsingMode.Normal -> R.style.NormalTheme
+        BrowsingMode.Normal -> if (activity.components.settings.shouldUseBlackTheme) {
+            R.style.NormalBlackTheme
+        } else {
+            val isDark =
+                (activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+                    Configuration.UI_MODE_NIGHT_YES
+            activity.components.settings.resolveThemeColor(isDark).styleRes
+        }
         BrowsingMode.Private -> R.style.PrivateTheme
     }
 
@@ -106,8 +115,20 @@ abstract class ThemeManager {
          */
         @Composable
         fun resolveAttributeColor(attribute: Int): Color {
-            val resourceId = resolveAttribute(attribute, LocalContext.current)
-            return colorResource(resourceId)
+            val typedValue = TypedValue()
+            val theme = LocalContext.current.theme
+            val resolved = theme.resolveAttribute(attribute, typedValue, true)
+
+            if (!resolved) {
+                return Color.Unspecified
+            }
+
+            return when {
+                typedValue.resourceId != 0 -> colorResource(typedValue.resourceId)
+                typedValue.type in TypedValue.TYPE_FIRST_COLOR_INT..TypedValue.TYPE_LAST_COLOR_INT ->
+                    Color(typedValue.data)
+                else -> Color.Unspecified
+            }
         }
 
         private fun updateLightSystemBars(window: Window, context: Context, overrideThemeStatusBarColor: Boolean) {
@@ -147,7 +168,7 @@ abstract class ThemeManager {
 
 class DefaultThemeManager(
     currentTheme: BrowsingMode,
-    private val activity: Activity,
+    override val activity: Activity,
 ) : ThemeManager() {
     override var currentTheme: BrowsingMode = currentTheme
         set(value) {

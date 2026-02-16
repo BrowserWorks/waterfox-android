@@ -8,6 +8,112 @@
     <style name="NormalTheme" parent="NormalThemeBase" >
         <item name="fenixWordmarkText">@drawable/ic_wordmark_text_private</item>
     </style>
+
+    <style name="NormalBlackTheme" parent="NormalTheme">
+        <item name="android:windowBackground">@color/photonBlack</item>
+        <item name="colorSurface">@color/photonBlack</item>
+        <item name="colorSurfaceVariant">@color/photonDarkGrey80</item>
+        <item name="colorSurfaceContainerLowest">@color/photonDarkGrey80</item>
+        <item name="colorSurfaceContainerLow">@color/photonDarkGrey80</item>
+        <item name="colorSurfaceContainer">@color/photonDarkGrey90</item>
+        <item name="colorSurfaceContainerHigh">@color/photonDarkGrey80</item>
+        <item name="colorSurfaceContainerHighest">@color/photonDarkGrey70</item>
+        <item name="colorOutline">@color/photonDarkGrey70</item>
+        <item name="colorOutlineVariant">@color/photonDarkGrey80</item>
+        <item name="colorOnSurfaceVariant">@color/photonLightGrey40</item>
+        <item name="layer1">@color/photonBlack</item>
+        <item name="layer2">@color/photonDarkGrey90</item>
+        <item name="layer3">@color/fx_mobile_layer_color_3</item>
+        <item name="menuItemBackground">@drawable/selectable_item_background_theme_color</item>
+    </style>
+
+    <style name="NormalTheme.Color.Blue" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonBlue40</item>
+        <item name="layer2">@color/photonBlue30</item>
+        <item name="layer3">@color/photonBlue20</item>
+        <item name="accent">@color/photonBlue50</item>
+        <item name="accentBright">@color/photonBlue50</item>
+        <item name="accentHighContrast">@color/photonBlue50</item>
+        <item name="colorTertiary">@color/photonBlue20</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_blue</item>
+    </style>
+
+    <style name="NormalTheme.Color.Green" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonGreen70</item>
+        <item name="layer2">@color/photonGreen60</item>
+        <item name="layer3">@color/photonGreen50</item>
+        <item name="accent">@color/photonGreen50</item>
+        <item name="accentBright">@color/photonGreen50</item>
+        <item name="accentHighContrast">@color/photonGreen40</item>
+        <item name="colorTertiary">@color/photonGreen20</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_green</item>
+    </style>
+
+    <style name="NormalTheme.Color.Yellow" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonYellow60</item>
+        <item name="layer2">@color/photonYellow50</item>
+        <item name="layer3">@color/photonYellow40</item>
+        <item name="accent">@color/photonYellow50</item>
+        <item name="accentBright">@color/photonYellow50</item>
+        <item name="accentHighContrast">@color/photonYellow40</item>
+        <item name="colorTertiary">@color/photonYellow20</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_yellow</item>
+    </style>
+
+    <style name="NormalTheme.Color.Orange" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonOrange50</item>
+        <item name="layer2">@color/photonOrange40</item>
+        <item name="layer3">@color/photonOrange30</item>
+        <item name="accent">@color/photonOrange50</item>
+        <item name="accentBright">@color/photonOrange50</item>
+        <item name="accentHighContrast">@color/photonOrange40</item>
+        <item name="colorTertiary">@color/photonOrange20</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_orange</item>
+    </style>
+
+    <style name="NormalTheme.Color.Red" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonRed40</item>
+        <item name="layer2">@color/photonRed30</item>
+        <item name="layer3">@color/photonRed20</item>
+        <item name="accent">@color/photonRed50</item>
+        <item name="accentBright">@color/photonRed50</item>
+        <item name="accentHighContrast">@color/photonRed50</item>
+        <item name="colorTertiary">@color/photonRed20</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_red</item>
+    </style>
+
+    <style name="NormalTheme.Color.Pink" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonPink30</item>
+        <item name="layer2">@color/photonPink20</item>
+        <item name="layer3">@color/photonPink10</item>
+        <item name="accent">@color/photonPink50</item>
+        <item name="accentBright">@color/photonPink50</item>
+        <item name="accentHighContrast">@color/photonPink40</item>
+        <item name="colorTertiary">@color/photonPink20</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_pink</item>
+    </style>
+
+    <style name="NormalTheme.Color.Purple" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonPurple40</item>
+        <item name="layer2">@color/photonPurple30</item>
+        <item name="layer3">@color/photonPurple20</item>
+        <item name="accent">@color/photonPurple50</item>
+        <item name="accentBright">@color/photonPurple50</item>
+        <item name="accentHighContrast">@color/photonPurple50</item>
+        <item name="colorTertiary">@color/photonPurple20</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_purple</item>
+    </style>
+
+    <style name="NormalTheme.Color.Violet" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonViolet40</item>
+        <item name="layer2">@color/photonViolet30</item>
+        <item name="layer3">@color/photonViolet20</item>
+        <item name="accent">@color/photonViolet50</item>
+        <item name="accentBright">@color/photonViolet50</item>
+        <item name="accentHighContrast">@color/photonViolet50</item>
+        <item name="colorTertiary">@color/photonViolet20</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_violet</item>
+    </style>
     <style name="BottomSheet" parent="BottomSheetBase">
         <item name="android:windowLightStatusBar">false</item>
 

@@ -146,6 +146,8 @@
         <item name="awesomeBarIndicatorColor">@color/search_suggestion_indicator_icon_color_normal_theme</item>
         <item name="awesomeBarIndicatorBookmarkColor">@color/search_suggestion_indicator_icon_bookmark_color_normal_theme</item>
         <item name="selectPromptHeaderTextColor">@color/fx_mobile_tertiary</item>
+        <item name="menuItemButtonTintColor">@color/fx_mobile_tertiary</item>
+        <item name="menuItemBackground">?android:attr/selectableItemBackground</item>
 
         <!-- Shared widget colors -->
         <item name="mozac_primary_text_color">@color/fx_mobile_on_surface</item>
@@ -196,6 +198,170 @@
     </style>
 
     <style name="NormalTheme" parent="NormalThemeBase" />
+
+    <style name="NormalBlackTheme" parent="NormalTheme">
+        <item name="android:windowBackground">@color/photonBlack</item>
+        <item name="colorSurface">@color/photonBlack</item>
+        <item name="colorSurfaceVariant">@color/photonDarkGrey80</item>
+        <item name="colorSurfaceContainerLowest">@color/photonDarkGrey80</item>
+        <item name="colorSurfaceContainerLow">@color/photonDarkGrey80</item>
+        <item name="colorSurfaceContainer">@color/photonDarkGrey90</item>
+        <item name="colorSurfaceContainerHigh">@color/photonDarkGrey80</item>
+        <item name="colorSurfaceContainerHighest">@color/photonDarkGrey70</item>
+        <item name="colorOutline">@color/photonDarkGrey70</item>
+        <item name="colorOutlineVariant">@color/photonDarkGrey80</item>
+        <item name="colorOnSurfaceVariant">@color/photonLightGrey40</item>
+        <item name="layer1">@color/photonBlack</item>
+        <item name="layer2">@color/photonDarkGrey90</item>
+        <item name="layer3">@color/fx_mobile_layer_color_3</item>
+        <item name="menuItemBackground">@drawable/selectable_item_background_theme_color</item>
+    </style>
+
+    <style name="NormalTheme.Color.Base" parent="NormalTheme">
+        <item name="android:windowBackground">?attr/layer1</item>
+        <item name="android:colorBackground">?attr/layer1</item>
+        <item name="android:colorAccent">?attr/accentHighContrast</item>
+        <item name="colorSurface">?attr/layer1</item>
+        <item name="colorSurfaceVariant">?attr/layer2</item>
+        <item name="colorSurfaceContainerLowest">?attr/layer1</item>
+        <item name="colorSurfaceContainerLow">?attr/layer2</item>
+        <item name="colorSurfaceContainer">?attr/layer2</item>
+        <item name="colorSurfaceContainerHigh">?attr/layer3</item>
+        <item name="colorSurfaceContainerHighest">?attr/layer3</item>
+        <item name="colorSurfaceBright">?attr/layer2</item>
+        <item name="colorSurfaceDim">?attr/layer1</item>
+        <item name="colorOutline">?attr/accentHighContrast</item>
+        <item name="colorOutlineVariant">?attr/layer2</item>
+        <item name="colorPrimarySurface">?attr/accent</item>
+        <item name="colorOnPrimary">?attr/textOnColorPrimary</item>
+        <item name="colorPrimaryContainer">?attr/layer2</item>
+        <item name="colorOnPrimaryContainer">@color/fx_mobile_on_surface</item>
+        <item name="colorPrimaryInverse">?attr/accentBright</item>
+        <item name="colorSecondary">@color/fx_mobile_on_surface_variant</item>
+        <item name="colorOnSecondary">?attr/textOnColorPrimary</item>
+        <item name="colorSecondaryContainer">?attr/layer3</item>
+        <item name="colorOnSecondaryContainer">@color/fx_mobile_on_surface</item>
+        <item name="colorTertiary">@color/fx_mobile_tertiary</item>
+        <item name="colorOnTertiary">?attr/textOnColorPrimary</item>
+        <item name="colorTertiaryContainer">?attr/layer2</item>
+        <item name="colorOnTertiaryContainer">@color/fx_mobile_on_surface</item>
+        <item name="colorOnBackground">@color/fx_mobile_on_surface</item>
+        <item name="colorOnSurface">@color/fx_mobile_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/fx_mobile_on_surface_variant</item>
+        <item name="colorSurfaceInverse">?attr/layer3</item>
+        <item name="colorOnSurfaceInverse">?attr/textOnColorPrimary</item>
+        <item name="colorError">@color/fx_mobile_error</item>
+        <item name="colorOnError">?attr/textOnColorPrimary</item>
+        <item name="colorErrorContainer">?attr/layer3</item>
+        <item name="colorOnErrorContainer">@color/fx_mobile_on_surface</item>
+        <item name="colorPrimaryFixed">?attr/layer2</item>
+        <item name="colorPrimaryFixedDim">?attr/layer3</item>
+        <item name="colorOnPrimaryFixed">@color/fx_mobile_on_surface</item>
+        <item name="colorOnPrimaryFixedVariant">?attr/textOnColorPrimary</item>
+        <item name="colorSecondaryFixed">?attr/layer2</item>
+        <item name="colorSecondaryFixedDim">?attr/layer3</item>
+        <item name="colorOnSecondaryFixed">@color/fx_mobile_on_surface</item>
+        <item name="colorOnSecondaryFixedVariant">?attr/textOnColorPrimary</item>
+        <item name="colorTertiaryFixed">?attr/layer2</item>
+        <item name="colorTertiaryFixedDim">?attr/layer3</item>
+        <item name="colorOnTertiaryFixed">@color/fx_mobile_on_surface</item>
+        <item name="colorOnTertiaryFixedVariant">?attr/textOnColorPrimary</item>
+        <item name="accentUsedOnDarkBackground">?attr/colorTertiary</item>
+        <item name="menuItemButtonTintColor">?attr/colorTertiary</item>
+        <item name="menuItemBackground">@drawable/selectable_item_background_theme_color</item>
+        <item name="colorControlActivated">?attr/accentHighContrast</item>
+        <item name="android:colorControlActivated">?attr/accentHighContrast</item>
+        <item name="android:colorControlHighlight">?attr/accentBright</item>
+        <item name="colorPrimary">?attr/accent</item>
+    </style>
+
+    <style name="NormalTheme.Color.Blue" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonBlue30</item>
+        <item name="layer2">@color/photonBlue20</item>
+        <item name="layer3">@color/photonBlue10</item>
+        <item name="accent">@color/photonBlue50</item>
+        <item name="accentBright">@color/photonBlue60</item>
+        <item name="accentHighContrast">@color/photonBlue50</item>
+        <item name="colorTertiary">@color/photonBlue70</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_blue</item>
+    </style>
+
+    <style name="NormalTheme.Color.Green" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonGreen60</item>
+        <item name="layer2">@color/photonGreen50</item>
+        <item name="layer3">@color/photonGreen40</item>
+        <item name="accent">@color/photonGreen50</item>
+        <item name="accentBright">@color/photonGreen60</item>
+        <item name="accentHighContrast">@color/photonGreen50</item>
+        <item name="colorTertiary">@color/photonGreen70</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_green</item>
+    </style>
+
+    <style name="NormalTheme.Color.Yellow" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonYellow50</item>
+        <item name="layer2">@color/photonYellow40</item>
+        <item name="layer3">@color/photonYellow30</item>
+        <item name="accent">@color/photonYellow50</item>
+        <item name="accentBright">@color/photonYellow60</item>
+        <item name="accentHighContrast">@color/photonYellow60</item>
+        <item name="colorTertiary">@color/photonYellow70</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_yellow</item>
+    </style>
+
+    <style name="NormalTheme.Color.Orange" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonOrange40</item>
+        <item name="layer2">@color/photonOrange30</item>
+        <item name="layer3">@color/photonOrange20</item>
+        <item name="accent">@color/photonOrange50</item>
+        <item name="accentBright">@color/photonOrange60</item>
+        <item name="accentHighContrast">@color/photonOrange50</item>
+        <item name="colorTertiary">@color/photonOrange70</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_orange</item>
+    </style>
+
+    <style name="NormalTheme.Color.Red" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonRed30</item>
+        <item name="layer2">@color/photonRed20</item>
+        <item name="layer3">@color/photonRed10</item>
+        <item name="accent">@color/photonRed50</item>
+        <item name="accentBright">@color/photonRed60</item>
+        <item name="accentHighContrast">@color/photonRed50</item>
+        <item name="colorTertiary">@color/photonRed70</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_red</item>
+    </style>
+
+    <style name="NormalTheme.Color.Pink" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonPink20</item>
+        <item name="layer2">@color/photonPink10</item>
+        <item name="layer3">@color/photonPink05</item>
+        <item name="accent">@color/photonPink50</item>
+        <item name="accentBright">@color/photonPink60</item>
+        <item name="accentHighContrast">@color/photonPink50</item>
+        <item name="colorTertiary">@color/photonPink70</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_pink</item>
+    </style>
+
+    <style name="NormalTheme.Color.Purple" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonPurple30</item>
+        <item name="layer2">@color/photonPurple20</item>
+        <item name="layer3">@color/photonPurple10</item>
+        <item name="accent">@color/photonPurple50</item>
+        <item name="accentBright">@color/photonPurple60</item>
+        <item name="accentHighContrast">@color/photonPurple50</item>
+        <item name="colorTertiary">@color/photonPurple70</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_purple</item>
+    </style>
+
+    <style name="NormalTheme.Color.Violet" parent="NormalTheme.Color.Base">
+        <item name="layer1">@color/photonViolet30</item>
+        <item name="layer2">@color/photonViolet20</item>
+        <item name="layer3">@color/photonViolet10</item>
+        <item name="accent">@color/photonViolet50</item>
+        <item name="accentBright">@color/photonViolet60</item>
+        <item name="accentHighContrast">@color/photonViolet50</item>
+        <item name="colorTertiary">@color/photonViolet70</item>
+        <item name="actionPrimaryDisabled">@color/theme_color_action_primary_disabled_violet</item>
+    </style>
 
     <style name="BaseDialogStyle.Private" parent="BaseDialogStyle">
         <item name="android:background">?attr/layer2</item>
@@ -424,6 +590,8 @@
         <item name="awesomeBarIndicatorColor">@color/photonGreen60</item>
         <item name="awesomeBarIndicatorBookmarkColor">@color/photonBlue40</item>
         <item name="selectPromptHeaderTextColor">@color/accent_high_contrast_private_theme</item>
+        <item name="menuItemButtonTintColor">@color/accent_high_contrast_private_theme</item>
+        <item name="menuItemBackground">@drawable/selectable_item_background_theme_color</item>
 
         <!-- Shared widget colors -->
         <item name="mozac_primary_text_color">@color/fx_mobile_private_on_surface</item>
@@ -451,6 +619,53 @@
     </style>
     <style name="Mozac.Browser.Menu2" parent="" tools:ignore="UnusedResources">
         <item name="cardBackgroundColor">?attr/layer2</item>
+    </style>
+
+    <style name="Mozac.Browser.Menu.Item.Container" parent="">
+        <item name="android:layout_height">@dimen/mozac_browser_menu_item_container_layout_height</item>
+        <item name="android:paddingStart">@dimen/mozac_browser_menu_item_container_padding_start</item>
+        <item name="android:paddingEnd">@dimen/mozac_browser_menu_item_container_padding_end</item>
+        <item name="android:background">?attr/menuItemBackground</item>
+    </style>
+
+    <style name="Mozac.Browser.Menu.Item.Text" parent="@android:style/TextAppearance.Material.Menu">
+        <item name="android:background">?attr/menuItemBackground</item>
+        <item name="android:textSize">@dimen/mozac_browser_menu_item_text_size</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">1</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="Mozac.Browser.Menu.Item.Category" parent="">
+        <item name="android:layout_height">@dimen/mozac_browser_menu_category_layout_height</item>
+        <item name="android:textSize">@dimen/mozac_browser_menu_category_text_size</item>
+        <item name="android:paddingStart">@dimen/mozac_browser_menu_category_padding_start</item>
+        <item name="android:paddingEnd">@dimen/mozac_browser_menu_category_padding_end</item>
+        <item name="android:background">?attr/menuItemBackground</item>
+    </style>
+
+    <style name="Mozac.Browser.Menu2.Candidate.Container" parent="">
+        <item name="android:layout_height">@dimen/mozac_browser_menu2_candidate_container_layout_height</item>
+        <item name="android:paddingStart">@dimen/mozac_browser_menu2_candidate_container_padding_start</item>
+        <item name="android:paddingEnd">@dimen/mozac_browser_menu2_candidate_container_padding_end</item>
+        <item name="android:background">?attr/menuItemBackground</item>
+    </style>
+
+    <style name="Mozac.Browser.Menu2.Candidate.Text" parent="@android:style/TextAppearance.Material.Menu">
+        <item name="android:background">?attr/menuItemBackground</item>
+        <item name="android:textSize">@dimen/mozac_browser_menu2_candidate_text_size</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lines">1</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="Mozac.Browser.Menu2.Icon.Text" parent="Mozac.Browser.Menu2.Icon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">?attr/menuItemBackground</item>
+        <item name="android:textSize">@dimen/mozac_browser_menu2_icon_text_size</item>
+        <item name="android:lines">1</item>
     </style>
 
     <style name="PrivateTheme" parent="PrivateThemeBase">

@@ -14,6 +14,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
+import androidx.navigation.fragment.findNavController
 import org.mozilla.fenix.FeatureFlags
 import org.mozilla.fenix.GleanMetrics.AppTheme
 import org.mozilla.fenix.GleanMetrics.CustomizationSettings
@@ -37,6 +38,8 @@ import org.mozilla.fenix.utils.view.addToRadioGroup
 class CustomizationFragment : PreferenceFragmentCompat() {
     private lateinit var radioLightTheme: RadioButtonPreference
     private lateinit var radioDarkTheme: RadioButtonPreference
+    private lateinit var radioBlackTheme: RadioButtonPreference
+    private lateinit var customThemeColorsPreference: Preference
     private lateinit var radioAutoBatteryTheme: RadioButtonPreference
     private lateinit var radioFollowDeviceTheme: RadioButtonPreference
     private val args by navArgs<CustomizationFragmentArgs>()
@@ -58,6 +61,8 @@ class CustomizationFragment : PreferenceFragmentCompat() {
     private fun setupPreferences() {
         bindFollowDeviceTheme()
         bindDarkTheme()
+        bindBlackTheme()
+        bindCustomThemeColors()
         bindLightTheme()
         bindAutoBatteryTheme()
         setupRadioGroups()
@@ -162,6 +167,22 @@ class CustomizationFragment : PreferenceFragmentCompat() {
         }
     }
 
+    private fun bindBlackTheme() {
+        radioBlackTheme = requirePreference(R.string.pref_key_black_theme)
+        radioBlackTheme.onClickListener {
+            setNewTheme(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+    }
+
+    private fun bindCustomThemeColors() {
+        customThemeColorsPreference = requirePreference(R.string.pref_key_custom_theme_colors)
+        customThemeColorsPreference.setOnPreferenceClickListener {
+            val directions =
+                CustomizationFragmentDirections.actionCustomizationFragmentToCustomThemeFragment()
+            findNavController().navigate(directions)
+            true
+        }
+    }
     private fun bindFollowDeviceTheme() {
         radioFollowDeviceTheme = requirePreference(R.string.pref_key_follow_device_theme)
         if (SDK_INT >= Build.VERSION_CODES.P) {

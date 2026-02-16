@@ -91,7 +91,6 @@ import mozilla.components.support.utils.Browsers
 import mozilla.components.support.utils.RunWhenReadyQueue
 import mozilla.components.support.utils.logElapsedTime
 import mozilla.components.support.webextensions.WebExtensionSupport
-
 import org.mozilla.fenix.GleanMetrics.Addons
 import org.mozilla.fenix.GleanMetrics.Addresses
 import org.mozilla.fenix.GleanMetrics.AndroidAutofill
@@ -113,7 +112,6 @@ import org.mozilla.fenix.GleanMetrics.UserAiSummarize
 import org.mozilla.fenix.autofill.AutofillService
 import org.mozilla.fenix.components.Components
 import org.mozilla.fenix.components.Core
-
 import org.mozilla.fenix.components.metrics.MozillaProductDetector
 import org.mozilla.fenix.components.startMetricsIfEnabled
 import org.mozilla.fenix.ext.application
@@ -303,14 +301,13 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         }
     }
 
-
     private fun maybeInitializeGlean() {
         logger.debug("Preventing Glean from initializing, since telemetry is disabled")
     }
 
     /**
-     * This phase of main-process initialization runs before application-services is fully setup
-     * so care must be taken. This phase begins loading the Nimbus and Gecko libraries.
+     * This phase of main-process initialization runs before application-services is fully setup so care must be taken.
+     * This phase begins loading the Nimbus and Gecko libraries.
      *
      * By the end of this, application-services, Nimbus and Gecko are initialized. Glean remains disabled.
      */
@@ -441,7 +438,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
                     settings = components.settings,
                 ),
             )
-
 
         CoroutineScope(IO).launch {
             components.useCases.wallpaperUseCases.fetchCurrentWallpaperUseCase.invoke()
@@ -806,7 +802,10 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
             settings.shouldUseLightTheme -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
-            settings.shouldUseDarkTheme || settings.shouldUseOledTheme -> {
+            settings.shouldUseBlackTheme && settings.useSystemThemeForBlack -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
+            settings.shouldUseDarkTheme || settings.shouldUseOledTheme || settings.shouldUseBlackTheme -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
             SDK_INT < Build.VERSION_CODES.P && settings.shouldUseAutoBatteryTheme -> {
@@ -1177,7 +1176,7 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
             userTheme.set(
                 when {
                     settings.shouldUseLightTheme -> "light"
-                    settings.shouldUseDarkTheme -> "dark"
+                    settings.shouldUseDarkTheme || settings.shouldUseBlackTheme -> "dark"
                     settings.shouldUseOledTheme -> "oled"
                     settings.shouldFollowDeviceTheme -> "system"
                     settings.shouldUseAutoBatteryTheme -> "battery"

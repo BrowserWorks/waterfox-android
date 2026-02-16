@@ -43,7 +43,6 @@ import mozilla.components.feature.downloads.DefaultFileSizeFormatter
 import mozilla.components.feature.downloads.DownloadEstimator
 import mozilla.components.feature.downloads.DownloadMiddleware
 import mozilla.components.feature.downloads.FileSizeFormatter
-
 import mozilla.components.feature.logins.exceptions.LoginExceptionStorage
 import mozilla.components.feature.media.MediaSessionFeature
 import mozilla.components.feature.media.middleware.LastMediaAccessMiddleware
@@ -260,7 +259,6 @@ class Core(
         */
 
         GeckoEngine(
-
                 context = context,
                 defaultSettings = defaultSettings,
                 runtime = geckoRuntime,
@@ -681,7 +679,9 @@ class Core(
                 Configuration.UI_MODE_NIGHT_YES
         val settings = context.components.settings
         return when {
-            settings.shouldUseDarkTheme || settings.shouldUseOledTheme -> PreferredColorScheme.Dark
+            settings.shouldUseDarkTheme ||
+                settings.shouldUseOledTheme ||
+                (settings.shouldUseBlackTheme && !settings.useSystemThemeForBlack) -> PreferredColorScheme.Dark
             settings.shouldUseLightTheme -> PreferredColorScheme.Light
             inDark -> PreferredColorScheme.Dark
             else -> PreferredColorScheme.Light
@@ -729,7 +729,6 @@ class Core(
 
         // Maximum number of suggestions returned from shortcut search engine.
         const val METADATA_SHORTCUT_SUGGESTION_LIMIT = 20
-
     }
 }
 

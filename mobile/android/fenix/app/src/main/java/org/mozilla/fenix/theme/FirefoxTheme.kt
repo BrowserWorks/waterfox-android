@@ -8,6 +8,7 @@ import androidx.compose.material3.ColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.ui.platform.LocalContext
 import mozilla.components.compose.base.theme.AcornColors
 import mozilla.components.compose.base.theme.AcornGradientScheme
 import mozilla.components.compose.base.theme.AcornTheme
@@ -27,6 +28,10 @@ import mozilla.components.compose.base.theme.oledAcornGradientScheme
 import mozilla.components.compose.base.theme.oledColorPalette
 import mozilla.components.compose.base.theme.privateAcornGradientScheme
 import mozilla.components.compose.base.theme.privateColorPalette
+import mozilla.components.compose.base.utils.ColorStop
+import mozilla.components.compose.base.utils.inComposePreview
+import mozilla.components.ui.colors.PhotonColors
+import org.mozilla.fenix.ext.components
 
 /**
  * The theme for Mozilla Firefox for Android (Fenix).
@@ -39,7 +44,32 @@ fun FirefoxTheme(
     theme: Theme = getThemeProvider().provideTheme(),
     content: @Composable () -> Unit,
 ) {
-    val colors: AcornColors =
+    val settings =
+        if (inComposePreview) {
+            null
+        } else {
+            LocalContext.current.components.settings
+        }
+
+    val isBlackTheme = theme == Theme.Dark && settings?.shouldUseBlackThemeFor(isDark = true) == true
+
+    val selectedThemeColor =
+        when (theme) {
+            Theme.Light -> settings?.resolveThemeColor(isDark = false)
+            Theme.Dark ->
+                if (isBlackTheme) {
+                    null
+                } else {
+                    settings?.resolveThemeColor(isDark = true)
+                }
+            Theme.Oled,
+            Theme.Private -> null
+        }
+
+    val customPalette =
+        selectedThemeColor?.takeUnless { it == ThemeColor.Default }?.palette(isDark = theme == Theme.Dark)
+
+    val baseColors: AcornColors =
         when (theme) {
             Theme.Light -> lightColorPalette
             Theme.Dark -> darkColorPalette
@@ -47,21 +77,50 @@ fun FirefoxTheme(
             Theme.Private -> privateColorPalette
         }
 
-    val colorScheme: ColorScheme =
+    val colors =
+        if (customPalette != null) {
+            baseColors.copy(
+                formDefault = customPalette.control,
+                surfaceDimVariant = customPalette.layer2,
+            )
+        } else {
+            baseColors
+        }
+
+    val baseColorScheme: ColorScheme =
         when (theme) {
             Theme.Light -> acornLightColorScheme()
-            Theme.Dark -> acornDarkColorScheme()
+            Theme.Dark -> if (isBlackTheme) blackColorScheme else acornDarkColorScheme()
             Theme.Oled -> acornOledColorScheme()
             Theme.Private -> acornPrivateColorScheme()
         }
 
-    val gradients: AcornGradientScheme =
-        when (theme) {
-            Theme.Light -> lightAcornGradientScheme
-            Theme.Dark -> darkAcornGradientScheme
-            Theme.Oled -> oledAcornGradientScheme
-            Theme.Private -> privateAcornGradientScheme
+    val colorScheme =
+        if (customPalette != null) {
+            val isDark = theme == Theme.Dark
+            baseColorScheme.copy(
+                primary = if (isDark) customPalette.textAccent else customPalette.action,
+                primaryContainer = customPalette.layer2,
+                inversePrimary = customPalette.action,
+                secondaryContainer = customPalette.layer3,
+                background = customPalette.layer1,
+                surface = customPalette.layer1,
+                surfaceDim = customPalette.layer1,
+                surfaceBright = customPalette.layer2,
+                surfaceContainerLowest = customPalette.layer1,
+                surfaceContainerLow = customPalette.layer2,
+                surfaceContainer = customPalette.layer2,
+                surfaceContainerHigh = customPalette.layer3,
+                surfaceContainerHighest = customPalette.layer3,
+                surfaceVariant = customPalette.layer2,
+                outline = customPalette.control,
+                outlineVariant = customPalette.layer3,
+            )
+        } else {
+            baseColorScheme
         }
+
+    val gradients = firefoxGradientScheme(theme, customPalette, isBlackTheme)
 
     val tabGroupColors: TabGroupColorPalette =
         when (theme) {
@@ -81,6 +140,34 @@ fun FirefoxTheme(
     }
 }
 
+internal fun firefoxGradientScheme(
+    theme: Theme,
+    customPalette: ThemeColorPalette?,
+    isBlackTheme: Boolean,
+): AcornGradientScheme {
+    val base =
+        when (theme) {
+            Theme.Light -> lightAcornGradientScheme
+            Theme.Dark -> darkAcornGradientScheme
+            Theme.Oled -> return oledAcornGradientScheme
+            Theme.Private -> return privateAcornGradientScheme
+        }
+    val backgroundColor =
+        when {
+            theme == Theme.Dark && isBlackTheme -> PhotonColors.Black
+            customPalette != null -> customPalette.layer1
+            else -> return base
+        }
+
+    // Match the custom toolbar surface in both the tab strip and its status-bar overlay.
+    return base.copy(
+        accentSubtle =
+            base.accentSubtle.copy(
+                colorStops = base.accentSubtle.colorStops.map { ColorStop(it.position, backgroundColor) }
+            )
+    )
+}
+
 @Composable
 private fun ProvideFirefoxTokens(
     tabGroupColors: TabGroupColorPalette,
@@ -91,6 +178,21 @@ private fun ProvideFirefoxTokens(
         content = content,
     )
 }
+
+private val blackColorScheme =
+    acornDarkColorScheme()
+        .copy(
+            background = PhotonColors.Black,
+            surface = PhotonColors.Black,
+            surfaceDim = PhotonColors.Black,
+            surfaceBright = PhotonColors.DarkGrey80,
+            surfaceContainerLowest = PhotonColors.DarkGrey80,
+            surfaceContainerLow = PhotonColors.DarkGrey80,
+            surfaceContainer = PhotonColors.DarkGrey90,
+            surfaceContainerHigh = PhotonColors.DarkGrey80,
+            surfaceContainerHighest = PhotonColors.DarkGrey70,
+            surfaceVariant = PhotonColors.DarkGrey80,
+        )
 
 /** Provides access to the Firefox design system tokens. */
 object FirefoxTheme {

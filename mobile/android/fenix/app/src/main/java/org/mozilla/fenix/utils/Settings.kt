@@ -66,11 +66,13 @@ import org.mozilla.fenix.settings.sitepermissions.AUTOPLAY_BLOCK_ALL
 import org.mozilla.fenix.settings.sitepermissions.AUTOPLAY_BLOCK_AUDIBLE
 import org.mozilla.fenix.tabstray.DefaultTabManagementFeatureHelper
 import org.mozilla.fenix.termsofuse.TOU_VERSION
+import org.mozilla.fenix.theme.ThemeColor
 import org.mozilla.fenix.utils.Settings.Companion.LONGFOX_PEEK_ANIMATION_MAX_SHOWS
 import org.mozilla.fenix.wallpapers.Wallpaper
 
 private const val AUTOPLAY_USER_SETTING = "AUTOPLAY_USER_SETTING"
 private const val MAX_ANIMATION_FOREGROUND = 5
+private const val THEME_COLOR_DEFAULT = "default"
 
 /**
  * A simple wrapper for SharedPreferences that makes reading preference a little bit easier.
@@ -1106,6 +1108,30 @@ class Settings(
         booleanPreference(
             appContext.getPreferenceKey(R.string.pref_key_oled_theme),
             default = false,
+        )
+
+    var shouldUseBlackTheme by
+        booleanPreference(
+            appContext.getPreferenceKey(R.string.pref_key_black_theme),
+            default = false,
+        )
+
+    var useSystemThemeForBlack by
+        booleanPreference(
+            appContext.getPreferenceKey(R.string.pref_key_use_system_theme_for_black),
+            default = false,
+        )
+
+    var customThemeColorLight by
+        stringPreference(
+            appContext.getPreferenceKey(R.string.pref_key_custom_theme_color_light),
+            default = THEME_COLOR_DEFAULT,
+        )
+
+    var customThemeColorDark by
+        stringPreference(
+            appContext.getPreferenceKey(R.string.pref_key_custom_theme_color_dark),
+            default = THEME_COLOR_DEFAULT,
         )
 
     var shouldFollowDeviceTheme by

@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
@@ -49,6 +50,8 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
     private lateinit var radioLightTheme: RadioButtonPreference
     private lateinit var radioDarkTheme: RadioButtonPreference
     private lateinit var radioDarkestTheme: RadioButtonPreference
+    private lateinit var radioBlackTheme: RadioButtonPreference
+    private lateinit var customThemeColorsPreference: Preference
     private lateinit var radioAutoBatteryTheme: RadioButtonPreference
     private lateinit var radioFollowDeviceTheme: RadioButtonPreference
     private val args by navArgs<CustomizationFragmentArgs>()
@@ -112,6 +115,9 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
         bindFollowDeviceTheme()
         bindDarkTheme()
         bindDarkestTheme()
+        bindBlackTheme()
+        bindBlackThemeSystemMode()
+        bindCustomThemeColors()
         bindLightTheme()
         bindAutoBatteryTheme()
         setupRadioGroups()
@@ -218,6 +224,7 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
             radioLightTheme,
             radioDarkTheme,
             radioDarkestTheme,
+            radioBlackTheme,
             if (SDK_INT >= Build.VERSION_CODES.P) {
                 radioFollowDeviceTheme
             } else {
@@ -258,6 +265,45 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
         }
     }
 
+    private fun bindBlackTheme() {
+        radioBlackTheme = requirePreference(R.string.pref_key_black_theme)
+        radioBlackTheme.onClickListener {
+            setNewBlackTheme()
+        }
+    }
+
+    private fun setNewBlackTheme() {
+        setNewTheme(
+            if (requireComponents.settings.useSystemThemeForBlack) {
+                AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+            } else {
+                AppCompatDelegate.MODE_NIGHT_YES
+            }
+        )
+    }
+
+    private fun bindBlackThemeSystemMode() {
+        val settings = requireComponents.settings
+        requirePreference<SwitchPreferenceCompat>(R.string.pref_key_use_system_theme_for_black).apply {
+            isVisible = SDK_INT >= Build.VERSION_CODES.P && settings.shouldUseBlackTheme
+            isChecked = settings.useSystemThemeForBlack
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                settings.useSystemThemeForBlack = newValue as Boolean
+                setNewBlackTheme()
+                true
+            }
+        }
+    }
+
+    private fun bindCustomThemeColors() {
+        customThemeColorsPreference = requirePreference(R.string.pref_key_custom_theme_colors)
+        customThemeColorsPreference.setOnPreferenceClickListener {
+            val directions = CustomizationFragmentDirections.actionCustomizationFragmentToCustomThemeFragment()
+            findNavController().navigate(directions)
+            true
+        }
+    }
+
     private fun bindFollowDeviceTheme() {
         radioFollowDeviceTheme = requirePreference(R.string.pref_key_follow_device_theme)
         if (SDK_INT >= Build.VERSION_CODES.P) {
@@ -268,8 +314,10 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
     }
 
     private fun setNewTheme(mode: Int) {
-        if (AppCompatDelegate.getDefaultNightMode() == mode) return
-        AppCompatDelegate.setDefaultNightMode(mode)
+        bindBlackThemeSystemMode()
+        if (AppCompatDelegate.getDefaultNightMode() != mode) {
+            AppCompatDelegate.setDefaultNightMode(mode)
+        }
         activity?.recreate()
         with(requireComponents.core) {
             engine.settings.preferredColorScheme = getPreferredColorScheme()

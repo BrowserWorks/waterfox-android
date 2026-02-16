@@ -417,7 +417,6 @@ class Core(
             // Install the "icons" WebExtension to automatically load icons for every visited website.
             icons.install(engine, this)
 
-
             WebNotificationFeature(
                 context,
                 engine,
@@ -680,7 +679,8 @@ class Core(
             (context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
                 Configuration.UI_MODE_NIGHT_YES
         return when {
-            context.components.settings.shouldUseDarkTheme -> PreferredColorScheme.Dark
+            context.components.settings.shouldUseDarkTheme ||
+                context.components.settings.shouldUseBlackTheme -> PreferredColorScheme.Dark
             context.components.settings.shouldUseLightTheme -> PreferredColorScheme.Light
             inDark -> PreferredColorScheme.Dark
             else -> PreferredColorScheme.Light
@@ -728,6 +728,5 @@ class Core(
 
         // Maximum number of suggestions returned from shortcut search engine.
         const val METADATA_SHORTCUT_SUGGESTION_LIMIT = 20
-
     }
 }

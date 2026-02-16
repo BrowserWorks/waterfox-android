@@ -10,4 +10,5 @@
         
         <item name="android:windowLayoutInDisplayCutoutMode">default</item>
     </style>
+
 </resources>

@@ -1163,6 +1163,11 @@ class Settings(
         default = false,
     )
 
+    var useSystemThemeForBlack by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_use_system_theme_for_black),
+        default = false,
+    )
+
     var customThemeColorLight by stringPreference(
         appContext.getPreferenceKey(R.string.pref_key_custom_theme_color_light),
         default = THEME_COLOR_DEFAULT,
@@ -1174,6 +1179,22 @@ class Settings(
     )
 
     fun migrateLegacyThemePreferencesIfNeeded() {
+        val legacyBlackThemeKey = "pref_key_use_black_theme_in_dark_mode"
+        if (preferences.contains(legacyBlackThemeKey)) {
+            preferences.edit {
+                if (
+                    preferences.getBoolean(legacyBlackThemeKey, false) &&
+                    shouldFollowDeviceTheme && !shouldUseBlackTheme &&
+                    !preferences.contains(appContext.getPreferenceKey(R.string.pref_key_use_system_theme_for_black))
+                ) {
+                    putBoolean(appContext.getPreferenceKey(R.string.pref_key_black_theme), true)
+                    putBoolean(appContext.getPreferenceKey(R.string.pref_key_follow_device_theme), false)
+                    putBoolean(appContext.getPreferenceKey(R.string.pref_key_use_system_theme_for_black), true)
+                }
+                remove(legacyBlackThemeKey)
+            }
+        }
+
         val legacyThemeColors = listOf(
             "pref_key_violet_theme" to ThemeColor.Violet,
             "pref_key_blue_theme" to ThemeColor.Blue,

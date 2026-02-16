@@ -36,13 +36,16 @@ abstract class ThemeManager {
     /** Returns the style resource corresponding to the [currentTheme]. */
     @get:StyleRes
     val currentThemeResource get() = when (currentTheme) {
-        BrowsingMode.Normal -> if (activity.components.settings.shouldUseBlackTheme) {
-            R.style.NormalBlackTheme
-        } else {
+        BrowsingMode.Normal -> {
+            val settings = activity.components.settings
             val isDark =
                 (activity.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
                     Configuration.UI_MODE_NIGHT_YES
-            activity.components.settings.resolveThemeColor(isDark).styleRes
+            if (settings.shouldUseBlackThemeFor(isDark)) {
+                R.style.NormalBlackTheme
+            } else {
+                settings.resolveThemeColor(isDark).styleRes
+            }
         }
         BrowsingMode.Private -> R.style.PrivateTheme
     }

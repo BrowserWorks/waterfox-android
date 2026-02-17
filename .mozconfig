@@ -32,6 +32,7 @@ ac_add_options --with-wasi-sysroot="$wasi_sysroot"
 ac_add_options --enable-geckoview-lite
 ac_add_options --enable-appservices-in-tree
 ac_add_options --enable-isolated-zygote-process
+ac_add_options --enable-jxl
 ac_add_options --without-onnx-runtime
 ac_add_options --enable-lto
 ac_add_options --enable-optimize="-O3 -w"

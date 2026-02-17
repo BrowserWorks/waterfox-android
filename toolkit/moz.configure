@@ -881,7 +881,6 @@ def jxl(value):
     if value:
         return True
 
-
 set_config("MOZ_JXL", jxl)
 set_define("MOZ_JXL", jxl)
 

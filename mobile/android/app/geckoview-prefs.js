@@ -253,6 +253,8 @@ pref("formhelper.autozoom", true);
 // Optionally send web console output to logcat (bug 1415318)
 pref("geckoview.console.enabled", false);
 
+pref("image.jxl.enabled", true);
+
 // Inherit locale from the OS, used for multi-locale builds
 pref("intl.locale.requested", "");
 

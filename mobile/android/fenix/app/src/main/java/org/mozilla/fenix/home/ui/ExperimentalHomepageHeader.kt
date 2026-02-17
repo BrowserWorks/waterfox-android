@@ -92,7 +92,7 @@ fun ExperimentalHomepageHeader(
         ) {
             Spacer(modifier = Modifier.height(28.dp))
 
-            WordmarkAndLogo(wordmarkTextColor = WallpaperTheme.onWallpaper)
+            Wordmark(color = WallpaperTheme.onWallpaper)
         }
     }
 }

@@ -254,11 +254,14 @@ pref("formhelper.autozoom", true);
 // Optionally send web console output to logcat (bug 1415318)
 pref("geckoview.console.enabled", false);
 
+
 // How long (ms) to keep an autocomplete selection prompt open after its field
 // loses focus, so that moving focus between fields of the same form doesn't
 // dismiss and immediately reopen the prompt. Tunable for slower devices.
 // (bug 2040184)
 pref("geckoview.autocomplete.selection_dismiss_delay_ms", 150);
+
+pref("image.jxl.enabled", true);
 
 // Inherit locale from the OS, used for multi-locale builds
 pref("intl.locale.requested", "");

@@ -53,7 +53,6 @@ import org.mozilla.fenix.components.components
 import org.mozilla.fenix.compose.MessageCard
 import org.mozilla.fenix.compose.home.HomeSectionHeader
 import org.mozilla.fenix.debugsettings.sportswidget.SportsWidgetDebugTool
-import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.home.bookmarks.Bookmark
 import org.mozilla.fenix.home.bookmarks.interactor.BookmarksInteractor
 import org.mozilla.fenix.home.bookmarks.view.Bookmarks
@@ -77,7 +76,6 @@ import org.mozilla.fenix.home.recentvisits.view.RecentlyVisited
 import org.mozilla.fenix.home.sessioncontrol.CollectionInteractor
 import org.mozilla.fenix.home.sessioncontrol.MessageCardInteractor
 import org.mozilla.fenix.home.setup.ui.SetupChecklist
-import org.mozilla.fenix.home.sports.CountrySelectorSource
 import org.mozilla.fenix.home.sports.ui.SportsCountrySelectorBottomSheet
 import org.mozilla.fenix.home.sports.ui.SportsWidget
 import org.mozilla.fenix.home.store.HeaderState
@@ -150,24 +148,14 @@ internal fun Homepage(
             when (val headerState = state.headerState) {
                 is HeaderState.Experimental.Normal -> {
                     val settings = components.settings
-                    val shouldDisplaySportsLogo =
-                        settings.enableHomepageSportsWidget && settings.showHomepageSportsWidget
 
                     ExperimentalHomepageHeader(
                         wordmarkTextColor = headerState.wordmarkTextColor,
                         showStoriesButton = headerState.showStoriesButton,
                         showButtonAnimation = headerState.showButtonAnimation,
-                        isSportsWidgetEnabled = shouldDisplaySportsLogo,
                         onPrivateModeTapped = { browsingModeChanged(BrowsingMode.Private) },
                         onStoriesTapped = { interactor.onDiscoverMoreClicked() },
                         onNewsAnimationShown = { settings.recordNewsButtonAnimationShown() },
-                        onLogoClicked = {
-                            if (settings.showHomepageSportsWidget) {
-                                interactor.onCountrySelectorShown(CountrySelectorSource.SPORTS_LOGO)
-                                showSportsCountrySelector = true
-                            }
-                        },
-                        onLogoLongClicked = interactor::onLogoLongClicked,
                     )
                 }
 
@@ -178,23 +166,11 @@ internal fun Homepage(
                 }
 
                 is HeaderState.Normal -> {
-                    val settings = components.settings
-                    val shouldDisplaySportsLogo =
-                        settings.enableHomepageSportsWidget && settings.showHomepageSportsWidget
-
                     HomepageHeader(
                         wordmarkTextColor = headerState.wordmarkTextColor,
                         privateBrowsingButtonColor = headerState.privateBrowsingButtonColor,
                         browsingMode = state.browsingMode,
                         browsingModeChanged = browsingModeChanged,
-                        isSportsWidgetEnabled = shouldDisplaySportsLogo,
-                        onLogoClicked = {
-                            if (settings.showHomepageSportsWidget) {
-                                interactor.onCountrySelectorShown(CountrySelectorSource.SPORTS_LOGO)
-                                showSportsCountrySelector = true
-                            }
-                        },
-                        onLogoLongClicked = interactor::onLogoLongClicked,
                     )
                 }
             }

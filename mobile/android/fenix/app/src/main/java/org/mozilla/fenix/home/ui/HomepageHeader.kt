@@ -54,8 +54,6 @@ fun HomepageHeader(
             .padding(start = 16.dp, end = 16.dp, top = 18.dp, bottom = 32.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        WordmarkLogo()
-
         WordmarkText(wordmarkTextColor)
 
         Spacer(modifier = Modifier.weight(1f))

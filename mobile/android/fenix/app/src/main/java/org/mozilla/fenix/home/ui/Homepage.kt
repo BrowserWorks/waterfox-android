@@ -78,6 +78,7 @@ import org.mozilla.fenix.home.recentvisits.view.RecentlyVisited
 import org.mozilla.fenix.home.sessioncontrol.CollectionInteractor
 import org.mozilla.fenix.home.sessioncontrol.MessageCardInteractor
 import org.mozilla.fenix.home.setup.ui.SetupChecklist
+
 import org.mozilla.fenix.home.store.HeaderState
 import org.mozilla.fenix.home.store.HomepageState
 import org.mozilla.fenix.home.store.MiddleSearchState
@@ -158,6 +159,7 @@ internal fun Homepage(
             when (val headerState = state.headerState) {
                 is HeaderState.Experimental.Normal -> {
                     val settings = components.settings
+
 
                     ExperimentalHomepageHeader(
                         showStoriesButton = headerState.showStoriesButton,

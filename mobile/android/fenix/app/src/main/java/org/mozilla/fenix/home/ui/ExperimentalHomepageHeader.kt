@@ -104,7 +104,7 @@ fun ExperimentalHomepageHeader(
         ) {
             Spacer(modifier = Modifier.height(28.dp))
 
-            WordmarkAndLogo(wordmarkTextColor = WallpaperTheme.onWallpaper)
+            WordmarkText(color = WallpaperTheme.onWallpaper)
         }
     }
 }
@@ -129,20 +129,7 @@ fun ExperimentalPrivateHomepageHeader(onHomeTapped: () -> Unit) {
 }
 
 @Composable
-private fun WordmarkAndLogo(
-    wordmarkTextColor: Color?,
-    modifier: Modifier = Modifier,
-) {
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        WordmarkLogo()
-        WordmarkText(wordmarkTextColor)
-    }
-}
 
-@Composable
 private fun PrivateModeButton(onClick: () -> Unit) {
     LeftChevronPillButton(
         onClick = onClick,

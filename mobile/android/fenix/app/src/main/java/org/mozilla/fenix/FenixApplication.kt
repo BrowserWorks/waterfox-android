@@ -351,6 +351,7 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         // before for its completion synchronously.
         val megazordDeferred = setupMegazordNetwork()
 
+        components.settings.migrateLegacyThemePreferencesIfNeeded()
         setDayNightTheme()
         components.strictMode.enableStrictMode(true)
 

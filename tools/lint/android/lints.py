@@ -554,6 +554,8 @@ def parse_lint_report(config, subdir, **lintargs):
 
         return results
     except FileNotFoundError:
+        if ret == 0:
+            return []
         err = {
             "level": "error",
             "rule": "build-failure",

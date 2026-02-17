@@ -1,0 +1,44 @@
+#!/bin/sh
+
+ac_add_options --disable-debug
+ac_add_options --disable-tests
+ac_add_options --disable-android-emulator
+ac_add_options --enable-android-subproject=fenix
+ac_add_options --enable-application=mobile/android
+clang23="$HOME/.mozbuild/clang-23"
+wasi_sysroot="$HOME/.mozbuild/sysroot-wasm32-wasi"
+
+if [ ! -x "$clang23/bin/clang" ] || [ ! -x "$clang23/bin/clang++" ] ||
+   [ ! -f "$wasi_sysroot/.clang-23" ] ||
+   [ ! -f "$wasi_sysroot/lib/wasm32-wasip1/crt1.o" ] ||
+   [ ! -d "$wasi_sysroot/include/wasm32-wasip1" ]; then
+    echo "mozconfig: run scripts/fetch-clang-23.sh to prepare Clang 23 and its WASI sysroot." >&2
+    exit 1
+fi
+export PATH="$clang23/bin:$PATH"
+export CC="$clang23/bin/clang"
+export CXX="$clang23/bin/clang++"
+export HOST_CC="$CC"
+export HOST_CXX="$CXX"
+export WASM_CC="$CC"
+export WASM_CXX="$CXX"
+export LLVM_PROFDATA="$clang23/bin/llvm-profdata"
+ac_add_options --enable-bootstrap=-clang,-sysroot-wasm32-wasi
+ac_add_options --with-wasi-sysroot="$wasi_sysroot"
+ac_add_options --enable-geckoview-lite
+ac_add_options --enable-appservices-in-tree
+ac_add_options --enable-isolated-process
+ac_add_options --enable-isolated-zygote-process
+ac_add_options --without-onnx-runtime
+ac_add_options --enable-lto
+ac_add_options --enable-optimize="-O3 -w"
+ac_add_options --enable-release
+ac_add_options --enable-rust-simd
+ac_add_options --enable-update-channel=release
+ac_add_options --target=aarch64-linux-android
+
+mk_add_options AUTOCLOBBER=1
+mk_add_options MOZ_OBJDIR=./obj-aarch64-linux-android
+
+export MOZ_REQUIRE_SIGNING=
+export MOZ_TELEMETRY_REPORTING=

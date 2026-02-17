@@ -239,7 +239,19 @@ def android_platforms(sdk_root, sdk_version, android_os_info, want_bootstrap):
 
 
 # Emulator
-@depends(android_sdk_root, android_os_info, want_bootstrap, avd_manifest)
+option(
+    "--disable-android-emulator",
+    help="Skip Android emulator checks and virtual-device provisioning",
+)
+
+
+@depends(
+    android_sdk_root,
+    android_os_info,
+    want_bootstrap,
+    avd_manifest,
+    when="--enable-android-emulator",
+)
 @checking("for Android emulator")
 @imports(_from="os.path", _import="exists")
 @imports(_from="mozboot.android", _import="AndroidPackageList")
@@ -305,9 +317,9 @@ option(
 )
 
 
-@depends(want_bootstrap, moz_automation)
-def want_android_avd_bootstrap(want_bootstrap, moz_automation):
-    return not moz_automation and want_bootstrap("android-sdk")
+@depends(want_bootstrap, moz_automation, "--enable-android-emulator")
+def want_android_avd_bootstrap(want_bootstrap, moz_automation, android_emulator):
+    return bool(android_emulator) and not moz_automation and want_bootstrap("android-sdk")
 
 
 @depends(
@@ -374,7 +386,8 @@ set_config("ANDROID_SDK_ROOT", android_sdk_root)
 
 check_android_tools("zipalign", android_build_tools)
 check_android_tools("adb", android_platform_tools)
-check_android_tools("emulator", android_emulator)
+with only_when("--enable-android-emulator"):
+    check_android_tools("emulator", android_emulator)
 check_file("android.jar", android_platforms)
 
 set_config("ANDROID_BUILD_TOOLS_VERSION", android_sdk_version.build_tools_version)

@@ -1134,6 +1134,66 @@ class Settings(
             default = THEME_COLOR_DEFAULT,
         )
 
+    fun migrateLegacyThemePreferencesIfNeeded() {
+        val legacyBlackThemeKey = "pref_key_use_black_theme_in_dark_mode"
+        if (preferences.contains(legacyBlackThemeKey)) {
+            preferences.edit {
+                if (
+                    preferences.getBoolean(legacyBlackThemeKey, false) &&
+                        shouldFollowDeviceTheme &&
+                        !shouldUseBlackTheme &&
+                        !preferences.contains(appContext.getPreferenceKey(R.string.pref_key_use_system_theme_for_black))
+                ) {
+                    putBoolean(appContext.getPreferenceKey(R.string.pref_key_black_theme), true)
+                    putBoolean(appContext.getPreferenceKey(R.string.pref_key_follow_device_theme), false)
+                    putBoolean(appContext.getPreferenceKey(R.string.pref_key_use_system_theme_for_black), true)
+                }
+                remove(legacyBlackThemeKey)
+            }
+        }
+
+        val legacyThemeColors =
+            listOf(
+                "pref_key_violet_theme" to ThemeColor.Violet,
+                "pref_key_blue_theme" to ThemeColor.Blue,
+                "pref_key_pink_theme" to ThemeColor.Pink,
+                "pref_key_green_theme" to ThemeColor.Green,
+                "pref_key_red_theme" to ThemeColor.Red,
+                "pref_key_orange_theme" to ThemeColor.Orange,
+                "pref_key_yellow_theme" to ThemeColor.Yellow,
+                "pref_key_cyan_theme" to ThemeColor.Blue,
+                "pref_key_purple_theme" to ThemeColor.Purple,
+            )
+
+        val hasLegacyKeys = legacyThemeColors.any { preferences.contains(it.first) }
+        if (!hasLegacyKeys) {
+            return
+        }
+
+        val hasCustomTheme = customThemeColorLight != THEME_COLOR_DEFAULT || customThemeColorDark != THEME_COLOR_DEFAULT
+        if (!hasCustomTheme) {
+            val legacyTheme = legacyThemeColors.firstOrNull { preferences.getBoolean(it.first, false) }?.second
+            if (legacyTheme != null) {
+                customThemeColorLight = legacyTheme.prefValue
+                customThemeColorDark = legacyTheme.prefValue
+
+                if (
+                    !shouldUseLightTheme &&
+                        !shouldUseDarkTheme &&
+                        !shouldUseBlackTheme &&
+                        !shouldFollowDeviceTheme &&
+                        !shouldUseAutoBatteryTheme
+                ) {
+                    shouldUseDarkTheme = true
+                }
+            }
+        }
+
+        preferences.edit {
+            legacyThemeColors.forEach { remove(it.first) }
+        }
+    }
+
     var shouldFollowDeviceTheme by
         booleanPreference(
             appContext.getPreferenceKey(R.string.pref_key_follow_device_theme),

@@ -267,6 +267,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         // Note: This is a historical artifact and should be revisited.
         val store = components.core.store
 
+
         // StartupMetrics accesses shared preferences so do this off thread.
         @OptIn(DelicateCoroutinesApi::class)
         GlobalScope.launch(IO) {
@@ -277,6 +278,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         // before for its completion synchronously.
         val megazordDeferred = setupMegazordNetwork()
 
+        settings().migrateLegacyThemePreferencesIfNeeded()
         setDayNightTheme()
         components.strictMode.enableStrictMode(true)
         warmBrowsersCache()

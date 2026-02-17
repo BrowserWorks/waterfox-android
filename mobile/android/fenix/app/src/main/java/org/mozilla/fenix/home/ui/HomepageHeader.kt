@@ -47,9 +47,7 @@ fun HomepageHeader(
     wordmarkTextColor: Color?,
     privateBrowsingButtonColor: Color,
     browsingMode: BrowsingMode,
-    isSportsWidgetEnabled: Boolean,
     browsingModeChanged: (BrowsingMode) -> Unit,
-    onLogoClicked: () -> Unit,
 ) {
     Row(
         modifier = Modifier
@@ -58,11 +56,6 @@ fun HomepageHeader(
             .padding(start = 16.dp, end = 16.dp, top = 18.dp, bottom = 32.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        WordmarkLogo(
-            isSportsWidgetEnabled = isSportsWidgetEnabled,
-            onLogoClicked = onLogoClicked,
-        )
-
         WordmarkText(wordmarkTextColor)
 
         Spacer(modifier = Modifier.weight(1f))
@@ -130,9 +123,7 @@ private fun HomepageHeaderPreview(
                     ),
                 ),
                 browsingMode = BrowsingMode.Normal,
-                isSportsWidgetEnabled = true,
                 browsingModeChanged = {},
-                onLogoClicked = {},
             )
         }
     }

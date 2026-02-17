@@ -60,8 +60,6 @@ private const val NEWS_BUTTON_ANIMATION_DELAY = 500L
  * @param onPrivateModeTapped Callback for when the private mode button is tapped.
  * @param onStoriesTapped Callback for when the stories button is tapped.
  * @param onNewsAnimationShown Callback invoked when the news button animation starts playing.
- * @param onLogoClicked Callback for when the logo is clicked.
- * @param isSportsWidgetEnabled Whether to show the Firefox sports logo or not.
  */
 @Suppress("LongParameterList")
 @Composable
@@ -72,8 +70,6 @@ fun ExperimentalHomepageHeader(
     onPrivateModeTapped: () -> Unit,
     onStoriesTapped: () -> Unit,
     onNewsAnimationShown: () -> Unit,
-    onLogoClicked: () -> Unit,
-    isSportsWidgetEnabled: Boolean,
 ) {
     Box(
         modifier = Modifier
@@ -109,11 +105,7 @@ fun ExperimentalHomepageHeader(
         ) {
             Spacer(modifier = Modifier.height(28.dp))
 
-            WordmarkAndLogo(
-                wordmarkTextColor = wordmarkTextColor,
-                onLogoClicked = onLogoClicked,
-                isSportsWidgetEnabled = isSportsWidgetEnabled,
-            )
+            WordmarkText(wordmarkTextColor)
         }
     }
 }
@@ -134,25 +126,6 @@ fun ExperimentalPrivateHomepageHeader(onHomeTapped: () -> Unit) {
         horizontalArrangement = Arrangement.End,
     ) {
         HomeButton(onHomeTapped)
-    }
-}
-
-@Composable
-private fun WordmarkAndLogo(
-    wordmarkTextColor: Color?,
-    modifier: Modifier = Modifier,
-    onLogoClicked: () -> Unit,
-    isSportsWidgetEnabled: Boolean,
-) {
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        WordmarkLogo(
-            onLogoClicked = onLogoClicked,
-            isSportsWidgetEnabled = isSportsWidgetEnabled,
-        )
-        WordmarkText(wordmarkTextColor)
     }
 }
 
@@ -239,8 +212,6 @@ private fun HomepageHeaderPreview(
                 onPrivateModeTapped = {},
                 onStoriesTapped = {},
                 onNewsAnimationShown = {},
-                onLogoClicked = {},
-                isSportsWidgetEnabled = false,
             )
         }
     }

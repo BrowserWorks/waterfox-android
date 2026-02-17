@@ -100,7 +100,7 @@ fun HomepageHeader(
         }
 
         if (!browsingMode.isPrivate) {
-            WordmarkAndLogo(wordmarkTextColor = wordmarkTextColor)
+            Wordmark(color = wordmarkTextColor)
         }
     }
 }

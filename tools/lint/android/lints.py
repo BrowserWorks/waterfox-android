@@ -161,7 +161,7 @@ def fenix_format(_paths, config, fix=None, **lintargs):
         fix,
         os.path.join("mobile", "android", "fenix"),
         project_name="fenix",
-        lint_tasks=[":fenix:lintDebug"],
+        lint_tasks=[":fenix:lintWaterfoxDebug"],
         **lintargs,
     )
 
@@ -508,6 +508,8 @@ def parse_lint_report(config, subdir, tasks=[], ret=0, **lintargs):
             results.append(result.from_config(config, **err))
         return results
     except FileNotFoundError:
+        if ret == 0:
+            return []
         err = {
             "level": "error",
             "rule": "build-failure",

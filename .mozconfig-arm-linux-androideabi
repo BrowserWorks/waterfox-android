@@ -1,0 +1,41 @@
+#!/bin/sh
+
+ac_add_options --disable-debug
+ac_add_options --disable-tests
+ac_add_options --enable-android-subproject=fenix
+ac_add_options --enable-application=mobile/android
+clang22="$HOME/.mozbuild/clang-22"
+wasi_sysroot="$HOME/.mozbuild/sysroot-wasm32-wasi"
+
+# Build with a manually-fetched clang-22 when present (scripts/fetch-clang-22.sh) to match
+# Rust 1.96's bundled LLVM 22 for cross-language LTO. Configure still supplies Android flags.
+if [ -x "$clang22/bin/clang" ]; then
+    if [ ! -f "$wasi_sysroot/lib/wasm32-wasip1/crt1.o" ]; then
+        echo "mozconfig: run scripts/fetch-clang-22.sh to prepare clang-22's WASI sysroot." >&2
+        exit 1
+    fi
+    export CC="$clang22/bin/clang"
+    export CXX="$clang22/bin/clang++"
+    export HOST_CC="$CC"
+    export HOST_CXX="$CXX"
+    ac_add_options --enable-bootstrap=-clang,-sysroot-wasm32-wasi
+    ac_add_options --with-wasi-sysroot="$wasi_sysroot"
+else
+    ac_add_options --enable-bootstrap
+fi
+ac_add_options --enable-geckoview-lite
+ac_add_options --enable-isolated-process
+ac_add_options --enable-isolated-zygote-process
+ac_add_options --enable-jxl
+ac_add_options --enable-lto
+ac_add_options --enable-optimize="-O3 -w"
+ac_add_options --enable-release
+ac_add_options --enable-rust-simd
+ac_add_options --enable-update-channel=release
+ac_add_options --target=arm-linux-androideabi
+
+mk_add_options AUTOCLOBBER=1
+mk_add_options MOZ_OBJDIR=./obj-arm-linux-androideabi
+
+export MOZ_REQUIRE_SIGNING=
+export MOZ_TELEMETRY_REPORTING=

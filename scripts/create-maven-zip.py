@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 import argparse
 import os
 import zipfile
@@ -40,7 +44,9 @@ def find_geckoview_aars(objdir, include_snapshots):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Create target.maven.zip from gradle/maven.")
+    parser = argparse.ArgumentParser(
+        description="Create target.maven.zip from gradle/maven."
+    )
     parser.add_argument("--objdir", default="objdir", help="Top object directory")
     parser.add_argument(
         "--include-snapshots",

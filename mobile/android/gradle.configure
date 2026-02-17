@@ -256,11 +256,9 @@ set_config("GRADLE_ANDROID_API_LINT_TASKS", gradle_android_api_lint_tasks)
 def spotless_projects():
     return [
         "geckoview",
-        "geckoview_example",
         "annotations",
         "messaging_example",
         "port_messaging_example",
-        "test_runner",
     ]
 
 
@@ -306,8 +304,6 @@ set_config(
     [
         "mobile/android/annotations",
         "mobile/android/geckoview",
-        "mobile/android/geckoview_example",
-        "mobile/android/test_runner",
         "mobile/android/examples/messaging_example",
         "mobile/android/examples/port_messaging_example",
     ],

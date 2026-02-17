@@ -67,6 +67,7 @@ import org.mozilla.fenix.settings.registerOnSharedPreferenceChangeListener
 import org.mozilla.fenix.settings.sitepermissions.AUTOPLAY_BLOCK_ALL
 import org.mozilla.fenix.settings.sitepermissions.AUTOPLAY_BLOCK_AUDIBLE
 import org.mozilla.fenix.tabstray.DefaultTabManagementFeatureHelper
+import org.mozilla.fenix.theme.ThemeColor
 import org.mozilla.fenix.termsofuse.TOU_VERSION
 import org.mozilla.fenix.utils.Settings.Companion.LONGFOX_PEEK_ANIMATION_MAX_SHOWS
 import org.mozilla.fenix.wallpapers.Wallpaper
@@ -1086,6 +1087,63 @@ class Settings(
         default = false,
     )
 
+    var shouldUseBlackTheme by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_black_theme),
+        default = false,
+    )
+
+    var customThemeColorLight by stringPreference(
+        appContext.getPreferenceKey(R.string.pref_key_custom_theme_color_light),
+        default = THEME_COLOR_DEFAULT,
+    )
+
+    var customThemeColorDark by stringPreference(
+        appContext.getPreferenceKey(R.string.pref_key_custom_theme_color_dark),
+        default = THEME_COLOR_DEFAULT,
+    )
+
+    fun migrateLegacyThemePreferencesIfNeeded() {
+        val legacyThemeColors = listOf(
+            "pref_key_violet_theme" to ThemeColor.Violet,
+            "pref_key_blue_theme" to ThemeColor.Blue,
+            "pref_key_pink_theme" to ThemeColor.Pink,
+            "pref_key_green_theme" to ThemeColor.Green,
+            "pref_key_red_theme" to ThemeColor.Red,
+            "pref_key_orange_theme" to ThemeColor.Orange,
+            "pref_key_yellow_theme" to ThemeColor.Yellow,
+            "pref_key_cyan_theme" to ThemeColor.Blue,
+            "pref_key_purple_theme" to ThemeColor.Purple,
+        )
+
+        val hasLegacyKeys = legacyThemeColors.any { preferences.contains(it.first) }
+        if (!hasLegacyKeys) {
+            return
+        }
+
+        val hasCustomTheme =
+            customThemeColorLight != THEME_COLOR_DEFAULT || customThemeColorDark != THEME_COLOR_DEFAULT
+        if (!hasCustomTheme) {
+            val legacyTheme = legacyThemeColors.firstOrNull { preferences.getBoolean(it.first, false) }?.second
+            if (legacyTheme != null) {
+                customThemeColorLight = legacyTheme.prefValue
+                customThemeColorDark = legacyTheme.prefValue
+
+                if (
+                    !shouldUseLightTheme &&
+                    !shouldUseDarkTheme &&
+                    !shouldUseBlackTheme &&
+                    !shouldFollowDeviceTheme &&
+                    !shouldUseAutoBatteryTheme
+                ) {
+                    shouldUseDarkTheme = true
+                }
+            }
+        }
+
+        preferences.edit {
+            legacyThemeColors.forEach { remove(it.first) }
+        }
+    }
     var shouldFollowDeviceTheme by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_follow_device_theme),
         default = false,

@@ -239,16 +239,27 @@ android {
     }
 
 
+    def waterfoxBrandingResources = ['src/waterfoxBranding/res']
+
     sourceSets {
         androidTest {
             resources.srcDirs += ['src/androidTest/resources']
         }
 
         waterfoxDebug {
-            res.srcDirs += ['src/waterfoxDebug/res']
+            res.srcDirs += waterfoxBrandingResources + ['src/waterfoxDebug/res']
+        }
+        waterfoxNightly {
+            res.srcDirs += waterfoxBrandingResources
+        }
+        waterfoxBeta {
+            res.srcDirs += waterfoxBrandingResources
         }
         waterfoxRelease {
-            res.srcDirs += ['src/waterfoxRelease/res']
+            res.srcDirs += waterfoxBrandingResources + ['src/waterfoxRelease/res']
+        }
+        waterfoxBenchmark {
+            res.srcDirs += waterfoxBrandingResources
         }
         if (project.hasProperty('baselineProfilePath')) {
             main {

@@ -93,6 +93,7 @@
     <color name="fx_mobile_icon_color_accent_pink">@color/photonPink60</color>
     <color name="fx_mobile_icon_color_accent_green">@color/photonGreen60</color>
     <color name="fx_mobile_icon_color_accent_yellow">@color/photonYellow60</color>
+    <color name="fx_mobile_border_color_primary">@color/photonLightGrey30</color>
 
     <!-- Private theme color variables -->
 

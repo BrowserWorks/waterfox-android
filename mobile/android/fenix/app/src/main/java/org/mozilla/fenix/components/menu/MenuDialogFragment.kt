@@ -559,7 +559,7 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                         store.stateFlow.map { state -> state.summarizationMenuState }
                     }.collectAsState(initial = SummarizationMenuState.Default)
 
-                    val contentState: Route by remember { mutableStateOf(initRoute) }
+                    val contentState: Route by remember { mutableStateOf<Route>(initRoute) }
 
                     var shouldShowMenuBanner by
                     remember { mutableStateOf(settings.shouldShowMenuBanner) }

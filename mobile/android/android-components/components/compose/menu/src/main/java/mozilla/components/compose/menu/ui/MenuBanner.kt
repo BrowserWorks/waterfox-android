@@ -56,6 +56,7 @@ fun MenuBanner(
     onClick: () -> Unit,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
+    flipIllustration: Boolean = true,
 ) {
     val isRtl = LocalLayoutDirection.current == LayoutDirection.Rtl
 
@@ -100,7 +101,7 @@ fun MenuBanner(
                     modifier =
                         Modifier.align(Alignment.Bottom)
                             .padding(end = AcornTheme.layout.space.static200)
-                            .graphicsLayer(scaleX = if (isRtl) 1f else -1f),
+                            .graphicsLayer(scaleX = if (flipIllustration && !isRtl) -1f else 1f),
                 )
             }
 

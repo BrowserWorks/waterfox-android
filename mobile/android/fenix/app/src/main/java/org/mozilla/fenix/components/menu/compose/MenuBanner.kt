@@ -23,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -58,6 +59,9 @@ fun MenuBanner(
 ) {
     val appName = stringResource(R.string.app_name)
     val isRtl = LocalLayoutDirection.current == LayoutDirection.Rtl
+    val shouldFlipIllustration = LocalContext.current.resources.getBoolean(
+        R.bool.browser_menu_default_banner_flip_illustration,
+    )
 
     Surface(
         modifier = modifier
@@ -99,7 +103,11 @@ fun MenuBanner(
                         .align(Alignment.Bottom)
                         .padding(end = 16.dp)
                         .graphicsLayer(
-                            scaleX = if (isRtl) 1f else -1f,
+                            scaleX = if (shouldFlipIllustration) {
+                                if (isRtl) 1f else -1f
+                            } else {
+                                1f
+                            },
                         ),
                 )
             }

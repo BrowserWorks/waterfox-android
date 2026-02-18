@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -38,6 +39,8 @@ fun MenuBanner(
     modifier: Modifier = Modifier,
 ) {
     val appName = stringResource(R.string.app_name)
+    val shouldFlipIllustration =
+        LocalContext.current.resources.getBoolean(R.bool.browser_menu_default_banner_flip_illustration)
 
     MenuBanner(
         title = AcornText.String(stringResource(id = R.string.browser_menu_default_banner_title, appName)),
@@ -47,6 +50,7 @@ fun MenuBanner(
         onDismiss = onDismiss,
         onClick = onClick,
         modifier = modifier,
+        flipIllustration = shouldFlipIllustration,
     )
 }
 

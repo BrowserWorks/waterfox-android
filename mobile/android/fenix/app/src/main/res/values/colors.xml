@@ -124,6 +124,7 @@
     <!-- Border -->
     <!-- Active tab (Nav), Selected tab, Active form -->
     <color name="fx_mobile_border_color_accent">@color/photonInk20</color>
+    <color name="fx_mobile_border_color_primary">@color/photonLightGrey30</color>
 
     <!-- Private theme color variables -->
 

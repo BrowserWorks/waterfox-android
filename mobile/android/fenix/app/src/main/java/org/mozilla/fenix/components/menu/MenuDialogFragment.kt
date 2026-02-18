@@ -557,7 +557,7 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                         store.stateFlow.map { state -> state.ipProtectionMenuState }
                     }.collectAsState(initial = store.state.ipProtectionMenuState)
 
-                    val contentState: Route by remember { mutableStateOf(initRoute) }
+                    val contentState: Route by remember { mutableStateOf<Route>(initRoute) }
 
                     var shouldShowMenuBanner by
                     remember { mutableStateOf(settings.shouldShowMenuBanner) }

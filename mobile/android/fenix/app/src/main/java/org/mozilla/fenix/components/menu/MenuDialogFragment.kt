@@ -126,10 +126,10 @@ import org.mozilla.fenix.utils.enterMenu
 import org.mozilla.fenix.utils.enterSubmenu
 import org.mozilla.fenix.utils.exitMenu
 import org.mozilla.fenix.utils.exitSubmenu
-import org.mozilla.fenix.whatsnew.WhatsNew
 import org.mozilla.fenix.webcompat.DefaultWebCompatReporterMoreInfoSender
 import org.mozilla.fenix.webcompat.middleware.DefaultWebCompatReporterRetrievalService
 import org.mozilla.fenix.webcompat.middleware.WebCompatInfoDeserializer
+import org.mozilla.fenix.whatsnew.WhatsNew
 import com.google.android.material.R as materialR
 
 private const val EXPANDED_OFFSET = 56
@@ -568,7 +568,7 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                         store.stateFlow.map { state -> state.ipProtectionMenuState }
                     }.collectAsState(initial = store.state.ipProtectionMenuState)
 
-                    val contentState: Route by remember { mutableStateOf(initRoute) }
+                    val contentState: Route by remember { mutableStateOf<Route>(initRoute) }
 
                     var shouldShowMenuBanner by
                     remember { mutableStateOf(settings.shouldShowMenuBanner) }

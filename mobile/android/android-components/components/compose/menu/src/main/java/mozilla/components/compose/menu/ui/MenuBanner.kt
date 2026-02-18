@@ -59,6 +59,7 @@ fun MenuBanner(
     modifier: Modifier = Modifier,
     dismissContentDescription: AcornText =
         AcornText.Resource(composeBaseR.string.mozac_compose_base_close_button_content_description),
+    flipIllustration: Boolean = true,
 ) {
     val isRtl = LocalLayoutDirection.current == LayoutDirection.Rtl
 
@@ -103,7 +104,7 @@ fun MenuBanner(
                     modifier =
                         Modifier.align(Alignment.Bottom)
                             .padding(end = AcornTheme.layout.space.static200)
-                            .graphicsLayer(scaleX = if (isRtl) 1f else -1f),
+                            .graphicsLayer(scaleX = if (flipIllustration && !isRtl) -1f else 1f),
                 )
             }
 

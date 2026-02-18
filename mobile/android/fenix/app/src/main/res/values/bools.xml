@@ -8,4 +8,5 @@
     <bool name="underAPI28">true</bool>
     <!-- See https://bugzilla.mozilla.org/show_bug.cgi?id=1944817 -->
     <bool name="enableOnBackInvokedCallback">false</bool>
+    <bool name="browser_menu_default_banner_flip_illustration">true</bool>
 </resources>

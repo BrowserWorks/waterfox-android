@@ -111,7 +111,6 @@ import org.mozilla.fenix.components.menu.MenuAccessPoint
 import org.mozilla.fenix.components.menu.share.QRCodeDialogFragment
 import org.mozilla.fenix.components.metrics.BreadcrumbsRecorder
 import org.mozilla.fenix.components.metrics.GrowthDataWorker
-import org.mozilla.fenix.components.metrics.InstallReferrerHandlingService
 import org.mozilla.fenix.components.metrics.fonts.FontEnumerationWorker
 import org.mozilla.fenix.components.share.QR_CODE_URI_KEY
 import org.mozilla.fenix.components.share.SEND_TO_DEVICES_ACTION
@@ -455,7 +454,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
             }
 
         SplashScreenManager(
-            splashScreenOperation = createSplashScreenOperation(shouldShowOnboarding),
+            splashScreenOperation = createSplashScreenOperation(),
             scope = lifecycleScope,
             splashScreenTimeout = 0L,
             storage = DefaultSplashScreenStorage(components.settings),
@@ -1229,11 +1228,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
         return false
     }
 
-    private fun createSplashScreenOperation(shouldShowOnboarding: Boolean): SplashScreenOperation {
-        if (shouldShowOnboarding) {
-            InstallReferrerHandlingService(applicationContext).start()
-        }
-
+    private fun createSplashScreenOperation(): SplashScreenOperation {
         return object : SplashScreenOperation {
             override val type = "disabled"
             override val dataFetched = false

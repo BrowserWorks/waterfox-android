@@ -9,9 +9,6 @@ import android.os.Build
 import androidx.annotation.VisibleForTesting
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.utils.ext.PackageManagerWrapper
-
-import org.mozilla.fenix.Config
-import org.mozilla.fenix.components.metrics.UTMParams
 import java.io.File
 import java.util.Locale
 
@@ -21,8 +18,6 @@ import java.util.Locale
  */
 private const val VIVO_PREINSTALLED_FIREFOX_FILE_PATH = "/data/yzfswj/another/vivo_firefox.txt"
 private const val VIVO_MANUFACTURER = "vivo"
-
-private const val VIVO_INDIA_UTM_CAMPAIGN = "vivo-india-preinstall"
 
 private const val DT_PROVIDER = "digital_turbine"
 private const val DT_TELEFONICA_PACKAGE = "com.dti.telefonica"
@@ -97,87 +92,9 @@ class DistributionIdManager(
         return Distribution.fromId(getDistributionId())
     }
 
-    /**
-     * Checks the campaign UTM parameters from the google play install referrer response
-     * and updates the distribution ID if necessary
-     *
-     * @param utmParams the UTM parameters from the google play install referrer response
-     */
-    fun updateDistributionIdFromUtmParams(utmParams: UTMParams) {
-        when {
-            utmParams.campaign.contains(VIVO_INDIA_UTM_CAMPAIGN) -> {
-                setDistribution(Distribution.VIVO_001)
-            }
 
-            utmParams.campaign.contains(Distribution.XIAOMI_001.id) -> {
-                setDistribution(Distribution.XIAOMI_001)
-            }
-        }
-    }
 
-    /**
-     * Check if we can skip the marketing consent screen during onboarding based on the distribution
-     *
-     * @return true if the marketing consent screen can be skipped during onboarding
-     */
-    suspend fun shouldSkipMarketingConsentScreen(): Boolean {
-        val adjustStartupStrategy = getDistributionAdjustStartupStrategy()
 
-        return when (adjustStartupStrategy) {
-            DistributionAdjustStartupStrategy.NONE,
-            DistributionAdjustStartupStrategy.SHOW_CONSENT_SCREEN,
-                -> false
-
-            DistributionAdjustStartupStrategy.IMMEDIATE_WITH_COPPA,
-            DistributionAdjustStartupStrategy.IMMEDIATE_WITH_PLAY_STORE_KIDS,
-                -> true
-        }
-    }
-
-    /**
-     * Get the Adjust startup strategy for the current distribution.
-     *
-     * @return the Adjust startup strategy.
-     */
-    suspend fun getDistributionAdjustStartupStrategy(): DistributionAdjustStartupStrategy {
-        val id = Distribution.fromId(getDistributionId())
-
-        return when (id) {
-            Distribution.DEFAULT -> DistributionAdjustStartupStrategy.NONE
-
-            Distribution.VIVO_001,
-            Distribution.DT_001,
-            Distribution.DT_002,
-            Distribution.DT_003,
-            Distribution.XIAOMI_001,
-                -> DistributionAdjustStartupStrategy.IMMEDIATE_WITH_COPPA
-
-            Distribution.AURA_001 -> if (Config.channel.isNightlyOrDebug) {
-                DistributionAdjustStartupStrategy.IMMEDIATE_WITH_PLAY_STORE_KIDS
-            } else {
-                DistributionAdjustStartupStrategy.SHOW_CONSENT_SCREEN
-            }
-        }
-    }
-
-    /**
-     * Check if the distribution is part of a distribution deal
-     *
-     * @return true if the distribution is part of a distribution deal
-     */
-    suspend fun isPartnershipDistribution(): Boolean {
-        val id = Distribution.fromId(getDistributionId())
-
-        return when (id) {
-            Distribution.DEFAULT -> false
-            Distribution.VIVO_001 -> true
-            Distribution.DT_001 -> true
-            Distribution.DT_002 -> true
-            Distribution.DT_003 -> true
-            Distribution.AURA_001 -> true
-            Distribution.XIAOMI_001 -> true
-        }
-    }
 
     private fun isDeviceVivo(): Boolean {
         return Build.MANUFACTURER?.lowercase(Locale.getDefault())?.contains(VIVO_MANUFACTURER)
@@ -219,24 +136,6 @@ class DistributionIdManager(
     }
 }
 
-/**
- * This enum represents how / when adjust starts up for distributions.
- */
-enum class DistributionAdjustStartupStrategy {
-    NONE,
-
-    // Show the adjust data collection consent screen during onboarding and start
-    // adjust after the user has consented.
-    SHOW_CONSENT_SCREEN,
-
-    // Start adjust immediately but enabled COPPA mode in adjust. COPPA mode will prevent
-    // adjust from collecting personal identifiers and sharing data with third parties.
-    IMMEDIATE_WITH_COPPA,
-
-    // Start adjust immediately but enable Play Store Kids mode in adjust. This mode will prevent
-    // adjust from collecting personal identifiers.
-    IMMEDIATE_WITH_PLAY_STORE_KIDS,
-}
 
 /**
  * Checks for a file in the device that indicates if the app was preinstalled on a vivo device

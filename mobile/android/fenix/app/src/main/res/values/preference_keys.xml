@@ -337,18 +337,6 @@
     <string name="pref_key_pbm_lock_category_divider" translatable="false">pref_key_pbm_lock_category_divider</string>
 
     <string name="pref_key_nimbus_experiments_fetched" translatable="false">pref_key_nimbus_experiments_fetched</string>
-    <string name="pref_key_utm_params_known" translatable="false">pref_key_utm_params_known</string>
-    <string name="pref_key_utm_source" translatable="false">pref_key_utm_source</string>
-    <string name="pref_key_utm_medium" translatable="false">pref_key_utm_medium</string>
-    <string name="pref_key_utm_campaign" translatable="false">pref_key_utm_campaign</string>
-    <string name="pref_key_utm_term" translatable="false">pref_key_utm_term</string>
-    <string name="pref_key_utm_content" translatable="false">pref_key_utm_content</string>
-    <string name="pref_key_is_user_meta_attributed" translatable="false">pref_key_is_user_meta_attributed</string>
-
-    <!-- Return to AMO - addon to install at the first app launch -->
-    <string name="pref_key_rtamo_addon_download_url" translatable="false">pref_key_rtamo_addon_download_url</string>
-    <string name="pref_key_rtamo_addon_image_url" translatable="false">pref_key_rtamo_addon_image_url</string>
-    <string name="pref_key_rtamo_addon_name" translatable="false">pref_key_rtamo_addon_name</string>
 
     <string name="pref_key_contile_context_id" translatable="false">pref_key_contile_context_id</string>
 

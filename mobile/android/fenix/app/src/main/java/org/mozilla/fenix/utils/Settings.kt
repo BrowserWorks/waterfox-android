@@ -395,56 +395,6 @@ class Settings(
         default = false,
     )
 
-    var utmParamsKnown by booleanPreference(
-        appContext.getPreferenceKey(R.string.pref_key_utm_params_known),
-        default = false,
-    )
-
-    var utmSource by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_utm_source),
-        default = "",
-    )
-
-    var utmMedium by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_utm_medium),
-        default = "",
-    )
-
-    var utmCampaign by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_utm_campaign),
-        default = "",
-    )
-
-    var utmTerm by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_utm_term),
-        default = "",
-    )
-
-    var utmContent by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_utm_content),
-        default = "",
-    )
-
-    var isUserMetaAttributed by booleanPreference(
-        appContext.getPreferenceKey(R.string.pref_key_is_user_meta_attributed),
-        default = false,
-    )
-
-    var rtamoAddonDownloadUrl by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_rtamo_addon_download_url),
-        default = "",
-    )
-
-    var rtamoAddonImageUrl by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_rtamo_addon_image_url),
-        default = "",
-    )
-
-    var rtamoAddonName by stringPreference(
-        appContext.getPreferenceKey(R.string.pref_key_rtamo_addon_name),
-        default = "",
-    )
-
     var contileContextId by stringPreference(
         appContext.getPreferenceKey(R.string.pref_key_contile_context_id),
         default = { TopSites.contextId.generateAndSet().toString() },

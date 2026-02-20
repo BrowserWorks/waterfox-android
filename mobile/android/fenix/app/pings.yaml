@@ -4,21 +4,6 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/pings/2-0-0
 
-activation:
-  description: |
-    This ping is intended to provide a measure of the activation of mobile
-    products. It's generated when Fenix starts, right after Glean is
-    initialized. It doesn't include the client_id, since it might be reporting
-    an hashed version of the Google Advertising ID.
-  include_client_id: false
-  bugs:
-    - https://bugzilla.mozilla.com/1538011/
-    - https://bugzilla.mozilla.com/1501822/
-  data_reviews:
-    - https://github.com/mozilla-mobile/fenix/pull/1707#issuecomment-486972209
-  notification_emails:
-    - android-probes@mozilla.com
-
 first-session:
   description: |
     This ping captures the install source and distribution on first launch.
@@ -28,18 +13,6 @@ first-session:
     - https://github.com/mozilla-mobile/fenix/issues/7295
   data_reviews:
     - https://github.com/mozilla-mobile/fenix/pull/8074#issuecomment-586512202
-  notification_emails:
-    - android-probes@mozilla.com
-
-play-store-attribution:
-  description: |
-    This ping captures the install referrer attribution data.
-  include_client_id: true
-  send_if_empty: true
-  bugs:
-    - https://bugzilla.mozilla.org/show_bug.cgi?id=1947786
-  data_reviews:
-    - https://phabricator.services.mozilla.com/D238284
   notification_emails:
     - android-probes@mozilla.com
 

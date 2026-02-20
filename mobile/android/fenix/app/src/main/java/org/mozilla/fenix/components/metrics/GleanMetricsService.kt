@@ -66,8 +66,6 @@ class GleanMetricsService(
     private val logger = Logger("GleanMetricsService")
     private var initialized = false
 
-    private val activationPing = ActivationPing(context)
-
     override fun start() {
         logger.debug("Data collection is disabled, not initializing Glean.")
         initialized = true

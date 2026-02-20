@@ -249,7 +249,6 @@
     <!-- Debug drawer Distribution tools -->
     <string name="debug_drawer_distribution_tools_title">Distribution Tools</string>
     <string name="debug_drawer_distribution_id" translatable="false">Distribution ID</string>
-    <string name="debug_drawer_play_referrer" translatable="false">Play install referrer</string>
     <string name="debug_drawer_run_query_provider_test" translatable="false">Run query provider test</string>
 
     <!-- Debug drawer "contextual feature recommendation" (CFR) tools -->

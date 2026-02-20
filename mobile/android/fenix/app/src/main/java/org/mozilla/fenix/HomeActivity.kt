@@ -103,7 +103,6 @@ import org.mozilla.fenix.components.appstate.OrientationMode
 import org.mozilla.fenix.components.menu.MenuAccessPoint
 import org.mozilla.fenix.components.metrics.BreadcrumbsRecorder
 import org.mozilla.fenix.components.metrics.GrowthDataWorker
-import org.mozilla.fenix.components.metrics.MarketingAttributionService
 import org.mozilla.fenix.components.metrics.fonts.FontEnumerationWorker
 import org.mozilla.fenix.crashes.CrashReporterBinding
 import org.mozilla.fenix.crashes.UnsubmittedCrashDialog
@@ -416,9 +415,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
         // This is a temporary solution to determine if we should show the marketing onboarding card.
         if (shouldShowOnboarding) {
-            lifecycleScope.launch(IO) {
-                MarketingAttributionService(applicationContext).start()
-            }
         }
 
         SplashScreenManager(
@@ -873,7 +869,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
         components.core.pocketStoriesService.stopPeriodicSponsoredContentsRefresh()
         privateNotificationObserver?.stop()
         components.notificationsDelegate.unBindActivity(this)
-        MarketingAttributionService(applicationContext).stop()
 
         // clear hierarchy change listener set by AndroidX SplashScreen
         // https://bugzilla.mozilla.org/show_bug.cgi?id=1950295

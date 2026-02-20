@@ -12,11 +12,6 @@ import mozilla.components.support.base.ext.areNotificationsEnabledSafe
 import mozilla.components.support.base.ext.isNotificationChannelEnabled
 import mozilla.components.support.utils.Browsers
 import org.json.JSONObject
-import org.mozilla.fenix.components.metrics.UTMParams.Companion.UTM_CAMPAIGN
-import org.mozilla.fenix.components.metrics.UTMParams.Companion.UTM_CONTENT
-import org.mozilla.fenix.components.metrics.UTMParams.Companion.UTM_MEDIUM
-import org.mozilla.fenix.components.metrics.UTMParams.Companion.UTM_SOURCE
-import org.mozilla.fenix.components.metrics.UTMParams.Companion.UTM_TERM
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.onboarding.MARKETING_CHANNEL_ID
 import org.mozilla.fenix.utils.isLargeScreenSize
@@ -53,11 +48,6 @@ object CustomAttributeProvider : JexlAttributeProvider {
             mapOf(
                 // By convention, we should use snake case.
                 "is_first_run" to isFirstRun,
-                "install_referrer_response_utm_source" to settings.utmSource,
-                "install_referrer_response_utm_medium" to settings.utmMedium,
-                "install_referrer_response_utm_campaign" to settings.utmCampaign,
-                "install_referrer_response_utm_term" to settings.utmTerm,
-                "install_referrer_response_utm_content" to settings.utmContent,
                 "number_of_app_launches" to settings.numberOfAppLaunches,
                 "is_large_device" to context.isLargeScreenSize(),
                 // This camelCase attribute is a boolean value represented as a string.
@@ -85,11 +75,6 @@ object CustomAttributeProvider : JexlAttributeProvider {
                 "is_default_browser" to Browsers.isDefaultBrowser(context),
                 "date_string" to formatter.format(now.time),
                 "number_of_app_launches" to settings.numberOfAppLaunches,
-                UTM_SOURCE to settings.utmSource,
-                UTM_MEDIUM to settings.utmMedium,
-                UTM_CAMPAIGN to settings.utmCampaign,
-                UTM_TERM to settings.utmTerm,
-                UTM_CONTENT to settings.utmContent,
                 "are_notifications_enabled" to NotificationManagerCompat.from(context)
                     .areNotificationsEnabledSafe(),
                 "are_marketing_notifications_enabled" to NotificationManagerCompat.from(context)

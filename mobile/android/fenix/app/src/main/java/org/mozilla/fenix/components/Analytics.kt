@@ -33,7 +33,6 @@ import org.mozilla.fenix.components.metrics.FirstSessionMetricsService
 import org.mozilla.fenix.components.metrics.GleanMetricsService
 import org.mozilla.fenix.components.metrics.GleanProfileIdPreferenceStore
 import org.mozilla.fenix.components.metrics.GleanUsageReportingMetricsService
-import org.mozilla.fenix.components.metrics.InstallReferrerMetricsService
 import org.mozilla.fenix.components.metrics.MetricController
 import org.mozilla.fenix.components.metrics.MetricsStorage
 import org.mozilla.fenix.crashes.CrashFactCollector
@@ -165,7 +164,6 @@ class Analytics(
             listOf(
                 GleanMetricsService(context),
                 FirstSessionMetricsService(context),
-                InstallReferrerMetricsService(context, settings),
                 GleanUsageReportingMetricsService(gleanProfileIdStore = GleanProfileIdPreferenceStore(context)),
             ),
             isDataTelemetryEnabled = { settings.isTelemetryEnabled },

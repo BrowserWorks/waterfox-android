@@ -13,7 +13,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -26,7 +25,6 @@ import kotlinx.coroutines.launch
 import mozilla.components.compose.base.button.FilledButton
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.components
-import org.mozilla.fenix.components.metrics.InstallReferrerHandlingService
 import org.mozilla.fenix.distributions.DefaultDistributionProviderChecker
 import org.mozilla.fenix.theme.FirefoxTheme
 import org.mozilla.fenix.theme.PreviewThemeProvider
@@ -43,36 +41,10 @@ fun DistributionTools() {
     }
         .collectAsState(initial = "")
 
-    val settings = components.settings
-
-    val playInstallReferrer: String by remember {
-        mutableStateOf(
-            """
-                rawValue: ${InstallReferrerHandlingService.response}
-                utmTerm: ${settings.utmTerm}
-                utmMedium: ${settings.utmMedium}
-                utmSource: ${settings.utmSource}
-                utmContent: ${settings.utmContent}
-                utmCampaign: ${settings.utmCampaign}
-            """
-                .trimIndent()
-        )
-    }
-
-    val referral: String = remember {
-        buildList {
-            add("referralCode: ${settings.referralCode.ifEmpty { "(none)" }}")
-            add("referralPingSubmitted: \${settings.referralPingSubmitted}")
-        }
-            .joinToString()
-    }
-
     val coroutineScope = rememberCoroutineScope()
 
     DistributionToolsContent(
         distributionId = distributionId,
-        playInstallReferrer = playInstallReferrer,
-        referral = referral,
         onQueryProvider = {
             coroutineScope.launch {
                 DefaultDistributionProviderChecker(context).queryProvider()
@@ -84,8 +56,6 @@ fun DistributionTools() {
 @Composable
 private fun DistributionToolsContent(
     distributionId: String,
-    playInstallReferrer: String,
-    referral: String,
     onQueryProvider: () -> Unit,
 ) {
     Surface {
@@ -105,28 +75,6 @@ private fun DistributionToolsContent(
                 modifier = Modifier.padding(FirefoxTheme.layout.space.static50),
             )
 
-            Text(
-                text = stringResource(R.string.debug_drawer_play_referrer),
-                style = FirefoxTheme.typography.headline6,
-                modifier = Modifier.padding(FirefoxTheme.layout.space.static50),
-            )
-
-            Text(
-                text = playInstallReferrer,
-                modifier = Modifier.padding(FirefoxTheme.layout.space.static50),
-            )
-
-            Text(
-                text = stringResource(R.string.debug_drawer_referral),
-                style = FirefoxTheme.typography.headline6,
-                modifier = Modifier.padding(FirefoxTheme.layout.space.static50),
-            )
-
-            Text(
-                text = referral,
-                modifier = Modifier.padding(FirefoxTheme.layout.space.static50),
-            )
-
             FilledButton(
                 text = stringResource(R.string.debug_drawer_run_query_provider_test),
                 onClick = onQueryProvider,
@@ -141,8 +89,6 @@ private fun DistributionToolsPreview(@PreviewParameter(PreviewThemeProvider::cla
     FirefoxTheme(theme) {
         DistributionToolsContent(
             distributionId = "distributionId",
-            playInstallReferrer = "test",
-            referral = "referralCode: 0123456789ABCXYZ",
             onQueryProvider = {},
         )
     }

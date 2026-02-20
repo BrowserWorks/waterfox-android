@@ -5,16 +5,12 @@
 package org.mozilla.fenix.components.metrics
 
 import android.content.Context
-import android.os.RemoteException
-import com.android.installreferrer.api.InstallReferrerClient
-import com.android.installreferrer.api.InstallReferrerStateListener
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import mozilla.components.support.base.log.logger.Logger
 import org.json.JSONException
 import org.json.JSONObject
-import org.mozilla.fenix.FeatureFlags
 import org.mozilla.fenix.GleanMetrics.MetaAttribution
 import org.mozilla.fenix.GleanMetrics.Pings
 import org.mozilla.fenix.GleanMetrics.PlayStoreAttribution
@@ -30,91 +26,16 @@ import java.net.URLDecoder
  * and stored in settings.
  */
 class InstallReferrerMetricsService(private val context: Context) : MetricsService {
-    private val logger = Logger("InstallReferrerMetricsService")
     override val type = MetricServiceType.Data
 
-    private var referrerClient: InstallReferrerClient? = null
-
-    @Suppress("CognitiveComplexMethod")
     override fun start() {
-        if (context.settings().utmParamsKnown) {
-            return
+        if (!context.settings().utmParamsKnown) {
+            context.settings().utmParamsKnown = true
+            triggerPing()
         }
-
-        val timerId = PlayStoreAttribution.attributionTime.start()
-        val client = InstallReferrerClient.newBuilder(context).build()
-        referrerClient = client
-
-        client.startConnection(
-            object : InstallReferrerStateListener {
-                override fun onInstallReferrerSetupFinished(responseCode: Int) {
-                    PlayStoreAttribution.attributionTime.stopAndAccumulate(timerId)
-                    val firstSession = FirstSessionPing(context)
-                    PlayStoreAttribution.responseCode.set(responseCode.toString())
-                    when (responseCode) {
-                        InstallReferrerClient.InstallReferrerResponse.OK -> {
-                            // Connection established.
-                            val installReferrerResponse = try {
-                                client.installReferrer.installReferrer
-                            } catch (e: RemoteException) {
-                                // We can't do anything about this.
-                                logger.error("Failed to retrieve install referrer response", e)
-                                null
-                            } catch (e: SecurityException) {
-                                logger.error("Failed to retrieve install referrer response", e)
-                                null
-                            }
-
-                            if (installReferrerResponse.isNullOrBlank()) {
-                                return
-                            }
-
-                            PlayStoreAttribution.installReferrerResponse.set(installReferrerResponse)
-
-                            val utmParams = UTMParams.parseUTMParameters(installReferrerResponse)
-                            if (FeatureFlags.META_ATTRIBUTION_ENABLED) {
-                                MetaParams.extractMetaAttribution(utmParams.content)
-                                    ?.recordMetaAttribution()
-                            }
-
-                            utmParams.recordInstallReferrer(context.settings())
-                            context.settings().utmParamsKnown = true
-
-                            firstSession.checkAndSend()
-                            triggerPing()
-                        }
-
-                        InstallReferrerClient.InstallReferrerResponse.FEATURE_NOT_SUPPORTED,
-                        InstallReferrerClient.InstallReferrerResponse.DEVELOPER_ERROR,
-                        InstallReferrerClient.InstallReferrerResponse.PERMISSION_ERROR,
-                        -> {
-                            // unrecoverable errors, but we still want to send the first-session ping.
-                            context.settings().utmParamsKnown = true
-                            firstSession.checkAndSend()
-                            triggerPing()
-                        }
-
-                        InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE -> {
-                            // Connection couldn't be established.
-                        }
-                    }
-                    // End the connection, and null out the client.
-                    stop()
-                }
-
-                override fun onInstallReferrerServiceDisconnected() {
-                    // Try to restart the connection on the next request to
-                    // Google Play by calling the startConnection() method.
-                    referrerClient = null
-                }
-            },
-        )
     }
 
-    override fun stop() {
-        referrerClient?.endConnection()
-        referrerClient = null
-    }
+    override fun stop() = Unit
 
     override fun track(event: Event) = Unit
 
@@ -276,11 +197,9 @@ data class MetaParams(
                 return null
             }
             val decodedContentString = try {
-                // content string can be in percent format
                 URLDecoder.decode(contentString, "UTF-8")
             } catch (e: UnsupportedEncodingException) {
                 logger.error("failed to decode content string", e)
-                // can't recover from this
                 return null
             }
 
@@ -291,7 +210,6 @@ data class MetaParams(
                 JSONObject(decodedContentString)
             } catch (e: JSONException) {
                 logger.error("content is not JSON", e)
-                // can't recover from this
                 return null
             }
 
@@ -299,7 +217,6 @@ data class MetaParams(
                 contentJson.optString(APP) ?: ""
             } catch (e: JSONException) {
                 logger.error("failed to extract app", e)
-                // this is an acceptable outcome
                 ""
             }
 
@@ -307,7 +224,6 @@ data class MetaParams(
                 contentJson.optString(T) ?: ""
             } catch (e: JSONException) {
                 logger.error("failed to extract t", e)
-                // this is an acceptable outcome
                 ""
             }
 
@@ -317,7 +233,6 @@ data class MetaParams(
                 nonce = source?.optString(NONCE) ?: ""
             } catch (e: JSONException) {
                 logger.error("failed to extract data or nonce", e)
-                // can't recover from this
                 return null
             }
 

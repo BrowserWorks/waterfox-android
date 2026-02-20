@@ -51,12 +51,10 @@ work = "2.11.0"
 # Google other
 accompanist = "0.37.3"
 firebase-messaging = "25.0.1"
-installreferrer = "2.2"
 ksp = "2.3.4"
 material = "1.13.0"
 osslicenses-plugin = "0.10.10"
 play-review = "2.0.2"
-play-services-ads-id = "18.2.0"
 play-services-base = "18.9.0"
 play-services-fido = "21.2.0"
 protobuf = "4.33.2" # Keep Protobuf in sync with the version used by AppServices.
@@ -203,7 +201,6 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 # Google other
 accompanist-drawablepainter = { group = "com.google.accompanist", name = "accompanist-drawablepainter", version.ref = "accompanist" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebase-messaging" }
-installreferrer = { group = "com.android.installreferrer", name = "installreferrer", version.ref = "installreferrer" }
 google-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 ksp-symbol-processing-aa = { group = "com.google.devtools.ksp", name = "symbol-processing-aa", version.ref = "ksp" }
 ksp-symbol-processing-aa-embeddable = { group = "com.google.devtools.ksp", name = "symbol-processing-aa-embeddable", version.ref = "ksp" }
@@ -212,7 +209,6 @@ ksp-symbol-processing-common-deps = { group = "com.google.devtools.ksp", name = 
 osslicenses-plugin = { group = "com.google.android.gms", name = "oss-licenses-plugin", version.ref = "osslicenses-plugin" }
 play-review = { group = "com.google.android.play", name = "review", version.ref = "play-review" }
 play-review-ktx = { group = "com.google.android.play", name = "review-ktx", version.ref = "play-review" }
-play-services-ads-id = { group = "com.google.android.gms", name = "play-services-ads-identifier", version.ref = "play-services-ads-id" }
 play-services-base = { group = "com.google.android.gms", name = "play-services-base", version.ref = "play-services-base" }
 play-services-fido = { group = "com.google.android.gms", name = "play-services-fido", version.ref = "play-services-fido" }
 protobuf-compiler = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }

@@ -197,7 +197,7 @@ class Components(private val context: Context) {
         AddonManager(core.store, core.engine, addonsProvider, addonUpdater)
     }
 
-    val analytics by lazyMonitored { Analytics(context, nimbus, performance.visualCompletenessQueue) }
+    val analytics by lazyMonitored { Analytics(context, nimbus) }
 
     val remoteSettingsService = lazyMonitored {
         RemoteSettingsService(

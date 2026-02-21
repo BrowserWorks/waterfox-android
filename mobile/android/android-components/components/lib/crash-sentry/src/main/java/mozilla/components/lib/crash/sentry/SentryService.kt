@@ -142,6 +142,7 @@ class SentryService(
             options.isEnableNdk = false
             options.dsn = dsn
             options.environment = environment
+            options.isEnableAutoSessionTracking = false
             options.addEventProcessor(RustCrashEventProcessor())
             options.addEventProcessor(AddMechanismEventProcessor())
             crashMetadataEventProcessor?.also {

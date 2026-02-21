@@ -7,6 +7,7 @@ package org.mozilla.fenix.crashes
 import mozilla.components.lib.crash.store.CrashReportCache
 import mozilla.components.lib.crash.store.CrashReportOption
 import mozilla.components.lib.crash.store.TimeInMillis
+import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.utils.Settings
 
 /**
@@ -28,7 +29,7 @@ class SettingsCrashReportCache(private val settings: Settings) : CrashReportCach
     }
 
     override suspend fun setCrashPullNeverShowAgain(neverShowAgain: Boolean) {
-        settings.crashPullNeverShowAgain = neverShowAgain
+        settings.crashPullNeverShowAgain = !BuildConfig.CRASH_REPORTING || neverShowAgain
     }
 
     override suspend fun setCrashPullDeferUntil(timeInMillis: TimeInMillis) {
@@ -36,24 +37,28 @@ class SettingsCrashReportCache(private val settings: Settings) : CrashReportCach
     }
 
     override suspend fun getCrashPullDeferUntil(): TimeInMillis? =
-        if (settings.crashPullNeverShowAgain) {
+        if (!BuildConfig.CRASH_REPORTING || settings.crashPullNeverShowAgain) {
             // defer this forever
             Long.MAX_VALUE
         } else {
             settings.crashPullDontShowBefore
         }
 
-    override suspend fun getReportOption(): CrashReportOption =
-        try {
+    override suspend fun getReportOption(): CrashReportOption {
+        if (!BuildConfig.CRASH_REPORTING) return CrashReportOption.Never
+
+        return try {
             CrashReportOption.fromLabel(settings.crashReportChoice)
         } catch (e: IllegalArgumentException) {
             CrashReportOption.Never
         }
+    }
 
     override suspend fun setReportOption(option: CrashReportOption) {
-        settings.crashReportChoice = option.toString()
+        settings.crashReportChoice = if (BuildConfig.CRASH_REPORTING) option.toString() else CrashReportOption.Never.label
     }
 }
 
 /** Extension function to convert the crash report choice from settings to a [CrashReportOption]. */
-fun Settings.crashReportOption(): CrashReportOption = CrashReportOption.fromLabel(crashReportChoice)
+fun Settings.crashReportOption(): CrashReportOption =
+    if (BuildConfig.CRASH_REPORTING) CrashReportOption.fromLabel(crashReportChoice) else CrashReportOption.Never

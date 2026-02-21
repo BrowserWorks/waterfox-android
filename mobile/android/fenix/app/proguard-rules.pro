@@ -11,6 +11,11 @@
 # and its members.
 -keep class org.mozilla.gecko.util.DebugConfig { *; }
 
+# FragmentManager restores this historical class name across app upgrades.
+-keep,allowoptimization class org.mozilla.fenix.crashes.UnsubmittedCrashDialog {
+    public <init>();
+}
+
 ####################################################################################################
 # Remove debug logs from release builds
 ####################################################################################################

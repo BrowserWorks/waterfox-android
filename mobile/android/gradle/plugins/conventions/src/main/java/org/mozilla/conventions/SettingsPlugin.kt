@@ -84,8 +84,10 @@ abstract class SettingsPlugin : Plugin<Settings> {
         // .buildconfig.yml so inclusion is driven by project metadata rather than
         // name-prefix matching.
         val isAndroidLint = settings.startParameter.projectProperties.containsKey("android-lint")
+        val isFenix = (mozconfig["substs"] as Map<*, *>)["MOZ_ANDROID_SUBPROJECT"] == "fenix"
         val shouldIncludeProject = { name: String, _: ProjectConfig ->
-            isAndroidLint || rootDir.contains("android-components") || !name.startsWith("components:samples")
+            (!isFenix || name != "components:lib-crash-sentry") &&
+                (isAndroidLint || rootDir.contains("android-components") || !name.startsWith("components:samples"))
         }
 
         includeProjects(settings, buildConfig, baseDir, shouldIncludeProject)

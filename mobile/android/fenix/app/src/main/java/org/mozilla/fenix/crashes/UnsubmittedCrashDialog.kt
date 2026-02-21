@@ -46,6 +46,7 @@ import mozilla.components.compose.base.LinkText
 import mozilla.components.compose.base.LinkTextState
 import mozilla.components.compose.base.button.TextButton
 import mozilla.components.lib.crash.store.CrashAction
+import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.R
 import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.theme.FirefoxTheme
@@ -64,6 +65,15 @@ class UnsubmittedCrashDialog : DialogFragment() {
         get() = arguments?.getStringArrayList(BUNDLE_ARG_CRASH_IDS) ?: emptyList()
 
     @VisibleForTesting internal var dispatcher: CrashActionDispatcher? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (!BuildConfig.CRASH_REPORTING) {
+            showsDialog = false
+            dismissAllowingStateLoss()
+            return
+        }
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let { activity ->

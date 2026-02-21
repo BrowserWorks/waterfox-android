@@ -86,6 +86,7 @@ object GeckoProvider {
                 applicationScope = applicationScope,
             )
 
+        /*
         geckoRuntime.crashPullDelegate =
             GeckoCrashPullDelegate(
                 dispatcher = { crashIDs ->
@@ -94,6 +95,7 @@ object GeckoProvider {
                     )
                 }
             )
+        */
 
         return geckoRuntime
     }
@@ -132,7 +134,7 @@ object GeckoProvider {
                 .extensionsProcessEnabled(true)
                 .extensionsWebAPIEnabled(true)
                 .translationsOfferPopup(context.components.settings.offerTranslation)
-                .crashPullNeverShowAgain(context.components.settings.crashPullNeverShowAgain)
+                .crashPullNeverShowAgain(true)
                 .setSameDocumentNavigationOverridesLoadType(
                     FxNimbus.features.sameDocumentNavigationOverridesLoadType.value().enabled
                 )

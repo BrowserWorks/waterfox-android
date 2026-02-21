@@ -80,6 +80,16 @@
             android:shell="true"
             tools:targetApi="29" />
 
+        <activity
+            android:name="mozilla.components.lib.crash.prompt.CrashReporterActivity"
+            tools:node="remove" />
+        <service
+            android:name="mozilla.components.lib.crash.service.SendCrashReportService"
+            tools:node="remove" />
+        <service
+            android:name="mozilla.components.lib.crash.service.SendCrashTelemetryService"
+            tools:node="remove" />
+
         <!--
           We inherited this entry (${applicationId}.App) from Fennec. We need to keep this as our
           main launcher to avoid launcher icons on the home screen disappearing for all our users.

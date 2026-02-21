@@ -86,7 +86,6 @@ projects:
     - components:lib-bookmark-parser-jsoup
     - components:lib-bookmarks-file
     - components:lib-crash
-    - components:lib-crash-sentry
     - components:lib-dataprotect
     - components:lib-integrity-googleplay
     - components:lib-llm-mlpa

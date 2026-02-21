@@ -618,7 +618,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
             extensionsProcessDisabledForegroundController,
             extensionsProcessDisabledBackgroundController,
             serviceWorkerSupport,
-            crashReporterBinding,
+            // crashReporterBinding,
             defaultPinnedSitesBinding,
             TopSitesRefresher(
                 settings = components.settings,

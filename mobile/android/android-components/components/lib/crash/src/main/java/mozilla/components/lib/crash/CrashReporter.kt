@@ -81,7 +81,8 @@ private const val START_OF_154_NIGHTLY_TIMESTAMP = 1787070240000L
  * ```
  *
  * With this minimal setup the crash reporting library will capture "uncaught exception" crashes and "native code"
- * crashes and forward them to the configured crash reporting services.
+ * crashes and forward them to the configured crash reporting services. Leave both service lists empty to record
+ * crashes locally without sending reports or prompting the user.
  *
  * @property enabled Enable/Disable crash reporting.
  * @param services List of crash reporting services that should receive crash reports.
@@ -149,12 +150,6 @@ internal constructor(
 
     private val runtimeTags: Map<String, String>
         get() = runtimeTagProviders.fold(emptyMap()) { acc, provider -> acc + provider() }
-
-    init {
-        require(services.isNotEmpty() || telemetryServices.isNotEmpty()) {
-            "No crash reporter services defined"
-        }
-    }
 
     /** Install this [CrashReporter] instance. At this point the component will be setup to collect crash reports. */
     fun install(

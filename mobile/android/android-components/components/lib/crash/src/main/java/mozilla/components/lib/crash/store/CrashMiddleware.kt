@@ -137,7 +137,7 @@ class CrashMiddleware(
                         dispatch(CrashAction.CheckDeferred(listOf()))
                     }
                     CrashReportOption.Auto -> {
-                        dispatch(CrashAction.CheckForCrashes(listOf()))
+                        dispatch(CrashAction.CheckDeferred(listOf()))
                     }
                     CrashReportOption.Never -> {
                         return@launch
@@ -180,11 +180,8 @@ class CrashMiddleware(
             is CrashAction.FinishCheckingForCrashes -> scope.launch {
                 when (cache.getReportOption()) {
                     CrashReportOption.Auto -> {
-                        if (action.crashIds.isNotEmpty()) {
-                            sendCrashReports(action.crashIds)
-                            cache.setCrashPullDeferUntil(currentTimeInMillis() + SEVEN_DAYS_IN_MILLIS)
-                        } else if (action.hasUnsentCrashes) {
-                            sendUnsentCrashReports()
+                        if (action.crashIds.isNotEmpty() || action.hasUnsentCrashes) {
+                            dispatch(CrashAction.ShowPrompt(action.crashIds))
                         }
                     }
                     CrashReportOption.Ask -> {
@@ -211,7 +208,7 @@ class CrashMiddleware(
                     cache.setCrashPullDeferUntil(currentTimeInMillis() + SEVEN_DAYS_IN_MILLIS)
                 } else {
                     if (action.automaticallySendChecked) {
-                        cache.setReportOption(CrashReportOption.Auto)
+                        cache.setReportOption(CrashReportOption.Ask)
                     }
                     sendUnsentCrashReports()
                 }

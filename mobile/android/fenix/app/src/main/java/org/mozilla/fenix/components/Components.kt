@@ -241,7 +241,7 @@ class Components(
         AddonManager(core.store, core.engine, addonsProvider, addonUpdater)
     }
 
-    val analytics by lazyMonitored { Analytics(context, settings, nimbus, performance.visualCompletenessQueue) }
+    val analytics by lazyMonitored { Analytics(context, settings, nimbus) }
 
     val remoteSettingsService = lazyMonitored {
         RemoteSettingsService(
@@ -345,6 +345,7 @@ class Components(
                             metrics = analytics.metrics,
                             nimbusEventStore = nimbus.events,
                         ),
+                        /*
                         CrashReportingAppMiddleware(
                             CrashMiddleware(
                                 cache = SettingsCrashReportCache(settings),
@@ -352,6 +353,7 @@ class Components(
                                 currentTimeInMillis = currentTimeMillis,
                             )
                         ),
+                        */
                         HomeTelemetryMiddleware(),
                         SetupChecklistPreferencesMiddleware(DefaultSetupChecklistRepository(context, settings)),
                         SetupChecklistTelemetryMiddleware(),
@@ -375,7 +377,7 @@ class Components(
             )
             .also {
                 it.dispatch(AppAction.SetupChecklistAction.Init)
-                it.dispatch(AppAction.CrashActionWrapper(CrashAction.Initialize))
+                // it.dispatch(AppAction.CrashActionWrapper(CrashAction.Initialize))
             }
     }
 

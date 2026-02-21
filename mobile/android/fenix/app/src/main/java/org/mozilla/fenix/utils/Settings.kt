@@ -568,7 +568,7 @@ class Settings(
     var crashReportChoice by
         stringPreference(
             appContext.getPreferenceKey(R.string.pref_key_crash_reporting_choice),
-            default = CrashReportOption.Ask.toString(),
+            default = CrashReportOption.Never.label,
         )
 
     val isRemoteDebuggingEnabled by

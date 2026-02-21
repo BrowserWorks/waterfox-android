@@ -42,6 +42,7 @@ import mozilla.components.compose.base.theme.PreviewThemeProvider
 import mozilla.components.compose.base.theme.Theme
 import mozilla.components.lib.crash.store.CrashReportOption
 import mozilla.components.lib.state.ext.observeAsComposableState
+import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.list.RadioButtonListItem
 import org.mozilla.fenix.compose.list.SwitchListItem
@@ -201,7 +202,7 @@ private fun buildDataChoicesItems(state: DataChoicesState): List<DataChoicesSect
             add(DataChoicesSectionKey.TECHNICAL_DATA)
             add(DataChoicesSectionKey.STUDIES)
             add(DataChoicesSectionKey.USAGE_DATA)
-            add(DataChoicesSectionKey.CRASH_REPORTS)
+            if (BuildConfig.CRASH_REPORTING) add(DataChoicesSectionKey.CRASH_REPORTS)
             if (state.showMeasurementDataSection) {
                 add(DataChoicesSectionKey.CAMPAIGN_MEASUREMENT)
             }
@@ -452,14 +453,16 @@ object DataChoicesSearchProvider : SettingsSearchProvider {
                     key = DataChoicesSectionKey.USAGE_DATA,
                 )
             )
-            add(
-                buildSearchItem(
-                    context = context,
-                    titleRes = R.string.crash_reports_data_category,
-                    summaryRes = R.string.crash_reporting_description,
-                    key = DataChoicesSectionKey.CRASH_REPORTS,
+            if (BuildConfig.CRASH_REPORTING) {
+                add(
+                    buildSearchItem(
+                        context = context,
+                        titleRes = R.string.crash_reports_data_category,
+                        summaryRes = R.string.crash_reporting_description,
+                        key = DataChoicesSectionKey.CRASH_REPORTS,
+                    )
                 )
-            )
+            }
             if (context.components.settings.hasMadeMarketingTelemetrySelection) {
                 add(
                     buildSearchItem(

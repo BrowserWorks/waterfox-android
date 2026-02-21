@@ -36,6 +36,7 @@ import mozilla.components.compose.base.button.FilledButton
 import mozilla.components.compose.base.button.OutlinedButton
 import mozilla.components.lib.state.ext.observeAsComposableState
 import mozilla.components.ui.icons.R as iconsR
+import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.R
 import org.mozilla.fenix.theme.FirefoxTheme
 
@@ -154,16 +155,18 @@ private fun ScreenText() {
             style = FirefoxTheme.typography.headline5,
         )
 
-        Text(
-            text =
-                stringResource(
-                    R.string.startup_crash_body,
-                    stringResource(R.string.firefox),
-                ),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            style = FirefoxTheme.typography.body2,
-            textAlign = TextAlign.Center,
-        )
+        if (BuildConfig.CRASH_REPORTING) {
+            Text(
+                text =
+                    stringResource(
+                        R.string.startup_crash_body,
+                        stringResource(R.string.firefox),
+                    ),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                style = FirefoxTheme.typography.body2,
+                textAlign = TextAlign.Center,
+            )
+        }
     }
 }
 

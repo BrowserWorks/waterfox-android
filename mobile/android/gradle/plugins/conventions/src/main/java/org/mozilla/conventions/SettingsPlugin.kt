@@ -4,6 +4,9 @@
 
 package org.mozilla.conventions
 
+import java.io.File
+import java.util.UUID
+import javax.inject.Inject
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.flow.FlowProviders
@@ -14,14 +17,11 @@ import org.gradle.api.tasks.testing.Test
 import org.gradle.build.event.BuildEventsListenerRegistry
 import org.gradle.kotlin.dsl.always
 import org.gradle.kotlin.dsl.create
-import java.io.File
-import java.util.UUID
-import javax.inject.Inject
 
 private data class AutoPublishConfig(
     val propertyName: String,
     val displayName: String,
-    val publishScript: String
+    val publishScript: String,
 )
 
 // Windows can't execute .py files directly, so we assume a "manually installed" python,
@@ -31,14 +31,11 @@ private val isWindows = System.getProperty("os.name").lowercase().contains("wind
 abstract class SettingsPlugin : Plugin<Settings> {
     private val logger = Logging.getLogger(SettingsPlugin::class.java)
 
-    @get:Inject
-    protected abstract val buildEventsListenerRegistry: BuildEventsListenerRegistry
+    @get:Inject protected abstract val buildEventsListenerRegistry: BuildEventsListenerRegistry
 
-    @get:Inject
-    protected abstract val flowScope: FlowScope
+    @get:Inject protected abstract val flowScope: FlowScope
 
-    @get:Inject
-    protected abstract val flowProviders: FlowProviders
+    @get:Inject protected abstract val flowProviders: FlowProviders
 
     override fun apply(settings: Settings) {
         val configStartMs = System.currentTimeMillis()
@@ -84,8 +81,10 @@ abstract class SettingsPlugin : Plugin<Settings> {
         // .buildconfig.yml so inclusion is driven by project metadata rather than
         // name-prefix matching.
         val isAndroidLint = settings.startParameter.projectProperties.containsKey("android-lint")
+        val isFenix = (mozconfig["substs"] as Map<*, *>)["MOZ_ANDROID_SUBPROJECT"] == "fenix"
         val shouldIncludeProject = { name: String, _: ProjectConfig ->
-            isAndroidLint || rootDir.contains("android-components") || !name.startsWith("components:samples")
+            (!isFenix || name != "components:lib-crash-sentry") &&
+                (isAndroidLint || rootDir.contains("android-components") || !name.startsWith("components:samples"))
         }
 
         includeProjects(settings, buildConfig, baseDir, shouldIncludeProject)
@@ -109,11 +108,15 @@ abstract class SettingsPlugin : Plugin<Settings> {
             val propertyKey = "localProperties.autoPublish.${config.propertyName}.dir"
             if (extraProperties.has(propertyKey)) {
                 val localPath = extraProperties[propertyKey] as String
-                logger.lifecycle("SettingsPlugin> Enabling automatic publication of ${config.displayName} from: $localPath")
+                logger.lifecycle(
+                    "SettingsPlugin> Enabling automatic publication of ${config.displayName} from: $localPath"
+                )
                 val publishCmd = buildPythonCommand(config.publishScript)
                 runCmd(settings, publishCmd, localPath, "Published ${config.displayName} for local development.")
             } else {
-                logger.lifecycle("SettingsPlugin> Disabled auto-publication of ${config.displayName}. Enable it by settings 'autoPublish.${config.propertyName}.dir' in local.properties")
+                logger.lifecycle(
+                    "SettingsPlugin> Disabled auto-publication of ${config.displayName}. Enable it by settings 'autoPublish.${config.propertyName}.dir' in local.properties"
+                )
             }
         }
     }
@@ -127,8 +130,7 @@ abstract class SettingsPlugin : Plugin<Settings> {
             }
 
             rootGradle.taskGraph.allTasks.forEach { task ->
-                val mozilla = task.project.extensions.findByType(ProjectExtension::class.java)
-                    ?: return@forEach
+                val mozilla = task.project.extensions.findByType(ProjectExtension::class.java) ?: return@forEach
                 if (mozilla.androidComponentsProject.get() && (task is Test || task.name.contains("lint"))) {
                     task.project.logger.debug("Disabling task ${task.path}")
                     task.enabled = false
@@ -148,15 +150,18 @@ abstract class SettingsPlugin : Plugin<Settings> {
         }
 
         // Register a task listener for all builds
-        val buildMetricsProvider = rootGradle.sharedServices.registerIfAbsent(
-            "buildMetricsService",
-            BuildMetricsService::class.java
-        ) {
-            parameters.outputDir.set(outputDir)
-            rootGradle.startParameter.projectProperties["buildMetricsFileSuffix"]?.let { parameters.fileSuffix.set(it) }
-            parameters.buildId.set(buildId)
-            parameters.configStartMs.set(configStartMs)
-        }
+        val buildMetricsProvider =
+            rootGradle.sharedServices.registerIfAbsent(
+                "buildMetricsService",
+                BuildMetricsService::class.java,
+            ) {
+                parameters.outputDir.set(outputDir)
+                rootGradle.startParameter.projectProperties["buildMetricsFileSuffix"]?.let {
+                    parameters.fileSuffix.set(it)
+                }
+                parameters.buildId.set(buildId)
+                parameters.configStartMs.set(configStartMs)
+            }
 
         buildEventsListenerRegistry.onTaskCompletion(buildMetricsProvider)
 
@@ -181,11 +186,12 @@ abstract class SettingsPlugin : Plugin<Settings> {
     }
 
     private fun runCmd(settings: Settings, cmd: List<String>, workingDirectory: String, successMessage: String) {
-        val proc = settings.providers.exec {
-            commandLine(cmd)
-            isIgnoreExitValue = true
-            workingDir = File(workingDirectory)
-        }
+        val proc =
+            settings.providers.exec {
+                commandLine(cmd)
+                isIgnoreExitValue = true
+                workingDir = File(workingDirectory)
+            }
 
         val result = proc.result.get().exitValue
 
@@ -201,17 +207,18 @@ abstract class SettingsPlugin : Plugin<Settings> {
     }
 
     companion object {
-        private val AUTO_PUBLISH_CONFIGS = listOf(
-            AutoPublishConfig(
-                propertyName = "application-services",
-                displayName = "application-services",
-                publishScript = "./automation/publish_to_maven_local_if_modified.py"
-            ),
-            AutoPublishConfig(
-                propertyName = "glean",
-                displayName = "Glean",
-                publishScript = "./build-scripts/publish_to_maven_local_if_modified.py"
+        private val AUTO_PUBLISH_CONFIGS =
+            listOf(
+                AutoPublishConfig(
+                    propertyName = "application-services",
+                    displayName = "application-services",
+                    publishScript = "./automation/publish_to_maven_local_if_modified.py",
+                ),
+                AutoPublishConfig(
+                    propertyName = "glean",
+                    displayName = "Glean",
+                    publishScript = "./build-scripts/publish_to_maven_local_if_modified.py",
+                ),
             )
-        )
     }
 }

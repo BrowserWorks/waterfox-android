@@ -41,6 +41,7 @@ import mozilla.components.compose.base.annotation.FlexibleWindowPreview
 import mozilla.components.compose.base.button.TextButton
 import mozilla.components.compose.base.theme.PreviewThemeProvider
 import mozilla.components.compose.base.theme.Theme
+import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.R
 import org.mozilla.fenix.onboarding.store.PrivacyPreferencesAction
 import org.mozilla.fenix.onboarding.store.PrivacyPreferencesStore
@@ -71,13 +72,15 @@ fun ManagePrivacyPreferencesDialog(
 
                 UsageDataPreference(store, state.usageDataEnabled, onUsageDataLinkClick)
 
-                Spacer(modifier = Modifier.height(24.dp))
+                if (BuildConfig.CRASH_REPORTING) {
+                    Spacer(modifier = Modifier.height(24.dp))
 
-                CrashReportingPreference(
-                    store,
-                    state.crashReportingEnabled,
-                    onCrashReportingLinkClick,
-                )
+                    CrashReportingPreference(
+                        store,
+                        state.crashReportingEnabled,
+                        onCrashReportingLinkClick,
+                    )
+                }
 
                 Spacer(modifier = Modifier.height(16.dp))
 

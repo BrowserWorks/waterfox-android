@@ -126,7 +126,6 @@ import org.mozilla.fenix.components.share.QR_CODE_URI_KEY
 import org.mozilla.fenix.components.share.SEND_TO_DEVICES_ACTION
 import org.mozilla.fenix.components.share.SendToDevicesDialogFragment
 import org.mozilla.fenix.crashes.CrashActionDispatcher
-import org.mozilla.fenix.crashes.CrashReporterBinding
 import org.mozilla.fenix.crashes.UnsubmittedCrashDialog
 import org.mozilla.fenix.customtabs.ExternalAppBrowserActivity
 import org.mozilla.fenix.databinding.ActivityHomeBinding
@@ -304,13 +303,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
         DownloadSnackbar(
             store = components.core.store,
             appStore = components.appStore,
-        )
-    }
-
-    private val crashReporterBinding by lazy {
-        CrashReporterBinding(
-            store = components.appStore,
-            onReporting = ::showCrashReporter,
         )
     }
 
@@ -620,7 +612,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
             extensionsProcessDisabledForegroundController,
             extensionsProcessDisabledBackgroundController,
             serviceWorkerSupport,
-            crashReporterBinding,
             defaultPinnedSitesBinding,
             TopSitesRefresher(
                 settings = components.settings,
@@ -1743,10 +1734,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
     /** Dispatches the received [CrashAction] from [UnsubmittedCrashDialog] */
     override fun dispatchCrashAction(action: CrashAction) {
         components.appStore.dispatch(AppAction.CrashActionWrapper(action))
-    }
-
-    private fun showCrashReporter(crashIDs: List<String>?) {
-        UnsubmittedCrashDialog.create(crashIDs = crashIDs).show(supportFragmentManager, UnsubmittedCrashDialog.TAG)
     }
 
     companion object {

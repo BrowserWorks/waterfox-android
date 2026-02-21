@@ -19,9 +19,7 @@ import mozilla.components.lib.crash.service.CrashReporterService
 
 import mozilla.components.lib.crash.service.socorro.MozillaSocorroService
 import mozilla.components.lib.crash.store.CrashReportOption
-import mozilla.components.support.ktx.android.content.isMainProcess
 import mozilla.components.support.utils.Browsers
-import mozilla.components.support.utils.RunWhenReadyQueue
 import mozilla.components.support.utils.ext.packageManagerCompatHelper
 import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.Config
@@ -53,20 +51,12 @@ class Analytics(
     private val context: Context,
     private val settings: Settings,
     private val nimbusComponents: NimbusComponents,
-    private val runWhenReadyQueue: RunWhenReadyQueue,
 ) {
     val crashReporter: CrashReporter by lazyMonitored {
         val services = mutableListOf<CrashReporterService>()
         val distributionId = "Mozilla"
 
         if (isSentryEnabled()) {
-            // We treat caught exceptions similar to debug logging.
-            // On the release channel volume of these is too high for our Sentry instances, and
-            // we get most value out of nightly/beta logging anyway.
-            val shouldSendCaughtExceptions = when (Config.channel) {
-                ReleaseChannel.Release -> false
-                else -> true
-            }
             val sentryService = SentryService(
                 context,
                 BuildConfig.SENTRY_TOKEN,
@@ -76,18 +66,12 @@ class Analytics(
                 ),
                 environment = BuildConfig.BUILD_TYPE,
                 sendEventForNativeCrashes = false, // Do not send native crashes to Sentry
-                sendCaughtExceptions = shouldSendCaughtExceptions,
+                sendCaughtExceptions = false,
                 sentryProjectUrl = getSentryProjectUrl(),
                 crashMetadataEventProcessor = CrashMetadataEventProcessor(),
             )
 
-            // We only want to initialize Sentry on startup on the main process.
-            if (context.isMainProcess()) {
-                runWhenReadyQueue.runIfReadyOrQueue {
-                    sentryService.initIfNeeded()
-                }
-            }
-
+            // Sentry initializes lazily on first report via SentryService.prepareReport().
             services.add(sentryService)
         }
 

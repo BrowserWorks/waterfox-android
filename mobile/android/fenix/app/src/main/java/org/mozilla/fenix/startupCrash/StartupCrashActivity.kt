@@ -31,7 +31,7 @@ class StartupCrashActivity : AppCompatActivity() {
                 StartupCrashScreen(
                     store =
                         StartupCrashStore(
-                            initialState = StartupCrashState(UiState.Idle),
+                            initialState = StartupCrashState(UiState.Finished),
                             middleware =
                                 listOf(
                                     StartupCrashMiddleware(

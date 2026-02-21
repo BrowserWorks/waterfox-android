@@ -8,18 +8,15 @@ import android.content.Context
 import androidx.annotation.VisibleForTesting
 import kotlinx.coroutines.CoroutineScope
 import mozilla.components.browser.engine.gecko.autofill.GeckoAutocompleteStorageDelegate
-import mozilla.components.browser.engine.gecko.crash.GeckoCrashPullDelegate
 import mozilla.components.browser.engine.gecko.ext.toContentBlockingSetting
 import mozilla.components.concept.engine.EngineSession.TrackingProtectionPolicy
 import mozilla.components.concept.storage.CreditCardsAddressesStorage
 import mozilla.components.concept.storage.LoginsStorage
 import mozilla.components.experiment.NimbusExperimentDelegate
 import mozilla.components.lib.crash.handler.CrashHandlerService
-import mozilla.components.lib.crash.store.CrashAction
 import mozilla.components.service.sync.autofill.GeckoCreditCardsAddressesStorageDelegate
 import mozilla.components.service.sync.logins.GeckoLoginStorageDelegate
 import org.mozilla.fenix.Config
-import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.geckoview.GeckoRuntime
@@ -86,6 +83,7 @@ object GeckoProvider {
                 applicationScope = applicationScope,
             )
 
+        /*
         geckoRuntime.crashPullDelegate =
             GeckoCrashPullDelegate(
                 dispatcher = { crashIDs ->
@@ -94,6 +92,7 @@ object GeckoProvider {
                     )
                 }
             )
+        */
 
         return geckoRuntime
     }
@@ -132,7 +131,7 @@ object GeckoProvider {
                 .extensionsProcessEnabled(true)
                 .extensionsWebAPIEnabled(true)
                 .translationsOfferPopup(context.components.settings.offerTranslation)
-                .crashPullNeverShowAgain(context.components.settings.crashPullNeverShowAgain)
+                .crashPullNeverShowAgain(true)
                 .setSameDocumentNavigationOverridesLoadType(
                     FxNimbus.features.sameDocumentNavigationOverridesLoadType.value().enabled
                 )

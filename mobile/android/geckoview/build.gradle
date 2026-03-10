@@ -530,7 +530,7 @@ tasks.register("generateSDKBindings", JavaExec) {
 
 // The published variant is the one the AAR brings into an application.
 tasks.register("writeRuntimeDependencies", WriteRuntimeDependencies) {
-    classpath(configurations.named("debugRuntimeClasspath"))
+    classpath(configurations.named("${publishedVariant}RuntimeClasspath"))
     outputFile = layout.buildDirectory.file("sbom/runtime-dependencies.json")
 }
 

@@ -121,20 +121,15 @@ class ProjectPlugin : Plugin<Project> {
         project.pluginManager.withPlugin("com.android.application", action)
     }
 
-    // Querying whether :geckoview is part of the build composition; no project-isolation-safe alternative.
+    // Querying whether app-services is part of the build composition; no project-isolation-safe alternative.
     @Suppress("GradleProjectIsolation")
     private fun configureAppServicesSubstitution(
         project: Project,
         extraProperties: org.gradle.api.plugins.ExtraPropertiesExtension,
         substs: Map<String, Any>,
     ) {
-        // Only substitute when the a-s subprojects are part of this Gradle build:
-        // either :geckoview is included (so the a-s subprojects are too), or we're
-        // downloading every Gradle dependency. When m/a/fenix builds on its own
-        // (e.g., the second pass of a fat-AAR build), :geckoview isn't in settings
-        // and fenix consumes a-s as Maven AARs from target.maven.zip instead of
-        // maven.mozilla.org.
-        if (substs["MOZ_APPSERVICES_IN_TREE"].isTruthy() && (substs["DOWNLOAD_ALL_GRADLE_DEPENDENCIES"].isTruthy() || project.findProject(":geckoview") != null)) {
+        // Substitute only when the app-services projects are included in this build.
+        if (substs["MOZ_APPSERVICES_IN_TREE"].isTruthy() && project.findProject(":full-megazord") != null) {
             // In tree, so we update our legacy "external" dep name to a local project.
             // e.g., "org.mozilla.appservices:syncmanager:X.Y.Z" becomes project(':syncmanager')
             substituteDependencies(project, APP_SERVICES_GROUPS) { group, module, dependency ->

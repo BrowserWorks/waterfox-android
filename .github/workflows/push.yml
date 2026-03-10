@@ -1,0 +1,278 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Build date (e.g., $(date +'%Y%m%d%H%M%S'))"
+        required: true
+        type: string
+      version:
+        description: "Version number (e.g., 1.0.0)"
+        required: true
+        type: string
+
+env:
+  GRADLE_MAVEN_REPOSITORIES: "https://maven.google.com/,https://repo.maven.apache.org/maven2/,https://plugins.gradle.org/m2/,https://maven.mozilla.org/maven2/"
+  MOZ_BUILD_DATE: "${{ inputs.date }}"
+  SENTRY_TOKEN: "${{ secrets.SENTRY_TOKEN }}"
+  SIGNING_KEY_ALIAS: "${{ secrets.SIGNING_KEY_ALIAS }}"
+  SIGNING_KEY_PASSWORD: "${{ secrets.SIGNING_KEY_PASSWORD }}"
+  SIGNING_KEY_STORE_BASE64: "${{ secrets.SIGNING_KEY_STORE_BASE64 }}"
+  SIGNING_STORE_PASSWORD: "${{ secrets.SIGNING_STORE_PASSWORD }}"
+
+jobs:
+  build-geckoview:
+    concurrency:
+      group: "${{ github.ref }}-${{ matrix.arch }}-geckoview"
+      cancel-in-progress: true
+    env:
+      MOZCONFIG: ".mozconfig-${{ matrix.arch }}"
+    name: Build GeckoView
+    runs-on: warp-ubuntu-latest-x64-16x
+    strategy:
+      matrix:
+        arch:
+          - arm-linux-androideabi
+          - aarch64-linux-android
+          - x86_64-linux-android
+    steps:
+      - name: ↓ Checkout repository
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: ☕️ Setup Java
+        uses: actions/setup-java@v5
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: 🔧 Setup deps
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          . "$HOME/.cargo/env"
+          if [ "${{ matrix.arch }}" = "arm-linux-androideabi" ]; then
+            rustup target add thumbv7neon-linux-androideabi
+          else
+            rustup target add ${{ matrix.arch }}
+          fi
+
+      - name: 📝 Generate local.properties
+        run: |
+          NDK_VERSION=$(sed -n 's/^NDK_VERSION = "\(.*\)"/\1/p' python/mozboot/mozboot/android.py)
+          NDK_DIR="$HOME/.mozbuild/android-ndk-$NDK_VERSION"
+          cat > local.properties << EOF
+          autoPublish.glean.dir=glean
+          localProperties.dependencySubstitutions.geckoviewTopobjdir=objdir
+          sdk.dir=$HOME/.mozbuild/android-sdk-linux
+          ndk.dir=$NDK_DIR
+          EOF
+
+          cat > glean/local.properties << EOF
+          sdk.dir=$HOME/.mozbuild/android-sdk-linux
+          ndk.dir=$NDK_DIR
+          EOF
+
+      - name: 🩹 Apply local patches
+        run: |
+          chmod +x patches/apply-local-patches.sh
+          ./patches/apply-local-patches.sh
+
+      - name: 🔐 Write Sentry DSN token file
+        run: |
+          printf "%s" "$SENTRY_TOKEN" > .sentry_token
+          chmod 600 .sentry_token
+
+      - name: 🔨 Build Gecko
+        run: |
+          unset ANDROID_HOME
+          unset ANDROID_NDK
+          unset ANDROID_NDK_HOME
+          unset ANDROID_NDK_LATEST_HOME
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_SDK_ROOT
+          echo $MOZ_BUILD_DATE
+          ./mach build
+          ./mach package
+          export GRADLE_INVOKED_WITHIN_MACH_BUILD=1
+          ./mach gradle :geckoview:assembleRelease
+
+      - name: Create Maven zip
+        run: |
+          set -euo pipefail
+          OBJDIR="obj-${{ matrix.arch }}"
+          GRADLE_DIR="$OBJDIR/gradle"
+          export GRADLE_INVOKED_WITHIN_MACH_BUILD=1
+          ./mach gradle :geckoview:publishReleasePublicationToMavenRepository
+          python3 scripts/create-maven-zip.py --objdir "$OBJDIR" --include-snapshots --require-aar
+          test -f "$GRADLE_DIR/target.maven.zip"
+
+      - name: 🆙 Upload GeckoView Artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: geckoview-${{ matrix.arch }}-${{ github.run_id }}
+          path: |
+            ./obj-${{ matrix.arch }}/gradle/target.maven.zip
+          retention-days: 1
+
+  build-app:
+    name: Build App
+    needs:
+      - build-geckoview
+    runs-on: warp-ubuntu-latest-x64-16x
+    steps:
+      - name: ↓ Checkout repository
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: ☕️ Setup Java
+        uses: actions/setup-java@v5
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: ⬇️ Download GeckoView ARMEABI_V7A Artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: geckoview-arm-linux-androideabi-${{ github.run_id }}
+          path: obj-arm-linux-androideabi/
+
+      - name: ⬇️ Download GeckoView ARM64_V8A Artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: geckoview-aarch64-linux-android-${{ github.run_id }}
+          path: obj-aarch64-linux-android/
+
+      - name: ⬇️ Download GeckoView X86_64 Artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: geckoview-x86_64-linux-android-${{ github.run_id }}
+          path: obj-x86_64-linux-android/
+
+      - name: 🔎 Display structure of artifact files
+        run: |
+          ls -R obj-arm-linux-androideabi
+          ls -R obj-aarch64-linux-android
+          ls -R obj-x86_64-linux-android
+
+      - name: 🔧 Setup deps
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          . "$HOME/.cargo/env"
+          rustup target add x86_64-linux-android
+
+      - name: 📝 Generate local.properties
+        run: |
+          NDK_VERSION=$(sed -n 's/^NDK_VERSION = "\(.*\)"/\1/p' python/mozboot/mozboot/android.py)
+          NDK_DIR="$HOME/.mozbuild/android-ndk-$NDK_VERSION"
+          cat > local.properties << EOF
+          autoPublish.glean.dir=glean
+          localProperties.dependencySubstitutions.geckoviewTopobjdir=objdir
+          sdk.dir=$HOME/.mozbuild/android-sdk-linux
+          ndk.dir=$NDK_DIR
+          branchBuild.waterfox.version=${{ inputs.version }}
+          EOF
+
+          cat > glean/local.properties << EOF
+          sdk.dir=$HOME/.mozbuild/android-sdk-linux
+          ndk.dir=$NDK_DIR
+          EOF
+
+      - name: 🩹 Apply local patches
+        run: |
+          chmod +x patches/apply-local-patches.sh
+          ./patches/apply-local-patches.sh
+
+      - name: 🔐 Write Sentry DSN token file
+        run: |
+          printf "%s" "$SENTRY_TOKEN" > .sentry_token
+          chmod 600 .sentry_token
+
+      - name: 🔨 Build Gecko
+        run: |
+          unset ANDROID_HOME
+          unset ANDROID_NDK
+          unset ANDROID_NDK_HOME
+          unset ANDROID_NDK_LATEST_HOME
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_SDK_ROOT
+          export MOZ_ANDROID_FAT_AAR_ARMEABI_V7A="$(pwd)/obj-arm-linux-androideabi/target.maven.zip"
+          export MOZ_ANDROID_FAT_AAR_ARM64_V8A="$(pwd)/obj-aarch64-linux-android/target.maven.zip"
+          export MOZ_ANDROID_FAT_AAR_X86_64="$(pwd)/obj-x86_64-linux-android/target.maven.zip"
+          ./mach build
+
+      - name: 🔓 Decode Keystore
+        run: |
+          echo "${{ secrets.SIGNING_KEY_STORE_BASE64 }}" | base64 --decode > mobile/android/fenix/app/keystore.jks
+
+      - name: 🔨 Build Release APKs
+        run: |
+          unset ANDROID_HOME
+          unset ANDROID_NDK
+          unset ANDROID_NDK_HOME
+          unset ANDROID_NDK_LATEST_HOME
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_SDK_ROOT
+          export GRADLE_INVOKED_WITHIN_MACH_BUILD=1
+          ./mach gradle :fenix:assembleWaterfoxRelease
+
+      - name: 📦 Build Release AAB
+        run: |
+          unset ANDROID_HOME
+          unset ANDROID_NDK
+          unset ANDROID_NDK_HOME
+          unset ANDROID_NDK_LATEST_HOME
+          unset ANDROID_NDK_ROOT
+          unset ANDROID_SDK_ROOT
+          export GRADLE_INVOKED_WITHIN_MACH_BUILD=1
+          ./mach gradle :fenix:bundleWaterfoxRelease
+
+      - name: 🆙 Upload Build Artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: build-artifacts-${{ github.run_id }}
+          path: |
+            objdir/gradle/build/mobile/android/fenix/app/outputs/bundle/waterfoxRelease/*.aab
+            objdir/gradle/build/mobile/android/fenix/app/outputs/apk/waterfox/release/*.apk
+            objdir/gradle/build/mobile/android/fenix/app/outputs/apk/waterfox/release/output-metadata.json
+          retention-days: 7
+
+      - name: 🧹 Clean up
+        run: rm -f mobile/android/fenix/app/keystore.jks
+
+  release:
+    name: Create GitHub Release
+    needs:
+      - build-app
+    runs-on: shipfox-2vcpu-ubuntu-2404
+    permissions:
+      contents: write
+    environment: release
+    concurrency:
+      group: release
+      cancel-in-progress: false
+    steps:
+      - name: ⬇️ Download Build Artifacts
+        uses: actions/download-artifact@v7
+        with:
+          name: build-artifacts-${{ github.run_id }}
+          path: artifacts
+
+      - name: 🔎 Display structure of downloaded files
+        run: ls -R artifacts
+
+      - name: 🆕 Create Release
+        continue-on-error: true
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION_NAME=$(jq -r '.elements[0].versionName' artifacts/apk/waterfox/release/output-metadata.json)
+          VERSION_CODE=$(jq -r '.elements[0].versionCode' artifacts/apk/waterfox/release/output-metadata.json)
+          RELEASE_NAME="$VERSION_NAME ($VERSION_CODE)"
+          gh release create "$VERSION_NAME-$VERSION_CODE" \
+            --draft \
+            --title "$RELEASE_NAME" \
+            artifacts/apk/waterfox/release/*.apk

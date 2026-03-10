@@ -163,6 +163,11 @@ ext.configureUniFFIBindgen = { crateName ->
         android {
             sourceSets.main.kotlin.srcDirs += "${gradle.mozconfig.topsrcdir}/toolkit/components/uniffi-bindgen-gecko-js/android/components/${project.name}/android/src/main"
         }
+        kotlin {
+            compilerOptions {
+                freeCompilerArgs.add("-Xwarning-level=UNUSED_EXPRESSION:disabled")
+            }
+        }
     } else {
         // This will store the uniffi-bindgen generated files for our component
         def uniffiOutDir = layout.buildDirectory.dir("generated/uniffi/")

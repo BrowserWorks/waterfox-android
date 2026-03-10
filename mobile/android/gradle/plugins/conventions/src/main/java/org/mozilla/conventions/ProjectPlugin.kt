@@ -4,19 +4,20 @@
 
 package org.mozilla.conventions
 
+import java.io.File
+import java.util.concurrent.Callable
+import java.util.zip.ZipFile
 import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.artifacts.ArtifactView
 import org.gradle.api.artifacts.Configuration
 import org.gradle.api.artifacts.DependencySubstitution
 import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.api.artifacts.component.ComponentIdentifier
 import org.gradle.api.artifacts.component.ModuleComponentIdentifier
 import org.gradle.api.artifacts.component.ModuleComponentSelector
 import org.gradle.api.artifacts.component.ProjectComponentIdentifier
-import org.gradle.api.logging.Logger
-import org.gradle.api.logging.StandardOutputListener
-import org.gradle.api.artifacts.ArtifactView
-import org.gradle.api.artifacts.component.ComponentIdentifier
 import org.gradle.api.artifacts.transform.InputArtifact
 import org.gradle.api.artifacts.transform.TransformAction
 import org.gradle.api.artifacts.transform.TransformOutputs
@@ -24,6 +25,8 @@ import org.gradle.api.artifacts.transform.TransformParameters
 import org.gradle.api.artifacts.transform.TransformSpec
 import org.gradle.api.artifacts.type.ArtifactTypeDefinition
 import org.gradle.api.file.FileSystemLocation
+import org.gradle.api.logging.Logger
+import org.gradle.api.logging.StandardOutputListener
 import org.gradle.api.plugins.AppliedPlugin
 import org.gradle.api.provider.Property
 import org.gradle.api.provider.Provider
@@ -39,9 +42,6 @@ import org.gradle.api.tasks.testing.TestOutputListener
 import org.gradle.api.tasks.testing.TestResult
 import org.gradle.process.CommandLineArgumentProvider
 import org.mozilla.conventions.ktfmt.configureKtfmt
-import java.io.File
-import java.util.concurrent.Callable
-import java.util.zip.ZipFile
 
 class ProjectPlugin : Plugin<Project> {
     @Suppress("UNCHECKED_CAST")
@@ -110,31 +110,27 @@ class ProjectPlugin : Plugin<Project> {
     // already strip the *.so files when compiled as release targets.
     @Suppress("UNCHECKED_CAST")
     private fun configureJniKeepDebugSymbols(project: Project) {
-        val action = Action<AppliedPlugin> {
-            val android = project.extensions.getByName("android")
-            val packaging = android.javaClass.getMethod("getPackaging").invoke(android)
-            val jniLibs = packaging.javaClass.getMethod("getJniLibs").invoke(packaging)
-            val keepDebugSymbols = jniLibs.javaClass.getMethod("getKeepDebugSymbols").invoke(jniLibs)
-            (keepDebugSymbols as MutableSet<String>).add("**/*.so")
-        }
+        val action =
+            Action<AppliedPlugin> {
+                val android = project.extensions.getByName("android")
+                val packaging = android.javaClass.getMethod("getPackaging").invoke(android)
+                val jniLibs = packaging.javaClass.getMethod("getJniLibs").invoke(packaging)
+                val keepDebugSymbols = jniLibs.javaClass.getMethod("getKeepDebugSymbols").invoke(jniLibs)
+                (keepDebugSymbols as MutableSet<String>).add("**/*.so")
+            }
         project.pluginManager.withPlugin("com.android.library", action)
         project.pluginManager.withPlugin("com.android.application", action)
     }
 
-    // Querying whether :geckoview is part of the build composition; no project-isolation-safe alternative.
+    // Querying whether app-services is part of the build composition; no project-isolation-safe alternative.
     @Suppress("GradleProjectIsolation")
     private fun configureAppServicesSubstitution(
         project: Project,
         extraProperties: org.gradle.api.plugins.ExtraPropertiesExtension,
         substs: Map<String, Any>,
     ) {
-        // Only substitute when the a-s subprojects are part of this Gradle build:
-        // either :geckoview is included (so the a-s subprojects are too), or we're
-        // downloading every Gradle dependency. When m/a/fenix builds on its own
-        // (e.g., the second pass of a fat-AAR build), :geckoview isn't in settings
-        // and fenix consumes a-s as Maven AARs from target.maven.zip instead of
-        // maven.mozilla.org.
-        if (substs["MOZ_APPSERVICES_IN_TREE"].isTruthy() && (substs["DOWNLOAD_ALL_GRADLE_DEPENDENCIES"].isTruthy() || project.findProject(":geckoview") != null)) {
+        // Substitute only when the app-services projects are included in this build.
+        if (substs["MOZ_APPSERVICES_IN_TREE"].isTruthy() && project.findProject(":full-megazord") != null) {
             // In tree, so we update our legacy "external" dep name to a local project.
             // e.g., "org.mozilla.appservices:syncmanager:X.Y.Z" becomes project(':syncmanager')
             substituteDependencies(project, APP_SERVICES_GROUPS) { group, module, dependency ->
@@ -153,7 +149,7 @@ class ProjectPlugin : Plugin<Project> {
 
     private fun configureGleanSubstitution(
         project: Project,
-        extraProperties: org.gradle.api.plugins.ExtraPropertiesExtension
+        extraProperties: org.gradle.api.plugins.ExtraPropertiesExtension,
     ) {
         if (extraProperties.has("localProperties.autoPublish.glean.dir")) {
             substituteWithMavenLocal(project, "local-glean", GLEAN_GROUPS)
@@ -170,17 +166,19 @@ class ProjectPlugin : Plugin<Project> {
 
         val osName = System.getProperty("os.name", "").lowercase()
         val osArch = System.getProperty("os.arch", "").lowercase()
-        val osPrefix = when {
-            osName.contains("linux") -> "linux"
-            osName.contains("mac") || osName.contains("darwin") -> "darwin"
-            osName.contains("win") -> "win32"
-            else -> return
-        }
-        val archSuffix = when {
-            osArch.contains("aarch64") || osArch.contains("arm64") -> "aarch64"
-            osArch.contains("x86_64") || osArch.contains("amd64") -> "x86-64"
-            else -> return
-        }
+        val osPrefix =
+            when {
+                osName.contains("linux") -> "linux"
+                osName.contains("mac") || osName.contains("darwin") -> "darwin"
+                osName.contains("win") -> "win32"
+                else -> return
+            }
+        val archSuffix =
+            when {
+                osArch.contains("aarch64") || osArch.contains("arm64") -> "aarch64"
+                osArch.contains("x86_64") || osArch.contains("amd64") -> "x86-64"
+                else -> return
+            }
         val jnaPlatform = "$osPrefix-$archSuffix"
         val nativeLibsType = "mozilla-native-libs-for-tests"
 
@@ -193,59 +191,78 @@ class ProjectPlugin : Plugin<Project> {
                 from.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, ArtifactTypeDefinition.JAR_TYPE)
                 to.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, nativeLibsType)
                 parameters.jnaPlatform.set(jnaPlatform)
-            }
+            },
         )
 
-        val nativeLibs = project.files(Callable {
-            project.configurations
-                .filter { it.isCanBeResolved && it.name.contains("UnitTestRuntimeClasspath") }
-                .map { config ->
-                    config.incoming.artifactView(Action<ArtifactView.ViewConfiguration> {
-                        attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, nativeLibsType)
-                        componentFilter(Spec<ComponentIdentifier> { id ->
-                            id is ModuleComponentIdentifier && id.module.contains("libsForTests")
-                        })
-                        lenient(true)
-                    }).files
+        val nativeLibs =
+            project.files(
+                Callable {
+                    project.configurations
+                        .filter { it.isCanBeResolved && it.name.contains("UnitTestRuntimeClasspath") }
+                        .map { config ->
+                            config.incoming
+                                .artifactView(
+                                    Action<ArtifactView.ViewConfiguration> {
+                                        attributes.attribute(
+                                            ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE,
+                                            nativeLibsType,
+                                        )
+                                        componentFilter(
+                                            Spec<ComponentIdentifier> { id ->
+                                                id is ModuleComponentIdentifier && id.module.contains("libsForTests")
+                                            }
+                                        )
+                                        lenient(true)
+                                    }
+                                )
+                                .files
+                        }
                 }
-        })
+            )
 
         // Stage the extracted libs into a fixed directory so the test tasks have
         // a stable location to point their library paths at.
-        val stageNativeLibs = project.tasks.register(
-            "stageNativeLibsForTests",
-            Sync::class.java,
-            Action<Sync> {
-                from(nativeLibs)
-                into(project.layout.buildDirectory.dir("nativeLibsForTests"))
-            }
-        )
+        val stageNativeLibs =
+            project.tasks.register(
+                "stageNativeLibsForTests",
+                Sync::class.java,
+                Action<Sync> {
+                    from(nativeLibs)
+                    into(project.layout.buildDirectory.dir("nativeLibsForTests"))
+                },
+            )
         val nativeLibsDir = project.layout.buildDirectory.dir("nativeLibsForTests").get().asFile
         val hostPath = project.providers.environmentVariable("PATH")
 
-        project.tasks.withType(Test::class.java).configureEach(Action<Test> {
-            val testTask = this
-            testTask.dependsOn(stageNativeLibs)
-            testTask.inputs.files(stageNativeLibs).withPropertyName("nativeLibsForTests")
-            testTask.jvmArgumentProviders.add(CommandLineArgumentProvider {
-                if (nativeLibsDir.list().isNullOrEmpty()) {
-                    emptyList()
-                } else {
-                    listOf(
-                        "-Djna.library.path=${nativeLibsDir.absolutePath}",
-                        "-Djava.library.path=${nativeLibsDir.absolutePath}",
+        project.tasks
+            .withType(Test::class.java)
+            .configureEach(
+                Action<Test> {
+                    val testTask = this
+                    testTask.dependsOn(stageNativeLibs)
+                    testTask.inputs.files(stageNativeLibs).withPropertyName("nativeLibsForTests")
+                    testTask.jvmArgumentProviders.add(
+                        CommandLineArgumentProvider {
+                            if (nativeLibsDir.list().isNullOrEmpty()) {
+                                emptyList()
+                            } else {
+                                listOf(
+                                    "-Djna.library.path=${nativeLibsDir.absolutePath}",
+                                    "-Djava.library.path=${nativeLibsDir.absolutePath}",
+                                )
+                            }
+                        }
                     )
+                    // Windows has no rpath; nss3 loads softokn3/freebl3 through the OS
+                    // DLL search, so put the staged libs directory on the test JVM PATH.
+                    if (osPrefix == "win32") {
+                        testTask.environment(
+                            "PATH",
+                            "${nativeLibsDir.absolutePath}${File.pathSeparator}${hostPath.getOrElse("")}",
+                        )
+                    }
                 }
-            })
-            // Windows has no rpath; nss3 loads softokn3/freebl3 through the OS
-            // DLL search, so put the staged libs directory on the test JVM PATH.
-            if (osPrefix == "win32") {
-                testTask.environment(
-                    "PATH",
-                    "${nativeLibsDir.absolutePath}${File.pathSeparator}${hostPath.getOrElse("")}",
-                )
-            }
-        })
+            )
     }
 
     // Substitutes dependencies to use locally published versions from mavenLocal.
@@ -253,7 +270,7 @@ class ProjectPlugin : Plugin<Project> {
         project: Project,
         tag: String,
         groups: Set<String>,
-        targetGroup: String? = null
+        targetGroup: String? = null,
     ) {
         project.logger.lifecycle("[$tag] adjusting $project to use locally published modules ($LOCAL_SNAPSHOT_VERSION)")
         project.repositories.mavenLocal()
@@ -262,7 +279,7 @@ class ProjectPlugin : Plugin<Project> {
                 mapOf(
                     "group" to (targetGroup ?: group),
                     "name" to module,
-                    "version" to LOCAL_SNAPSHOT_VERSION
+                    "version" to LOCAL_SNAPSHOT_VERSION,
                 )
             )
         }
@@ -271,32 +288,37 @@ class ProjectPlugin : Plugin<Project> {
     private fun substituteDependencies(
         project: Project,
         groups: Set<String>,
-        action: (group: String, module: String, dependency: DependencySubstitution) -> Unit
+        action: (group: String, module: String, dependency: DependencySubstitution) -> Unit,
     ) {
-        project.configurations.configureEach(object : Action<Configuration> {
-            override fun execute(config: Configuration) {
-                if (config.isCanBeResolved) {
-                    config.resolutionStrategy.dependencySubstitution.all(object : Action<DependencySubstitution> {
-                        override fun execute(dependency: DependencySubstitution) {
-                            val requested = dependency.requested
-                            if (requested is ModuleComponentSelector && requested.group in groups) {
-                                action(requested.group, requested.module, dependency)
+        project.configurations.configureEach(
+            object : Action<Configuration> {
+                override fun execute(config: Configuration) {
+                    if (config.isCanBeResolved) {
+                        config.resolutionStrategy.dependencySubstitution.all(
+                            object : Action<DependencySubstitution> {
+                                override fun execute(dependency: DependencySubstitution) {
+                                    val requested = dependency.requested
+                                    if (requested is ModuleComponentSelector && requested.group in groups) {
+                                        action(requested.group, requested.module, dependency)
+                                    }
+                                }
                             }
-                        }
-                    })
+                        )
+                    }
                 }
             }
-        })
+        )
     }
 
     private fun configureKotlinCompilerMessageReformatting(project: Project) {
         // Kotlin compiler message formats:
         // - Current: "e: file.kt:10:5 message" (colon-separated, used by fenix/focus/A-C)
         // - Legacy:  "e: file.kt: (10, 5): message" (parenthesized, used by geckoview)
-        val messageFormats = listOf(
-            Regex("""([ew]): (.+):(\d+):(\d+) (.*)"""),
-            Regex("""([ew]): (.+): \((\d+), (\d+)\): (.*)"""),
-        )
+        val messageFormats =
+            listOf(
+                Regex("""([ew]): (.+):(\d+):(\d+) (.*)"""),
+                Regex("""([ew]): (.+): \((\d+), (\d+)\): (.*)"""),
+            )
 
         project.tasks.configureEach {
             if (!this::class.java.name.startsWith("org.jetbrains.kotlin.gradle.tasks.KotlinCompile")) {
@@ -345,7 +367,8 @@ class ProjectPlugin : Plugin<Project> {
                 return@configureEach
             }
             val compilerOptions = this::class.java.getMethod("getCompilerOptions").invoke(this)
-            val allWarningsAsErrors = compilerOptions::class.java.getMethod("getAllWarningsAsErrors").invoke(compilerOptions)
+            val allWarningsAsErrors =
+                compilerOptions::class.java.getMethod("getAllWarningsAsErrors").invoke(compilerOptions)
             allWarningsAsErrors::class.java.getMethod("set", Any::class.java).invoke(allWarningsAsErrors, true)
         }
     }
@@ -356,8 +379,7 @@ class ProjectPlugin : Plugin<Project> {
         // Use android plugin id string and reflection to avoid classloader isolation issues
         project.pluginManager.withPlugin("com.android.base") {
             val android = project.extensions.findByName("android") ?: return@withPlugin
-            android::class.java.getMethod("setBuildToolsVersion", String::class.java)
-                .invoke(android, buildToolsVersion)
+            android::class.java.getMethod("setBuildToolsVersion", String::class.java).invoke(android, buildToolsVersion)
         }
     }
 
@@ -370,57 +392,57 @@ class ProjectPlugin : Plugin<Project> {
                 val kotlin = project.extensions.findByName("kotlin") ?: return@withPlugin
                 val config = project.rootProject.extensions.extraProperties["config"] ?: return@withPlugin
                 val jvmTargetCompatibility = config.javaClass.getField("jvmTargetCompatibility").get(config) as Int
-                kotlin::class.java.getMethod("jvmToolchain", Integer.TYPE)
-                    .invoke(kotlin, jvmTargetCompatibility)
+                kotlin::class.java.getMethod("jvmToolchain", Integer.TYPE).invoke(kotlin, jvmTargetCompatibility)
             }
         }
     }
 
     private fun configureGleanVersionResolution(project: Project) {
         // Dependencies can't depend on a different major version of Glean than A-C itself.
-        val action = Action<AppliedPlugin> {
-            val versionCatalogs = project.extensions.getByType(VersionCatalogsExtension::class.java)
-            val libs = versionCatalogs.named("libs")
-            val gleanVersion = libs.findVersion("glean").get().requiredVersion
+        val action =
+            Action<AppliedPlugin> {
+                val versionCatalogs = project.extensions.getByType(VersionCatalogsExtension::class.java)
+                val libs = versionCatalogs.named("libs")
+                val gleanVersion = libs.findVersion("glean").get().requiredVersion
 
-            project.configurations.configureEach {
-                resolutionStrategy {
-                    eachDependency {
-                        if (requested.group == "org.mozilla.telemetry" && requested.name.contains("glean")) {
-                            val requestedMajor = requested.version?.split(".")?.firstOrNull()
-                            val definedMajor = gleanVersion.split(".").firstOrNull()
-                            // Check the major version
-                            if (requestedMajor != definedMajor) {
-                                throw AssertionError(
-                                    "Cannot resolve to a single Glean version. " +
-                                        "Requested: ${requested.version}, version catalog defines: $gleanVersion"
-                                )
-                            } else {
-                                // Enforce that all (transitive) dependencies are using the defined Glean version
-                                useVersion(gleanVersion)
-                            }
-                        }
-                    }
-                    capabilitiesResolution {
-                        withCapability("org.mozilla.telemetry:glean-native") {
-                            // GeckoView provides Glean either as an in-build project or as a
-                            // published module, depending on the build composition.
-                            val toBeSelected = candidates.find {
-                                when (val id = it.id) {
-                                    is ProjectComponentIdentifier -> id.projectName.contains("geckoview")
-                                    is ModuleComponentIdentifier -> id.module.contains("geckoview")
-                                    else -> false
+                project.configurations.configureEach {
+                    resolutionStrategy {
+                        eachDependency {
+                            if (requested.group == "org.mozilla.telemetry" && requested.name.contains("glean")) {
+                                val requestedMajor = requested.version?.split(".")?.firstOrNull()
+                                val definedMajor = gleanVersion.split(".").firstOrNull()
+                                // Check the major version
+                                if (requestedMajor != definedMajor) {
+                                    throw AssertionError(
+                                        "Cannot resolve to a single Glean version. " +
+                                            "Requested: ${requested.version}, version catalog defines: $gleanVersion"
+                                    )
+                                } else {
+                                    // Enforce that all (transitive) dependencies are using the defined Glean version
+                                    useVersion(gleanVersion)
                                 }
                             }
-                            if (toBeSelected != null) {
-                                select(toBeSelected)
+                        }
+                        capabilitiesResolution {
+                            withCapability("org.mozilla.telemetry:glean-native") {
+                                // GeckoView provides Glean either as an in-build project or as a
+                                // published module, depending on the build composition.
+                                val toBeSelected = candidates.find {
+                                    when (val id = it.id) {
+                                        is ProjectComponentIdentifier -> id.projectName.contains("geckoview")
+                                        is ModuleComponentIdentifier -> id.module.contains("geckoview")
+                                        else -> false
+                                    }
+                                }
+                                if (toBeSelected != null) {
+                                    select(toBeSelected)
+                                }
+                                because("use GeckoView Glean instead of standalone Glean")
                             }
-                            because("use GeckoView Glean instead of standalone Glean")
                         }
                     }
                 }
             }
-        }
         project.pluginManager.withPlugin("com.android.library", action)
         project.pluginManager.withPlugin("com.android.application", action)
     }
@@ -430,7 +452,6 @@ class ProjectPlugin : Plugin<Project> {
         private val APP_SERVICES_GROUPS = setOf("org.mozilla.appservices", "org.mozilla.appservices.nightly")
         private val GLEAN_GROUPS = setOf("org.mozilla.telemetry")
     }
-
 
     private fun configureDetekt(project: Project, mozilla: ProjectExtension) {
         val sourcePaths = mozilla.detektSourcePaths
@@ -446,10 +467,11 @@ class ProjectPlugin : Plugin<Project> {
 
         // Subproject's build.gradle can add dependencies like
         // detektPlugins project(":components:tooling-detekt")
-        val detektPlugins = project.configurations.register("detektPlugins") {
-            isCanBeConsumed = false
-            isCanBeResolved = true
-        }
+        val detektPlugins =
+            project.configurations.register("detektPlugins") {
+                isCanBeConsumed = false
+                isCanBeResolved = true
+            }
         val detektPluginFiles = project.files(detektPlugins)
 
         val projectDir = project.projectDir
@@ -482,28 +504,29 @@ class ProjectPlugin : Plugin<Project> {
                 inputs.file(file).withPropertyName("detektConfig")
             }
 
-            inputs.files(detektSourceTree)
+            inputs
+                .files(detektSourceTree)
                 .withPropertyName("detektSources")
                 .withPathSensitivity(org.gradle.api.tasks.PathSensitivity.RELATIVE)
                 .skipWhenEmpty()
-            inputs.files(detektPluginFiles)
-                .withPropertyName("detektPlugins")
-                .optional(true)
+            inputs.files(detektPluginFiles).withPropertyName("detektPlugins").optional(true)
 
             val includes = sourcePaths.get().filter { !it.startsWith("!") }
-            val excludes = sourcePaths.get().filter { it.startsWith("!") }.map {it.removePrefix("!") }
+            val excludes = sourcePaths.get().filter { it.startsWith("!") }.map { it.removePrefix("!") }
             args("--input", projectDir.absolutePath)
             if (includes.isNotEmpty()) args("--includes", includes.joinToString(","))
             if (excludes.isNotEmpty()) args("--excludes", excludes.joinToString(","))
 
-            argumentProviders.add(CommandLineArgumentProvider {
-                val plugins = detektPluginFiles.files.filter { it.exists() }
-                if (plugins.isNotEmpty()) {
-                    listOf("--plugins", plugins.joinToString(",") { it.absolutePath })
-                } else {
-                    emptyList()
+            argumentProviders.add(
+                CommandLineArgumentProvider {
+                    val plugins = detektPluginFiles.files.filter { it.exists() }
+                    if (plugins.isNotEmpty()) {
+                        listOf("--plugins", plugins.joinToString(",") { it.absolutePath })
+                    } else {
+                        emptyList()
+                    }
                 }
-            })
+            )
         }
 
         project.tasks.register("detekt", JavaExec::class.java) {
@@ -541,44 +564,43 @@ class ProjectPlugin : Plugin<Project> {
 
     @Suppress("UNCHECKED_CAST")
     private fun configureAndroidComponentsLint(project: Project, mozilla: ProjectExtension, topsrcdir: String) {
-        val action = Action<AppliedPlugin> {
-            if (!mozilla.androidComponentsProject.get()) {
-                return@Action
+        val action =
+            Action<AppliedPlugin> {
+                if (!mozilla.androidComponentsProject.get()) {
+                    return@Action
+                }
+                val sarifOutput =
+                    File(
+                        topsrcdir,
+                        "mobile/android/android-components/build/reports/lint/lint-report-${project.name}.sarif.json",
+                    )
+                val android = project.extensions.getByName("android")
+                val lint = android.javaClass.getMethod("getLint").invoke(android)
+                lint.javaClass
+                    .getMethod("setBaseline", File::class.java)
+                    .invoke(lint, project.file("lint-baseline.xml"))
+                lint.javaClass.getMethod("setWarningsAsErrors", Boolean::class.javaPrimitiveType).invoke(lint, true)
+                lint.javaClass.getMethod("setAbortOnError", Boolean::class.javaPrimitiveType).invoke(lint, false)
+                lint.javaClass.getMethod("setSarifReport", Boolean::class.javaPrimitiveType).invoke(lint, true)
+                lint.javaClass.getMethod("setSarifOutput", File::class.java).invoke(lint, sarifOutput)
+                val disable = lint.javaClass.getMethod("getDisable").invoke(lint) as MutableSet<String>
+                disable.addAll(
+                    listOf(
+                        "MissingTranslation",
+                        "ExtraTranslation",
+                        "MissingDefaultResource",
+                        // We do not want to enforce this as a generic rule for all languages (see #6117, #6056, #6118)
+                        "TypographyEllipsis",
+                        // https://github.com/mozilla-mobile/android-components/issues/10641
+                        "UnspecifiedImmutableFlag",
+                        // https://bugzilla.mozilla.org/show_bug.cgi?id=1795427
+                        "UnusedResources",
+                        // "We do not impose rules on locales"
+                        // https://github.com/mozilla-mobile/android-components/pull/11069
+                        "TypographyDashes",
+                    )
+                )
             }
-            val sarifOutput = File(
-                topsrcdir,
-                "mobile/android/android-components/build/reports/lint/lint-report-${project.name}.sarif.json",
-            )
-            val android = project.extensions.getByName("android")
-            val lint = android.javaClass.getMethod("getLint").invoke(android)
-            lint.javaClass.getMethod("setBaseline", File::class.java)
-                .invoke(lint, project.file("lint-baseline.xml"))
-            lint.javaClass.getMethod("setWarningsAsErrors", Boolean::class.javaPrimitiveType)
-                .invoke(lint, true)
-            lint.javaClass.getMethod("setAbortOnError", Boolean::class.javaPrimitiveType)
-                .invoke(lint, false)
-            lint.javaClass.getMethod("setSarifReport", Boolean::class.javaPrimitiveType)
-                .invoke(lint, true)
-            lint.javaClass.getMethod("setSarifOutput", File::class.java)
-                .invoke(lint, sarifOutput)
-            val disable = lint.javaClass.getMethod("getDisable").invoke(lint) as MutableSet<String>
-            disable.addAll(
-                listOf(
-                    "MissingTranslation",
-                    "ExtraTranslation",
-                    "MissingDefaultResource",
-                    // We do not want to enforce this as a generic rule for all languages (see #6117, #6056, #6118)
-                    "TypographyEllipsis",
-                    // https://github.com/mozilla-mobile/android-components/issues/10641
-                    "UnspecifiedImmutableFlag",
-                    // https://bugzilla.mozilla.org/show_bug.cgi?id=1795427
-                    "UnusedResources",
-                    // "We do not impose rules on locales"
-                    // https://github.com/mozilla-mobile/android-components/pull/11069
-                    "TypographyDashes",
-                ),
-            )
-        }
         project.pluginManager.withPlugin("com.android.library", action)
         project.pluginManager.withPlugin("com.android.application", action)
     }
@@ -612,13 +634,14 @@ class ProjectPlugin : Plugin<Project> {
 
     @Suppress("UNCHECKED_CAST")
     private fun configurePackagingResourcesExcludes(project: Project) {
-        val action = Action<AppliedPlugin> {
-            val android = project.extensions.getByName("android")
-            val packaging = android.javaClass.getMethod("getPackaging").invoke(android)
-            val resources = packaging.javaClass.getMethod("getResources").invoke(packaging)
-            val excludes = resources.javaClass.getMethod("getExcludes").invoke(resources) as MutableSet<String>
-            excludes.addAll(listOf("META-INF/LICENSE.md", "META-INF/LICENSE-notice.md"))
-        }
+        val action =
+            Action<AppliedPlugin> {
+                val android = project.extensions.getByName("android")
+                val packaging = android.javaClass.getMethod("getPackaging").invoke(android)
+                val resources = packaging.javaClass.getMethod("getResources").invoke(packaging)
+                val excludes = resources.javaClass.getMethod("getExcludes").invoke(resources) as MutableSet<String>
+                excludes.addAll(listOf("META-INF/LICENSE.md", "META-INF/LICENSE-notice.md"))
+            }
         project.pluginManager.withPlugin("com.android.library", action)
         project.pluginManager.withPlugin("com.android.application", action)
     }
@@ -633,9 +656,10 @@ class ProjectPlugin : Plugin<Project> {
             // configuration-time callback (unlike the legacy applicationVariants collection, which we could
             // wrap in a lazy provider resolved at execution), so gating its registration keeps the
             // reflection out of every other build that configures this project.
-            val wantsPrintVariants = project.gradle.startParameter.taskNames.any {
-                it.substringAfterLast(':') == "printVariants"
-            }
+            val wantsPrintVariants =
+                project.gradle.startParameter.taskNames.any {
+                    it.substringAfterLast(':') == "printVariants"
+                }
             if (wantsPrintVariants) {
                 val androidComponents = project.extensions.getByName("androidComponents")
                 val android = project.extensions.getByName("android")
@@ -652,23 +676,29 @@ class ProjectPlugin : Plugin<Project> {
                     val flavorName = variant.javaClass.getMethod("getFlavorName").invoke(variant) as String?
                     val flavorPrefix = if (!flavorName.isNullOrEmpty()) "$flavorName-" else ""
                     // AGP appends "-unsigned" to APKs whose build type has no signing config.
-                    val signed = buildTypes.javaClass.getMethod("getByName", String::class.java)
-                        .invoke(buildTypes, buildType)
-                        .let { it.javaClass.getMethod("getSigningConfig").invoke(it) != null }
+                    val signed =
+                        buildTypes.javaClass
+                            .getMethod("getByName", String::class.java)
+                            .invoke(buildTypes, buildType)
+                            .let { it.javaClass.getMethod("getSigningConfig").invoke(it) != null }
                     val signedSuffix = if (signed) "" else "-unsigned"
                     val outputs = variant.javaClass.getMethod("getOutputs").invoke(variant) as Iterable<*>
 
-                    val apks = outputs.map { output ->
-                        val filters = output!!.javaClass.getMethod("getFilters").invoke(output) as Iterable<*>
-                        val abi = filters
-                            .firstOrNull { f ->
-                                val filterType = f!!.javaClass.getMethod("getFilterType").invoke(f)
-                                (filterType as Enum<*>).name == "ABI"
+                    val apks =
+                        outputs
+                            .map { output ->
+                                val filters = output!!.javaClass.getMethod("getFilters").invoke(output) as Iterable<*>
+                                val abi =
+                                    filters
+                                        .firstOrNull { f ->
+                                            val filterType = f!!.javaClass.getMethod("getFilterType").invoke(f)
+                                            (filterType as Enum<*>).name == "ABI"
+                                        }
+                                        ?.let { f -> f!!.javaClass.getMethod("getIdentifier").invoke(f) as String }
+                                        ?: "universal"
+                                mapOf("abi" to abi, "fileName" to "app-$flavorPrefix$abi-$buildType$signedSuffix.apk")
                             }
-                            ?.let { f -> f!!.javaClass.getMethod("getIdentifier").invoke(f) as String }
-                            ?: "universal"
-                        mapOf("abi" to abi, "fileName" to "app-$flavorPrefix$abi-$buildType$signedSuffix.apk")
-                    }.sortedBy { it["abi"] as String }
+                            .sortedBy { it["abi"] as String }
                     variants.add(mapOf("apks" to apks, "build_type" to buildType, "name" to variantName))
                 }
 
@@ -677,24 +707,29 @@ class ProjectPlugin : Plugin<Project> {
                 // onVariants(VariantSelector, (Variant) -> Unit). The callback is a Kotlin function type;
                 // build the proxy from the method's own parameter type so it is loaded by the same
                 // (Android Gradle plugin) classloader the method expects.
-                val onVariants = androidComponents.javaClass.methods.first {
-                    it.name == "onVariants" &&
-                        it.parameterCount == 2 &&
-                        it.parameterTypes[1].name == "kotlin.jvm.functions.Function1"
-                }
-                val callbackType = onVariants.parameterTypes[1]
-                val callback = java.lang.reflect.Proxy.newProxyInstance(
-                    callbackType.classLoader,
-                    arrayOf(callbackType),
-                ) { _, method, args ->
-                    when (method.name) {
-                        "invoke" -> { collectVariant(args!![0]!!); Unit }
-                        "equals" -> false
-                        "hashCode" -> 0
-                        "toString" -> "printVariantsCollector"
-                        else -> null
+                val onVariants =
+                    androidComponents.javaClass.methods.first {
+                        it.name == "onVariants" &&
+                            it.parameterCount == 2 &&
+                            it.parameterTypes[1].name == "kotlin.jvm.functions.Function1"
                     }
-                }
+                val callbackType = onVariants.parameterTypes[1]
+                val callback =
+                    java.lang.reflect.Proxy.newProxyInstance(
+                        callbackType.classLoader,
+                        arrayOf(callbackType),
+                    ) { _, method, args ->
+                        when (method.name) {
+                            "invoke" -> {
+                                collectVariant(args!![0]!!)
+                                Unit
+                            }
+                            "equals" -> false
+                            "hashCode" -> 0
+                            "toString" -> "printVariantsCollector"
+                            else -> null
+                        }
+                    }
                 onVariants.invoke(androidComponents, allSelector, callback)
             }
 
@@ -705,14 +740,15 @@ class ProjectPlugin : Plugin<Project> {
                     val variantsList = variants.toMutableList()
                     variantsList.add(
                         mapOf(
-                            "apks" to listOf(
-                                mapOf(
-                                    "abi" to "noarch",
-                                    "fileName" to "app-debug-androidTest.apk"
-                                )
-                            ),
+                            "apks" to
+                                listOf(
+                                    mapOf(
+                                        "abi" to "noarch",
+                                        "fileName" to "app-debug-androidTest.apk",
+                                    )
+                                ),
                             "build_type" to "androidTest",
-                            "name" to "androidTest"
+                            "name" to "androidTest",
                         )
                     )
                     outputFile.parentFile.mkdirs()
@@ -724,9 +760,7 @@ class ProjectPlugin : Plugin<Project> {
     }
 }
 
-private class MozillaTestOutputListener(
-    private val taskLogger: Logger,
-) : TestListener, TestOutputListener {
+private class MozillaTestOutputListener(private val taskLogger: Logger) : TestListener, TestOutputListener {
     override fun beforeSuite(suite: TestDescriptor) {
         if (suite.className != null) {
             println("\nSUITE: ${suite.className}")
@@ -760,19 +794,18 @@ private class MozillaTestOutputListener(
 // libsForTests JAR into a flat directory, so JVM unit tests can load them.
 abstract class ExtractNativeLibsForTests : TransformAction<ExtractNativeLibsForTests.Parameters> {
     interface Parameters : TransformParameters {
-        @get:Input
-        val jnaPlatform: Property<String>
+        @get:Input val jnaPlatform: Property<String>
     }
 
-    @get:InputArtifact
-    abstract val inputArtifact: Provider<FileSystemLocation>
+    @get:InputArtifact abstract val inputArtifact: Provider<FileSystemLocation>
 
     override fun transform(outputs: TransformOutputs) {
         val jar = inputArtifact.get().asFile
         val platform = parameters.jnaPlatform.get()
         val outputDir = outputs.dir("native-libs")
         ZipFile(jar).use { zip ->
-            zip.entries().asSequence()
+            zip.entries()
+                .asSequence()
                 .filter { it.name.startsWith("$platform/") && !it.isDirectory }
                 .forEach { entry ->
                     val outFile = File(outputDir, entry.name.substringAfterLast("/"))

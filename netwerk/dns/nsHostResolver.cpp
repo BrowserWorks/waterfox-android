@@ -1028,7 +1028,7 @@ nsresult nsHostResolver::NativeLookup(nsHostRecord* aRec) {
   MOZ_ASSERT(aRec->IsAddrRecord() || IsNativeHTTPSEnabled());
   mQueue.mLock.AssertCurrentThreadOwns();
 
-  if (aRec->type == nsIDNSService::RESOLVE_TYPE_HTTPSSVC &&
+  if (aRec->type == nsIDNSService::RESOLVE_TYPE_HTTPSSVC && TRRService::Get() &&
       TRRService::Get()->IsExcludedFromTRR(aRec->host, aRec->TRRMode())) {
     // If the host should be excluded from TRR
     // (meaning it's a local domain or in /etc/hosts)

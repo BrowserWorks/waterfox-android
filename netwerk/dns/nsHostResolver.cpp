@@ -1027,7 +1027,7 @@ nsresult nsHostResolver::NativeLookup(nsHostRecord* aRec) {
   mQueue.mLock.AssertCurrentThreadOwns();
 
   if (aRec->type == nsIDNSService::RESOLVE_TYPE_HTTPSSVC &&
-      TRRService::Get()->IsExcludedFromTRR(aRec->host)) {
+      TRRService::Get() && TRRService::Get()->IsExcludedFromTRR(aRec->host)) {
     // If the host should be excluded from TRR
     // (meaning it's a local domain or in /etc/hosts)
     // then we probably shouldn't be using the HTTPS record for it either.

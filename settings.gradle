@@ -37,6 +37,16 @@ if (gradle.ext.mozconfig.substs.MOZ_APPSERVICES_IN_TREE) {
     apply from: "${topsrcdir}/third_party/application-services/settings.gradle"
 }
 
+// Substitute only the Kotlin SDK; the no-op implementation has no native dependency.
+// An isolated patched checkout can be used without touching a developer's submodule.
+def waterfoxGleanDir = providers.gradleProperty('waterfoxGleanDir').getOrElse("${topsrcdir}/glean")
+includeBuild(waterfoxGleanDir) {
+    name = 'glean'
+    dependencySubstitution {
+        substitute(module("org.mozilla.telemetry:glean")).using(project(":glean"))
+    }
+}
+
 // Set the Android SDK location.  This is the *least specific* mechanism, which
 // is unfortunate: we'd prefer to use the *most specific* mechanism.  That is,
 // local.properties (first 'sdk.dir', then 'android.dir') and then the

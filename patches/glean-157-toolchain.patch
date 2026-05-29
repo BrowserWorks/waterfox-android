@@ -1,0 +1,16 @@
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+--- a/gradle/libs.versions.toml
++++ b/gradle/libs.versions.toml
+@@ -5,10 +5,10 @@
+ 
+ [versions]
+ # AGP
+-android-plugin = "9.2.1"
++android-plugin = "9.4.0"
+ 
+ # Kotlin
+-kotlin-compiler = "2.4.10"
++kotlin-compiler = "2.4.20"
+ kotlinx-coroutines = "1.11.0"
+ kotlinx-serialization = "1.11.0"
+ 

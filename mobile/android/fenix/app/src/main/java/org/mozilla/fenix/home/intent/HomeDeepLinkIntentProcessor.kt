@@ -85,7 +85,6 @@ class HomeDeepLinkIntentProcessor(
                 "home_collections" -> GlobalDirections.Home
                 "settings_private_browsing" -> GlobalDirections.SettingsPrivateBrowsing
                 "settings_app_icon" -> GlobalDirections.SettingsAppIcon
-                "settings_ai_controls" -> GlobalDirections.SettingsAIControls
                 "privacy_report",
                 "protections_dashboard" -> GlobalDirections.ProtectionsDashboard
                 "settings_ip_protection" -> GlobalDirections.SettingsIpProtection

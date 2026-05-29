@@ -13,7 +13,6 @@ import androidx.preference.PreferenceViewHolder
 import org.mozilla.fenix.R
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode.Normal
 import org.mozilla.fenix.ext.components
-import org.mozilla.fenix.nimbus.FxNimbus
 
 const val NO_SHORTCUT_SIMPLE_TOOLBAR_TYPE = "simple_no_shortcut"
 
@@ -70,8 +69,6 @@ constructor(
             val browserStore = this.context.components.core.store
             val isTranslationEngineSupported = browserStore.state.translationEngine.isEngineSupported ?: false
 
-            return isTranslationEngineSupported &&
-                isTranslationsFeatureEnabled &&
-                FxNimbus.features.translations.value().mainFlowToolbarEnabled
+            return isTranslationEngineSupported && isTranslationsFeatureEnabled
         }
 }

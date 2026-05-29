@@ -151,7 +151,6 @@ import org.mozilla.fenix.components.usecases.ShareUseCases
 import org.mozilla.fenix.ext.canGoBackInHistoryOrToStories
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.ext.navigateSafe
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.ShortcutType
 import org.mozilla.fenix.summarization.SummarizationNavigator
 import org.mozilla.fenix.summarization.onboarding.SummarizationFeatureDiscoveryConfiguration
@@ -821,7 +820,6 @@ class BrowserToolbarMiddleware(
                 ToolbarActionConfig(ToolbarAction.Translate) {
                     browserScreenStore.state.pageTranslationStatus.isTranslationPossible &&
                         isWideScreen &&
-                        FxNimbus.features.translations.value().mainFlowToolbarEnabled &&
                         !translateShortcutEnabled
                 },
                 ToolbarActionConfig(ToolbarAction.Share) {
@@ -1602,8 +1600,6 @@ class BrowserToolbarMiddleware(
 
     private suspend fun isTranslationsFeatureAvailable(): Boolean {
         val isTranslationEngineSupported = browserStore.state.translationEngine.isEngineSupported ?: false
-        return isTranslationEngineSupported &&
-            FxNimbus.features.translations.value().mainFlowToolbarEnabled &&
-            translationsFeatureSettings.isEnabled.first()
+        return isTranslationEngineSupported && translationsFeatureSettings.isEnabled.first()
     }
 }

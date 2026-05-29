@@ -171,28 +171,6 @@ sealed class PreferenceFileInformation(
         )
 
     /**
-     * Represents the "AI Controls" settings screen. This screen is Compose-based and has no backing XML preference
-     * file.
-     */
-    object AIControlsPreferences :
-        PreferenceFileInformation(
-            topBreadcrumbResourceId = R.string.preferences_ai_controls,
-            categoryHeaderResourceId = R.string.preferences_category_general,
-            fragmentId = R.id.aiControlsFragment,
-        )
-
-    /**
-     * Represents the "Page summaries" settings screen. This screen is compose-based and has no backing XML preference
-     * file.
-     */
-    object PageSummariesPreferences :
-        PreferenceFileInformation(
-            topBreadcrumbResourceId = R.string.preferences_page_summaries,
-            categoryHeaderResourceId = R.string.preferences_category_general,
-            fragmentId = R.id.pageSummariesSettingsFragment,
-        )
-
-    /**
      * Represents the "Firefox Labs" settings screen. This screen is Compose-based and has no backing XML preference
      * file.
      */

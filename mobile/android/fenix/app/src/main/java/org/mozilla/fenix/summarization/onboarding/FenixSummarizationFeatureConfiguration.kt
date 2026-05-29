@@ -21,10 +21,10 @@ class FenixSummarizationFeatureConfiguration(
 ) : SummarizationFeatureDiscoveryConfiguration {
 
     override val isFeatureAvailable: Boolean
-        get() = settings.shakeToSummarizeFeatureFlagEnabled
+        get() = false
 
     override val canShowFeature: Boolean
-        get() = isFeatureAvailable && summarizationSettingsBinding.isFeatureEnabled.value
+        get() = false
 
     override val showMenuItem: Boolean
         get() = canShowFeature

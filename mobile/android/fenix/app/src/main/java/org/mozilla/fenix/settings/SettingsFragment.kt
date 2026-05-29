@@ -425,14 +425,6 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                     SettingsFragmentDirections.actionSettingsFragmentToTranslationsSettingsFragment()
                 }
 
-                resources.getString(R.string.pref_key_page_summaries) -> {
-                    SettingsFragmentDirections.actionSettingsFragmentToPageSummariesSettingsFragment()
-                }
-
-                resources.getString(R.string.pref_key_ai_controls) -> {
-                    SettingsFragmentDirections.actionSettingsFragmentToAiControlsFragment()
-                }
-
                 // Privacy and security preferences
                 resources.getString(R.string.pref_key_private_browsing) -> {
                     SettingsFragmentDirections.actionSettingsFragmentToPrivateBrowsingFragment()

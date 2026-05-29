@@ -8,7 +8,6 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import mozilla.components.concept.ai.controls.AIFeatureMetadata
-import mozilla.components.feature.summarize.PageSummaryFeature
 import org.mozilla.fenix.R
 import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.translations.TranslationsAIControllableFeature
@@ -35,12 +34,8 @@ data class Destination(val id: Int, override val label: Int) : AIFeatureMetadata
  * Map from a feature to a destination.
  */
 val AIFeatureMetadata.destination: AIFeatureMetadataDestination? get() = when (id) {
-    PageSummaryFeature.id -> Destination(
-        id = R.id.action_aiControlsFragment_to_pageSummariesSettingsFragment,
-        label = R.string.ai_controls_more_page_summary_settings,
-    )
     TranslationsAIControllableFeature.id -> Destination(
-        id = R.id.action_aiControlsFragment_to_translationsSettingsFragment,
+        id = R.id.translations_settings_graph,
         label = R.string.ai_controls_more_translations_settings,
     )
     else -> null

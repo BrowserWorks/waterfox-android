@@ -2634,14 +2634,16 @@ class Settings(
      * Nimbus controlled feature flag that Indicates if the Shake to Summarize feature should be
      * enabled
      */
-    var shakeToSummarizeFeatureFlagEnabled by booleanPreference(
+    var shakeToSummarizeFeatureFlagEnabled by hardcodedFeatureFlagBooleanPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_enable_shake_to_summarize),
-        default = false,
+        defaultValue = { false },
+        featureFlag = false,
     )
 
-    var aiControlsFeatureFlagEnabled by booleanPreference(
+    var aiControlsFeatureFlagEnabled by hardcodedFeatureFlagBooleanPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_enable_ai_controls),
-        default = false,
+        defaultValue = { false },
+        featureFlag = false,
     )
 
     /**

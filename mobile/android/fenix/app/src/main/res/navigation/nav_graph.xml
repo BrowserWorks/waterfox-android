@@ -210,9 +210,6 @@
         android:id="@+id/action_global_to_downloadAddonDialogFragment"
         app:destination="@id/downloadAddonDialogFragment" />
 
-    <action
-        android:id="@+id/action_global_aiControlsFragment"
-        app:destination="@+id/aiControlsFragment"/>
 
     <action
         android:id="@+id/action_global_protections_dashboard"
@@ -730,21 +727,6 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_settingsFragment_to_pageSummariesSettingsFragment"
-            app:destination="@id/pageSummariesSettingsFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_settingsFragment_to_aiControlsFragment"
-            app:destination="@id/aiControlsFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/settingsFragment" />
-        <action
             android:id="@+id/action_settingsFragment_to_addonsFragment"
             app:destination="@id/addons_management_graph"
             app:enterAnim="@anim/slide_in_right"
@@ -903,30 +885,6 @@
       android:id="@+id/ipProtectionLocationsFragment"
       android:name="org.mozilla.fenix.settings.ipprotection.IPProtectionLocationsFragment"
       android:label="@string/ip_protection_locations_title" >
-    </fragment>
-    <fragment
-        android:id="@+id/aiControlsFragment"
-        android:name="org.mozilla.fenix.settings.ai.AIControlsFragment"
-        android:label="@string/preferences_ai_controls">
-        <action
-            android:id="@+id/action_aiControlsFragment_to_translationsSettingsFragment"
-            app:destination="@id/translations_settings_graph"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_aiControlsFragment_to_pageSummariesSettingsFragment"
-            app:destination="@id/pageSummariesSettingsFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <argument
-            android:name="preference_to_scroll_to"
-            android:defaultValue="@null"
-            app:argType="string"
-            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/dataChoicesFragment"
@@ -1678,10 +1636,6 @@
             android:id="@+id/action_summarizationFragment_to_turnOnSyncFragment"
             app:destination="@id/turnOnSyncFragment" />
     </dialog>
-
-    <fragment
-        android:id="@+id/pageSummariesSettingsFragment"
-        android:name="org.mozilla.fenix.settings.pagesummaries.PageSummariesSettingsFragment" />
 
     <navigation
         android:id="@+id/translations_settings_graph"

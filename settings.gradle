@@ -37,6 +37,15 @@ if (gradle.ext.mozconfig.substs.MOZ_APPSERVICES_IN_TREE) {
     apply from: "${topsrcdir}/third_party/application-services/settings.gradle"
 }
 
+// Route the Glean Maven coordinates to the in-tree noop submodule build.
+// glean-native is left alone: geckoview already overrides it via the
+// org.mozilla.telemetry:glean-native capability (see geckoview/build.gradle).
+includeBuild("${topsrcdir}/glean") {
+    dependencySubstitution {
+        substitute(module("org.mozilla.telemetry:glean")).using(project(":glean"))
+    }
+}
+
 // Set the Android SDK location.  This is the *least specific* mechanism, which
 // is unfortunate: we'd prefer to use the *most specific* mechanism.  That is,
 // local.properties (first 'sdk.dir', then 'android.dir') and then the

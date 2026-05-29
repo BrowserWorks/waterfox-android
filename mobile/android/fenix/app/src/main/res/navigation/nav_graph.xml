@@ -208,10 +208,6 @@
     <action
         android:id="@+id/action_global_to_installedAddonDetailsFragment"
         app:destination="@id/installedAddonDetailsFragment" />
-    <action
-      android:id="@+id/action_global_aiControlsFragment"
-      app:destination="@+id/aiControlsFragment"/>
-
     <fragment
         android:id="@+id/tabManagementFragment"
         android:name="org.mozilla.fenix.tabstray.ui.TabManagementFragment">
@@ -746,21 +742,6 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_settingsFragment_to_pageSummariesSettingsFragment"
-            app:destination="@id/pageSummariesSettingsFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_settingsFragment_to_aiControlsFragment"
-            app:destination="@id/aiControlsFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/settingsFragment" />
-        <action
             android:id="@+id/action_settingsFragment_to_addonsFragment"
             app:destination="@id/addons_management_graph"
             app:enterAnim="@anim/slide_in_right"
@@ -900,25 +881,6 @@
         android:id="@+id/ipProtectionFragment"
         android:name="org.mozilla.fenix.settings.IPProtectionFragment"
         android:label="@string/ip_protection_title" />
-    <fragment
-        android:id="@+id/aiControlsFragment"
-        android:name="org.mozilla.fenix.settings.ai.AIControlsFragment"
-        android:label="@string/preferences_ai_controls">
-        <action
-            android:id="@+id/action_aiControlsFragment_to_translationsSettingsFragment"
-            app:destination="@id/translations_settings_graph"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
-            android:id="@+id/action_aiControlsFragment_to_pageSummariesSettingsFragment"
-            app:destination="@id/pageSummariesSettingsFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
     <fragment
         android:id="@+id/dataChoicesFragment"
         android:name="org.mozilla.fenix.settings.datachoices.DataChoicesFragment"
@@ -1765,10 +1727,6 @@
             app:nullable="false"
             app:argType="boolean" />
     </dialog>
-
-    <fragment
-        android:id="@+id/pageSummariesSettingsFragment"
-        android:name="org.mozilla.fenix.settings.pagesummaries.PageSummariesSettingsFragment" />
 
     <navigation
         android:id="@+id/translations_settings_graph"

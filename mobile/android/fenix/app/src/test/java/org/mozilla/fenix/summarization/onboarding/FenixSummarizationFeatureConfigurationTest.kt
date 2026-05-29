@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.StateFlow
 import mozilla.components.support.test.robolectric.testContext
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -46,12 +45,12 @@ class FenixSummarizationFeatureConfigurationTest {
     }
 
     @Test
-    fun `menu item is visible if the feature flag is enabled and the feature itself is turned on`() {
+    fun `menu item is not visible even if the feature flag is enabled and the feature itself is turned on`() {
         testSettings.shakeToSummarizeFeatureFlagEnabled = true
         settingsBinding._isFeatureEnabled.value = true
 
-        assertTrue(
-            "Menu item should be visible if the feature flag is enabled and the feature itself is turned on",
+        assertFalse(
+            "Menu item should not be visible when summarization is disabled",
             discoverySettings.showMenuItem,
         )
     }
@@ -85,15 +84,15 @@ class FenixSummarizationFeatureConfigurationTest {
     }
 
     @Test
-    fun `menu item is highlighted after menu item is exposed once`() {
+    fun `menu item is not highlighted after menu item is exposed once`() {
         testSettings.shakeToSummarizeFeatureFlagEnabled = true
         settingsBinding._isFeatureEnabled.value = true
 
         // menu item is exposed once
         discoverySettings.cacheDiscoveryEvent(SummarizeDiscoveryEvent.MenuItemExposure)
 
-        assertTrue(
-            "Menu item should be highlighted after menu item is exposed once",
+        assertFalse(
+            "Menu item should not be highlighted when summarization is disabled",
             discoverySettings.shouldHighlightMenuItem,
         )
     }
@@ -109,7 +108,7 @@ class FenixSummarizationFeatureConfigurationTest {
         discoverySettings.cacheDiscoveryEvent(SummarizeDiscoveryEvent.MenuItemExposure)
 
         assertFalse(
-            "Menu item should be highlighted after menu item is exposed the second time",
+            "Menu item should not be highlighted when summarization is disabled",
             discoverySettings.shouldHighlightMenuItem,
         )
     }
@@ -171,13 +170,13 @@ class FenixSummarizationFeatureConfigurationTest {
     }
 
     @Test
-    fun `menu overflow is highlighted if the overflow menu item is not interacted with at all`() {
+    fun `menu overflow is not highlighted if the overflow menu item is not interacted with at all`() {
         // GIVEN the feature flag fully available
         testSettings.shakeToSummarizeFeatureFlagEnabled = true
         settingsBinding._isFeatureEnabled.value = true
 
-        assertTrue(
-            "Menu overflow should be highlighted after the overflow menu item is not interacted with",
+        assertFalse(
+            "Menu overflow should not be highlighted when summarization is disabled",
             discoverySettings.shouldHighlightOverflowMenuItem,
         )
     }
@@ -208,10 +207,10 @@ class FenixSummarizationFeatureConfigurationTest {
             discoverySettings.cacheDiscoveryEvent(SummarizeDiscoveryEvent.MenuOverflowInteraction)
         }
 
-        // THEN the settings should be updated to the max count
+        // THEN the settings should not be updated
         assertEquals(
-            "Menu overflow interaction should not get recorded if it is already recorded",
-            1,
+            "Menu overflow interaction should not get recorded when summarization is disabled",
+            0,
             testSettings.shakeToSummarizeMoreMenuItemInteractionCount.value,
         )
     }
@@ -227,10 +226,10 @@ class FenixSummarizationFeatureConfigurationTest {
             discoverySettings.cacheDiscoveryEvent(SummarizeDiscoveryEvent.MenuItemExposure)
         }
 
-        // THEN the settings should be updated to the max count
+        // THEN the settings should not be updated
         assertEquals(
-            "Menu item exposure should not get recorded if it is already recorded twice",
-            2,
+            "Menu item exposure should not get recorded when summarization is disabled",
+            0,
             testSettings.shakeToSummarizeMenuItemExposureCount.value,
         )
     }
@@ -246,16 +245,16 @@ class FenixSummarizationFeatureConfigurationTest {
             discoverySettings.cacheDiscoveryEvent(SummarizeDiscoveryEvent.ToolbarOverflowInteraction)
         }
 
-        // THEN the settings should be updated to the max count
+        // THEN the settings should not be updated
         assertEquals(
-            "Menu item exposure should not get recorded if it is already recorded onnce",
-            1,
+            "Menu item exposure should not get recorded when summarization is disabled",
+            0,
             testSettings.shakeToSummarizeToolbarInteractionCount.value,
         )
     }
 
     @Test
-    fun `cfr is marked as shown if it was not previously seen before`() {
+    fun `cfr is not marked as shown if it was not previously seen before`() {
         // GIVEN the feature flag is enabled
         testSettings.shakeToSummarizeFeatureFlagEnabled = true
         settingsBinding._isFeatureEnabled.value = true
@@ -263,9 +262,9 @@ class FenixSummarizationFeatureConfigurationTest {
         // when the cfr is shown
         discoverySettings.cacheDiscoveryEvent(SummarizeDiscoveryEvent.CfrExposure)
 
-        // THEN the settings should be updated
-        assertTrue(
-            "CFR item should not get recorded if it is already",
+        // THEN the settings should not be updated
+        assertFalse(
+            "CFR item should not get recorded when summarization is disabled",
             testSettings.shakeToSummarizeToolbarCfrShown,
         )
     }
@@ -299,7 +298,7 @@ class FenixSummarizationFeatureConfigurationTest {
     }
 
     @Test
-    fun `toolbar cfr is shown if we have not shown it before`() {
+    fun `toolbar cfr is not shown if we have not shown it before`() {
         // GIVEN the feature flag fully available
         testSettings.shakeToSummarizeFeatureFlagEnabled = true
         settingsBinding._isFeatureEnabled.value = true
@@ -307,8 +306,8 @@ class FenixSummarizationFeatureConfigurationTest {
         // AND we have not shown the flag before
         testSettings.shakeToSummarizeToolbarCfrShown = false
 
-        assertTrue(
-            "Toolbar CFR should be shown if it has not been shown before",
+        assertFalse(
+            "Toolbar CFR should not be shown when summarization is disabled",
             discoverySettings.shouldToolbarShowCfr,
         )
     }

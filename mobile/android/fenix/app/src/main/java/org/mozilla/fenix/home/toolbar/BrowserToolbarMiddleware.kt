@@ -93,7 +93,6 @@ import org.mozilla.fenix.home.toolbar.TabCounterInteractions.AddNewPrivateTab
 import org.mozilla.fenix.home.toolbar.TabCounterInteractions.AddNewTab
 import org.mozilla.fenix.home.toolbar.TabCounterInteractions.TabCounterClicked
 import org.mozilla.fenix.home.toolbar.TabCounterInteractions.TabCounterLongClicked
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.search.BrowserToolbarSearchMiddleware
 import org.mozilla.fenix.search.ext.searchEngineShortcuts
 import org.mozilla.fenix.settings.ShortcutType
@@ -759,9 +758,7 @@ class BrowserToolbarMiddleware(
 
     private suspend fun isTranslationsFeatureAvailable(): Boolean {
         val isTranslationEngineSupported = browserStore.state.translationEngine.isEngineSupported ?: false
-        return isTranslationEngineSupported &&
-            FxNimbus.features.translations.value().mainFlowToolbarEnabled &&
-            translationsFeatureSettings.isEnabled.first()
+        return isTranslationEngineSupported && translationsFeatureSettings.isEnabled.first()
     }
 
     @VisibleForTesting

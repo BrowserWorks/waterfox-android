@@ -57,7 +57,6 @@ import org.mozilla.fenix.ext.WIDE_SCREEN_WIDTH_DP
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.getPreferenceKey
 import org.mozilla.fenix.home.topsites.TopSitesConfigConstants.TOP_SITES_MAX_COUNT
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.PhoneFeature
 import org.mozilla.fenix.settings.ShortcutType
 import org.mozilla.fenix.settings.deletebrowsingdata.DeleteBrowsingDataOnQuitType
@@ -1765,9 +1764,10 @@ class Settings(
     }
 
     var shouldShowVoiceSearch by
-        booleanPreference(
+        hardcodedFeatureFlagBooleanPreference(
             appContext.getPreferenceKey(R.string.pref_key_show_voice_search),
-            default = true,
+            defaultValue = { false },
+            featureFlag = false,
         )
 
     /** Tracks whether we need to check for camera permissions before using the QR code scanner. */
@@ -2583,11 +2583,12 @@ class Settings(
             featureFlag = false,
         )
 
-    /** Nimbus controlled feature flag that Indicates if the Shake to Summarize feature should be enabled */
+    /** Indicates if the Shake to Summarize feature should be enabled. */
     var shakeToSummarizeFeatureFlagEnabled by
-        booleanPreference(
+        hardcodedFeatureFlagBooleanPreference(
             key = appContext.getPreferenceKey(R.string.pref_key_enable_shake_to_summarize),
-            default = false,
+            defaultValue = { false },
+            featureFlag = false,
         )
 
     /** Whether to cover a restored tab with its cached thumbnail while it reloads. */
@@ -2604,11 +2605,12 @@ class Settings(
             default = false,
         )
 
-    /** Nimbus controlled feature flag that indicates if the Listen to Page feature should be enabled */
+    /** Indicates if the Listen to Page feature should be enabled. */
     var listenToPageFeatureFlagEnabled by
-        booleanPreference(
+        hardcodedFeatureFlagBooleanPreference(
             key = appContext.getPreferenceKey(R.string.pref_key_enable_listen_to_page),
-            default = { FxNimbus.features.listenToPage.value().enabled },
+            defaultValue = { false },
+            featureFlag = false,
         )
 
     /** Indicates if the weekly privacy notification feature should be enabled. */
@@ -2629,9 +2631,10 @@ class Settings(
         )
 
     var aiControlsFeatureFlagEnabled by
-        booleanPreference(
+        hardcodedFeatureFlagBooleanPreference(
             key = appContext.getPreferenceKey(R.string.pref_key_enable_ai_controls),
-            default = false,
+            defaultValue = { false },
+            featureFlag = false,
         )
 
     /** Feature flag that indicates if the Import Bookmarks feature is enabled. */

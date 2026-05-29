@@ -24,7 +24,6 @@ import mozilla.components.ui.icons.R as iconsR
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.menu.MenuItemProvider
 import org.mozilla.fenix.components.menu.store.MenuAction
-import org.mozilla.fenix.nimbus.FxNimbus
 
 /**
  * [MenuItemProvider] for the menu item allowing to translate the current page.
@@ -40,7 +39,7 @@ class TranslationsMenuItemProvider(
     browserStore: BrowserStore,
     translationsSettings: TranslationsEnabledSettings,
     scope: CoroutineScope,
-    private val isFeatureEnabled: Boolean = FxNimbus.features.translations.value().mainFlowBrowserMenuEnabled,
+    private val isFeatureEnabled: Boolean = true,
 ) : MenuItemProvider {
     override val itemFlow: StateFlow<MenuItem?> =
         combine(browserStore.stateFlow, translationsSettings.isEnabled) { state, isEnabled ->

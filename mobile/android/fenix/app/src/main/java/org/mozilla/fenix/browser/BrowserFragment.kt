@@ -78,7 +78,6 @@ import org.mozilla.fenix.home.HomeFragment
 import org.mozilla.fenix.ipprotection.store.Surface as IPProtectionSurface
 import org.mozilla.fenix.ipprotection.ui.IPProtectionBottomSheetFragment
 import org.mozilla.fenix.listentopage.ListenSheetIntegration
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.onboarding.OnboardingFragmentDirections
 import org.mozilla.fenix.onboarding.OnboardingReason
 import org.mozilla.fenix.onboarding.OnboardingTelemetryRecorder
@@ -317,7 +316,7 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler, SystemIns
             view = rootView,
         )
 
-        if (FxNimbus.features.translations.value().mainFlowToolbarEnabled) {
+        if (true) {
             translationsBinding.set(
                 feature =
                     TranslationsBinding(

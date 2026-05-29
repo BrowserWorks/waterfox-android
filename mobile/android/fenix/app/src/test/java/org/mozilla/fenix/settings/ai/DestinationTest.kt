@@ -10,21 +10,20 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
 import org.mozilla.fenix.R
+import org.mozilla.fenix.translations.TranslationsAIControllableFeature
 
 class DestinationTest {
 
     @Test
-    fun `page summary feature maps to pageSummariesSettingsFragment destination`() {
-        val destination = PageSummaryFeature.destination
-
-        assertEquals(R.id.action_aiControlsFragment_to_pageSummariesSettingsFragment, (destination as Destination).id)
+    fun `page summary feature returns null destination`() {
+        assertNull(PageSummaryFeature.destination)
     }
 
     @Test
-    fun `page summary feature destination has correct label`() {
-        val destination = PageSummaryFeature.destination
+    fun `translation feature maps to translations settings`() {
+        val destination = TranslationsAIControllableFeature.destination as Destination
 
-        assertEquals(R.string.ai_controls_more_page_summary_settings, (destination as Destination).label)
+        assertEquals(R.id.translations_settings_graph, destination.id)
     }
 
     @Test

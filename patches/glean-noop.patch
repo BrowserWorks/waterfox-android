@@ -1,0 +1,2072 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index fe9e70998a2069f70b6ccb3cbca59cd8f1d8dddc..fbe01a9cd30723b8c74a4f1e0ec84ebbaed1274d 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1491,6 +1491,14 @@ dependencies = [
+  "uniffi",
+ ]
+ 
++[[package]]
++name = "uniffi-bindgen-noop"
++version = "0.1.0"
++dependencies = [
++ "anyhow",
++ "camino",
++]
++
+ [[package]]
+ name = "uniffi_bindgen"
+ version = "0.31.0"
+diff --git a/Cargo.toml b/Cargo.toml
+index e800de2f8330d3237a78e727b1e33a0c86f2c252..68ef907c664bf93cb89bf0eebbbe5eea127e3406 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -11,6 +11,7 @@ members = [
+   "samples/rust",
+   "samples/rapid-metrics",
+   "tools/embedded-uniffi-bindgen",
++  "tools/embedded-uniffi-bindgen-noop",
+   "tools/glean-sym-parser",
+   "glean-core/glean-sym",
+ ]
+@@ -19,6 +20,7 @@ default-members = [
+   "glean-core",
+   "glean-core/rlb",
+   "tools/embedded-uniffi-bindgen",
++  "tools/embedded-uniffi-bindgen-noop",
+ ]
+ 
+ [profile.release]
+diff --git a/build.gradle b/build.gradle
+index fa83f350579eb544cdf19d35389af5f96101cc92..500220d600203de8ca94bc7a7037418b4fadff2d 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -138,7 +138,7 @@ subprojects {
+             }
+         }
+         tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+-            kotlinOptions.allWarningsAsErrors = true
++            compilerOptions.allWarningsAsErrors.set(true)
+         }
+     }
+ 
+diff --git a/glean-core/android-native/build.gradle b/glean-core/android-native/build.gradle
+index 53716d5235aecda8f10fa04d68d1d6d84fb8b1eb..0447f464bd3114dcc57fa43a69c434939ffacac9 100644
+--- a/glean-core/android-native/build.gradle
++++ b/glean-core/android-native/build.gradle
+@@ -9,7 +9,6 @@ import groovy.json.JsonOutput
+ 
+ apply plugin: 'com.android.library'
+ apply plugin: 'kotlin-android'
+-apply plugin: 'org.mozilla.rust-android-gradle.rust-android'
+ 
+ kotlin {
+     jvmToolchain(rootProject.ext.build.jvmTargetCompatibility)
+@@ -43,35 +42,17 @@ android {
+         }
+     }
+ 
++    packagingOptions {
++        exclude 'lib/arm64-v8a/libxul.so'
++        exclude 'lib/armeabi-v7a/libxul.so'
++        exclude 'lib/x86/libxul.so'
++        exclude 'lib/x86_64/libxul.so'
++    }
++
+     // Uncomment to include debug symbols in native library builds.
+     // packagingOptions { doNotStrip "**/*.so" }
+ }
+ 
+-cargo {
+-    // The directory of the Cargo.toml to build.
+-    module = '../bundle-android'
+-
+-    // The Android NDK API level to target.
+-    apiLevel = rootProject.ext.build['minSdkVersion']
+-
+-    // Where Cargo writes its outputs.
+-    targetDirectory = '../../target'
+-
+-    // HACK:
+-    // We consume this as libxul.
+-    // Glean is build into libxul from mozilla-central
+-    // and users consume it as part of GeckoView.
+-    // Because UniFFI does not have the option to switch the library to consume,
+-    // except at build time, we use this hack for now.
+-    libname = 'xul'
+-
+-    targets = rootProject.ext.rustTargets
+-
+-    profile = rootProject.ext.cargoProfile
+-
+-    extraCargoBuildArguments = rootProject.ext.extraCargoBuildArguments
+-}
+-
+ configurations {
+     // Libraries for unit tests
+     //
+@@ -108,15 +89,12 @@ dependencies {
+     }
+ }
+ 
+-afterEvaluate {
+-    // The `cargoBuild` task isn't available until after evaluation.
+-    android.libraryVariants.all { variant ->
+-        def productFlavor = ""
+-        variant.productFlavors.each {
+-            productFlavor += "${it.name.capitalize()}"
+-        }
+-        def buildType = "${variant.buildType.name.capitalize()}"
+-        tasks["merge${productFlavor}${buildType}JniLibFolders"].dependsOn(tasks["cargoBuild"])
++def noopJniLibsDir = layout.buildDirectory.dir("noopJniLibs")
++
++def prepareNoopJniLibs = tasks.register("prepareNoopJniLibs") {
++    outputs.dir noopJniLibsDir
++    doLast {
++        noopJniLibsDir.get().asFile.mkdirs()
+     }
+ }
+ 
+@@ -132,13 +110,14 @@ def extractLibJniDispatch = tasks.register("extractLibJniDispatch", Copy) {
+ def packageLibsForTest = tasks.register("packageLibsForTest", Jar) {
+     archiveBaseName = "glean-native-forUnitTests"
+ 
+-    from extractLibJniDispatch
+-    from layout.buildDirectory.dir("rustJniLibs/desktop")
+-    dependsOn tasks["cargoBuild${rootProject.ext.nativeRustTarget.capitalize()}"]
++    dependsOn prepareNoopJniLibs
++    from noopJniLibsDir
+ }
+ 
+ def copyGleanNative = tasks.register("copyGleanNative", Copy) {
+-    from layout.buildDirectory.dir("rustJniLibs/desktop")
++    dependsOn prepareNoopJniLibs
++    from noopJniLibsDir
++    exclude '**/libxul.so'
+     into layout.buildDirectory.dir("gleanNative")
+ }
+ 
+@@ -147,54 +126,3 @@ artifacts {
+     forUnitTests(packageLibsForTest)
+     gleanNative(copyGleanNative)
+ }
+-
+-apply from: "$rootDir/publish.gradle"
+-ext.configurePublish()
+-
+-afterEvaluate {
+-    publishing {
+-        publications {
+-            // Publish a second package named `glean-native-forUnitTests` to Maven with the
+-            // `forUnitTests` output.  This contains the same content as our `forUnitTests`
+-            // configuration. Publishing it allows the android-components code to depend on it.
+-            forUnitTests(MavenPublication) {
+-                artifact tasks['packageLibsForTest']
+-                artifact file("${rootProject.projectDir}/DEPENDENCIES.md"), {
+-                    extension = "LICENSES.md"
+-                }
+-                pom {
+-                    groupId = rootProject.ext.library.groupId
+-                    artifactId = "${project.ext.artifactId}-forUnitTests"
+-                    description = project.ext.description
+-                    // For mavenLocal publishing workflow, increment the version number every publish.
+-                    version = rootProject.ext.library.version + (rootProject.hasProperty('local') ? '-' + rootProject.property('local') : '')
+-                    packaging = "jar"
+-
+-                    licenses {
+-                        license {
+-                            name = libLicense
+-                            url = libLicenseUrl
+-                        }
+-                    }
+-
+-                    developers {
+-                        developer {
+-                            name = 'Sync Team'
+-                            email = 'sync-team@mozilla.com'
+-                        }
+-                    }
+-
+-                    scm {
+-                        connection = libVcsUrl
+-                        developerConnection = libVcsUrl
+-                        url = libUrl
+-                    }
+-                }
+-
+-                // This is never the publication we want to use when publishing a
+-                // parent project with us as a child `project()` dependency.
+-                alias = true
+-            }
+-        }
+-    }
+-}
+diff --git a/glean-core/android/build.gradle b/glean-core/android/build.gradle
+index b1d4b8cdd835f1cd11d6cc223592142af042f9d2..826cad69cad8e4e8d6edf6f15588fed37c1991c8 100644
+--- a/glean-core/android/build.gradle
++++ b/glean-core/android/build.gradle
+@@ -7,9 +7,16 @@
+ 
+ import groovy.json.JsonOutput
+ 
+-plugins {
+-    alias libs.plugins.gradle.python.envs
++// Reuse the active Mach virtualenv, including for per-architecture object directories.
++if (!gradle.root.hasProperty('mozconfig')) {
++    throw new GradleException('Build the Waterfox no-op Glean SDK through ./mach gradle.')
+ }
++def python3 = file(gradle.root.mozconfig.substs.PYTHON3)
++if (!python3.isFile()) {
++    throw new GradleException("Mach Python executable not found: ${python3}")
++}
++project.ext.gleanPythonEnvDir = python3.parentFile.parentFile.absolutePath
++project.ext.gleanParserOverride = '20.1.0'
+ 
+ apply plugin: 'com.android.library'
+ apply plugin: 'kotlin-android'
+@@ -26,6 +33,7 @@ File GLEAN_PING_SCHEMA_PATH = file("$rootDir/glean.1.schema.json")
+ 
+ // This will store the uniffi-bindgen generated files for our component
+ def UNIFFI_OUT_DIR = layout.buildDirectory.dir("generated/uniffi/")
++def isNoopGlean = true
+ 
+ // Set configuration for the glean_parser
+ ext.allowGleanInternal = true
+@@ -35,6 +43,13 @@ kotlin {
+     jvmToolchain(rootProject.ext.build.jvmTargetCompatibility)
+ }
+ 
++afterEvaluate {
++    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
++        compilerOptions.allWarningsAsErrors.set(false)
++        compilerOptions.freeCompilerArgs.set(compilerOptions.freeCompilerArgs.get() - "-Werror")
++    }
++}
++
+ android {
+     namespace = "mozilla.telemetry.glean"
+ 
+@@ -60,7 +75,7 @@ android {
+ 
+         release {
+             minifyEnabled false
+-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
++            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+             consumerProguardFiles "$projectDir/proguard-rules-consumer.pro"
+         }
+ 
+@@ -69,7 +84,7 @@ android {
+         }
+     }
+ 
+-    sourceSets.main.kotlin.srcDirs += UNIFFI_OUT_DIR
++    sourceSets.main.kotlin.srcDirs += UNIFFI_OUT_DIR.get().asFile
+ 
+     // Uncomment to include debug symbols in native library builds.
+     // packagingOptions { doNotStrip "**/*.so" }
+@@ -94,18 +109,18 @@ kotlin {
+ }
+ 
+ afterEvaluate {
+-    android.libraryVariants.all { variant ->
+-        def variantName = variant.name.capitalize();
+-        def testTask = tasks["test${variantName}UnitTest"]
+-    }
+ 
+-    def gleanNative = configurations.getByName("gleanNative")
+     android.libraryVariants.all { variant ->
+         def variantName = variant.name.capitalize();
+         def compileTask = tasks["compile${variantName}Kotlin"]
+ 
+         compileTask.dependsOn(generateUniffiBindings)
+-        variant.registerJavaGeneratingTask(generateUniffiBindings, gleanNative.singleFile)
++        if (!isNoopGlean) {
++            def gleanNative = configurations.getByName("gleanNative")
++            if (!gleanNative.files.isEmpty()) {
++                variant.registerJavaGeneratingTask(generateUniffiBindings, gleanNative.singleFile)
++            }
++        }
+     }
+ 
+     if (project.hasProperty("coverage")) {
+@@ -153,16 +168,14 @@ configurations {
+ }
+ 
+ dependencies {
+-    // Add a JNA dependency, which is required by UniFFI.
+-    implementation(libs.jna) {
+-        artifact {
+-            type = "aar"
++    if (!isNoopGlean) {
++        // Add a JNA dependency, which is required by UniFFI.
++        implementation(libs.jna) {
++            artifact {
++                type = "aar"
++            }
+         }
+     }
+-    api project(":glean-native")
+-
+-    gleanNative project("path": ":glean-native", "configuration": "gleanNative")
+-    implementation project("path": ":glean-native", "configuration": "forUnitTests")
+ 
+     implementation libs.androidx.annotation
+     implementation libs.androidx.lifecycle.common
+@@ -191,39 +204,52 @@ dependencies {
+     androidTestImplementation libs.test.runner
+ }
+ 
+-apply from: "$rootDir/publish.gradle"
+-ext.configurePublish()
+-
+ def generateUniffiBindings = tasks.register("generateUniffiBindings") {
+-    def gleanNative = configurations.getByName("gleanNative")
++    def udlFilePath = "../src/glean.udl"
++    def uniffiBindgenNoop = project.findProperty("uniffiBindgenNoop")
++    def bindgenPackage = isNoopGlean ? 'uniffi-bindgen-noop' : 'uniffi-bindgen'
++    def bindgenCommand = uniffiBindgenNoop ? [uniffiBindgenNoop] : ['cargo', 'run', '--package', bindgenPackage, '--']
+     doFirst {
+-        def libraryPath = gleanNative.asFileTree.matching {
+-            include "${nativeRustTarget}/libxul.*"
+-        }.singleFile
+-
+-        if (libraryPath == null) {
+-            throw new GradleException("libglean_ffi dynamic library path not found")
++        if (isNoopGlean) {
++            delete(UNIFFI_OUT_DIR.get().asFile)
+         }
+-
+-        exec {
+-            workingDir project.rootDir
+-            commandLine 'cargo', 'uniffi-bindgen', 'generate', '--no-format', '--library', libraryPath, '--language', 'kotlin', '--out-dir', UNIFFI_OUT_DIR.get()
++        def bindgenArgs = ['generate',
++            '--no-format', "${project.projectDir}/${udlFilePath}",
++            '--language', 'kotlin',
++            '--out-dir', UNIFFI_OUT_DIR.get(),
++            '--config', "${project.projectDir}/../uniffi.toml",
++        ]
++
++        def cmd = (bindgenCommand + bindgenArgs).collect { it.toString() }
++        def proc = new ProcessBuilder(cmd)
++            .directory(project.rootDir)
++            .redirectErrorStream(true)
++            .start()
++        proc.inputStream.eachLine { logger.lifecycle(it) }
++        if (proc.waitFor() != 0) {
++            throw new GradleException("uniffi-bindgen failed with exit ${proc.exitValue()}")
+         }
+     }
+ 
+     outputs.dir UNIFFI_OUT_DIR
+-    // Re-generate if native changes
+-    inputs.files gleanNative
+     // Re-generate if the interface definition changes.
+     inputs.file "${project.projectDir}/../src/glean.udl"
+     // Re-generate if the uniffi config changes.
+     inputs.file "${project.projectDir}/../uniffi.toml"
+     // Re-generate if our uniffi-bindgen tooling changes.
+-    inputs.dir "${project.rootDir}/tools/embedded-uniffi-bindgen/"
++    if (isNoopGlean) {
++        inputs.dir "${project.rootDir}/tools/embedded-uniffi-bindgen-noop/"
++    } else {
++        inputs.dir "${project.rootDir}/tools/embedded-uniffi-bindgen/"
++    }
+     // Re-generate if our uniffi-bindgen version changes.
+     inputs.file "${project.rootDir}/Cargo.lock"
+ }
+ 
++tasks.matching { it.name == "sourceReleaseJar" }.configureEach {
++    dependsOn(generateUniffiBindings)
++}
++
+ // Generate markdown docs for the collected metrics.
+ ext.gleanDocsDirectory = "$rootDir/docs/user/user/collected-metrics"
+ ext.gleanYamlFiles = [
+@@ -248,7 +274,7 @@ android {
+             "GLEAN_MINICONDA_DIR",
+             // Carefully escape the string here so it will support `\` in
+             // Windows paths correctly.
+-            JsonOutput.toJson(project.ext.gleanPythonEnvDir.path)
++            JsonOutput.toJson(project.ext.gleanPythonEnvDir.toString())
+         )
+     }
+ }
+diff --git a/gradle.properties b/gradle.properties
+index 96c34d118a277e5784974345fd8d269c91e82236..1b9db7b428bee009e645824cf6d519764143879f 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -23,3 +23,7 @@ libLicense=MPL-2.0
+ libLicenseUrl=https://www.mozilla.org/en-US/MPL/2.0/
+ 
+ android.useAndroidX=true
++
++# Keep the pinned Glean plugin's legacy variant API, only in this included build.
++android.builtInKotlin=false
++android.newDsl=false
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+index 2e825a89e2489fe3388bdad6231d57485ec4100a..9d5ab6aa0082c4e3b93001b94b35079eff6179ce 100644
+--- a/gradle/libs.versions.toml
++++ b/gradle/libs.versions.toml
+@@ -5,10 +5,10 @@
+ 
+ [versions]
+ # AGP
+-android-plugin = "8.13.2"
++android-plugin = "9.2.1"
+ 
+ # Kotlin
+-kotlin-compiler = "2.3.21"
++kotlin-compiler = "2.4.10"
+ kotlinx-coroutines = "1.11.0"
+ kotlinx-serialization = "1.11.0"
+ 
+diff --git a/settings.gradle b/settings.gradle
+index 23a74d7ed90149017c3846c91acba53a05343de5..9682572a32d7878d6deed822a2af66c6302f9236 100644
+--- a/settings.gradle
++++ b/settings.gradle
+@@ -37,8 +37,11 @@ def setupProject(name, projectProps) {
+ 
+ def yaml = new Yaml()
+ def buildconfig = yaml.load(new File(rootDir, '.buildconfig.yml').newInputStream())
++// Only the no-op SDK is consumed; do not configure the native SDK or sample app.
+ buildconfig.projects.each { project ->
+-    setupProject(project.key, project.value)
++    if (project.key == 'glean') {
++        setupProject(project.key, project.value)
++    }
+ }
+ 
+ gradle.projectsLoaded { ->
+diff --git a/tools/embedded-uniffi-bindgen-noop/Cargo.toml b/tools/embedded-uniffi-bindgen-noop/Cargo.toml
+new file mode 100644
+index 0000000000000000000000000000000000000000..459a099c09e60f405834527dab743b7936f3ab1e
+--- /dev/null
++++ b/tools/embedded-uniffi-bindgen-noop/Cargo.toml
+@@ -0,0 +1,16 @@
++[package]
++name = "uniffi-bindgen-noop"
++version = "0.1.0"
++edition = "2021"
++license = "MPL-2.0"
++publish = false
++
++[dependencies]
++anyhow = "1"
++camino = "1.1.1"
++
++
++[lib]
++test = false
++doctest = false
++doc = false
+diff --git a/tools/embedded-uniffi-bindgen-noop/README.md b/tools/embedded-uniffi-bindgen-noop/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..1686beba8efc8df74914232199a9ca65c0c6e11d
+--- /dev/null
++++ b/tools/embedded-uniffi-bindgen-noop/README.md
+@@ -0,0 +1,52 @@
++# No-op Kotlin bindings
++
++This generator emits pure Kotlin internal bindings for the Android Glean wrapper.
++It does not load a native library, invoke callbacks, record metrics or sessions,
++persist data, schedule work, or produce upload tasks. Session records are passive
++API data types only; event test getters always return an empty list.
++
++The hardcoded API targets Glean **68.0.1** (tag commit
++`92ecd18105fd2936e11936da749183369a491580`). The generator is not a general-purpose
++UniFFI replacement, and does not emit Python or Swift bindings.
++
++## Validation
++
++From the Glean source root:
++
++```sh
++cargo test --locked -p uniffi-bindgen-noop
++```
++
++
++The Rust tests check the current UDL's record fields, namespace functions, metric
++constructors/methods, callbacks, and Android configuration argument names against
++the generated Kotlin. A comment/whitespace-insensitive UDL snapshot catches other
++API changes, including defaults and enum variants. Review API compatibility and
++no-op behavior before updating `tests/glean-68.0.1.udl`; do not blindly refresh it.
++The snapshot does not make production generation reject unknown UDL revisions.
++
++An additional ignored test compiles and executes `tests/SessionNoop.kt` against
++freshly generated bindings. Supply these environment variables using an already
++installed JDK and Kotlin compiler (the test does not download tools):
++
++- `JAVA`: Java executable path.
++- `KOTLIN_COMPILER_CLASSPATH`: platform-separated classpath containing the Kotlin
++  embeddable compiler and its runtime dependencies, including annotations.
++- `KOTLIN_STDLIB`: path to the matching Kotlin standard-library JAR.
++
++Then run:
++
++```sh
++cargo test --locked -p uniffi-bindgen-noop kotlin_session_fixture_compiles_and_runs -- --ignored
++```
++
++The fixture covers all session modes before initialization, after initialization,
++and after shutdown; default/explicit end reasons; unsigned fields; nullable
++metadata; event suppression; attribution/distribution clearing; callback
++suppression; safe absent UUID getters; and upload termination even when uploading is enabled. It compiles
++and runs without Glean native code, JNA, Android, or network dependencies. Test
++output directories are created inside this crate and removed on completion.
++
++These focused tests do not replace compiling the complete Android wrapper. They
++do not test the generated UniFFI FFI/serialization machinery, which is deliberately
++absent, or prevent side effects introduced in code outside these bindings.
+diff --git a/tools/embedded-uniffi-bindgen-noop/src/lib.rs b/tools/embedded-uniffi-bindgen-noop/src/lib.rs
+new file mode 100644
+index 0000000000000000000000000000000000000000..0fd3fbca1f85f3e4a53018fb0ad5d74d9befe047
+--- /dev/null
++++ b/tools/embedded-uniffi-bindgen-noop/src/lib.rs
+@@ -0,0 +1 @@
++// intentionally left empty. only exists to make a warning go away
+diff --git a/tools/embedded-uniffi-bindgen-noop/src/main.rs b/tools/embedded-uniffi-bindgen-noop/src/main.rs
+new file mode 100644
+index 0000000000000000000000000000000000000000..8eced77a5390c0f5c323838165f1886735b7a0a7
+--- /dev/null
++++ b/tools/embedded-uniffi-bindgen-noop/src/main.rs
+@@ -0,0 +1,558 @@
++/* This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this
++ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
++
++use std::{env, fs};
++
++use anyhow::{bail, Context};
++use camino::Utf8PathBuf;
++
++#[cfg(test)]
++mod tests;
++
++#[derive(Copy, Clone, Eq, PartialEq, Hash)]
++enum TargetLanguage {
++    Kotlin,
++    Swift,
++    Python,
++}
++
++fn parse_language(lang: &str) -> anyhow::Result<TargetLanguage> {
++    match lang {
++        "kotlin" => Ok(TargetLanguage::Kotlin),
++        "python" => Ok(TargetLanguage::Python),
++        "swift" => Ok(TargetLanguage::Swift),
++        _ => bail!("Unknown language"),
++    }
++}
++
++fn read_package_name(config_file: Option<&camino::Utf8Path>) -> String {
++    let default_name = "mozilla.telemetry.glean.internal".to_string();
++    let Some(config_file) = config_file else {
++        return default_name;
++    };
++    let Ok(contents) = fs::read_to_string(config_file.as_std_path()) else {
++        return default_name;
++    };
++    for line in contents.lines() {
++        let line = line.trim();
++        if !line.starts_with("package_name") {
++            continue;
++        }
++        let Some((_, value)) = line.split_once('=') else {
++            continue;
++        };
++        let value = value.trim().trim_matches('"');
++        if !value.is_empty() {
++            return value.to_string();
++        }
++    }
++    default_name
++}
++
++fn write_noop_kotlin_bindings(
++    out_dir: &camino::Utf8Path,
++    package_name: &str,
++) -> anyhow::Result<()> {
++    fs::create_dir_all(out_dir.as_std_path())?;
++    let contents = format!(
++        "package {}\n\n{}",
++        package_name,
++        r#"interface OnGleanEvents {
++    fun initializeFinished()
++    fun triggerUpload()
++    fun startMetricsPingScheduler(): Boolean
++    fun cancelUploads()
++    fun shutdown()
++}
++
++interface GleanEventListener {
++    fun onEventRecorded(id: String)
++}
++
++enum class CallbackError { UnexpectedError }
++
++enum class LevelFilter { OFF, ERROR, WARN, INFO, DEBUG, TRACE }
++enum class Lifetime { PING, APPLICATION, USER }
++enum class TimeUnit { NANOSECOND, MICROSECOND, MILLISECOND, SECOND, MINUTE, HOUR, DAY }
++enum class MemoryUnit { BYTE, KILOBYTE, MEGABYTE, GIGABYTE }
++enum class HistogramType { LINEAR, EXPONENTIAL }
++enum class ErrorType { INVALID_VALUE, INVALID_LABEL, INVALID_STATE, INVALID_OVERFLOW }
++enum class UploadTaskAction { NEXT, END }
++enum class SessionMode { AUTO, LIFECYCLE, MANUAL }
++
++class DynamicLabelType
++
++data class InternalConfiguration(
++    val dataPath: String,
++    val applicationId: String,
++    val languageBindingName: String,
++    val uploadEnabled: Boolean,
++    val maxEvents: UInt?,
++    val delayPingLifetimeIo: Boolean,
++    val appBuild: String,
++    val useCoreMps: Boolean,
++    val trimDataToRegisteredPings: Boolean,
++    val logLevel: LevelFilter?,
++    val rateLimit: PingRateLimit?,
++    val enableEventTimestamps: Boolean,
++    val experimentationId: String?,
++    val enableInternalPings: Boolean,
++    val pingSchedule: Map<String, List<String>>,
++    val pingLifetimeThreshold: ULong,
++    val pingLifetimeMaxTime: ULong,
++    val maxPendingPingsCount: ULong?,
++    val maxPendingPingsDirectorySize: ULong?,
++    val sessionMode: SessionMode,
++    val sessionSampleRate: Double,
++    val sessionInactivityTimeoutMs: ULong,
++)
++
++data class PingRateLimit(
++    val secondsPerInterval: ULong,
++    val pingsPerInterval: UInt,
++)
++
++data class ClientInfoMetrics(
++    val appBuild: String,
++    val appDisplayVersion: String,
++    val appBuildDate: Datetime,
++    val architecture: String,
++    val osVersion: String,
++    val channel: String? = null,
++    val locale: String? = null,
++    val deviceManufacturer: String? = null,
++    val deviceModel: String? = null,
++    val androidSdkVersion: String? = null,
++    val windowsBuildNumber: Long? = null,
++)
++
++data class AttributionMetrics(
++    val source: String? = null,
++    val medium: String? = null,
++    val campaign: String? = null,
++    val term: String? = null,
++    val content: String? = null,
++)
++
++data class DistributionMetrics(
++    val name: String? = null,
++)
++
++data class Datetime(
++    val year: Int,
++    val month: UInt,
++    val day: UInt,
++    val hour: UInt,
++    val minute: UInt,
++    val second: UInt,
++    val nanosecond: UInt,
++    val offsetSeconds: Int,
++)
++
++data class RecordedExperiment(
++    val branch: String,
++    val extra: Map<String, String>? = null,
++)
++
++data class SessionMetadata(
++    val sessionId: String,
++    val sessionSeq: ULong,
++    val eventSeq: ULong,
++    val sessionSampleRate: Double,
++    val sessionStartTime: String? = null,
++)
++
++data class RecordedEvent(
++    val timestamp: ULong,
++    val category: String,
++    val name: String,
++    val extra: Map<String, String>? = null,
++    val session: SessionMetadata? = null,
++)
++
++data class PingRequest(
++    val documentId: String,
++    val path: String,
++    val body: ByteArray,
++    val headers: Map<String, String>,
++    val bodyHasInfoSections: Boolean,
++    val pingName: String,
++    val uploaderCapabilities: List<String>,
++)
++
++sealed class PingUploadTask {
++    data class Upload(val request: PingRequest) : PingUploadTask()
++    data class Wait(val time: ULong) : PingUploadTask()
++    data class Done(val unused: Byte = 0) : PingUploadTask()
++}
++
++sealed class UploadResult {
++    data class RecoverableFailure(val unused: Byte = 0) : UploadResult()
++    data class UnrecoverableFailure(val unused: Byte = 0) : UploadResult()
++    data class Incapable(val unused: Byte = 0) : UploadResult()
++    data class HttpStatus(val code: Int) : UploadResult()
++    data class Done(val unused: Byte = 0) : UploadResult()
++}
++
++data class TimerId(val id: ULong = 0uL)
++
++data class Rate(val numerator: Int = 0, val denominator: Int = 0)
++
++data class DistributionData(
++    val values: Map<Long, Long> = emptyMap(),
++    val sum: Long = 0,
++    val count: Long = 0,
++)
++
++data class CommonMetricData(
++    val category: String,
++    val name: String,
++    val sendInPings: List<String>,
++    val lifetime: Lifetime,
++    val disabled: Boolean,
++    val dynamicLabel: DynamicLabelType? = null,
++    val inSession: Boolean = false,
++)
++
++sealed class LabeledMetricData {
++    data class Common(val cmd: CommonMetricData) : LabeledMetricData()
++    data class CustomDistribution(
++        val cmd: CommonMetricData,
++        val rangeMin: Long,
++        val rangeMax: Long,
++        val bucketCount: Long,
++        val histogramType: HistogramType,
++    ) : LabeledMetricData()
++
++    data class MemoryDistribution(
++        val cmd: CommonMetricData,
++        val unit: MemoryUnit,
++    ) : LabeledMetricData()
++
++    data class TimingDistribution(
++        val cmd: CommonMetricData,
++        val unit: TimeUnit,
++    ) : LabeledMetricData()
++}
++
++class CounterMetric(private val meta: CommonMetricData) {
++    fun add(amount: Int = 1) {}
++    fun testGetValue(pingName: String? = null): Int? = 0
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class TimespanMetric(private val meta: CommonMetricData, private val timeUnit: TimeUnit) {
++    fun start() {}
++    fun stop() {}
++    fun cancel() {}
++    fun setRawNanos(elapsed: Long) {}
++    fun testGetValue(pingName: String? = null): Long? = 0
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class BooleanMetric(private val meta: CommonMetricData) {
++    fun set(value: Boolean) {}
++    fun testGetValue(pingName: String? = null): Boolean? = false
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class StringMetric(private val meta: CommonMetricData) {
++    fun set(value: String) {}
++    fun testGetValue(pingName: String? = null): String? = ""
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class LabeledCounter(private val meta: LabeledMetricData, private val labels: List<String>?) {
++    fun get(label: String): CounterMetric = CounterMetric(CommonMetricData("", "", emptyList(), Lifetime.PING, true))
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++    fun testGetValue(pingName: String? = null): Map<String, Int>? = emptyMap()
++}
++
++class LabeledBoolean(private val meta: LabeledMetricData, private val labels: List<String>?) {
++    fun get(label: String): BooleanMetric = BooleanMetric(CommonMetricData("", "", emptyList(), Lifetime.PING, true))
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++    fun testGetValue(pingName: String? = null): Map<String, Boolean>? = emptyMap()
++}
++
++class LabeledString(private val meta: LabeledMetricData, private val labels: List<String>?) {
++    fun get(label: String): StringMetric = StringMetric(CommonMetricData("", "", emptyList(), Lifetime.PING, true))
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++    fun testGetValue(pingName: String? = null): Map<String, String>? = emptyMap()
++}
++
++class LabeledQuantity(private val meta: LabeledMetricData, private val labels: List<String>?) {
++    fun get(label: String): QuantityMetric = QuantityMetric(CommonMetricData("", "", emptyList(), Lifetime.PING, true))
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++    fun testGetValue(pingName: String? = null): Map<String, Long>? = emptyMap()
++}
++
++class StringListMetric(private val meta: CommonMetricData) {
++    fun add(value: String) {}
++    fun set(value: List<String>) {}
++    fun testGetValue(pingName: String? = null): List<String>? = emptyList()
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class UrlMetric(private val meta: CommonMetricData) {
++    fun set(value: String) {}
++    fun testGetValue(pingName: String? = null): String? = ""
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class UuidMetric(private val meta: CommonMetricData) {
++    fun set(value: String) {}
++    fun generateAndSet(): String = ""
++    fun testGetValue(pingName: String? = null): String? = null
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class QuantityMetric(private val meta: CommonMetricData) {
++    fun set(value: Long) {}
++    fun testGetValue(pingName: String? = null): Long? = 0
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class TimingDistributionMetric(private val meta: CommonMetricData, private val timeUnit: TimeUnit) {
++    fun start(): TimerId = TimerId(0uL)
++    fun stopAndAccumulate(timerId: TimerId) {}
++    fun cancel(timerId: TimerId) {}
++    fun accumulateSamples(samples: List<Long>) {}
++    fun accumulateSingleSample(sample: Long) {}
++    fun testGetValue(pingName: String? = null): DistributionData? = DistributionData()
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class MemoryDistributionMetric(private val meta: CommonMetricData, private val memoryUnit: MemoryUnit) {
++    fun accumulate(sample: Long) {}
++    fun accumulateSamples(samples: List<Long>) {}
++    fun testGetValue(pingName: String? = null): DistributionData? = DistributionData()
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class CustomDistributionMetric(
++    private val meta: CommonMetricData,
++    private val rangeMin: Long,
++    private val rangeMax: Long,
++    private val bucketCount: Long,
++    private val histogramType: HistogramType,
++) {
++    fun accumulateSamples(samples: List<Long>) {}
++    fun accumulateSingleSample(sample: Long) {}
++    fun testGetValue(pingName: String? = null): DistributionData? = DistributionData()
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class DatetimeMetric(private val meta: CommonMetricData, private val timeUnit: TimeUnit) {
++    fun set(value: Datetime? = null) {}
++    fun testGetValue(pingName: String? = null): Datetime? = null
++    fun testGetValueAsString(pingName: String? = null): String? = null
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class EventMetric(private val meta: CommonMetricData, private val allowedExtraKeys: List<String>) {
++    fun record(extra: Map<String, String>) {}
++    fun testGetValue(pingName: String? = null): List<RecordedEvent>? = emptyList()
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class RateMetric(private val meta: CommonMetricData) {
++    fun addToNumerator(amount: Int) {}
++    fun addToDenominator(amount: Int) {}
++    fun testGetValue(pingName: String? = null): Rate? = Rate()
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class DenominatorMetric(private val meta: CommonMetricData, private val numerators: List<CommonMetricData>) {
++    fun add(amount: Int) {}
++    fun testGetValue(pingName: String? = null): Int? = 0
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class NumeratorMetric(private val meta: CommonMetricData) {
++    fun addToNumerator(amount: Int) {}
++    fun testGetValue(pingName: String? = null): Rate? = Rate()
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class TextMetric(private val meta: CommonMetricData) {
++    fun set(value: String) {}
++    fun testGetValue(pingName: String? = null): String? = ""
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class ObjectMetric(private val meta: CommonMetricData) {
++    fun setString(`object`: String) {}
++    fun testGetValue(pingName: String? = null): String? = null
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++    fun recordSchemaError() {}
++}
++
++class DualLabeledCounterMetric(
++    private val meta: CommonMetricData,
++    private val keys: List<String>?,
++    private val categories: List<String>?,
++) {
++    fun get(key: String, category: String): CounterMetric = CounterMetric(meta)
++    fun testGetValue(pingName: String? = null): Map<String, Map<String, Int>>? = emptyMap()
++    fun testGetNumRecordedErrors(error: ErrorType): Int = 0
++}
++
++class PingType(
++    val name: String,
++    val includeClientId: Boolean,
++    val sendIfEmpty: Boolean,
++    val preciseTimestamps: Boolean,
++    val includeInfoSections: Boolean,
++    val enabled: Boolean,
++    val schedulesPings: List<String>,
++    val reasonCodes: List<String>,
++    val followsCollectionEnabled: Boolean,
++    val uploaderCapabilities: List<String>,
++) {
++    fun submit(reason: String? = null) {}
++    fun setEnabled(enabled: Boolean) {}
++}
++
++fun gleanEnableLogging() {}
++fun gleanEnableLoggingToFd(fd: ULong) {}
++fun gleanInitialize(cfg: InternalConfiguration, clientInfo: ClientInfoMetrics, callbacks: OnGleanEvents) {}
++fun gleanShutdown() {}
++fun gleanInitializeForSubprocess(cfg: InternalConfiguration): Boolean = true
++fun gleanSetUploadEnabled(enabled: Boolean) {}
++fun gleanSetExperimentActive(experimentId: String, branch: String, extra: Map<String, String>) {}
++fun gleanSetExperimentInactive(experimentId: String) {}
++fun gleanTestGetExperimentData(experimentId: String): RecordedExperiment? = null
++fun gleanSetExperimentationId(experimentationId: String) {}
++fun gleanTestGetExperimentationId(): String? = null
++fun gleanRegisterEventListener(tag: String, listener: GleanEventListener) {}
++fun gleanUnregisterEventListener(tag: String) {}
++fun gleanApplyServerKnobsConfig(json: String) {}
++fun gleanSetDebugViewTag(tag: String): Boolean = false
++fun gleanGetDebugViewTag(): String? = null
++fun gleanSetSourceTags(tags: List<String>): Boolean = false
++fun gleanSetLogPings(value: Boolean) {}
++fun gleanGetLogPings(): Boolean = false
++fun gleanGetRegisteredPingNames(): List<String> = emptyList()
++fun gleanPersistPingLifetimeData() {}
++fun gleanHandleClientActive() {}
++fun gleanHandleClientInactive() {}
++fun gleanSessionStart() {}
++fun gleanSessionEnd(reason: String? = null) {}
++fun gleanSubmitPingByName(pingName: String, reason: String? = null) {}
++fun gleanSubmitPingByNameSync(pingName: String, reason: String? = null): Boolean = false
++fun gleanSetTestMode(enabled: Boolean) {}
++fun gleanTestDestroyGlean(clearStores: Boolean, dataPath: String? = null) {}
++fun gleanSetDirtyFlag(flag: Boolean) {}
++fun gleanGetUploadTask(): PingUploadTask = PingUploadTask.Done(0)
++fun gleanProcessPingUploadResponse(uuid: String, result: UploadResult): UploadTaskAction = UploadTaskAction.END
++fun gleanClearAttribution() {}
++fun gleanUpdateAttribution(attribution: AttributionMetrics) {}
++fun gleanTestGetAttribution(): AttributionMetrics = AttributionMetrics()
++fun gleanClearDistribution() {}
++fun gleanUpdateDistribution(distribution: DistributionMetrics) {}
++fun gleanTestGetDistribution(): DistributionMetrics = DistributionMetrics()
++"#,
++    );
++    let out_file = out_dir.join("GleanNoop.kt");
++    fs::write(out_file.as_std_path(), contents)?;
++    Ok(())
++}
++
++fn gen_bindings(
++    udl_file: &camino::Utf8Path,
++    config_file: Option<&camino::Utf8Path>,
++    languages: Vec<TargetLanguage>,
++    out_dir: Option<&camino::Utf8Path>,
++    _crate_name: Option<&str>,
++) -> anyhow::Result<()> {
++    let out_dir = out_dir.unwrap();
++    let package_name = read_package_name(config_file);
++
++    // 3 parents
++    // Should be `glean-core/src/glean.udl`,
++    // the one in `glean-core/bundle` is a symlink.
++    let canonical = udl_file.canonicalize().unwrap();
++    let _crate_root = camino::Utf8Path::from_path(
++        canonical
++            .parent()
++            .unwrap()
++            .parent()
++            .unwrap()
++            .parent()
++            .unwrap(),
++    )
++    .unwrap();
++
++    for language in languages {
++        match language {
++            TargetLanguage::Kotlin => {
++                write_noop_kotlin_bindings(out_dir, &package_name)?;
++            }
++            _ => {}
++        };
++    }
++    Ok(())
++}
++
++fn main() -> anyhow::Result<()> {
++    let mut args = env::args().skip(1);
++
++    if args.next().as_deref() != Some("generate") {
++        bail!("Only the `generate` subcommand is supported.");
++    }
++
++    let mut udl_file = None;
++    let mut target_languages = vec![];
++    let mut out_dir = None;
++    let mut config = None;
++
++    while let Some(arg) = args.next() {
++        if let Some(arg) = arg.strip_prefix("--") {
++            match arg {
++                "language" => {
++                    let lang = args.next().context("--language needs a parameter")?;
++                    let lang = parse_language(&lang)?;
++                    target_languages.push(lang);
++                }
++                "out-dir" => out_dir = Some(args.next().context("--out-dir needs a parameter")?),
++                "no-format" => {
++                    // this is the default anyway.
++                }
++                "config" => {
++                    config = Some(args.next().context("--config needs a parameter")?);
++                }
++                _ => bail!("Unsupported option: {arg}"),
++            }
++        } else if udl_file.is_some() {
++            bail!("UDL file already set.");
++        } else {
++            udl_file = Some(Utf8PathBuf::from(arg));
++        }
++    }
++
++    let out_dir = out_dir.map(Utf8PathBuf::from);
++    let config = config.map(Utf8PathBuf::from);
++
++    if udl_file.is_none() {
++        bail!("Need UDL file.");
++    }
++
++    if target_languages.is_empty() {
++        bail!("Need at least one language to generate code for.");
++    }
++
++    if out_dir.is_none() {
++        bail!("Need output directory.")
++    }
++
++    gen_bindings(
++        &udl_file.unwrap(),
++        config.as_deref(),
++        target_languages,
++        out_dir.as_deref(),
++        Some("glean_core"),
++    )?;
++
++    Ok(())
++}
+diff --git a/tools/embedded-uniffi-bindgen-noop/src/tests.rs b/tools/embedded-uniffi-bindgen-noop/src/tests.rs
+new file mode 100644
+index 0000000000000000000000000000000000000000..007930dbb50a98a98cb094f09c9a8a60681479d1
+--- /dev/null
++++ b/tools/embedded-uniffi-bindgen-noop/src/tests.rs
+@@ -0,0 +1,440 @@
++/* This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this
++ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
++
++use super::*;
++use std::process::Command;
++use std::sync::atomic::{AtomicUsize, Ordering};
++
++const UDL: &str = include_str!("../../../glean-core/src/glean.udl");
++
++fn crate_dir() -> Utf8PathBuf {
++    Utf8PathBuf::from(env!("CARGO_MANIFEST_DIR"))
++}
++
++struct TestDir(Utf8PathBuf);
++
++impl TestDir {
++    fn new() -> Self {
++        static NEXT: AtomicUsize = AtomicUsize::new(0);
++        let path = crate_dir().join(format!(
++            "tests/.generated-{}-{}",
++            std::process::id(),
++            NEXT.fetch_add(1, Ordering::Relaxed)
++        ));
++        fs::create_dir_all(&path).unwrap();
++        Self(path)
++    }
++}
++
++impl Drop for TestDir {
++    fn drop(&mut self) {
++        fs::remove_dir_all(&self.0).unwrap();
++    }
++}
++
++fn generated() -> String {
++    let dir = TestDir::new();
++    write_noop_kotlin_bindings(&dir.0, "mozilla.telemetry.glean.internal").unwrap();
++    fs::read_to_string(dir.0.join("GleanNoop.kt")).unwrap()
++}
++
++fn without_comments(source: &str) -> String {
++    source
++        .lines()
++        .map(|line| line.split_once("//").map_or(line, |(code, _)| code))
++        .collect::<Vec<_>>()
++        .join("\n")
++}
++
++fn compact(source: &str) -> String {
++    source.chars().filter(|c| !c.is_whitespace()).collect()
++}
++
++fn camel(name: &str) -> String {
++    let mut parts = name.split('_');
++    let mut result = parts.next().unwrap().to_owned();
++    for part in parts {
++        let mut chars = part.chars();
++        result.extend(chars.next().unwrap().to_uppercase());
++        result.extend(chars);
++    }
++    result
++}
++
++fn split_types(source: &str) -> Vec<&str> {
++    let mut depth = 0;
++    source
++        .split(|c| match c {
++            '<' => {
++                depth += 1;
++                false
++            }
++            '>' => {
++                depth -= 1;
++                false
++            }
++            ',' => depth == 0,
++            _ => false,
++        })
++        .map(str::trim)
++        .filter(|s| !s.is_empty())
++        .collect()
++}
++
++fn kotlin_type(udl: &str) -> String {
++    if let Some(inner) = udl.strip_suffix('?') {
++        return format!("{}?", kotlin_type(inner));
++    }
++    if let Some(inner) = udl
++        .strip_prefix("sequence<")
++        .and_then(|s| s.strip_suffix('>'))
++    {
++        return if inner == "u8" {
++            "ByteArray".into()
++        } else {
++            format!("List<{}>", kotlin_type(inner))
++        };
++    }
++    if let Some(inner) = udl
++        .strip_prefix("record<")
++        .and_then(|s| s.strip_suffix('>'))
++    {
++        let types = split_types(inner);
++        return format!("Map<{}, {}>", kotlin_type(types[0]), kotlin_type(types[1]));
++    }
++    match udl {
++        "string" | "DOMString" | "CowString" | "JsonValue" => "String",
++        "boolean" => "Boolean",
++        "u64" => "ULong",
++        "u32" => "UInt",
++        "i64" => "Long",
++        "i32" => "Int",
++        "i8" => "Byte",
++        "f64" => "Double",
++        other => other,
++    }
++    .to_owned()
++}
++
++fn kotlin_field(field: &str) -> String {
++    let field = field
++        .trim()
++        .strip_prefix("optional ")
++        .unwrap_or(field.trim());
++    let (declaration, default) = field
++        .split_once('=')
++        .map_or((field, None), |(decl, value)| {
++            (decl.trim(), Some(value.trim()))
++        });
++    let (ty, name) = declaration.rsplit_once(' ').unwrap();
++    let mut result = format!("{}: {}", camel(name), kotlin_type(ty));
++    if let Some(default) = default {
++        result.push_str(&format!(" = {default}"));
++    }
++    result
++}
++
++#[test]
++fn pinned_udl_has_not_drifted() {
++    assert_eq!(
++        compact(&without_comments(UDL)),
++        compact(include_str!("../tests/glean-68.0.1.udl")),
++        "Glean UDL changed: review the no-op API and privacy tests before updating the snapshot"
++    );
++}
++
++#[test]
++fn every_record_field_matches_udl_types_and_defaults() {
++    let kotlin = generated();
++    for record in without_comments(UDL).split("dictionary ").skip(1) {
++        let (name, body) = record.split_once('{').unwrap();
++        let name = name.trim();
++        let body = body.split_once("};").unwrap().0;
++        let kotlin_record = kotlin
++            .split_once(&format!("data class {name}("))
++            .unwrap_or_else(|| panic!("Missing record {name}"))
++            .1
++            .split("\n\n")
++            .next()
++            .unwrap();
++        for field in body.split(';').map(str::trim).filter(|s| !s.is_empty()) {
++            let expected = compact(&format!("val {}", kotlin_field(field)));
++            let actual = compact(kotlin_record);
++            let remainder = actual
++                .split_once(&expected)
++                .unwrap_or_else(|| panic!("{name}: missing {expected}"))
++                .1;
++            assert!(
++                remainder.starts_with([',', ')', '=']),
++                "{name}: mismatched type for {expected}"
++            );
++        }
++    }
++}
++
++#[test]
++fn every_namespace_function_matches_udl_signature() {
++    let kotlin = compact(&generated());
++    let udl = without_comments(UDL);
++    let namespace = udl.split_once('{').unwrap().1.split_once("};").unwrap().0;
++    for function in namespace
++        .split(';')
++        .map(str::trim)
++        .filter(|s| !s.is_empty())
++    {
++        let (declaration, args) = function.split_once('(').unwrap();
++        let (return_type, name) = declaration.rsplit_once(' ').unwrap();
++        let args = split_types(args.strip_suffix(')').unwrap())
++            .into_iter()
++            .map(kotlin_field)
++            .collect::<Vec<_>>()
++            .join(", ");
++        let signature = format!("fun {}({args})", camel(name));
++        let signature = if return_type == "void" {
++            format!("{signature} {{}}")
++        } else {
++            format!("{signature}: {} =", kotlin_type(return_type))
++        };
++        assert!(kotlin.contains(&compact(&signature)), "Missing {signature}");
++    }
++}
++
++#[test]
++fn metric_constructors_methods_and_callbacks_match_udl() {
++    let kotlin = generated()
++        .replace("private val ", "")
++        .replace("val ", "")
++        .replace('`', "");
++    let udl = without_comments(UDL);
++    for interface in udl.split("interface ").skip(1) {
++        let (name, body) = interface.split_once('{').unwrap();
++        let name = name.trim();
++        let body = body.split_once("};").unwrap().0;
++        if !body.contains("constructor(") && !matches!(name, "OnGleanEvents" | "GleanEventListener")
++        {
++            continue;
++        }
++        let callback = !body.contains("constructor(");
++        let marker = if callback {
++            format!("interface {name} {{")
++        } else {
++            format!("class {name}(")
++        };
++        let implementation = kotlin
++            .split_once(&marker)
++            .unwrap_or_else(|| panic!("Missing {name}"))
++            .1;
++        let implementation = compact(&format!(
++            "{marker}{}",
++            implementation.split("\n}\n").next().unwrap()
++        ))
++        .replace(",)", ")");
++        for method in body.split(';').map(str::trim).filter(|s| !s.is_empty()) {
++            let method = method
++                .rsplit_once(']')
++                .map_or(method, |(_, method)| method.trim());
++            let (declaration, args) = method.split_once('(').unwrap();
++            let args = split_types(args.strip_suffix(')').unwrap())
++                .into_iter()
++                .map(kotlin_field)
++                .collect::<Vec<_>>()
++                .join(", ");
++            let signature = if declaration == "constructor" {
++                format!("class {name}({args})")
++            } else {
++                let (return_type, method_name) = declaration.rsplit_once(' ').unwrap();
++                let signature = format!("fun {}({args})", camel(method_name));
++                if return_type == "void" {
++                    if callback {
++                        signature
++                    } else {
++                        format!("{signature} {{}}")
++                    }
++                } else {
++                    let signature = format!("{signature}: {}", kotlin_type(return_type));
++                    if callback {
++                        signature
++                    } else {
++                        format!("{signature} =")
++                    }
++                }
++            };
++            assert!(
++                implementation.contains(&compact(&signature)),
++                "{name}: missing {signature}"
++            );
++        }
++    }
++}
++
++#[test]
++fn android_configuration_arguments_exist_in_the_generated_record() {
++    let wrapper =
++        include_str!("../../../glean-core/android/src/main/java/mozilla/telemetry/glean/Glean.kt");
++    let args = wrapper
++        .split_once("val cfg = InternalConfiguration(")
++        .unwrap()
++        .1
++        .split_once("\n            )")
++        .unwrap()
++        .0;
++    let kotlin = generated();
++    let record = kotlin
++        .split_once("data class InternalConfiguration(")
++        .unwrap()
++        .1
++        .split_once("\n)")
++        .unwrap()
++        .0;
++    let mut count = 0;
++    for line in args.lines() {
++        if let Some((name, _)) = line.trim().split_once(" = ") {
++            assert!(
++                record.contains(&format!("val {name}:")),
++                "Missing Android configuration argument {name}"
++            );
++            count += 1;
++        }
++    }
++    assert_eq!(
++        count,
++        record
++            .lines()
++            .filter(|line| line.trim().starts_with("val "))
++            .count()
++    );
++}
++
++#[test]
++fn session_enums_and_event_recording_are_inert() {
++    let kotlin = generated();
++    for expected in [
++        "enum class SessionMode { AUTO, LIFECYCLE, MANUAL }",
++        "fun record(extra: Map<String, String>) {}",
++        "fun testGetValue(pingName: String? = null): List<RecordedEvent>? = emptyList()",
++        "fun gleanGetUploadTask(): PingUploadTask = PingUploadTask.Done(0)",
++        "fun gleanProcessPingUploadResponse(uuid: String, result: UploadResult): UploadTaskAction = UploadTaskAction.END",
++        "fun gleanTestGetAttribution(): AttributionMetrics = AttributionMetrics()",
++        "fun gleanTestGetDistribution(): DistributionMetrics = DistributionMetrics()",
++    ] {
++        assert!(kotlin.contains(expected), "Missing privacy contract: {expected}");
++    }
++    for forbidden in [
++        "import ",
++        "external ",
++        "System.",
++        "Native",
++        "RustBuffer",
++        "uniffi",
++        "java.",
++        "javax.",
++        "android.",
++        "kotlinx.",
++        "init {",
++        "companion object",
++        "UUID",
++        "currentTimeMillis",
++        "nanoTime",
++        "callbacks.",
++        "listener.",
++        "var ",
++        "http://",
++        "https://",
++    ] {
++        assert!(
++            !kotlin.contains(forbidden),
++            "Unexpected capability: {forbidden}"
++        );
++    }
++}
++
++#[test]
++fn uuid_getter_returns_absence_instead_of_an_invalid_uuid() {
++    let kotlin = generated();
++    let uuid = kotlin
++        .split_once("class UuidMetric(")
++        .unwrap()
++        .1
++        .split_once("\n}\n")
++        .unwrap()
++        .0;
++    assert!(uuid.contains("fun testGetValue(pingName: String? = null): String? = null"));
++}
++
++#[test]
++fn generation_respects_package_configuration_and_is_repeatable() {
++    let dir = TestDir::new();
++    let config = dir.0.join("uniffi.toml");
++    fs::write(
++        &config,
++        "[bindings.kotlin]\npackage_name = \"example.noop\"\n",
++    )
++    .unwrap();
++    let out = dir.0.join("nested/output");
++    let udl = crate_dir().join("../../glean-core/src/glean.udl");
++    for _ in 0..2 {
++        gen_bindings(
++            &udl,
++            Some(&config),
++            vec![TargetLanguage::Kotlin],
++            Some(&out),
++            None,
++        )
++        .unwrap();
++        assert_eq!(
++            fs::read_to_string(out.join("GleanNoop.kt")).unwrap(),
++            generated().replacen("mozilla.telemetry.glean.internal", "example.noop", 1)
++        );
++        assert_eq!(fs::read_dir(&out).unwrap().count(), 1);
++    }
++}
++
++#[test]
++#[ignore = "requires JAVA, KOTLIN_COMPILER_CLASSPATH and KOTLIN_STDLIB; no downloads"]
++fn kotlin_session_fixture_compiles_and_runs() {
++    let java = env::var("JAVA").expect("JAVA must name a Java executable");
++    let compiler =
++        env::var("KOTLIN_COMPILER_CLASSPATH").expect("KOTLIN_COMPILER_CLASSPATH required");
++    let stdlib = env::var("KOTLIN_STDLIB").expect("KOTLIN_STDLIB required");
++    let dir = TestDir::new();
++    write_noop_kotlin_bindings(&dir.0, "mozilla.telemetry.glean.internal").unwrap();
++    let classes = dir.0.join("classes");
++    let output = Command::new(&java)
++        .args([
++            "-cp",
++            &compiler,
++            "org.jetbrains.kotlin.cli.jvm.K2JVMCompiler",
++            "-no-stdlib",
++            "-no-reflect",
++            "-classpath",
++            &stdlib,
++            "-d",
++        ])
++        .arg(&classes)
++        .arg(dir.0.join("GleanNoop.kt"))
++        .arg(crate_dir().join("tests/SessionNoop.kt"))
++        .output()
++        .unwrap();
++    assert!(
++        output.status.success(),
++        "Kotlin compilation failed:\n{}\n{}",
++        String::from_utf8_lossy(&output.stdout),
++        String::from_utf8_lossy(&output.stderr)
++    );
++    let classpath =
++        env::join_paths([classes.as_std_path(), std::path::Path::new(&stdlib)]).unwrap();
++    let output = Command::new(java)
++        .current_dir(&dir.0)
++        .arg("-cp")
++        .arg(classpath)
++        .arg("mozilla.telemetry.glean.internal.SessionNoopKt")
++        .output()
++        .unwrap();
++    assert!(
++        output.status.success(),
++        "Kotlin fixture failed:\n{}\n{}",
++        String::from_utf8_lossy(&output.stdout),
++        String::from_utf8_lossy(&output.stderr)
++    );
++}
+diff --git a/tools/embedded-uniffi-bindgen-noop/tests/SessionNoop.kt b/tools/embedded-uniffi-bindgen-noop/tests/SessionNoop.kt
+new file mode 100644
+index 0000000000000000000000000000000000000000..865849c6c3b36b949627b050f87d7b6f36783fc7
+--- /dev/null
++++ b/tools/embedded-uniffi-bindgen-noop/tests/SessionNoop.kt
+@@ -0,0 +1,116 @@
++/* This Source Code Form is subject to the terms of the Mozilla Public
++ * License, v. 2.0. If a copy of the MPL was not distributed with this
++ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
++
++package mozilla.telemetry.glean.internal
++
++private val callbacks = object : OnGleanEvents {
++    override fun initializeFinished() = error("Initialization callback must not run")
++    override fun triggerUpload() = error("Upload callback must not run")
++    override fun startMetricsPingScheduler(): Boolean = error("Scheduler must not run")
++    override fun cancelUploads() = error("Upload callback must not run")
++    override fun shutdown() = error("Shutdown callback must not run")
++}
++
++private fun configuration(mode: SessionMode) = InternalConfiguration(
++    dataPath = "noop-must-not-create-this-directory",
++    applicationId = "noop.fixture",
++    languageBindingName = "Kotlin",
++    uploadEnabled = true,
++    maxEvents = 1u,
++    delayPingLifetimeIo = false,
++    appBuild = "fixture",
++    useCoreMps = true,
++    trimDataToRegisteredPings = false,
++    logLevel = LevelFilter.TRACE,
++    rateLimit = PingRateLimit(1uL, 1u),
++    enableEventTimestamps = true,
++    experimentationId = "must-not-be-recorded",
++    enableInternalPings = true,
++    pingSchedule = mapOf("events" to listOf("metrics")),
++    pingLifetimeThreshold = 1uL,
++    pingLifetimeMaxTime = 1uL,
++    maxPendingPingsCount = ULong.MAX_VALUE,
++    maxPendingPingsDirectorySize = ULong.MAX_VALUE,
++    sessionMode = mode,
++    sessionSampleRate = 1.0,
++    sessionInactivityTimeoutMs = ULong.MAX_VALUE,
++)
++
++private fun exerciseSessionApi() {
++    gleanSessionStart()
++    gleanSessionEnd()
++    gleanSessionEnd(null)
++    gleanSessionEnd(reason = "must-not-be-recorded")
++    gleanHandleClientActive()
++    gleanHandleClientInactive()
++    for (inSession in listOf(false, true)) {
++        val meta = CommonMetricData("fixture", "event", listOf("events"), Lifetime.PING, false, inSession = inSession)
++        val event = EventMetric(meta, listOf("secret"))
++        repeat(3) {
++            gleanSessionStart()
++            event.record(mapOf("secret" to "must-not-be-recorded"))
++            gleanSessionEnd("boundary-must-not-be-recorded")
++        }
++        check(event.testGetValue() == emptyList<RecordedEvent>())
++        check(event.testGetValue("events") == emptyList<RecordedEvent>())
++        check(event.testGetNumRecordedErrors(ErrorType.INVALID_STATE) == 0)
++    }
++    gleanUpdateAttribution(AttributionMetrics(source = "must-not-be-recorded"))
++    check(gleanTestGetAttribution() == AttributionMetrics())
++    gleanClearAttribution()
++    gleanClearAttribution()
++    check(gleanTestGetAttribution() == AttributionMetrics())
++    gleanUpdateDistribution(DistributionMetrics(name = "must-not-be-recorded"))
++    check(gleanTestGetDistribution() == DistributionMetrics())
++    gleanClearDistribution()
++    gleanClearDistribution()
++    check(gleanTestGetDistribution() == DistributionMetrics())
++    gleanSetUploadEnabled(true)
++    gleanSubmitPingByName("events", "must-not-upload")
++    check(!gleanSubmitPingByNameSync("events"))
++    check(gleanGetRegisteredPingNames().isEmpty())
++    check(gleanGetUploadTask() is PingUploadTask.Done)
++    for (result in listOf(
++        UploadResult.RecoverableFailure(), UploadResult.UnrecoverableFailure(),
++        UploadResult.Incapable(), UploadResult.HttpStatus(200), UploadResult.Done(),
++    )) {
++        check(gleanProcessPingUploadResponse("ignored", result) == UploadTaskAction.END)
++        check(gleanGetUploadTask() is PingUploadTask.Done)
++    }
++}
++
++fun main() {
++    val uuid = UuidMetric(CommonMetricData("fixture", "uuid", listOf("events"), Lifetime.PING, false))
++    check(uuid.testGetValue()?.let { java.util.UUID.fromString(it) } == null)
++    uuid.set("12345678-1234-1234-1234-123456789abc")
++    uuid.generateAndSet()
++    check(uuid.testGetValue("events")?.let { java.util.UUID.fromString(it) } == null)
++    val metadata = SessionMetadata("provided-by-caller", ULong.MAX_VALUE, ULong.MAX_VALUE, 0.5)
++    check(metadata.sessionStartTime == null)
++    val event = RecordedEvent(ULong.MAX_VALUE, "fixture", "event")
++    check(event.session == null)
++    check(event.copy(session = metadata).session == metadata)
++    check(metadata.copy(sessionStartTime = "2026-01-01T00:00:00Z").sessionStartTime != null)
++    val timer: ULong = TimerId().id
++    check(timer == 0uL)
++    check(PingUploadTask.Wait(ULong.MAX_VALUE).time == ULong.MAX_VALUE)
++    gleanEnableLoggingToFd(ULong.MAX_VALUE)
++    gleanRegisterEventListener("fixture", object : GleanEventListener {
++        override fun onEventRecorded(id: String) = error("Events must not be recorded")
++    })
++    exerciseSessionApi()
++    for (mode in SessionMode.entries) {
++        val cfg = configuration(mode)
++        check(!java.io.File(cfg.dataPath).exists())
++        gleanInitialize(cfg, ClientInfoMetrics("fixture", "fixture", Datetime(2026, 1u, 1u, 0u, 0u, 0u, 0u, 0), "test", "test"), callbacks)
++        gleanInitializeForSubprocess(cfg.copy(maxPendingPingsCount = null, maxPendingPingsDirectorySize = null))
++        exerciseSessionApi()
++        check(gleanTestGetExperimentationId() == null)
++        gleanPersistPingLifetimeData()
++        gleanShutdown()
++        exerciseSessionApi()
++        check(!java.io.File(cfg.dataPath).exists())
++    }
++    gleanUnregisterEventListener("fixture")
++}
+diff --git a/tools/embedded-uniffi-bindgen-noop/tests/glean-68.0.1.udl b/tools/embedded-uniffi-bindgen-noop/tests/glean-68.0.1.udl
+new file mode 100644
+index 0000000000000000000000000000000000000000..0366c5326449f1ce836185f77af590eaf5148628
+--- /dev/null
++++ b/tools/embedded-uniffi-bindgen-noop/tests/glean-68.0.1.udl
+@@ -0,0 +1,408 @@
++namespace glean {
++void glean_enable_logging();
++void glean_enable_logging_to_fd(u64 fd);
++void glean_initialize(InternalConfiguration cfg, ClientInfoMetrics client_info, OnGleanEvents callbacks);
++void glean_shutdown();
++boolean glean_initialize_for_subprocess(InternalConfiguration cfg);
++void glean_set_upload_enabled(boolean enabled);
++void glean_set_experiment_active(string experiment_id, string branch, record<DOMString, string> extra);
++void glean_set_experiment_inactive(string experiment_id);
++RecordedExperiment? glean_test_get_experiment_data(string experiment_id);
++void glean_set_experimentation_id(string experimentation_id);
++string? glean_test_get_experimentation_id();
++void glean_register_event_listener(string tag, GleanEventListener listener);
++void glean_unregister_event_listener(string tag);
++void glean_apply_server_knobs_config(string json);
++boolean glean_set_debug_view_tag(string tag);
++string? glean_get_debug_view_tag();
++boolean glean_set_source_tags(sequence<string> tags);
++void glean_set_log_pings(boolean value);
++boolean glean_get_log_pings();
++sequence<string> glean_get_registered_ping_names();
++void glean_persist_ping_lifetime_data();
++void glean_handle_client_active();
++void glean_handle_client_inactive();
++void glean_session_start();
++void glean_session_end(optional string? reason = null);
++void glean_submit_ping_by_name(string ping_name, optional string? reason = null);
++boolean glean_submit_ping_by_name_sync(string ping_name, optional string? reason = null);
++void glean_set_test_mode(boolean enabled);
++void glean_test_destroy_glean(boolean clear_stores, optional string? data_path = null);
++void glean_set_dirty_flag(boolean flag);
++PingUploadTask glean_get_upload_task();
++UploadTaskAction glean_process_ping_upload_response(string uuid, UploadResult result);
++void glean_clear_attribution();
++void glean_update_attribution(AttributionMetrics attribution);
++AttributionMetrics glean_test_get_attribution();
++void glean_clear_distribution();
++void glean_update_distribution(DistributionMetrics distribution);
++DistributionMetrics glean_test_get_distribution();
++};
++[Custom]
++typedef string CowString;
++dictionary InternalConfiguration {
++string data_path;
++string application_id;
++string language_binding_name;
++boolean upload_enabled;
++u32? max_events;
++boolean delay_ping_lifetime_io;
++string app_build;
++boolean use_core_mps;
++boolean trim_data_to_registered_pings;
++LevelFilter? log_level;
++PingRateLimit? rate_limit;
++boolean enable_event_timestamps;
++string? experimentation_id;
++boolean enable_internal_pings;
++record<string, sequence<string>> ping_schedule;
++u64 ping_lifetime_threshold;
++u64 ping_lifetime_max_time;
++u64? max_pending_pings_count;
++u64? max_pending_pings_directory_size;
++SessionMode session_mode;
++f64 session_sample_rate;
++u64 session_inactivity_timeout_ms;
++};
++enum SessionMode {
++"Auto",
++"Lifecycle",
++"Manual",
++};
++dictionary PingRateLimit {
++u64 seconds_per_interval;
++u32 pings_per_interval;
++};
++[Remote]
++enum LevelFilter {
++"Off",
++"Error",
++"Warn",
++"Info",
++"Debug",
++"Trace",
++};
++dictionary ClientInfoMetrics {
++string app_build;
++string app_display_version;
++Datetime app_build_date;
++string architecture;
++string os_version;
++string? channel = null;
++string? locale = null;
++string? device_manufacturer = null;
++string? device_model = null;
++string? android_sdk_version = null;
++i64? windows_build_number = null;
++};
++dictionary AttributionMetrics {
++string? source = null;
++string? medium = null;
++string? campaign = null;
++string? term = null;
++string? content = null;
++};
++dictionary DistributionMetrics {
++string? name = null;
++};
++[Error]
++enum CallbackError {
++"UnexpectedError",
++};
++callback interface OnGleanEvents {
++void initialize_finished();
++[Throws=CallbackError]
++void trigger_upload();
++boolean start_metrics_ping_scheduler();
++[Throws=CallbackError]
++void cancel_uploads();
++[Throws=CallbackError]
++void shutdown();
++};
++callback interface GleanEventListener {
++void on_event_recorded(string id);
++};
++dictionary RecordedExperiment {
++string branch;
++record<DOMString, string>? extra;
++};
++dictionary PingRequest {
++string document_id;
++string path;
++sequence<u8> body;
++record<DOMString, string> headers;
++boolean body_has_info_sections;
++string ping_name;
++sequence<string> uploader_capabilities;
++};
++[Enum]
++interface PingUploadTask {
++Upload(PingRequest request);
++Wait(u64 time);
++Done(i8 unused);
++};
++[Enum]
++interface UploadResult {
++RecoverableFailure(i8 unused);
++UnrecoverableFailure(i8 unused);
++Incapable(i8 unused);
++HttpStatus(i32 code);
++Done(i8 unused);
++};
++enum UploadTaskAction {
++"Next",
++"End",
++};
++enum Lifetime {
++"Ping",
++"Application",
++"User",
++};
++enum ErrorType {
++"InvalidValue",
++"InvalidLabel",
++"InvalidState",
++"InvalidOverflow",
++};
++interface PingType {
++constructor(
++string name,
++boolean include_client_id,
++boolean send_if_empty,
++boolean precise_timestamps,
++boolean include_info_sections,
++boolean enabled,
++sequence<string> schedules_pings,
++sequence<string> reason_codes,
++boolean follows_collection_enabled,
++sequence<string> uploader_capabilities
++);
++void submit(optional string? reason = null);
++void set_enabled(boolean enabled);
++};
++typedef enum DynamicLabelType;
++dictionary CommonMetricData {
++string category;
++string name;
++sequence<string> send_in_pings;
++Lifetime lifetime;
++boolean disabled;
++DynamicLabelType? dynamic_label = null;
++boolean in_session = false;
++};
++interface CounterMetric {
++constructor(CommonMetricData meta);
++void add(optional i32 amount = 1);
++i32? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++enum TimeUnit {
++"Nanosecond",
++"Microsecond",
++"Millisecond",
++"Second",
++"Minute",
++"Hour",
++"Day",
++};
++interface TimespanMetric {
++constructor(CommonMetricData meta, TimeUnit time_unit);
++void start();
++void stop();
++void cancel();
++void set_raw_nanos(i64 elapsed);
++i64? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++interface BooleanMetric {
++constructor(CommonMetricData meta);
++void set(boolean value);
++boolean? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++interface StringMetric {
++constructor(CommonMetricData meta);
++void set(string value);
++string? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++[Enum]
++interface LabeledMetricData {
++Common(CommonMetricData cmd);
++CustomDistribution(CommonMetricData cmd, i64 range_min, i64 range_max, i64 bucket_count, HistogramType histogram_type);
++MemoryDistribution(CommonMetricData cmd, MemoryUnit unit);
++TimingDistribution(CommonMetricData cmd, TimeUnit unit);
++};
++interface LabeledCounter {
++constructor(LabeledMetricData meta, sequence<CowString>? labels);
++CounterMetric get(string label);
++i32 test_get_num_recorded_errors(ErrorType error);
++record<string, i32>? test_get_value(optional string? ping_name = null);
++};
++interface LabeledBoolean {
++constructor(LabeledMetricData meta, sequence<CowString>? labels);
++BooleanMetric get(string label);
++i32 test_get_num_recorded_errors(ErrorType error);
++record<string, boolean>? test_get_value(optional string? ping_name = null);
++};
++interface LabeledString {
++constructor(LabeledMetricData meta, sequence<CowString>? labels);
++StringMetric get(string label);
++i32 test_get_num_recorded_errors(ErrorType error);
++record<string, string>? test_get_value(optional string? ping_name = null);
++};
++interface LabeledQuantity {
++constructor(LabeledMetricData meta, sequence<CowString>? labels);
++QuantityMetric get(string label);
++i32 test_get_num_recorded_errors(ErrorType error);
++record<string, i64>? test_get_value(optional string? ping_name = null);
++};
++interface StringListMetric {
++constructor(CommonMetricData meta);
++void add(string value);
++void set(sequence<string> value);
++sequence<string>? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++interface UrlMetric {
++constructor(CommonMetricData meta);
++void set(string value);
++string? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++interface UuidMetric {
++constructor(CommonMetricData meta);
++void set(string value);
++string generate_and_set();
++string? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++interface QuantityMetric {
++constructor(CommonMetricData meta);
++void set(i64 value);
++i64? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++dictionary DistributionData {
++record<i64, i64> values;
++i64 sum;
++i64 count;
++};
++dictionary TimerId {
++u64 id;
++};
++interface TimingDistributionMetric {
++constructor(CommonMetricData meta, TimeUnit time_unit);
++TimerId start();
++void stop_and_accumulate(TimerId timer_id);
++void cancel(TimerId timer_id);
++void accumulate_samples(sequence<i64> samples);
++void accumulate_single_sample(i64 sample);
++DistributionData? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++enum MemoryUnit {
++"Byte",
++"Kilobyte",
++"Megabyte",
++"Gigabyte",
++};
++interface MemoryDistributionMetric {
++constructor(CommonMetricData meta, MemoryUnit memory_unit);
++void accumulate(i64 sample);
++void accumulate_samples(sequence<i64> samples);
++DistributionData? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++enum HistogramType {
++"Linear",
++"Exponential",
++};
++interface CustomDistributionMetric {
++constructor(CommonMetricData meta, i64 range_min, i64 range_max, i64 bucket_count, HistogramType histogram_type);
++void accumulate_samples(sequence<i64> samples);
++void accumulate_single_sample(i64 sample);
++DistributionData? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++dictionary Datetime {
++i32 year;
++u32 month;
++u32 day;
++u32 hour;
++u32 minute;
++u32 second;
++u32 nanosecond;
++i32 offset_seconds;
++};
++interface DatetimeMetric {
++constructor(CommonMetricData meta, TimeUnit time_unit);
++void set(optional Datetime? value = null);
++Datetime? test_get_value(optional string? ping_name = null);
++string? test_get_value_as_string(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++dictionary SessionMetadata {
++string session_id;
++u64 session_seq;
++u64 event_seq;
++f64 session_sample_rate;
++string? session_start_time = null;
++};
++dictionary RecordedEvent {
++u64 timestamp;
++string category;
++string name;
++record<DOMString, string>? extra;
++SessionMetadata? session = null;
++};
++interface EventMetric {
++constructor(CommonMetricData meta, sequence<string> allowed_extra_keys);
++void record(record<DOMString, string> extra);
++sequence<RecordedEvent>? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++dictionary Rate {
++i32 numerator;
++i32 denominator;
++};
++interface RateMetric {
++constructor(CommonMetricData meta);
++void add_to_numerator(i32 amount);
++void add_to_denominator(i32 amount);
++Rate? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++interface DenominatorMetric {
++constructor(CommonMetricData meta, sequence<CommonMetricData> numerators);
++void add(i32 amount);
++i32? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++interface NumeratorMetric {
++constructor(CommonMetricData meta);
++void add_to_numerator(i32 amount);
++Rate? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++interface TextMetric {
++constructor(CommonMetricData meta);
++void set(string value);
++string? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};
++[Custom]
++typedef string JsonValue;
++interface ObjectMetric {
++constructor(CommonMetricData meta);
++void set_string(string object);
++JsonValue? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++void record_schema_error();
++};
++interface DualLabeledCounterMetric {
++constructor(CommonMetricData meta, sequence<CowString>? keys, sequence<CowString>? categories);
++CounterMetric get(string key, string category);
++record<string, record<string, i32>>? test_get_value(optional string? ping_name = null);
++i32 test_get_num_recorded_errors(ErrorType error);
++};

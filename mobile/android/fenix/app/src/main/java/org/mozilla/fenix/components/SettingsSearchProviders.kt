@@ -5,9 +5,7 @@
 package org.mozilla.fenix.components
 
 import org.mozilla.fenix.settings.ToolbarShortcutSettingsSearchProvider
-import org.mozilla.fenix.settings.ai.AIControlsSearchProvider
 import org.mozilla.fenix.settings.datachoices.DataChoicesSearchProvider
-import org.mozilla.fenix.settings.pagesummaries.PageSummariesSettingsSearchProvider
 import org.mozilla.fenix.settings.settingssearch.SettingsSearchProvider
 import org.mozilla.fenix.summarization.onboarding.SummarizationFeatureDiscoveryConfiguration
 
@@ -21,14 +19,13 @@ import org.mozilla.fenix.summarization.onboarding.SummarizationFeatureDiscoveryC
  * exercised by `SettingsSearchProviderRegistrationTest` so that a screen losing its provider fails a test rather than
  * silently disappearing from settings search.
  *
- * @param summarizationFeatureConfiguration Gates whether the Page Summaries screen is indexed.
+ * @param summarizationFeatureConfiguration Retained for caller compatibility; page summaries are not indexed.
  */
+@Suppress("UNUSED_PARAMETER")
 internal fun settingsSearchProviders(
     summarizationFeatureConfiguration: SummarizationFeatureDiscoveryConfiguration
 ): List<SettingsSearchProvider> =
     listOf(
         DataChoicesSearchProvider,
-        AIControlsSearchProvider,
-        PageSummariesSettingsSearchProvider(summarizationFeatureConfiguration),
         ToolbarShortcutSettingsSearchProvider,
     )

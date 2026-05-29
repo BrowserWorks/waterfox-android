@@ -21,7 +21,6 @@ import mozilla.components.feature.addons.amo.AMOAddonsProvider
 import mozilla.components.feature.addons.migration.DefaultSupportedAddonsChecker
 import mozilla.components.feature.addons.update.DefaultAddonUpdater
 import mozilla.components.feature.autofill.AutofillConfiguration
-import mozilla.components.feature.summarize.PageSummaryFeature
 import mozilla.components.feature.summarize.settings.SummarizationSettings
 import mozilla.components.feature.tabdata.coordinator.DefaultTabDataCoordinator
 import mozilla.components.feature.tabdata.coordinator.TabDataCoordinator
@@ -97,7 +96,6 @@ import org.mozilla.fenix.perf.StartupActivityLog
 import org.mozilla.fenix.perf.StartupStateProvider
 import org.mozilla.fenix.perf.StrictModeManager
 import org.mozilla.fenix.perf.lazyMonitored
-import org.mozilla.fenix.search.VoiceSearchAIControlFeature
 import org.mozilla.fenix.settings.emailmasks.middleware.DefaultEmailMasksRepository
 import org.mozilla.fenix.settings.emailmasks.middleware.EmailMasksRepository
 import org.mozilla.fenix.settings.settingssearch.DefaultFenixSettingsIndexer
@@ -106,7 +104,6 @@ import org.mozilla.fenix.termsofuse.store.DefaultTermsOfUsePromptRepository
 import org.mozilla.fenix.utils.Settings
 import org.mozilla.fenix.utils.isLargeScreenSize
 import org.mozilla.fenix.wifi.WifiConnectionMonitor
-import org.mozilla.gecko.search.SearchWidgetProvider
 
 private const val AMO_COLLECTION_MAX_CACHE_AGE = 2 * 24 * 60L // Two days in minutes
 
@@ -500,17 +497,7 @@ class Components(
     }
 
     val aiFeatureRegistry by lazyMonitored {
-        AIFeatureRegistry.default(scope = applicationScope, context = context).also {
-            if (settings.shakeToSummarizeFeatureFlagEnabled) {
-                it.register(PageSummaryFeature(summarizationSettings))
-            }
-            it.register(
-                VoiceSearchAIControlFeature(
-                    settings = settings,
-                    onUpdateWidget = { SearchWidgetProvider.updateAllWidgets(context) },
-                )
-            )
-        }
+        AIFeatureRegistry.default(scope = applicationScope, context = context)
     }
 
     @Suppress("unused")

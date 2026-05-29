@@ -117,6 +117,7 @@ class SummarizationFragment : BottomSheetDialogFragment() {
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
+        if (!requireComponents.core.summarizeFeatureSettings.isFeatureAvailable) return
         storeViewModel.store.dispatch(ViewDismissed(isEngineAvailable))
     }
 
@@ -139,7 +140,11 @@ class SummarizationFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View {
+    ): View? {
+        if (!requireComponents.core.summarizeFeatureSettings.isFeatureAvailable) {
+            dismiss()
+            return null
+        }
         return content {
             val state by storeViewModel.store.stateFlow.collectAsStateWithLifecycle()
             LaunchedEffect(state) {

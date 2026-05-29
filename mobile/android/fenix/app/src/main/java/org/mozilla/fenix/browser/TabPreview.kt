@@ -56,7 +56,6 @@ import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.isTallWindow
 import org.mozilla.fenix.ext.isWideWindow
 import org.mozilla.fenix.home.toolbar.BrowserSimpleToolbar
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.search.BrowserToolbarSearchMiddleware
 import org.mozilla.fenix.settings.ShortcutType
 import org.mozilla.fenix.theme.FirefoxTheme
@@ -608,8 +607,6 @@ constructor(
 
     private suspend fun isTranslationsFeatureAvailable(): Boolean {
         val isTranslationEngineSupported = browserStore.state.translationEngine.isEngineSupported ?: false
-        return isTranslationEngineSupported &&
-            FxNimbus.features.translations.value().mainFlowToolbarEnabled &&
-            translationsFeatureSettings.isEnabled.first()
+        return isTranslationEngineSupported && translationsFeatureSettings.isEnabled.first()
     }
 }

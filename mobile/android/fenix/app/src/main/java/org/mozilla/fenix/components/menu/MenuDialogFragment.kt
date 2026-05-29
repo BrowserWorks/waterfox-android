@@ -109,7 +109,6 @@ import org.mozilla.fenix.ext.openToBrowser
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.runIfFragmentIsAttached
 import org.mozilla.fenix.ipprotection.ui.IPProtectionSnackbarBinding
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.settings.deletebrowsingdata.DefaultDeleteBrowsingDataController
 import org.mozilla.fenix.settings.deletebrowsingdata.DefaultDeleteBrowsingDataController.DataStorage
@@ -318,10 +317,7 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                 val printContentUseCase = components.useCases.sessionUseCases.printContent
                 val saveToPdfUseCase = components.useCases.sessionUseCases.saveToPdf
                 val isTranslationEngineSupported = browserStore.state.translationEngine.isEngineSupported ?: false
-                val isTranslationSupported =
-                    isTranslationEngineSupported &&
-                        FxNimbus.features.translations.value().mainFlowBrowserMenuEnabled &&
-                        isTranslationsEnabled.value
+                val isTranslationSupported = isTranslationEngineSupported && isTranslationsEnabled.value
                 val isPdf = selectedTab?.content?.isPdf ?: false
                 val isWebCompatEnabled by remember {
                     menuStore.stateFlow.map { it.isWebCompatEnabled }

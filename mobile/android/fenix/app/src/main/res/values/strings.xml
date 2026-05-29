@@ -332,8 +332,6 @@
     <string name="ai_controls_translations_description">All translations stay private on your device.</string>
     <!-- Link text to navigate to more translations settings -->
     <string name="ai_controls_more_translations_settings">More translations settings</string>
-    <!-- Link text to navigate to more page summary settings -->
-    <string name="ai_controls_more_page_summary_settings">More page summary settings</string>
     <!-- Title for the voice search AI feature toggle -->
     <string name="ai_controls_voice_search_title">Voice search</string>
     <!-- Description for the voice search AI feature toggle -->
@@ -972,6 +970,7 @@
     <!-- Wallpapers -->
     <!-- Content description for various wallpapers. %1$s is the name of the wallpaper. -->
     <string name="wallpapers_item_name_content_description">Wallpaper Item: %1$s</string>
+    <!-- Error shown when saving custom wallpaper fails. %s is the error details. -->
     <!-- Snackbar message for when wallpaper couldn't be downloaded -->
     <string name="wallpaper_download_error_snackbar_message">Couldn’t download wallpaper</string>
     <!-- Snackbar label for action to retry downloading the wallpaper -->

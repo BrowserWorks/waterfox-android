@@ -28,7 +28,6 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.e2e.SystemInsetsPaddedFragment
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.theme.FirefoxTheme
 import org.mozilla.fenix.translations.TranslationSettingsScreenOption
@@ -65,9 +64,9 @@ class TranslationSettingsFragment : Fragment(), UserInteractionHandler, SystemIn
             val settingsState =
                 remember(translationsState.isTranslationsEnabled, switchItems) {
                     TranslationsSettingsState(
-                        showAutomaticTranslations = FxNimbus.features.translations.value().globalLangSettingsEnabled,
-                        showNeverTranslate = FxNimbus.features.translations.value().globalSiteSettingsEnabled,
-                        showDownloads = FxNimbus.features.translations.value().downloadsEnabled,
+                        showAutomaticTranslations = true,
+                        showNeverTranslate = true,
+                        showDownloads = true,
                         translationsEnabled = translationsState.isTranslationsEnabled,
                         switchItems = switchItems,
                     )
@@ -132,15 +131,15 @@ class TranslationSettingsFragment : Fragment(), UserInteractionHandler, SystemIn
                 .observeAsComposableState { state ->
                     state.translationEngine.offerTranslation
                 }
-                .value
+                .value ?: requireComponents.settings.offerTranslation
         val translationSwitchItems = mutableListOf<TranslationSwitchItem>()
 
         translationSwitchItems.add(
             TranslationSwitchItem(
                 type = TranslationSettingsScreenOption.OfferToTranslate(hasDivider = false),
                 textLabel = stringResource(R.string.translation_settings_offer_to_translate),
-                isChecked = offerToTranslate ?: false,
-                isEnabled = offerToTranslate != null, // disable if we don't know if we should offer translate
+                isChecked = offerToTranslate,
+                isEnabled = true,
                 onStateChange = { _, checked ->
                     browserStore.dispatch(
                         TranslationsAction.UpdateGlobalOfferTranslateSettingAction(offerTranslation = checked)

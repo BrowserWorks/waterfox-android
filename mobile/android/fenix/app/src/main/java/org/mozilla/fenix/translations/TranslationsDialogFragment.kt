@@ -39,7 +39,6 @@ import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.openToBrowser
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.runIfFragmentIsAttached
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.theme.FirefoxTheme
 import org.mozilla.fenix.translations.preferences.downloadlanguages.DownloadLanguageFileDialog
@@ -137,7 +136,7 @@ class TranslationsDialogFragment : BottomSheetDialogFragment() {
                             Column {
                                 TranslationsDialogContent(
                                     learnMoreUrl = learnMoreUrl,
-                                    showPageSettings = FxNimbus.features.translations.value().pageSettingsEnabled,
+                                    showPageSettings = true,
                                     translationsDialogState = translationsDialogState,
                                     onSettingClicked = {
                                         Translations.action.record(Translations.ActionExtra("page_settings"))
@@ -152,7 +151,7 @@ class TranslationsDialogFragment : BottomSheetDialogFragment() {
                             Column {
                                 TranslationsOptionsDialogContent(
                                     learnMoreUrl = learnMoreUrl,
-                                    showGlobalSettings = FxNimbus.features.translations.value().globalSettingsEnabled,
+                                    showGlobalSettings = true,
                                     isTranslated = translationsDialogState.isTranslated == true,
                                     initialFrom = translationsDialogState.initialFrom,
                                     onBackClicked = { translationsVisibility = true },

@@ -126,7 +126,7 @@ class TranslationSettingsFragment : Fragment(), UserInteractionHandler, SystemIn
     private fun getTranslationSwitchItemList(): MutableList<TranslationSwitchItem> {
         val offerToTranslate = browserStore.observeAsComposableState { state ->
             state.translationEngine.offerTranslation
-        }.value
+        }.value ?: requireContext().settings().offerTranslation
         val translationSwitchItems = mutableListOf<TranslationSwitchItem>()
 
         translationSwitchItems.add(
@@ -135,8 +135,8 @@ class TranslationSettingsFragment : Fragment(), UserInteractionHandler, SystemIn
                     hasDivider = false,
                 ),
                 textLabel = stringResource(R.string.translation_settings_offer_to_translate),
-                isChecked = offerToTranslate ?: false,
-                isEnabled = offerToTranslate != null, // disable if we don't know if we should offer translate
+                isChecked = offerToTranslate,
+                isEnabled = true,
                 onStateChange = { _, checked ->
                     browserStore.dispatch(
                         TranslationsAction.UpdateGlobalOfferTranslateSettingAction(

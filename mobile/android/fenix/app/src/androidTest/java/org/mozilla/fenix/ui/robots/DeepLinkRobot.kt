@@ -53,11 +53,6 @@ class DeepLinkRobot(private val composeTestRule: ComposeTestRule) {
     fun openSettings(interact: SettingsRobot.() -> Unit) =
         openDeepLink("settings").run { settings(interact) }
 
-    fun openSettingsAIControls(interact: SettingsSubMenuAIControlsRobot.() -> Unit) =
-        openDeepLink("settings_ai_controls").run {
-            settingsSubMenuAIControls(interact)
-        }
-
     fun openSettingsPrivacy(interact: SettingsRobot.() -> Unit) =
         openDeepLink("settings_privacy").run { settings(interact) }
 

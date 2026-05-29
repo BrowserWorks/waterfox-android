@@ -55,8 +55,6 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.list.IconListItem
 import org.mozilla.fenix.compose.list.SwitchListItem
 import org.mozilla.fenix.compose.settings.SettingsSectionHeader
-import org.mozilla.fenix.ext.components
-import org.mozilla.fenix.settings.settingssearch.PreferenceFileInformation
 import org.mozilla.fenix.settings.settingssearch.SettingsSearchItem
 import org.mozilla.fenix.settings.settingssearch.SettingsSearchProvider
 import org.mozilla.fenix.theme.FirefoxTheme
@@ -424,44 +422,9 @@ private fun BlockedInfoCardPreview(
     }
 }
 
-/**
- * Provides [SettingsSearchItem]s for the AI Controls settings screen for use in settings search.
- */
 object AIControlsSearchProvider : SettingsSearchProvider {
-    private val preferenceFileInformation = PreferenceFileInformation.AIControlsPreferences
-
-    /**
-     * Preference key used to identify the top-level "Block AI enhancements" toggle when navigating
-     * from a settings search result.
-     */
     const val BLOCK_AI_ENHANCEMENTS_KEY = "BLOCK_AI_ENHANCEMENTS"
 
-    override fun getSearchItems(context: Context): List<SettingsSearchItem> {
-        val categoryHeader = context.getString(preferenceFileInformation.categoryHeaderResourceId)
-        val appName = context.getString(R.string.app_name)
-
-        return buildList {
-            add(
-                SettingsSearchItem(
-                    title = context.getString(R.string.ai_controls_block_ai_title),
-                    summary = context.getString(R.string.ai_controls_block_ai_description, appName),
-                    preferenceKey = BLOCK_AI_ENHANCEMENTS_KEY,
-                    categoryHeader = categoryHeader,
-                    preferenceFileInformation = preferenceFileInformation,
-                ),
-            )
-
-            for (feature in context.components.aiFeatureRegistry.getFeatures().sortedForDisplay()) {
-                add(
-                    SettingsSearchItem(
-                        title = context.getString(feature.description.titleRes),
-                        summary = context.getString(feature.description.descriptionRes),
-                        preferenceKey = feature.id.value,
-                        categoryHeader = categoryHeader,
-                        preferenceFileInformation = preferenceFileInformation,
-                    ),
-                )
-            }
-        }
-    }
+    @Suppress("UNUSED_PARAMETER")
+    override fun getSearchItems(context: Context): List<SettingsSearchItem> = emptyList()
 }

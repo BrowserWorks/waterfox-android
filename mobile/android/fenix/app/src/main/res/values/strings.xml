@@ -336,8 +336,6 @@
     <string name="ai_controls_translations_description">All translations stay private on your device.</string>
     <!-- Link text to navigate to more translations settings -->
     <string name="ai_controls_more_translations_settings">More translations settings</string>
-    <!-- Link text to navigate to more page summary settings -->
-    <string name="ai_controls_more_page_summary_settings">More page summary settings</string>
     <!-- Title for the voice search AI feature toggle -->
     <string name="ai_controls_voice_search_title">Voice search</string>
     <!-- Description for the voice search AI feature toggle -->
@@ -1008,6 +1006,7 @@
     <string name="wallpaper_error_no_image_selected">Please select at least one image</string>
     <string name="wallpaper_error_invalid_format">Selected file could not be opened as an image</string>
     <string name="wallpaper_error_file_too_large">Selected image is too large. Please choose an image smaller than 10MB</string>
+    <!-- Error shown when saving custom wallpaper fails. %s is the error details. -->
     <string name="wallpaper_error_generic">An error occurred: %s</string>
     <string name="wallpaper_error_save_failed">Failed to save wallpaper. Please try again</string>
     <!-- Snackbar message for when wallpaper couldn't be downloaded -->

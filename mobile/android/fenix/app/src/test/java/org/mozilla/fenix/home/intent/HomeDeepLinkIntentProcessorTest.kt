@@ -351,11 +351,11 @@ class HomeDeepLinkIntentProcessorTest {
     }
 
     @Test
-    fun `process settings_ai_controls deep link`() {
+    fun `do not navigate settings_ai_controls deep link`() {
         assertTrue(processorHome.process(testIntent("settings_ai_controls"), navController, out, settings))
 
         verify { activity wasNot Called }
-        verify { navController.navigate(NavGraphDirections.actionGlobalAiControlsFragment()) }
+        verify { navController wasNot Called }
         verify { out wasNot Called }
     }
 

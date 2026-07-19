@@ -44,7 +44,12 @@ class WallpapersUseCases(
     private val getDisplaySize: () -> Size,
     context: Context,
 ) {
-    private val downloader = WallpaperDownloader(storageRootDirectory, client)
+    private val downloader =
+        WallpaperDownloader(
+            storageRootDirectory = storageRootDirectory,
+            client = client,
+            assetManager = context.assets,
+        )
     private val fileManager = WallpaperFileManager(storageRootDirectory)
 
     val fetchCurrentWallpaperUseCase: FetchCurrentWallpaperUseCase by lazy {
@@ -54,7 +59,7 @@ class WallpapersUseCases(
     // Use case for initializing wallpaper feature. Should usually be called early
     // in the app's lifetime to ensure that any potential long-running tasks can complete quickly.
     val initialize: InitializeWallpapersUseCase by lazy {
-        val metadataFetcher = WallpaperMetadataFetcher(client)
+        val metadataFetcher = WallpaperMetadataFetcher(client, context.assets)
         val migrationHelper =
             LegacyWallpaperMigration(
                 storageRootDirectory = storageRootDirectory,

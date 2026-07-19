@@ -4,6 +4,7 @@
 
 package org.mozilla.fenix.wallpapers
 
+import android.content.res.AssetManager
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -20,8 +21,12 @@ import org.mozilla.fenix.utils.toHexColor
  * Utility class for downloading wallpaper metadata from the remote server.
  *
  * @param client The client that will be used to fetch metadata.
+ * @param assetManager Provides bundled metadata when available.
  */
-class WallpaperMetadataFetcher(private val client: Client) {
+class WallpaperMetadataFetcher(
+    private val client: Client,
+    private val assetManager: AssetManager? = null,
+) {
     private val metadataUrl =
         BuildConfig.WALLPAPER_URL.substringBefore("android") + "metadata/v$CURRENT_JSON_VERSION/wallpapers.json"
 
@@ -29,14 +34,23 @@ class WallpaperMetadataFetcher(private val client: Client) {
     suspend fun downloadWallpaperList(): List<Wallpaper> =
         withContext(Dispatchers.IO) {
             Result.runCatching {
-                    val request = Request(url = metadataUrl, method = Request.Method.GET, conservative = true)
-                    val response = client.fetch(request)
-                    response.body.useBufferedReader {
-                        val json = it.readText()
-                        JSONObject(json).parseAsWallpapers()
-                    }
+                    val json =
+                        readBundledMetadata() ?: run {
+                            val request = Request(url = metadataUrl, method = Request.Method.GET, conservative = true)
+                            val response = client.fetch(request)
+                            response.body.useBufferedReader { it.readText() }
+                        }
+                    JSONObject(json).parseAsWallpapers()
                 }
                 .getOrElse { listOf() }
+        }
+
+    private fun readBundledMetadata(): String? =
+        assetManager?.let { assets ->
+            Result.runCatching {
+                    assets.open(BUNDLED_METADATA_PATH).bufferedReader().use { it.readText() }
+                }
+                .getOrNull()
         }
 
     private fun JSONObject.parseAsWallpapers(): List<Wallpaper> =
@@ -111,5 +125,6 @@ class WallpaperMetadataFetcher(private val client: Client) {
 
     companion object {
         internal const val CURRENT_JSON_VERSION = 1
+        internal const val BUNDLED_METADATA_PATH = "wallpapers/metadata.json"
     }
 }

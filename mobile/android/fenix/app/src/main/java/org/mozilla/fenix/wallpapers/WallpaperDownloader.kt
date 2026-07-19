@@ -4,7 +4,10 @@
 
 package org.mozilla.fenix.wallpapers
 
+import android.content.res.AssetManager
 import java.io.File
+import java.io.InputStream
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -21,11 +24,13 @@ import org.mozilla.fenix.wallpapers.Wallpaper.Companion.getLocalPath
  * @param client Required for fetching files from network.
  * @param dispatcher Dispatcher used to execute suspending functions. Default parameter should be likely be used except
  *   for when under test.
+ * @param assetManager Provides bundled wallpaper assets when available.
  */
 class WallpaperDownloader(
     private val storageRootDirectory: File,
     private val client: Client,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val assetManager: AssetManager? = null,
 ) {
     private val remoteHost = BuildConfig.WALLPAPER_URL
 
@@ -69,33 +74,67 @@ class WallpaperDownloader(
             }
 
             val remotePath = "${wallpaper.collection.name}/${wallpaper.name}/${imageType.lowercase()}.png"
-            val request =
-                Request(
-                    url = "$remoteHost/$remotePath",
-                    method = Request.Method.GET,
-                    conservative = true,
-                )
 
             return@withContext Result.runCatching {
-                    val response = client.fetch(request)
-                    if (!response.isSuccess) {
-                        response.close()
-                        throw IllegalStateException()
-                    }
+                    val bundledAsset = openBundledAsset(remotePath)
                     localFile.parentFile?.mkdirs()
-                    response.body.useStream { input ->
-                        input.copyTo(localFile.outputStream())
+                    if (bundledAsset != null) {
+                        bundledAsset.use { input ->
+                            input.copyTo(localFile.outputStream())
+                        }
+                    } else {
+                        downloadRemoteAsset(remotePath, localFile)
                     }
                     Wallpaper.ImageFileState.Downloaded
                 }
-                .getOrElse {
-                    // This should clean up any partial downloads
-                    Result.runCatching {
-                        if (localFile.exists()) {
-                            localFile.delete()
-                        }
+                .getOrElse { error ->
+                    deletePartialDownload(localFile)
+                    if (error is CancellationException) {
+                        throw error
                     }
                     Wallpaper.ImageFileState.Error
                 }
         }
+
+    private fun deletePartialDownload(localFile: File) {
+        // This should clean up any partial downloads
+        Result.runCatching {
+            if (localFile.exists()) {
+                localFile.delete()
+            }
+        }
+    }
+
+    private fun downloadRemoteAsset(remotePath: String, localFile: File) {
+        val request =
+            Request(
+                url = "$remoteHost/$remotePath",
+                method = Request.Method.GET,
+                conservative = true,
+            )
+        val response = client.fetch(request)
+        if (!response.isSuccess) {
+            response.close()
+            throw IllegalStateException()
+        }
+        response.body.useStream { input ->
+            input.copyTo(localFile.outputStream())
+        }
+    }
+
+    private fun openBundledAsset(remotePath: String): InputStream? = assetManager?.let { assets ->
+        Result.runCatching {
+                assets.open("$BUNDLED_ASSET_ROOT/$remotePath")
+            }
+            .getOrElse { error ->
+                if (error is CancellationException) {
+                    throw error
+                }
+                null
+            }
+    }
+
+    private companion object {
+        const val BUNDLED_ASSET_ROOT = "wallpapers"
+    }
 }

@@ -1,0 +1,87 @@
+{
+  "last-updated-date": "2026-09-09",
+  "collections": [
+    {
+      "id": "classic-firefox",
+      "heading": null,
+      "description": null,
+      "available-locales": null,
+      "availability-range": null,
+      "learn-more-url": null,
+      "wallpapers": [
+        {
+          "id": "amethyst",
+          "text-color": "15141A",
+          "card-color": "15141A",
+          "card-color-light": "F8EFFF",
+          "card-color-dark": "3F324E",
+          "logo-text-color": "15141A"
+        },
+        {
+          "id": "cerulean",
+          "text-color": "15141A",
+          "card-color": "15141A",
+          "card-color-light": "D6F0FF",
+          "card-color-dark": "1E3C42",
+          "logo-text-color": "15141A"
+        },
+        {
+          "id": "beach-vibes",
+          "text-color": "15141A",
+          "card-color": "15141A",
+          "card-color-light": "DEF4F5",
+          "card-color-dark": "1E3C42",
+          "logo-text-color": "15141A"
+        },
+        {
+          "id": "twilight-hills",
+          "text-color": "15141A",
+          "card-color": "15141A",
+          "card-color-light": "FBECF6",
+          "card-color-dark": "3E2F43",
+          "logo-text-color": "15141A"
+        },
+        {
+          "id": "algae",
+          "text-color": "FFFFFF",
+          "card-color": "FFFFFF",
+          "card-color-light": "E9F8E8",
+          "card-color-dark": "173D2B",
+          "logo-text-color": "FFFFFF"
+        },
+        {
+          "id": "colorful-bubbles",
+          "text-color": "15141A",
+          "card-color": "15141A",
+          "card-color-light": "FBECF6",
+          "card-color-dark": "3E2F43",
+          "logo-text-color": "15141A"
+        },
+        {
+          "id": "dark-dune",
+          "text-color": "15141A",
+          "card-color": "15141A",
+          "card-color-light": "F8EFFF",
+          "card-color-dark": "3F324E",
+          "logo-text-color": "15141A"
+        },
+        {
+          "id": "dune",
+          "text-color": "15141A",
+          "card-color": "15141A",
+          "card-color-light": "FFF1E5",
+          "card-color-dark": "4A3027",
+          "logo-text-color": "15141A"
+        },
+        {
+          "id": "firery-red",
+          "text-color": "15141A",
+          "card-color": "15141A",
+          "card-color-light": "FFF0E8",
+          "card-color-dark": "4A2D35",
+          "logo-text-color": "15141A"
+        }
+      ]
+    }
+  ]
+}

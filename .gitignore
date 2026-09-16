@@ -54,6 +54,7 @@ ID
 !third_party/rust/**/Cargo.toml.orig
 # lint-ignore-next-line: syntax-difference
 !third_party/rust/**/.*
+third_party/rust/**/.DS_Store
 
 # Ignore pywebsocket3 intermediate files.
 testing/web-platform/tests/tools/third_party/pywebsocket3/pywebsocket3.egg-info

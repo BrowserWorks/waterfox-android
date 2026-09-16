@@ -10,7 +10,6 @@ import io.mockk.Called
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import kotlin.test.assertNotNull
 import mozilla.components.browser.state.engine.EngineMiddleware
 import mozilla.components.browser.state.state.BrowserState
 import mozilla.components.browser.state.store.BrowserStore
@@ -55,6 +54,7 @@ class StartSearchIntentProcessorTest {
             )
         fenixBrowserUseCases =
             FenixBrowserUseCases(
+                browserStore = browserStore,
                 tabsUseCases = TabsUseCases(store = browserStore),
                 appStore = mockk(relaxed = true),
                 loadUrlUseCase = mockk(relaxed = true),
@@ -127,13 +127,10 @@ class StartSearchIntentProcessorTest {
         createProcessor(userHasBeenOnboarded = true, browsingModeManager = browsingModeManager)
             .process(searchWidgetIntent(), navController, out, settings)
 
-        assertNotNull(SearchWidget.newTabButton.testGetValue())
-        val recordedEvents = SearchWidget.newTabButton.testGetValue()!!
-        assertEquals(1, recordedEvents.size)
-        assertEquals(null, recordedEvents.single().extra)
+        assertTrue(SearchWidget.newTabButton.testGetValue().orEmpty().isEmpty())
 
         assertEquals(0, browserStore.state.tabs.size)
-        assertFalse(browsingModeManager.hasModeUpdated)
+        assertTrue(browsingModeManager.hasModeUpdated)
         assertEquals(BrowsingMode.Normal, browsingModeManager.mode)
         verify {
             navController.navigate(

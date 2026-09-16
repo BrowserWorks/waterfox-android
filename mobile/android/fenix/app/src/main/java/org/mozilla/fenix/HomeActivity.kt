@@ -376,7 +376,11 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
             ),
             SpeechProcessingIntentProcessor(this, components.core.store),
             AssistIntentProcessor(),
-            StartSearchIntentProcessor { components.fenixOnboarding.userHasBeenOnboarded() },
+            StartSearchIntentProcessor(
+                fenixBrowserUseCases = components.useCases.fenixBrowserUseCases,
+                browsingModeManager = browsingModeManager,
+                userHasBeenOnboarded = { components.fenixOnboarding.userHasBeenOnboarded() },
+            ),
             LensResultIntentProcessor(this),
             OpenBrowserIntentProcessor(this, ::getIntentSessionId),
             OpenSpecificTabIntentProcessor(this),

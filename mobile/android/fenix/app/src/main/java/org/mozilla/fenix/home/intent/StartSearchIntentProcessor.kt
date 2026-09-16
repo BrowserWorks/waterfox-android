@@ -62,8 +62,10 @@ class StartSearchIntentProcessor(
             out.removeExtra(HomeActivity.OPEN_TO_SEARCH)
 
             source?.let {
-                if (settings.enableHomepageAsNewTab) {
+                if (event == SEARCH_WIDGET || settings.enableHomepageAsNewTab) {
                     browsingModeManager.updateMode(intent)
+                }
+                if (settings.enableHomepageAsNewTab) {
                     fenixBrowserUseCases.addNewHomepageTab(private = browsingModeManager.mode.isPrivate)
                 }
 

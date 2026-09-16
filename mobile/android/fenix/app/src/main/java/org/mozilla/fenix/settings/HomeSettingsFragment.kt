@@ -37,8 +37,7 @@ class HomeSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragm
 
     @VisibleForTesting internal var customizeHomeMetrics: CustomizeHome = CustomizeHome
 
-    @VisibleForTesting
-    internal lateinit var fenixSettings: Settings
+    @VisibleForTesting internal lateinit var fenixSettings: Settings
 
     @VisibleForTesting internal lateinit var fenixComponents: Components
 
@@ -66,6 +65,15 @@ class HomeSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragm
     }
 
     private fun setupPreferences() {
+        requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_homepage_as_new_tab).apply {
+            isChecked = fenixSettings.enableHomepageAsNewTab
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                val enabled = newValue as? Boolean ?: return@OnPreferenceChangeListener false
+                fenixSettings.enableHomepageAsNewTab = enabled
+                true
+            }
+        }
+
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_show_top_sites).apply {
             isChecked = fenixSettings.showTopSitesFeature
             onPreferenceChangeListener = createMetricPreferenceChangeListener("most_visited_sites")

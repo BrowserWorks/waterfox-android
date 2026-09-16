@@ -5,6 +5,12 @@
 <androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="@string/pref_key_enable_homepage_as_new_tab"
+        android:persistent="false"
+        android:title="@string/preferences_homepage_as_new_tab"
+        android:summary="@string/preferences_homepage_as_new_tab_summary" />
+
     <androidx.preference.Preference
         android:key="@string/pref_key_wallpapers"
         android:title="@string/customize_wallpapers" />

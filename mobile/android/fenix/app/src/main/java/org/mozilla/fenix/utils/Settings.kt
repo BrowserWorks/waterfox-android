@@ -2509,10 +2509,9 @@ class Settings(
 
     /** Indicates if the Homepage as a New Tab is enabled. */
     var enableHomepageAsNewTab by
-        hardcodedFeatureFlagBooleanPreference(
+        booleanPreference(
             key = appContext.getPreferenceKey(R.string.pref_key_enable_homepage_as_new_tab),
-            defaultValue = { true },
-            featureFlag = true,
+            default = true,
         )
 
     /** Whether the universal edge-to-edge wallpapers treatment is enabled. */

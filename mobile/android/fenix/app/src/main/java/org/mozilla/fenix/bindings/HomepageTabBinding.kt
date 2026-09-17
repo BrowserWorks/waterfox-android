@@ -9,9 +9,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
-import mozilla.components.browser.state.selector.getNormalOrPrivateTabs
+import mozilla.components.browser.state.selector.normalTabs
 import mozilla.components.browser.state.state.BrowserState
 import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.lib.state.ext.flow
@@ -22,10 +21,10 @@ import org.mozilla.fenix.components.HomepageAsANewTabPreferencesRepository
 import org.mozilla.fenix.components.usecases.FenixBrowserUseCases
 
 /**
- * A binding for adding a homepage ("about:home") tab whenever there are no tabs for the current browsing mode on cold
- * boot and warm relaunch of the application, so that a tab is always available on startup. The exception is while the
- * tab manager is displayed, so that closing all tabs from the tab manager leaves the tab manager empty. The homepage
- * tab is then added once the tab manager is dismissed.
+ * A binding for adding a homepage ("about:home") tab whenever normal browsing has no tabs on cold boot and warm
+ * relaunch of the application, so that a tab is always available on startup. The exception is while the tab manager is
+ * displayed, so that closing all tabs from the tab manager leaves the tab manager empty. The homepage tab is then added
+ * once the tab manager is dismissed. Private browsing stays empty until the user opens a tab.
  *
  * @param browserStore The [BrowserStore] to observe the tabs state from.
  * @param appStore The [AppStore] used to determine if the tabs tray is visible.
@@ -35,7 +34,7 @@ import org.mozilla.fenix.components.usecases.FenixBrowserUseCases
  * @param mainDispatcher The [CoroutineDispatcher] used to observe the [browserStore].
  */
 class HomepageTabBinding(
-    browserStore: BrowserStore,
+    private val browserStore: BrowserStore,
     private val appStore: AppStore,
     private val browsingModeManager: BrowsingModeManager,
     private val fenixBrowserUseCases: FenixBrowserUseCases,
@@ -48,17 +47,27 @@ class HomepageTabBinding(
 
     override suspend fun onState(flow: Flow<BrowserState>) {
         combine(
-                flow
-                    .filter { repository.getHomepageAsANewTabEnabled() && it.restoreComplete }
-                    .map { it.getNormalOrPrivateTabs(private = isPrivate).isEmpty() },
+                flow.map {
+                    repository.getHomepageAsANewTabEnabled() &&
+                        it.restoreComplete &&
+                        !isPrivate &&
+                        it.normalTabs.isEmpty()
+                },
                 appStore.flow().map { it.isTabsTrayVisible },
             ) { hasNoTabs, isTabsTrayVisible ->
                 hasNoTabs && !isTabsTrayVisible
             }
             .distinctUntilChanged()
             .collect { shouldAddNewHomepageTab ->
-                if (shouldAddNewHomepageTab) {
-                    fenixBrowserUseCases.addNewHomepageTab(private = isPrivate)
+                if (
+                    shouldAddNewHomepageTab &&
+                        !isPrivate &&
+                        !appStore.state.isTabsTrayVisible &&
+                        repository.getHomepageAsANewTabEnabled() &&
+                        browserStore.state.restoreComplete &&
+                        browserStore.state.normalTabs.isEmpty()
+                ) {
+                    fenixBrowserUseCases.selectOrAddHomepageTab(private = false)
                 }
             }
     }

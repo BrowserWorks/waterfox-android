@@ -99,6 +99,7 @@ class FenixBrowserUseCasesTest {
 
         useCases =
             FenixBrowserUseCases(
+                browserStore = browserStore,
                 tabsUseCases = tabsUseCases,
                 loadUrlUseCase = loadUrlUseCase,
                 searchUseCases = searchUseCases,
@@ -370,6 +371,7 @@ class FenixBrowserUseCasesTest {
         appStore = AppStore(initialState = AppState(mode = BrowsingMode.Normal))
         useCases =
             FenixBrowserUseCases(
+                browserStore = browserStore,
                 appStore = appStore,
                 tabsUseCases = tabsUseCases,
                 loadUrlUseCase = loadUrlUseCase,
@@ -401,6 +403,7 @@ class FenixBrowserUseCasesTest {
         appStore = AppStore(initialState = AppState(mode = BrowsingMode.Private))
         useCases =
             FenixBrowserUseCases(
+                browserStore = browserStore,
                 appStore = appStore,
                 tabsUseCases = tabsUseCases,
                 loadUrlUseCase = loadUrlUseCase,

@@ -121,12 +121,17 @@ class AutoSave(
 
                 val start = now()
 
+                var saved = false
                 try {
                     val state = store.state
-                    sessionStorage.save(state)
+                    saved = sessionStorage.save(state)
                 } finally {
                     val took = now() - start
-                    logger.debug("Saved state to disk [${took}ms]")
+                    if (saved) {
+                        logger.debug("Saved state to disk [${took}ms]")
+                    } else {
+                        logger.error("Failed to save state to disk [${took}ms]")
+                    }
                 }
             }
             .also {

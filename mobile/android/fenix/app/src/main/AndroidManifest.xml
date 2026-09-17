@@ -70,9 +70,9 @@
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_waterfox_default"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
         android:supportsRtl="true"
         android:theme="@style/NormalTheme"
         android:usesCleartextTraffic="true"
@@ -110,8 +110,8 @@
             android:name="${applicationId}.AlternativeApp"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_alternative"
-            android:roundIcon="@mipmap/ic_launcher_round_alternative"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -126,14 +126,93 @@
             Activity-alias entries used by the app icon selection feature.
             Only one is enabled at a time to switch the launcher icon dynamically.
         -->
-        <!-- Solid color icons -->
-        <!-- Alternative icons with different solid background colors. -->
+        <activity-alias
+            android:name="${applicationId}.AppWaterfox2011To2014"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_waterfox_2011_2014"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_2011_2014"
+            android:targetActivity="HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+
+        <activity-alias
+            android:name="${applicationId}.AppWaterfox2014To2015"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_waterfox_2014_2015"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_2014_2015"
+            android:targetActivity="HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+
+        <activity-alias
+            android:name="${applicationId}.AppWaterfox2015To2019"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_waterfox_2015_2019"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_2015_2019"
+            android:targetActivity="HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+
+        <activity-alias
+            android:name="${applicationId}.AppWaterfox2019"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_waterfox_2019"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_2019"
+            android:targetActivity="HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+
+        <activity-alias
+            android:name="${applicationId}.AppWaterfox2019To2023"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_waterfox_2019_2023"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_2019_2023"
+            android:targetActivity="HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity-alias>
+
+        <!-- Legacy solid-color aliases retain their component names for existing launchers, using Waterfox artwork. -->
         <activity-alias
             android:name="${applicationId}.AppSolidLight"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_solid_light"
-            android:roundIcon="@mipmap/ic_launcher_solid_light"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -148,8 +227,8 @@
             android:name="${applicationId}.AppSolidDark"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_solid_dark"
-            android:roundIcon="@mipmap/ic_launcher_solid_dark"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -164,8 +243,8 @@
             android:name="${applicationId}.AppSolidRed"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_solid_red"
-            android:roundIcon="@mipmap/ic_launcher_solid_red"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -180,8 +259,8 @@
             android:name="${applicationId}.AppSolidGreen"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_solid_green"
-            android:roundIcon="@mipmap/ic_launcher_solid_green"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -196,8 +275,8 @@
             android:name="${applicationId}.AppSolidBlue"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_solid_blue"
-            android:roundIcon="@mipmap/ic_launcher_solid_blue"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -212,8 +291,8 @@
             android:name="${applicationId}.AppSolidPurple"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_solid_purple"
-            android:roundIcon="@mipmap/ic_launcher_solid_purple"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -228,8 +307,8 @@
             android:name="${applicationId}.AppSolidPurpleDark"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_solid_purple_dark"
-            android:roundIcon="@mipmap/ic_launcher_solid_purple_dark"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -240,14 +319,13 @@
                 android:resource="@xml/shortcuts" />
         </activity-alias>
 
-        <!-- Gradient icons -->
-        <!-- Alternative icons with gradient-style background colors. -->
+        <!-- Legacy gradient aliases, retained for existing launchers. -->
         <activity-alias
             android:name="${applicationId}.AppGradientSunrise"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_gradient_sunrise"
-            android:roundIcon="@mipmap/ic_launcher_gradient_sunrise"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -262,8 +340,8 @@
             android:name="${applicationId}.AppGradientGoldenHour"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_gradient_golden_hour"
-            android:roundIcon="@mipmap/ic_launcher_gradient_golden_hour"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -278,8 +356,8 @@
             android:name="${applicationId}.AppGradientSunset"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_gradient_sunset"
-            android:roundIcon="@mipmap/ic_launcher_gradient_sunset"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -294,8 +372,8 @@
             android:name="${applicationId}.AppGradientBlueHour"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_gradient_blue_hour"
-            android:roundIcon="@mipmap/ic_launcher_gradient_blue_hour"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -310,8 +388,8 @@
             android:name="${applicationId}.AppGradientTwilight"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_gradient_twilight"
-            android:roundIcon="@mipmap/ic_launcher_gradient_twilight"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -326,8 +404,8 @@
             android:name="${applicationId}.AppGradientMidnight"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_gradient_midnight"
-            android:roundIcon="@mipmap/ic_launcher_gradient_midnight"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -342,8 +420,8 @@
             android:name="${applicationId}.AppGradientNorthernLights"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_gradient_northern_lights"
-            android:roundIcon="@mipmap/ic_launcher_gradient_northern_lights"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -354,14 +432,13 @@
                 android:resource="@xml/shortcuts" />
         </activity-alias>
 
-        <!-- Themed/alternative icons -->
-        <!-- Icons with unique designs or special themes (e.g. retro, pixelated, Pride). -->
+        <!-- Legacy themed aliases, retained for existing launchers. -->
         <activity-alias
             android:name="${applicationId}.AppRetro2004"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_retro_2004"
-            android:roundIcon="@mipmap/ic_launcher_retro_2004"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -376,8 +453,8 @@
             android:name="${applicationId}.AppPixelated"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_pixelated"
-            android:roundIcon="@mipmap/ic_launcher_pixelated"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -392,8 +469,8 @@
             android:name="${applicationId}.AppCuddling"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_cuddling"
-            android:roundIcon="@mipmap/ic_launcher_cuddling"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -408,8 +485,8 @@
             android:name="${applicationId}.AppPride"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_pride"
-            android:roundIcon="@mipmap/ic_launcher_pride"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -424,8 +501,8 @@
             android:name="${applicationId}.AppFlaming"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_flaming"
-            android:roundIcon="@mipmap/ic_launcher_flaming"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -440,8 +517,8 @@
             android:name="${applicationId}.AppMinimal"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_minimal"
-            android:roundIcon="@mipmap/ic_launcher_minimal"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -456,8 +533,8 @@
             android:name="${applicationId}.AppMomo"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_momo"
-            android:roundIcon="@mipmap/ic_launcher_momo"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -471,8 +548,8 @@
             android:name="${applicationId}.AppCool"
             android:enabled="false"
             android:exported="true"
-            android:icon="@mipmap/ic_launcher_cool"
-            android:roundIcon="@mipmap/ic_launcher_cool"
+            android:icon="@mipmap/ic_launcher_waterfox_default"
+            android:roundIcon="@mipmap/ic_launcher_waterfox_default_round"
             android:targetActivity="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

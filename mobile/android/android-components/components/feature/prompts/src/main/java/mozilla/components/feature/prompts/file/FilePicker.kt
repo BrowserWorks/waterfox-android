@@ -262,8 +262,12 @@ internal class FilePicker(
      */
     @VisibleForTesting
     internal fun onPermissionsDenied() {
+        val request = currentRequest as? File
         if (canUseAndroidPhotoPicker()) {
             launchAndroidPhotoPicker()
+        } else if (request != null) {
+            showChooser(buildIntentList(request))
+            currentRequest = null
         } else {
             // Nothing left to do. Consume / cleanup the requests.
             dismissRequest()

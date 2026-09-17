@@ -16,7 +16,7 @@ class AppIconMiddlewareTest {
     @Test
     fun `WHEN the store receives UserAction Confirmed THEN the middleware calls the updateAppIcon interface with the correct data from the action`() {
         val currentIcon = AppIcon.AppDefault
-        val newIcon = AppIcon.AppRetro2004
+        val newIcon = AppIcon.AppWaterfox2019
         var updatedCurrentIcon: AppIcon? = null
         var updatedNewIcon: AppIcon? = null
         val middleware =
@@ -48,7 +48,7 @@ class AppIconMiddlewareTest {
     @Test
     fun `WHEN updateAppIcon call is successful THEN the middleware dispatches the Applied system action to the store`() {
         val currentIcon = AppIcon.AppDefault
-        val newIcon = AppIcon.AppRetro2004
+        val newIcon = AppIcon.AppWaterfox2019
         val middleware =
             AppIconMiddleware(
                 updateAppIcon = { _, _ -> true },
@@ -76,7 +76,7 @@ class AppIconMiddlewareTest {
     @Test
     fun `WHEN updateAppIcon call returns with an a failure THEN the middleware dispatches the UpdateFailed system action to the store`() {
         val currentIcon = AppIcon.AppDefault
-        val newIcon = AppIcon.AppRetro2004
+        val newIcon = AppIcon.AppWaterfox2019
         val middleware =
             AppIconMiddleware(
                 updateAppIcon = { _, _ -> false },
@@ -115,14 +115,14 @@ class AppIconMiddlewareTest {
             AppIconStore(
                 initialState =
                     AppIconState(
-                        currentAppIcon = AppIcon.AppPixelated,
+                        currentAppIcon = AppIcon.AppWaterfox2019,
                         userSelectedAppIcon = null,
                         groupedIconOptions = mapOf(),
                     ),
                 middleware = listOf(middleware),
             )
 
-        store.dispatch(SystemAction.Applied(AppIcon.AppPixelated))
+        store.dispatch(SystemAction.Applied(AppIcon.AppWaterfox2019))
 
         assertTrue(updateSearchWidgetsCalled)
     }

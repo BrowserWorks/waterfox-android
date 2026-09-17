@@ -12,6 +12,7 @@ import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import mozilla.components.concept.base.crash.CrashReporting
 import mozilla.components.support.base.log.logger.Logger
+import org.mozilla.fenix.iconpicker.AppIcon
 import org.mozilla.fenix.nimbus.FxNimbus
 
 private val logger = Logger("ChangeAppLauncherIcon")
@@ -39,6 +40,12 @@ fun changeAppLauncherIcon(
     resetToDefault: Boolean,
     crashReporter: CrashReporting,
 ) {
+    val targetAlias = if (resetToDefault) appAlias else alternativeAppAlias
+    if (!targetAlias.isSelectableAppAlias(context.packageName)) {
+        logger.warn("Ignoring unsupported app launcher icon: $targetAlias")
+        return
+    }
+
     val userHasAlternativeAppIconSet =
         userHasAlternativeAppIconSet(context.packageManager, appAlias, alternativeAppAlias)
 
@@ -95,6 +102,14 @@ fun changeAppLauncherIcon(
     updateShortcuts: (ShortcutManagerWrapper, ShortcutsUpdater, ComponentName, CrashReporting) -> Boolean =
         ::updateShortcutsComponentName,
 ): Boolean {
+    if (!newAppAlias.isSelectableAppAlias(appAlias.packageName)) {
+        logger.warn("Ignoring unsupported app launcher icon: $newAppAlias")
+        return false
+    }
+    if (newAppAlias == appAlias) {
+        return true
+    }
+
     newAppAlias.setEnabledStateTo(packageManager, true)
 
     val updated = updateShortcuts(shortcutManager, shortcutInfo, newAppAlias, crashReporter)
@@ -108,6 +123,10 @@ fun changeAppLauncherIcon(
     }
     return updated
 }
+
+private fun ComponentName.isSelectableAppAlias(packageName: String): Boolean =
+    this.packageName == packageName &&
+        AppIcon.selectableIcons.any { className == "$packageName.${it.aliasSuffix}" }
 
 private fun resetAppIconsToDefault(
     context: Context,

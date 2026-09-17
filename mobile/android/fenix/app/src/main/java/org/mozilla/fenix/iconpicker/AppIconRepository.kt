@@ -35,38 +35,8 @@ class DefaultAppIconRepository(
     override val groupedAppIcons: Map<IconGroupTitle, List<AppIcon>>
         get() =
             mapOf(
-                IconGroupTitle(R.string.alternative_app_icon_group_featured) to
-                    listOf(
-                        AppIcon.AppRetro2004,
-                        AppIcon.AppPixelated,
-                        AppIcon.AppCuddling,
-                        AppIcon.AppPride,
-                        AppIcon.AppFlaming,
-                        AppIcon.AppMinimal,
-                        AppIcon.AppMomo,
-                        AppIcon.AppCool,
-                    ),
-                IconGroupTitle(R.string.alternative_app_icon_group_solid_colors) to
-                    listOf(
-                        AppIcon.AppDefault,
-                        AppIcon.AppSolidLight,
-                        AppIcon.AppSolidDark,
-                        AppIcon.AppSolidRed,
-                        AppIcon.AppSolidGreen,
-                        AppIcon.AppSolidBlue,
-                        AppIcon.AppSolidPurple,
-                        AppIcon.AppSolidPurpleDark,
-                    ),
-                IconGroupTitle(R.string.alternative_app_icon_group_gradients) to
-                    listOf(
-                        AppIcon.AppGradientSunrise,
-                        AppIcon.AppGradientGoldenHour,
-                        AppIcon.AppGradientSunset,
-                        AppIcon.AppGradientBlueHour,
-                        AppIcon.AppGradientTwilight,
-                        AppIcon.AppGradientMidnight,
-                        AppIcon.AppGradientNorthernLights,
-                    ),
+                IconGroupTitle(R.string.waterfox_app_icon_group_history) to
+                    AppIcon.selectableIcons,
             )
 
     @VisibleForTesting

@@ -526,6 +526,7 @@ class InstalledAddonDetailsFragmentTest {
         val appStore = AppStore(initialState = AppState(mode = BrowsingMode.Normal))
         val useCases =
             FenixBrowserUseCases(
+                browserStore = mockk(relaxed = true),
                 appStore = appStore,
                 tabsUseCases = tabsUseCases,
                 loadUrlUseCase = loadUrlUseCase,
@@ -578,6 +579,7 @@ class InstalledAddonDetailsFragmentTest {
         val appStore = AppStore(initialState = AppState(mode = BrowsingMode.Normal))
         val useCases =
             FenixBrowserUseCases(
+                browserStore = mockk(relaxed = true),
                 appStore = appStore,
                 tabsUseCases = tabsUseCases,
                 loadUrlUseCase = loadUrlUseCase,
@@ -631,6 +633,7 @@ class InstalledAddonDetailsFragmentTest {
         val appStore = AppStore(initialState = AppState(mode = BrowsingMode.Normal))
         val useCases =
             FenixBrowserUseCases(
+                browserStore = mockk(relaxed = true),
                 appStore = appStore,
                 tabsUseCases = tabsUseCases,
                 loadUrlUseCase = loadUrlUseCase,

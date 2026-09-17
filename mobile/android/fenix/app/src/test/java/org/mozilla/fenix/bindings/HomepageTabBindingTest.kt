@@ -41,14 +41,14 @@ class HomepageTabBindingTest {
     }
 
     @Test
-    fun `GIVEN restore is complete and no tabs on private mode startup WHEN the binding starts THEN add a private homepage tab`() =
+    fun `GIVEN restore is complete and no tabs on private mode startup WHEN the binding starts THEN do not add a private homepage tab`() =
         runTest(testDispatcher) {
             val browserStore = createStore(restoreComplete = true)
 
             createBinding(browserStore, mode = BrowsingMode.Private).start()
             testDispatcher.scheduler.advanceUntilIdle()
 
-            verify { fenixBrowserUseCases.addNewHomepageTab(private = true) }
+            verify(exactly = 0) { fenixBrowserUseCases.addNewHomepageTab(private = any()) }
         }
 
     @Test
@@ -117,7 +117,7 @@ class HomepageTabBindingTest {
         }
 
     @Test
-    fun `GIVEN no tabs on private mode and current screen is tab manager WHEN navigating away from the tab manager THEN add a private homepage tab`() =
+    fun `GIVEN no tabs on private mode and current screen is tab manager WHEN navigating away from the tab manager THEN do not add a private homepage tab`() =
         runTest(testDispatcher) {
             val browserStore = createStore(restoreComplete = true)
             val appStore = AppStore(AppState(isTabsTrayVisible = true))
@@ -136,7 +136,7 @@ class HomepageTabBindingTest {
 
             testDispatcher.scheduler.advanceUntilIdle()
 
-            verify(exactly = 1) { fenixBrowserUseCases.addNewHomepageTab(private = true) }
+            verify(exactly = 0) { fenixBrowserUseCases.addNewHomepageTab(private = any()) }
         }
 
     @Test
@@ -199,7 +199,7 @@ class HomepageTabBindingTest {
         }
 
     @Test
-    fun `GIVEN normal tabs on private mode startup WHEN the binding starts THEN add a private homepage tab`() =
+    fun `GIVEN normal tabs on private mode startup WHEN the binding starts THEN do not add a private homepage tab`() =
         runTest(testDispatcher) {
             val browserStore =
                 createStore(
@@ -210,7 +210,7 @@ class HomepageTabBindingTest {
             createBinding(browserStore, BrowsingMode.Private).start()
             testDispatcher.scheduler.advanceUntilIdle()
 
-            verify { fenixBrowserUseCases.addNewHomepageTab(private = true) }
+            verify(exactly = 0) { fenixBrowserUseCases.addNewHomepageTab(private = any()) }
         }
 
     @Test

@@ -9,17 +9,21 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SwipeToDismissBox
 import androidx.compose.material3.SwipeToDismissBoxValue
+import androidx.compose.material3.Text
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.RectangleShape
@@ -30,6 +34,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import mozilla.components.compose.base.button.TextButton
 import mozilla.components.feature.tab.collections.Tab
 import mozilla.components.ui.icons.R as iconsR
 import org.mozilla.fenix.R.string
@@ -68,16 +74,31 @@ fun CollectionItem(
     onRemove: (Boolean) -> Unit,
 ) {
     val dismissState = rememberSwipeToDismissBoxState()
+    var pendingRemoval by remember(tab.id) { mutableStateOf<Boolean?>(null) }
 
     LaunchedEffect(dismissState.currentValue) {
         val value = dismissState.currentValue
         when (value) {
             SwipeToDismissBoxValue.StartToEnd,
             SwipeToDismissBoxValue.EndToStart -> {
-                onRemove(true)
+                pendingRemoval = true
+                dismissState.snapTo(SwipeToDismissBoxValue.Settled)
             }
             SwipeToDismissBoxValue.Settled -> {} // no-op
         }
+    }
+
+    if (pendingRemoval != null) {
+        CollectionRemovalDialog(
+            tab = tab,
+            onDismiss = { pendingRemoval = null },
+            onConfirm = {
+                pendingRemoval?.let { wasSwiped ->
+                    pendingRemoval = null
+                    onRemove(wasSwiped)
+                }
+            },
+        )
     }
 
     SwipeToDismissBox(
@@ -118,10 +139,30 @@ fun CollectionItem(
                 onClick = onClick,
                 iconPainter = painterResource(iconsR.drawable.mozac_ic_cross_24),
                 iconDescription = stringResource(string.remove_tab_from_collection),
-                onIconClick = { onRemove(false) },
+                onIconClick = { pendingRemoval = false },
             )
         }
     }
+}
+
+@Composable
+private fun CollectionRemovalDialog(tab: Tab, onDismiss: () -> Unit, onConfirm: () -> Unit) {
+    val buttonStyle = FirefoxTheme.typography.button.copy(letterSpacing = 0.1.sp, lineHeight = 20.sp)
+    AlertDialog(
+        title = { Text(stringResource(string.remove_tab_from_collection)) },
+        text = { Text(tab.title.ifBlank { tab.url }) },
+        onDismissRequest = onDismiss,
+        confirmButton = {
+            TextButton(onClick = onConfirm) {
+                Text(stringResource(string.create_collection_positive), style = buttonStyle)
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(string.create_collection_negative), style = buttonStyle)
+            }
+        },
+    )
 }
 
 /** Clips the Composable this applies to such that it cannot draw content / shadows outside it's top bound. */

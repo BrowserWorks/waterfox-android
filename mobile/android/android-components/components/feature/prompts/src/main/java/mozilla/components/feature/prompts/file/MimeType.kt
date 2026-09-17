@@ -5,7 +5,6 @@
 package mozilla.components.feature.prompts.file
 
 import android.Manifest.permission.CAMERA
-import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.Manifest.permission.READ_MEDIA_AUDIO
 import android.Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED
 import android.Manifest.permission.RECORD_AUDIO
@@ -105,15 +104,7 @@ internal sealed class MimeType(
             Intent(RECORD_SOUND_ACTION).withDeviceSupport(context)
     }
 
-    object Wildcard :
-        MimeType(
-            "*/",
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                emptyList()
-            } else {
-                listOf(READ_EXTERNAL_STORAGE)
-            },
-        ) {
+    object Wildcard : MimeType("*/", emptyList()) {
         private val mimeTypeMap = MimeTypeMap.getSingleton()
 
         override fun matches(mimeTypes: Array<out String>) = true

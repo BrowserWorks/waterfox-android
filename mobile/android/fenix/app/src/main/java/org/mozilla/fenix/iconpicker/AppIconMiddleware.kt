@@ -23,6 +23,18 @@ class AppIconMiddleware(
         next: (AppIconAction) -> Unit,
         action: AppIconAction,
     ) {
+        val targetIcon =
+            when (action) {
+                is UserAction.Selected -> action.appIcon
+                is UserAction.Confirmed -> action.newIcon
+                is SystemAction.Applied -> action.newIcon
+                else -> null
+            }
+        if (targetIcon != null && !targetIcon.isSelectable) {
+            store.dispatch(SystemAction.DialogDismissed)
+            return
+        }
+
         next(action)
 
         when (action) {

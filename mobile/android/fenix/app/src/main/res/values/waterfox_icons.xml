@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<resources>
+    <string name="waterfox_app_icon_group_history">Waterfox through the years</string>
+    <string name="waterfox_app_icon_2011_2014">Waterfox 2011–2014</string>
+    <string name="waterfox_app_icon_2014_2015">Waterfox 2014–2015</string>
+    <string name="waterfox_app_icon_2015_2019">Waterfox 2015–2019</string>
+    <string name="waterfox_app_icon_2019">Waterfox 2019</string>
+    <string name="waterfox_app_icon_2019_2023">Waterfox 2019–2023</string>
+</resources>

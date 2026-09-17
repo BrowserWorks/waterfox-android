@@ -5,7 +5,9 @@
 package org.mozilla.fenix.components.usecases
 
 import mozilla.components.browser.state.search.SearchEngine
+import mozilla.components.browser.state.selector.selectedTab
 import mozilla.components.browser.state.state.SessionState
+import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.concept.base.profiler.Profiler
 import mozilla.components.concept.engine.EngineSession
 import mozilla.components.concept.engine.utils.ABOUT_HOME_URL
@@ -21,6 +23,7 @@ import org.mozilla.fenix.components.AppStore
  * Use cases for handling loading a URL and performing a search.
  *
  * @param appStore [AppStore] used to fetch the appstore
+ * @param browserStore [BrowserStore] used to check the selected tab's browsing mode.
  * @param tabsUseCases [TabsUseCases] used for adding new tabs.
  * @param loadUrlUseCase [SessionUseCases.DefaultLoadUrlUseCase] used for loading a URL.
  * @param searchUseCases [SearchUseCases] used for performing a search.
@@ -29,6 +32,7 @@ import org.mozilla.fenix.components.AppStore
  */
 class FenixBrowserUseCases(
     private val appStore: AppStore,
+    private val browserStore: BrowserStore,
     private val tabsUseCases: TabsUseCases,
     private val loadUrlUseCase: SessionUseCases.DefaultLoadUrlUseCase,
     private val searchUseCases: SearchUseCases,
@@ -39,7 +43,7 @@ class FenixBrowserUseCases(
      * Loads a URL or performs a search depending on the value of [searchTermOrURL].
      *
      * @param searchTermOrURL The entered search term to search or URL to be loaded.
-     * @param newTab Whether or not to load the URL in a new tab.
+     * @param newTab Whether to open a new tab. A missing or different-mode selected tab also requires a new tab.
      * @param private Whether or not the tab should be private.
      * @param forceSearch Whether or not to force performing a search.
      * @param searchEngine Optional [SearchEngine] to use when performing a search.
@@ -59,12 +63,13 @@ class FenixBrowserUseCases(
         additionalHeaders: Map<String, String>? = null,
     ) {
         val startTime = profiler?.getProfilerTime()
+        val openInNewTab = newTab || browserStore.state.selectedTab?.content?.private != private
 
         // In situations where we want to perform a search but have no search engine (e.g. the user
         // has removed all of them, or we couldn't load any) we will pass searchTermOrURL to Gecko
         // and let it try to load whatever was entered.
         if (searchEngine == null || (!forceSearch && searchTermOrURL.isUrl())) {
-            if (newTab) {
+            if (openInNewTab) {
                 tabsUseCases.addTab.invoke(
                     url = searchTermOrURL.toNormalizedUrl(),
                     flags = flags,
@@ -80,7 +85,7 @@ class FenixBrowserUseCases(
                 )
             }
         } else {
-            if (newTab) {
+            if (openInNewTab) {
                 val searchUseCase =
                     if (private) {
                         searchUseCases.newPrivateTabSearch
@@ -112,7 +117,7 @@ class FenixBrowserUseCases(
             profiler.addMarker(
                 markerName = "FenixBrowserUseCases.loadUrlOrSearch",
                 startTime = startTime,
-                text = "newTab: $newTab, private: $private",
+                text = "newTab: $openInNewTab, private: $private",
             )
         }
     }
@@ -137,6 +142,18 @@ class FenixBrowserUseCases(
             startLoading = startLoading,
             private = private,
         )
+    }
+
+    /** Selects an existing homepage tab in the requested mode, or creates one if needed. */
+    fun selectOrAddHomepageTab(private: Boolean) {
+        val homepageTab = browserStore.state.tabs.lastOrNull {
+            it.content.private == private && it.content.url == ABOUT_HOME_URL
+        }
+        if (homepageTab != null) {
+            tabsUseCases.selectTab(homepageTab.id)
+        } else {
+            addNewHomepageTab(private = private)
+        }
     }
 
     /** Loads the homepage ("about:home"). */

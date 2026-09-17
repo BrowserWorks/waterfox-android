@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
-import mozilla.components.browser.state.selector.getNormalOrPrivateTabs
+import mozilla.components.browser.state.selector.normalTabs
 import mozilla.components.browser.state.state.BrowserState
 import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.lib.state.helpers.AbstractBinding
@@ -19,8 +19,8 @@ import org.mozilla.fenix.components.HomepageAsANewTabPreferencesRepository
 import org.mozilla.fenix.components.usecases.FenixBrowserUseCases
 
 /**
- * A binding for adding a homepage ("about:home") tab whenever there are no tabs for the current browsing mode on cold
- * boot and warm relaunch of the application, so that a tab is always available on startup.
+ * A binding for adding a homepage ("about:home") tab when normal browsing has no tabs on cold boot or warm relaunch.
+ * Private browsing stays empty until the user opens a tab or starts browsing.
  *
  * @param browserStore The [BrowserStore] to observe the tabs state from.
  * @param browsingModeManager [BrowsingModeManager] used to determine the current browsing mode.
@@ -42,11 +42,11 @@ class HomepageTabBinding(
     override suspend fun onState(flow: Flow<BrowserState>) {
         flow
             .filter { repository.getHomepageAsANewTabEnabled() && it.restoreComplete }
-            .map { it.getNormalOrPrivateTabs(private = isPrivate).isEmpty() }
+            .map { !isPrivate && it.normalTabs.isEmpty() }
             .distinctUntilChanged()
             .collect { hasNoTabs ->
                 if (hasNoTabs) {
-                    fenixBrowserUseCases.addNewHomepageTab(private = isPrivate)
+                    fenixBrowserUseCases.addNewHomepageTab(private = false)
                 }
             }
     }

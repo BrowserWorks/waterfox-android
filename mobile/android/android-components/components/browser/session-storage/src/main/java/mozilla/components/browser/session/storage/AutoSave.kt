@@ -17,13 +17,15 @@ import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import mozilla.components.browser.state.selector.normalTabs
 import mozilla.components.browser.state.selector.selectedTab
 import mozilla.components.browser.state.state.BrowserState
@@ -71,6 +73,9 @@ class AutoSave(
 
     @VisibleForTesting internal var monitoringJob: Job? = null
     private var lastSaveTimestamp: Long = now()
+    private val saveSignal = Channel<Unit>(Channel.CONFLATED)
+    private var saveRequested = false
+    private var immediateSaveRequested = false
 
     /**
      * Saves the state periodically when the app is in the foreground.
@@ -115,43 +120,70 @@ class AutoSave(
     /**
      * Triggers saving the current state to disk.
      *
-     * This method will not schedule a new save job if a job is already in flight. Additionally it will obey the
-     * interval passed to [SessionStorage.autoSave]; job may get delayed.
+     * Requests are coalesced into the current save job. Background requests bypass any pending delay; other requests
+     * obey the interval passed to [SessionStorage.autoSave].
      *
      * @param delaySave Whether to delay the save job to obey the interval passed to [SessionStorage.autoSave].
      */
     @Synchronized
     internal fun triggerSave(delaySave: Boolean = true): Job {
+        saveRequested = true
+        immediateSaveRequested = immediateSaveRequested || !delaySave
+        saveSignal.trySend(Unit)
         val currentJob = saveJob
 
         if (currentJob != null && currentJob.isActive) {
-            logger.debug("Skipping save, other job already in flight")
+            logger.debug("Coalescing save request with the current job")
             return currentJob
         }
 
-        val now = now()
-        val delayMs = lastSaveTimestamp + minimumIntervalMs - now
-        lastSaveTimestamp = now
-
         applicationScope
-            .launch(ioDispatcher) {
-                if (delaySave && delayMs > 0) {
-                    logger.debug("Delaying save (${delayMs}ms)")
-                    delay(delayMs)
-                }
+            .launch(ioDispatcher, start = CoroutineStart.LAZY) {
+                while (true) {
+                    val delayMs = synchronized(this@AutoSave) {
+                        if (immediateSaveRequested) 0 else lastSaveTimestamp + minimumIntervalMs - now()
+                    }
+                    if (delayMs > 0) {
+                        logger.debug("Delaying save (${delayMs}ms)")
+                        withTimeoutOrNull(delayMs) { saveSignal.receive() }
+                        continue
+                    }
 
-                val start = now()
+                    synchronized(this@AutoSave) {
+                        saveRequested = false
+                        immediateSaveRequested = false
+                        saveSignal.tryReceive()
+                    }
+                    val start = now()
 
-                try {
-                    val state = store.state
-                    sessionStorage.save(state)
-                } finally {
-                    val took = now() - start
-                    logger.debug("Saved state to disk [${took}ms]")
+                    var saved = false
+                    try {
+                        val state = store.state
+                        saved = sessionStorage.save(state)
+                    } finally {
+                        val took = now() - start
+                        synchronized(this@AutoSave) { lastSaveTimestamp = now() }
+                        if (saved) {
+                            logger.debug("Saved state to disk [${took}ms]")
+                        } else {
+                            logger.error("Failed to save state to disk [${took}ms]")
+                        }
+                    }
+
+                    val saveAgain = synchronized(this@AutoSave) {
+                        if (saveRequested) {
+                            true
+                        } else {
+                            saveJob = null
+                            false
+                        }
+                    }
+                    if (!saveAgain) return@launch
                 }
             }
             .also {
                 saveJob = it
+                it.start()
                 return it
             }
     }

@@ -2221,6 +2221,7 @@ class DefaultTabManagerControllerTest {
         val appStore = AppStore(initialState = AppState(mode = BrowsingMode.Normal))
         fenixBrowserUseCases =
             FenixBrowserUseCases(
+                browserStore = mockk(relaxed = true),
                 appStore = appStore,
                 tabsUseCases = tabsUseCases,
                 loadUrlUseCase = loadUrlUseCase,

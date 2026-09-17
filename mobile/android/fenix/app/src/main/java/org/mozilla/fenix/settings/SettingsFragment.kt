@@ -471,7 +471,6 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                     SettingsFragmentDirections.actionSettingsFragmentToAddonsFragment()
                 }
 
-                // Only displayed when secret settings are enabled
                 resources.getString(R.string.pref_key_install_local_addon) -> {
                     addonFilePicker.launch()
                     null
@@ -846,9 +845,10 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
     }
 
     @VisibleForTesting
+    @Suppress("UNUSED_PARAMETER")
     internal fun setupInstallAddonFromFilePreference(settings: Settings) {
         with(requirePreference<Preference>(R.string.pref_key_install_local_addon)) {
-            isVisible = settings.showSecretDebugMenuThisSession
+            isVisible = true
         }
     }
 

@@ -156,7 +156,7 @@ class FilePickerTest {
 
     @Test
     @Config(sdk = [32])
-    fun `handleFilePickerRequest without the required permission will call askAndroidPermissionsForRequest on SDK 32 and below`() {
+    fun `handleFilePickerRequest without storage permission opens the file picker on SDK 32`() {
         var onRequestPermissionWasCalled = false
         val context = ApplicationProvider.getApplicationContext<Context>()
 
@@ -175,9 +175,9 @@ class FilePickerTest {
 
         filePicker.handleFileRequest(request)
 
-        assertTrue(onRequestPermissionWasCalled)
-        verify(filePicker).askAndroidPermissionsForRequest(any(), eq(request))
-        verify(fragment, never()).startActivityForResult(Intent(), 1)
+        assertFalse(onRequestPermissionWasCalled)
+        verify(filePicker, never()).askAndroidPermissionsForRequest(any(), eq(request))
+        verify(fragment).startActivityForResult(any(), anyInt())
     }
 
     @Test

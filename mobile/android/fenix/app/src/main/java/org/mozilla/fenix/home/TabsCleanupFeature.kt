@@ -106,11 +106,15 @@ class TabsCleanupFeature(
             }
 
         var tabId: String? = null
-        if (settings.enableHomepageAsNewTab) {
-            // Add a new tab after all the tabs are removed to ensure there's always 1 tab.
+        if (
+            settings.enableHomepageAsNewTab &&
+                sessionCode != ALL_PRIVATE_TABS &&
+                !browsingModeManager.mode.isPrivate
+        ) {
+            // Add a normal tab after all the tabs are removed to ensure there's always 1 normal tab.
             // Hold onto the new tab ID so that the new tab can be removed if the tabs are restored
             // by the undo action.
-            tabId = fenixBrowserUseCases.addNewHomepageTab(private = browsingModeManager.mode.isPrivate)
+            tabId = fenixBrowserUseCases.addNewHomepageTab(private = false)
         }
 
         showUndoSnackbar(
@@ -156,11 +160,11 @@ class TabsCleanupFeature(
         tabsUseCases.removeTab(tabId = sessionId, excludedTabIds = inactiveTabs.map { it.id }.toSet())
 
         var tabId = ""
-        if (settings.enableHomepageAsNewTab && !hasTabsRemaining) {
-            // Add a new tab if the last tab is being removed to ensure there's always 1 tab.
+        if (settings.enableHomepageAsNewTab && !isPrivate && !hasTabsRemaining) {
+            // Add a normal tab if the last normal tab is being removed.
             // Hold onto the new tab ID so that the new tab can be removed if the tabs are restored
             // by the undo action.
-            tabId = fenixBrowserUseCases.addNewHomepageTab(private = isPrivate)
+            tabId = fenixBrowserUseCases.addNewHomepageTab(private = false)
         }
 
         showUndoSnackbar(

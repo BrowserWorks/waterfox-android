@@ -24,6 +24,7 @@ import mozilla.components.browser.state.search.DefaultSearchEngineProvider
 import mozilla.components.browser.state.search.SearchAccessPoint
 import mozilla.components.browser.state.search.SearchEngine
 import mozilla.components.browser.state.selector.findTab
+import mozilla.components.browser.state.selector.selectedTab
 import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.compose.browser.toolbar.store.BrowserEditToolbarAction
 import mozilla.components.compose.browser.toolbar.store.BrowserEditToolbarAction.SearchQueryUpdated
@@ -33,6 +34,7 @@ import mozilla.components.concept.awesomebar.AwesomeBar
 import mozilla.components.concept.engine.Engine
 import mozilla.components.concept.engine.EngineSession.LoadUrlFlags
 import mozilla.components.concept.engine.prompt.ShareData
+import mozilla.components.concept.engine.utils.ABOUT_HOME_URL
 import mozilla.components.feature.search.SearchUseCases.SearchUseCase
 import mozilla.components.feature.session.SessionUseCases.LoadUrlUseCase
 import mozilla.components.feature.tabs.TabsUseCases.SelectTabUseCase
@@ -356,16 +358,19 @@ class FenixSearchMiddleware(
                 additionalHeaders: Map<String, String>?,
                 originalInput: String?,
             ) {
+                val tabId = store.state.tabId
                 openToBrowserAndLoad(
                     url = url,
                     createNewTab =
                         if (settings.enableHomepageAsNewTab) {
-                            false
+                            tabId?.let { browserStore.state.findTab(it) == null }
+                                ?: (browserStore.state.selectedTab?.content?.url != ABOUT_HOME_URL)
                         } else {
-                            store.state.tabId == null
+                            tabId == null || browserStore.state.findTab(tabId) == null
                         },
                     usePrivateMode = browsingModeManager.mode.isPrivate,
                     flags = flags,
+                    tabId = tabId,
                 )
 
                 Events.enteredUrl.record(Events.EnteredUrlExtra(autocomplete = false))
@@ -383,6 +388,7 @@ class FenixSearchMiddleware(
                 parentSessionId: String?,
             ) {
                 val searchEngine = store.state.searchEngineSource.searchEngine
+                val tabId = store.state.tabId
 
                 val searchAccessPoint =
                     when (store.state.searchAccessPoint) {
@@ -394,13 +400,15 @@ class FenixSearchMiddleware(
                     url = searchTerms,
                     createNewTab =
                         if (settings.enableHomepageAsNewTab) {
-                            false
+                            tabId?.let { browserStore.state.findTab(it) == null }
+                                ?: (browserStore.state.selectedTab?.content?.url != ABOUT_HOME_URL)
                         } else {
-                            store.state.tabId == null
+                            tabId == null || browserStore.state.findTab(tabId) == null
                         },
                     usePrivateMode = browsingModeManager.mode.isPrivate,
                     forceSearch = true,
                     searchEngine = searchEngine,
+                    tabId = tabId,
                     accessPoint = searchAccessPoint.toSearchAccessPoint(),
                 )
 
@@ -435,6 +443,7 @@ class FenixSearchMiddleware(
         forceSearch: Boolean = false,
         searchEngine: SearchEngine? = null,
         flags: LoadUrlFlags = LoadUrlFlags.none(),
+        tabId: String?,
         accessPoint: String = SearchAccessPoint.DEFAULT,
     ) {
         navController.navigate(R.id.browserFragment)
@@ -445,6 +454,7 @@ class FenixSearchMiddleware(
             forceSearch = forceSearch,
             searchEngine = searchEngine,
             flags = flags,
+            tabId = tabId,
             accessPoint = accessPoint,
         )
     }

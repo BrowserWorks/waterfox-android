@@ -50,6 +50,7 @@ import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
 import mozilla.appservices.places.BookmarkRoot
@@ -75,6 +76,7 @@ import mozilla.components.feature.privatemode.notification.PrivateNotificationFe
 import mozilla.components.feature.search.BrowserStoreSearchAdapter
 import mozilla.components.lib.crash.Crash
 import mozilla.components.lib.crash.store.CrashAction
+import mozilla.components.lib.state.ext.flow
 import mozilla.components.service.fxa.sync.SyncReason
 import mozilla.components.support.base.feature.ActivityResultHandler
 import mozilla.components.support.base.feature.UserInteractionHandler
@@ -584,7 +586,15 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
 
             if (shouldNavigateToBrowserOnColdStart(savedInstanceState)) {
                 if (shouldStartOnHome() && components.settings.enableHomepageAsNewTab) {
-                    components.useCases.fenixBrowserUseCases.addNewHomepageTab()
+                    lifecycleScope.launch {
+                        components.core.store.flow().first { it.restoreComplete }
+                        if (
+                            navHost.navController.currentDestination?.id == R.id.homeFragment &&
+                                components.settings.enableHomepageAsNewTab
+                        ) {
+                            components.useCases.fenixBrowserUseCases.selectOrAddHomepageTab()
+                        }
+                    }
                 } else if (!shouldStartOnHome()) {
                     navigateToBrowserOnColdStart()
                 }

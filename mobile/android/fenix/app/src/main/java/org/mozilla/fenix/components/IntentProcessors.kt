@@ -23,7 +23,9 @@ import mozilla.components.feature.tabs.CustomTabsUseCases
 import mozilla.components.feature.tabs.TabsUseCases
 import mozilla.components.feature.webnotifications.WebNotificationIntentProcessor
 import org.mozilla.fenix.customtabs.FennecWebAppIntentProcessor
+import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.home.intent.FennecBookmarkShortcutsIntentProcessor
+import org.mozilla.fenix.home.intent.WebsiteShortcutIntentProcessor
 import org.mozilla.fenix.intent.ExternalDeepLinkIntentProcessor
 import org.mozilla.fenix.shortcut.PasswordManagerIntentProcessor
 
@@ -84,6 +86,10 @@ class IntentProcessors(
 
     val fennecPageShortcutIntentProcessor by lazy {
         FennecBookmarkShortcutsIntentProcessor(tabsUseCases.addTab)
+    }
+
+    val websiteShortcutIntentProcessor by lazy {
+        WebsiteShortcutIntentProcessor(store, tabsUseCases) { context.components.settings.reuseTabsForShortcuts }
     }
 
     val webNotificationsIntentProcessor by lazy {

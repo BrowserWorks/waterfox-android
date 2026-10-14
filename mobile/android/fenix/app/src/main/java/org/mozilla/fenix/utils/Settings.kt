@@ -2577,6 +2577,12 @@ class Settings(
             default = true,
         )
 
+    var reuseTabsForShortcuts by
+        booleanPreference(
+            key = appContext.getPreferenceKey(R.string.pref_key_reuse_tabs_for_shortcuts),
+            default = true,
+        )
+
     /** Indicates if the Homepage Search Bar is enabled. */
     var enableHomepageSearchBar by
         hardcodedFeatureFlagBooleanPreference(

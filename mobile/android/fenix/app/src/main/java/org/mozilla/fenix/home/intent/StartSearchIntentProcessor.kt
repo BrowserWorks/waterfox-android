@@ -45,29 +45,12 @@ class StartSearchIntentProcessor(
         }
 
         return if (event != null) {
-            val source =
-                when (event) {
-                    SEARCH_WIDGET -> {
-                        SearchWidget.newTabButton.record(NoExtras())
-                        MetricsUtils.Source.WIDGET
-                    }
-                    STATIC_SHORTCUT_NEW_TAB,
-                    STATIC_SHORTCUT_NEW_PRIVATE_TAB,
-                    PRIVATE_BROWSING_PINNED_SHORTCUT -> {
-                        MetricsUtils.Source.SHORTCUT
-                    }
-                    else -> null
-                }
+            val source = searchSource(event)
 
             out.removeExtra(HomeActivity.OPEN_TO_SEARCH)
 
             source?.let {
-                if (event == SEARCH_WIDGET || settings.enableHomepageAsNewTab) {
-                    browsingModeManager.updateMode(intent)
-                }
-                if (settings.enableHomepageAsNewTab) {
-                    fenixBrowserUseCases.addNewHomepageTab(private = browsingModeManager.mode.isPrivate)
-                }
+                prepareSearchTab(event, intent, settings)
 
                 navController.nav(
                     id = null,
@@ -82,6 +65,31 @@ class StartSearchIntentProcessor(
             true
         } else {
             false
+        }
+    }
+
+    private fun searchSource(event: String): MetricsUtils.Source? =
+        when (event) {
+            SEARCH_WIDGET -> {
+                SearchWidget.newTabButton.record(NoExtras())
+                MetricsUtils.Source.WIDGET
+            }
+            STATIC_SHORTCUT_NEW_TAB,
+            STATIC_SHORTCUT_NEW_PRIVATE_TAB,
+            PRIVATE_BROWSING_PINNED_SHORTCUT -> MetricsUtils.Source.SHORTCUT
+            else -> null
+        }
+
+    private fun prepareSearchTab(event: String, intent: Intent, settings: Settings) {
+        if (event == SEARCH_WIDGET || settings.enableHomepageAsNewTab) {
+            browsingModeManager.updateMode(intent)
+        }
+        if (settings.enableHomepageAsNewTab) {
+            if (event == STATIC_SHORTCUT_NEW_TAB || event == STATIC_SHORTCUT_NEW_PRIVATE_TAB) {
+                fenixBrowserUseCases.addNewHomepageTab(private = browsingModeManager.mode.isPrivate)
+            } else {
+                fenixBrowserUseCases.selectOrAddHomepageTab(private = browsingModeManager.mode.isPrivate)
+            }
         }
     }
 

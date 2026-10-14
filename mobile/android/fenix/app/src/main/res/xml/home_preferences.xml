@@ -10,6 +10,11 @@
         android:persistent="false"
         android:title="@string/preferences_homepage_as_new_tab"
         android:summary="@string/preferences_homepage_as_new_tab_summary" />
+    <androidx.preference.SwitchPreferenceCompat
+        android:key="@string/pref_key_reuse_tabs_for_shortcuts"
+        android:persistent="false"
+        android:title="@string/preferences_reuse_tabs_for_shortcuts"
+        android:summary="@string/preferences_reuse_tabs_for_shortcuts_summary" />
 
     <androidx.preference.Preference
         android:key="@string/pref_key_wallpapers"

@@ -7,19 +7,7 @@ package mozilla.components.support.locale
 import java.util.Locale
 
 fun String.toLocale(): Locale {
-    val index: Int =
-        if (contains('-')) {
-            indexOf('-')
-        } else {
-            indexOf('_')
-        }
-    return if (index != -1) {
-        val langCode = substring(0, index)
-        val countryCode = substring(index + 1)
-        Locale.Builder().setLanguage(langCode).setRegion(countryCode).build()
-    } else {
-        Locale.forLanguageTag(this)
-    }
+    return Locale.forLanguageTag(replace('_', '-'))
 }
 
 /**

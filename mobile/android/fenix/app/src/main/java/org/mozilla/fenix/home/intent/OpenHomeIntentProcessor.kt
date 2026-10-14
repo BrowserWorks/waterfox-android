@@ -12,6 +12,7 @@ import org.mozilla.fenix.browser.browsingmode.BrowsingModeManager
 import org.mozilla.fenix.components.usecases.FenixBrowserUseCases
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.home.intent.StartSearchIntentProcessor.Companion.PRIVATE_BROWSING_PINNED_SHORTCUT
+import org.mozilla.fenix.shortcut.NewTabShortcutIntentProcessor
 import org.mozilla.fenix.utils.Settings
 
 /**
@@ -37,7 +38,14 @@ class OpenHomeIntentProcessor(
             out.removeExtra(HomeActivity.OPEN_TO_SEARCH)
 
             browsingModeManager.updateMode(intent)
-            fenixBrowserUseCases.addNewHomepageTab(private = browsingModeManager.mode.isPrivate)
+            if (
+                intent.action == NewTabShortcutIntentProcessor.ACTION_OPEN_TAB ||
+                    intent.action == NewTabShortcutIntentProcessor.ACTION_OPEN_PRIVATE_TAB
+            ) {
+                fenixBrowserUseCases.addNewHomepageTab(private = browsingModeManager.mode.isPrivate)
+            } else {
+                fenixBrowserUseCases.selectOrAddHomepageTab(private = browsingModeManager.mode.isPrivate)
+            }
             navController.nav(
                 null,
                 directions = NavGraphDirections.actionGlobalHome(),

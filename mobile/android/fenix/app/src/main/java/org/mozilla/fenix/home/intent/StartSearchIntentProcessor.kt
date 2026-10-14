@@ -66,7 +66,11 @@ class StartSearchIntentProcessor(
                     browsingModeManager.updateMode(intent)
                 }
                 if (settings.enableHomepageAsNewTab) {
-                    fenixBrowserUseCases.addNewHomepageTab(private = browsingModeManager.mode.isPrivate)
+                    if (event == STATIC_SHORTCUT_NEW_TAB || event == STATIC_SHORTCUT_NEW_PRIVATE_TAB) {
+                        fenixBrowserUseCases.addNewHomepageTab(private = browsingModeManager.mode.isPrivate)
+                    } else {
+                        fenixBrowserUseCases.selectOrAddHomepageTab(private = browsingModeManager.mode.isPrivate)
+                    }
                 }
 
                 navController.nav(

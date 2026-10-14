@@ -30,6 +30,7 @@ import mozilla.components.browser.state.search.SearchEngine
 import mozilla.components.browser.state.search.SearchEngine.Type.APPLICATION
 import mozilla.components.browser.state.search.SearchEngine.Type.CUSTOM
 import mozilla.components.browser.state.selector.findTab
+import mozilla.components.browser.state.selector.selectedTab
 import mozilla.components.browser.state.state.selectedOrDefaultSearchEngine
 import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.browser.toolbar.R as toolbarR
@@ -65,6 +66,7 @@ import mozilla.components.compose.browser.toolbar.store.BrowserToolbarState
 import mozilla.components.compose.browser.toolbar.store.BrowserToolbarStore
 import mozilla.components.compose.browser.toolbar.ui.BrowserToolbarQuery
 import mozilla.components.concept.engine.EngineSession
+import mozilla.components.concept.engine.utils.ABOUT_HOME_URL
 import mozilla.components.concept.toolbar.AutocompleteProvider
 import mozilla.components.concept.toolbar.AutocompleteResult
 import mozilla.components.feature.qr.R as qrR
@@ -337,12 +339,14 @@ class BrowserToolbarSearchMiddleware(
                 browserStore.state.search
                     .selectedOrDefaultSearchEngine(private = browsingModeManager.mode.isPrivate)
                     ?.id)
+        val sourceTabId = appStore.state.searchState.sourceTabId
         val newTab =
             if (settings.enableHomepageAsNewTab) {
-                false
+                sourceTabId?.let { browserStore.state.findTab(it) == null }
+                    ?: (browserStore.state.selectedTab?.content?.url != ABOUT_HOME_URL)
             } else {
                 // Create a new tab if the source for where the search originated is not available.
-                appStore.state.searchState.sourceTabId?.run {
+                sourceTabId?.run {
                     browserStore.state.findTab(this) == null
                 } ?: true
             }
@@ -355,6 +359,7 @@ class BrowserToolbarSearchMiddleware(
             forceSearch = !isDefaultEngine,
             private = browsingModeManager.mode.isPrivate,
             searchEngine = searchEngine,
+            tabId = sourceTabId,
         )
 
         if (text.isUrl() || searchEngine == null) {
@@ -597,16 +602,19 @@ class BrowserToolbarSearchMiddleware(
                                 isQueryPrefilled = true,
                             )
                         )
+                        val sourceTabId = appStore.state.searchState.sourceTabId
                         components.useCases.fenixBrowserUseCases.loadUrlOrSearch(
                             searchTermOrURL = it.qrScannerState.lastScanData,
                             newTab =
                                 if (settings.enableHomepageAsNewTab) {
-                                    false
+                                    sourceTabId?.let { browserStore.state.findTab(it) == null }
+                                        ?: (browserStore.state.selectedTab?.content?.url != ABOUT_HOME_URL)
                                 } else {
-                                    appStore.state.searchState.sourceTabId == null
+                                    sourceTabId == null || browserStore.state.findTab(sourceTabId) == null
                                 },
                             flags = EngineSession.LoadUrlFlags.external(),
                             private = browsingModeManager.mode.isPrivate,
+                            tabId = sourceTabId,
                         )
                         navController.navigate(R.id.action_global_browser)
                     }

@@ -949,6 +949,8 @@
     <!-- Customize Home -->
     <string name="preferences_homepage_as_new_tab">Use homepage as a new tab</string>
     <string name="preferences_homepage_as_new_tab_summary">Keep the homepage in your tabs. When off, open the homepage without adding a tab.</string>
+    <string name="preferences_reuse_tabs_for_shortcuts">Reuse existing tab for shortcuts</string>
+    <string name="preferences_reuse_tabs_for_shortcuts_summary">Open home screen website shortcuts in an existing tab when possible. Turn off to always open a new tab.</string>
     <!-- Title for the customize home screen section with privacy report. -->
     <string name="customize_toggle_privacy_report">Privacy report</string>
     <!-- Title for a customize home screen section. Continue is a section that displays the most recent browser tab, so users can continue browsing where they left off. -->

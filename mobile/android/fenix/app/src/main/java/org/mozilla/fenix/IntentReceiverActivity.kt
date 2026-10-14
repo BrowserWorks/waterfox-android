@@ -11,9 +11,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.StrictMode
 import androidx.annotation.VisibleForTesting
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import mozilla.components.feature.intent.ext.sanitize
 import mozilla.components.feature.intent.processing.IntentProcessor
 import mozilla.components.feature.intent.processing.TabIntentProcessor.Companion.EXTRA_APP_LINK_LAUNCH_TYPE
+import mozilla.components.lib.state.ext.flow
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.utils.EXTRA_ACTIVITY_REFERRER_CATEGORY
 import mozilla.components.support.utils.EXTRA_ACTIVITY_REFERRER_PACKAGE
@@ -26,6 +31,7 @@ import org.mozilla.fenix.components.IntentProcessorType
 import org.mozilla.fenix.components.getType
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.isIntentInternal
+import org.mozilla.fenix.home.intent.WebsiteShortcutIntentProcessor
 import org.mozilla.fenix.perf.MarkersActivityLifecycleCallbacks
 import org.mozilla.fenix.perf.StartupTimeline
 import org.mozilla.fenix.shortcut.NewTabShortcutIntentProcessor
@@ -35,6 +41,7 @@ import org.mozilla.fenix.shortcut.UninstallShortcutIntentProcessor
 class IntentReceiverActivity : Activity() {
 
     private val logger = Logger("IntentReceiverActivity")
+    private val intentScope = MainScope()
 
     @VisibleForTesting
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,6 +79,31 @@ class IntentReceiverActivity : Activity() {
     }
 
     fun processIntent(intent: Intent) {
+        val safeIntent = intent.toSafeIntent()
+        val opensHomepage =
+            safeIntent.action == NewTabShortcutIntentProcessor.ACTION_OPEN_TAB ||
+                safeIntent.action == NewTabShortcutIntentProcessor.ACTION_OPEN_PRIVATE_TAB ||
+                safeIntent.hasExtra(HomeActivity.OPEN_TO_SEARCH) ||
+                safeIntent.getBooleanExtra(HomeActivity.OPEN_TO_HOME, false)
+        if (
+            (WebsiteShortcutIntentProcessor.matches(intent) || opensHomepage) &&
+                !components.core.store.state.restoreComplete
+        ) {
+            intentScope.launch {
+                components.core.store.flow().first { it.restoreComplete }
+                processRestoredIntent(intent)
+            }
+        } else {
+            processRestoredIntent(intent)
+        }
+    }
+
+    override fun onDestroy() {
+        intentScope.cancel()
+        super.onDestroy()
+    }
+
+    private fun processRestoredIntent(intent: Intent) {
         // Call process for side effects, short on the first that returns true
 
         var private = components.settings.openLinksInAPrivateTab
@@ -147,6 +179,7 @@ class IntentReceiverActivity : Activity() {
             }
 
         return components.intentProcessors.externalAppIntentProcessors +
+            components.intentProcessors.websiteShortcutIntentProcessor +
             components.intentProcessors.fennecPageShortcutIntentProcessor +
             components.intentProcessors.externalDeepLinkIntentProcessor +
             components.intentProcessors.webNotificationsIntentProcessor +

@@ -65,6 +65,15 @@ class HomeSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragm
     }
 
     private fun setupPreferences() {
+        requirePreference<SwitchPreferenceCompat>(R.string.pref_key_reuse_tabs_for_shortcuts).apply {
+            isChecked = fenixSettings.reuseTabsForShortcuts
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                val enabled = newValue as? Boolean ?: return@OnPreferenceChangeListener false
+                fenixSettings.reuseTabsForShortcuts = enabled
+                true
+            }
+        }
+
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_enable_homepage_as_new_tab).apply {
             isChecked = fenixSettings.enableHomepageAsNewTab
             onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->

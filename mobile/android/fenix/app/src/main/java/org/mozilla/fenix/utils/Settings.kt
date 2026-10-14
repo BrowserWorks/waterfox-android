@@ -2525,6 +2525,12 @@ class Settings(
             default = true,
         )
 
+    var reuseTabsForShortcuts by
+        booleanPreference(
+            key = appContext.getPreferenceKey(R.string.pref_key_reuse_tabs_for_shortcuts),
+            default = true,
+        )
+
     /** Whether the universal edge-to-edge wallpapers treatment is enabled. */
     var enableUniversalEdgeToEdgeWallpapers by
         hardcodedFeatureFlagBooleanPreference(

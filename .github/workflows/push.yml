@@ -115,19 +115,22 @@ jobs:
           unset ANDROID_SDK_ROOT
           echo $MOZ_BUILD_DATE
           ./mach build
-          ./mach package
+          ./mach python scripts/package-gecko-locales.py --objdir "obj-${{ matrix.arch }}"
+          MOZ_CHROME_MULTILOCALE="$(./mach python scripts/package-gecko-locales.py --print-locales)"
+          export MOZ_CHROME_MULTILOCALE
+          printf 'MOZ_CHROME_MULTILOCALE=%s\n' "$MOZ_CHROME_MULTILOCALE" >> "$GITHUB_ENV"
           export GRADLE_INVOKED_WITHIN_MACH_BUILD=1
-          ./mach gradle :geckoview:assembleRelease
+          rm -rf "obj-${{ matrix.arch }}/gradle/maven"
+          ./mach gradle :geckoview:publishReleasePublicationToMavenRepository :full-megazord:publishReleasePublicationToMavenRepository
 
       - name: Create Maven zip
         run: |
           set -euo pipefail
           OBJDIR="obj-${{ matrix.arch }}"
           GRADLE_DIR="$OBJDIR/gradle"
-          export GRADLE_INVOKED_WITHIN_MACH_BUILD=1
-          ./mach gradle :geckoview:publishReleasePublicationToMavenRepository :full-megazord:publishReleasePublicationToMavenRepository
           python3 scripts/create-maven-zip.py --objdir "$OBJDIR" --include-snapshots --require-aar
           test -f "$GRADLE_DIR/target.maven.zip"
+          ./mach python scripts/package-gecko-locales.py --verify "$GRADLE_DIR/target.maven.zip"
 
       - name: 🆙 Upload GeckoView Artifact
         uses: namespace-actions/upload-artifact@f6ccaacc655aec41b93af180d1d7eef21af862d2 # v1.0.3
@@ -249,7 +252,14 @@ jobs:
           export MOZ_ANDROID_FAT_AAR_ARMEABI_V7A="$(pwd)/obj-arm-linux-androideabi/target.maven.zip"
           export MOZ_ANDROID_FAT_AAR_ARM64_V8A="$(pwd)/obj-aarch64-linux-android/target.maven.zip"
           export MOZ_ANDROID_FAT_AAR_X86_64="$(pwd)/obj-x86_64-linux-android/target.maven.zip"
+          ./mach python scripts/package-gecko-locales.py --verify \
+            "$MOZ_ANDROID_FAT_AAR_ARMEABI_V7A" \
+            "$MOZ_ANDROID_FAT_AAR_ARM64_V8A" \
+            "$MOZ_ANDROID_FAT_AAR_X86_64"
           ./mach build
+          ./mach python scripts/package-gecko-locales.py --objdir objdir
+          MOZ_CHROME_MULTILOCALE="$(./mach python scripts/package-gecko-locales.py --print-locales)"
+          printf 'MOZ_CHROME_MULTILOCALE=%s\n' "$MOZ_CHROME_MULTILOCALE" >> "$GITHUB_ENV"
 
       - name: 🔓 Decode Keystore
         run: |
@@ -276,6 +286,12 @@ jobs:
           unset ANDROID_SDK_ROOT
           export GRADLE_INVOKED_WITHIN_MACH_BUILD=1
           ./mach gradle :fenix:bundleWaterfoxRelease
+
+      - name: Verify packaged Gecko locales
+        run: |
+          ./mach python scripts/package-gecko-locales.py --verify \
+            objdir/gradle/build/mobile/android/fenix/app/outputs/apk/waterfox/release/*.apk \
+            objdir/gradle/build/mobile/android/fenix/app/outputs/bundle/waterfoxRelease/*.aab
 
       - name: Verify release AAB signing fingerprint
         run: |

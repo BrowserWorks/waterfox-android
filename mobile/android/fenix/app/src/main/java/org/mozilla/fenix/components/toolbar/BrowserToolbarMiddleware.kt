@@ -824,7 +824,10 @@ class BrowserToolbarMiddleware(
         val isWideWindow = isWideScreen()
         val isTallWindow = isTallScreen()
         val shouldUseExpandedToolbar = settings.shouldUseExpandedToolbar
-        val primarySlotAction = ShortcutType.fromValue(settings.activeSimpleToolbarShortcutKey)?.toToolbarAction()
+        val primarySlotAction =
+            ShortcutType.fromValue(settings.activeSimpleToolbarShortcutKey)?.toToolbarAction()?.takeUnless {
+                isWideWindow && it == ToolbarAction.RefreshOrStop
+            }
 
         val configs =
             listOfNotNull(
@@ -1139,7 +1142,15 @@ class BrowserToolbarMiddleware(
     private fun observePageRefreshUpdates(store: Store<BrowserToolbarState, BrowserToolbarAction>) {
         browserStore.observeWhileActive {
             distinctUntilChangedBy { it.selectedTab?.content?.loading == true }
-                .collect { updateStartBrowserActions(store) }
+                .collect {
+                    updateStartBrowserActions(store)
+                    if (ShortcutType.fromValue(settings.activeSimpleToolbarShortcutKey) == ShortcutType.RELOAD) {
+                        updateEndBrowserActions(store)
+                    }
+                    if (ShortcutType.fromValue(settings.toolbarExpandedShortcutKey) == ShortcutType.RELOAD) {
+                        updateNavigationActions(store)
+                    }
+                }
         }
     }
 
@@ -1552,6 +1563,7 @@ class BrowserToolbarMiddleware(
                 }
             ShortcutType.HOMEPAGE -> ToolbarAction.Homepage
             ShortcutType.BACK -> ToolbarAction.Back
+            ShortcutType.RELOAD -> ToolbarAction.RefreshOrStop
             ShortcutType.SUMMARIZE ->
                 when {
                     summarizationFeatureSettings.canShowFeature -> ToolbarAction.Summarize

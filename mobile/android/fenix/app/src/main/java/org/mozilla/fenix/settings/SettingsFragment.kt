@@ -379,6 +379,10 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                     )
                 }
 
+                resources.getString(R.string.pref_key_sync_servers) -> {
+                    SettingsFragmentDirections.actionSettingsFragmentToSyncServersFragment()
+                }
+
                 // General preferences
                 resources.getString(R.string.pref_key_search_settings) -> {
                     SettingsFragmentDirections.actionSettingsFragmentToSearchEngineFragment()

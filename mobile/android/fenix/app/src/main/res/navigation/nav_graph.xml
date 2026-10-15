@@ -769,6 +769,13 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
+            android:id="@+id/action_settingsFragment_to_syncServersFragment"
+            app:destination="@id/syncServersFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
             android:id="@+id/action_settingsFragment_to_dohSettingsFragment"
             app:destination="@id/dohSettingsFragment"
             app:enterAnim="@anim/slide_in_right"
@@ -1112,6 +1119,10 @@
         android:id="@+id/syncDebugFragment"
         android:name="org.mozilla.fenix.settings.SyncDebugFragment"
         android:label="@string/preferences_sync_debug" />
+    <fragment
+        android:id="@+id/syncServersFragment"
+        android:name="org.mozilla.fenix.settings.SyncServersFragment"
+        android:label="@string/preferences_sync_servers" />
     <dialog
         android:id="@+id/collectionCreationFragment"
         android:name="org.mozilla.fenix.collections.CollectionCreationFragment"

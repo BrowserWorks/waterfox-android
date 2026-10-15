@@ -127,6 +127,7 @@ class FxSuggestSuggestionProvider(
             provider = this@FxSuggestSuggestionProvider,
             icon = details.icon?.toBitmap(),
             title = details.title,
+            url = details.url,
             description =
                 if (details.isSponsored) {
                     sponsoredSuggestionDescription

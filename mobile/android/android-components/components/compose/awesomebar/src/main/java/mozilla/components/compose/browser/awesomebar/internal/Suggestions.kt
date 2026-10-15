@@ -47,8 +47,11 @@ internal fun Suggestions(
     onScroll: () -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(),
+    copyLinkLabel: String? = null,
+    onCopyUrl: ((String) -> Unit)? = null,
 ) {
     val state = rememberLazyListState()
+    val callbacks = SuggestionCallbacks(onSuggestionClicked, onAutoComplete, onRemoveClicked)
 
     ScrollHandler(state, onScroll)
 
@@ -74,9 +77,9 @@ internal fun Suggestions(
                     group = group,
                     colors = colors,
                     orientation = orientation,
-                    onSuggestionClicked = onSuggestionClicked,
-                    onAutoComplete = onAutoComplete,
-                    onRemoveClicked = onRemoveClicked,
+                    callbacks = callbacks,
+                    copyLinkLabel = copyLinkLabel,
+                    onCopyUrl = onCopyUrl,
                 )
             }
         }
@@ -120,15 +123,21 @@ private fun ScrollHandler(
     }
 }
 
+private data class SuggestionCallbacks(
+    val onSuggestionClicked: (AwesomeBar.SuggestionProviderGroup, AwesomeBar.SuggestionItem) -> Unit,
+    val onAutoComplete: (AwesomeBar.SuggestionProviderGroup, AwesomeBar.Suggestion) -> Unit,
+    val onRemoveClicked: (AwesomeBar.SuggestionProviderGroup, AwesomeBar.Suggestion) -> Unit,
+)
+
 @Composable
 private fun SuggestionItem(
     suggestion: AwesomeBar.SuggestionItem,
     group: AwesomeBar.SuggestionProviderGroup,
     colors: AwesomeBarColors,
     orientation: AwesomeBarOrientation,
-    onSuggestionClicked: (AwesomeBar.SuggestionProviderGroup, AwesomeBar.SuggestionItem) -> Unit,
-    onAutoComplete: (AwesomeBar.SuggestionProviderGroup, AwesomeBar.Suggestion) -> Unit,
-    onRemoveClicked: (AwesomeBar.SuggestionProviderGroup, AwesomeBar.Suggestion) -> Unit,
+    callbacks: SuggestionCallbacks,
+    copyLinkLabel: String?,
+    onCopyUrl: ((String) -> Unit)?,
 ) {
     when (suggestion) {
         is AwesomeBar.Suggestion -> {
@@ -136,15 +145,17 @@ private fun SuggestionItem(
                 suggestion,
                 colors,
                 orientation,
-                onSuggestionClicked = { onSuggestionClicked(group, suggestion) },
-                onAutoComplete = { onAutoComplete(group, suggestion) },
-                onRemoveClicked = { onRemoveClicked(group, suggestion) },
+                onSuggestionClicked = { callbacks.onSuggestionClicked(group, suggestion) },
+                onAutoComplete = { callbacks.onAutoComplete(group, suggestion) },
+                onRemoveClicked = { callbacks.onRemoveClicked(group, suggestion) },
+                copyLinkLabel = copyLinkLabel,
+                onCopyUrl = onCopyUrl,
             )
         }
 
         is StockSuggestion -> {
             StockSuggestion(
-                onClick = { onSuggestionClicked(group, suggestion) },
+                onClick = { callbacks.onSuggestionClicked(group, suggestion) },
                 ticker = suggestion.ticker,
                 name = suggestion.name,
                 index = suggestion.index,
@@ -155,7 +166,7 @@ private fun SuggestionItem(
 
         is SportSuggestion -> {
             SportSuggestion(
-                onClick = { onSuggestionClicked(group, suggestion) },
+                onClick = { callbacks.onSuggestionClicked(group, suggestion) },
                 state =
                     SportSuggestionState(
                         sport = suggestion.sport,
@@ -171,7 +182,7 @@ private fun SuggestionItem(
 
         is FlightSuggestion -> {
             FlightSuggestion(
-                onClick = { onSuggestionClicked(group, suggestion) },
+                onClick = { callbacks.onSuggestionClicked(group, suggestion) },
                 flightNumber = suggestion.flightNumber,
                 airlineName = suggestion.airlineName,
                 flightStatus = suggestion.flightStatus,

@@ -66,6 +66,7 @@ class ClipboardSuggestionProvider(
                 provider = this,
                 id = url,
                 description = url,
+                url = url,
                 editSuggestion = url,
                 flags = setOf(AwesomeBar.Suggestion.Flag.CLIPBOARD),
                 icon = icon ?: getSearchIcon(),

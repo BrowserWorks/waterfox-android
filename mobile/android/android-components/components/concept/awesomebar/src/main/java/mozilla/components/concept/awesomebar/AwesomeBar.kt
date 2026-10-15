@@ -122,6 +122,7 @@ interface AwesomeBar {
      *   score will be shown on top of suggestions with a lower score.
      * @property metadata Opaque metadata associated with this [Suggestion]. A [SuggestionProvider] can use this field
      *   to pass additional information about this suggestion.
+     * @property url The complete destination URL, or null for suggestions that do not represent a URL.
      */
     data class Suggestion(
         override val provider: SuggestionProvider,
@@ -139,6 +140,7 @@ interface AwesomeBar {
         val onRemovalClicked: (() -> Unit)? = null,
         override val score: Int = 0,
         val metadata: Map<String, Any>? = null,
+        val url: String? = null,
     ) : SuggestionItem {
         /**
          * Chips are compact actions that are shown as part of a suggestion. For example a [Suggestion] from a search
@@ -168,6 +170,7 @@ interface AwesomeBar {
         fun areContentsTheSame(other: Suggestion): Boolean {
             return title == other.title &&
                 description == other.description &&
+                url == other.url &&
                 chips == other.chips &&
                 flags == other.flags
         }

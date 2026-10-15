@@ -70,6 +70,8 @@ fun AwesomeBar(
     onVisibilityStateUpdated: (AwesomeBar.VisibilityState) -> Unit = {},
     onScroll: () -> Unit = {},
     profiler: Profiler? = null,
+    copyLinkLabel: String? = null,
+    onCopyUrl: ((String) -> Unit)? = null,
 ) {
     val groups =
         remember(providers) {
@@ -98,6 +100,8 @@ fun AwesomeBar(
         onVisibilityStateUpdated = onVisibilityStateUpdated,
         onScroll = onScroll,
         profiler = profiler,
+        copyLinkLabel = copyLinkLabel,
+        onCopyUrl = onCopyUrl,
     )
 }
 
@@ -133,6 +137,8 @@ fun AwesomeBar(
     onVisibilityStateUpdated: (AwesomeBar.VisibilityState) -> Unit = {},
     onScroll: () -> Unit = {},
     profiler: Profiler? = null,
+    copyLinkLabel: String? = null,
+    onCopyUrl: ((String) -> Unit)? = null,
 ) {
     val density = LocalDensity.current
     var tabDetailsHeight by remember { mutableStateOf(CURRENT_TAB_DETAILS_MIN_HEIGHT.dp) }
@@ -216,6 +222,8 @@ fun AwesomeBar(
                         hasTabDetailsAtBottom -> PaddingValues(bottom = tabDetailsHeight)
                         else -> PaddingValues()
                     },
+                copyLinkLabel = copyLinkLabel,
+                onCopyUrl = onCopyUrl,
             )
 
             currentTabData?.let {

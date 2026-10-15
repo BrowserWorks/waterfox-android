@@ -90,6 +90,26 @@
                 style="@style/DestructiveButton"
                 android:layout_marginHorizontal="16dp"
                 android:text="@string/preferences_delete_browsing_data_button" />
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/show_delete_browsing_data_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:minHeight="56dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:saveEnabled="false"
+                android:text="@string/waterfox_delete_browsing_data_show_in_menu"
+                android:textAppearance="@style/ListItemTextStyle"
+                android:textColor="?attr/colorOnSurface" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/waterfox_delete_browsing_data_show_in_menu_summary"
+                android:textColor="?attr/colorOnSurfaceVariant" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

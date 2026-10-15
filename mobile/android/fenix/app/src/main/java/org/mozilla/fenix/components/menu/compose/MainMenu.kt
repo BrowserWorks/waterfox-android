@@ -123,6 +123,8 @@ import org.mozilla.fenix.whatsnew.WhatsNew
  * @param extensionsMenuItemDescription The label of extensions menu item description.
  * @param moreSettingsSubmenu The content of more menu item.
  * @param extensionSubmenu The content of extensions menu item to avoid configuration during animation.
+ * @param showDeleteBrowsingDataMenu Whether to show the delete browsing data menu item.
+ * @param onDeleteBrowsingDataMenuClick Invoked when the user clicks on the delete browsing data menu item.
  */
 @Suppress("LongParameterList", "LongMethod", "CyclomaticComplexMethod", "CognitiveComplexMethod")
 @Composable
@@ -180,6 +182,8 @@ fun MainMenu(
     extensionsMenuItemDescription: String?,
     moreSettingsSubmenu: @Composable () -> Unit,
     extensionSubmenu: @Composable () -> Unit,
+    showDeleteBrowsingDataMenu: Boolean = false,
+    onDeleteBrowsingDataMenuClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val shouldHighlightWhatsNew = WhatsNew.shouldHighlightWhatsNew(context)
@@ -343,6 +347,14 @@ fun MainMenu(
                     beforeIconPainter = painterResource(id = iconsR.drawable.mozac_ic_whats_new_24),
                     isBeforeIconHighlighted = true,
                     onClick = onWhatsNewMenuClick,
+                )
+            }
+
+            if (showDeleteBrowsingDataMenu) {
+                MenuItem(
+                    label = stringResource(id = R.string.preferences_delete_browsing_data),
+                    beforeIconPainter = painterResource(id = iconsR.drawable.mozac_ic_delete_24),
+                    onClick = onDeleteBrowsingDataMenuClick,
                 )
             }
 

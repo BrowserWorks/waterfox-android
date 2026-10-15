@@ -16,6 +16,9 @@ sealed interface FenixMenuItem {
     /** A banner allowing to set this application as the default browser. */
     data object DefaultBrowserBanner : FenixMenuItem
 
+    /** A menu item allowing to open the delete browsing data settings. */
+    data object DeleteBrowsingData : FenixMenuItem
+
     /** Opens Waterfox release notes after an update. */
     data object WhatsNew : FenixMenuItem
 

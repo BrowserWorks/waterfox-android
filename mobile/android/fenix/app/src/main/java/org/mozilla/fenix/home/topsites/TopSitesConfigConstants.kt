@@ -16,8 +16,8 @@ internal object TopSitesConfigConstants {
     /** Number of top sites to take from the [mozilla.components.feature.top.sites.TopSitesProvider]. */
     internal const val TOP_SITES_PROVIDER_LIMIT = 2
 
-    /** The maximum number of top sites to display. */
-    internal const val TOP_SITES_MAX_COUNT = 16
+    /** Default capacity for homepage shortcuts. */
+    internal const val TOP_SITES_MAX_COUNT = 256
 
     /** Sponsored top sites titles for Amazon used for filtering */
     const val AMAZON_SPONSORED_TITLE = "Amazon"

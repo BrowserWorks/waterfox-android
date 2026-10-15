@@ -3507,11 +3507,6 @@
   -->
   <string name="homepage_shortcuts_title">Zkratky</string>
   <!--
-    Context description text for the "Show all" button in the shortcuts home screen section
-    which navigates the user to a screen displaying all the shortcuts.
-  -->
-  <string name="homepage_shortcuts_show_all_content_description">Zobrazit všechny zkratky</string>
-  <!--
     Label for the button in the shortcuts home screen section that expands the section to show
     every shortcut.
   -->

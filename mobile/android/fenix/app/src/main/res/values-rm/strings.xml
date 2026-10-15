@@ -3246,11 +3246,6 @@
     Title text displayed for the shortcuts home screen section.
   -->
   <string name="homepage_shortcuts_title">Scursanidas</string>
-  <!--
-    Context description text for the "Show all" button in the shortcuts home screen section
-    which navigates the user to a screen displaying all the shortcuts.
-  -->
-  <string name="homepage_shortcuts_show_all_content_description">Mussar tut las scursanidas</string>
   <!-- Label for the "Add shortcut" button displayed as a tile. -->
   <string name="homepage_shortcuts_add_shortcut">Agiuntar ina scursanida</string>
   <!-- Title for the "Add to homepage" bottom sheet. -->

@@ -294,6 +294,19 @@ class MenuFragment : BottomSheetDialogFragment() {
                     }
                 )
 
+            FenixMenuItem.DeleteBrowsingData ->
+                menuItemProvider(
+                    if (requireComponents.settings.showDeleteBrowsingDataInMenu) {
+                        StandardMenuItem(
+                            title = Text.Resource(R.string.preferences_delete_browsing_data),
+                            icon = MenuItemIconRes(iconsR.drawable.mozac_ic_delete_24),
+                            onClickEvent = MenuAction.Navigate.DeleteBrowsingData,
+                        )
+                    } else {
+                        null
+                    }
+                )
+
             FenixMenuItem.Quit ->
                 menuItemProvider(
                     StandardMenuItem(

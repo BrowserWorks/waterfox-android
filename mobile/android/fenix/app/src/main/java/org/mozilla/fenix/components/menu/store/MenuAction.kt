@@ -184,6 +184,8 @@ sealed class MenuAction : MenuEvent {
         /** [Navigate] action dispatched when navigating to the settings. */
         data object Settings : Navigate()
 
+        data object DeleteBrowsingData : Navigate()
+
         /** [Navigate] action dispatched when navigating to the homepage settings. */
         data object CustomizeHomepage : Navigate()
 

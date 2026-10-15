@@ -17,6 +17,7 @@ import org.mozilla.fenix.components.menu.FenixMenuItem.AddToHomeScreen
 import org.mozilla.fenix.components.menu.FenixMenuItem.Back
 import org.mozilla.fenix.components.menu.FenixMenuItem.Bookmark
 import org.mozilla.fenix.components.menu.FenixMenuItem.CustomizeReaderView
+import org.mozilla.fenix.components.menu.FenixMenuItem.DeleteBrowsingData
 import org.mozilla.fenix.components.menu.FenixMenuItem.DesktopSite
 import org.mozilla.fenix.components.menu.FenixMenuItem.FindInPage
 import org.mozilla.fenix.components.menu.FenixMenuItem.Forward
@@ -166,6 +167,7 @@ class BrowserMenuBuilder(
                                     )
                                 ),
                                 WhatsNew,
+                                DeleteBrowsingData,
                                 Quit,
                             ),
                     ),

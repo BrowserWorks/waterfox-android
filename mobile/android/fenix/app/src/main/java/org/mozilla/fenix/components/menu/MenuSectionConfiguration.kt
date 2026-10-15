@@ -14,6 +14,8 @@ sealed interface FenixExpandableMenuItem {
 /** All items that can be shown in the menu. */
 sealed interface FenixMenuItem {
 
+    data object DeleteBrowsingData : FenixMenuItem
+
     /** Closes the browser using the user's delete-on-quit settings. */
     data object Quit : FenixMenuItem
 

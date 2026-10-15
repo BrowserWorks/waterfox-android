@@ -138,6 +138,8 @@ class MenuMiddleware(
                 navigateToIPProtectionSettings()
             }
 
+            is Navigate.DeleteBrowsingData -> navigate(NavGraphDirections.actionGlobalDeleteBrowsingDataFragment())
+
             is AddBookmark -> addBookmark()
 
             is Navigate.EditBookmark -> {

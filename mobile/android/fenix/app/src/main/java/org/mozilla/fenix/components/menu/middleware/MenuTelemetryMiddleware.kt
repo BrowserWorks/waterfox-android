@@ -211,6 +211,7 @@ class MenuTelemetryMiddleware<S : State, A : Action>(private val accessPoint: Me
             }
 
             MenuAction.Navigate.Summarizer,
+            MenuAction.Navigate.DeleteBrowsingData,
             MenuAction.InitAction,
             is MenuAction.CustomMenuItemAction,
             is MenuAction.UpdateBookmarkState,

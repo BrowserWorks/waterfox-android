@@ -611,6 +611,7 @@ class BrowserToolbarMiddleware(
         FakeHomepage,
         Back,
         FakeBack,
+        FakeReload,
         Forward,
         FakeSummarize,
     }
@@ -745,6 +746,12 @@ class BrowserToolbarMiddleware(
                     contentDescription = R.string.browser_menu_back,
                 )
 
+            HomeToolbarAction.FakeReload ->
+                createFakeActionButtonRes(
+                    drawableResId = iconsR.drawable.mozac_ic_arrow_clockwise_24,
+                    contentDescription = R.string.browser_menu_refresh,
+                )
+
             HomeToolbarAction.FakeSummarize ->
                 createFakeActionButtonRes(
                     drawableResId = iconsR.drawable.mozac_ic_lightning_24,
@@ -773,6 +780,7 @@ class BrowserToolbarMiddleware(
                     false -> HomeToolbarAction.FakeBookmark // the first available option in settings.
                 }
             ShortcutType.HOMEPAGE -> HomeToolbarAction.FakeHomepage
+            ShortcutType.RELOAD -> HomeToolbarAction.FakeReload
             ShortcutType.BACK ->
                 when (settings.enableHomepageAsNewTab) {
                     true -> HomeToolbarAction.Back

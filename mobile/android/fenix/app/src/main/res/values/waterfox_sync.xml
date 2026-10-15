@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+<resources>
+    <string name="pref_key_sync_servers" translatable="false">pref_key_sync_servers</string>
+    <string name="pref_key_sync_servers_info" translatable="false">pref_key_sync_servers_info</string>
+    <string name="pref_key_save_sync_servers" translatable="false">pref_key_save_sync_servers</string>
+    <string name="preferences_sync_servers">Sync servers</string>
+    <string name="preferences_sync_servers_summary">Choose custom account and Sync servers</string>
+    <string name="preferences_sync_servers_default">Default server</string>
+    <string name="preferences_sync_servers_description">Leave a field empty to use its default server. Save and restart Waterfox to apply changes.</string>
+    <string name="preferences_sync_servers_sign_out">Sign out of Sync before changing servers.</string>
+    <string name="preferences_sync_servers_save_restart">Save and restart</string>
+    <string name="preferences_sync_servers_invalid_url">Enter an HTTP or HTTPS server address.</string>
+    <string name="preferences_sync_servers_save_failed">Could not save and restart. Try again.</string>
+</resources>

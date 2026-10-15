@@ -94,6 +94,7 @@ class FirefoxAccountsAuthFeature(
         beginAuthentication: suspend () -> String?,
     ) {
         CoroutineScope(coroutineContext).launch {
+
             // TODO
             // We may fail to obtain an authentication URL, for example due to transient network errors.
             // The fallback does not help then, because it fails for the same reason. The server sign-in
@@ -102,7 +103,7 @@ class FirefoxAccountsAuthFeature(
             val authUrl =
                 beginAuthentication()
                     ?: fallbackAuthentication()
-                    ?: "${accountManager.serverConfig.server.contentUrl()}/signin"
+                    ?: "${accountManager.serverConfig.server.contentUrl().trimEnd('/')}/signin"
 
             onBeginAuthentication(context, authUrl)
         }

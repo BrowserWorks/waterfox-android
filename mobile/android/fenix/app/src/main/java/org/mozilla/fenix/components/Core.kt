@@ -124,6 +124,7 @@ import org.mozilla.fenix.historymetadata.HistoryMetadataMiddleware
 import org.mozilla.fenix.historymetadata.HistoryMetadataService
 import org.mozilla.fenix.home.blocklist.BlocklistHandler
 import org.mozilla.fenix.home.topsites.FenixDefaultTopSitesProvider
+import org.mozilla.fenix.home.topsites.TopSitesConfigConstants.TOP_SITES_MAX_COUNT
 import org.mozilla.fenix.longfox.LongFoxFeature
 import org.mozilla.fenix.media.MediaSessionService
 import org.mozilla.fenix.perf.StrictModeManager
@@ -619,6 +620,9 @@ class Core(
             pinnedSitesStorage = pinnedSiteStorage,
             historyStorage = historyStorage,
             topSitesProvider = macTopSitesProvider,
+            defaultTopSitesProvider = null,
+            preservePinnedSites = true,
+            maxFrecentSites = TOP_SITES_MAX_COUNT,
         )
     }
 

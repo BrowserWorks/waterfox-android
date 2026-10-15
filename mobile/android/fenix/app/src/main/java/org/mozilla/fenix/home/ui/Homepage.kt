@@ -10,8 +10,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -101,6 +103,7 @@ import org.mozilla.fenix.home.topsites.store.PopularSite
 import org.mozilla.fenix.home.topsites.store.toPopularSite
 import org.mozilla.fenix.home.topsites.ui.AddShortcutBottomSheet
 import org.mozilla.fenix.home.topsites.ui.AddShortcutDialog
+import org.mozilla.fenix.home.topsites.ui.ShortcutsMenu
 import org.mozilla.fenix.home.ui.HomepageTestTag.HOMEPAGE
 import org.mozilla.fenix.theme.FirefoxTheme
 import org.mozilla.fenix.trackingprotection.TrackersBlockedCard
@@ -395,21 +398,27 @@ internal fun TopSitesSection(
     onTopSitesItemBound: () -> Unit,
     onAddShortcutClicked: () -> Unit,
 ) {
-    if (showHeader) {
-        HomeSectionHeader(
-            headerText = stringResource(R.string.homepage_shortcuts_title),
-            modifier = Modifier.padding(horizontal = horizontalMargin),
-            description = stringResource(R.string.homepage_shortcuts_show_all_content_description),
-            onButtonClick =
-                if (state.showShortcutsLibraryButton) {
-                    interactor::onShowAllTopSitesClicked
-                } else {
-                    null
-                },
-        )
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = horizontalMargin),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        if (showHeader) {
+            HomeSectionHeader(
+                headerText = stringResource(R.string.homepage_shortcuts_title),
+                modifier = Modifier.weight(1f),
+            )
+        } else {
+            Spacer(Modifier.weight(1f))
+        }
 
-        Spacer(Modifier.height(16.dp))
+        ShortcutsMenu(
+            onAddShortcutClicked = onAddShortcutClicked,
+            onManageShortcutsClicked =
+                if (state.showShortcutsLibraryButton) interactor::onShowAllTopSitesClicked else null,
+        )
     }
+
+    Spacer(Modifier.height(16.dp))
 
     TopSites(
         state = state,

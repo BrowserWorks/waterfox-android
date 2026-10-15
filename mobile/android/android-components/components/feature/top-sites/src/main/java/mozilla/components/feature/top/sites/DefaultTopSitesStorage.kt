@@ -24,6 +24,8 @@ import mozilla.components.support.base.observer.ObserverRegistry
  * @param defaultTopSitesProvider An optional instance of [DefaultTopSitesProvider], used for retrieving the default top
  *   sites bundled with the application. The default top sites backfill the slots that are left over once the pinned and
  *   frecent top sites have been added.
+ * @param preservePinnedSites Whether to retain all pins when their count exceeds the requested total.
+ * @param maxFrecentSites Optional maximum number of history results to request.
  */
 class DefaultTopSitesStorage
 private constructor(
@@ -31,6 +33,8 @@ private constructor(
     private val historyStorage: PlacesHistoryStorage,
     private val topSitesProvider: TopSitesProvider? = null,
     private val defaultTopSitesProvider: DefaultTopSitesProvider? = null,
+    private val preservePinnedSites: Boolean = false,
+    private val maxFrecentSites: Int? = null,
 ) : TopSitesStorage, Observable<TopSitesStorage.Observer> by ObserverRegistry() {
 
     private val logger = Logger("DefaultTopSitesStorage")
@@ -59,6 +63,8 @@ private constructor(
             topSitesProvider: TopSitesProvider? = null,
             defaultTopSitesProvider: DefaultTopSitesProvider? = null,
             defaultTopSites: List<Pair<String, String>>,
+            preservePinnedSites: Boolean = false,
+            maxFrecentSites: Int? = null,
         ): DefaultTopSitesStorage {
             val storage =
                 DefaultTopSitesStorage(
@@ -66,6 +72,8 @@ private constructor(
                     historyStorage,
                     topSitesProvider,
                     defaultTopSitesProvider,
+                    preservePinnedSites,
+                    maxFrecentSites,
                 )
             if (defaultTopSites.isNotEmpty()) {
                 pinnedSitesStorage.addAllPinnedSites(defaultTopSites, isDefault = true)
@@ -90,7 +98,16 @@ private constructor(
             historyStorage: PlacesHistoryStorage,
             topSitesProvider: TopSitesProvider? = null,
             defaultTopSitesProvider: DefaultTopSitesProvider? = null,
-        ) = DefaultTopSitesStorage(pinnedSitesStorage, historyStorage, topSitesProvider, defaultTopSitesProvider)
+            preservePinnedSites: Boolean = false,
+            maxFrecentSites: Int? = null,
+        ) = DefaultTopSitesStorage(
+            pinnedSitesStorage,
+            historyStorage,
+            topSitesProvider,
+            defaultTopSitesProvider,
+            preservePinnedSites,
+            maxFrecentSites,
+        )
     }
 
     override suspend fun addTopSite(title: String, url: String, isDefault: Boolean) {
@@ -132,7 +149,9 @@ private constructor(
         providerConfig: TopSitesProviderConfig?,
     ): List<TopSite> {
         val topSites = ArrayList<TopSite>()
-        val pinnedSites = pinnedSitesStorage.getPinnedSites().take(totalSites)
+        val pinnedSites = pinnedSitesStorage.getPinnedSites().let {
+            if (preservePinnedSites) it else it.take(totalSites)
+        }
         var providerTopSites = emptyList<TopSite>()
         var numSitesRequired = totalSites - pinnedSites.size
 
@@ -165,12 +184,12 @@ private constructor(
 
         topSites.addAll(pinnedSites)
 
-        if (frecencyConfig?.frecencyTresholdOption != null && numSitesRequired > 0) {
-            // Get 'totalSites' sites for duplicate entries with
-            // existing pinned sites
+        val frecentSitesLimit = maxFrecentSites?.let { minOf(totalSites, it) } ?: totalSites
+        if (frecencyConfig?.frecencyTresholdOption != null && numSitesRequired > 0 && frecentSitesLimit > 0) {
+            // Include candidates that may be filtered out as duplicates of pinned sites.
             val frecentSites =
                 historyStorage
-                    .getTopFrecentSites(totalSites, frecencyConfig.frecencyTresholdOption)
+                    .getTopFrecentSites(frecentSitesLimit, frecencyConfig.frecencyTresholdOption)
                     .map { it.toTopSite() }
                     .filter {
                         !pinnedSites.hasUrl(it.url) &&

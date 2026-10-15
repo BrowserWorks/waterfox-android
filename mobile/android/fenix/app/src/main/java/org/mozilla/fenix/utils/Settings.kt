@@ -2183,6 +2183,12 @@ class Settings(
             default = true,
         )
 
+    var showFullscreenExitHint by
+        booleanPreference(
+            appContext.getPreferenceKey(R.string.pref_key_show_fullscreen_exit_hint),
+            default = true,
+        )
+
     var isSearchOptimizationEnabled by
         booleanPreference(
             key = appContext.getPreferenceKey(R.string.pref_key_search_optimization_feature),

@@ -2260,13 +2260,15 @@ abstract class BaseBrowserFragment :
             // Close find in page bar if opened
             findInPageIntegration.onBackPressed()
 
-            FullScreenNotificationToast(
-                    activity = activity,
-                    gestureNavString = getString(R.string.exit_fullscreen_with_gesture_short),
-                    backButtonString = getString(R.string.exit_fullscreen_with_back_button_short),
-                    GestureNavUtils,
-                )
-                .show()
+            if (requireComponents.settings.showFullscreenExitHint) {
+                FullScreenNotificationToast(
+                        activity = activity,
+                        gestureNavString = getString(R.string.exit_fullscreen_with_gesture_short),
+                        backButtonString = getString(R.string.exit_fullscreen_with_back_button_short),
+                        GestureNavUtils,
+                    )
+                    .show()
+            }
 
             activity.enterImmersiveMode(
                 setOnApplyWindowInsetsListener = { key: String, listener: OnApplyWindowInsetsListener ->

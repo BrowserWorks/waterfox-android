@@ -21,6 +21,8 @@ import org.jsoup.nodes.Element
 import org.jsoup.parser.Parser
 import org.jsoup.parser.StreamParser
 
+private const val MILLISECONDS_PER_SECOND = 1000L
+
 /**
  * A [BookmarksFileParser] that uses jsoup to parse HTML bookmark files in the Netscape Bookmark format.
  *
@@ -208,10 +210,18 @@ internal class JsoupBookmarksFileParser(
         }
 
     private val Element.dateAdded: Long?
-        get() = attr("ADD_DATE").toLongOrNull()
+        get() = timestampInMilliseconds("ADD_DATE")
 
     private val Element.lastModified: Long?
-        get() = attr("LAST_MODIFIED").toLongOrNull()
+        get() = timestampInMilliseconds("LAST_MODIFIED")
+
+    private fun Element.timestampInMilliseconds(attribute: String): Long? {
+        val seconds = attr(attribute).toLongOrNull() ?: return null
+        if (seconds !in Long.MIN_VALUE / MILLISECONDS_PER_SECOND..Long.MAX_VALUE / MILLISECONDS_PER_SECOND) {
+            return null
+        }
+        return seconds * MILLISECONDS_PER_SECOND
+    }
 
     /**
      * In Netscape bookmark format, a folder is denoted by H3 tag

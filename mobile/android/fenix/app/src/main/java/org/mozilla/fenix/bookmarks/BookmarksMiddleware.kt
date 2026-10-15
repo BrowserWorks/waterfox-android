@@ -472,6 +472,12 @@ internal class BookmarksMiddleware(
 
     private fun Store<BookmarksState, BookmarksAction>.tryDispatchLoadSelectableFolders() = lifecycleScope.launch {
         val sortOrder = state.sortOrder
+        val selectedGuid = state.bookmarksSelectFolderState?.selectedGuid
+        val expandedGuids = mutableSetOf<String>()
+        var parentGuid = selectedGuid?.let { bookmarksStorage.getBookmark(it).getOrNull()?.parentGuid }
+        while (parentGuid != null && parentGuid != BookmarkRoot.Root.id && expandedGuids.add(parentGuid)) {
+            parentGuid = bookmarksStorage.getBookmark(parentGuid).getOrNull()?.parentGuid
+        }
         Result.runCatching {
                 if (!bookmarksStorage.hasDesktopBookmarks()) {
                     listOf(
@@ -480,6 +486,7 @@ internal class BookmarksMiddleware(
                             indentation = 0,
                             shouldOpen = false,
                             sortOrder = sortOrder,
+                            expandedGuids = expandedGuids,
                         )!!
                     )
                 } else {
@@ -496,6 +503,7 @@ internal class BookmarksMiddleware(
                             indentation = 0,
                             shouldOpen = false,
                             sortOrder = sortOrder,
+                            expandedGuids = expandedGuids,
                         )
                     }
                 }
@@ -525,6 +533,7 @@ internal class BookmarksMiddleware(
         indentation: Int,
         shouldOpen: Boolean,
         sortOrder: BookmarksListSortOrder,
+        expandedGuids: Set<String> = emptySet(),
     ): SelectFolderItem? =
         Result.runCatching {
                 val loadedNode = bookmarksStorage.getTree(guid).getOrNull()!!
@@ -546,7 +555,7 @@ internal class BookmarksMiddleware(
                         when {
                             // when we are expanding folders, we need to find all their children that could also be
                             // selected
-                            shouldOpen ->
+                            shouldOpen || guid in expandedGuids ->
                                 SelectFolderExpansionState.Open(
                                     children =
                                         loadedNode.children
@@ -558,6 +567,7 @@ internal class BookmarksMiddleware(
                                                     indentation = indentation + 1,
                                                     shouldOpen = false,
                                                     sortOrder = sortOrder,
+                                                    expandedGuids = expandedGuids,
                                                 )
                                             }
                                             .sortedWith(comparator)

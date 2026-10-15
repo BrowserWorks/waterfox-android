@@ -697,6 +697,20 @@ class SettingsTest {
     }
 
     @Test
+    fun `GIVEN no saved shortcut rows WHEN reading homepageShortcutRows THEN two rows are used`() {
+        assertEquals(2, settings.homepageShortcutRows)
+    }
+
+    @Test
+    fun `GIVEN saved shortcut rows WHEN settings are recreated THEN the saved row count is preserved`() {
+        for (rows in listOf(4, 6)) {
+            settings.homepageShortcutRows = rows
+
+            assertEquals(rows, Settings(testContext).homepageShortcutRows)
+        }
+    }
+
+    @Test
     fun overrideAmoCollection() {
         // When just created
         // Then

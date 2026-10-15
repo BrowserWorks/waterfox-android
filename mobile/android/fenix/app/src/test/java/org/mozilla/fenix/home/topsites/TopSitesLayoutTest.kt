@@ -14,6 +14,16 @@ class TopSitesLayoutTest {
     private fun TopSitesRowLayout.rowWidth() = itemWidth.value * columns + TOP_SITES_SPACING.value * (columns - 1)
 
     @Test
+    fun `GIVEN four columns WHEN using the default collapsed rows THEN eight shortcuts are shown`() {
+        assertEquals(8, collapsedTopSitesCount(columns = 4))
+    }
+
+    @Test
+    fun `GIVEN a custom row count WHEN calculating collapsed shortcuts THEN the custom row count is used`() {
+        assertEquals(24, collapsedTopSitesCount(columns = 4, rows = 6))
+    }
+
+    @Test
     fun `GIVEN a very narrow screen WHEN the layout is calculated THEN four shortcuts still fit on a row`() {
         // A 240dp-wide device such as the Unihertz Jelly Star, minus the grid's horizontal margin.
         val layout = calculateTopSitesRowLayout(availableWidth = 208.dp)

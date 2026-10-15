@@ -122,6 +122,7 @@ import org.mozilla.fenix.gecko.GeckoProvider
 import org.mozilla.fenix.historymetadata.DefaultHistoryMetadataService
 import org.mozilla.fenix.historymetadata.HistoryMetadataMiddleware
 import org.mozilla.fenix.historymetadata.HistoryMetadataService
+import org.mozilla.fenix.home.topsites.TopSitesConfigConstants.TOP_SITES_MAX_COUNT
 import org.mozilla.fenix.longfox.LongFoxFeature
 import org.mozilla.fenix.media.MediaSessionService
 import org.mozilla.fenix.perf.StrictModeManager
@@ -607,6 +608,8 @@ class Core(
             pinnedSitesStorage = pinnedSiteStorage,
             historyStorage = historyStorage,
             topSitesProvider = macTopSitesProvider,
+            preservePinnedSites = true,
+            maxFrecentSites = TOP_SITES_MAX_COUNT,
         )
     }
 

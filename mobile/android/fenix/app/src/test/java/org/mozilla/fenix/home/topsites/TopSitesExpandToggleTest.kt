@@ -26,6 +26,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.theme.FirefoxTheme
+import org.robolectric.annotation.Config
 
 /** A phone-width screen, which leaves room for [TOP_SITES_MIN_COLUMNS] shortcuts a row. */
 private val PHONE_WIDTH = 360.dp
@@ -39,9 +40,10 @@ private val WIDE_COLLAPSED = collapsedTopSitesCount(TOP_SITES_MAX_COLUMNS)
 /** More shortcuts than two rows hold on a phone, but fewer than two rows hold on a wide screen. */
 private val MORE_THAN_PHONE_FITS = PHONE_COLLAPSED + 4
 
-/** Fewer shortcuts than two rows hold on a phone, leaving room for the "Add shortcut" tile. */
+/** Fewer shortcuts than two rows hold on a phone. */
 private val FEWER_THAN_PHONE_FITS = PHONE_COLLAPSED - 3
 
+@Config(qualifiers = "h1600dp")
 @RunWith(AndroidJUnit4::class)
 class TopSitesExpandToggleTest {
 
@@ -222,7 +224,7 @@ class TopSitesExpandToggleTest {
     }
 
     @Test
-    fun `GIVEN the experiment is off and fewer shortcuts than fit THEN the add shortcut tile is shown`() {
+    fun `GIVEN fewer shortcuts than fit THEN no add shortcut tile is shown in the grid`() {
         setStatefulTopSitesContent(
             count = FEWER_THAN_PHONE_FITS,
             isAddShortcutEnabled = true,
@@ -230,40 +232,25 @@ class TopSitesExpandToggleTest {
         )
 
         composeTestRule.onAllNodesWithTag(TopSitesTestTag.TOP_SITE_ITEM_ROOT).assertCountEquals(FEWER_THAN_PHONE_FITS)
-        composeTestRule.onAllNodesWithTag(TopSitesTestTag.ADD_SHORTCUT_ROOT).assertCountEquals(1)
+        composeTestRule.onAllNodesWithTag(TopSitesTestTag.ADD_SHORTCUT_ROOT).assertCountEquals(0)
     }
 
     @Test
-    fun `GIVEN exactly two rows of shortcuts WHEN the toggle is clicked THEN the add shortcut tile is revealed`() {
+    fun `GIVEN exactly two rows of shortcuts THEN no expand toggle or add shortcut tile is shown`() {
         setStatefulTopSitesContent(count = PHONE_COLLAPSED, isAddShortcutEnabled = true)
-
-        composeTestRule.onAllNodesWithTag(TopSitesTestTag.ADD_SHORTCUT_ROOT).assertCountEquals(0)
-
-        composeTestRule.onNodeWithTag(TopSitesTestTag.EXPAND_TOGGLE).performClick()
 
         composeTestRule.onAllNodesWithTag(TopSitesTestTag.TOP_SITE_ITEM_ROOT).assertCountEquals(PHONE_COLLAPSED)
-        composeTestRule.onAllNodesWithTag(TopSitesTestTag.ADD_SHORTCUT_ROOT).assertCountEquals(1)
-    }
-
-    @Test
-    fun `GIVEN exactly two rows and expanded WHEN the toggle is clicked THEN the tile is hidden again`() {
-        setStatefulTopSitesContent(count = PHONE_COLLAPSED, isAddShortcutEnabled = true)
-
-        composeTestRule.onNodeWithTag(TopSitesTestTag.EXPAND_TOGGLE).performClick()
-        composeTestRule.onNodeWithTag(TopSitesTestTag.EXPAND_TOGGLE).performClick()
-
+        composeTestRule.onAllNodesWithTag(TopSitesTestTag.EXPAND_TOGGLE).assertCountEquals(0)
         composeTestRule.onAllNodesWithTag(TopSitesTestTag.ADD_SHORTCUT_ROOT).assertCountEquals(0)
     }
 
     @Test
-    fun `GIVEN a wide screen holding every shortcut and the add tile enabled THEN the toggle still reveals the tile`() {
+    fun `GIVEN a wide screen holding every shortcut THEN no expand toggle or add shortcut tile is shown`() {
         setStatefulTopSitesContent(count = WIDE_COLLAPSED, isAddShortcutEnabled = true, width = WIDE_WIDTH)
 
+        composeTestRule.onAllNodesWithTag(TopSitesTestTag.TOP_SITE_ITEM_ROOT).assertCountEquals(WIDE_COLLAPSED)
+        composeTestRule.onAllNodesWithTag(TopSitesTestTag.EXPAND_TOGGLE).assertCountEquals(0)
         composeTestRule.onAllNodesWithTag(TopSitesTestTag.ADD_SHORTCUT_ROOT).assertCountEquals(0)
-
-        composeTestRule.onNodeWithTag(TopSitesTestTag.EXPAND_TOGGLE).performClick()
-
-        composeTestRule.onAllNodesWithTag(TopSitesTestTag.ADD_SHORTCUT_ROOT).assertCountEquals(1)
     }
 
     @Test
@@ -274,12 +261,13 @@ class TopSitesExpandToggleTest {
     }
 
     @Test
-    fun `GIVEN more shortcuts than fit WHEN expanded THEN the add shortcut tile is shown`() {
+    fun `GIVEN more shortcuts than fit WHEN expanded THEN the add shortcut tile remains hidden`() {
         setStatefulTopSitesContent(count = MORE_THAN_PHONE_FITS, isAddShortcutEnabled = true)
 
         composeTestRule.onNodeWithTag(TopSitesTestTag.EXPAND_TOGGLE).performClick()
 
-        composeTestRule.onAllNodesWithTag(TopSitesTestTag.ADD_SHORTCUT_ROOT).assertCountEquals(1)
+        composeTestRule.onAllNodesWithTag(TopSitesTestTag.TOP_SITE_ITEM_ROOT).assertCountEquals(MORE_THAN_PHONE_FITS)
+        composeTestRule.onAllNodesWithTag(TopSitesTestTag.ADD_SHORTCUT_ROOT).assertCountEquals(0)
     }
 
     @Test

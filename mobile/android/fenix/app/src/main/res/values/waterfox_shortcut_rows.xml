@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+<resources>
+    <string name="pref_key_homepage_shortcut_rows" translatable="false">pref_key_homepage_shortcut_rows</string>
+    <string name="waterfox_shortcut_rows_title">Shortcut rows</string>
+    <string name="waterfox_shortcut_rows_hint">Rows (1–16)</string>
+    <string name="waterfox_shortcut_rows_invalid">Enter a whole number from 1 to 16.</string>
+    <string name="waterfox_shortcut_rows_decrease">Decrease rows</string>
+    <string name="waterfox_shortcut_rows_increase">Increase rows</string>
+    <plurals name="waterfox_shortcut_rows_summary">
+        <item quantity="one">%d row</item>
+        <item quantity="other">%d rows</item>
+    </plurals>
+    <string name="waterfox_manage_shortcuts">Manage shortcuts</string>
+    <string name="waterfox_shortcuts_menu">Shortcuts options</string>
+</resources>

@@ -2048,17 +2048,32 @@ class Settings(
         return overrideAmoUser.isNotEmpty() || overrideAmoCollection.isNotEmpty()
     }
 
+    private var homepageShortcutRowsValue by
+        intPreference(
+            appContext.getPreferenceKey(R.string.pref_key_homepage_shortcut_rows),
+            default = 2,
+        )
+
+    var homepageShortcutRows: Int
+        get() = homepageShortcutRowsValue.coerceIn(1, 16)
+        set(value) {
+            homepageShortcutRowsValue = value.coerceIn(1, 16)
+        }
+
     var topSitesSize by
         intPreference(
             appContext.getPreferenceKey(R.string.pref_key_top_sites_size),
             default = 0,
         )
 
-    val topSitesMaxLimit by
+    private val savedTopSitesMaxLimit by
         intPreference(
             appContext.getPreferenceKey(R.string.pref_key_top_sites_max_limit),
             default = TOP_SITES_MAX_COUNT,
         )
+
+    val topSitesMaxLimit: Int
+        get() = savedTopSitesMaxLimit.coerceAtLeast(TOP_SITES_MAX_COUNT)
 
     var openTabsCount by
         intPreference(

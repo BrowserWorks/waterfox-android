@@ -20,12 +20,16 @@ import mozilla.components.support.base.observer.ObserverRegistry
  * @param historyStorage An instance of [PlacesHistoryStorage], used for retrieving top frecent sites from history.
  * @param topSitesProvider An optional instance of [TopSitesProvider], used for retrieving additional top sites from a
  *   provider. The returned top sites are added before pinned sites.
+ * @param preservePinnedSites Whether to retain all pins when their count exceeds the requested total.
+ * @param maxFrecentSites Optional maximum number of history results to request.
  */
 class DefaultTopSitesStorage
 private constructor(
     private val pinnedSitesStorage: PinnedSiteStorage,
     private val historyStorage: PlacesHistoryStorage,
     private val topSitesProvider: TopSitesProvider? = null,
+    private val preservePinnedSites: Boolean = false,
+    private val maxFrecentSites: Int? = null,
 ) : TopSitesStorage, Observable<TopSitesStorage.Observer> by ObserverRegistry() {
 
     private val logger = Logger("DefaultTopSitesStorage")
@@ -51,12 +55,16 @@ private constructor(
             historyStorage: PlacesHistoryStorage,
             topSitesProvider: TopSitesProvider? = null,
             defaultTopSites: List<Pair<String, String>>,
+            preservePinnedSites: Boolean = false,
+            maxFrecentSites: Int? = null,
         ): DefaultTopSitesStorage {
             val storage =
                 DefaultTopSitesStorage(
                     pinnedSitesStorage,
                     historyStorage,
                     topSitesProvider,
+                    preservePinnedSites,
+                    maxFrecentSites,
                 )
             if (defaultTopSites.isNotEmpty()) {
                 pinnedSitesStorage.addAllPinnedSites(defaultTopSites, isDefault = true)
@@ -78,7 +86,15 @@ private constructor(
             pinnedSitesStorage: PinnedSiteStorage,
             historyStorage: PlacesHistoryStorage,
             topSitesProvider: TopSitesProvider? = null,
-        ) = DefaultTopSitesStorage(pinnedSitesStorage, historyStorage, topSitesProvider)
+            preservePinnedSites: Boolean = false,
+            maxFrecentSites: Int? = null,
+        ) = DefaultTopSitesStorage(
+            pinnedSitesStorage,
+            historyStorage,
+            topSitesProvider,
+            preservePinnedSites,
+            maxFrecentSites,
+        )
     }
 
     override suspend fun addTopSite(title: String, url: String, isDefault: Boolean) {
@@ -120,7 +136,9 @@ private constructor(
         providerConfig: TopSitesProviderConfig?,
     ): List<TopSite> {
         val topSites = ArrayList<TopSite>()
-        val pinnedSites = pinnedSitesStorage.getPinnedSites().take(totalSites)
+        val pinnedSites = pinnedSitesStorage.getPinnedSites().let {
+            if (preservePinnedSites) it else it.take(totalSites)
+        }
         var providerTopSites = emptyList<TopSite>()
         var numSitesRequired = totalSites - pinnedSites.size
 
@@ -153,12 +171,12 @@ private constructor(
 
         topSites.addAll(pinnedSites)
 
-        if (frecencyConfig?.frecencyTresholdOption != null && numSitesRequired > 0) {
-            // Get 'totalSites' sites for duplicate entries with
-            // existing pinned sites
+        val frecentSitesLimit = maxFrecentSites?.let { minOf(totalSites, it) } ?: totalSites
+        if (frecencyConfig?.frecencyTresholdOption != null && numSitesRequired > 0 && frecentSitesLimit > 0) {
+            // Include candidates that may be filtered out as duplicates of pinned sites.
             val frecentSites =
                 historyStorage
-                    .getTopFrecentSites(totalSites, frecencyConfig.frecencyTresholdOption)
+                    .getTopFrecentSites(frecentSitesLimit, frecencyConfig.frecencyTresholdOption)
                     .map { it.toTopSite() }
                     .filter {
                         !pinnedSites.hasUrl(it.url) &&

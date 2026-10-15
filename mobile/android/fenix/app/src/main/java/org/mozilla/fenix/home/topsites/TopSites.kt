@@ -85,7 +85,7 @@ internal const val TOP_SITES_FAVICON_SIZE = 36
  * @param state [TopSiteState] describing the top sites to display.
  * @param interactor The interactor which handles user actions with the widget.
  * @param onTopSitesItemBound Invoked during the composition of a top site item.
- * @param onAddShortcutClicked Invoked when the user clicks on the "Add shortcut" tile.
+ * @param onAddShortcutClicked Invoked when the user clicks on the "Add shortcut" action.
  */
 @Composable
 internal fun TopSites(
@@ -120,9 +120,9 @@ internal fun TopSites(
             isExpanded = expanded
             interactor.onExpandToggleClicked(expanded)
         },
-        isAddShortcutEnabled = state.isAddShortcutEnabled,
         isExpandToggleEnabled = state.isExpandToggleEnabled,
         isExpanded = isExpanded,
+        collapsedRows = state.collapsedRows,
     )
 }
 
@@ -140,11 +140,10 @@ internal fun TopSites(
  * @param onSettingsClicked Invoked when the user clicks on the "Settings" menu item.
  * @param onSponsorPrivacyClicked Invoked when the user clicks on the "Our sponsors & your privacy" menu item.
  * @param onTopSitesItemBound Invoked during the composition of a top site item.
- * @param onAddShortcutClicked Invoked when the user clicks on the "Add shortcut" tile.
+ * @param onAddShortcutClicked Invoked when the user clicks on the "Add shortcut" action.
  * @param onExpandToggleClick Invoked when the user clicks on the expand/collapse control.
- * @param isAddShortcutEnabled Whether the "Add shortcut" tile is enabled.
  * @param isExpandToggleEnabled Whether the control that expands and collapses the grid is enabled.
- * @param isExpanded Whether every top site is shown rather than only the first [TOP_SITES_COLLAPSED_ROWS] rows.
+ * @param isExpanded Whether every top site is shown rather than only the first [collapsedRows] rows.
  */
 @Composable
 @Suppress("LongParameterList")
@@ -162,9 +161,9 @@ fun TopSites(
     onTopSitesItemBound: () -> Unit,
     onAddShortcutClicked: () -> Unit,
     onExpandToggleClick: () -> Unit = {},
-    isAddShortcutEnabled: Boolean = false,
     isExpandToggleEnabled: Boolean = false,
     isExpanded: Boolean = false,
+    collapsedRows: Int = TOP_SITES_COLLAPSED_ROWS,
 ) {
     BoxWithConstraints(
         modifier =
@@ -176,38 +175,39 @@ fun TopSites(
                 .padding(horizontal = horizontalMargin)
     ) {
         val columns = remember(maxWidth) { calculateTopSitesRowLayout(maxWidth).columns }
-        val collapsedCount = collapsedTopSitesCount(columns)
+        val collapsedCount = collapsedTopSitesCount(columns, collapsedRows)
 
         val hasHiddenShortcuts = topSites.size > collapsedCount
-        val hasHiddenAddShortcut = isAddShortcutEnabled && topSites.size >= collapsedCount
 
         Column(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Shortcuts(
-                topSites = if (isExpanded) topSites else topSites.take(collapsedCount),
-                topSiteColors = topSiteColors,
-                showAddShortcut = isAddShortcutEnabled && (isExpanded || topSites.size < collapsedCount),
-                scrollable = false,
-                menuItems = { topSite ->
-                    getMenuItems(
-                        topSite = topSite,
-                        onOpenInPrivateTabClicked = onOpenInPrivateTabClicked,
-                        onEditTopSiteClicked = onEditTopSiteClicked,
-                        onRemoveTopSiteClicked = onRemoveTopSiteClicked,
-                        onSettingsClicked = onSettingsClicked,
-                        onSponsorPrivacyClicked = onSponsorPrivacyClicked,
-                    )
-                },
-                onTopSiteClick = onTopSiteClick,
-                onTopSiteLongClick = onTopSiteLongClick,
-                onTopSiteImpression = onTopSiteImpression,
-                onTopSitesItemBound = onTopSitesItemBound,
-                onAddShortcutClicked = onAddShortcutClicked,
-            )
+            if (topSites.isNotEmpty()) {
+                Shortcuts(
+                    topSites = if (isExpanded) topSites else topSites.take(collapsedCount),
+                    topSiteColors = topSiteColors,
+                    showAddShortcut = false,
+                    scrollable = false,
+                    menuItems = { topSite ->
+                        getMenuItems(
+                            topSite = topSite,
+                            onOpenInPrivateTabClicked = onOpenInPrivateTabClicked,
+                            onEditTopSiteClicked = onEditTopSiteClicked,
+                            onRemoveTopSiteClicked = onRemoveTopSiteClicked,
+                            onSettingsClicked = onSettingsClicked,
+                            onSponsorPrivacyClicked = onSponsorPrivacyClicked,
+                        )
+                    },
+                    onTopSiteClick = onTopSiteClick,
+                    onTopSiteLongClick = onTopSiteLongClick,
+                    onTopSiteImpression = onTopSiteImpression,
+                    onTopSitesItemBound = onTopSitesItemBound,
+                    onAddShortcutClicked = onAddShortcutClicked,
+                )
+            }
 
-            if (isExpandToggleEnabled && (hasHiddenShortcuts || hasHiddenAddShortcut)) {
+            if (isExpandToggleEnabled && hasHiddenShortcuts) {
                 TopSitesExpandToggle(
                     isExpanded = isExpanded,
                     contentColor = topSiteColors.titleTextColor,

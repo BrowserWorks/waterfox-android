@@ -229,7 +229,9 @@ var NewPrefDialog = {
 var AboutConfig = {
   contextMenuLINode: null,
   filterInput: null,
+  modifiedOnly: null,
   _filterPrevInput: null,
+  _filterPrevModified: null,
   _filterChangeTimer: null,
   _prefsContainer: null,
   _loadingContainer: null,
@@ -238,6 +240,7 @@ var AboutConfig = {
   // Init the main AboutConfig dialog
   init: function AC_init() {
     this.filterInput = document.getElementById("filter-input");
+    this.modifiedOnly = document.getElementById("modified-only");
     this._prefsContainer = document.getElementById("prefs-container");
     this._loadingContainer = document.getElementById("loading-container");
 
@@ -261,6 +264,7 @@ var AboutConfig = {
     this.filterInput.addEventListener("input", () =>
       AboutConfig.bufferFilterInput()
     );
+    this.modifiedOnly.addEventListener("change", () => this._displayNewList());
 
     document.getElementById("content").addEventListener("touchstart", () => {
       this.filterInput.blur();
@@ -299,16 +303,19 @@ var AboutConfig = {
     this.filterInput.setAttribute("value", this.filterInput.value);
 
     // Don't start new filter search if same as last
-    if (this.filterInput.value == this._filterPrevInput) {
+    if (
+      this.filterInput.value == this._filterPrevInput &&
+      this.modifiedOnly.checked == this._filterPrevModified
+    ) {
       return;
     }
     this._filterPrevInput = this.filterInput.value;
+    this._filterPrevModified = this.modifiedOnly.checked;
 
     // Clear list item selection / context menu, prefs list, get first buffer, set scrolling on
     this.selected = "";
     this._clearPrefsContainer();
     this._addMorePrefsToContainer();
-    window.onscroll = this.onScroll.bind(this);
 
     // Pause for screen to settle, then ensure at top
     setTimeout(() => {
@@ -330,20 +337,21 @@ var AboutConfig = {
   },
 
   // Get a small manageable block of prefs items, and add them to the displayed list
-  _addMorePrefsToContainer: function AC_addMorePrefsToContainer() {
+  _addMorePrefsToContainer: function AC_addMorePrefsToContainer(
+    limit = PREFS_BUFFER_MAX
+  ) {
     // Create filter regex
-    const filterExp = this.filterInput.value
-      ? new RegExp(this.filterInput.value, "i")
+    const filterExp = this._filterPrevInput
+      ? new RegExp(this._filterPrevInput, "i")
       : null;
 
     // Get a new block for the display list
     const prefsBuffer = [];
-    for (
-      let i = 0;
-      i < this._list.length && prefsBuffer.length < PREFS_BUFFER_MAX;
-      i++
-    ) {
-      if (!this._list[i].li && this._list[i].test(filterExp)) {
+    for (let i = 0; i < this._list.length && prefsBuffer.length < limit; i++) {
+      if (
+        !this._list[i].li &&
+        this._list[i].test(filterExp, this.modifiedOnly.checked)
+      ) {
         prefsBuffer.push(this._list[i]);
       }
     }
@@ -356,7 +364,10 @@ var AboutConfig = {
     // Determine if anything left to add later by scrolling
     let anotherPrefsBufferRemains = false;
     for (let i = 0; i < this._list.length; i++) {
-      if (!this._list[i].li && this._list[i].test(filterExp)) {
+      if (
+        !this._list[i].li &&
+        this._list[i].test(filterExp, this.modifiedOnly.checked)
+      ) {
         anotherPrefsBufferRemains = true;
         break;
       }
@@ -365,6 +376,7 @@ var AboutConfig = {
     if (anotherPrefsBufferRemains) {
       // If still more could be displayed, show the throbber
       this._loadingContainer.style.display = "block";
+      window.onscroll = this.onScroll.bind(this);
     } else {
       // If no more could be displayed, hide the throbber, and stop noticing scroll events
       this._loadingContainer.style.display = "none";
@@ -456,6 +468,9 @@ var AboutConfig = {
   // When finalizing list input values due to blur
   setIntOrStringPref: function AC_setIntOrStringPref(aEvent) {
     const node = this.getLINodeForEvent(aEvent);
+    if (!node?.isConnected) {
+      return;
+    }
 
     // Skip if locked
     const pref = this._getPrefForNode(node);
@@ -526,6 +541,11 @@ var AboutConfig = {
       return;
     }
 
+    if (this.modifiedOnly.checked) {
+      this._observeModifiedPref(pref);
+      return;
+    }
+
     // If pref type invalid, refresh display as user reset/removed an item from the list
     if (pref.type == Services.prefs.PREF_INVALID) {
       document.location.reload();
@@ -537,14 +557,7 @@ var AboutConfig = {
       '.pref-item[name="' + CSS.escape(pref.name) + '"]'
     );
     if (item) {
-      item.setAttribute("value", pref.value);
-      const input = item.querySelector("input");
-      input.setAttribute("value", pref.value);
-      input.value = pref.value;
-
-      pref.default
-        ? item.querySelector(".reset").setAttribute("disabled", "true")
-        : item.querySelector(".reset").removeAttribute("disabled");
+      this._updatePrefItem(pref, item);
       return;
     }
 
@@ -557,8 +570,77 @@ var AboutConfig = {
     }
   },
 
+  _observeModifiedPref(pref) {
+    const index = this._list.findIndex(item => item.name === pref.name);
+    const entry = index < 0 ? pref : this._list[index];
+    const valid = pref.type !== Services.prefs.PREF_INVALID;
+    if (!valid) {
+      if (index < 0) {
+        return;
+      }
+      this._list.splice(index, 1);
+    } else if (index < 0) {
+      const nextIndex = this._list.findIndex(item => item.name > pref.name);
+      this._list.splice(
+        nextIndex < 0 ? this._list.length : nextIndex,
+        0,
+        entry
+      );
+    }
+
+    const filterExp = this._filterPrevInput
+      ? new RegExp(this._filterPrevInput, "i")
+      : null;
+    if (filterExp && !filterExp.test(pref.name)) {
+      return;
+    }
+    const matches = valid && entry.test(filterExp, true);
+    let item = entry.li;
+    if (item && !matches) {
+      if (this.selected === item) {
+        this.selected = null;
+      }
+      if (this.contextMenuLINode === item) {
+        this.contextMenuLINode = null;
+      }
+      item.remove();
+      delete entry.li;
+      this._addMorePrefsToContainer(1);
+      return;
+    }
+    if (item) {
+      this._updatePrefItem(pref, item);
+      return;
+    }
+    if (matches) {
+      const nextItem = [...this._prefsContainer.children].find(
+        node => node.getAttribute("name") > pref.name
+      );
+      if (nextItem || !window.onscroll) {
+        item = entry.getOrCreateNewLINode();
+        this._prefsContainer.insertBefore(item, nextItem ?? null);
+      }
+    }
+    this._addMorePrefsToContainer(0);
+  },
+
+  _updatePrefItem(pref, item) {
+    item.setAttribute("value", pref.value);
+    item.setAttribute("default", pref.default);
+    const input = item.querySelector("input");
+    input.setAttribute("value", pref.value);
+    input.value = pref.value;
+
+    pref.default
+      ? item.querySelector(".reset").setAttribute("disabled", "true")
+      : item.querySelector(".reset").removeAttribute("disabled");
+  },
+
   // Quick context menu helpers for about:config
   clipboardCopy: function AC_clipboardCopy(aField) {
+    if (!this.contextMenuLINode?.isConnected) {
+      return;
+    }
     const pref = this._getPrefForNode(this.contextMenuLINode);
     if (aField == "name") {
       gClipboardHelper.copyString(pref.name);
@@ -625,8 +707,10 @@ Pref.prototype = {
     Services.prefs.clearUserPref(this.name);
   },
 
-  test: function AC_test(aValue) {
-    return aValue ? aValue.test(this.name) : true;
+  test: function AC_test(aValue, modifiedOnly = false) {
+    return (
+      (!modifiedOnly || !this.default) && (!aValue || aValue.test(this.name))
+    );
   },
 
   // Get existing or create new LI node for the pref
@@ -713,6 +797,9 @@ Pref.prototype = {
 
   // Initialize list item object values
   _valueSetup: function AC_valueSetup() {
+    if (!this.li?.isConnected || this.type === Services.prefs.PREF_INVALID) {
+      return;
+    }
     this.li.setAttribute("type", this.type);
     this.li.setAttribute("value", this.value);
 

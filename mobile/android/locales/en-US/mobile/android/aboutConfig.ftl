@@ -4,6 +4,7 @@
 
 config-toolbar-search =
     .placeholder = Search
+config-show-only-modified = Show only modified preferences
 config-new-pref-name =
     .placeholder = Name
 

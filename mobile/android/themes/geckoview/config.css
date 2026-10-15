@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 :root {
+  --toolbar-height: 5.5em;
   --background-color: #fff;
   --text-color: #0c0c0d;
   --border-color: #e1e1e2;
@@ -43,7 +44,7 @@ body {
 
 .toolbar {
   width: 100%;
-  min-height: 3em;
+  min-height: var(--toolbar-height);
   display: flow-root;
   position: sticky;
   top: 0;
@@ -85,6 +86,17 @@ body {
   height: 100%;
   box-sizing: border-box;
   opacity: 0.75;
+}
+
+#modified-only-container {
+  clear: both;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  block-size: 2.5em;
+  padding-inline: 0.75em;
+  box-sizing: border-box;
+  font-weight: normal;
 }
 
 #new-pref-toggle-button {
@@ -162,7 +174,7 @@ body {
   max-width: 40em;
   max-height: 100%;
   position: fixed;
-  top: 3em;
+  top: var(--toolbar-height);
   left: auto;
   display: none;
   z-index: 5;

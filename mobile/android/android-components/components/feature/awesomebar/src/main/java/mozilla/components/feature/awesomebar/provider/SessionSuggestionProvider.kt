@@ -66,6 +66,7 @@ class SessionSuggestionProvider(
                         id = item.id,
                         title = item.content.title.ifBlank { item.content.url },
                         description = switchToTabDescription,
+                        url = item.content.url,
                         flags = setOf(AwesomeBar.Suggestion.Flag.OPEN_TAB),
                         icon = iconRequest?.await()?.bitmap,
                         indicatorIcon = indicatorIcon,

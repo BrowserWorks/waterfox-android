@@ -391,6 +391,8 @@ sealed class SearchFragmentAction : Action {
     /** Action indicating a suggestion was selected for being edited before loading it. */
     data class SuggestionSelected(val suggestion: Suggestion) : SearchFragmentAction()
 
+    data class CopySuggestionUrl(val url: String) : SearchFragmentAction()
+
     /** Action indicating a suggestion that should not be shown anymore to users. */
     data class SuggestionHidden(val suggestion: GroupedSuggestion) : SearchFragmentAction()
 
@@ -614,6 +616,7 @@ private fun searchStateReducer(state: SearchFragmentState, action: SearchFragmen
         is SearchFragmentAction.ReloadCurrentWebsiteClicked,
         is SearchFragmentAction.ShareCurrentWebsiteDetailsClicked,
         is SearchFragmentAction.CopyCurrentWebsiteDetailsClicked,
+        is SearchFragmentAction.CopySuggestionUrl,
         is SearchFragmentAction.EditCurrentWebsiteDetailsClicked -> {
             // no-op. Expected to be handled in middlewares.
             state

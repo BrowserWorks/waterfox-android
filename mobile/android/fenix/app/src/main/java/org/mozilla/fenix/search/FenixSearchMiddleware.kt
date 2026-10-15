@@ -66,6 +66,7 @@ import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.ext.telemetryName
 import org.mozilla.fenix.search.SearchFragmentAction.CopyCurrentWebsiteDetailsClicked
+import org.mozilla.fenix.search.SearchFragmentAction.CopySuggestionUrl
 import org.mozilla.fenix.search.SearchFragmentAction.EditCurrentWebsiteDetailsClicked
 import org.mozilla.fenix.search.SearchFragmentAction.Init
 import org.mozilla.fenix.search.SearchFragmentAction.PrivateSuggestionsCardAccepted
@@ -220,6 +221,10 @@ class FenixSearchMiddleware(
 
             is CopyCurrentWebsiteDetailsClicked -> {
                 handleCopyingCurrentWebsiteDetails()
+            }
+
+            is CopySuggestionUrl -> {
+                copyUrlToClipboard(action.url, browsingModeManager.mode.isPrivate)
             }
 
             is EditCurrentWebsiteDetailsClicked -> {
@@ -589,9 +594,10 @@ class FenixSearchMiddleware(
 
     private fun handleCopyingCurrentWebsiteDetails() {
         val session = sessionSearchWasStartedFor ?: return
-        val url = session.getUrl()
-        val isPrivate = session.content.private
+        copyUrlToClipboard(session.getUrl(), session.content.private)
+    }
 
+    private fun copyUrlToClipboard(url: String?, isPrivate: Boolean) {
         if (isPrivate) {
             clipboardHandler.sensitiveText = url
         } else {

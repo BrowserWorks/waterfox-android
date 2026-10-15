@@ -72,6 +72,7 @@ class SyncedTabsStorageSuggestionProvider(
                 flags = setOf(Flag.SYNC_TAB),
                 title = result.tab.title,
                 description = result.clientName,
+                url = result.tab.url,
                 onSuggestionClicked = {
                     loadUrlUseCase(result.tab.url)
                     emitSyncedTabSuggestionClickedFact()

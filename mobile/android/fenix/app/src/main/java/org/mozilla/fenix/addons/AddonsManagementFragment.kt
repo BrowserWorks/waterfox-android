@@ -9,12 +9,17 @@ import android.graphics.Typeface
 import android.graphics.fonts.FontStyle.FONT_WEIGHT_MEDIUM
 import android.os.Build
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.accessibility.AccessibilityNodeInfo
 import androidx.annotation.VisibleForTesting
 import androidx.core.content.ContextCompat
+import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,11 +28,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import mozilla.components.concept.engine.webextension.InstallationMethod
+import mozilla.components.concept.engine.webextension.isUnsupported
 import mozilla.components.feature.addons.Addon
 import mozilla.components.feature.addons.AddonManager
 import mozilla.components.feature.addons.AddonManagerException
 import mozilla.components.feature.addons.R as addonsR
 import mozilla.components.feature.addons.ui.AddonsManagerAdapter
+import mozilla.components.support.webextensions.WebExtensionSupport.installedExtensions
 import org.mozilla.fenix.R
 import org.mozilla.fenix.databinding.FragmentAddOnsManagementBinding
 import org.mozilla.fenix.e2e.SystemInsetsPaddedFragment
@@ -41,7 +48,8 @@ import org.mozilla.fenix.theme.ThemeManager
 
 /** Fragment use for managing add-ons. */
 @Suppress("TooManyFunctions", "LargeClass")
-class AddonsManagementFragment : Fragment(R.layout.fragment_add_ons_management), SystemInsetsPaddedFragment {
+class AddonsManagementFragment :
+    Fragment(R.layout.fragment_add_ons_management), SystemInsetsPaddedFragment, MenuProvider {
 
     private var binding: FragmentAddOnsManagementBinding? = null
 
@@ -49,11 +57,51 @@ class AddonsManagementFragment : Fragment(R.layout.fragment_add_ons_management),
 
     private var adapter: AddonsManagerAdapter? = null
 
+    private var addonsLoaded = false
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAddOnsManagementBinding.bind(view)
+        addonsLoaded = false
+        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         bindRecyclerView()
     }
+
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menu
+            .add(
+                Menu.NONE,
+                R.id.waterfox_addons_check_for_updates,
+                Menu.NONE,
+                R.string.waterfox_addons_check_for_updates,
+            )
+            .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER)
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
+        menu.findItem(R.id.waterfox_addons_check_for_updates)?.isEnabled =
+            addonsLoaded && updatableExtensionIds().isNotEmpty()
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        if (menuItem.itemId != R.id.waterfox_addons_check_for_updates) {
+            return false
+        }
+
+        val root = binding?.root ?: return true
+        if (!addonsLoaded) {
+            return true
+        }
+        val extensionIds = updatableExtensionIds()
+        if (extensionIds.isNotEmpty()) {
+            extensionIds.forEach { requireComponents.addonUpdater.update(it) }
+            showSnackBar(root, getString(R.string.waterfox_addons_update_checks_requested))
+        }
+        return true
+    }
+
+    private fun updatableExtensionIds(): List<String> =
+        installedExtensions.values.filter { !it.isBuiltIn() && !it.isUnsupported() }.map { it.id }
 
     override fun onResume() {
         super.onResume()
@@ -65,6 +113,7 @@ class AddonsManagementFragment : Fragment(R.layout.fragment_add_ons_management),
         // letting go of the resources to avoid memory leak.
         adapter = null
         binding = null
+        addonsLoaded = false
     }
 
     @Suppress("CognitiveComplexMethod")
@@ -82,13 +131,17 @@ class AddonsManagementFragment : Fragment(R.layout.fragment_add_ons_management),
         val recyclerView = binding?.addOnsList
         recyclerView?.layoutManager = LinearLayoutManager(requireContext())
         val shouldRefresh = adapter != null
+        val viewScope = viewLifecycleOwner.lifecycleScope
 
-        lifecycleScope.launch(IO) {
+        viewScope.launch(IO) {
             try {
                 // Even if we block network requests, filter just in case
-                addons = requireContext().components.addonManager.getAddons().filter { it.isInstalled() }
-                lifecycleScope.launch(Dispatchers.Main) {
+                val loadedAddons = requireContext().components.addonManager.getAddons().filter { it.isInstalled() }
+                viewScope.launch(Dispatchers.Main) {
                     runIfFragmentIsAttached {
+                        addons = loadedAddons
+                        addonsLoaded = true
+                        requireActivity().invalidateOptionsMenu()
                         if (!shouldRefresh) {
                             adapter =
                                 AddonsManagerAdapter(
@@ -99,7 +152,7 @@ class AddonsManagementFragment : Fragment(R.layout.fragment_add_ons_management),
                                 )
                         }
                         binding?.addOnsProgressBar?.isVisible = false
-                        binding?.addOnsEmptyMessage?.isVisible = false
+                        binding?.addOnsEmptyMessage?.isVisible = addons.isEmpty()
 
                         recyclerView?.adapter = adapter
                         recyclerView?.accessibilityDelegate =
@@ -137,7 +190,7 @@ class AddonsManagementFragment : Fragment(R.layout.fragment_add_ons_management),
                     }
                 }
             } catch (e: AddonManagerException) {
-                lifecycleScope.launch(Dispatchers.Main) {
+                viewScope.launch(Dispatchers.Main) {
                     runIfFragmentIsAttached {
                         binding?.let {
                             showSnackBar(

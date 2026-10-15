@@ -11,6 +11,7 @@ import org.mozilla.fenix.components.menu.configuration.FenixMenuItem.Back
 import org.mozilla.fenix.components.menu.configuration.FenixMenuItem.Bookmark
 import org.mozilla.fenix.components.menu.configuration.FenixMenuItem.Bookmarks
 import org.mozilla.fenix.components.menu.configuration.FenixMenuItem.CustomizeReaderView
+import org.mozilla.fenix.components.menu.configuration.FenixMenuItem.DeleteBrowsingData
 import org.mozilla.fenix.components.menu.configuration.FenixMenuItem.DesktopSite
 import org.mozilla.fenix.components.menu.configuration.FenixMenuItem.Downloads
 import org.mozilla.fenix.components.menu.configuration.FenixMenuItem.Extensions
@@ -160,7 +161,7 @@ object BrowserMenuConfiguration {
                 MenuSectionConfiguration(
                     id = GROUP_5_ID,
                     presentationMode = Row,
-                    items = listOf(MozillaAccount, WhatsNew, Settings),
+                    items = listOf(MozillaAccount, WhatsNew, DeleteBrowsingData, Settings),
                 ),
                 MenuSectionConfiguration(
                     id = GROUP_6_ID,

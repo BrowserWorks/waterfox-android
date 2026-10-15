@@ -113,6 +113,7 @@ class BookmarksStorageSuggestionProvider(
                 flags = setOf(AwesomeBar.Suggestion.Flag.BOOKMARK),
                 title = result.title,
                 description = result.url,
+                url = result.url,
                 editSuggestion = if (showEditSuggestion) result.url else null,
                 onSuggestionClicked = {
                     val flags = LoadUrlFlags.select(LoadUrlFlags.ALLOW_JAVASCRIPT_URL)

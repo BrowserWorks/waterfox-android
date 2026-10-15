@@ -530,6 +530,10 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                 account = account,
                                 accountState = accountState,
                                 showQuitMenu = true,
+                                showDeleteBrowsingDataMenu = settings.showDeleteBrowsingDataInMenu,
+                                onDeleteBrowsingDataMenuClick = {
+                                    menuStore.dispatch(MenuAction.Navigate.DeleteBrowsingData)
+                                },
                                 isBottomToolbar = settings.shouldUseBottomToolbar,
                                 isExpandedToolbarEnabled = settings.shouldUseExpandedToolbar,
                                 isSiteLoading = isSiteLoading,

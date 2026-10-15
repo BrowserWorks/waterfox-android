@@ -72,6 +72,13 @@ class DeleteBrowsingDataFragment : Fragment(R.layout.fragment_delete_browsing_da
             )
         settings = requireComponents.settings
 
+        binding.showDeleteBrowsingDataMenu.apply {
+            isChecked = settings.showDeleteBrowsingDataInMenu
+            setOnCheckedChangeListener { _, checked ->
+                settings.showDeleteBrowsingDataInMenu = checked
+            }
+        }
+
         getCheckboxes().iterator().forEach {
             it.onCheckListener = { _ ->
                 updateDeleteButton()

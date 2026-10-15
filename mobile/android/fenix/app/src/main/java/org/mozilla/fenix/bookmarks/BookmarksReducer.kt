@@ -336,6 +336,12 @@ private fun BookmarksState.handleSnackbarAction(action: SnackbarAction): Bookmar
         SnackbarAction.ImportFailed -> {
             this.copy(bookmarksSnackbarState = BookmarksSnackbarState.ImportFailed)
         }
+        SnackbarAction.ExportSucceeded -> {
+            copy(bookmarksSnackbarState = BookmarksSnackbarState.ExportSucceeded)
+        }
+        SnackbarAction.ExportFailed -> {
+            copy(bookmarksSnackbarState = BookmarksSnackbarState.ExportFailed)
+        }
     }
 }
 

@@ -7,7 +7,12 @@
 
 package org.mozilla.fenix.bookmarks
 
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.net.Uri
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -63,6 +68,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onPlaced
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -85,6 +91,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import mozilla.appservices.places.BookmarkRoot
@@ -140,6 +147,7 @@ internal fun BookmarksScreen(
 ) {
     val navController = rememberNavController()
     val store = remember { buildStore(navController) }
+    val exportActions = rememberBookmarkExportActions(store)
 
     val isPrivateModeLocked by remember {
         appStore.stateFlow.map { appState -> appState.isPrivateScreenLocked }
@@ -162,7 +170,7 @@ internal fun BookmarksScreen(
     ) {
         composable(route = BookmarksDestinations.LIST) {
             BackHandler { store.dispatch(BackClicked) }
-            BookmarksList(store = store)
+            BookmarksList(store = store, exporting = exportActions.exporting, onExport = exportActions.onExport)
         }
         composable(route = BookmarksDestinations.ADD_FOLDER) {
             BackHandler { store.dispatch(BackClicked) }
@@ -183,6 +191,55 @@ internal fun BookmarksScreen(
     }
 }
 
+private data class BookmarkExportActions(val exporting: Boolean, val onExport: () -> Unit)
+
+@Composable
+private fun rememberBookmarkExportActions(store: BookmarksStore): BookmarkExportActions {
+    val context = LocalContext.current
+    val exportScope = rememberCoroutineScope()
+    var exporting by remember { mutableStateOf(false) }
+    val exportLauncher =
+        rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("text/html")) { destination ->
+            if (destination == null) {
+                exporting = false
+            } else {
+                exporting = true
+                exportScope.launch {
+                    try {
+                        exportBookmarksWithFeedback(context, destination, store)
+                    } finally {
+                        exporting = false
+                    }
+                }
+            }
+        }
+    val onExport: () -> Unit = {
+        store.dispatch(RootOverflowMenuDismissed)
+        store.dispatch(SnackbarAction.Dismissed)
+        if (!exporting) {
+            exporting = true
+            try {
+                exportLauncher.launch("waterfox-bookmarks.html")
+            } catch (_: ActivityNotFoundException) {
+                exporting = false
+                store.dispatch(SnackbarAction.ExportFailed)
+            }
+        }
+    }
+    return BookmarkExportActions(exporting, onExport)
+}
+
+private suspend fun exportBookmarksWithFeedback(context: Context, destination: Uri, store: BookmarksStore) {
+    try {
+        exportBookmarksToHtml(context, destination)
+        store.dispatch(SnackbarAction.ExportSucceeded)
+    } catch (error: CancellationException) {
+        throw error
+    } catch (_: Exception) {
+        store.dispatch(SnackbarAction.ExportFailed)
+    }
+}
+
 internal object BookmarksDestinations {
     const val LIST = "list"
     const val ADD_FOLDER = "add folder"
@@ -195,7 +252,7 @@ internal object BookmarksDestinations {
 @OptIn(ExperimentalLayoutApi::class) // for WindowInsets.isImeVisible
 @Suppress("LongMethod", "CyclomaticComplexMethod")
 @Composable
-private fun BookmarksList(store: BookmarksStore) {
+private fun BookmarksList(store: BookmarksStore, exporting: Boolean, onExport: () -> Unit) {
     val state by store.stateFlow.collectAsState()
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
@@ -221,6 +278,8 @@ private fun BookmarksList(store: BookmarksStore) {
                 )
             }
             BookmarksSnackbarState.ImportFailed -> stringResource(R.string.bookmark_import_failure_snackbar)
+            BookmarksSnackbarState.ExportSucceeded -> stringResource(R.string.waterfox_bookmark_export_success)
+            BookmarksSnackbarState.ExportFailed -> stringResource(R.string.waterfox_bookmark_export_failure)
             else -> ""
         }
 
@@ -250,7 +309,9 @@ private fun BookmarksList(store: BookmarksStore) {
                         onDismissPerformed = { store.dispatch(SnackbarAction.Dismissed) },
                     )
                 }
-            BookmarksSnackbarState.ImportFailed ->
+            BookmarksSnackbarState.ImportFailed,
+            BookmarksSnackbarState.ExportSucceeded,
+            BookmarksSnackbarState.ExportFailed ->
                 scope.launch {
                     snackbarHostState.displaySnackbar(
                         message = snackbarMessage,
@@ -310,7 +371,7 @@ private fun BookmarksList(store: BookmarksStore) {
                     keyboardController = keyboardController,
                 )
             } else {
-                BookmarksListTopBar(store = store)
+                BookmarksListTopBar(store = store, exporting = exporting, onExport = onExport)
             }
         },
     ) { paddingValues ->
@@ -610,7 +671,7 @@ private fun BookmarksSearchTopBar(
 }
 
 @Composable
-private fun BookmarksListTopBar(store: BookmarksStore) {
+private fun BookmarksListTopBar(store: BookmarksStore, exporting: Boolean, onExport: () -> Unit) {
     val selectedItems by remember {
         store.stateFlow.map { it.selectedItems }
     }
@@ -650,19 +711,7 @@ private fun BookmarksListTopBar(store: BookmarksStore) {
                 },
             colors = TopAppBarDefaults.topAppBarColors(containerColor = backgroundColor),
             title = {
-                Text(
-                    color = textColor,
-                    style = FirefoxTheme.typography.headline5,
-                    text =
-                        if (selectedItems.isNotEmpty()) {
-                            val total = selectedItems.size + (recursiveCount ?: 0)
-                            stringResource(R.string.bookmarks_multi_select_title, total)
-                        } else {
-                            folderTitle
-                        },
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
+                BookmarksListTopBarTitle(selectedItems, recursiveCount, folderTitle, textColor)
             },
             navigationIcon = {
                 IconButton(
@@ -684,6 +733,7 @@ private fun BookmarksListTopBar(store: BookmarksStore) {
                     showSortMenu = showSortMenu,
                     showMenu = showMenu,
                     onShowMenuChanged = { showMenu = it },
+                    exportActions = BookmarkExportActions(exporting, onExport),
                 )
             },
             windowInsets =
@@ -696,6 +746,28 @@ private fun BookmarksListTopBar(store: BookmarksStore) {
 }
 
 @Composable
+private fun BookmarksListTopBarTitle(
+    selectedItems: List<BookmarkItem>,
+    recursiveCount: Int?,
+    folderTitle: String,
+    textColor: Color,
+) {
+    Text(
+        color = textColor,
+        style = FirefoxTheme.typography.headline5,
+        text =
+            if (selectedItems.isNotEmpty()) {
+                val total = selectedItems.size + (recursiveCount ?: 0)
+                stringResource(R.string.bookmarks_multi_select_title, total)
+            } else {
+                folderTitle
+            },
+        maxLines = 1,
+        overflow = TextOverflow.Ellipsis,
+    )
+}
+
+@Composable
 private fun BookmarksListTopBarActions(
     selectedItems: List<BookmarkItem>,
     store: BookmarksStore,
@@ -703,6 +775,7 @@ private fun BookmarksListTopBarActions(
     showSortMenu: Boolean,
     showMenu: Boolean,
     onShowMenuChanged: (Boolean) -> Unit,
+    exportActions: BookmarkExportActions,
 ) {
     val isCurrentFolderDesktopRoot by remember {
         store.stateFlow.map { store.state.currentFolder.isDesktopRoot }
@@ -721,6 +794,8 @@ private fun BookmarksListTopBarActions(
                 showSortMenu = showSortMenu,
                 isCurrentFolderDesktopRoot = isCurrentFolderDesktopRoot,
                 isCurrentFolderMobileRoot = isCurrentFolderMobileRoot,
+                exporting = exportActions.exporting,
+                onExport = exportActions.onExport,
             )
 
         selectedItems.any { it is BookmarkItem.Folder } ->
@@ -850,6 +925,8 @@ private fun BookmarksListTopBarActionsNoSelection(
     showSortMenu: Boolean,
     isCurrentFolderDesktopRoot: Boolean,
     isCurrentFolderMobileRoot: Boolean,
+    exporting: Boolean,
+    onExport: () -> Unit,
 ) {
     Box {
         IconButton(
@@ -898,11 +975,11 @@ private fun BookmarksListTopBarActionsNoSelection(
                 tint = MaterialTheme.colorScheme.onSurface,
             )
         }
-    } else if (store.state.showBookmarksImport) {
+    } else {
         Box {
             IconButton(
                 onClick = { store.dispatch(RootOverflowMenuClicked) },
-                contentDescription = stringResource(R.string.bookmark_import_bookmarks_button_content_description),
+                contentDescription = stringResource(R.string.waterfox_bookmark_options),
             ) {
                 Icon(
                     painter = painterResource(iconsR.drawable.mozac_ic_ellipsis_vertical_24),
@@ -911,7 +988,7 @@ private fun BookmarksListTopBarActionsNoSelection(
                 )
             }
 
-            RootBookmarksOverflowMenu(store)
+            RootBookmarksOverflowMenu(store, exporting = exporting, onExport = onExport)
         }
     }
 }
@@ -978,19 +1055,29 @@ internal fun AlertDialogDeletionWarning(
 }
 
 @Composable
-private fun RootBookmarksOverflowMenu(store: BookmarksStore) {
+private fun RootBookmarksOverflowMenu(store: BookmarksStore, exporting: Boolean, onExport: () -> Unit) {
     val showMenu by remember {
         store.stateFlow.map { store.state.rootMenuShown }
     }
         .collectAsState(initial = store.state.rootMenuShown)
 
-    val menuItems =
-        listOf(
+    val menuItems = buildList {
+        if (store.state.showBookmarksImport) {
+            add(
+                MenuItem.TextItem(
+                    text = Text.Resource(R.string.bookmark_import_menu_button),
+                    onClick = { store.dispatch(ImportAction.ImportFileClicked.FromMenu) },
+                )
+            )
+        }
+        add(
             MenuItem.TextItem(
-                text = Text.Resource(R.string.bookmark_import_menu_button),
-                onClick = { store.dispatch(ImportAction.ImportFileClicked.FromMenu) },
+                text = Text.Resource(R.string.waterfox_bookmark_export),
+                enabled = !exporting,
+                onClick = onExport,
             )
         )
+    }
 
     DropdownMenu(
         menuItems = menuItems,

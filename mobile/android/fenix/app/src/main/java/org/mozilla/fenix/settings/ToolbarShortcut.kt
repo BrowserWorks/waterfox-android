@@ -21,6 +21,7 @@ enum class ShortcutType(val value: String) {
     TRANSLATE("translate"),
     HOMEPAGE("homepage"),
     BACK("back"),
+    RELOAD("reload"),
     SUMMARIZE("summarize"),
     NONE("none");
 
@@ -80,6 +81,12 @@ internal val allShortcutOptions: List<ShortcutOption> =
             iconsR.drawable.mozac_ic_back_24,
             R.string.toolbar_customize_shortcut_back,
             setOf(ShortcutAvailability.SIMPLE, ShortcutAvailability.EXPANDED, ShortcutAvailability.TAB_STRIP),
+        ),
+        ShortcutOption(
+            ShortcutType.RELOAD,
+            iconsR.drawable.mozac_ic_arrow_clockwise_24,
+            R.string.browser_menu_refresh,
+            setOf(ShortcutAvailability.SIMPLE, ShortcutAvailability.EXPANDED),
         ),
         ShortcutOption(
             ShortcutType.SUMMARIZE,

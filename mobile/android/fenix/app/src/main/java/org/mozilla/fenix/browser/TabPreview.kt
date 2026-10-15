@@ -154,12 +154,26 @@ constructor(
                     onClick = object : BrowserToolbarEvent {},
                 )
 
-            ToolbarAction.RefreshOrStop ->
+            ToolbarAction.RefreshOrStop -> {
+                val isHome = tab?.content?.url == ABOUT_HOME_URL
+                val isLoading = !isHome && tab?.content?.loading == true
                 ActionButtonRes(
-                    drawableResId = iconsR.drawable.mozac_ic_arrow_clockwise_24,
-                    contentDescription = R.string.browser_menu_refresh,
+                    drawableResId =
+                        if (isLoading) {
+                            iconsR.drawable.mozac_ic_cross_24
+                        } else {
+                            iconsR.drawable.mozac_ic_arrow_clockwise_24
+                        },
+                    contentDescription = if (isLoading) R.string.browser_menu_stop else R.string.browser_menu_refresh,
+                    state =
+                        if (isHome) {
+                            ActionButton.State.DISABLED
+                        } else {
+                            ActionButton.State.DEFAULT
+                        },
                     onClick = object : BrowserToolbarEvent {},
                 )
+            }
 
             ToolbarAction.Menu ->
                 ActionButtonRes(
@@ -507,7 +521,10 @@ constructor(
         val isTallWindow = context.isTallWindow()
         val shouldUseExpandedToolbar = settings.shouldUseExpandedToolbar
 
-        val primarySlotAction = ShortcutType.fromValue(settings.activeSimpleToolbarShortcutKey)?.toToolbarAction(tab)
+        val primarySlotAction =
+            ShortcutType.fromValue(settings.activeSimpleToolbarShortcutKey)?.toToolbarAction(tab)?.takeUnless {
+                isWideWindow && it == ToolbarAction.RefreshOrStop
+            }
 
         return listOfNotNull(
                 primarySlotAction?.let {
@@ -597,6 +614,7 @@ constructor(
                 }
             ShortcutType.HOMEPAGE -> ToolbarAction.Homepage
             ShortcutType.BACK -> ToolbarAction.Back
+            ShortcutType.RELOAD -> ToolbarAction.RefreshOrStop
             ShortcutType.SUMMARIZE ->
                 when {
                     summarizationFeatureSettings.canShowFeature -> ToolbarAction.Summarize

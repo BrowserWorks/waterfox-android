@@ -464,6 +464,8 @@ internal class BookmarksMiddleware(
             is ReceivedSyncSignInUpdate,
             PrivateBrowsingAuthorized,
             SnackbarAction.Dismissed,
+            SnackbarAction.ExportSucceeded,
+            SnackbarAction.ExportFailed,
             SnackbarAction.ImportFailed -> Unit
 
             is ImportAction.ImportSucceeded -> store.tryDispatchLoadFor(BookmarkRoot.Mobile.id)

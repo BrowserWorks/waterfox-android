@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<resources>
+    <string name="waterfox_bookmark_options">Bookmark options</string>
+    <string name="waterfox_bookmark_export">Export bookmarks</string>
+    <string name="waterfox_bookmark_export_success">Bookmarks exported</string>
+    <string name="waterfox_bookmark_export_failure">Couldn’t export bookmarks. The file may be incomplete.</string>
+</resources>

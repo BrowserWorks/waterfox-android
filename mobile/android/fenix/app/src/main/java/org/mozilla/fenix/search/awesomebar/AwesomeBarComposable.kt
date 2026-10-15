@@ -45,6 +45,7 @@ import mozilla.components.compose.browser.awesomebar.internal.CurrentTabDetailsI
 import mozilla.components.compose.browser.toolbar.store.BrowserEditToolbarAction.SearchQueryUpdated
 import mozilla.components.compose.browser.toolbar.store.BrowserToolbarStore
 import mozilla.components.compose.browser.toolbar.ui.BrowserToolbarQuery
+import mozilla.components.feature.contextmenu.R as contextmenuR
 import mozilla.components.lib.state.ext.observeAsComposableState
 import mozilla.components.lib.state.helpers.StoreProvider.Companion.fragmentStore
 import mozilla.components.support.ktx.android.view.hideKeyboard
@@ -63,6 +64,7 @@ import org.mozilla.fenix.search.BrowserToolbarToFenixSearchMapperMiddleware
 import org.mozilla.fenix.search.FenixSearchMiddleware
 import org.mozilla.fenix.search.SearchFragmentAction
 import org.mozilla.fenix.search.SearchFragmentAction.CopyCurrentWebsiteDetailsClicked
+import org.mozilla.fenix.search.SearchFragmentAction.CopySuggestionUrl
 import org.mozilla.fenix.search.SearchFragmentAction.EditCurrentWebsiteDetailsClicked
 import org.mozilla.fenix.search.SearchFragmentAction.ReloadCurrentWebsiteClicked
 import org.mozilla.fenix.search.SearchFragmentAction.ShareCurrentWebsiteDetailsClicked
@@ -272,6 +274,8 @@ class AwesomeBarComposable(
                             },
                             onScroll = { view.hideKeyboard() },
                             profiler = components.core.engine.profiler,
+                            copyLinkLabel = fragment.getString(contextmenuR.string.mozac_feature_contextmenu_copy_link),
+                            onCopyUrl = { url -> searchStore.dispatch(CopySuggestionUrl(url)) },
                         )
                     }
                 }

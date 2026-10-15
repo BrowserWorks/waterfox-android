@@ -133,6 +133,7 @@ internal suspend fun Iterable<SearchResult>.into(
             icon = icon?.await()?.bitmap,
             title = result.title,
             description = result.url,
+            url = result.url,
             editSuggestion = if (showEditSuggestion) result.url else null,
             isRemovalAllowed = true,
             score = result.score,

@@ -47,6 +47,8 @@ internal fun Suggestions(
     onScroll: () -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(),
+    copyLinkLabel: String? = null,
+    onCopyUrl: ((String) -> Unit)? = null,
 ) {
     val state = rememberLazyListState()
 
@@ -77,6 +79,8 @@ internal fun Suggestions(
                     onSuggestionClicked = onSuggestionClicked,
                     onAutoComplete = onAutoComplete,
                     onRemoveClicked = onRemoveClicked,
+                    copyLinkLabel = copyLinkLabel,
+                    onCopyUrl = onCopyUrl,
                 )
             }
         }
@@ -129,6 +133,8 @@ private fun SuggestionItem(
     onSuggestionClicked: (AwesomeBar.SuggestionProviderGroup, AwesomeBar.SuggestionItem) -> Unit,
     onAutoComplete: (AwesomeBar.SuggestionProviderGroup, AwesomeBar.Suggestion) -> Unit,
     onRemoveClicked: (AwesomeBar.SuggestionProviderGroup, AwesomeBar.Suggestion) -> Unit,
+    copyLinkLabel: String?,
+    onCopyUrl: ((String) -> Unit)?,
 ) {
     when (suggestion) {
         is AwesomeBar.Suggestion -> {
@@ -139,6 +145,8 @@ private fun SuggestionItem(
                 onSuggestionClicked = { onSuggestionClicked(group, suggestion) },
                 onAutoComplete = { onAutoComplete(group, suggestion) },
                 onRemoveClicked = { onRemoveClicked(group, suggestion) },
+                copyLinkLabel = copyLinkLabel,
+                onCopyUrl = onCopyUrl,
             )
         }
 

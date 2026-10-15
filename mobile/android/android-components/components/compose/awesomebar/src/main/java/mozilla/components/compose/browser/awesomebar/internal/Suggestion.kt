@@ -6,20 +6,29 @@ package mozilla.components.compose.browser.awesomebar.internal
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -47,6 +56,8 @@ import mozilla.components.ui.icons.R as iconsR
 private const val SUGGESTION_TEXT_MAX_LENGTH = 100
 
 @Composable
+@OptIn(ExperimentalFoundationApi::class)
+@Suppress("LongParameterList")
 internal fun Suggestion(
     suggestion: AwesomeBar.Suggestion,
     colors: AwesomeBarColors,
@@ -54,10 +65,49 @@ internal fun Suggestion(
     onSuggestionClicked: () -> Unit,
     onAutoComplete: () -> Unit,
     onRemoveClicked: () -> Unit,
+    copyLinkLabel: String? = null,
+    onCopyUrl: ((String) -> Unit)? = null,
+) {
+    var urlToCopy by remember(suggestion.provider.id, suggestion.id) { mutableStateOf<String?>(null) }
+    val url = suggestion.url?.takeIf { it.isNotBlank() }
+    val rowModifier = if (url != null && copyLinkLabel != null && onCopyUrl != null) {
+        Modifier.combinedClickable(
+            onClick = onSuggestionClicked,
+            onLongClickLabel = copyLinkLabel,
+            onLongClick = { urlToCopy = url },
+        )
+    } else {
+        Modifier.clickable(onClick = onSuggestionClicked)
+    }
+    Box(Modifier.fillMaxWidth()) {
+        SuggestionRow(suggestion, colors, orientation, rowModifier, onAutoComplete, onRemoveClicked)
+        val selectedUrl = urlToCopy
+        if (selectedUrl != null && copyLinkLabel != null && onCopyUrl != null) {
+            DropdownMenu(expanded = true, onDismissRequest = { urlToCopy = null }) {
+                DropdownMenuItem(
+                    text = { Text(copyLinkLabel) },
+                    onClick = {
+                        urlToCopy = null
+                        onCopyUrl(selectedUrl)
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun SuggestionRow(
+    suggestion: AwesomeBar.Suggestion,
+    colors: AwesomeBarColors,
+    orientation: AwesomeBarOrientation,
+    modifier: Modifier,
+    onAutoComplete: () -> Unit,
+    onRemoveClicked: () -> Unit,
 ) {
     Row(
         modifier =
-            Modifier.clickable { onSuggestionClicked() }
+            modifier
                 .defaultMinSize(minHeight = AcornTheme.layout.space.static600)
                 .testTag(AwesomeBarTestTags.SUGGESTION)
                 .padding(start = AcornTheme.layout.space.dynamic200, end = AcornTheme.layout.space.dynamic50)

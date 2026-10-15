@@ -108,6 +108,7 @@ internal suspend fun Iterable<HistoryMetadata>.into(
             flags = setOf(AwesomeBar.Suggestion.Flag.HISTORY),
             title = result.title,
             description = result.key.url,
+            url = result.key.url,
             editSuggestion = if (showEditSuggestion) result.key.url else null,
             isRemovalAllowed = true,
             onSuggestionClicked = {

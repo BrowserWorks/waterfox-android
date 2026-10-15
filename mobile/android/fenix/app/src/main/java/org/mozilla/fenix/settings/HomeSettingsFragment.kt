@@ -54,11 +54,15 @@ class HomeSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragm
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.home_preferences, rootKey)
         setupPreferences()
+        childFragmentManager.setFragmentResultListener(ShortcutRowsDialogFragment.RESULT_KEY, this) { _, _ ->
+            updateShortcutRowsSummary()
+        }
     }
 
     override fun onResume() {
         super.onResume()
         showToolbar(getString(R.string.preferences_home_2))
+        updateShortcutRowsSummary()
         args.preferenceToScrollTo?.let {
             scrollToPreferenceWithHighlight(it)
         }
@@ -86,6 +90,15 @@ class HomeSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragm
         requirePreference<SwitchPreferenceCompat>(R.string.pref_key_show_top_sites).apply {
             isChecked = fenixSettings.showTopSitesFeature
             onPreferenceChangeListener = createMetricPreferenceChangeListener("most_visited_sites")
+        }
+
+        requirePreference<Preference>(R.string.pref_key_homepage_shortcut_rows).apply {
+            setOnPreferenceClickListener {
+                if (childFragmentManager.findFragmentByTag(ShortcutRowsDialogFragment.TAG) == null) {
+                    ShortcutRowsDialogFragment().show(childFragmentManager, ShortcutRowsDialogFragment.TAG)
+                }
+                true
+            }
         }
 
         requirePreference<CheckBoxPreference>(R.string.pref_key_enable_contile).apply {
@@ -137,6 +150,12 @@ class HomeSettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragm
         }
 
         setupOpeningScreenPreferences()
+    }
+
+    private fun updateShortcutRowsSummary() {
+        val rows = fenixSettings.homepageShortcutRows
+        requirePreference<Preference>(R.string.pref_key_homepage_shortcut_rows).summary =
+            resources.getQuantityString(R.plurals.waterfox_shortcut_rows_summary, rows, rows)
     }
 
     private fun createMetricPreferenceChangeListener(

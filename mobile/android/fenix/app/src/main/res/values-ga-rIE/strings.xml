@@ -777,11 +777,6 @@
   <string name="confirm_clear_permission_site">An bhfuil tú cinnte gur mhaith leat an cead seo a ghlanadh ar an suíomh seo?</string>
   <!-- label shown when there are not site exceptions to show in the site exception settings -->
   <string name="no_site_exceptions">Gan eisceachtaí suímh</string>
-  <!--
-    Context description text for the "Show all" button in the shortcuts home screen section
-    which navigates the user to a screen displaying all the shortcuts.
-  -->
-  <string name="homepage_shortcuts_show_all_content_description">Taispeáin gach aicearra</string>
   <!-- Title for the "Popular sites" section in the "Add to homepage" bottom sheet. -->
   <string name="homepage_shortcuts_popular_sites">Suíomhanna ardéilimh</string>
 </resources>

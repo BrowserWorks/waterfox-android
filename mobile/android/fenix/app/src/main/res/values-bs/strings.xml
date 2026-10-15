@@ -2501,11 +2501,6 @@
     Title text displayed for the shortcuts home screen section.
   -->
   <string name="homepage_shortcuts_title">Prečice</string>
-  <!--
-    Context description text for the "Show all" button in the shortcuts home screen section
-    which navigates the user to a screen displaying all the shortcuts.
-  -->
-  <string name="homepage_shortcuts_show_all_content_description">Prikaži sve prečice</string>
   <!-- Title text displayed in the dialog when shortcuts limit is reached. -->
   <string name="shortcut_max_limit_title">Dostignuto je ograničenje prečice</string>
   <!-- Content description text displayed in the dialog when shortcut limit is reached. -->

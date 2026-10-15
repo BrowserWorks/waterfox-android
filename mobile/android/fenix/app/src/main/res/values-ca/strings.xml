@@ -3272,11 +3272,6 @@
     Title text displayed for the shortcuts home screen section.
   -->
   <string name="homepage_shortcuts_title">Dreceres</string>
-  <!--
-    Context description text for the "Show all" button in the shortcuts home screen section
-    which navigates the user to a screen displaying all the shortcuts.
-  -->
-  <string name="homepage_shortcuts_show_all_content_description">Mostra totes les dreceres</string>
   <!-- Label for the "Add shortcut" button displayed as a tile. -->
   <string name="homepage_shortcuts_add_shortcut">Afegeix una drecera</string>
   <!-- Title for the "Add to homepage" bottom sheet. -->

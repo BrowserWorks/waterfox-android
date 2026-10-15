@@ -198,6 +198,10 @@ internal sealed class BookmarksSnackbarState {
     data object SelectFolderFailed : BookmarksSnackbarState()
 
     data object ImportFailed : BookmarksSnackbarState()
+
+    data object ExportSucceeded : BookmarksSnackbarState()
+
+    data object ExportFailed : BookmarksSnackbarState()
 }
 
 internal data class BookmarksEditBookmarkState(

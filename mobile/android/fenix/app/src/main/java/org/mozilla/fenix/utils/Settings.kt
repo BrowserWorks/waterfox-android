@@ -1480,6 +1480,12 @@ class Settings(
             default = false,
         )
 
+    var showDeleteBrowsingDataInMenu by
+        booleanPreference(
+            appContext.getPreferenceKey(R.string.pref_key_show_delete_browsing_data_in_menu),
+            default = false,
+        )
+
     var deleteOpenTabs by
         booleanPreference(
             appContext.getPreferenceKey(R.string.pref_key_delete_open_tabs_now),

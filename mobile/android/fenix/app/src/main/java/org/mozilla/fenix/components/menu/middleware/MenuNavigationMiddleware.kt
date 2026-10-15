@@ -124,6 +124,12 @@ class MenuNavigationMiddleware(
                         MenuDialogFragmentDirections.actionGlobalSettingsFragment(),
                     )
 
+                is MenuAction.Navigate.DeleteBrowsingData ->
+                    navController.nav(
+                        R.id.menuDialogFragment,
+                        NavGraphDirections.actionGlobalDeleteBrowsingDataFragment(),
+                    )
+
                 is MenuAction.Navigate.CustomizeHomepage ->
                     navController.nav(
                         R.id.menuDialogFragment,

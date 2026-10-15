@@ -180,6 +180,8 @@ fun MainMenu(
     extensionsMenuItemDescription: String?,
     moreSettingsSubmenu: @Composable () -> Unit,
     extensionSubmenu: @Composable () -> Unit,
+    showDeleteBrowsingDataMenu: Boolean = false,
+    onDeleteBrowsingDataMenuClick: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val shouldHighlightWhatsNew = WhatsNew.shouldHighlightWhatsNew(context)
@@ -343,6 +345,14 @@ fun MainMenu(
                     beforeIconPainter = painterResource(id = iconsR.drawable.mozac_ic_whats_new_24),
                     isBeforeIconHighlighted = true,
                     onClick = onWhatsNewMenuClick,
+                )
+            }
+
+            if (showDeleteBrowsingDataMenu) {
+                MenuItem(
+                    label = stringResource(id = R.string.preferences_delete_browsing_data),
+                    beforeIconPainter = painterResource(id = iconsR.drawable.mozac_ic_delete_24),
+                    onClick = onDeleteBrowsingDataMenuClick,
                 )
             }
 

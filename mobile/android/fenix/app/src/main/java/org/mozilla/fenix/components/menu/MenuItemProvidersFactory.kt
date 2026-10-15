@@ -309,6 +309,9 @@ class MenuItemProvidersFactory(
                     fenixBrowserUseCases = useCases.fenixBrowserUseCases,
                 )
 
+            FenixMenuItem.DeleteBrowsingData ->
+                DeleteBrowsingDataMenuItemProvider(showInMenu = settings.showDeleteBrowsingDataInMenu)
+
             FenixMenuItem.Settings -> SettingsMenuItemProvider()
 
             FenixMenuItem.Quit ->

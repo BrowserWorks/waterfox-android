@@ -10,6 +10,7 @@ import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import mozilla.appservices.fxaclient.contentUrl
 import mozilla.components.concept.engine.EngineSession
 import mozilla.components.concept.engine.request.RequestInterceptor
 import mozilla.components.concept.sync.FxAEntryPoint
@@ -71,9 +72,8 @@ class FirefoxAccountsAuthFeature(
 
     private fun beginAuthenticationAsync(context: Context, beginAuthentication: suspend () -> String?) {
         CoroutineScope(coroutineContext).launch {
-            // FIXME return a fallback URL provided by Config...
-            // https://github.com/mozilla-mobile/android-components/issues/2496
-            val authUrl = beginAuthentication() ?: "https://accounts.firefox.com/signin"
+            val authUrl =
+                beginAuthentication() ?: "${accountManager.serverConfig.server.contentUrl().trimEnd('/')}/signin"
 
             // TODO
             // We may fail to obtain an authentication URL, for example due to transient network errors.

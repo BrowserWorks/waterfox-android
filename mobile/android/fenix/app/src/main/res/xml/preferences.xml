@@ -29,6 +29,12 @@
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.Preference
+        android:key="@string/pref_key_sync_servers"
+        android:title="@string/preferences_sync_servers"
+        android:summary="@string/preferences_sync_servers_summary"
+        app:iconSpaceReserved="false" />
+
+    <androidx.preference.Preference
         app:iconSpaceReserved="false"
         android:key="@string/pref_key_sync_debug"
         android:title="@string/preferences_sync_debug"

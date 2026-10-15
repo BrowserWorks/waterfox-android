@@ -7,7 +7,10 @@
 
 package org.mozilla.fenix.bookmarks
 
+import android.content.ActivityNotFoundException
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -63,6 +66,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onPlaced
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -85,6 +89,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import mozilla.appservices.places.BookmarkRoot
@@ -139,6 +144,42 @@ internal fun BookmarksScreen(
 ) {
     val navController = rememberNavController()
     val store = remember { buildStore(navController) }
+    val context = LocalContext.current
+    val exportScope = rememberCoroutineScope()
+    var exporting by remember { mutableStateOf(false) }
+    val exportLauncher =
+        rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("text/html")) { destination ->
+            if (destination == null) {
+                exporting = false
+            } else {
+                exporting = true
+                exportScope.launch {
+                    try {
+                        exportBookmarksToHtml(context, destination)
+                        store.dispatch(SnackbarAction.ExportSucceeded)
+                    } catch (error: CancellationException) {
+                        throw error
+                    } catch (_: Exception) {
+                        store.dispatch(SnackbarAction.ExportFailed)
+                    } finally {
+                        exporting = false
+                    }
+                }
+            }
+        }
+    val onExport: () -> Unit = {
+        store.dispatch(RootOverflowMenuDismissed)
+        store.dispatch(SnackbarAction.Dismissed)
+        if (!exporting) {
+            exporting = true
+            try {
+                exportLauncher.launch("waterfox-bookmarks.html")
+            } catch (_: ActivityNotFoundException) {
+                exporting = false
+                store.dispatch(SnackbarAction.ExportFailed)
+            }
+        }
+    }
 
     val isPrivateModeLocked by remember {
         appStore.stateFlow.map { appState -> appState.isPrivateScreenLocked }
@@ -161,7 +202,7 @@ internal fun BookmarksScreen(
     ) {
         composable(route = BookmarksDestinations.LIST) {
             BackHandler { store.dispatch(BackClicked) }
-            BookmarksList(store = store)
+            BookmarksList(store = store, exporting = exporting, onExport = onExport)
         }
         composable(route = BookmarksDestinations.ADD_FOLDER) {
             BackHandler { store.dispatch(BackClicked) }
@@ -194,7 +235,7 @@ internal object BookmarksDestinations {
 @OptIn(ExperimentalLayoutApi::class) // for WindowInsets.isImeVisible
 @Suppress("LongMethod", "CyclomaticComplexMethod")
 @Composable
-private fun BookmarksList(store: BookmarksStore) {
+private fun BookmarksList(store: BookmarksStore, exporting: Boolean, onExport: () -> Unit) {
     val state by store.stateFlow.collectAsState()
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
@@ -220,6 +261,8 @@ private fun BookmarksList(store: BookmarksStore) {
                 )
             }
             BookmarksSnackbarState.ImportFailed -> stringResource(R.string.bookmark_import_failure_snackbar)
+            BookmarksSnackbarState.ExportSucceeded -> stringResource(R.string.waterfox_bookmark_export_success)
+            BookmarksSnackbarState.ExportFailed -> stringResource(R.string.waterfox_bookmark_export_failure)
             else -> ""
         }
 
@@ -249,7 +292,9 @@ private fun BookmarksList(store: BookmarksStore) {
                         onDismissPerformed = { store.dispatch(SnackbarAction.Dismissed) },
                     )
                 }
-            BookmarksSnackbarState.ImportFailed ->
+            BookmarksSnackbarState.ImportFailed,
+            BookmarksSnackbarState.ExportSucceeded,
+            BookmarksSnackbarState.ExportFailed ->
                 scope.launch {
                     snackbarHostState.displaySnackbar(
                         message = snackbarMessage,
@@ -309,7 +354,7 @@ private fun BookmarksList(store: BookmarksStore) {
                     keyboardController = keyboardController,
                 )
             } else {
-                BookmarksListTopBar(store = store)
+                BookmarksListTopBar(store = store, exporting = exporting, onExport = onExport)
             }
         },
     ) { paddingValues ->
@@ -609,7 +654,7 @@ private fun BookmarksSearchTopBar(
 }
 
 @Composable
-private fun BookmarksListTopBar(store: BookmarksStore) {
+private fun BookmarksListTopBar(store: BookmarksStore, exporting: Boolean, onExport: () -> Unit) {
     val selectedItems by remember {
         store.stateFlow.map { it.selectedItems }
     }
@@ -683,6 +728,8 @@ private fun BookmarksListTopBar(store: BookmarksStore) {
                     showSortMenu = showSortMenu,
                     showMenu = showMenu,
                     onShowMenuChanged = { showMenu = it },
+                    exporting = exporting,
+                    onExport = onExport,
                 )
             },
             windowInsets =
@@ -702,6 +749,8 @@ private fun BookmarksListTopBarActions(
     showSortMenu: Boolean,
     showMenu: Boolean,
     onShowMenuChanged: (Boolean) -> Unit,
+    exporting: Boolean,
+    onExport: () -> Unit,
 ) {
     val isCurrentFolderDesktopRoot by remember {
         store.stateFlow.map { store.state.currentFolder.isDesktopRoot }
@@ -720,6 +769,8 @@ private fun BookmarksListTopBarActions(
                 showSortMenu = showSortMenu,
                 isCurrentFolderDesktopRoot = isCurrentFolderDesktopRoot,
                 isCurrentFolderMobileRoot = isCurrentFolderMobileRoot,
+                exporting = exporting,
+                onExport = onExport,
             )
 
         selectedItems.any { it is BookmarkItem.Folder } ->
@@ -849,6 +900,8 @@ private fun BookmarksListTopBarActionsNoSelection(
     showSortMenu: Boolean,
     isCurrentFolderDesktopRoot: Boolean,
     isCurrentFolderMobileRoot: Boolean,
+    exporting: Boolean,
+    onExport: () -> Unit,
 ) {
     Box {
         IconButton(
@@ -897,11 +950,11 @@ private fun BookmarksListTopBarActionsNoSelection(
                 tint = MaterialTheme.colorScheme.onSurface,
             )
         }
-    } else if (store.state.showBookmarksImport) {
+    } else {
         Box {
             IconButton(
                 onClick = { store.dispatch(RootOverflowMenuClicked) },
-                contentDescription = stringResource(R.string.bookmark_import_bookmarks_button_content_description),
+                contentDescription = stringResource(R.string.waterfox_bookmark_options),
             ) {
                 Icon(
                     painter = painterResource(iconsR.drawable.mozac_ic_ellipsis_vertical_24),
@@ -910,7 +963,7 @@ private fun BookmarksListTopBarActionsNoSelection(
                 )
             }
 
-            RootBookmarksOverflowMenu(store)
+            RootBookmarksOverflowMenu(store, exporting = exporting, onExport = onExport)
         }
     }
 }
@@ -977,19 +1030,29 @@ internal fun AlertDialogDeletionWarning(
 }
 
 @Composable
-private fun RootBookmarksOverflowMenu(store: BookmarksStore) {
+private fun RootBookmarksOverflowMenu(store: BookmarksStore, exporting: Boolean, onExport: () -> Unit) {
     val showMenu by remember {
         store.stateFlow.map { store.state.rootMenuShown }
     }
         .collectAsState(initial = store.state.rootMenuShown)
 
-    val menuItems =
-        listOf(
+    val menuItems = buildList {
+        if (store.state.showBookmarksImport) {
+            add(
+                MenuItem.TextItem(
+                    text = Text.Resource(R.string.bookmark_import_menu_button),
+                    onClick = { store.dispatch(ImportAction.ImportFileClicked.FromMenu) },
+                )
+            )
+        }
+        add(
             MenuItem.TextItem(
-                text = Text.Resource(R.string.bookmark_import_menu_button),
-                onClick = { store.dispatch(ImportAction.ImportFileClicked.FromMenu) },
+                text = Text.Resource(R.string.waterfox_bookmark_export),
+                enabled = !exporting,
+                onClick = onExport,
             )
         )
+    }
 
     DropdownMenu(
         menuItems = menuItems,

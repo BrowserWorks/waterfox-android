@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,6 +33,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -91,6 +93,22 @@ internal fun SelectFolderScreen(
         store.stateFlow.map { it.bookmarksSelectFolderState }
     }
         .collectAsState(initial = store.state.bookmarksSelectFolderState)
+    val folders = state?.visibleFolders.orEmpty().flattenToList()
+    val listState = rememberLazyListState()
+    var hasScrolledToSelection by rememberSaveable { mutableStateOf(false) }
+
+    LaunchedEffect(state?.isLoading) {
+        val selectionState = state
+        if (!hasScrolledToSelection && selectionState != null && !selectionState.isLoading) {
+            hasScrolledToSelection = true
+            if (!selectionState.isSearching) {
+                val selectedIndex = folders.indexOfFirst { it.guid == selectionState.selectedGuid }
+                if (selectedIndex >= 0) {
+                    listState.scrollToItem(selectedIndex)
+                }
+            }
+        }
+    }
 
     LaunchedEffect(Unit) {
         store.dispatch(SelectFolderAction.ViewAppeared)
@@ -129,12 +147,13 @@ internal fun SelectFolderScreen(
             return@Scaffold
         }
         LazyColumn(
+            state = listState,
             modifier = Modifier.padding(paddingValues).padding(vertical = 16.dp).fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             items(
                 key = { item -> item.folder.guid },
-                items = state?.visibleFolders.orEmpty().flattenToList(),
+                items = folders,
             ) { folder ->
                 FolderListItem(
                     folder = folder,

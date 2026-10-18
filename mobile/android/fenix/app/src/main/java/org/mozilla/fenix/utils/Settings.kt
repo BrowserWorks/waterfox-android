@@ -1813,11 +1813,10 @@ class Settings(
 
     /**
      * Whether this device supports the application's own autofill, password management, and password and credit card
-     * sync. Always true except on Android Automotive OS, where the `automotive-sensitive-data` Nimbus feature must be
-     * enabled.
+     * sync. Android Automotive OS is not supported.
      */
     val isAutofillSupported: Boolean by lazy {
-        !appContext.isAndroidAutomotiveAvailable() || FxNimbus.features.automotiveSensitiveData.value().enabled
+        !appContext.isAndroidAutomotiveAvailable()
     }
 
     var shouldPromptToSaveLogins by

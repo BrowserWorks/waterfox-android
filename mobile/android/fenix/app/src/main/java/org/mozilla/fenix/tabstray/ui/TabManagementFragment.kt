@@ -729,7 +729,7 @@ class TabManagementFragment : Fragment() {
                     ) ?: createInitialState(args, settings),
                 middlewares =
                     listOf(
-                        TabsTrayTelemetryMiddleware(requireComponents.nimbus.events),
+                        TabsTrayTelemetryMiddleware(),
                         TabSearchMiddleware(),
                         TabSearchNavigationMiddleware(onSearchResultClicked = ::performTabClick),
                         TabStorageMiddleware(

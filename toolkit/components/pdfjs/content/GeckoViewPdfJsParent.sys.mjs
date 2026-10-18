@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { AppConstants } from "resource://gre/modules/AppConstants.sys.mjs";
 import { GeckoViewActorParent } from "resource://gre/modules/GeckoViewActorParent.sys.mjs";
 
 const lazy = {};
@@ -377,6 +378,10 @@ export class GeckoViewPdfJsParent extends GeckoViewActorParent {
   }
 
   async #getExperimentFeature() {
+    if (AppConstants.platform === "android") {
+      this.sendAsyncMessage("PDFJS:Child:getNimbus", null);
+      return;
+    }
     let result = null;
     try {
       const experimentActor = this.window.moduleManager.getActor(
@@ -390,6 +395,9 @@ export class GeckoViewPdfJsParent extends GeckoViewActorParent {
   }
 
   async #recordExposure() {
+    if (AppConstants.platform === "android") {
+      return;
+    }
     try {
       const experimentActor = this.window.moduleManager.getActor(
         "GeckoViewExperimentDelegate"

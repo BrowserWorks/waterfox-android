@@ -6,7 +6,6 @@ import { AppConstants } from "resource://gre/modules/AppConstants.sys.mjs";
 import { IPProtectionService } from "moz-src:///toolkit/components/ipprotection/IPProtectionService.sys.mjs";
 import { IPPProxyManager } from "moz-src:///toolkit/components/ipprotection/IPPProxyManager.sys.mjs";
 import { IPPLifecycleHelper } from "moz-src:///toolkit/components/ipprotection/IPPLifecycleHelper.sys.mjs";
-import { IPPNimbusHelper } from "moz-src:///toolkit/components/ipprotection/IPPNimbusHelper.sys.mjs";
 import { IPProtectionServerlist } from "moz-src:///toolkit/components/ipprotection/IPProtectionServerlist.sys.mjs";
 import { IPPStartupCache } from "moz-src:///toolkit/components/ipprotection/IPPStartupCache.sys.mjs";
 import { IPPSessionPrefManager } from "moz-src:///toolkit/components/ipprotection/IPPSessionPrefManager.sys.mjs";
@@ -48,8 +47,14 @@ const coreHelpers = [
   IPPLifecycleHelper,
   IPPSessionPrefManager,
   activationHelper(),
-  IPPNimbusHelper,
 ].filter(Boolean);
+
+if (AppConstants.platform !== "android") {
+  const { IPPNimbusHelper } = ChromeUtils.importESModule(
+    "moz-src:///toolkit/components/ipprotection/IPPNimbusHelper.sys.mjs"
+  );
+  coreHelpers.push(IPPNimbusHelper);
+}
 
 let extraHelpers = [];
 let authProvider = null;

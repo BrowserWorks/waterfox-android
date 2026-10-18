@@ -49,7 +49,6 @@ class DebugInfoBottomSheetFragment : BottomSheetDialogFragment() {
                 remember(context, resources) {
                     DebugInfoProvider.create(
                         settings = context.components.settings,
-                        nimbusApi = context.components.nimbus.sdk,
                         versionName = context.getVersionName(),
                         deviceLocale = context.getDeviceLocaleTag(),
                         secretSettingsKeys = getSecretSettingsPreferenceKeys(resources),

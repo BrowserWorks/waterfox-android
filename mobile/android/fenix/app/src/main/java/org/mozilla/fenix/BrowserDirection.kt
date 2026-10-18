@@ -30,7 +30,6 @@ enum class BrowserDirection(@param:IdRes val fragmentId: Int) {
     FromSearchEngineFragment(R.id.searchEngineFragment),
     FromSaveSearchEngineFragment(R.id.saveSearchEngineFragment),
     FromAddonDetailsFragment(R.id.addonDetailsFragment),
-    FromStudiesFragment(R.id.studiesFragment),
     FromAddonPermissionsDetailsFragment(R.id.addonPermissionsDetailFragment),
     FromTabManager(R.id.tabManagementFragment),
     FromRecentlyClosed(R.id.recentlyClosedFragment),

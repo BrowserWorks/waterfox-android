@@ -56,7 +56,6 @@ class SpeechProcessingIntentProcessor(
                 searchEngine,
                 searchEngine == store.state.search.selectedOrDefaultSearchEngine,
                 MetricsUtils.Source.WIDGET,
-                activity.components.nimbus.events,
             )
         }
 

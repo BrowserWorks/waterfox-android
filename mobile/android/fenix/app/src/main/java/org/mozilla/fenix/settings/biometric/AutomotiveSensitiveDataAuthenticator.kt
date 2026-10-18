@@ -11,9 +11,7 @@ import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import mozilla.components.feature.automotive.isAndroidAutomotiveAvailable
 import mozilla.components.support.base.log.logger.Logger
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.biometric.ext.isDeviceLockSetUp
 
 /**
@@ -22,8 +20,8 @@ import org.mozilla.fenix.settings.biometric.ext.isDeviceLockSetUp
  */
 interface AutomotiveSensitiveDataAuthenticator {
     /**
-     * Whether the check applies, i.e. on Android Automotive OS with the `automotive-sensitive-data` Nimbus feature
-     * enabled. Callers that already have their own authentication flow should use it to decide which flow to run, as
+     * Whether the check applies on this device. Callers that already have their own authentication flow should use it
+     * to decide which flow to run, as
      * [authenticate] continues right away when the check does not apply.
      *
      * @param context The context used to check the device type.
@@ -57,7 +55,7 @@ interface AutomotiveSensitiveDataAuthenticator {
  * @param showAuthenticationPrompt Shows the authentication prompt, invoking exactly one of its callbacks.
  */
 class DefaultAutomotiveSensitiveDataAuthenticator(
-    private val isRequiredCheck: (Context) -> Boolean = ::isAutomotiveSensitiveDataAuthenticationRequired,
+    private val isRequiredCheck: (Context) -> Boolean = { false },
     private val isDeviceLockSetUp: (Context) -> Boolean = Context::isDeviceLockSetUp,
     private val setupPrompt: AutomotiveAuthenticationSetupPrompt = DefaultAutomotiveAuthenticationSetupPrompt,
     private val showAuthenticationPrompt:
@@ -90,9 +88,6 @@ class DefaultAutomotiveSensitiveDataAuthenticator(
         }
     }
 }
-
-private fun isAutomotiveSensitiveDataAuthenticationRequired(context: Context): Boolean =
-    FxNimbus.features.automotiveSensitiveData.value().enabled && context.isAndroidAutomotiveAvailable()
 
 private fun showDeviceLockPrompt(
     activity: FragmentActivity,

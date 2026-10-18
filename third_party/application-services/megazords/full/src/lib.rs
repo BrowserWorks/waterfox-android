@@ -18,7 +18,6 @@ pub use fxcontainers;
 pub use init_rust_components;
 pub use logins;
 pub use merino;
-pub use nimbus;
 pub use places;
 pub use push;
 pub use relay;

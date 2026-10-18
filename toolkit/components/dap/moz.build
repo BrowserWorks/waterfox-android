@@ -35,12 +35,16 @@ UNIFIED_SOURCES += [
 ]
 
 EXTRA_JS_MODULES += [
-    "DAPIncrementality.sys.mjs",
     "DAPReportController.sys.mjs",
     "DAPSender.sys.mjs",
     "DAPTelemetrySender.sys.mjs",
-    "DAPVisitCounter.sys.mjs",
 ]
+
+if CONFIG["OS_TARGET"] != "Android":
+    EXTRA_JS_MODULES += [
+        "DAPIncrementality.sys.mjs",
+        "DAPVisitCounter.sys.mjs",
+    ]
 
 with Files("**"):
     BUG_COMPONENT = ("Toolkit", "DAP")

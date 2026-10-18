@@ -915,8 +915,6 @@
   <string name="preferences_marketing_data_2">Isefka n usket n tudrin</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Issin ugar ɣef yisefka n ulzuz</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Studies</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Sireg BrowserWorks ad tesbedded sakin ad tseddu studies</string>
   <!--

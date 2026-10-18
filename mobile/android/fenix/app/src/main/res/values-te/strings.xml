@@ -366,8 +366,6 @@
   <string name="exceptions_empty_message_description">మినహాయింపులు మీరు ఎంచుకున్న సైట్లకు ట్రాకింగ్ సంరక్షణను అచేతనం చేసుకోనిస్తాయి.</string>
   <!-- Text displayed when there are no exceptions, with learn more link that brings users to a tracking protection SUMO page -->
   <string name="exceptions_empty_message_learn_more_link">ఇంకా తెలుసుకోండి</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">అధ్యయనాలు</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">అధ్యయనాలను స్థాపించడానికి, నడపడానికి BrowserWorksకు అనుమతినిస్తుంది</string>
   <!-- Preference for reconnecting to FxA sync -->

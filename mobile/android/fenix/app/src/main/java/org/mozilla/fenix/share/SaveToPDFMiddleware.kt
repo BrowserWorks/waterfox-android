@@ -23,7 +23,6 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.browser.StandardSnackbarError
 import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.ext.components
-import org.mozilla.fenix.ext.recordEventInNimbus
 import org.mozilla.geckoview.GeckoSession
 import org.mozilla.geckoview.GeckoSession.GeckoPrintException.ERROR_NO_ACTIVITY_CONTEXT
 import org.mozilla.geckoview.GeckoSession.GeckoPrintException.ERROR_NO_ACTIVITY_CONTEXT_DELEGATE
@@ -148,7 +147,6 @@ class SaveToPDFMiddleware(
                     onResult = { isPdf ->
                         if (isPrint) {
                             Events.printTapped.record(Events.PrintTappedExtra(source = telemetrySource(isPdf)))
-                            context.recordEventInNimbus("print_tapped")
                         } else {
                             Events.saveToPdfTapped.record(Events.SaveToPdfTappedExtra(source = telemetrySource(isPdf)))
                         }

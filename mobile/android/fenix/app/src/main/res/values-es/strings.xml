@@ -1234,8 +1234,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Comparte cómo descubriste Waterfox y cómo lo utilizas con los socios tecnológicos de marketing de BrowserWorks.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Saber más sobre los datos de marketing</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Estudios</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Permite a BrowserWorks instalar y ejecutar estudios</string>
   <!--

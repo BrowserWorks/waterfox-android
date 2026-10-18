@@ -7,7 +7,6 @@ package org.mozilla.fenix.home.sessioncontrol
 import mozilla.components.feature.tab.collections.Tab
 import mozilla.components.feature.tab.collections.TabCollection
 import mozilla.components.feature.top.sites.TopSite
-import mozilla.components.service.nimbus.messaging.Message
 import mozilla.components.service.pocket.PocketStory
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.components.appstate.AppState
@@ -113,14 +112,6 @@ interface CollectionInteractor {
 
     /** Opens the collection creator */
     fun onAddTabsToCollectionTapped()
-}
-
-interface MessageCardInteractor {
-    /** Called when a [Message]'s button is clicked */
-    fun onMessageClicked(message: Message)
-
-    /** Called when close button on a [Message] card. */
-    fun onMessageClosedClicked(message: Message)
 }
 
 /** Interface for wallpaper related actions. */
@@ -382,14 +373,6 @@ class SessionControlInteractor(
 
     override fun reportSessionMetrics(state: AppState) {
         controller.handleReportSessionMetrics(state)
-    }
-
-    override fun onMessageClicked(message: Message) {
-        controller.handleMessageClicked(message)
-    }
-
-    override fun onMessageClosedClicked(message: Message) {
-        controller.handleMessageClosed(message)
     }
 
     override fun onPrivacyNoticeBannerCloseClicked() {

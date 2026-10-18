@@ -818,8 +818,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">ፋየርፎክስን እንዴት እንዳገኘህ እና ከሞዚላ የግብይት ቴክኖሎጂ አጋሮች ጋር እንደምትጠቀምበት አጋራ።</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">ስለ ግብይት ውሂብ የበለጠ ይወቁ</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">ጥናቶች</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">ሞዚላ ጥናቶችን እንዲጭን እና እንዲያሄድ ይፈቅዳል</string>
   <!-- Preference for reconnecting to FxA sync -->

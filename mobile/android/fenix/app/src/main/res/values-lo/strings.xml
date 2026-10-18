@@ -1026,8 +1026,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">ແບ່ງປັນວິທີທີ່ທ່ານຄົ້ນພົບ Waterfox ແລະ ທີ່ທ່ານໃຊ້ມັນກັບຄູ່ຄ້າດ້ານເຕັກໂນໂລຢີການຕະຫຼາດຂອງ BrowserWorks.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">ສຶກສາເພີ່ມເຕີມກ່ຽວກັບຂໍ້ມູນການຕະຫຼາດ</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">ການສຶກສາ</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">ອະນຸຍາດໃຫ້ BrowserWorks ຕິດຕັ້ງ ແລະ ເປີດໃຊ້ການສຶກສາ</string>
   <!--

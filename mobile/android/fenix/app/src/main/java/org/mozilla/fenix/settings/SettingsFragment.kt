@@ -567,11 +567,6 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
                 }
 
                 // Only displayed when secret settings are enabled
-                resources.getString(R.string.pref_key_nimbus_experiments) -> {
-                    SettingsFragmentDirections.actionSettingsFragmentToNimbusExperimentsFragment()
-                }
-
-                // Only displayed when secret settings are enabled
                 resources.getString(R.string.pref_key_start_profiler) -> {
                     if (profilerViewModel.isProfilerActive.value) {
                         SettingsFragmentDirections.actionSettingsFragmentToStopProfilerDialog()
@@ -617,7 +612,6 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
         val preferenceStartProfiler = findPreference<Preference>(getPreferenceKey(R.string.pref_key_start_profiler))
 
         with(settings) {
-            findPreference<Preference>(getPreferenceKey(R.string.pref_key_nimbus_experiments))?.isVisible = false
             findPreference<Preference>(getPreferenceKey(R.string.pref_key_sync_debug))?.isVisible =
                 showSecretDebugMenuThisSession && !Config.channel.isRelease
             preferenceStartProfiler?.isVisible = false

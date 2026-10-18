@@ -608,8 +608,6 @@
   <string name="exceptions_empty_message_description">آیری‌ْ توتمالار سئچیلمیش سایتلار اوچون ایزلنمه قوْروماسینیْ ایشدن سالماغا ایمکان وئریر.</string>
   <!-- Text displayed when there are no exceptions, with learn more link that brings users to a tracking protection SUMO page -->
   <string name="exceptions_empty_message_learn_more_link">آرتیق بیلین</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">آراشدیرمالار</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">موزیلایا آراشدیرمالار قوْشماغینا و ایجرا ائتمه‌سینه ایجازه وئریر.</string>
   <!-- Preference for reconnecting to FxA sync -->

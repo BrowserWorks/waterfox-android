@@ -1263,8 +1263,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Chia sẻ cách bạn phát hiện ra Waterfox và bạn sử dụng nó với các đối tác công nghệ tiếp thị của BrowserWorks.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Tìm hiểu thêm về dữ liệu tiếp thị</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Nghiên cứu</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Cho phép BrowserWorks cài đặt và chạy các nghiên cứu</string>
   <!--

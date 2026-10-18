@@ -1224,8 +1224,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Kakomonin kik\'in rachsamajel rumarkentin BrowserWorks achike rub\'eyal xawïl Waterfox chuqa\' achi\'el rub\'eyal nawokisaj.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Tetamäx ch\'aqa\' chik chi rij ri markenting</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Taq tijonïk</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Taya\' q\'ij chi ri BrowserWorks nuyäk chuqa\' nub\'än taq tijonïk</string>
   <!--

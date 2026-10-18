@@ -475,6 +475,7 @@ var Impl = {
       !this._testing
     );
     if (
+      AppConstants.platform !== "android" &&
       lazy.NimbusFeatures.legacyTelemetry.getVariable("disableMainPingHgrams")
     ) {
       this._log.trace("getHistograms - Main ping histograms are disabled.");
@@ -490,6 +491,7 @@ var Impl = {
       !this._testing
     );
     if (
+      AppConstants.platform !== "android" &&
       lazy.NimbusFeatures.legacyTelemetry.getVariable("disableMainPingHgrams")
     ) {
       this._log.trace(
@@ -530,6 +532,7 @@ var Impl = {
         );
 
     if (
+      AppConstants.platform !== "android" &&
       lazy.NimbusFeatures.legacyTelemetry.getVariable("disableMainPingScalars")
     ) {
       this._log.trace("getScalars - Main ping scalars are disabled.");

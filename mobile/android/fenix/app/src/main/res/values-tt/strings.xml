@@ -715,8 +715,6 @@
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">Көндәлек куллану пингы</string>
   <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">Бу BrowserWorks-га актив кулланучылар санын бәяләргә ярдәм итә.</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Тикшеренүләр</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorks-га тикшеренүләр урнаштырырга һәм үткәрергә рөхсәт итү</string>
   <!-- Preference for reconnecting to FxA sync -->

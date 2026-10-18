@@ -454,8 +454,6 @@
   <string name="exceptions_empty_message_description">Išimtys leidžia išjungti apsaugą nuo stebėjimo pasirinktose svetainėse.</string>
   <!-- Text displayed when there are no exceptions, with learn more link that brings users to a tracking protection SUMO page -->
   <string name="exceptions_empty_message_learn_more_link">Sužinoti daugiau</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Tyrimai</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Leidžia „BrowserWorksi“ diegti ir vykdyti tyrimus</string>
   <!-- Preference for reconnecting to FxA sync -->

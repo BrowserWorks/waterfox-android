@@ -1234,8 +1234,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Waterfox نى قانداق بايقىغانلىقىڭىز ۋە ئۇنى ئىشلىتىشنى BrowserWorks نىڭ بازارچىلىق تېخنىكا ھەمكارلاشقۇچىلىرى بىلەن ھەمبەھىرلەڭ.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">بازارچىلىق سانلىق مەلۇماتى ھەققىدىكى تەپسىلات</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">تەتقىقات</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorks نىڭ تەتقىقاتىنى ئورنىتىپ ۋە ئىجرا قىلىشىغا يول قويىدۇ</string>
   <!--

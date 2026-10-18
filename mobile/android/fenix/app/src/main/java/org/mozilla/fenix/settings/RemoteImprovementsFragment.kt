@@ -24,7 +24,6 @@ class RemoteImprovementsFragment : PreferenceFragmentCompat(), SystemInsetsPadde
             onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
                 val enabled = newValue as? Boolean ?: false
                 context.components.settings.isRolloutsEnabled = enabled
-                context.components.nimbus.sdk.rolloutParticipation = enabled
                 true
             }
         }

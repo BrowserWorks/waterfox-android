@@ -610,8 +610,6 @@
   <string name="exceptions_empty_message_description">Pangiwalan bisa dipaké mareuman protéksi palacakan pikeun loka anu dipilih.</string>
   <!-- Text displayed when there are no exceptions, with learn more link that brings users to a tracking protection SUMO page -->
   <string name="exceptions_empty_message_learn_more_link">Lenyepan</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Studi</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Ngidinan BrowserWorks masang jeung ngajalankeun studi</string>
   <!-- Preference for reconnecting to FxA sync -->

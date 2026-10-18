@@ -316,8 +316,6 @@
   <string name="exceptions_empty_message_description">ရွေးချယ်ထားသောဆိုက်များအတွက် ခြေရာခံကာကွယ်ခြင်းကို ခြွင်းချက်များက ပိတ်ဆို့လိမ့်မည်။</string>
   <!-- Text displayed when there are no exceptions, with learn more link that brings users to a tracking protection SUMO page -->
   <string name="exceptions_empty_message_learn_more_link">ပိုမိုလေ့လာရန်</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">လေ့လာရေး</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorks ကို ထည့်သွင်းစေပြီး လေ့လာခွင့်ပြုပါ</string>
   <!-- Preference for reconnecting to FxA sync -->

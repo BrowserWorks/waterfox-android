@@ -83,7 +83,6 @@ import org.mozilla.fenix.home.recentvisits.interactor.RecentVisitsInteractor
 import org.mozilla.fenix.home.recentvisits.view.RecentVisitMenuItem
 import org.mozilla.fenix.home.recentvisits.view.RecentlyVisited
 import org.mozilla.fenix.home.sessioncontrol.CollectionInteractor
-import org.mozilla.fenix.home.sessioncontrol.MessageCardInteractor
 import org.mozilla.fenix.home.setup.ui.SetupChecklist
 import org.mozilla.fenix.home.store.HeaderState
 import org.mozilla.fenix.home.store.HomepageState
@@ -157,7 +156,6 @@ internal fun Homepage(
                     shouldShowPrivacyNoticeBanner = state.shouldShowPrivacyNoticeBanner,
                     nimbusMessage = state.nimbusMessage,
                     privacyNoticeBannerInteractor = interactor,
-                    messageCardInteractor = interactor,
                 )
             }
 
@@ -371,7 +369,6 @@ private fun BannerCardSection(
     shouldShowPrivacyNoticeBanner: Boolean,
     nimbusMessage: NimbusMessageState?,
     privacyNoticeBannerInteractor: PrivacyNoticeBannerInteractor,
-    messageCardInteractor: MessageCardInteractor,
 ) {
     if (shouldShowPrivacyNoticeBanner) {
         Spacer(modifier = Modifier.height(12.dp))
@@ -387,8 +384,6 @@ private fun BannerCardSection(
         MessageCard(
             messageCardState = cardState,
             modifier = Modifier.padding(horizontal = 16.dp),
-            onClick = { messageCardInteractor.onMessageClicked(message) },
-            onCloseButtonClick = { messageCardInteractor.onMessageClosedClicked(message) },
         )
     }
 }

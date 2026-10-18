@@ -1256,8 +1256,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">BrowserWorks के मार्केटिंग टेक्नोलॉजी पार्टनर्स के साथ यह जानकारी शेयर करें कि आपने Waterfox के बारे में कैसे जाना और यह कि आपके द्वारा इसका इस्तेमाल किया जा रहा है।</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">मार्केटिंग डेटा के बारे में और जानें</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">अध्ययन</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorks को अध्ययन इंस्टॉल करने और चलाने की अनुमति देता है</string>
   <!--

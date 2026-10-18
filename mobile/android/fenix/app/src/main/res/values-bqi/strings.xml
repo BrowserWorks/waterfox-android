@@ -1274,8 +1274,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">بارت آشنایی وا Waterfox وو یو ک و کارس اگیری ن وا هومکورووݩ بازارجۊری BrowserWorks یک رسۊوی کۊنین.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">زبار داده یل بازاریابی قلوه دووسته بۊین</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">خۊندنیا</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">مۊزیلا ن بهلین تا وردنی یل خۊندنی ن بپرنه وو ر ونه</string>
   <!--

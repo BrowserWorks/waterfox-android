@@ -423,8 +423,6 @@
   <string name="exceptions_empty_message_description">Esaptan tısqarılar sizge tańlanǵan saytlarda baqlawlardan qorǵanıwdı óshiriwge imkaniyat beredi.</string>
   <!-- Text displayed when there are no exceptions, with learn more link that brings users to a tracking protection SUMO page -->
   <string name="exceptions_empty_message_learn_more_link">Tolıǵıraq úyreniw</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Izertlewler</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorksǵa izleniwlerdi ornatıw hám júrgiziwge ruqsat beredi</string>
   <!-- Preference for reconnecting to FxA sync -->

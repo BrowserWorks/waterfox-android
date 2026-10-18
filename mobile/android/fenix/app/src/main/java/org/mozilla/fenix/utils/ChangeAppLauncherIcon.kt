@@ -13,12 +13,11 @@ import androidx.core.content.pm.ShortcutManagerCompat
 import mozilla.components.concept.base.crash.CrashReporting
 import mozilla.components.support.base.log.logger.Logger
 import org.mozilla.fenix.iconpicker.AppIcon
-import org.mozilla.fenix.nimbus.FxNimbus
 
 private val logger = Logger("ChangeAppLauncherIcon")
 
 /**
- * Required to implement the [FxNimbus.features] alternativeAppLauncherIcon feature.
+ * Required to implement the alternativeAppLauncherIcon feature.
  *
  * Will set the app launcher icon based on the [resetToDefault] flag. Checks whether the icon needs updating to prevent
  * unnecessary icon updates.

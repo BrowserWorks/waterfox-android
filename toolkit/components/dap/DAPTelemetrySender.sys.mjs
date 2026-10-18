@@ -2,6 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+import { AppConstants } from "resource://gre/modules/AppConstants.sys.mjs";
 import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
 import { DAPSender } from "resource://gre/modules/DAPSender.sys.mjs";
 
@@ -52,6 +53,10 @@ export const DAPTelemetrySender = new (class {
    */
 
   async startup() {
+    if (AppConstants.platform === "android") {
+      return;
+    }
+
     if (
       Services.startup.isInOrBeyondShutdownPhase(
         Ci.nsIAppStartup.SHUTDOWN_PHASE_APPSHUTDOWNCONFIRMED

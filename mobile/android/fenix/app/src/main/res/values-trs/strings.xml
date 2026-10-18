@@ -1150,8 +1150,6 @@
   <string name="exceptions_empty_message_learn_more_link">Gāhuin chrūn doj</string>
   <!-- Title Headers for data collection settings screen -->
   <string name="crash_reports_data_category">Sa nata\' rayi\'î nej sa gire\'e</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Nej ēstûdio</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Gā’nï̄n guendâ gā’nïnj BrowserWorks nej ēstûdio</string>
   <!--

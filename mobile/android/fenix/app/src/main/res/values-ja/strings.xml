@@ -1279,8 +1279,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Waterfox を見つけた経緯や、Waterfox を使用していることを BrowserWorks のマーケティング技術パートナーと共有してください。</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">マーケティングデータについての詳細</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">調査</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">調査機能のインストールと実行を BrowserWorks に許可する</string>
   <!--

@@ -536,8 +536,6 @@
   <string name="preferences_daily_usage_ping_title">Igapäevane kasutusping</string>
   <string name="preferences_daily_usage_ping_description" tools:ignore="BrandUsage">See aitab BrowserWorksl aktiivsete kasutajate arvu \u0020hinnata.</string>
   <string name="preferences_daily_usage_ping_learn_more">Rohkem teavet igapäevasest kasutuspingust</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Uuringud</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Võimaldab BrowserWorksl paigaldada ja käivitada uuringuid</string>
   <!-- Preference for reconnecting to FxA sync -->

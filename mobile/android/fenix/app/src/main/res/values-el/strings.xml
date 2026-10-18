@@ -1280,8 +1280,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Μοιραστείτε πώς ανακαλύψατε το Waterfox και δηλώστε ότι το χρησιμοποιείτε στους συνεργάτες μάρκετινγκ της BrowserWorks.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Μάθετε περισσότερα σχετικά με τα δεδομένα μάρκετινγκ</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Μελέτες</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Επιτρέπει στο BrowserWorks την εγκατάσταση και εκτέλεση μελετών</string>
   <!--

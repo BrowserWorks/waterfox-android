@@ -549,6 +549,7 @@ HandlerService.prototype = {
       // makes a choice and it is stored, their preference is respected.
       if (
         type == "mailto" &&
+        AppConstants.platform !== "android" &&
         lazy.NimbusFeatures.mailto.getVariable("dialog")
       ) {
         handlerInfo.alwaysAskBeforeHandling = true;

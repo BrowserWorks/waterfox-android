@@ -26,6 +26,11 @@ android {
     }
 
     namespace = 'mozilla.components.browser.engine.gecko'
+
+    sourceSets.main {
+        java.exclude('mozilla/components/experiment/NimbusExperimentDelegate.kt')
+        kotlin.exclude('mozilla/components/experiment/NimbusExperimentDelegate.kt')
+    }
 }
 
 // Set configuration for the Glean parser to extract metrics.yaml

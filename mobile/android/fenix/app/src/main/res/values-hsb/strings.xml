@@ -1282,8 +1282,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Zdźělće našim partneram BrowserWorks marketingoweje technologije, kak sće Waterfox wotkrył a zo jón wužiwaće.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Dalše informacije wo marketingowych datach</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Studije</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorks dowolić, studije instalować a přewjesć</string>
   <!--

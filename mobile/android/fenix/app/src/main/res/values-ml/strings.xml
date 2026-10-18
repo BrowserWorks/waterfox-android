@@ -1026,8 +1026,6 @@
   <string name="crash_reporting_description">തകൎച്ച റിപ്പോർട്ടുകൾ ഞങ്ങൾക്കു് അന്വേഷിയന്ത്രത്തിന്റെ കൂടെയുള്ള എല്ലാ പ്രശ്നങ്ങളെ കണ്ടുപിടിക്കാനും പരിഹരിക്കാനും സഹായിക്കുന്നു. റിപ്പോർട്ടുകളിൽ തനതായ അല്ലെങ്കിൽ സൂക്ഷിച്ചുവയ്ക്കാനുള്ള ദത്തയും ഉൾപ്പെടാം.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">വില്പനദത്തയെ കുറിച്ചു് കൂടുതൽ അറിയുക</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">പഠനങ്ങൾ</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">പഠനങ്ങൾ സ്ഥാപിക്കാനും പ്രവർത്തിപ്പിക്കാനും മോസില്ലയെ അനുവദിക്കും</string>
   <!--

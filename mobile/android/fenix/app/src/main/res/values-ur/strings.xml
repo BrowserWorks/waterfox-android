@@ -312,8 +312,6 @@
   <string name="exceptions_empty_message_description">استثنیات آپ کو منتخب کردہ سائٹوں کے لئے سراغ کاری تحفظ کو غیر فعال کرنے دیتے ہیں۔</string>
   <!-- Text displayed when there are no exceptions, with learn more link that brings users to a tracking protection SUMO page -->
   <string name="exceptions_empty_message_learn_more_link">مزید سیکھیں</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">مطالعہ</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorks کو مطالعے انسٹال اور چلانے کی اجازت دیتا ہے</string>
   <!-- Preference for reconnecting to FxA sync -->

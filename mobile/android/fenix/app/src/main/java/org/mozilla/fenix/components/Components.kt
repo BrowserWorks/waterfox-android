@@ -87,8 +87,6 @@ import org.mozilla.fenix.home.setup.store.DefaultSetupChecklistRepository
 import org.mozilla.fenix.home.setup.store.SetupChecklistPreferencesMiddleware
 import org.mozilla.fenix.home.setup.store.SetupChecklistTelemetryMiddleware
 import org.mozilla.fenix.ipprotection.store.DefaultIPProtectionPromptRepository
-import org.mozilla.fenix.messaging.state.MessagingMiddleware
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.onboarding.FenixOnboarding
 import org.mozilla.fenix.perf.AppLinkIntentLaunchTypeProvider
 import org.mozilla.fenix.perf.AppStartReasonProvider
@@ -235,7 +233,7 @@ class Components(
         AddonManager(core.store, core.engine, addonsProvider, addonUpdater)
     }
 
-    val analytics by lazyMonitored { Analytics(context, settings, nimbus) }
+    val analytics by lazyMonitored { Analytics(context, settings) }
 
     val remoteSettingsService = lazyMonitored {
         RemoteSettingsService(
@@ -251,12 +249,7 @@ class Components(
             isLargeScreenSize = context.isLargeScreenSize(),
         )
     }
-    val nimbus: NimbusComponents by lazyMonitored {
-        NimbusComponents(
-            context = context,
-            engine = lazyMonitored { core.engine },
-        )
-    }
+
     val publicSuffixList by lazyMonitored { PublicSuffixList(context) }
     val clipboardHandler by lazyMonitored { ClipboardHandler(context) }
     val performance by lazyMonitored { PerformanceComponent() }
@@ -329,13 +322,8 @@ class Components(
                         ProfileMarkerMiddleware(markerName = "AppStore", profiler = core.engine.profiler),
                         LogMiddleware(tag = "AppStore", shouldIncludeDetailedData = { Config.channel.isDebug }),
                         BlocklistMiddleware(blocklistHandler),
-                        MessagingMiddleware(
-                            controller = nimbus.messaging,
-                            settings = settings,
-                        ),
                         MetricsMiddleware(
                             metrics = analytics.metrics,
-                            nimbusEventStore = nimbus.events,
                         ),
                         /*
                         CrashReportingAppMiddleware(

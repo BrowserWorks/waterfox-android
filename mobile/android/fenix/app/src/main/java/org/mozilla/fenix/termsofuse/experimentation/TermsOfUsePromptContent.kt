@@ -17,7 +17,6 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import mozilla.components.compose.base.LinkText
 import mozilla.components.compose.base.LinkTextState
 import org.mozilla.fenix.R
-import org.mozilla.fenix.nimbus.TermsOfUsePromptContentOption
 import org.mozilla.fenix.theme.FirefoxTheme
 
 /*
@@ -25,9 +24,10 @@ import org.mozilla.fenix.theme.FirefoxTheme
  * to be modified or removed entirely, hence why it's kept self-contained.
  */
 
+enum class TermsOfUsePromptContentOption { VALUE_0, VALUE_1, VALUE_2 }
+
 /**
- * Stores the configurable content of the Terms of Use prompt defined in the
- * [org.mozilla.fenix.nimbus.TermsOfUsePrompt].
+ * Stores the configurable content of the Terms of Use prompt.
  *
  * @property title The prompt title.
  * @property learnMoreContent Composable content containing the "Learn more" copy and link.

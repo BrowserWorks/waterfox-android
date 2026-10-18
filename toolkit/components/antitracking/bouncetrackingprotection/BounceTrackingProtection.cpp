@@ -45,7 +45,9 @@
 #include "mozilla/dom/WindowGlobalParent.h"
 #include "nsIConsoleService.h"
 #include "mozilla/intl/Localization.h"
-#include "mozilla/browser/NimbusFeatures.h"
+#ifndef MOZ_WIDGET_ANDROID
+#  include "mozilla/browser/NimbusFeatures.h"
+#endif
 
 #define TEST_OBSERVER_MSG_RECORD_BOUNCES_FINISHED "test-record-bounces-finished"
 
@@ -1072,12 +1074,14 @@ BounceTrackingProtection::PurgeBounceTrackers() {
                   // errors if the client is not enrolled in an experiment
                   // involving BTP which we don't consider a failure state.
                   //
+#ifndef MOZ_WIDGET_ANDROID
                   // We record exposure for MODE_ENABLED_DRY_RUN in addition to
                   // MODE_ENABLED so we know in Nimbus when a client would have
                   // been exposed to BTP had it been enabled. This enables us to
                   // compare the control and treatment branches with exposure.
                   (void)NimbusFeatures::RecordExposureEvent(
                       "bounceTrackingProtection"_ns, false);
+#endif
 
                   if (StaticPrefs::privacy_bounceTrackingProtection_mode() ==
                       nsIBounceTrackingProtection::MODE_ENABLED) {

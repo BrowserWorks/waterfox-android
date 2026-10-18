@@ -10,7 +10,6 @@ import static org.mozilla.conventions.BuildConfigKt.updateExtensionVersion
 plugins {
     id 'com.android.application'
     id 'org.mozilla.conventions.zip-test-reports'
-    id 'org.mozilla.nimbus-gradle-plugin'
     id 'ApkSizePlugin'
     id 'jacoco'
     alias(libs.plugins.androidx.safeargs)
@@ -228,6 +227,32 @@ android {
 
     def waterfoxBrandingResources = ['src/waterfoxBranding/res']
     sourceSets {
+        main {
+            // Retain upstream sources without compiling their Nimbus dependencies.
+            def disabledNimbusSources = [
+                'components/NimbusComponents.kt',
+                'components/ipprotection/FenixIPProtectionEligibilityStorage.kt',
+                'crashes/NimbusExperimentDataProvider.kt',
+                'experiments/NimbusSetup.kt',
+                'experiments/RecordedNimbusContext.kt',
+                'experiments/ResearchSurfaceDialogFragment.kt',
+                'experiments/prefhandling/**',
+                'experiments/view/**',
+                'messaging/**',
+                'microsurvey/ui/MicrosurveyBottomSheetFragment.kt',
+                'nimbus/**',
+                'onboarding/OnboardingFragment.kt',
+                'onboarding/view/OnboardingMapper.kt',
+                'onboarding/view/OnboardingScreen.kt',
+                'reviewprompt/ReviewPromptMiddleware.kt',
+                'settings/labs/**',
+                'settings/studies/**',
+                'webcompat/middleware/NimbusExperimentsProvider.kt',
+            ].collect { "org/mozilla/fenix/$it" }
+            java.exclude(disabledNimbusSources)
+            kotlin.exclude(disabledNimbusSources)
+        }
+
         androidTest {
             resources.srcDirs += ['src/androidTest/resources']
             assets.srcDirs += files("$projectDir/schemas".toString())
@@ -437,13 +462,6 @@ android.defaultConfig.with {
     def buildDate = LocalDateTime.parse(getBuildId(gradle.mozconfig.topobjdir, providers.environmentVariable("MOZ_BUILD_DATE").getOrNull()), DateTimeFormatter.ofPattern("yyyyMMddHHmmss")).toString()
     buildConfigField 'String', 'BUILD_DATE', '"' + buildDate + '"'
 
-    try {
-        def url = new File("${rootDir}/.nimbus").text.trim()
-        buildConfigField 'String', 'NIMBUS_ENDPOINT', '"' + url + '"'
-    } catch (FileNotFoundException ignored) {
-        buildConfigField 'String', 'NIMBUS_ENDPOINT', 'null'
-    }
-
     buildConfigField 'boolean', 'LEAKCANARY', 'false'
 
     // The remaining fields do not depend on the build type.
@@ -488,13 +506,6 @@ android.buildTypes.debug.with {
     buildConfigField 'boolean', 'TELEMETRY', 'false'
     buildConfigField 'String', 'BUILD_DATE', '"debug build"'
 
-    if (gradle.hasProperty("localProperties.nimbus.remote-settings.url")) {
-        def url = gradle.getProperty("localProperties.nimbus.remote-settings.url")
-        buildConfigField 'String', 'NIMBUS_ENDPOINT', '"' + url + '"'
-    } else {
-        buildConfigField 'String', 'NIMBUS_ENDPOINT', 'null'
-    }
-
     if (project.hasProperty("disableLeakCanary") || gradle.hasProperty("localProperties.disableLeakCanary")) {
         buildConfigField "boolean", "LEAKCANARY", "false"
     } else {
@@ -518,29 +529,6 @@ ext {
     gleanPythonEnvDir = gradle.mozconfig.substs.GRADLE_GLEAN_PARSER_VENV
 }
 apply plugin: "org.mozilla.telemetry.glean-gradle-plugin"
-
-nimbus {
-    // The path to the Nimbus feature manifest file
-    manifestFile = "nimbus.fml.yaml"
-    // The fully qualified class name for the generated features.
-    // Map from the variant name to the channel as experimenter and nimbus understand it.
-    // If nimbus's channels were accurately set up well for this project, then this
-    // shouldn't be needed.
-    channels = [
-            debug: "developer",
-            nightly: "nightly",
-            beta: "beta",
-            release: "release",
-            benchmark: "nightly",
-            waterfoxDebug: "developer",
-            waterfoxNightly: "nightly",
-            waterfoxBeta: "beta",
-            waterfoxRelease: "release",
-            waterfoxBenchmark: "developer",
-    ]
-    applicationServicesDir = gradle.hasProperty('localProperties.autoPublish.application-services.dir')
-            ? gradle.getProperty('localProperties.autoPublish.application-services.dir') : null
-}
 
 tasks.register("updateAMOExtensionVersion", Copy) { task ->
     updateExtensionVersion(task, 'src/main/assets/extensions/amo', rootProject.ext.config.componentsVersion)
@@ -623,7 +611,6 @@ dependencies {
     implementation project(':components:service-location')
     implementation project(':components:service-mars')
     implementation project(':components:service-merino-manifest')
-    implementation project(':components:service-nimbus')
     implementation project(':components:service-pocket')
     implementation project(':components:service-sync-autofill')
     implementation project(':components:service-sync-logins')

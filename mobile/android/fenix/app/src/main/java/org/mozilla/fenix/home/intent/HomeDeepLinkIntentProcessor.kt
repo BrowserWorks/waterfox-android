@@ -87,8 +87,6 @@ class HomeDeepLinkIntentProcessor(
                 "settings_app_icon" -> GlobalDirections.SettingsAppIcon
                 "privacy_report",
                 "protections_dashboard" -> GlobalDirections.ProtectionsDashboard
-                "settings_ip_protection" -> GlobalDirections.SettingsIpProtection
-
                 else -> return
             }
 

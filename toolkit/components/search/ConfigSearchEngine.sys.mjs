@@ -317,6 +317,10 @@ const ParamPreferenceCache = {
     }
     this.branch.addObserver("", this, true);
 
+    if (AppConstants.platform === "android") {
+      return;
+    }
+
     this.onNimbusUpdate = this.onNimbusUpdate.bind(this);
     this.onNimbusUpdate();
     lazy.NimbusFeatures.searchConfiguration.onUpdate(this.onNimbusUpdate);

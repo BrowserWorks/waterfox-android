@@ -149,7 +149,8 @@ if CONFIG["MOZ_BUILD_APP"] == "browser":
 if CONFIG["MOZ_BUILD_APP"] != "comm/mail":
     DIRS += ["ipprotection"]
 
-DIRS += ["nimbus"]
+if CONFIG["OS_TARGET"] != "Android":
+    DIRS += ["nimbus"]
 
 if CONFIG["MOZ_BACKGROUNDTASKS"]:
     DIRS += ["backgroundtasks"]

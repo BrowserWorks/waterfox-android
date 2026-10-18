@@ -5,9 +5,10 @@
 with Files("**"):
     BUG_COMPONENT = ("Application Services", "Relevancy")
 
-EXTRA_JS_MODULES += [
-    "ContentRelevancyManager.sys.mjs",
-]
+if CONFIG["OS_TARGET"] != "Android":
+    EXTRA_JS_MODULES += [
+        "ContentRelevancyManager.sys.mjs",
+    ]
 
 EXTRA_JS_MODULES["contentrelevancy/private"] += [
     "private/InputUtils.sys.mjs",

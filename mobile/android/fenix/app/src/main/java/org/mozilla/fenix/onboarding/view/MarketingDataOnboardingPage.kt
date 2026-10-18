@@ -59,7 +59,6 @@ import mozilla.components.compose.base.button.OutlinedButton
 import mozilla.components.ui.colors.PhotonColors
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.ScrollIndicator
-import org.mozilla.fenix.nimbus.MarketingCardVariant
 import org.mozilla.fenix.theme.FirefoxTheme
 
 private val MARKETING_CONTENT_IMAGE_HEIGHT = 150.dp

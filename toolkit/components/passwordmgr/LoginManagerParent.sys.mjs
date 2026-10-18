@@ -476,6 +476,7 @@ export class LoginManagerParent extends JSWindowActorParent {
     const profiles = await migrator.getSourceProfiles();
     if (
       profiles.length == 1 &&
+      AppConstants.platform !== "android" &&
       lazy.NimbusFeatures["password-autocomplete"].getVariable(
         "directMigrateSingleProfile"
       )

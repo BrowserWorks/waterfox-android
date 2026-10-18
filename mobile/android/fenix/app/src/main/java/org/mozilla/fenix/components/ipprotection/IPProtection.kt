@@ -5,15 +5,19 @@
 package org.mozilla.fenix.components.ipprotection
 
 import android.content.Context
-import androidx.lifecycle.ProcessLifecycleOwner
+import kotlinx.coroutines.flow.flowOf
+import mozilla.components.ExperimentalAndroidComponentsApi
 import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.concept.engine.Engine
+import mozilla.components.feature.ipprotection.IPProtectionEligibilityStorage
 import mozilla.components.feature.ipprotection.IPProtectionFeature
 import mozilla.components.feature.ipprotection.IPProtectionStorageSynchronizer
 import mozilla.components.feature.ipprotection.auth.gpi.IPProtectionGpiProvider
 import mozilla.components.feature.ipprotection.store.DefaultIPProtectionLocationRepository
 import mozilla.components.feature.ipprotection.store.IPProtectionLocationMiddleware
 import mozilla.components.feature.ipprotection.store.IPProtectionStore
+import mozilla.components.feature.ipprotection.store.state.EligibilityStatus
+import mozilla.components.feature.ipprotection.store.state.IPProtectionState
 import mozilla.components.lib.integrity.googleplay.GooglePlayIntegrityClient
 import mozilla.components.service.fxa.manager.FxaAccountManager
 import mozilla.components.service.fxa.store.SyncStore
@@ -43,8 +47,10 @@ class IPProtection(
     val settings: Settings,
     val context: Context,
 ) {
+    @OptIn(ExperimentalAndroidComponentsApi::class)
     val store by lazy {
         IPProtectionStore(
+            initialState = IPProtectionState(eligibilityStatus = EligibilityStatus.Ineligible),
             middleware =
                 listOf(
                     LogMiddleware(
@@ -64,12 +70,11 @@ class IPProtection(
     }
 
     val eligibilityStorage by lazy {
-        FenixIPProtectionEligibilityStorage(
-            browserStore = browserStore,
-            sharedPref = settings.preferences,
-            prefKey = context.getString(R.string.pref_key_enable_ip_protection),
-            lifecycleOwner = ProcessLifecycleOwner.get(),
-        )
+        object : IPProtectionEligibilityStorage {
+            override val eligibilityStatus = flowOf<EligibilityStatus>(EligibilityStatus.Ineligible)
+
+            override fun init() = Unit
+        }
     }
 
     val feature by lazy {

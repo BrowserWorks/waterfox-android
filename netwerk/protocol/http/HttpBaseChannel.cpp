@@ -35,7 +35,9 @@
 #include "mozilla/StaticPrefs_security.h"
 #include "mozilla/Telemetry.h"
 #include "mozilla/Tokenizer.h"
-#include "mozilla/browser/NimbusFeatures.h"
+#ifndef MOZ_WIDGET_ANDROID
+#  include "mozilla/browser/NimbusFeatures.h"
+#endif
 #include "mozilla/dom/BrowsingContext.h"
 #include "mozilla/dom/CanonicalBrowsingContext.h"
 #include "mozilla/dom/ContentChild.h"
@@ -3485,7 +3487,9 @@ OpaqueResponse HttpBaseChannel::BlockOrFilterOpaqueResponse(
     OpaqueResponseBlocker* aORB, const nsAString& aReason,
     const OpaqueResponseBlockedTelemetryReason aTelemetryReason,
     const char* aFormat, ...) {
+#ifndef MOZ_WIDGET_ANDROID
   NimbusFeatures::RecordExposureEvent("opaqueResponseBlocking"_ns, true);
+#endif
 
   const bool shouldFilter =
       ShouldFilterOpaqueResponse(OpaqueResponseFilterFetch::BlockedByORB);

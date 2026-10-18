@@ -765,11 +765,13 @@ export class PictureInPictureToggleChild extends JSWindowActorChild {
    */
   changeToIconIfDurationEnd(firstSeenStartSeconds) {
     const { displayDuration } =
-      lazy.NimbusFeatures.pictureinpicture.getAllVariables({
-        defaultValues: {
-          displayDuration: TOGGLE_FIRST_TIME_DURATION_DAYS,
-        },
-      });
+      AppConstants.platform === "android"
+        ? { displayDuration: TOGGLE_FIRST_TIME_DURATION_DAYS }
+        : lazy.NimbusFeatures.pictureinpicture.getAllVariables({
+            defaultValues: {
+              displayDuration: TOGGLE_FIRST_TIME_DURATION_DAYS,
+            },
+          });
     if (!displayDuration || displayDuration < 0) {
       return;
     }
@@ -1386,16 +1388,17 @@ export class PictureInPictureToggleChild extends JSWindowActorChild {
     }
 
     // nimbusExperimentVariables will be defaultValues when the experiment is disabled
+    const defaultValues = {
+      oldToggle: true,
+      title: null,
+      message: false,
+      showIconOnly: false,
+      displayDuration: TOGGLE_FIRST_TIME_DURATION_DAYS,
+    };
     const nimbusExperimentVariables =
-      lazy.NimbusFeatures.pictureinpicture.getAllVariables({
-        defaultValues: {
-          oldToggle: true,
-          title: null,
-          message: false,
-          showIconOnly: false,
-          displayDuration: TOGGLE_FIRST_TIME_DURATION_DAYS,
-        },
-      });
+      AppConstants.platform === "android"
+        ? defaultValues
+        : lazy.NimbusFeatures.pictureinpicture.getAllVariables({ defaultValues });
 
     /**
      * If a Nimbus variable exists for the first-time PiP toggle design,
@@ -1475,7 +1478,9 @@ export class PictureInPictureToggleChild extends JSWindowActorChild {
       });
       // only record if this is the first time seeing the toggle
       if (!hasUsedPiP) {
-        lazy.NimbusFeatures.pictureinpicture.recordExposureEvent();
+        if (AppConstants.platform !== "android") {
+          lazy.NimbusFeatures.pictureinpicture.recordExposureEvent();
+        }
 
         const firstSeenSeconds = Services.prefs.getIntPref(
           TOGGLE_FIRST_SEEN_PREF,

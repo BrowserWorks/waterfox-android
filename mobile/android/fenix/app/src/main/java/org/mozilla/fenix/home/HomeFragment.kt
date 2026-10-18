@@ -114,7 +114,6 @@ import org.mozilla.fenix.ext.application
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.hideToolbar
 import org.mozilla.fenix.ext.nav
-import org.mozilla.fenix.ext.recordEventInNimbus
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.tabClosedUndoMessage
 import org.mozilla.fenix.home.bookmarks.BookmarksFeature
@@ -158,12 +157,8 @@ import org.mozilla.fenix.home.ui.Homepage
 import org.mozilla.fenix.home.ui.WallpaperBackground
 import org.mozilla.fenix.ipprotection.store.Surface as IPProtectionSurface
 import org.mozilla.fenix.ipprotection.ui.IPProtectionBottomSheetFragment
-import org.mozilla.fenix.messaging.DefaultMessageController
-import org.mozilla.fenix.messaging.FenixMessageSurfaceId
-import org.mozilla.fenix.messaging.MessagingFeature
 import org.mozilla.fenix.microsurvey.ui.MicrosurveyRequestPrompt
 import org.mozilla.fenix.microsurvey.ui.ext.MicrosurveyUIData
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.onboarding.OnboardingFragmentDirections
 import org.mozilla.fenix.onboarding.OnboardingReason
 import org.mozilla.fenix.onboarding.OnboardingTelemetryRecorder
@@ -261,10 +256,6 @@ class HomeFragment : Fragment(), UserInteractionHandler, OnLongPressedListener {
 
     // Bounds of the homepage content (excluding the toolbar and system bar padding) used to crop the tab thumbnail.
     private var homepageContentBounds: Rect? = null
-
-    @VisibleForTesting internal val messagingFeatureHomescreen = ViewBoundFeatureWrapper<MessagingFeature>()
-
-    @VisibleForTesting internal val messagingFeatureMicrosurvey = ViewBoundFeatureWrapper<MessagingFeature>()
 
     private val recentTabsListFeature = ViewBoundFeatureWrapper<RecentTabsListFeature>()
     private val recentSyncedTabFeature = ViewBoundFeatureWrapper<RecentSyncedTabFeature>()
@@ -497,19 +488,6 @@ class HomeFragment : Fragment(), UserInteractionHandler, OnLongPressedListener {
 
     private fun initMessagingFeature(view: View) {
         if (requireComponents.settings.isExperimentationEnabled) {
-            val messagingFeature =
-                MessagingFeature(
-                    appStore = requireComponents.appStore,
-                    surface = FenixMessageSurfaceId.HOMESCREEN,
-                )
-            messagingFeatureHomescreen.set(
-                feature = messagingFeature,
-                owner = viewLifecycleOwner,
-                view = view,
-            )
-
-            viewLifecycleOwner.lifecycle.addObserver(messagingFeature)
-
             initializeMicrosurveyFeature(requireComponents.settings.microsurveyFeatureEnabled, view)
         }
     }
@@ -891,7 +869,6 @@ class HomeFragment : Fragment(), UserInteractionHandler, OnLongPressedListener {
     ) {
         if (microsurvey == null) return
         val appStore = requireComponents.appStore
-        val navController = findNavController()
 
         Column(modifier = modifier) {
             HorizontalDivider()
@@ -900,10 +877,6 @@ class HomeFragment : Fragment(), UserInteractionHandler, OnLongPressedListener {
                 microsurvey = microsurvey,
                 onStartSurveyClicked = {
                     appStore.dispatch(MicrosurveyAction.Started(microsurvey.id))
-                    navController.nav(
-                        R.id.homeFragment,
-                        HomeFragmentDirections.actionGlobalMicrosurveyDialog(microsurvey.id),
-                    )
                 },
                 onCloseButtonClicked = {
                     appStore.dispatch(MicrosurveyAction.Dismissed(microsurvey.id))
@@ -1553,14 +1526,6 @@ class HomeFragment : Fragment(), UserInteractionHandler, OnLongPressedListener {
                     activityRef = WeakReference(activity),
                     settings = requireComponents.settings,
                     engine = requireComponents.core.engine,
-                    messageController =
-                        DefaultMessageController(
-                            appStore = requireComponents.appStore,
-                            messagingController = requireComponents.nimbus.messaging,
-                            processIntent = { intent ->
-                                intent?.let { startActivity(it) }
-                            },
-                        ),
                     store = store,
                     tabCollectionStorage = requireComponents.core.tabCollectionStorage,
                     addTabUseCase = requireComponents.useCases.tabsUseCases.addTab,
@@ -1602,19 +1567,11 @@ class HomeFragment : Fragment(), UserInteractionHandler, OnLongPressedListener {
     private fun recordHomepageTelemetry() {
         HomeScreen.homeScreenDisplayed.record(NoExtras())
 
-        with(requireContext()) {
-            if (components.settings.isExperimentationEnabled) {
-                recordEventInNimbus("home_screen_displayed")
-            }
-        }
-
         HomeScreen.homeScreenViewCount.add()
 
         if (!browsingModeManager.mode.isPrivate) {
             HomeScreen.standardHomepageViewCount.add()
         }
-
-        FxNimbus.features.homescreen.recordExposure()
     }
 
     /**

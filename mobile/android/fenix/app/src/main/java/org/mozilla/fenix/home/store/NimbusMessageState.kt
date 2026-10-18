@@ -5,19 +5,16 @@
 package org.mozilla.fenix.home.store
 
 import androidx.compose.runtime.Composable
-import mozilla.components.service.nimbus.messaging.Message
 import org.mozilla.fenix.components.appstate.AppState
 import org.mozilla.fenix.compose.MessageCardState
-import org.mozilla.fenix.messaging.FenixMessageSurfaceId
 import org.mozilla.fenix.termsofuse.store.PrivacyNoticeBannerState
 
 /**
  * State representing the text and formatting for a nimbus message card displayed on the homepage.
  *
  * @property cardState State of the message card.
- * @property message Message for callbacks.
  */
-data class NimbusMessageState(val cardState: MessageCardState, val message: Message) {
+data class NimbusMessageState(val cardState: MessageCardState) {
 
     /** Companion object for building [NimbusMessageState]. */
     companion object {
@@ -37,6 +34,7 @@ data class NimbusMessageState(val cardState: MessageCardState, val message: Mess
             if (privacyNoticeBannerState.visible) {
                 return null
             }
+            /*
             return appState.messaging.messageToShow[FenixMessageSurfaceId.HOMESCREEN]?.let {
                 NimbusMessageState(
                     cardState =
@@ -44,9 +42,10 @@ data class NimbusMessageState(val cardState: MessageCardState, val message: Mess
                             message = it,
                             wallpaperState = appState.wallpaperState,
                         ),
-                    message = it,
                 )
             }
+            */
+            return null
         }
     }
 }

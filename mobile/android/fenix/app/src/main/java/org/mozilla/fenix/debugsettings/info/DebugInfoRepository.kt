@@ -5,10 +5,7 @@
 package org.mozilla.fenix.debugsettings.info
 
 import android.os.Build
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import mozilla.components.Build as ComponentsBuild
-import mozilla.components.service.nimbus.NimbusApi
 import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.utils.Settings
 import org.mozilla.geckoview.BuildConfig as GeckoViewBuildConfig
@@ -58,29 +55,6 @@ class ConfigurationDebugInfoRepository : DebugInfoRepository {
         buildSection("Configuration") {
             statusItem("Telemetry", BuildConfig.TELEMETRY)
             statusItem("Crash reporting", BuildConfig.CRASH_REPORTING)
-        }
-}
-
-/**
- * [DebugInfoRepository] for the enrolled Nimbus experiments.
- *
- * @param nimbusApi [NimbusApi] used to fetch the currently enrolled experiments.
- */
-class NimbusExperimentsDebugInfoRepository(private val nimbusApi: NimbusApi) : DebugInfoRepository {
-    override suspend fun getSection() =
-        buildSection("Nimbus experiments") {
-            val activeExperiments =
-                withContext(Dispatchers.IO) {
-                    nimbusApi.getActiveExperiments()
-                }
-
-            if (activeExperiments.isEmpty()) {
-                textItem("Enrolled experiments", "-")
-            } else {
-                activeExperiments.forEach {
-                    textItem(it.slug, it.branchSlug)
-                }
-            }
         }
 }
 

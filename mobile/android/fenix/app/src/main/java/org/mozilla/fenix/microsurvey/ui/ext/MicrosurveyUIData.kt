@@ -5,11 +5,6 @@
 package org.mozilla.fenix.microsurvey.ui.ext
 
 import androidx.annotation.DrawableRes
-import mozilla.components.service.nimbus.messaging.Message
-import mozilla.components.service.nimbus.messaging.MicrosurveyAnswer
-import mozilla.components.service.nimbus.messaging.MicrosurveyConfig
-import mozilla.components.service.nimbus.messaging.MicrosurveyOrdering
-import mozilla.components.ui.icons.R as iconsR
 
 /**
  * UI model for [MicrosurveyConfig].
@@ -32,6 +27,7 @@ data class MicrosurveyUIData(
     val maxNumberLines: Int,
 )
 
+/*
 /**
  * @returns a [MicrosurveyUIData] derived from the given [Message]. [MicrosurveyUIData.answers] are in randomized or
  *   pinned randomized order, specified by [MicrosurveyConfig.answerOrderingType].
@@ -75,3 +71,4 @@ private fun MicrosurveyConfig.toOrderedAnswers() =
         MicrosurveyOrdering.PINNED_RANDOMIZED -> toPinnedRandomizedAnswers()
         MicrosurveyOrdering.RANDOMIZED -> toRandomizedAnswers()
     }
+*/

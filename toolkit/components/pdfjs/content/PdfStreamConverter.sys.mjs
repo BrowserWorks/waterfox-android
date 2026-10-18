@@ -778,7 +778,7 @@ class ChromeActions {
   }
 
   async getNimbusExperimentData() {
-    if (!this.isMobile()) {
+    if (!this.isMobile() || AppConstants.platform === "android") {
       return null;
     }
     const { promise, resolve } = Promise.withResolvers();

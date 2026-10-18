@@ -7,6 +7,7 @@
  * networks. Heuristics are run at startup and upon network changes.
  * Heuristics are disabled if the user sets their DoH provider or mode manually.
  */
+import { AppConstants } from "resource://gre/modules/AppConstants.sys.mjs";
 import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
 
 const lazy = {};
@@ -267,7 +268,9 @@ export const DoHController = {
 
       // If part of the treatment branch use the URL from the experiment.
       try {
-        let ohttpURI = lazy.NimbusFeatures.dooh.getVariable("ohttpUri");
+        let ohttpURI =
+          AppConstants.platform !== "android" &&
+          lazy.NimbusFeatures.dooh.getVariable("ohttpUri");
         if (ohttpURI) {
           uri = ohttpURI;
         }
@@ -403,9 +406,12 @@ export const DoHController = {
       networkID: getHashedNetworkID(),
     };
 
-    const oHTTPexperiment = lazy.NimbusFeatures.dooh.getEnrollmentMetadata(
-      lazy.EnrollmentType.EXPERIMENT
-    );
+    const oHTTPexperiment =
+      AppConstants.platform === "android"
+        ? Services.prefs.getBoolPref("network.trr.use_ohttp", false)
+        : lazy.NimbusFeatures.dooh.getEnrollmentMetadata(
+            lazy.EnrollmentType.EXPERIMENT
+          );
 
     // When the OHTTP experiment is active we don't want to enable steering.
     if (results.steeredProvider && !oHTTPexperiment) {

@@ -39,7 +39,6 @@ MOZ_SRC_FILES += [
     "IPPLifecycleHelper.sys.mjs",
     "IPPNetworkErrorObserver.sys.mjs",
     "IPPNetworkUtils.sys.mjs",
-    "IPPNimbusHelper.sys.mjs",
     "IPPProxyManager.sys.mjs",
     "IPProtectionActivator.sys.mjs",
     "IPProtectionServerlist.sys.mjs",
@@ -53,3 +52,6 @@ MOZ_SRC_FILES += [
 XPCSHELL_TESTS_MANIFESTS += ["tests/xpcshell/xpcshell.toml"]
 
 SPHINX_TREES["/toolkit/ipprotection"] = "docs"
+
+if CONFIG["OS_TARGET"] != "Android":
+    MOZ_SRC_FILES += ["IPPNimbusHelper.sys.mjs"]

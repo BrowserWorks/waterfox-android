@@ -5,9 +5,8 @@
 package org.mozilla.fenix.onboarding.view
 
 import androidx.annotation.DrawableRes
-import org.mozilla.fenix.nimbus.OnboardingCardData
 
-/** Model containing the required data from a raw [OnboardingCardData] object in a UI state. */
+/** Model containing the data for an onboarding page. */
 data class OnboardingPageUiData(
     val type: Type,
     @param:DrawableRes val imageRes: Int,

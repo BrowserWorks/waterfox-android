@@ -20,7 +20,6 @@ import mozilla.components.feature.tab.collections.Tab as ComponentTab
 import mozilla.components.feature.tab.collections.TabCollection
 import mozilla.components.feature.tab.collections.ext.invoke
 import mozilla.components.feature.tabs.TabsUseCases
-import mozilla.components.service.nimbus.messaging.Message
 import mozilla.telemetry.glean.private.NoExtras
 import org.mozilla.fenix.GleanMetrics.Collections
 import org.mozilla.fenix.GleanMetrics.HomeBookmarks
@@ -39,7 +38,6 @@ import org.mozilla.fenix.components.usecases.ShareUseCases
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.home.HomeFragment
 import org.mozilla.fenix.home.HomeFragmentDirections
-import org.mozilla.fenix.messaging.MessageController
 import org.mozilla.fenix.onboarding.WallpaperOnboardingDialogFragment.Companion.THUMBNAILS_SELECTION_COUNT
 import org.mozilla.fenix.utils.Settings
 import org.mozilla.fenix.wallpapers.Wallpaper
@@ -76,12 +74,6 @@ interface SessionControlController {
 
     /** @see [CollectionInteractor.onAddTabsToCollectionTapped] */
     fun handleCreateCollection()
-
-    /** @see [MessageCardInteractor.onMessageClicked] */
-    fun handleMessageClicked(message: Message)
-
-    /** @see [MessageCardInteractor.onMessageClosedClicked] */
-    fun handleMessageClosed(message: Message)
 
     /** @see [WallpaperInteractor.showWallpapersOnboardingDialog] */
     fun handleShowWallpapersOnboardingDialog(state: WallpaperState): Boolean
@@ -120,7 +112,6 @@ class DefaultSessionControlController(
     private val activityRef: WeakReference<Activity>,
     private val settings: Settings,
     private val engine: Engine,
-    private val messageController: MessageController,
     private val store: BrowserStore,
     private val tabCollectionStorage: TabCollectionStorage,
     private val addTabUseCase: TabsUseCases.AddNewTabUseCase,
@@ -316,14 +307,6 @@ class DefaultSessionControlController(
                 navController.nav(R.id.homeFragment, directions)
             },
         )
-    }
-
-    override fun handleMessageClicked(message: Message) {
-        messageController.onMessagePressed(message)
-    }
-
-    override fun handleMessageClosed(message: Message) {
-        messageController.onMessageDismissed(message)
     }
 
     override fun handleReportSessionMetrics(state: AppState) {

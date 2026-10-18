@@ -528,7 +528,10 @@ var Impl = {
     );
 
     const disabledPings =
-      lazy.NimbusFeatures.legacyTelemetry.getVariable("disabledPings") ?? [];
+      AppConstants.platform === "android"
+        ? []
+        : (lazy.NimbusFeatures.legacyTelemetry.getVariable("disabledPings") ??
+          []);
     const UNCONTROLLABLE_PINGS = [
       "main",
       "first-shutdown",

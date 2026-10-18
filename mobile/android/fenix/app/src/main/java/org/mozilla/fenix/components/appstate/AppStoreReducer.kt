@@ -24,7 +24,6 @@ import org.mozilla.fenix.ext.filterOutTab
 import org.mozilla.fenix.home.recentsyncedtabs.RecentSyncedTabState
 import org.mozilla.fenix.home.recentvisits.RecentlyVisitedItem
 import org.mozilla.fenix.home.recentvisits.RecentlyVisitedItem.RecentHistoryGroup
-import org.mozilla.fenix.messaging.state.MessagingReducer
 import org.mozilla.fenix.reviewprompt.ReviewPromptReducer
 import org.mozilla.fenix.search.VoiceSearchReducer
 import org.mozilla.fenix.share.ShareActionReducer
@@ -44,8 +43,7 @@ internal object AppStoreReducer {
             is AppAction.AddNonFatalCrash -> state.copy(nonFatalCrashes = state.nonFatalCrashes + action.crash)
             is AppAction.RemoveNonFatalCrash -> state.copy(nonFatalCrashes = state.nonFatalCrashes - action.crash)
             is AppAction.RemoveAllNonFatalCrashes -> state.copy(nonFatalCrashes = emptyList())
-
-            is AppAction.MessagingAction -> MessagingReducer.reduce(state, action)
+            is AppAction.MessagingAction -> state
 
             is AppAction.Change ->
                 state.copy(

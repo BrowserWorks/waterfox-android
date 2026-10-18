@@ -104,7 +104,6 @@ import org.mozilla.fenix.browser.readermode.ReaderModeController
 import org.mozilla.fenix.browser.store.BrowserScreenAction
 import org.mozilla.fenix.browser.store.BrowserScreenStore
 import org.mozilla.fenix.components.AppStore
-import org.mozilla.fenix.components.NimbusComponents
 import org.mozilla.fenix.components.UseCases
 import org.mozilla.fenix.components.appstate.AppAction.BookmarkAction
 import org.mozilla.fenix.components.appstate.AppAction.CurrentTabClosed
@@ -244,7 +243,6 @@ internal object BrowserToolbarTestTags {
  * @param useCases [UseCases] helping this integrate with other features of the applications.
  * @param sessionUseCases [SessionUseCases] for interacting with the current session.
  * @param shareUseCases [ShareUseCases] for sharing content via the system share sheet or the in-app [ShareFragment].
- * @param nimbusComponents [NimbusComponents] used for accessing Nimbus events to use in telemetry.
  * @param clipboard [ClipboardHandler] to use for reading from device's clipboard.
  * @param publicSuffixList [PublicSuffixList] used to obtain the base domain of the current site.
  * @param settings [Settings] for accessing user preferences.
@@ -273,7 +271,6 @@ class BrowserToolbarMiddleware(
     private val useCases: UseCases,
     private val sessionUseCases: SessionUseCases = SessionUseCases(browserStore),
     private val shareUseCases: ShareUseCases,
-    private val nimbusComponents: NimbusComponents,
     private val clipboard: ClipboardHandler,
     private val publicSuffixList: PublicSuffixList,
     private val settings: Settings,
@@ -484,7 +481,6 @@ class BrowserToolbarMiddleware(
                             engine = searchEngine,
                             isDefault = true,
                             searchAccessPoint = searchAccessPoint,
-                            nimbusEventStore = nimbusComponents.events,
                         )
                     }
 

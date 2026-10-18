@@ -147,7 +147,6 @@ import org.mozilla.fenix.ext.hasTopDestination
 import org.mozilla.fenix.ext.isAllowedDuringOnboardingIntent
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.ext.openSetDefaultBrowserOption
-import org.mozilla.fenix.ext.recordEventInNimbus
 import org.mozilla.fenix.ext.setNavigationIcon
 import org.mozilla.fenix.extension.WebExtensionPromptFeature
 import org.mozilla.fenix.home.HomeFragment
@@ -588,8 +587,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
             }
         }
 
-        // This will record an event in Nimbus' internal event store. Used for behavioral targeting
-        recordEventInNimbus("app_opened")
         if (components.settings.isTelemetryEnabled) {
             lifecycle.addObserver(
                 BreadcrumbsRecorder(

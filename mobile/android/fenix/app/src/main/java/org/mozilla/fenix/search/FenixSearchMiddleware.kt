@@ -51,7 +51,6 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.browser.browsingmode.BrowsingModeManager
 import org.mozilla.fenix.components.AppStore
-import org.mozilla.fenix.components.NimbusComponents
 import org.mozilla.fenix.components.UseCases
 import org.mozilla.fenix.components.appstate.AppAction.SearchAction.SearchEngineSelected
 import org.mozilla.fenix.components.appstate.AppAction.URLCopiedToClipboard
@@ -93,7 +92,6 @@ import org.mozilla.fenix.utils.Settings
  * @param fragment [Fragment] in which this middleware is used. Will observe it's lifecycle for cleanup.
  * @param engine [Engine] used for speculative connections to search suggestions URLs.
  * @param useCases [UseCases] helping this integrate with other features of the applications.
- * @param nimbusComponents [NimbusComponents] used for accessing Nimbus events to use in telemetry.
  * @param settings [Settings] application settings.
  * @param appStore [AppStore] to sync search related data with.
  * @param browserStore [BrowserStore] to sync search related data with.
@@ -108,7 +106,6 @@ class FenixSearchMiddleware(
     private val fragment: Fragment,
     private val engine: Engine,
     private val useCases: UseCases,
-    private val nimbusComponents: NimbusComponents,
     private val settings: Settings,
     private val appStore: AppStore,
     private val browserStore: BrowserStore,
@@ -395,7 +392,6 @@ class FenixSearchMiddleware(
                         searchEngine,
                         searchEngine == store.state.defaultEngine,
                         searchAccessPoint,
-                        nimbusComponents.events,
                     )
                 }
 

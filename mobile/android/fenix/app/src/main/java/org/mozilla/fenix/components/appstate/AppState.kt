@@ -27,7 +27,6 @@ import org.mozilla.fenix.home.recentsyncedtabs.RecentSyncedTabState
 import org.mozilla.fenix.home.recenttabs.RecentTab
 import org.mozilla.fenix.home.recentvisits.RecentlyVisitedItem
 import org.mozilla.fenix.library.history.PendingDeletionHistory
-import org.mozilla.fenix.messaging.MessagingState
 import org.mozilla.fenix.microsurvey.MicrosurveyState
 import org.mozilla.fenix.reviewprompt.ReviewPromptState
 import org.mozilla.fenix.reviewprompt.ReviewPromptState.Unknown
@@ -59,7 +58,6 @@ import org.mozilla.fenix.wallpapers.WallpaperState
  * @property bookmarks The list of recently saved [BookmarkNode]s to show on the [HomeFragment].
  * @property recentHistory The list of [RecentlyVisitedItem]s.
  * @property recommendationState The [ContentRecommendationsState] to display.
- * @property messaging State related messages.
  * @property microsurvey The [MicrosurveyState] derived from the MICROSURVEY message surface.
  * @property pendingDeletionHistoryItems The set of History items marked for removal in the UI, awaiting to be removed
  *   once the Undo snackbar hides away. Also serves as an in memory cache of all stories mapped by category allowing for
@@ -103,7 +101,6 @@ data class AppState(
     val bookmarks: List<Bookmark> = emptyList(),
     val recentHistory: List<RecentlyVisitedItem> = emptyList(),
     val recommendationState: ContentRecommendationsState = ContentRecommendationsState(),
-    val messaging: MessagingState = MessagingState(),
     val microsurvey: MicrosurveyState = MicrosurveyState(),
     val pendingDeletionHistoryItems: Set<PendingDeletionHistory> = emptySet(),
     val wallpaperState: WallpaperState = WallpaperState.default,

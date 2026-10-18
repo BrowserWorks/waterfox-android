@@ -4,7 +4,6 @@
 
 plugins {
     id 'com.android.library'
-    id 'org.mozilla.nimbus-gradle-plugin'
     alias(libs.plugins.dependency.analysis)
     alias(libs.plugins.kotlin.serialization)
 }
@@ -22,7 +21,6 @@ dependencies {
     implementation project(':components:concept-engine')
     implementation project(':components:feature-awesomebar')
     implementation project(':components:feature-session')
-    implementation project(':components:service-nimbus')
     implementation project(':components:support-appservices')
     implementation project(':components:support-base')
     implementation project(':components:support-remotesettings')
@@ -55,16 +53,4 @@ dependencies {
 
 apply from: '../../../common-config.gradle'
 apply from: '../../../publish.gradle'
-nimbus {
-    // The path to the Nimbus feature manifest file
-    manifestFile = "fxsuggest.fml.yaml"
-
-    channels = [
-        debug: "debug",
-        release: "release",
-    ]
-
-    applicationServicesDir = gradle.hasProperty('localProperties.autoPublish.application-services.dir')
-        ? gradle.getProperty('localProperties.autoPublish.application-services.dir') : null
-}
 ext.configurePublish(config.componentsGroupId, project.name, project.ext.description)

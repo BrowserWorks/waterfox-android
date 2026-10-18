@@ -822,7 +822,6 @@ class HistoryFragment :
                             fragment = this@HistoryFragment,
                             engine = requireComponents.core.engine,
                             useCases = requireComponents.useCases,
-                            nimbusComponents = requireComponents.nimbus,
                             settings = requireComponents.settings,
                             appStore = requireComponents.appStore,
                             browserStore = requireComponents.core.store,

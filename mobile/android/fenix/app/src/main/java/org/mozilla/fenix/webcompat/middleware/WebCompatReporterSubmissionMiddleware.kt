@@ -35,14 +35,12 @@ import org.mozilla.fenix.webcompat.store.WebCompatReporterState
  * @param webCompatReporterRetrievalService The service that handles submission requests.
  * @param gleanBrokenSiteReportSender The service that handles sending reports via Glean.
  * @param scope The [CoroutineScope] for launching coroutines.
- * @param nimbusExperimentsProvider A [NimbusExperimentsProvider] used to get active experiments.
  */
 class WebCompatReporterSubmissionMiddleware(
     private val appStore: AppStore,
     private val webCompatReporterRetrievalService: WebCompatReporterRetrievalService,
     private val gleanBrokenSiteReportSender: GleanBrokenSiteReportSender,
     private val scope: CoroutineScope,
-    private val nimbusExperimentsProvider: NimbusExperimentsProvider,
 ) : Middleware<WebCompatReporterState, WebCompatReporterAction> {
 
     override fun invoke(
@@ -71,7 +69,7 @@ class WebCompatReporterSubmissionMiddleware(
         val webCompatJSON = webCompatReporterRetrievalService.retrieveInfo()
         val sendTabSpecificInfo = checkReportedURLHostMatchesTab(store.state, webCompatJSON)
 
-        val finalDetails = webCompatJSON?.addActiveExperimentsToWebCompatInfo(nimbusExperimentsProvider)
+        val finalDetails = webCompatJSON?.addActiveExperimentsToWebCompatInfo()
 
         gleanBrokenSiteReportSender.sendGleanBrokenSiteReport(
             details = finalDetails,
@@ -151,26 +149,10 @@ class WebCompatReporterSubmissionMiddleware(
     }
 
     companion object {
-        /**
-         * Returns the given WebCompat JSON object with the active Nimbus experiments updated to match the ones
-         * specified in the given provider.
-         *
-         * @param nimbusExperimentsProvider A [NimbusExperimentsProvider] used to get active experiments.
-         */
+        /** Returns the WebCompat JSON with an empty active-experiment list. */
         @Suppress("MaxLineLength")
-        fun JSONObject.addActiveExperimentsToWebCompatInfo(
-            nimbusExperimentsProvider: NimbusExperimentsProvider
-        ): JSONObject {
+        fun JSONObject.addActiveExperimentsToWebCompatInfo(): JSONObject {
             val experiments = JSONArray()
-            for (experiment in nimbusExperimentsProvider.activeExperiments) {
-                experiments.put(
-                    JSONObject().apply {
-                        put("branch", nimbusExperimentsProvider.getExperimentBranch(experiment.slug))
-                        put("kind", "nimbusExperiment")
-                        put("slug", experiment.slug)
-                    }
-                )
-            }
 
             return this.apply {
                 put(

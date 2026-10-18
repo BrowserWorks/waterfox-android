@@ -56,7 +56,6 @@ import org.mozilla.fenix.settings.doh.DohSettingsFragmentDirections
 import org.mozilla.fenix.settings.logins.fragment.SavedLoginsAuthFragmentDirections
 import org.mozilla.fenix.settings.search.SaveSearchEngineFragmentDirections
 import org.mozilla.fenix.settings.search.SearchEngineFragmentDirections
-import org.mozilla.fenix.settings.studies.StudiesFragmentDirections
 import org.mozilla.fenix.settings.wallpaper.WallpaperSettingsFragmentDirections
 import org.mozilla.fenix.share.AddNewDeviceFragmentDirections
 import org.mozilla.fenix.tabstray.ui.TabManagementFragmentDirections
@@ -314,7 +313,6 @@ private fun getHomeNavDirections(from: BrowserDirection): NavDirections =
 
         BrowserDirection.FromRecentlyClosed -> RecentlyClosedFragmentDirections.actionGlobalBrowser()
 
-        BrowserDirection.FromStudiesFragment -> StudiesFragmentDirections.actionGlobalBrowser()
 
         BrowserDirection.FromAddonsManagementFragment -> AddonsManagementFragmentDirections.actionGlobalBrowser()
 

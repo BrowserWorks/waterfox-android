@@ -4,7 +4,6 @@
 
 package org.mozilla.fenix.settings.datachoices
 
-import androidx.navigation.NavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,25 +12,20 @@ import mozilla.components.lib.crash.CrashReporter
 import mozilla.components.lib.crash.store.CrashReportOption
 import mozilla.components.lib.state.Middleware
 import mozilla.components.lib.state.Store
-import mozilla.components.service.nimbus.NimbusApi
-import org.mozilla.fenix.R
 import org.mozilla.fenix.components.metrics.MetricController
 import org.mozilla.fenix.components.metrics.MetricServiceType
 import org.mozilla.fenix.crashes.SettingsCrashReportCache
 import org.mozilla.fenix.debugsettings.gleandebugtools.DefaultGleanDebugToolsStorage
-import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.utils.Settings
 
 @Suppress("LongParameterList")
 internal class DataChoicesMiddleware(
     private val settings: Settings,
-    private val nimbusSdk: NimbusApi,
     private val engine: Engine,
     private val metrics: MetricController,
     private val crashReporter: CrashReporter,
     private val learnMoreClicked: (sumoTopic: SupportUtils.SumoTopic) -> Unit,
-    private val navController: NavController?,
     private val crashReportCache: SettingsCrashReportCache = SettingsCrashReportCache(settings),
     private val scope: CoroutineScope = CoroutineScope(Dispatchers.IO),
 ) : Middleware<DataChoicesState, DataChoicesAction> {
@@ -67,10 +61,7 @@ internal class DataChoicesMiddleware(
             is ChoiceAction.UsagePingClicked -> {
                 updateUsageChoice()
             }
-            is ChoiceAction.StudiesClicked -> {
-                val navAction = DataChoicesFragmentDirections.actionDataChoicesFragmentToStudiesFragment()
-                navController?.nav(R.id.dataChoicesFragment, navAction)
-            }
+            is ChoiceAction.StudiesClicked -> {}
             is ChoiceAction.ReportOptionClicked ->
                 scope.launch {
                     updateCrashChoice(action.reportOption)
@@ -112,21 +103,15 @@ internal class DataChoicesMiddleware(
             crashReporter.setTelemetryEnabled(true)
             if (!settings.hasUserDisabledExperimentation) {
                 settings.isExperimentationEnabled = true
-                nimbusSdk.experimentParticipation = true
             }
             engine.notifyTelemetryPrefChanged(true)
         } else {
             metrics.stop(MetricServiceType.Data)
             crashReporter.setTelemetryEnabled(false)
             settings.isExperimentationEnabled = false
-            nimbusSdk.experimentParticipation = false
             engine.notifyTelemetryPrefChanged(false)
             DefaultGleanDebugToolsStorage(settings).clearPersistedDebugViewTag()
         }
-        // Reset experiment identifiers on both opt-in and opt-out; it's likely
-        // that in future we will need to pass in the new telemetry client_id
-        // to this method when the user opts back in.
-        nimbusSdk.resetTelemetryIdentifiers()
     }
 
     private fun updateUsageChoice() {

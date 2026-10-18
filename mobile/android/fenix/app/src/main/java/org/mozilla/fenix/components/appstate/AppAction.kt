@@ -15,8 +15,6 @@ import mozilla.components.feature.top.sites.TopSite
 import mozilla.components.lib.crash.Crash.NativeCodeCrash
 import mozilla.components.lib.crash.store.CrashAction
 import mozilla.components.lib.state.Action
-import mozilla.components.service.nimbus.messaging.Message
-import mozilla.components.service.nimbus.messaging.MessageSurfaceId
 import mozilla.components.service.pocket.PocketStory.ContentRecommendation
 import mozilla.components.service.pocket.PocketStory.SponsoredContent
 import org.mozilla.fenix.bookmarks.BookmarksGlobalResultReport
@@ -39,7 +37,6 @@ import org.mozilla.fenix.home.topsites.AddShortcutEntryPoint
 import org.mozilla.fenix.home.topsites.AddShortcutSource
 import org.mozilla.fenix.ipprotection.ui.IPProtectionSnackbarBinding
 import org.mozilla.fenix.library.history.PendingDeletionHistory
-import org.mozilla.fenix.messaging.MessagingState
 import org.mozilla.fenix.snackbar.SnackbarBinding
 import org.mozilla.fenix.wallpapers.Wallpaper
 
@@ -156,27 +153,6 @@ sealed class AppAction : Action {
 
     /** [Action]s related to interactions with the Messaging Framework. */
     sealed class MessagingAction : AppAction() {
-        /** Restores the [Message] state from the storage. */
-        object Restore : MessagingAction()
-
-        /** Evaluates if a new messages should be shown to users. */
-        data class Evaluate(val surface: MessageSurfaceId) : MessagingAction()
-
-        /** Updates [MessagingState.messageToShow] with the given [message]. */
-        data class UpdateMessageToShow(val message: Message) : MessagingAction()
-
-        /** Updates [MessagingState.messageToShow] with the given [message]. */
-        data class ConsumeMessageToShow(val surface: MessageSurfaceId) : MessagingAction()
-
-        /** Updates [MessagingState.messages] with the given [messages]. */
-        data class UpdateMessages(val messages: List<Message>) : MessagingAction()
-
-        /** Indicates the given [message] was clicked. */
-        data class MessageClicked(val message: Message) : MessagingAction()
-
-        /** Indicates the given [message] was dismissed. */
-        data class MessageDismissed(val message: Message) : MessagingAction()
-
         /** Sealed class representing actions related to microsurveys within messaging functionality. */
         sealed class MicrosurveyAction : MessagingAction() {
             /**

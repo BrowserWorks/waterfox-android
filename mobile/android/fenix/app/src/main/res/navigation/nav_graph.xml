@@ -44,9 +44,6 @@
         app:destination="@id/wallpaperOnboardingDialogFragment"
         app:popUpTo="@id/homeFragment" />
 
-    <action
-        android:id="@+id/action_global_microsurvey_dialog"
-        app:destination="@id/microsurveyDialogFragment" />
 
     <action
         android:id="@+id/action_global_terms_of_use_dialog"
@@ -312,35 +309,11 @@
         android:id="@+id/storiesFragment"
         android:name="org.mozilla.fenix.home.pocket.StoriesFragment" />
 
-    <dialog
-        android:id="@+id/researchSurfaceDialogFragment"
-        android:name="org.mozilla.fenix.experiments.ResearchSurfaceDialogFragment" >
-        <argument
-            android:name="KEY_MESSAGE_TEXT"
-            app:nullable="true"
-            app:argType="string" />
-        <argument
-            android:name="KEY_ACCEPT_BUTTON_TEXT"
-            app:nullable="true"
-            app:argType="string" />
-        <argument
-            android:name="KEY_DISMISS_BUTTON_TEXT"
-            app:nullable="true"
-            app:argType="string" />
-    </dialog>
 
     <dialog
         android:id="@+id/wallpaperOnboardingDialogFragment"
         android:name="org.mozilla.fenix.onboarding.WallpaperOnboardingDialogFragment" />
 
-    <dialog
-        android:id="@+id/microsurveyDialogFragment"
-        android:name="org.mozilla.fenix.microsurvey.ui.MicrosurveyBottomSheetFragment">
-        <argument
-            android:name="microsurvey_id"
-            app:argType="string"
-            app:nullable="false" />
-    </dialog>
 
     <dialog
         android:id="@+id/termsOfUseDialogFragment"
@@ -649,13 +622,6 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_settingsFragment_to_nimbusExperimentsFragment"
-            app:destination="@id/nimbus_experiment_graph"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
             android:id="@+id/action_settingsFragment_to_customizationFragment"
             app:destination="@id/customizationFragment"
             app:enterAnim="@anim/slide_in_right"
@@ -874,24 +840,12 @@
         android:id="@+id/dataChoicesFragment"
         android:name="org.mozilla.fenix.settings.datachoices.DataChoicesFragment"
         android:label="@string/preferences_data_collection">
-        <action
-            android:id="@+id/action_dataChoicesFragment_to_studiesFragment"
-            app:destination="@id/studiesFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/dataChoicesFragment" />
         <argument
             android:name="preference_to_scroll_to"
             android:defaultValue="@null"
             app:argType="string"
             app:nullable="true" />
     </fragment>
-    <fragment
-        android:id="@+id/studiesFragment"
-        android:name="org.mozilla.fenix.settings.studies.StudiesFragment"
-        android:label="@string/preference_experiments_2" />
     <fragment
         android:id="@+id/sitePermissionsFragment"
         android:name="org.mozilla.fenix.settings.sitepermissions.SiteSettingsFragment"
@@ -1112,9 +1066,6 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
-    <fragment
-        android:id="@+id/firefoxLabsFragment"
-        android:name="org.mozilla.fenix.settings.labs.FirefoxLabsFragment" />
     <fragment
         android:id="@+id/linkSharingFragment"
         android:name="org.mozilla.fenix.settings.LinkSharingFragment" />
@@ -1462,38 +1413,6 @@
         </fragment>
     </navigation>
 
-    <navigation
-        android:id="@+id/nimbus_experiment_graph"
-        app:startDestination="@id/nimbusExperimentsFragment">
-        <fragment
-            android:id="@+id/nimbusExperimentsFragment"
-            android:name="org.mozilla.fenix.nimbus.NimbusExperimentsFragment"
-            android:label="@string/preferences_nimbus_experiments"
-            tools:layout="@layout/mozac_service_nimbus_experiments">
-            <action
-                android:id="@+id/action_nimbusExperimentsFragment_to_nimbusBranchesFragment"
-                app:destination="@+id/nimbusBranchesFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/nimbusBranchesFragment"
-            android:name="org.mozilla.fenix.nimbus.NimbusBranchesFragment"
-            tools:layout="@layout/mozac_service_nimbus_experiment_details">
-            <argument
-                android:name="experimentId"
-                app:argType="string" />
-            <argument
-                android:name="experimentName"
-                app:argType="string" />
-            <action
-                android:id="@+id/action_nimbusBranchesFragment_to_dataChoicesFragment"
-                app:destination="@id/dataChoicesFragment"
-                app:enterAnim="@anim/slide_in_right"
-                app:exitAnim="@anim/slide_out_left"
-                app:popEnterAnim="@anim/slide_in_left"
-                app:popExitAnim="@anim/slide_out_right"
-                app:popUpTo="@id/settingsFragment" />
-        </fragment>
-    </navigation>
 
     <navigation
         android:id="@+id/autofill_graph"

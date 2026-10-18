@@ -7,11 +7,9 @@ package org.mozilla.fenix.webcompat.di
 import kotlinx.coroutines.CoroutineScope
 import mozilla.components.browser.state.state.BrowserState
 import mozilla.components.browser.state.store.BrowserStore
-import mozilla.components.service.nimbus.NimbusApi
 import org.mozilla.fenix.components.AppStore
 import org.mozilla.fenix.components.appstate.webcompat.WebCompatState
 import org.mozilla.fenix.webcompat.DefaultGleanBrokenSiteReportSender
-import org.mozilla.fenix.webcompat.middleware.DefaultNimbusExperimentsProvider
 import org.mozilla.fenix.webcompat.middleware.DefaultWebCompatReporterRetrievalService
 import org.mozilla.fenix.webcompat.middleware.WebCompatReporterNavigationMiddleware
 import org.mozilla.fenix.webcompat.middleware.WebCompatReporterStorageMiddleware
@@ -27,13 +25,11 @@ object WebCompatReporterMiddlewareProvider {
      * @param browserStore [BrowserStore] used to access [BrowserState].
      * @param appStore [AppStore] used to persist [WebCompatState].
      * @param scope The [CoroutineScope] used for launching coroutines.
-     * @param nimbusApi A [NimbusApi] with which to get active/enrolled experiments.
      */
     fun provideMiddleware(
         browserStore: BrowserStore,
         appStore: AppStore,
         scope: CoroutineScope,
-        nimbusApi: NimbusApi,
     ) =
         listOf(
             provideStorageMiddleware(appStore),
@@ -41,7 +37,6 @@ object WebCompatReporterMiddlewareProvider {
                 appStore = appStore,
                 browserStore = browserStore,
                 scope = scope,
-                nimbusApi = nimbusApi,
             ),
             provideNavigationMiddleware(),
             provideTelemetryMiddleware(),
@@ -53,7 +48,6 @@ object WebCompatReporterMiddlewareProvider {
         appStore: AppStore,
         browserStore: BrowserStore,
         scope: CoroutineScope,
-        nimbusApi: NimbusApi,
     ): WebCompatReporterSubmissionMiddleware {
         val webCompatReporterRetrievalService = DefaultWebCompatReporterRetrievalService(browserStore = browserStore)
 
@@ -64,7 +58,6 @@ object WebCompatReporterMiddlewareProvider {
             webCompatReporterRetrievalService = webCompatReporterRetrievalService,
             gleanBrokenSiteReportSender = gleanBrokenSiteReportSender,
             scope = scope,
-            nimbusExperimentsProvider = DefaultNimbusExperimentsProvider(nimbusApi),
         )
     }
 

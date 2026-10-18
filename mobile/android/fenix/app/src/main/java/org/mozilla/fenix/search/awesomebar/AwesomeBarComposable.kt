@@ -344,7 +344,6 @@ class AwesomeBarComposable(
                             fragment = fragment,
                             engine = components.core.engine,
                             useCases = components.useCases,
-                            nimbusComponents = components.nimbus,
                             settings = components.settings,
                             appStore = appStore,
                             browserStore = browserStore,

@@ -12,7 +12,6 @@ import org.mozilla.fenix.home.recenttabs.interactor.RecentTabInteractor
 import org.mozilla.fenix.home.recentvisits.interactor.RecentVisitsInteractor
 import org.mozilla.fenix.home.search.HomeSearchInteractor
 import org.mozilla.fenix.home.sessioncontrol.CollectionInteractor
-import org.mozilla.fenix.home.sessioncontrol.MessageCardInteractor
 import org.mozilla.fenix.home.sessioncontrol.SetupChecklistInteractor
 import org.mozilla.fenix.home.sessioncontrol.TabSessionInteractor
 import org.mozilla.fenix.home.sessioncontrol.TrackingProtectionInteractor
@@ -28,7 +27,6 @@ interface HomepageInteractor :
     TabSessionInteractor,
     ToolbarInteractor,
     HomeSearchInteractor,
-    MessageCardInteractor,
     PrivacyNoticeBannerInteractor,
     RecentTabInteractor,
     RecentSyncedTabInteractor,

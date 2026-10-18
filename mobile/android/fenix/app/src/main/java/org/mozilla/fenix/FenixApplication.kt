@@ -41,7 +41,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import mozilla.appservices.autofill.AutofillApiException
-import mozilla.components.ExperimentalAndroidComponentsApi
 import mozilla.components.browser.state.action.SearchAction.SearchConfigurationAvailabilityChanged
 import mozilla.components.browser.state.action.SystemAction
 import mozilla.components.browser.state.state.selectedOrDefaultPrivateSearchEngine
@@ -88,7 +87,6 @@ import mozilla.components.support.utils.RunWhenReadyQueue
 import mozilla.components.support.utils.logElapsedTime
 import mozilla.components.support.webextensions.WebExtensionSupport
 
-import org.mozilla.experiments.nimbus.NullVariables
 import org.mozilla.fenix.GleanMetrics.Addons
 import org.mozilla.fenix.GleanMetrics.Addresses
 import org.mozilla.fenix.GleanMetrics.AndroidAutofill
@@ -108,11 +106,9 @@ import org.mozilla.fenix.GleanMetrics.TermsOfUse
 import org.mozilla.fenix.GleanMetrics.UserAiSummarize
 import org.mozilla.fenix.components.Components
 import org.mozilla.fenix.components.Core
-import org.mozilla.fenix.components.appstate.AppAction
 
 import org.mozilla.fenix.components.metrics.MozillaProductDetector
 import org.mozilla.fenix.components.startMetricsIfEnabled
-import org.mozilla.fenix.experiments.maybeFetchExperiments
 import org.mozilla.fenix.ext.application
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.containsQueryParameters
@@ -123,7 +119,6 @@ import org.mozilla.fenix.home.topsites.TopSitesConfigConstants.TOP_SITES_PROVIDE
 import org.mozilla.fenix.home.topsites.TopSitesConfigConstants.TOP_SITES_PROVIDER_MAX_THRESHOLD
 import org.mozilla.fenix.lifecycle.StoreLifecycleObserver
 import org.mozilla.fenix.lifecycle.VisibilityLifecycleObserver
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.onboarding.MARKETING_CHANNEL_ID
 import org.mozilla.fenix.perf.ApplicationExitInfoMetrics
 import org.mozilla.fenix.perf.MarkersActivityLifecycleCallbacks
@@ -331,9 +326,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         // Begin application-services initialization. The megazord contains Nimbus, but not Glean.
         setupMegazordInitial()
 
-        // Initialize Nimbus and its backend.
-        initializeNimbus()
-
         ProfilerMarkerFactProcessor.create { components.core.engine.profiler }.register()
 
         applicationScope.launch {
@@ -382,7 +374,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
 
         restoreBrowserState()
         restoreDownloads()
-        restoreMessaging()
 
         // [IMPORTANT] Don't progress further until application-services is actually ready to go.
         // This makes it easier to reason about behaviour and avoids issues in the Rust code.
@@ -614,16 +605,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         }
     }
 
-    @OptIn(ExperimentalAndroidComponentsApi::class)
-    private fun queueNimbusFetchInForeground(queue: RunWhenReadyQueue) =
-        runOnVisualCompleteness(queue) {
-            components.nimbus.geckoPrefHandler.start()
-            applicationScope.launch(ioDispatcher) {
-                components.nimbus.sdk.maybeFetchExperiments(settings = components.settings)
-                components.nimbus.geckoPrefHandler.getPreferenceStateFromGecko().await()
-            }
-        }
-
     private fun queueSuggestIngest(queue: RunWhenReadyQueue) =
         runOnVisualCompleteness(queue) {
             applicationScope.launch(ioDispatcher) {
@@ -704,11 +685,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
         }
     }
 
-    private fun initializeNimbus() {
-        NullVariables.instance.setContext(this)
-        FxNimbus.initialize { mozilla.components.service.nimbus.NimbusDisabled(this) }
-    }
-
     /**
      * Initiate Megazord sequence! Megazord Battle Mode!
      *
@@ -733,13 +709,6 @@ open class FenixApplication : Application(), Provider, ThemeProvider {
                 RustHttpConfig.allowEmulatorLoopback()
             }
             RustHttpConfig.setClient(lazy { components.core.client })
-        }
-    }
-
-    @VisibleForTesting
-    internal fun restoreMessaging() {
-        if (components.settings.isExperimentationEnabled) {
-            components.appStore.dispatch(AppAction.MessagingAction.Restore)
         }
     }
 

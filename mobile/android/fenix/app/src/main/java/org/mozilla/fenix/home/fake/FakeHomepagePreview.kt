@@ -21,9 +21,6 @@ import mozilla.components.concept.sync.DeviceType
 import mozilla.components.feature.tab.collections.Tab
 import mozilla.components.feature.tab.collections.TabCollection
 import mozilla.components.feature.top.sites.TopSite
-import mozilla.components.service.nimbus.messaging.Message
-import mozilla.components.service.nimbus.messaging.MessageData
-import mozilla.components.service.nimbus.messaging.StyleData
 import mozilla.components.service.pocket.PocketStory
 import mozilla.components.service.pocket.PocketStory.ContentRecommendation
 import mozilla.components.service.pocket.PocketStory.SponsoredContent
@@ -83,14 +80,6 @@ internal object FakeHomepagePreview {
                 }
 
                 override fun onNavigateSearch() {
-                    /* no op */
-                }
-
-                override fun onMessageClicked(message: Message) {
-                    /* no op */
-                }
-
-                override fun onMessageClosedClicked(message: Message) {
                     /* no op */
                 }
 
@@ -349,7 +338,6 @@ internal object FakeHomepagePreview {
     internal fun nimbusMessageState() =
         NimbusMessageState(
             cardState = messageCardState(),
-            message = message(),
         )
 
     @Composable
@@ -359,23 +347,6 @@ internal object FakeHomepagePreview {
             titleText = stringResource(id = R.string.default_browser_experiment_card_title),
             buttonText = "",
             bannerColors = BannerColors.bannerColors(),
-        )
-
-    internal fun message() =
-        Message(
-            id = "id",
-            data = MessageData(),
-            style = StyleData(),
-            action = "action",
-            triggerIfAll = emptyList(),
-            excludeIfAny = emptyList(),
-            metadata =
-                Message.Metadata(
-                    id = "id",
-                    displayCount = 0,
-                    pressed = false,
-                    dismissed = false,
-                ),
         )
 
     internal fun topSites(

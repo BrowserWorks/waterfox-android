@@ -4731,7 +4731,6 @@ dependencies = [
  "logins",
  "merino",
  "mozilla-central-workspace-hack",
- "nimbus-sdk",
  "places",
  "push",
  "rc_crypto",
@@ -5719,32 +5718,6 @@ dependencies = [
  "uniffi",
  "url",
  "viaduct",
-]
-
-[[package]]
-name = "nimbus-sdk"
-version = "0.10.0"
-dependencies = [
- "anyhow",
- "cfg-if",
- "chrono",
- "error-support",
- "firefox-versioning",
- "hex",
- "icu_segmenter",
- "jexl-eval",
- "once_cell",
- "regex",
- "remote_settings",
- "rkv",
- "serde",
- "serde_derive",
- "serde_json",
- "sha2",
- "thiserror 2.0.12",
- "uniffi",
- "url",
- "uuid",
 ]
 
 [[package]]

@@ -102,7 +102,6 @@ object BrowserToolbarStoreBuilder {
                                     bookmarksStorage = activity.components.core.bookmarksStorage,
                                     trackingProtectionUseCases = components.useCases.trackingProtectionUseCases,
                                     useCases = components.useCases,
-                                    nimbusComponents = components.nimbus,
                                     clipboard = activity.components.clipboardHandler,
                                     publicSuffixList = components.publicSuffixList,
                                     settings = components.settings,

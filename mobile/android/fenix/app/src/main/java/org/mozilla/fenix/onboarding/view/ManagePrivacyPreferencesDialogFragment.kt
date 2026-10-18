@@ -37,7 +37,6 @@ class ManagePrivacyPreferencesDialogFragment : DialogFragment() {
         val repository =
             DefaultPrivacyPreferencesRepository(
                 settings = requireComponents.settings,
-                nimbusSdk = requireComponents.nimbus.sdk,
                 crashReporter = requireComponents.analytics.crashReporter,
             )
         val store by

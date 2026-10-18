@@ -4,7 +4,6 @@
 
 package org.mozilla.fenix.browser.reloadcover
 
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.utils.Settings
 
 /**
@@ -21,7 +20,7 @@ object TabReloadCoverGating {
      * as a side effect — this is the single exposure recording point for the whole feature.
      */
     fun isCoverEnabled(settings: Settings): Boolean =
-        settings.tabReloadCoverEnabled.also { FxNimbus.features.tabReloadCover.recordExposure() }
+        settings.tabReloadCoverEnabled
 
     /**
      * True when the scroll-aware capture side-effect should also be attached. Requires the base cover to be on. Callers

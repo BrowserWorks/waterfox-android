@@ -11,7 +11,6 @@ import android.os.Build
 import mozilla.components.lib.crash.CrashReporter
 import mozilla.components.lib.crash.runtimetagproviders.BuildRuntimeTagProvider
 import mozilla.components.lib.crash.runtimetagproviders.EnvironmentRuntimeProvider
-import mozilla.components.lib.crash.runtimetagproviders.ExperimentDataRuntimeTagProvider
 import mozilla.components.lib.crash.runtimetagproviders.VersionInfoProvider
 import mozilla.components.support.utils.Browsers
 import mozilla.components.support.utils.BuildMetadata
@@ -25,7 +24,6 @@ import org.mozilla.fenix.components.metrics.GleanUsageReportingMetricsService
 import org.mozilla.fenix.components.metrics.MetricController
 import org.mozilla.fenix.components.metrics.MetricsStorage
 import org.mozilla.fenix.crashes.CrashFactCollector
-import org.mozilla.fenix.crashes.NimbusExperimentDataProvider
 import org.mozilla.fenix.crashes.ReleaseRuntimeTagProvider
 import org.mozilla.fenix.utils.Settings
 
@@ -33,7 +31,6 @@ import org.mozilla.fenix.utils.Settings
 class Analytics(
     private val context: Context,
     private val settings: Settings,
-    private val nimbusComponents: NimbusComponents,
     val buildMetadata: BuildMetadata,
 ) {
     val crashReporter: CrashReporter by lazy {
@@ -68,9 +65,6 @@ class Analytics(
                     ReleaseRuntimeTagProvider(),
                     BuildRuntimeTagProvider(context.versionInfoProvider),
                     EnvironmentRuntimeProvider(),
-                    ExperimentDataRuntimeTagProvider(
-                        NimbusExperimentDataProvider(getEnrollments = nimbusComponents::getEnrollmentsForCrashReporter)
-                    ),
                 ),
         )
     }

@@ -232,9 +232,7 @@ import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.runIfFragmentIsAttached
 import org.mozilla.fenix.ext.secure
 import org.mozilla.fenix.ext.tabClosedUndoMessage
-import org.mozilla.fenix.messaging.MessagingFeature
 import org.mozilla.fenix.microsurvey.ui.MicrosurveyRequestPrompt
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.pbmlock.BlackScreenOverlay
 import org.mozilla.fenix.pbmlock.NavigationOrigin
 import org.mozilla.fenix.pbmlock.observePrivateModeLock
@@ -310,8 +308,6 @@ abstract class BaseBrowserFragment :
     protected val thumbnailsFeature = ViewBoundFeatureWrapper<BrowserThumbnails>()
     private val scrollAwareThumbnailFeature = ViewBoundFeatureWrapper<ScrollAwareThumbnailFeature>()
     private val tabReloadCoverFeature = ViewBoundFeatureWrapper<TabReloadCoverFeature>()
-
-    @VisibleForTesting internal val messagingFeatureMicrosurvey = ViewBoundFeatureWrapper<MessagingFeature>()
 
     private val sessionFeature = ViewBoundFeatureWrapper<SessionFeature>()
     private val lastTabFeature = ViewBoundFeatureWrapper<LastTabFeature>()
@@ -1339,7 +1335,6 @@ abstract class BaseBrowserFragment :
                             // current browsing mode.
                             isDefault = true,
                             searchAccessPoint = MetricsUtils.Source.CONTEXT,
-                            nimbusEventStore = requireComponents.nimbus.events,
                         )
                     }
 
@@ -1982,11 +1977,6 @@ abstract class BaseBrowserFragment :
                                         microsurvey = it,
                                         onStartSurveyClicked = {
                                             context.components.appStore.dispatch(MicrosurveyAction.Started(it.id))
-                                            findNavController()
-                                                .nav(
-                                                    R.id.browserFragment,
-                                                    BrowserFragmentDirections.actionGlobalMicrosurveyDialog(it.id),
-                                                )
                                         },
                                         onCloseButtonClicked = {
                                             context.components.appStore.dispatch(MicrosurveyAction.Dismissed(it.id))

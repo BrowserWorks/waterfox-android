@@ -19,11 +19,9 @@ import mozilla.components.compose.base.Banner
 import mozilla.components.compose.base.BannerColors
 import mozilla.components.compose.base.theme.PreviewThemeProvider
 import mozilla.components.compose.base.theme.Theme
-import mozilla.components.service.nimbus.messaging.Message
 import org.mozilla.fenix.R
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.theme.FirefoxTheme
-import org.mozilla.fenix.wallpapers.WallpaperState
 
 /**
  * State-based Message Card.
@@ -132,6 +130,7 @@ data class MessageCardState(
     val bannerColors: BannerColors,
 ) {
 
+    /*
     /** Companion object for building [MessageCardState]. */
     companion object {
 
@@ -153,4 +152,5 @@ data class MessageCardState(
             )
         }
     }
+    */
 }

@@ -21,7 +21,6 @@ push = { path = "../../components/push" }
 remote_settings = { path = "../../components/remote_settings", features=["telemetry-submission"] }
 rust-log-forwarder = { path = "../../components/support/rust-log-forwarder" }
 viaduct = { path = "../../components/viaduct", features = ["ohttp"] }
-nimbus-sdk = { path = "../../components/nimbus" }
 autofill = { path = "../../components/autofill" }
 fxcontainers = { path = "../../components/fxcontainers" }
 crashtest = { path = "../../components/crashtest" }

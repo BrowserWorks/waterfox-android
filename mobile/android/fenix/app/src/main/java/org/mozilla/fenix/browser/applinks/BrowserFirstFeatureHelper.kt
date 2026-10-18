@@ -4,8 +4,6 @@
 
 package org.mozilla.fenix.browser.applinks
 
-import org.mozilla.fenix.nimbus.FxNimbus
-
 /** Feature helper gating browser-first handling. */
 interface BrowserFirstFeatureHelper {
     /** Whether browser-first handling is enabled. */
@@ -14,6 +12,5 @@ interface BrowserFirstFeatureHelper {
 
 /** The default implementation of [BrowserFirstFeatureHelper]. */
 data object DefaultBrowserFirstFeatureHelper : BrowserFirstFeatureHelper {
-    override val enabled: Boolean
-        get() = FxNimbus.features.browserFirst.value().enabled
+    override val enabled: Boolean = false
 }

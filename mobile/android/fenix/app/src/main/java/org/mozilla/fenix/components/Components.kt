@@ -27,8 +27,6 @@ import mozilla.components.feature.tabdata.coordinator.TabDataCoordinator
 import mozilla.components.lib.ai.controls.AIFeatureBlockStorage
 import mozilla.components.lib.ai.controls.dataStore
 import mozilla.components.lib.ai.controls.default
-import mozilla.components.lib.crash.store.CrashAction
-import mozilla.components.lib.crash.store.CrashMiddleware
 import mozilla.components.lib.integrity.googleplay.GooglePlayIntegrityClient
 import mozilla.components.lib.integrity.googleplay.IntegrityConsumer
 import mozilla.components.lib.llm.mlpa.MlpaTokenStorage
@@ -71,8 +69,6 @@ import org.mozilla.fenix.components.menu.MenuCustomizationRepository
 import org.mozilla.fenix.components.menu.configuration.BrowserMenuConfiguration
 import org.mozilla.fenix.components.metrics.MetricsMiddleware
 import org.mozilla.fenix.components.tabs.DefaultTabRepository
-import org.mozilla.fenix.crashes.CrashReportingAppMiddleware
-import org.mozilla.fenix.crashes.SettingsCrashReportCache
 import org.mozilla.fenix.datastore.customizedBrowserMenuInfoDataStore
 import org.mozilla.fenix.distributions.DefaultDistributionBrowserStoreProvider
 import org.mozilla.fenix.distributions.DefaultDistributionProviderChecker
@@ -92,9 +88,6 @@ import org.mozilla.fenix.home.setup.store.DefaultSetupChecklistRepository
 import org.mozilla.fenix.home.setup.store.SetupChecklistPreferencesMiddleware
 import org.mozilla.fenix.home.setup.store.SetupChecklistTelemetryMiddleware
 import org.mozilla.fenix.ipprotection.store.DefaultIPProtectionPromptRepository
-import org.mozilla.fenix.listentopage.ListenToPageAIControlFeature
-import org.mozilla.fenix.messaging.state.MessagingMiddleware
-import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.onboarding.FenixOnboarding
 import org.mozilla.fenix.perf.AppLinkIntentLaunchTypeProvider
 import org.mozilla.fenix.perf.AppStartReasonProvider
@@ -240,7 +233,7 @@ class Components(
         AddonManager(core.store, core.engine, addonsProvider, addonUpdater)
     }
 
-    val analytics by lazy { Analytics(context, settings, nimbus, buildMetadata) }
+    val analytics by lazy { Analytics(context, settings, buildMetadata) }
 
     val remoteSettingsService = lazy {
         RemoteSettingsService(
@@ -256,12 +249,7 @@ class Components(
             isLargeScreenSize = context.isLargeScreenSize(),
         )
     }
-    val nimbus: NimbusComponents by lazy {
-        NimbusComponents(
-            context = context,
-            engine = lazy { core.engine },
-        )
-    }
+
     val publicSuffixList by lazy { PublicSuffixList(context) }
     val clipboardHandler by lazy { ClipboardHandler(context) }
     val buildMetadata by lazy { BuildMetadata.fromAssets(context.assets) }
@@ -335,11 +323,7 @@ class Components(
                         ProfileMarkerMiddleware(markerName = "AppStore", profiler = core.engine.profiler),
                         LogMiddleware(tag = "AppStore", shouldIncludeDetailedData = { Config.channel.isDebug }),
                         BlocklistMiddleware(blocklistHandler),
-                        MessagingMiddleware(controller = nimbus.messaging),
-                        MetricsMiddleware(
-                            metrics = analytics.metrics,
-                            nimbusEventStore = nimbus.events,
-                        ),
+                        MetricsMiddleware(metrics = analytics.metrics),
                         /*
                         CrashReportingAppMiddleware(
                             CrashMiddleware(

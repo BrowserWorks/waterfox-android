@@ -200,7 +200,7 @@ private fun buildDataChoicesItems(state: DataChoicesState): List<DataChoicesSect
     return remember(state.showMeasurementDataSection) {
         buildList {
             add(DataChoicesSectionKey.TECHNICAL_DATA)
-            add(DataChoicesSectionKey.STUDIES)
+            if (false) add(DataChoicesSectionKey.STUDIES)
             add(DataChoicesSectionKey.USAGE_DATA)
             if (BuildConfig.CRASH_REPORTING) add(DataChoicesSectionKey.CRASH_REPORTS)
             if (state.showMeasurementDataSection) {
@@ -437,14 +437,16 @@ object DataChoicesSearchProvider : SettingsSearchProvider {
                     key = DataChoicesSectionKey.TECHNICAL_DATA,
                 )
             )
-            add(
-                buildSearchItem(
-                    context = context,
-                    titleRes = R.string.studies_title_2,
-                    summaryRes = null,
-                    key = DataChoicesSectionKey.STUDIES,
+            if (false) {
+                add(
+                    buildSearchItem(
+                        context = context,
+                        titleRes = R.string.studies_title_2,
+                        summaryRes = null,
+                        key = DataChoicesSectionKey.STUDIES,
+                    )
                 )
-            )
+            }
             add(
                 buildSearchItem(
                     context = context,

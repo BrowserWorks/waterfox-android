@@ -1280,8 +1280,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Waterfox’u nasıl keşfettiğinizi ve kullandığınızı BrowserWorks’nın pazarlama teknolojileri iş ortaklarıyla paylaşın.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Pazarlama verileri ile ilgili daha fazla bilgi alın</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Araştırmalar</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorks’nın araştırmalar yükleyip çalıştırmasına izin verir</string>
   <!--

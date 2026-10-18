@@ -1275,8 +1275,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Dijeli s Mozillinim marketinškim tehnološkim partnerima kako si otkrio/la Waterfox i da ga koristiš.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Saznaj više o marketinškim podacima</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Istraživanja</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Omogućuje Mozilli instalaciju i pokretanje istraživanja</string>
   <!--

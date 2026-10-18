@@ -451,7 +451,6 @@
 
     <!-- Secret Settings -->
     <string name="pref_key_show_address_feature" translatable="false">pref_key_show_address_feature</string>
-    <string name="pref_key_nimbus_experiments" translatable="false">pref_key_nimbus_experiments</string>
     <string name="pref_key_nimbus_use_preview" translatable="false">pref_key_nimbus_use_preview</string>
     <string name="pref_key_history_metadata_feature" translatable="false">pref_key_history_metadata_feature</string>
     <string name="pref_key_custom_glean_server_url" translatable="false">pref_key_custom_glean_server_url</string>

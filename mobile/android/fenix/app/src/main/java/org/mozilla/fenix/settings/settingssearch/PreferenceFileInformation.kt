@@ -169,15 +169,4 @@ sealed class PreferenceFileInformation(
             categoryHeaderResourceId = R.string.preferences_category_privacy_security,
             fragmentId = R.id.dataChoicesFragment,
         )
-
-    /**
-     * Represents the "Firefox Labs" settings screen. This screen is Compose-based and has no backing XML preference
-     * file.
-     */
-    object FirefoxLabsPreferences :
-        PreferenceFileInformation(
-            topBreadcrumbResourceId = R.string.settings_title,
-            categoryHeaderResourceId = R.string.preferences_category_advanced,
-            fragmentId = R.id.firefoxLabsFragment,
-        )
 }

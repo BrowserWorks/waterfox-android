@@ -375,8 +375,6 @@
   <string name="exceptions_empty_message_description">Àwọn ìyọkúrò jẹ́ kí o pa ààbò ìtọpaṣẹ̀ fún àwọn sáìtì tí o yàn.</string>
   <!-- Text displayed when there are no exceptions, with learn more link that brings users to a tracking protection SUMO page -->
   <string name="exceptions_empty_message_learn_more_link">Kọ́ si</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Àwọn àyẹ̀wò</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Fàyègba BrowserWorks láàyè láti wọlé sórí ẹ̀rọ kó sì ṣe àwọn ayẹ̀wò</string>
   <!-- Preference for reconnecting to FxA sync -->

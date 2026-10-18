@@ -1069,8 +1069,6 @@
   <string name="studies_data_category">Istùdios</string>
   <string name="technical_data_category">Datos tècnicos</string>
   <string name="crash_reporting_description">Is informes de faddinas nos agiudant a agatare e arrangiare is faddinas de su navigadore. Is informes podent incluire datos personale o sensìbiles.</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Istùdios</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Permite a BrowserWorks de installare e esecutare istùdios</string>
   <!--

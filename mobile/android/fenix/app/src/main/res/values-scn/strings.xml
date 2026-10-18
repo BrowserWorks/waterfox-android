@@ -840,8 +840,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Sparti comu scupristi e chi usi Waterfox câ nostra squatra dâ pubblicità.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Cchiù nfurmazzioni supra ê dati di màrketing</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Studi</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Pirmetti a BrowserWorks di nzitari e abbiari studi</string>
   <!-- Preference for reconnecting to FxA sync -->

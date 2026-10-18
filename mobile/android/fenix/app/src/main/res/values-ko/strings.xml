@@ -1279,8 +1279,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Waterfox를 발견한 방법과 사용 방법을 BrowserWorks의 마케팅 기술 파트너들과 공유해보세요.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">마케팅 데이터에 대해 더 알아보기</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">연구</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorks가 연구를 설치하고 실행하도록 허용</string>
   <!--

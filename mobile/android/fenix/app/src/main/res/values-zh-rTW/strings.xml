@@ -1274,8 +1274,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">與 BrowserWorks 的行銷技術夥伴分享您如何發現 Waterfox 以及是如何使用。</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">了解行銷資料的更多資訊</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">使用者研究</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">允許 BrowserWorks 安裝執行使用者研究</string>
   <!--

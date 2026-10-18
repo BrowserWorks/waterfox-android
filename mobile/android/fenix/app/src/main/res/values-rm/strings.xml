@@ -1210,8 +1210,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Fa a savair noss partenaris da tecnologia da marketing da BrowserWorks co ti has scuvert Waterfox e che ti dovras il program.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Ulteriuras infurmaziuns davart datas da marketing</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Studis</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Permetter a BrowserWorks dad installar ed exequir studis</string>
   <!--

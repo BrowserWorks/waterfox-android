@@ -1274,8 +1274,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Waterfox-ты өзіңіз үшін қалай ашқаныңызды және оны қалай пайдаланатыныңызды BrowserWorks маркетингтік технологиялар серіктестерімен бөлісіңіз.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Маркетинг деректері туралы көбірек білу</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Зерттеулер</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorks-ға зерттеулерді орнатуға және жүргізуге рұқсат ету</string>
   <!--

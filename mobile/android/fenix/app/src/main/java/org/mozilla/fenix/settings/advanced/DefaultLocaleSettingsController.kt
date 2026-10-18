@@ -13,7 +13,6 @@ import mozilla.components.browser.state.action.SearchAction
 import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.support.locale.LocaleManager
 import mozilla.components.support.locale.LocaleUseCases
-import org.mozilla.fenix.nimbus.FxNimbus
 
 /**
  * Controller responsible for handling user interactions on the locale settings screen. This includes selecting a new
@@ -71,8 +70,6 @@ class DefaultLocaleSettingsController(
         updateLocale(locale)
         updateBaseConfiguration(activity, locale)
 
-        // Invalidate cached values to use the new locale
-        FxNimbus.features.nimbusValidation.withCachedValue(null)
         recreateActivity()
     }
 
@@ -85,8 +82,6 @@ class DefaultLocaleSettingsController(
         resetToSystemDefault()
         updateBaseConfiguration(activity, localeSettingsStore.state.localeList[0])
 
-        // Invalidate cached values to use the default locale
-        FxNimbus.features.nimbusValidation.withCachedValue(null)
         recreateActivity()
     }
 

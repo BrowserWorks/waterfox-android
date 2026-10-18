@@ -6,15 +6,11 @@ package org.mozilla.fenix.components.metrics
 
 import mozilla.components.lib.state.Middleware
 import mozilla.components.lib.state.Store
-import org.mozilla.experiments.nimbus.NimbusEventStore
 import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.components.appstate.AppState
 
 /** A middleware that will map incoming actions to relevant events for [metrics]. */
-class MetricsMiddleware(
-    private val metrics: MetricController,
-    private val nimbusEventStore: NimbusEventStore,
-) : Middleware<AppState, AppAction> {
+class MetricsMiddleware(private val metrics: MetricController) : Middleware<AppState, AppAction> {
     override fun invoke(
         store: Store<AppState, AppAction>,
         next: (AppAction) -> Unit,
@@ -40,7 +36,7 @@ class MetricsMiddleware(
             }
 
             is AppAction.BookmarkAction.BookmarkAdded -> {
-                MetricsUtils.recordBookmarkAddMetric(action.source, nimbusEventStore)
+                MetricsUtils.recordBookmarkAddMetric(action.source)
             }
 
             else -> Unit

@@ -1243,8 +1243,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Делите са BrowserWorks-иним партнерима за маркетиншку технологију како сте открили Waterfox и како га користите.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Сазнајте више о маркетиншким подацима</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Студије</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Омогућава BrowserWorks-и да инсталира и покреће студије</string>
   <!--

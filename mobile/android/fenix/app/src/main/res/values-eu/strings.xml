@@ -1280,8 +1280,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Partekatu BrowserWorksren marketineko teknologia-bazkideekin Waterfox nola aurkitu zenuen eta erabiltzen duzula.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Marketin-datuei buruzko argibide gehiago</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Esperimentuak</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorksri esperimentuak instalatu eta exekutatzea baimentzen du</string>
   <!--

@@ -405,8 +405,6 @@
   <string name="exceptions_empty_message_description">Istisnolar tanlangan saytlar uchun kuzatuvdan himoyani oʻchirib qoʻyish imkonini beradi.</string>
   <!-- Text displayed when there are no exceptions, with learn more link that brings users to a tracking protection SUMO page -->
   <string name="exceptions_empty_message_learn_more_link">Batafsil maʼlumot</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Tadqiqotlar</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">BrowserWorksga tadqiqotlarni oʻrnatish va ishga tushirish imkonini beradi</string>
   <!-- Preference for reconnecting to FxA sync -->

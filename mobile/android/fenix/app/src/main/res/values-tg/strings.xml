@@ -1260,8 +1260,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Ба шарикони технологияи бозоршиносии «BrowserWorks» хабар диҳед, ки шумо чӣ тавр браузери «Waterfox»-ро пайдо кардед ва онро истифода мебаред.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Маълумоти бештар дар бораи иттилооти бозоршиносӣ</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Таҳқиқҳо</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Ба BrowserWorks иҷозат медиҳад, ки таҳқиқҳоро насб ва иҷро кунад</string>
   <!--

@@ -363,7 +363,6 @@ class BrowserToolbarSearchMiddleware(
                 searchEngine,
                 isDefaultEngine,
                 searchAccessPoint,
-                components.nimbus.events,
             )
         }
 

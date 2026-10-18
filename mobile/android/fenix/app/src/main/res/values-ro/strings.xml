@@ -1271,8 +1271,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Partajează cu partenerii BrowserWorks din domeniul tehnologiilor de marketing cum ai descoperit Waterfox și că îl folosești.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Află mai multe despre datele de marketing</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Studii</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Ajută BrowserWorks să instaleze și să execute studii</string>
   <!--

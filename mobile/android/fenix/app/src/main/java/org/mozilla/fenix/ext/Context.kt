@@ -195,8 +195,5 @@ fun Context.isWideWindow(): Boolean {
     return resources.configuration.screenWidthDp > WIDE_SCREEN_WIDTH_DP
 }
 
-/** This will record an event in the Nimbus internal event store. Used for behavioral targeting. */
-fun Context.recordEventInNimbus(eventId: String) = components.nimbus.events.recordEvent(eventId)
-
 /** Returns true if the toolbar is position at the bottom. */
 fun Context.isToolbarAtBottom() = components.settings.toolbarPosition == ToolbarPosition.BOTTOM

@@ -769,8 +769,6 @@
   <string name="studies_data_category">Studioù</string>
   <string name="technical_data_category">Roadennoù teknikel</string>
   <string name="crash_reporting_description">Gant an danevelloù sac’hañ e c’hallomp kempenn ar c’hudennoù er merdeer. An danevelloù a c’hall kaout roadennoù personel pe kizidik eno.</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Studioù</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Aotren BrowserWorks da staliañ ha da luskañ studioù</string>
   <!-- Preference for reconnecting to FxA sync -->

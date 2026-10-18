@@ -1210,8 +1210,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Condivît cui colaboradôrs tecnologjics pe promozion comerciâl di BrowserWorks cemût che tu âs scuviert Waterfox e che tu lu dopris.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Altris informazions sui dâts di marketing</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Studis</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Al permet a BrowserWorks di instalâ e puartâ indenant studis</string>
   <!--

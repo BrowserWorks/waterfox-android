@@ -55,7 +55,6 @@ class WebCompatReporterFragment : Fragment(), SystemInsetsPaddedFragment {
                         browserStore = requireComponents.core.store,
                         appStore = requireComponents.appStore,
                         scope = storeProvider.viewModelScope,
-                        nimbusApi = requireComponents.nimbus.sdk,
                     ),
             )
         }

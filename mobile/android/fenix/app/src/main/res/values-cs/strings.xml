@@ -1282,8 +1282,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Podělte se o to, jak jste Waterfox objevili a že ho používáte, s partnery Mozilly v oblasti marketingových technologií.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Další informace o marketingových datech</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Studie</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Povolí Mozille instalovat a spouštět studie.</string>
   <!--

@@ -5,7 +5,6 @@
 package org.mozilla.fenix.onboarding.view
 
 import androidx.annotation.DrawableRes
-import org.mozilla.fenix.nimbus.MarketingCardVariant
 
 /**
  * Model containing data for [OnboardingPage].
@@ -52,6 +51,12 @@ data class OnboardingTermsOfService(
     val lineThreeText: String,
     val lineThreeLinkText: String,
 )
+
+/** Selects the default or treatment C content for the onboarding marketing card. */
+enum class MarketingCardVariant {
+    DEFAULT,
+    TREATMENT_C,
+}
 
 /** Model containing data for the marketing data page during onboarding. */
 data class OnboardingMarketingData(

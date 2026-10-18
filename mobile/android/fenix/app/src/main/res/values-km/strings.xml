@@ -937,8 +937,6 @@
   <string name="technical_data_category">ទិន្នន័យបច្ចេកទេស</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">ស្វែងយល់បន្ថែមអំពីទិន្នន័យកិច្ចទីផ្សារ</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">ការសិក្សា</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">អនុញ្ញាតឱ្យ BrowserWorks ដំឡើងនិងដំណើរការសិក្សា</string>
   <!--

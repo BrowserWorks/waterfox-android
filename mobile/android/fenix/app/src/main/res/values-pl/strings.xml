@@ -1275,8 +1275,6 @@
   <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Podziel się informacją, skąd wiesz o\u00a0Firefoksie i\u00a0że go używasz z\u00a0partnerami technologii marketingowych Mozilli.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Więcej informacji o\u00a0danych marketingowych</string>
-  <!-- Title for studies preferences -->
-  <string name="preference_experiments_2">Badania</string>
   <!-- Summary for studies preferences -->
   <string name="preference_experiments_summary_2" tools:ignore="BrandUsage">Pozwala Mozilli instalować i\u00a0przeprowadzać badania.</string>
   <!--

@@ -39,7 +39,6 @@ XPIDL_MODULE = "toolkit_backgroundtasks"
 
 EXTRA_JS_MODULES += [
     "BackgroundTasksManager.sys.mjs",
-    "BackgroundTasksUtils.sys.mjs",
 ]
 
 EXTRA_JS_MODULES.backgroundtasks += [
@@ -49,7 +48,6 @@ EXTRA_JS_MODULES.backgroundtasks += [
 EXTRA_JS_MODULES.backgroundtasks += [
     "BackgroundTask_exception.sys.mjs",
     "BackgroundTask_failure.sys.mjs",
-    "BackgroundTask_message.sys.mjs",
     "BackgroundTask_removeDirectory.sys.mjs",
     "BackgroundTask_removeProfileFiles.sys.mjs",
     "BackgroundTask_success.sys.mjs",
@@ -104,3 +102,7 @@ FINAL_TARGET_PP_FILES.defaults.backgroundtasks += [
 
 # For base::LaunchApp
 include("/ipc/chromium/chromium-config.mozbuild")
+
+if CONFIG["OS_TARGET"] != "Android":
+    EXTRA_JS_MODULES += ["BackgroundTasksUtils.sys.mjs"]
+    EXTRA_JS_MODULES.backgroundtasks += ["BackgroundTask_message.sys.mjs"]

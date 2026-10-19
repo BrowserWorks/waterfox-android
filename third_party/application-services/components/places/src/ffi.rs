@@ -8,6 +8,7 @@ use crate::api::matcher::{self, search_frecent, SearchParams};
 pub use crate::api::places_api::places_api_new;
 pub use crate::error::{warn, Result};
 pub use crate::error::{ApiResult, PlacesApiError};
+#[cfg(not(target_os = "android"))]
 use crate::glean_metrics;
 pub use crate::import::common::HistoryMigrationResult;
 use crate::import::import_ios_history;
@@ -347,6 +348,7 @@ impl PlacesConnection {
 
     #[handle_error(crate::Error)]
     pub fn run_maintenance(&self, options: PlacesRunMaintenanceOptions) -> ApiResult<()> {
+        #[cfg(not(target_os = "android"))]
         let timer_id = glean_metrics::places_manager::run_maintenance_time.start();
 
         self.run_maintenance_prune(options.db_size_limit, options.prune_limit)?;
@@ -354,36 +356,45 @@ impl PlacesConnection {
         self.run_maintenance_optimize()?;
         self.run_maintenance_checkpoint()?;
 
+        #[cfg(not(target_os = "android"))]
         glean_metrics::places_manager::run_maintenance_time.stop_and_accumulate(timer_id);
 
         Ok(())
     }
 
     fn run_maintenance_prune(&self, db_size_limit: u32, prune_limit: u32) -> Result<()> {
+        #[cfg(not(target_os = "android"))]
         let timer_id = glean_metrics::places_manager::run_maintenance_prune_time.start();
         let res =
             self.with_conn(|conn| storage::run_maintenance_prune(conn, db_size_limit, prune_limit));
+        #[cfg(not(target_os = "android"))]
         glean_metrics::places_manager::run_maintenance_prune_time.stop_and_accumulate(timer_id);
         res
     }
 
     fn run_maintenance_vacuum(&self) -> Result<()> {
+        #[cfg(not(target_os = "android"))]
         let timer_id = glean_metrics::places_manager::run_maintenance_vacuum_time.start();
         let res = self.with_conn(storage::run_maintenance_vacuum);
+        #[cfg(not(target_os = "android"))]
         glean_metrics::places_manager::run_maintenance_vacuum_time.stop_and_accumulate(timer_id);
         res
     }
 
     fn run_maintenance_optimize(&self) -> Result<()> {
+        #[cfg(not(target_os = "android"))]
         let timer_id = glean_metrics::places_manager::run_maintenance_optimize_time.start();
         self.with_conn(storage::run_maintenance_optimize)?;
+        #[cfg(not(target_os = "android"))]
         glean_metrics::places_manager::run_maintenance_optimize_time.stop_and_accumulate(timer_id);
         Ok(())
     }
 
     fn run_maintenance_checkpoint(&self) -> Result<()> {
+        #[cfg(not(target_os = "android"))]
         let timer_id = glean_metrics::places_manager::run_maintenance_chk_pnt_time.start();
         let res = self.with_conn(storage::run_maintenance_checkpoint);
+        #[cfg(not(target_os = "android"))]
         glean_metrics::places_manager::run_maintenance_chk_pnt_time.stop_and_accumulate(timer_id);
         res
     }

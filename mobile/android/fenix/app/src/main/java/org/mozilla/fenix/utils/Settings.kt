@@ -1122,6 +1122,12 @@ class Settings(
             default = false,
         )
 
+    var websiteAppearance by
+        stringPreference(
+            appContext.getPreferenceKey(R.string.pref_key_website_appearance),
+            default = "browser",
+        )
+
     var customThemeColorLight by
         stringPreference(
             appContext.getPreferenceKey(R.string.pref_key_custom_theme_color_light),

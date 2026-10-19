@@ -16,6 +16,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
@@ -118,6 +119,7 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
         bindBlackTheme()
         bindBlackThemeSystemMode()
         bindCustomThemeColors()
+        bindWebsiteAppearance()
         bindLightTheme()
         bindAutoBatteryTheme()
         setupRadioGroups()
@@ -301,6 +303,20 @@ class CustomizationFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFrag
             val directions = CustomizationFragmentDirections.actionCustomizationFragmentToCustomThemeFragment()
             findNavController().navigate(directions)
             true
+        }
+    }
+
+    private fun bindWebsiteAppearance() {
+        val settings = requireComponents.settings
+        requirePreference<ListPreference>(R.string.pref_key_website_appearance).apply {
+            value = settings.websiteAppearance
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
+                settings.websiteAppearance = newValue as String
+                with(requireComponents.core) {
+                    engine.settings.preferredColorScheme = getPreferredColorScheme()
+                }
+                true
+            }
         }
     }
 

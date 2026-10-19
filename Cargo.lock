@@ -4762,7 +4762,6 @@ dependencies = [
  "sync_manager",
  "tabs",
  "tracing-support",
- "uniffi",
  "viaduct",
 ]
 

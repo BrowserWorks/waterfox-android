@@ -35,6 +35,8 @@ thiserror = "2"
 anyhow = "1.0"
 uniffi = { version = "0.32" }
 glean = { version = "70", optional = true }
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
 glean-sym = "70"
 
 [dev-dependencies]

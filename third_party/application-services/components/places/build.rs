@@ -4,7 +4,9 @@
 
 fn main() {
     uniffi::generate_scaffolding("./src/places.udl").unwrap();
-    build_metrics();
+    if std::env::var("CARGO_CFG_TARGET_OS").as_deref() != Ok("android") {
+        build_metrics();
+    }
 }
 
 fn build_metrics() {

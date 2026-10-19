@@ -38,6 +38,7 @@ pub use crate::types::*;
 
 pub use ffi::*;
 
+#[cfg(not(target_os = "android"))]
 pub mod glean_metrics {
     include!(concat!(env!("OUT_DIR"), "/glean_metrics.rs"));
 }

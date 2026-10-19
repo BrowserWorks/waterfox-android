@@ -15,6 +15,7 @@ use crate::error::{Error, InvalidPlaceInfo, Result};
 use crate::ffi::HistoryVisitInfo;
 use crate::ffi::TopFrecentSiteInfo;
 use crate::frecency::{calculate_frecency, DEFAULT_FRECENCY_SETTINGS};
+#[cfg(not(target_os = "android"))]
 use crate::glean_metrics;
 use crate::types::{SyncStatus, UnknownFields, VisitType};
 use interrupt_support::SqlInterruptScope;
@@ -247,6 +248,7 @@ pub fn run_maintenance_prune(conn: &PlacesDb, db_size_limit: u32, prune_limit: u
     if should_prune {
         history::prune_older_visits(conn, prune_limit)?;
     }
+    #[cfg(not(target_os = "android"))]
     glean_metrics::places_manager::db_size_after_maintenance
         .accumulate((conn.get_db_size()? / 1024) as i64);
     Ok(())

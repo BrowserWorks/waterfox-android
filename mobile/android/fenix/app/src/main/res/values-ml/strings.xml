@@ -962,12 +962,6 @@
   <string name="sync_last_synced_summary">അവസാനം സമന്വയിപ്പിച്ചത്: %s</string>
   <!-- Label summary showing never synced -->
   <string name="sync_never_synced_summary">അവസാനം സമന്വയിപ്പിച്ചത്: ഒരിക്കലുമില്ല</string>
-  <!--
-    Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
-    and %3$s is the device model.
-  -->
-  <string name="default_device_name_2">%2$s %3$s ‍ൽ %1$s</string>
   <!-- Preference for syncing payment methods -->
   <string name="preferences_sync_credit_cards_2">പണമടക്കൽ മുറകൾ</string>
   <!-- Preference for syncing addresses -->

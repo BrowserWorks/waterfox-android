@@ -486,12 +486,6 @@
   <string name="preferences_sync_device_name">ڈیوائس نا پن</string>
   <!-- Preference category for Device name -->
   <string name="preferences_device_name_category">ڈیوائس نا پن</string>
-  <!--
-    Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
-    and %3$s is the device model.
-  -->
-  <string name="default_device_name_2">%2$s%3$s اٹے %1$s</string>
   <!-- Preference for syncing payment methods -->
   <string name="preferences_sync_credit_cards_2">پیسہ تننگ نا وڈاک</string>
   <!-- The body for a "closed synced tabs" notification. -->

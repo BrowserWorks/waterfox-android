@@ -233,12 +233,6 @@
   <!-- Label summary showing never synced -->
   <string name="sync_never_synced_summary">শেষ Sync হয়েছিল: কখনো না</string>
   <!--
-    Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
-    and %3$s is the device model.
-  -->
-  <string name="default_device_name_2">%2$s %3$s তে %1$s</string>
-  <!--
     Send Tab
 
     Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app

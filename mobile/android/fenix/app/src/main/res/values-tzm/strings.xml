@@ -99,12 +99,6 @@
   <string name="preferences_sign_out">Ffeɣ</string>
   <!-- Preference displays and allows changing current FxA device name -->
   <string name="preferences_sync_device_name">Isem n wallal</string>
-  <!--
-    Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
-    and %3$s is the device model.
-  -->
-  <string name="default_device_name_2">%1$s g %2$s %3$s</string>
   <!-- Preference for syncing addresses -->
   <string name="preferences_sync_address">Tansiwin</string>
   <!-- %s is the device name -->

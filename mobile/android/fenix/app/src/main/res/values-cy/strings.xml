@@ -1209,12 +1209,6 @@
   <string name="sync_last_synced_summary">Cydweddu diwethaf: %s</string>
   <!-- Label summary showing never synced -->
   <string name="sync_never_synced_summary">Cydweddu diwethaf: byth</string>
-  <!--
-    Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
-    and %3$s is the device model.
-  -->
-  <string name="default_device_name_2">%1$s o %2$s %3$s</string>
   <!-- Preference for syncing payment methods -->
   <string name="preferences_sync_credit_cards_2">Dulliau talu</string>
   <!-- Preference for syncing addresses -->

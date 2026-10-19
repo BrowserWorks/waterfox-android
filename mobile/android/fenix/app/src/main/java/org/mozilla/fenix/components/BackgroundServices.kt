@@ -48,7 +48,6 @@ import mozilla.components.service.fxa.sync.GlobalSyncableStoreProvider
 import mozilla.components.service.sync.autofill.AutofillCreditCardsAddressesStorage
 import mozilla.components.service.sync.logins.SyncableLoginsStorage
 import mozilla.components.support.utils.RunWhenReadyQueue
-import org.mozilla.fenix.Config
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.maxActiveTime
 import org.mozilla.fenix.perf.StrictModeManager
@@ -102,9 +101,7 @@ class BackgroundServices(
                     add(DeviceCapability.CLOSE_TABS)
                 },
             // Enable encryption for account state on supported API levels (23+).
-            // Just on Nightly and local builds for now.
-            // Enabling this for all channels is tracked in https://github.com/mozilla-mobile/fenix/issues/6704
-            secureStateAtRest = Config.channel.isNightlyOrDebug,
+            secureStateAtRest = true,
         )
 
     // Password and credit card syncing is disabled on Android Automotive until we implement the UX Google

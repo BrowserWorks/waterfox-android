@@ -6,4 +6,17 @@
     <string name="pref_key_use_system_theme_for_black" translatable="false">pref_key_use_system_theme_for_black</string>
     <string name="preference_use_system_theme_for_black">Use system theme</string>
     <string name="preference_use_system_theme_for_black_summary">Use your saved light colors in system light mode and Black in system dark mode. When off, always use Black.</string>
+    <string name="pref_key_website_appearance" translatable="false">pref_key_website_appearance</string>
+    <string name="preference_website_appearance">Website appearance</string>
+    <string name="preference_website_appearance_browser">Follow browser theme</string>
+    <string-array name="website_appearance_entries">
+        <item>@string/preference_website_appearance_browser</item>
+        <item>@string/preference_light_theme</item>
+        <item>@string/preference_dark_theme</item>
+    </string-array>
+    <string-array name="website_appearance_values" translatable="false">
+        <item>browser</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
 </resources>

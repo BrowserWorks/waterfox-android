@@ -660,13 +660,15 @@ class Core(
     val trackingProtectionPolicyFactory =
         TrackingProtectionPolicyFactory(context.components.settings, context.resources)
 
-    /** Sets Preferred Color scheme based on Dark/Light Theme Settings or Current Configuration */
+    /** Sets Preferred Color scheme based on website appearance or the app theme. */
     fun getPreferredColorScheme(): PreferredColorScheme {
         val inDark =
             (context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
                 Configuration.UI_MODE_NIGHT_YES
         val settings = context.components.settings
         return when {
+            settings.websiteAppearance == "light" -> PreferredColorScheme.Light
+            settings.websiteAppearance == "dark" -> PreferredColorScheme.Dark
             settings.shouldUseDarkTheme ||
                 settings.shouldUseOledTheme ||
                 (settings.shouldUseBlackTheme && !settings.useSystemThemeForBlack) -> PreferredColorScheme.Dark

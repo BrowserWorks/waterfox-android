@@ -5,7 +5,6 @@
 package org.mozilla.fenix.components
 
 import android.content.Context
-import android.os.Build
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.Companion.PRIVATE
 import kotlin.time.Duration.Companion.milliseconds
@@ -50,7 +49,6 @@ import mozilla.components.service.sync.autofill.AutofillCreditCardsAddressesStor
 import mozilla.components.service.sync.logins.SyncableLoginsStorage
 import mozilla.components.support.utils.RunWhenReadyQueue
 import org.mozilla.fenix.Config
-import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.maxActiveTime
 import org.mozilla.fenix.perf.StrictModeManager
@@ -87,13 +85,8 @@ class BackgroundServices(
     // Allows executing tasks which depend on the account manager, but do not need to eagerly initialize it.
     val accountManagerAvailableQueue = RunWhenReadyQueue()
 
-    fun defaultDeviceName(context: Context): String =
-        context.getString(
-            R.string.default_device_name_2,
-            context.getString(R.string.app_name),
-            Build.MANUFACTURER,
-            Build.MODEL,
-        )
+    @Suppress("UNUSED_PARAMETER")
+    fun defaultDeviceName(context: Context): String = "Waterfox for Android"
 
     val serverConfig = FxaServer.config(context)
     private val deviceConfig =

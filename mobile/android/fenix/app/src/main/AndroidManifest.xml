@@ -580,23 +580,6 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
 
-            <!--
-              Verified App Links for Firefox Accounts pairing. The /pair QR code encodes an https URL
-              so the native camera app can hand off to Firefox without an Activity chooser. The host
-              serves /.well-known/assetlinks.json with the release, beta and nightly signing fingerprints.
-              This filter must stay above the scheme-only http/https filter: Android keeps only the
-              first matching filter per activity, and a scheme-only match marks the app as a generic
-              browser that is excluded from App Links resolution.
-            -->
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" />
-                <data android:host="accounts.firefox.com" />
-                <data android:pathPrefix="/pair" />
-            </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

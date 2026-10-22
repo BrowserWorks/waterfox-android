@@ -151,7 +151,6 @@ import org.mozilla.fenix.ext.openSetDefaultBrowserOption
 import org.mozilla.fenix.ext.setNavigationIcon
 import org.mozilla.fenix.extension.WebExtensionPromptFeature
 import org.mozilla.fenix.home.HomeFragment
-import org.mozilla.fenix.home.HomeFragmentDirections
 import org.mozilla.fenix.home.TopSitesRefresher
 import org.mozilla.fenix.home.intent.AssistIntentProcessor
 import org.mozilla.fenix.home.intent.CrashReporterIntentProcessor
@@ -1810,11 +1809,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
             val (expectedDestinationId, directions) =
                 when (currentFragment) {
                     is HomeFragment ->
-                        R.id.homeFragment to
-                            when (isMenuCustomizationEnabled) {
-                                true -> HomeFragmentDirections.actionHomeFragmentToMenuFragment(MenuAccessPoint.Home)
-                                else -> NavGraphDirections.actionGlobalMenuDialogFragment(MenuAccessPoint.Home)
-                            }
+                        R.id.homeFragment to NavGraphDirections.actionGlobalMenuDialogFragment(MenuAccessPoint.Home)
 
                     is BrowserFragment ->
                         R.id.browserFragment to

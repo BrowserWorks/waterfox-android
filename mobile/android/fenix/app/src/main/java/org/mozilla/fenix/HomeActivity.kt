@@ -150,7 +150,6 @@ import org.mozilla.fenix.ext.openSetDefaultBrowserOption
 import org.mozilla.fenix.ext.setNavigationIcon
 import org.mozilla.fenix.extension.WebExtensionPromptFeature
 import org.mozilla.fenix.home.HomeFragment
-import org.mozilla.fenix.home.HomeFragmentDirections
 import org.mozilla.fenix.home.TopSitesRefresher
 import org.mozilla.fenix.home.intent.AssistIntentProcessor
 import org.mozilla.fenix.home.intent.CrashReporterIntentProcessor
@@ -1289,11 +1288,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity, Crash
             val currentFragment = navHostFragment?.childFragmentManager?.primaryNavigationFragment
             when (currentFragment) {
                 is HomeFragment -> {
-                    val action =
-                        when (getSettings().isMenuCustomizationEnabled) {
-                            true -> HomeFragmentDirections.actionHomeFragmentToMenuFragment(MenuAccessPoint.Home)
-                            else -> NavGraphDirections.actionGlobalMenuDialogFragment(MenuAccessPoint.Home)
-                        }
+                    val action = NavGraphDirections.actionGlobalMenuDialogFragment(MenuAccessPoint.Home)
                     navHost.navController.navigate(action)
                     return true
                 }

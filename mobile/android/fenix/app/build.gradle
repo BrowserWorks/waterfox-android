@@ -696,6 +696,7 @@ dependencies {
     implementation libs.androidx.viewpager2
     implementation libs.androidx.work.runtime
     implementation libs.google.material
+    implementation libs.jsoup
     implementation libs.kotlinx.coroutines
     implementation libs.kotlinx.serialization.json
     implementation libs.mozilla.glean

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<resources>
+    <string name="waterfox_protect_sensitive_screens">உணர்திறன் மிக்க திரைகளைப் பாதுகாக்கவும்</string>
+    <string name="waterfox_protect_sensitive_screens_summary">கடவுச்சொல் மற்றும் கட்டண அட்டைத் திரைகளிலும், முகவரிகளைத் திருத்தும்போதும் மற்ற செயலிகளின் மிதக்கும் ஜன்னல்களை மறைக்கவும்.</string>
+</resources>

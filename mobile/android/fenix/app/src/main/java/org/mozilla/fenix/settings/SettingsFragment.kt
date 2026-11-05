@@ -32,6 +32,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreferenceCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.lang.ref.WeakReference
@@ -585,6 +586,15 @@ class SettingsFragment : PreferenceFragmentCompat(), SystemInsetsPaddedFragment 
     }
 
     private fun setupPreferences(settings: Settings) {
+        requirePreference<SwitchPreferenceCompat>(R.string.pref_key_protect_sensitive_screens).apply {
+            isVisible = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+            isChecked = settings.protectSensitiveScreens
+            setOnPreferenceChangeListener<Boolean> { _, enabled ->
+                settings.protectSensitiveScreens = enabled
+                true
+            }
+        }
+
         val leakKey = getPreferenceKey(R.string.pref_key_leakcanary)
         val debuggingKey = getPreferenceKey(R.string.pref_key_remote_debugging)
         val preferenceLeakCanary = findPreference<Preference>(leakKey)

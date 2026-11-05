@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
-import mozilla.components.browser.icons.IconRequest
+import mozilla.components.browser.icons.Icon
 import mozilla.components.feature.search.ext.createSearchEngine
 import org.mozilla.fenix.GleanMetrics.Events
 import org.mozilla.fenix.R
@@ -126,19 +126,33 @@ class SaveSearchEngineFragment : Fragment(R.layout.fragment_save_search_engine),
             return
         }
 
+        binding.saveButton.isEnabled = false
         viewLifecycleOwner.lifecycleScope.launch(Main) {
+            val loadedIcon =
+                SearchEngineIconLoader(requireComponents.core.icons, requireComponents.core.client).load(searchString)
+            val existingEngine = searchEngine
+            val icon =
+                if (
+                    existingEngine != null &&
+                        loadedIcon.source == Icon.Source.GENERATOR &&
+                        existingEngine.resultUrls.firstOrNull() == searchString.toSearchUrl()
+                ) {
+                    existingEngine.icon
+                } else {
+                    loadedIcon.bitmap
+                }
             val update =
-                searchEngine?.copy(
+                existingEngine?.copy(
                     name = name,
                     resultUrls = listOf(searchString.toSearchUrl()),
-                    icon = requireComponents.core.icons.loadIcon(IconRequest(searchString)).await().bitmap,
+                    icon = icon,
                     suggestUrl = suggestString.toSearchUrl(),
                 )
                     ?: run {
                         createSearchEngine(
                             name,
                             searchString.toSearchUrl(),
-                            requireComponents.core.icons.loadIcon(IconRequest(searchString)).await().bitmap,
+                            icon,
                             suggestUrl = suggestString.toSearchUrl(),
                             isGeneral = true,
                         )

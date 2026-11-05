@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<resources>
+    <string name="waterfox_protect_sensitive_screens">保護敏感畫面</string>
+    <string name="waterfox_protect_sensitive_screens_summary">在密碼和支付卡畫面，以及編輯地址時，請隱藏其他應用程式顯示的浮動視窗。</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<resources>
+    <string name="waterfox_protect_sensitive_screens">സെൻസിറ്റീവ് സ്ക്രീനുകൾ സംരക്ഷിക്കുക</string>
+    <string name="waterfox_protect_sensitive_screens_summary">പാസ്‌വേഡ്, പേയ്‌മെൻ്റ് കാർഡ് സ്ക്രീനുകളിലും, വിലാസങ്ങൾ എഡിറ്റ് ചെയ്യുമ്പോഴും മറ്റ് ആപ്പുകളിൽ നിന്നുള്ള ഫ്ലോട്ടിംഗ് വിൻഡോകൾ മറയ്ക്കുക.</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<resources>
+    <string name="waterfox_protect_sensitive_screens">ਸੰਵੇਦਨਸ਼ੀਲ ਸਕ੍ਰੀਨਾਂ ਦੀ ਸੁਰੱਖਿਆ</string>
+    <string name="waterfox_protect_sensitive_screens_summary">ਪਾਸਵਰਡ ਅਤੇ ਭੁਗਤਾਨ ਕਾਰਡ ਸਕ੍ਰੀਨਾਂ ’ਤੇ, ਅਤੇ ਪਤੇ ਸੰਪਾਦਿਤ ਕਰਦੇ ਸਮੇਂ ਹੋਰ ਐਪਾਂ ਦੀਆਂ ਫਲੋਟਿੰਗ ਵਿੰਡੋਆਂ ਨੂੰ ਲੁਕਾਓ।</string>
+</resources>

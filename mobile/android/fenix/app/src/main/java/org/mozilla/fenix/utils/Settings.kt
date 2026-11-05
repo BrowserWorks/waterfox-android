@@ -492,6 +492,12 @@ class Settings(
             default = false,
         )
 
+    var protectSensitiveScreens by
+        booleanPreference(
+            appContext.getPreferenceKey(R.string.pref_key_protect_sensitive_screens),
+            default = false,
+        )
+
     var allowScreenCaptureInSecureScreens by
         booleanPreference(
             appContext.getPreferenceKey(R.string.pref_key_dev_debug_allow_capture_of_secure_screens),

@@ -156,6 +156,15 @@
             app:iconSpaceReserved="false"
             android:title="@string/preferences_site_settings" />
 
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="@string/pref_key_protect_sensitive_screens"
+            android:persistent="false"
+            android:title="@string/waterfox_protect_sensitive_screens"
+            android:summary="@string/waterfox_protect_sensitive_screens_summary"
+            android:defaultValue="false"
+            app:isPreferenceVisible="false"
+            app:iconSpaceReserved="false" />
+
         <androidx.preference.Preference
             android:key="@string/pref_key_delete_browsing_data"
             app:iconSpaceReserved="false"
